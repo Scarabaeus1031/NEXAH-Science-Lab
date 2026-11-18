@@ -3,29 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PI Lens · Platinum–Iridium Dual Polyhedron · A0</title>
+<title>PI Lens · Platinum–Iridium Homothetic Icosahedral Shells · A0</title>
 <link rel="stylesheet" href="a0-platinum-iridium-pi-lens.css?rev=phase-address-r14-20261112">
 <link rel="stylesheet" href="a0-platinum-iridium-pi-phase-address.css?rev=binding-av-sequence-r18-20261112">
 <link rel="stylesheet" href="a0-platinum-iridium-pi-lens-edelweiss.css?rev=fourier-slice-r10-20261111">
 <link rel="stylesheet" href="a0-platinum-iridium-pi-matrix-window.css?rev=matrix-window-r11-20261112">
 <link rel="stylesheet" href="a0-platinum-iridium-pi-oval-sampler.css?rev=oval-phi-r1-20261116">
 <link rel="stylesheet" href="a0-pi-keystone-equalizer.css?rev=keystone-263-r1-20261117">
-<link rel="stylesheet" href="a0-pi-outer-inner-viewer.css?rev=outer-inner-r2-20261117">
+<link rel="stylesheet" href="a0-pi-outer-inner-viewer.css?rev=outer-inner-r3-20261118">
 <link rel="stylesheet" href="a0-pi-view-groups.css?rev=three-plus-one-r1-20261117">
 <link rel="stylesheet" href="a0-pi-shadow-face-pair.css?rev=shadow-face-s60-r2-20261117">
+<link rel="stylesheet" href="a0-pi-portal-coupling.css?rev=edelweiss-portal-r1-20261117">
+<link rel="stylesheet" href="a0-pi-scarab-root-return.css?rev=harmonic-crosswalk-r2-20261117">
+<link rel="stylesheet" href="a0-numbermagick-pi-comparator.css?rev=cross-domain-r1-20261118">
 <script>document.documentElement.classList.toggle('embed',new URLSearchParams(location.search).has('embed'));</script>
 </head>
 <body>
 <header class="pi-top">
   <a href="index.html">NEXAH · A0</a>
-  <nav><a href="A0_RESEARCH_DESK.html#platinum-iridium-pi-lens-holonomy-return-20261112">SCIENCE DESK</a><a href="../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#platinum-iridium-pi-lens-holonomy--2026-11-12">FINDINGS</a><a href="A0_SPIN_TO_BLOOM_MEASUREMENT.html#platinumIridiumPiReturn">SPIN TO BLOOM RETURN</a></nav>
+  <nav><a href="A0_RESEARCH_DESK.html#platinum-iridium-pi-lens-holonomy-return-20261112">SCIENCE DESK</a><a href="../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#platinum-iridium-pi-lens-holonomy--2026-11-12">FINDINGS</a><a href="A0_SPIN_TO_BLOOM_MEASUREMENT.html#platinumIridiumPiReturn">SPIN TO BLOOM RETURN</a><a href="#piScarabRootReturn">ROOT RETURN ↓</a></nav>
 </header>
 <main>
   <header class="pi-hero">
     <div>
       <small>SOURCE-BOUND HTML5 RECONSTRUCTION · PI</small>
-      <h1>Platinum–Iridium<br><em>Dual Polyhedron</em></h1>
-      <p>Zwei Schalen aus zwölf ϕ‑Koordinaten, je 30 Kanten und zwölf korrespondierenden Gelenk-Brücken — rekonstruiert aus dem wiedergefundenen Plotly-Generator und als Expansion/Kontraktion lesbar gemacht.</p>
+      <h1>Platinum–Iridium<br><em>Homothetic Icosahedral Shells</em></h1>
+      <p>Zwei homothetische icosahedrale Schalen aus je zwölf ϕ‑Koordinaten und 30 Kanten, verbunden durch zwölf indexgleiche radiale Brücken. Der historische View-Name „Dual Polyhedron“ bleibt Provenienzlabel; kombinatorische Dualität ist ausdrücklich nicht gegeben.</p>
     </div>
     <aside><b>PI · PLATINUM / IRIDIUM</b><span>INTERACTIVE ORIENTATION LENS</span><output id="piStatus" aria-live="polite">READY · 12↔12 · SCALE 1.80</output></aside>
   </header>
@@ -75,14 +78,15 @@
         <b>FIXED REFERENCE DOCK</b>
         <button type="button" data-pi-fixed-reference data-pi-group="TOPOLOGY" data-pi-visual="FOURIER_FAMILY" aria-pressed="false">9 · FOURIER FAMILY / XYZ</button>
         <button type="button" data-pi-fixed-reference data-pi-group="AUDIT" data-pi-visual="CARRIER_AUDIT" aria-pressed="false">10 · CARRIER / TYPE AUDIT</button>
-        <span class="pi-view-carrier" aria-label="Gemeinsamer Carrier für alle fünf Gruppen"><b>+1 · CARRIER</b><strong>PI DUAL POLYHEDRON</strong><small>12↔12 · SHARED STAGE</small></span>
+        <span class="pi-view-carrier" aria-label="Gemeinsamer Carrier für alle fünf Gruppen"><b>+1 · CARRIER</b><strong>PI HOMOTHETIC SHELL PAIR</strong><small>12↔12 · ICOSAHEDRAL · LEGACY: DUAL</small></span>
         <output id="piVisualRole">C8 FRAME → X·Y → C9 → X/XI/XII @ ¥</output>
       </footer>
     </div>
     <div class="pi-work">
       <figure>
-        <figcaption><b>PI Dual Polyhedron</b><small>DRAG · ROTATE / WHEEL · ZOOM</small></figcaption>
+        <figcaption><b>PI Homothetic Icosahedral Shells</b><small>DRAG · ROTATE / WHEEL · ZOOM</small></figcaption>
         <canvas id="piCanvas" width="1200" height="820" role="img" aria-label="Interaktive dreidimensionale Rekonstruktion aus zwölf inneren Platinpunkten, zwölf skalierten Iridiumpunkten und zwölf goldenen Verbindungsachsen."></canvas>
+        <canvas id="piPortalCanvas" width="1200" height="820" aria-label="Schaltbare Edelweiß-Portal-Kopplung mit Mittelwert- und Adressdreieck."></canvas>
         <div class="pi-axis-key" aria-hidden="true"><span class="x">X</span><span class="y">Y</span><span class="z">Z</span></div>
       </figure>
       <aside>
@@ -96,6 +100,7 @@
           <label><input type="checkbox" id="piMercury" checked> <span class="mercury">◉</span> Hg80 MIRROR SEAM</label>
           <label><input type="checkbox" id="piMobius" checked> <span class="mobius">⟲</span> 0-BAND · CON–DAO FLIP</label>
           <label><input type="checkbox" id="piTrace" checked> <span class="trace">○</span> TRACE HOLD</label>
+          <label><input type="checkbox" id="piPortalCoupling" checked> <span class="portal">◇</span> EDELWEISS / PORTAL COUPLING</label>
         </fieldset>
         <section class="pi-shadow-face-controls" aria-labelledby="piShadowFaceControlsTitle">
           <b id="piShadowFaceControlsTitle">MODULAR SHADOW FACE PAIR · N=60</b>
@@ -111,6 +116,20 @@
           </div>
           <output id="piShadowFaceStatus" aria-live="polite">29 → 31 · 30 FIXED · STEP 0/2</output>
           <small>INNER CARRIER PROJECTION · NOT MESH FACES · NOT AN OPTICAL SHADOW</small>
+        </section>
+        <section class="pi-portal-coupling-controls" aria-labelledby="piPortalCouplingTitle">
+          <b id="piPortalCouplingTitle">EDELWEISS → PORTALSTEIN → PI</b>
+          <div class="pi-portal-chain" aria-label="Exakte Adresskette">
+            <span>2501 <small>LUX</small></span><i>×2</i><span>5002 <small>PORTALSTEIN</small></span><i>×2</i><span>10004 <small>DOPPELPORTAL</small></span><i>−9800</i><strong>204° <small>PI ADDRESS</small></strong>
+          </div>
+          <div role="group" aria-label="Kopplungs- und Dreieckslinsen schalten">
+            <button type="button" id="piPortalToggle" aria-pressed="true">COUPLING · ON</button>
+            <button type="button" id="piPortalMeanTriangle" aria-pressed="true">29–30–31 MEANS</button>
+            <button type="button" id="piPortalAddressTriangle" aria-pressed="true">2101–2501–2901</button>
+            <button type="button" id="piPortalLoad204">LOAD 204°</button>
+          </div>
+          <output id="piPortalStatus" aria-live="polite">PASS · 10004 − 9800 = 204</output>
+          <small>ADDRESS LENS · 9800 IS A DECLARED RETURN BASE, NOT THE VERIFIED 9801-VERTEX KLEIN MESH</small>
         </section>
         <label class="pi-scale">IRIDIUM SCALE <output id="piScaleOut">1.80×</output><input id="piScale" type="range" min="0.45" max="2.4" step="0.01" value="1.8"></label>
         <label class="pi-scale">MASK PHASE <output id="piMaskPhaseOut">90°</output><input id="piMaskPhase" type="range" min="0" max="360" step="1" value="90"></label>
@@ -214,6 +233,100 @@
     <section class="pi-matrix-window" id="piMatrixWindow" hidden aria-label="Eingebettete Drei-Matrix-Holonomie-Workbench">
       <iframe src="A0_THREE_MATRIX_HOLONOMY_WORKBENCH.html?embed=pi" title="3-Matrix Holonomy Workbench innerhalb der PI-Linse"></iframe>
     </section>
+  </section>
+
+  <section class="pi-scarab-root" id="piScarabRootReturn" aria-labelledby="psrTitle">
+    <header>
+      <div><small>INTEGRATED RETURN · TWO VIEW BANKS · ONE FIXED ORIGIN</small><h2 id="psrTitle">Ein Ursprung. Sechzehn typisierte Ansichten.</h2><p>Die Ansichten bleiben im Platin–Iridium-Instrument und teilen einen festen grauen Ursprung. Bank A hält Faltung, Ghostgrid, Fourier, Scarab und Root7 zusammen; Bank B prüft T/N/S-Packung, VEGA-Ziel, φⁿ-Projektion, den 347-Pivot, Cubit-Komparator sowie Quaternion-, Archetypen- und Tensor-Darstellungen.</p></div>
+      <output id="psrStatus" aria-live="polite">EXACT ANGLE · VIEW PARAMETER</output>
+    </header>
+    <nav class="psr-modes" aria-label="Root Return Ansichten">
+      <button type="button" data-psr-mode="ALGO" aria-pressed="true">01 · ALGO ANGLE</button>
+      <button type="button" data-psr-mode="HINGE" aria-pressed="false">02 · WHITE HINGE</button>
+      <button type="button" data-psr-mode="LANTERN" aria-pressed="false">03 · GHOST LANTERN</button>
+      <button type="button" data-psr-mode="FOURIER" aria-pressed="false">04 · FOURIER POLE</button>
+      <button type="button" data-psr-mode="MIX" aria-pressed="false">05 · COLOR MIX</button>
+      <button type="button" data-psr-mode="SCARAB" aria-pressed="false">06 · SCARAB CUT</button>
+      <button type="button" data-psr-mode="ROOT7" aria-pressed="false">07 · ROOT7 LENGTHS</button>
+      <button type="button" data-psr-mode="PACKED" aria-pressed="false">08 · T/N/S PACKED</button>
+      <button type="button" data-psr-mode="VEGA" aria-pressed="false">09 · VEGA FOLDS</button>
+      <button type="button" data-psr-mode="PHI" aria-pressed="false">10 · φⁿ FLOWBACK</button>
+      <button type="button" data-psr-mode="PIVOT" aria-pressed="false">11 · 347 PIVOT</button>
+      <button type="button" data-psr-mode="CUBIT" aria-pressed="false">12 · CUBIT LENS</button>
+      <button type="button" data-psr-mode="QUATERNION" aria-pressed="false">13 · QUATERNION</button>
+      <button type="button" data-psr-mode="ARCHETYPE" aria-pressed="false">14 · ARCHETYPE</button>
+      <button type="button" data-psr-mode="TENSOR" aria-pressed="false">15 · TENSOR CLOCK</button>
+      <button type="button" data-psr-mode="IA_PLUS" aria-pressed="false">16 · IA+ OVERLAY</button>
+    </nav>
+    <div class="psr-grid">
+      <figure class="psr-stage"><canvas id="psrCanvas" width="1100" height="650" role="img" aria-label="Umschaltbare integrierte Ansicht vom Algo-Winkel über Ghost-Laterne und Fourier-Pole bis zum Root7-Längenvergleich"></canvas><figcaption id="psrCaption">ALGO · EXACT ANGLE · VIEW PARAMETER</figcaption></figure>
+      <aside class="psr-controls">
+        <output>ONE ORIGIN · TWO BANKS · 16 TYPED VIEWS · GRAPH Δ 0</output>
+        <label>ISO FOLD REFERENCE <output id="psrAngleOut">45°</output><input id="psrAngle" type="range" min="0" max="90" step="1" value="45"></label>
+        <div class="psr-actions"><button type="button" id="psrPlay" aria-pressed="false">▶ RUN VIEW</button><button type="button" id="psrStep">+ STEP</button></div>
+        <dl class="psr-ledger">
+          <div><dt>VIEW</dt><dd id="psrMode">ALGO</dd></div>
+          <div><dt>ORIGIN</dt><dd id="psrOrigin">FIXED · GREY · SHARED</dd></div>
+          <div><dt>FOURIER / ISO COMPARATOR</dt><dd id="psrFourier">COMPUTING DFT…</dd></div>
+          <div><dt>ROOT 1.25 / RAMANUJAN LABEL</dt><dd id="psrRoot">√1.25 = √5/2 = 1.118034</dd></div>
+          <div><dt>ROOT7</dt><dd>√7 = 2.645751 · LENGTH AXIS</dd></div>
+          <div><dt>PRIME / PIVOT AUDIT</dt><dd>φ(17)=16 · 17²+17+41=347</dd></div>
+          <div><dt>SOURCE 7</dt><dd>HTML5 SPIRAL NETWORK · HISTORICAL LABELS HELD</dd></div>
+          <div><dt>CANONICALIZATION</dt><dd>HOLD · DISPLAY COMPARATOR ONLY</dd></div>
+        </dl>
+      </aside>
+    </div>
+    <ol class="psr-chain" aria-label="Lesekette">
+      <li><b>01–07 · ROOT RETURN</b>Algo, Scharnier, Laterne, Fourier, Mischung, Scarab-Schnitt und Root7 bleiben die erste Prüfkette.</li><li><b>08 · T/N/S</b>Die drei Vektoren werden normiert und an √7 ausgerichtet; „TNS“ ist keine neue Tensor-Identität.</li><li><b>09 · VEGA</b>33° und 45° sind exakte Displaywinkel. VEGA bleibt Zielmarker ohne Epoche, Ort oder astronomischen Frame.</li><li><b>10 · φⁿ</b>Gold zeigt die exakte Potenzfolge; Flowbacks und ECOshells sind deklarierte Anzeigegeometrie.</li><li><b>11 · PIVOT</b>Euler-Totient φ(17)=16; 347 stammt aus 17²+17+41 und ist prim.</li><li><b>12 · CUBIT</b>Fuß, Inch, Meter und Cubit werden als Längen verglichen; daraus folgt keine Frequenzbrücke.</li><li><b>13–16 · ROTATION</b>Quaternion, Archetypenquelle, Tensor-Uhr und IA+ sind Rotations-/Projektionsansichten mit getrenntem Beweisstatus.</li>
+    </ol>
+    <p class="psr-boundary"><b>MATHEMATICAL BOUNDARY:</b> √1.25 = √5/2 ≈ 1.118034 ist exakt, aber nicht ϕ. Fourier-Phase und 45°-Iso-Faltreferenz werden verglichen, nicht gleichgesetzt. φ(17)=16 bezeichnet die Euler-Totientfunktion; 347 ist der separate Euler-Polynomwert 17²+17+41. „VEGA“, „GIZA“, „Energieachse“, „Prime Frequency“, „Resonanz“, „Flowback“ und „ECOshell“ bleiben historische Quellen- bzw. Displaybegriffe. Ohne Koordinaten, Einheiten und Messprotokoll wird keine astronomische, energetische, materielle oder physikalische Kopplung behauptet. Reuse: <code>ART:A0:MATHEMATICAL_JOINTS</code> · <code>MOD:ORIENTATION_DEMONSTRATORS</code> · <code>NEXAH_ROOT7_EULER_MIRROR_MASTER_CONSOLIDATION</code>. Neue IDs / Relationen: <code>0 / 0</code>.</p>
+  </section>
+
+  <section class="npi-comparator" id="numbermagickPiComparator" aria-labelledby="npiTitle">
+    <header>
+      <div><small>NUMBERMAGICK ↔ PI · CROSS-DOMAIN COMPARATOR · ONE HOST</small><h2 id="npiTitle">Vier Register. Getrennte Träger. Prüfbarer Return.</h2><p>Numbermagick liefert Zahl, Adresse, Folge und Operatorgeschichte. Die PI-Linse liefert Schale, Orientierung, Projektion und Return. Diese Linse vergleicht die Übergabeformen, ohne daraus einen gemeinsamen Generator zu machen.</p></div>
+      <output id="npiStatus" aria-live="polite">EXACT INTEGER GAPS</output>
+    </header>
+    <nav class="npi-modes" aria-label="Numbermagick und PI Vergleichsregister">
+      <button type="button" data-npi-mode="ADDRESS" aria-pressed="true">01 · ADDRESS</button>
+      <button type="button" data-npi-mode="CATALAN" aria-pressed="false">02 · CATALAN</button>
+      <button type="button" data-npi-mode="JANUS" aria-pressed="false">03 · TRIPLE JANUS</button>
+      <button type="button" data-npi-mode="CONTRACTION" aria-pressed="false">04 · CONTRACTION</button>
+    </nav>
+    <div class="npi-grid">
+      <figure class="npi-stage"><canvas id="npiCanvas" width="1100" height="620" role="img" aria-label="Interaktiver Cross-Domain Comparator für Address-Gaps, Catalan-Triangulationen, drei Janus-Involutionen und exponentielle Kontraktion"></canvas><figcaption id="npiCaption">Zahlen werden als Adressen und Differenzen gelesen; die Spirale ist nur ihre Ansicht.</figcaption></figure>
+      <aside class="npi-controls">
+        <label><span id="npiParamLabel">ADDRESS INDEX</span><output id="npiParamOut">3</output><input id="npiParameter" type="range" min="0" max="3" value="3" step="1"></label>
+        <dl>
+          <div><dt>PRIMARY</dt><dd id="npiPrimary">333 → 340 → 350 → 432</dd></div>
+          <div><dt>FACTOR / COUNT</dt><dd id="npiSecondary">Δ = 7 · 10 · 82</dd></div>
+          <div><dt>RETURN TEST</dt><dd id="npiReturn">432−{333,340,350} = 99 · 92 · 82</dd></div>
+          <div><dt>BOUNDARY</dt><dd id="npiBoundary">Spiral = display embedding, not generator</dd></div>
+        </dl>
+        <div class="npi-actions"><a href="A0_NUMBERMAGICK_GRID_RESEARCH.html#address-context-return">↗ NUMBERMAGICK SOURCE LENS</a><a href="#piInstrument">↟ PI CARRIER</a></div>
+      </aside>
+    </div>
+    <div class="npi-notes">
+      <article><b>ADDRESS · EXACT</b><code>333→340→350→432</code> hat die benachbarten Differenzen <code>7,10,82</code>; gegen den Handle 432 entstehen <code>99,92,82</code>.</article>
+      <article><b>CATALAN · EXACT</b><code>Cₙ=1,1,2,5,14,42,132,…</code>. Fünfeck = <code>C₃=5</code>; Sechseck = <code>C₄=14</code>; Siebeneck = <code>C₅=42</code>.</article>
+      <article><b>JANUS · TYPED</b><code>u↦1−u</code>, <code>v↦−v</code> und <code>v↦2π−v</code> sind drei Involutionen. Sie teilen <code>J²=id</code>, nicht den Träger.</article>
+      <article><b>CONTRACTION · NULL CONTROL</b><code>0,429^(2ⁿ)</code> schrumpft strikt gegen 0. Kein nichttrivialer inverser Schritt, kein exakter Janus-Return.</article>
+    </div>
+    <section class="npi-claim-matrix" aria-labelledby="npiClaimMatrixTitle">
+      <header><div><small>CLAIM GATE · EXACT / TESTED / DISPLAY / HOLD</small><h3 id="npiClaimMatrixTitle">Was trägt — und auf welchem Träger?</h3></div><output>7 ROWS · GRAPH Δ 0</output></header>
+      <div class="npi-claim-table" role="table" aria-label="Claim- und Beweisstatus des Numbermagick-PI-Comparators">
+        <div class="npi-claim-head" role="row"><b role="columnheader">STATE</b><b role="columnheader">OBJECT</b><b role="columnheader">TEST</b><b role="columnheader">RESULT</b></div>
+        <div role="row"><strong data-state="EXACT" role="cell">EXACT</strong><span role="cell">333→340→350→432</span><span role="cell">integer subtraction</span><span role="cell">7/10/82 · 99/92/82</span></div>
+        <div role="row"><strong data-state="EXACT" role="cell">EXACT</strong><span role="cell">Catalan C₃/C₄/C₅</span><span role="cell">recurrence</span><span role="cell">5/14/42</span></div>
+        <div role="row"><strong data-state="DISPLAY" role="cell">DISPLAY</strong><span role="cell">visible polygon fan</span><span role="cell">view only</span><span role="cell">not the full set</span></div>
+        <div role="row"><strong data-state="TESTED" role="cell">TESTED</strong><span role="cell"><code>UNIT_INTERVAL_BINDING_PARAMETER</code><br><code>MOBIUS_TRANSVERSE_INTERVAL</code><br><code>KLEIN_PERIODIC_SEAM</code></span><span role="cell"><code>J(J(x))=x</code><br>fixed classes<br>carrier + orientation</span><span role="cell">PASS · three typed involutions</span></div>
+        <div role="row"><strong data-state="DISPLAY" role="cell">DISPLAY</strong><span role="cell">PI shell crossing <code>s=1</code></span><span role="cell">role readout</span><span role="cell">not a fourth Janus map</span></div>
+        <div role="row"><strong data-state="NEGATIVE_CONTROL" role="cell">NEGATIVE</strong><span role="cell"><code>0,429^(2ⁿ)</code></span><span role="cell">strict contraction</span><span role="cell">no Return</span></div>
+        <div role="row"><strong data-state="HOLD" role="cell">HOLD</strong><span role="cell">calendar / Lilith / 72°</span><span role="cell">source + unique addresses required</span><span role="cell">untested</span></div>
+      </div>
+      <p><b>JANUS INVARIANT:</b> Jede Abbildung kehrt nach doppelter Anwendung zu ihrem eigenen Träger zurück. Zipper tauscht die Intervallenden, Möbius die transversalen Bandkanten; die Klein-Naht ist als Quotient geschlossen und besitzt die Fixklassen <code>[0]</code> und <code>[π]</code>. Gleiche Return-Form bedeutet keine gemeinsame Geometrie.</p>
+    </section>
+    <p class="npi-boundary"><b>TYPED BOUNDARY:</b> Die Schalenkreuzung bei <code>s=1</code> bleibt ein Innen/Außen-Rollenwechsel und wird nicht als vierte Involution gezählt. Das Kalenderbild und die Bezeichnung „Catalan–Scarab Tiling“ bleiben Quellenhypothesen, bis zwölf eindeutige Monatsadressen beziehungsweise eine vollständige kombinatorische Zählung vorliegen. Keine Material-, Frequenz-, Energie- oder gemeinsame Generatorbehauptung. Reuse: <code>SF-NUMBERMAGICK-2025-AUDIT</code> · <code>MOD:NUMBER_VIEW_SUITE</code> · <code>NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1</code>. Graph delta <code>0/0/0</code>.</p>
   </section>
 
   <section class="pi-oval-sampler" id="piOvalSampler" aria-labelledby="piOvalSamplerTitle">
@@ -378,10 +491,26 @@
         <div class="pi-oi-actions" role="group" aria-label="Route steuern">
           <button type="button" id="piOiStep">+ STEP INWARD</button>
           <button type="button" id="piOiRide" aria-pressed="false">▶ RIDE RED LINE</button>
-          <button type="button" id="piOiReturn">↩ OUTER RETURN</button>
+          <button type="button" id="piOiReturn" aria-pressed="false">↩ RIDE OUTWARD</button>
         </div>
         <output id="piOiStatus" aria-live="polite">READY · OORT SHELL · INDEX 0/4</output>
         <dl id="piOiLedger"></dl>
+        <section class="pi-oi-aida" aria-labelledby="piOiAidaTitle">
+          <b id="piOiAidaTitle">A–I–D–A′ · TYPED RETURN READING</b>
+          <ol>
+            <li><span>A</span><code>A · OUTER ADDRESS</code></li>
+            <li><span>I</span><code>I · RED LINE INTERFACE</code></li>
+            <li><span>D</span><code>D · DIRECTED TRAVERSAL</code></li>
+            <li><span>A′</span><code>A′ · RETURNED OUTER ADDRESS</code></li>
+          </ol>
+          <p><code>A′</code> gibt dieselbe äußere Adresse zurück; die durchlaufene Route bleibt als Geschichte verschieden. A–I–D–A′ ist hier eine typisierte Lesefigur, kein neues kanonisches Vokabular.</p>
+        </section>
+        <section class="pi-oi-claims" aria-label="Claim-Grenzen der Red Line">
+          <div data-oi-claim="EXACT"><b>EXACT</b><code>R(i)=4−i · R²=id</code></div>
+          <div data-oi-claim="DISPLAY"><b>DISPLAY</b><code>ANIMATED RED-LINE PASSAGE</code></div>
+          <div data-oi-claim="HOLD"><b>HOLD</b><code>.83 · NTO/NTI · oO0Q°</code></div>
+          <div data-oi-claim="SEPARATE"><b>SEPARATE</b><code>CLASSICAL 7 · HISTORICAL LAYER</code></div>
+        </section>
         <section class="pi-oi-machina-binding" aria-labelledby="piOiMachinaTitle">
           <b id="piOiMachinaTitle">THE MACHINA CROSSWALK · LOCAL NAME “WAFFLER”</b>
           <a href="A0_WERKBANK.html#nmAxisSwitch"><span>F-IJ-01 · AXIS SWITCH</span><code>T(x,y)=(y,x) · I→J→I</code></a>
@@ -399,8 +528,11 @@
 <script src="a0-platinum-iridium-pi-lens.js?rev=shadow-face-inner-r20-20261117"></script>
 <script src="a0-platinum-iridium-pi-oval-sampler.js?rev=oval-phi-r1-20261116"></script>
 <script src="a0-pi-keystone-equalizer.js?rev=keystone-263-r1-20261117"></script>
-<script src="a0-pi-outer-inner-viewer.js?rev=outer-inner-r2-20261117"></script>
+<script src="a0-pi-outer-inner-viewer.js?rev=outer-inner-r3-20261118"></script>
 <script src="a0-pi-shadow-face-pair.js?rev=shadow-face-s60-r2-20261117"></script>
-<script>window.A0PlatinumIridiumPI?.mount(document,window);window.A0PiOvalSampler?.mount(document,window);window.A0PiKeystoneEqualizer?.mount(document,window);window.A0PiOuterInnerViewer?.mount(document,window);window.A0PiShadowFacePair?.mount(document,window);</script>
+<script src="a0-pi-portal-coupling.js?rev=edelweiss-portal-r1-20261117"></script>
+<script src="a0-pi-scarab-root-return.js?rev=harmonic-crosswalk-r2-20261117"></script>
+<script src="a0-numbermagick-pi-comparator.js?rev=cross-domain-r1-20261118"></script>
+<script>window.A0PlatinumIridiumPI?.mount(document,window);window.A0PiScarabRootReturn?.mount(document,window);window.A0NumbermagickPIComparator?.mount(document,window);window.A0PiOvalSampler?.mount(document,window);window.A0PiKeystoneEqualizer?.mount(document,window);window.A0PiOuterInnerViewer?.mount(document,window);window.A0PiShadowFacePair?.mount(document,window);window.A0PiPortalCoupling?.mount(document,window);</script>
 </body>
 </html>

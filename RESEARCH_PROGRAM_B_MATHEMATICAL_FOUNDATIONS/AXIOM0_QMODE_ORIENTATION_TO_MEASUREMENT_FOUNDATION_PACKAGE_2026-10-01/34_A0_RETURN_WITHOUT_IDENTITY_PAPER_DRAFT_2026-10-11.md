@@ -228,6 +228,33 @@ is faithful. For `N=0`, the carrier is the singleton `{0}` and every coordinate
 permutation restricts to the identity. Thus the connector theorem holds for
 all `N>=0`, while faithful restricted action requires `N>=1`.
 
+### Literature and contribution boundary
+
+The inner action used here is classical. In the binary tetrahedral group of
+Hurwitz units, the generator `-(1+i+j+k)/2` acts by conjugation and cyclically
+permutes `i,j,k`; replacing it by its negative leaves conjugation unchanged.
+Accordingly, this paper does **not** claim novelty for the order-three
+quaternion rotation, the cyclic coordinate action, or the proper/improper
+rotation boundary.
+
+The role of this case is instead methodological: it binds a standard exact
+action to a declared finite trinomial carrier through an injective
+representation, names the inverse Return, states the `N=0` faithfulness
+exception, and prevents reflection, generic view rotation, coefficient
+generation and physical mechanism claims from being merged with it. The
+specific `Phi` packaging is retained as a source-bound construction, not
+promoted as an independently novel quaternion theorem.
+
+Literature anchors:
+
+- M. Bakuradze, *Mod 2 Morava K-theory for Frobenius complements of exponent
+  dividing 2^n · 9*, Journal of Homotopy and Related Structures 6(1)
+  (2011), 65–69.
+  <https://tcms.org.ge/Journals/JHRS/xvolumes/2011/n1a3/v6n1a3hl.pdf>
+- D. Harland and N. S. Manton, *Rolling Skyrmions and the nuclear spin-orbit
+  force*, Nuclear Physics B 935 (2018), 210–241.
+  <https://doi.org/10.1016/j.nuclphysb.2018.08.006>
+
 Controlling sources:
 
 - [A0-BL-052 Labreport](../../SCIENCE_LAB/LABREPORTS/MATHEMATICS/LABREPORT_A0_BL_052_PASCAL_QUATERNION_FOUR_CHANNEL_RETURN_001.md)
@@ -491,6 +518,40 @@ Controlling records:
 - [Science Desk disposition](A0_BOOK/A0_RESEARCH_DESK.html#return-layer-paper-routing-20261115)
 - [Findings/Paper triage](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#carrier-witness-residual-return--2026-11-15)
 - [machine receipt](A0_BOOK/results/a0-return-layer-desk-binding-2026-11-15.json)
+
+<a id="post-freeze-typed-return-comparators"></a>
+
+### 11.5 Post-freeze typed Return comparators
+
+*Preparation note dated 18 November 2026; not a sixth formal Study, not a new
+Finding and not publication-facing evidence.*
+
+Two existing instrument returns sharpen the paper's distinction between a
+returned address, a returned view and identity return.
+
+First, the Blue/Pink Dodeca comparator holds `204° PHASE_ADDRESS` and
+`135° VIEW_ANCHOR` as different types. The arithmetic difference `69°` is
+valid, but it is not a Return operator. Their common pivot states where two
+routes are compared; it does not identify the routes or the fields.
+
+Second, the PI comparator places three declared Janus involutions beside a
+contraction negative control. The involutions return under their typed local
+contracts; the contraction fails that predicate. A–I–D–A′ and Outer/Inner are
+view labels for this comparison, not additions to the paper's formal
+vocabulary.
+
+Together these examples support the existing Paper-C method rule:
+
+```text
+same numeric neighbourhood != same type != same Return predicate != identity.
+```
+
+Controlling records:
+
+- [finding extraction](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#post-freeze-five-host-finding-extraction--2026-11-18)
+- [Science Desk routing](A0_BOOK/A0_RESEARCH_DESK.html#post-freeze-findings-paper-routing-20261118)
+- [typed angle comparator](A0_BOOK/A0_BLUE_PINK_DODECA_CELL_RETURN.html#returnAngleComparator)
+- [PI comparator](A0_BOOK/A0_PLATINUM_IRIDIUM_PI_LENS.html#numbermagickPiComparator)
 
 ## 12. External-review gate
 

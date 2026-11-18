@@ -1,0 +1,12 @@
+.pi-work figure{position:relative}
+#piPortalCanvas{position:absolute;inset:32px 0 0;width:100%;height:calc(100% - 32px);pointer-events:none;z-index:5}
+.pi-portal-coupling-controls{border-top:1px solid #31505b;border-bottom:1px solid #31505b;padding:14px 0;display:grid;gap:10px;color:#b8cbd1;font:700 10px/1.35 SFMono-Regular,Consolas,monospace}
+.pi-portal-coupling-controls>b{color:#ffd45b;letter-spacing:.08em}
+.pi-portal-chain{display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding:9px;background:rgba(255,207,67,.055);border:1px solid rgba(255,207,67,.2)}
+.pi-portal-chain span,.pi-portal-chain strong{display:grid;color:#72ead0}.pi-portal-chain strong{color:#ffd45b}.pi-portal-chain small{font-size:7px;color:#819ba4}.pi-portal-chain i{font-style:normal;color:#ff8895;font-size:8px}
+.pi-portal-coupling-controls [role=group]{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.pi-portal-coupling-controls button{min-height:32px;border:1px solid #315966;background:#071c25;color:#9eb3ba;font:700 8px SFMono-Regular,Consolas,monospace}
+.pi-portal-coupling-controls button[aria-pressed=true]{border-color:#ffd45b;color:#ffd45b;background:rgba(255,207,67,.09)}
+.pi-portal-coupling-controls output{color:#72ead0}.pi-portal-coupling-controls>small{color:#78929c;font-size:8px}
+.portal{color:#ffd45b}
+@media(max-width:760px){#piPortalCanvas{inset:28px 0 0;height:calc(100% - 28px)}.pi-portal-coupling-controls [role=group]{grid-template-columns:1fr}}

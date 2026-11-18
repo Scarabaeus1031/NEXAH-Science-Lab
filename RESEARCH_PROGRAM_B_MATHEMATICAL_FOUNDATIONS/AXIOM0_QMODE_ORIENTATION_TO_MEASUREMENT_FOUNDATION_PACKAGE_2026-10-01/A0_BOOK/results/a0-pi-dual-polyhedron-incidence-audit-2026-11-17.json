@@ -1,0 +1,68 @@
+{
+  "schema": "a0.pi-dual-polyhedron-incidence-audit/1.0.0",
+  "date": "2026-11-17",
+  "status": "VALIDATED_NEGATIVE_RESULT_NOT_COMBINATORIAL_DUAL",
+  "source": {
+    "html": "A0_PLATINUM_IRIDIUM_PI_LENS.html",
+    "module": "a0-platinum-iridium-pi-lens.js",
+    "protocol": "A0_PI_DUAL_POLYHEDRON_INCIDENCE_PROTOCOL_2026-11-17.md",
+    "test": "a0-pi-dual-polyhedron-incidence-audit.cjs"
+  },
+  "source_pair": {
+    "inner": {
+      "vertices": 12,
+      "edges": 30,
+      "faces": 20,
+      "euler_characteristic": 2,
+      "vertex_degree_multiset": { "5": 12 },
+      "face_size_multiset": { "3": 20 }
+    },
+    "outer": {
+      "vertices": 12,
+      "edges": 30,
+      "faces": 20,
+      "euler_characteristic": 2,
+      "vertex_degree_multiset": { "5": 12 },
+      "face_size_multiset": { "3": 20 }
+    },
+    "dual_criteria": {
+      "vertices_of_inner_equal_faces_of_outer": false,
+      "faces_of_inner_equal_vertices_of_outer": false,
+      "edge_counts_equal": true,
+      "inner_degrees_equal_outer_face_sizes": false,
+      "inner_face_sizes_equal_outer_degrees": false,
+      "pass": false
+    }
+  },
+  "homothety": {
+    "declared_scale": 1.8,
+    "identically_indexed": true,
+    "maximum_coordinate_residual": 0,
+    "pass": true
+  },
+  "incidence_dual_control": {
+    "vertices": 20,
+    "edges": 30,
+    "faces": 12,
+    "euler_characteristic": 2,
+    "vertex_degree_multiset": { "3": 20 },
+    "face_size_multiset": { "5": 12 },
+    "dual_criteria_pass": true,
+    "construction": "one dual vertex per source triangular face; dual adjacency for shared source edges; one dual face per source vertex"
+  },
+  "interpretation": "The current Platinum and Iridium shells are two homothetic icosahedral graphs. They are not an icosahedron-dodecahedron dual pair.",
+  "label_disposition": "DUAL POLYHEDRON MAY REMAIN A HISTORICAL_OR_VIEW_LABEL_ONLY; NOT A VERIFIED SOURCE-MESH RELATION",
+  "claim_boundary": "This result rejects only mutual combinatorial duality of the two current shell meshes. It does not reject the two-shell display, inner/outer role exchange, phase instrument, or other independently audited PI Lens components.",
+  "authority": {
+    "identity_reuse": [
+      "ART:A0:MATHEMATICAL_JOINTS",
+      "MOD:ORIENTATION_DEMONSTRATORS"
+    ],
+    "new_canonical_ids": [],
+    "relation_changes": [],
+    "source_geometry_changed": false,
+    "study_activated": false,
+    "finding_promoted": false,
+    "publication_authorized": false
+  }
+}

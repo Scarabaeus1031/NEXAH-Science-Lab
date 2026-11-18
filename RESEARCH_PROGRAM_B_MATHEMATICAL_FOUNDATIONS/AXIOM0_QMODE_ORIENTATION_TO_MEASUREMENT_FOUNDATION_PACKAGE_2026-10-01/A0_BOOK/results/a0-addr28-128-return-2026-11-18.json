@@ -1,0 +1,65 @@
+{
+  "schema": "a0.addr28-128.return.v1",
+  "date": "2026-11-18",
+  "status": "PASS_EXACT_FINITE_CODEC_LOCAL_ENGINEERING",
+  "identity_reuse": "ART:A0:MATHEMATICAL_JOINTS",
+  "source_graph_delta": {
+    "identities": 0,
+    "relations": 0,
+    "aliases": 0
+  },
+  "contract": {
+    "radix": 28,
+    "coordinate_domain": "0..27",
+    "profiles": [1, 2, 3, 4, 6, 8, 12, 24],
+    "packet_bits": 128,
+    "header_bits": 8,
+    "payload_bits": 120,
+    "payload_layout": "24 coordinates x 5 bits",
+    "header_layout": "VV DDD WW R",
+    "views": ["SOURCE", "GAIA", "AMMA", "DALI_RETURN"],
+    "reserved_payload_codes": [28, 29, 30, 31]
+  },
+  "length_table": [
+    {"dimension": 1, "states": "28", "packed_bits": 5, "aligned_bits": 5, "max_trits": 4, "max_base20_digits": 2},
+    {"dimension": 2, "states": "784", "packed_bits": 10, "aligned_bits": 10, "max_trits": 7, "max_base20_digits": 3},
+    {"dimension": 3, "states": "21952", "packed_bits": 15, "aligned_bits": 15, "max_trits": 10, "max_base20_digits": 4},
+    {"dimension": 4, "states": "614656", "packed_bits": 20, "aligned_bits": 20, "max_trits": 13, "max_base20_digits": 5},
+    {"dimension": 6, "states": "481890304", "packed_bits": 29, "aligned_bits": 30, "max_trits": 19, "max_base20_digits": 7},
+    {"dimension": 8, "states": "377801998336", "packed_bits": 39, "aligned_bits": 40, "max_trits": 25, "max_base20_digits": 9},
+    {"dimension": 12, "states": "232218265089212416", "packed_bits": 58, "aligned_bits": 60, "max_trits": 37, "max_base20_digits": 14},
+    {"dimension": 24, "states": "53925322641043729927915335168557056", "packed_bits": 116, "aligned_bits": 120, "max_trits": 73, "max_base20_digits": 27}
+  ],
+  "fixture": {
+    "label": "SI_LIGHT_SPEED_INTEGER_TEST_CARRIER",
+    "integer": "299792458",
+    "profile": "6D",
+    "coordinates_base28": [17, 11, 20, 20, 9, 14],
+    "rings_inner_to_outer": [14, 9, 20, 20, 11, 17],
+    "binary": "10001110111100111100001001010",
+    "ternary": "202220010000221101",
+    "base20": "4DDE12I",
+    "qrt20": {"quotient": "14989622", "residue": 18},
+    "header_bits": "00100000",
+    "packet_hex": "20000000000000000000000022BA512E",
+    "decoded_integer": "299792458",
+    "exact_return": true
+  },
+  "verification": {
+    "test_file": "../a0-boundary-grid-atlas-tests.cjs",
+    "checks": 112,
+    "negative_controls": [
+      "integer outside selected profile rejected",
+      "reserved coordinate code 28..31 rejected",
+      "non-zero coordinate outside selected profile rejected"
+    ]
+  },
+  "source_hashes": {
+    "A0_BOUNDARY_GRAPH_DEMONSTRATOR.html": "54c60ee39110bdd7e48b49c37545f0308b617fec912565c21ff771adb2b03150",
+    "a0-boundary-grid-atlas.js": "88bd70565a61724886a10e4f76ccc520c4fb42d2b50006342abc8dbdf7f695d6",
+    "a0-boundary-grid-atlas.css": "0e8f56bd6159837cfed1e3ea4e459ffbc12952b616d71100ab28982b65018a14"
+  },
+  "classification": "EXACT_FINITE_CODEC / TRANSPORT_ANALOGY_ONLY",
+  "claim_boundary": "The speed-of-light value is an integer fixture only. IPv6-sized denotes packet length only. No propagation, sampling, spacetime, physical channel, novelty, or publication claim is made.",
+  "release_state": "LOCAL_ONLY / NOT_PUBLISHED / NOT_DEPLOYED"
+}

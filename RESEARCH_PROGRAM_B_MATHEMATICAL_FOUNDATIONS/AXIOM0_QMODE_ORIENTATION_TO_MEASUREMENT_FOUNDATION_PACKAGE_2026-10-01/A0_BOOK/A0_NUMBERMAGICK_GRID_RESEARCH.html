@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="a0-gh-hinge.css">
 <link rel="stylesheet" href="a0-mod12-alpha-omega.css">
 <link rel="stylesheet" href="a0-reciprocal-angle-hinge.css">
+<link rel="stylesheet" href="a0-exponential-decay-gap.css?rev=grey-pink-r1-20261118">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
@@ -22,6 +23,8 @@
 <a href="index.html">NEXAH · A0</a>
 <nav aria-label="Seitennavigation">
 <a href="#address-context-return">Den Faden verstehen</a>
+<a href="#grey-pink-decay-gap">Grey ↔ Pink</a>
+<a href="A0_PLATINUM_IRIDIUM_PI_LENS.html#numbermagickPiComparator">Numbermagick ↔ PI</a>
 <a href="#reading-paths">Lesepfade</a>
 <a href="#instruments">Instrumente</a>
 <a href="#research-apparatus">Quellenapparat</a>
@@ -87,6 +90,38 @@
 <a href="results/a0-tube-operator-lineage-return-2026-10-20.json">Tube · Herkunft &amp; Nicht-Identitäten</a>
 </div>
 <p class="status">Bestehende Number-View-Identität · Quelleninterpretation und exakte Rechenbeispiele getrennt · Skalenbeispiel aus dem Owner-Visual dieses Fadens, dessen Generator nicht rekonstruiert ist · keine Publikationsfreigabe.</p>
+</section>
+<section id="grey-pink-decay-gap" class="section decay-gap" aria-labelledby="decayGapTitle">
+<header class="decay-gap__header">
+<div><p class="eyebrow">THE SPACE IN BETWEEN · WHERE GREY TOUCHES PINK</p><h2 id="decayGapTitle">Drei Zerfallskurven. Eine gemeinsame Asymptote.</h2><p class="lead">Die Basen <code>0,429</code>, <code>0,439</code> und <code>0,456</code> starten bei <code>y(0)=1</code> und bleiben für jeden endlichen reellen Exponenten positiv. Grau markiert <code>y=0</code>; Pink zeigt die Restgröße, die sich der Linie nähert, sie aber nie erreicht.</p></div>
+<output id="decayGapStatus" aria-live="polite">SIMPLE EXPONENT · 0.429ˣ · LIMIT 0</output>
+</header>
+<nav class="decay-gap__modes" aria-label="Zerfallsansichten">
+<button type="button" data-decay-mode="COMPARE" aria-pressed="true">01 · THREE BASES</button>
+<button type="button" data-decay-mode="SINGLE" aria-pressed="false">02 · 0.429 DETAIL</button>
+<button type="button" data-decay-mode="SQUARED" aria-pressed="false">03 · SQUARED EXPONENT</button>
+<button type="button" data-decay-mode="GAP" aria-pressed="false">04 · GREY / PINK GAP</button>
+</nav>
+<div class="decay-gap__grid">
+<figure class="decay-gap__stage"><canvas id="decayGapCanvas" width="1100" height="620" role="img" aria-label="Interaktiver Vergleich der Funktionen 0,429 hoch x, 0,439 hoch x und 0,456 hoch x sowie der quadrierten Exponentenfolge"></canvas><figcaption id="decayGapCaption">Alle drei Kurven konvergieren gegen 0; visuelle Nähe erzeugt keine zusätzliche mathematische Relation.</figcaption></figure>
+<aside class="decay-gap__controls">
+<label>EXPONENT / STEP <output id="decayGapXOut">2.00</output><input id="decayGapX" type="range" min="0" max="12" value="2" step="0.01"></label>
+<dl>
+<div><dt>0.429ˣ</dt><dd id="decay429Out">0.184041</dd></div>
+<div><dt>0.439ˣ</dt><dd id="decay439Out">0.192721</dd></div>
+<div><dt>0.456ˣ</dt><dd id="decay456Out">0.207936</dd></div>
+<div><dt>0.429²ˣ STEP</dt><dd id="decaySquaredOut">n=2 · exponent 4 · 0.033871</dd></div>
+<div><dt>0.1 CROSSING</dt><dd id="decayThresholdOut">x ≈ 2.721</dd></div>
+<div><dt>ASYMPTOTE</dt><dd>y=0 · LIMIT ONLY</dd></div>
+</dl>
+</aside>
+</div>
+<div class="decay-gap__notes">
+<article><b>Einfacher Exponent</b><code>f_b(x)=bˣ</code>. Für <code>0&lt;b&lt;1</code> ist die Funktion streng fallend und <code>lim(x→∞)f_b(x)=0</code>.</article>
+<article><b>Quadrierter Exponent</b><code>q_b(n)=b^(2ⁿ)</code>. Für <code>b=0,429</code>: <code>0,429 → 0,184041 → 0,033871 → 0,001147…</code>.</article>
+<article><b>Markante Werte</b><code>0,184041=0,429²</code> und <code>0,033871…=0,429⁴</code>. Die Nähe zu <code>0,1</code> oder Schreibweisen mit <code>42</code> begründet keine weitere Identität.</article>
+</div>
+<p class="decay-gap__boundary"><b>BOUNDARY:</b> Diese Linse visualisiert ausschließlich elementaren exponentiellen Zerfall. <code>0,429</code>, <code>0,439</code> und <code>0,456</code> werden nicht mit Dreieck, Material, Energie, Frequenz oder einem gemeinsamen Generator identifiziert. Reuse: <code>SF-NUMBERMAGICK-2025-AUDIT</code> · <code>MOD:NUMBER_VIEW_SUITE</code>. Neue Identitäten / Relationen: <code>0 / 0</code>.</p>
 </section>
 <section id="number-glyph-weight-return" class="section" aria-labelledby="numberGlyphWeightTitle">
 <p class="eyebrow">Quellgebundene Ergänzung · 20.10.2026 · keine neue Rechenmaschine</p>
@@ -204,7 +239,7 @@
 <p>Ein Faden kann um eine Achse laufen. Schichten können gegenläufig erscheinen. Spiegelung, Phase und Kamerablick verändern, wie wir eine Relation sehen — sie sind aber nicht automatisch dieselbe Operation.</p>
 <p>Die Aperture Navigation Map bringt Layer, Pascal-Fäden, Rotation und Spiegel zusammen. Sie ist eine Integrationskarte mit konkreten Teilanschlüssen und offenen Generatorfragen. Im Demonstrator lassen sich Ansicht, Blickwinkel und Bildspiegel getrennt bedienen.</p>
 <p class="story-inline">
-<a href="#pascal-thread-demonstrator">Spirale und Spiegel selbst einstellen</a> · <a href="#aperture-source-map">Was ist bereits gebaut?</a>
+<a href="#pascal-thread-demonstrator">Spirale und Spiegel selbst einstellen</a> · <a href="A0_HARMONIC_PRIME_CODEX_GRID37.html">Harmonic Prime Codex · Grid 37 HTML5</a> · <a href="A0_HARMONIC_PRIME_CODEX_GRID37.html#scarab-origin-integrated">Scarab Origin · integrierter Möbius / Hinge / Bull’s Eye-Strang</a> · <a href="#aperture-source-map">Was ist bereits gebaut?</a>
 </p>
 </div>
 <figure class="story-plate">
@@ -349,7 +384,7 @@
 <output id="numberLensLedger" class="nl-ledger" aria-live="polite">
 </output>
 <p>
-<a href="A0_FAMILY_CONNECTION_ATLAS.html#spatial-navigation">Räumliches Orientierungsgerüst →</a> · <a href="A0_TESSAREC_BLUE_BODY_LAB.html">Tessarec / bestehende Operatoransichten →</a> · <a href="A0_GAME_4_LIFE_PLUS_1.html">LIFE-Instrument →</a> · <a href="A0_RESEARCH_DESK.html#cathedral-glb-stage">Vorhandene GLB-Bühne →</a>
+<a href="A0_FAMILY_CONNECTION_ATLAS.html#spatial-navigation">Räumliches Orientierungsgerüst →</a> · <a href="A0_TESSAREC_BLUE_BODY_LAB.html">Tessarec / bestehende Operatoransichten →</a> · <a href="A0_GAME_4_LIFE_PLUS_1.html">LIFE-Instrument →</a> · <a href="A0_ORIENTATION_CONTROLLER_BENCH.html#benchIntegration">Vorhandene GLB-Bench →</a>
 </p>
 <p>Wiederverwendet: Lesespur-Baustein aus dem räumlichen Reader. Verlinkte Module bleiben eigene Quellen; noch keine gemeinsame Euler/Fibonacci/LIFE-Engine. Keine neue Family-Identität und keine wissenschaftliche Aktivierung.</p>
 </section>
@@ -1671,6 +1706,8 @@
 <script src="a0-mod12-alpha-omega.js">
 </script>
 <script src="a0-reciprocal-angle-hinge.js">
+</script>
+<script src="a0-exponential-decay-gap.js?rev=grey-pink-r1-20261118">
 </script>
 <script src="a0-context-navigation.js?rev=flagship-constellation-r1-20261030">
 </script>

@@ -1,0 +1,16 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const api=require('./a0-pi-portal-coupling.js');
+let checks=0;const eq=(a,b,m)=>{checks++;assert.equal(a,b,m)},ok=(v,m)=>{checks++;assert.ok(v,m)};
+const a=api.audit();
+eq(a.status,'PASS_EXACT_ADDRESS_AND_MEAN_COMPARATORS');eq(a.schema,'a0.pi-portal-coupling/1.0.0');
+eq(a.addressChain.lux*2,a.addressChain.portalstone);eq(a.addressChain.portalstone*2,a.addressChain.doublePortal);eq(a.addressChain.doublePortal-a.addressChain.declaredReturnBase,a.addressChain.phaseAddress);eq(a.addressChain.phaseAddress,204);
+ok(a.meanTriangle.geometricMean.value<a.meanTriangle.arithmeticMean.value);ok(a.meanTriangle.arithmeticMean.value<a.meanTriangle.quadraticMean.value);eq(a.meanTriangle.strictOrder,'GM < AM < RMS');
+eq(a.addressTriangle.center-a.addressTriangle.west,400);eq(a.addressTriangle.east-a.addressTriangle.center,400);eq(a.addressTriangle.symmetric,true);
+eq(a.boundaries.declaredReturnBaseRole,'DECLARED_PORTAL_RETURN_BASE');eq(a.boundaries.kleinMeshVertices,9801);eq(a.boundaries.returnBaseIsKleinVertexCount,false);eq(a.boundaries.differenceFromKleinMeshCount,1);eq(a.boundaries.derivedFromPiMesh,false);eq(a.boundaries.physicalPortalClaim,false);
+eq(a.newCanonicalIds.length,0);eq(a.relationChanges.length,0);ok(a.sourceReuse.includes('MOD:TESSAREC'));ok(a.claimBoundary.includes('not the verified 9801-vertex Klein mesh count'));
+const html=fs.readFileSync('A0_PLATINUM_IRIDIUM_PI_LENS.html','utf8'),css=fs.readFileSync('a0-pi-portal-coupling.css','utf8');
+for(const token of ['id="piPortalCanvas"','id="piPortalCoupling"','id="piPortalToggle"','id="piPortalMeanTriangle"','id="piPortalAddressTriangle"','id="piPortalLoad204"','id="piPortalStatus"','2501 <small>LUX</small>','5002 <small>PORTALSTEIN</small>','10004 <small>DOPPELPORTAL</small>','9800 IS A DECLARED RETURN BASE','a0-pi-portal-coupling.js','A0PiPortalCoupling?.mount'])ok(html.includes(token),token);
+for(const token of ['#piPortalCanvas','.pi-portal-coupling-controls','.pi-portal-chain'])ok(css.includes(token),token);
+console.log(JSON.stringify({status:'PASS',checks,portal:'2501→5002→10004→204°',meanOrder:a.meanTriangle.strictOrder,newIds:0,relationChanges:0}));

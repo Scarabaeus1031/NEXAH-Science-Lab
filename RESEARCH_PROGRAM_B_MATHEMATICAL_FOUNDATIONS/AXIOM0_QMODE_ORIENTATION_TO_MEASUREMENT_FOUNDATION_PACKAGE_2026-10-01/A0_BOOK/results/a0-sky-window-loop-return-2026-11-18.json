@@ -1,0 +1,50 @@
+{
+  "schema": "a0.sky-window-loop.return.v1",
+  "date": "2026-11-18",
+  "identity": "ART:A0:MATHEMATICAL_JOINTS",
+  "surface": "A0_BOUNDARY_GRAPH_DEMONSTRATOR.html#bgaSkyWindowSection",
+  "classification": "SOURCE_BOUND_VIEW / EXACT_FINITE_DISPLAY_LOOP / SOURCED_ASTRONOMY_REFERENCES / NOT_A_LAB_RUN / NOT_ADMITTED",
+  "finite_loop": {
+    "carrier": "Z/28Z",
+    "operator": "k -> k + 1 mod 28",
+    "return_steps": 28,
+    "lissajous_display": "3:4 sampled over the 28-address carrier",
+    "result": "PASS_EXACT_FINITE_RETURN"
+  },
+  "astronomy_references": {
+    "cmb": {
+      "temperature_kelvin": 2.725,
+      "photon_density_per_cubic_centimeter": 410.4,
+      "anisotropy_fraction_approx": 0.00001,
+      "source": "https://lambda.gsfc.nasa.gov/product/wmap/dr1/pub_papers/firstyear/basic/wmap_basic_results.pdf"
+    },
+    "cmb_anisotropy": {
+      "source": "https://science.nasa.gov/mission/cobe/science/"
+    },
+    "sun_moon_eclipse_geometry": {
+      "sun_to_moon_diameter_ratio_approx": 400,
+      "sun_to_moon_distance_ratio_approx": 400,
+      "source": "https://science.nasa.gov/eclipses/geometry/"
+    }
+  },
+  "display": {
+    "contrast_options": [1, 400, 100000],
+    "default_contrast": 400,
+    "milky_way_band": "VISUAL_ANALOGY",
+    "pink_strip": "NEXAH_DISPLAY_APERTURE",
+    "observer_frame": "FIXED_DISPLAY_APERTURE / EARTH_AND_OBSERVER_NOT_PHYSICALLY_STATIONARY"
+  },
+  "claim_boundary": [
+    "NO_CLOSED_LIGHT_PATH",
+    "NO_COSMOLOGICAL_LOOP",
+    "NO_COMMON_400_MECHANISM",
+    "NO_PHYSICAL_STASIS",
+    "NO_IDENTITY_BETWEEN_CMB_PHOTON_DENSITY_AND_ECLIPSE_RATIO"
+  ],
+  "graph_delta": {
+    "identities": 0,
+    "relations": 0,
+    "aliases": 0
+  },
+  "publication": "NOT_AUTHORIZED"
+}

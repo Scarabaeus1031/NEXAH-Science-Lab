@@ -770,6 +770,37 @@ and the [machine-readable receipt](A0_BOOK/results/a0-game-of-worlds-three-domai
 - `103_A0_BLUE_BODY_GAME4LIFE_TRANSFER_CONTROL_ENGINEERING_RESULT_2026-10-15.md`
 - `A0_BOOK/A0_TESSAREC_BLUE_BODY_LAB.html#blue-body-interior-crt16`
 
+<a id="post-freeze-frame-envelope-examples"></a>
+
+## 17.1 Post-freeze frame and envelope examples
+
+*Preparation addendum dated 18 November 2026; engineering evidence only, no
+admission of `H-FE-01` or `H-SYN-01`.*
+
+The PI Outer/Inner viewer and the Spin-to-Bloom route provide two bounded
+instrument examples for the paper's object separation.
+
+- **Outer/Inner:** A–I–D–A′ is a declared reading sequence across existing
+  inner carrier, outer shell and Return views. The local Janus maps retain
+  their typed involution contracts; the contraction remains a negative
+  control. The view sequence does not establish an intrinsic envelope.
+- **Spin-to-Bloom:** Root Compass, the exact 2–3–5 root triangle, V-Petal and
+  nine Bloom stages form a declared frame sequence. The sequence is suitable
+  for testing view continuity and address retention. It does not establish
+  material foldability, membrane tension, force transfer, physical coupling
+  or a natural growth mechanism.
+
+The examples may be used to design a later frozen frame/observer protocol.
+They do not satisfy that protocol and therefore do not change the paper's
+current conceptual claim ceiling.
+
+Sources:
+
+- [Finding extraction](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#post-freeze-five-host-finding-extraction--2026-11-18)
+- [PI viewer](A0_BOOK/A0_PLATINUM_IRIDIUM_PI_LENS.html#piOuterInnerOpen)
+- [Spin-to-Bloom route](A0_BOOK/A0_SPIN_TO_BLOOM_MEASUREMENT.html#rootMyceliumBridge)
+- [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#post-freeze-findings-paper-routing-20261118)
+
 ## 18. Disposition
 
 The bounded 28-address Pentagon fold ledger is not added here as an envelope

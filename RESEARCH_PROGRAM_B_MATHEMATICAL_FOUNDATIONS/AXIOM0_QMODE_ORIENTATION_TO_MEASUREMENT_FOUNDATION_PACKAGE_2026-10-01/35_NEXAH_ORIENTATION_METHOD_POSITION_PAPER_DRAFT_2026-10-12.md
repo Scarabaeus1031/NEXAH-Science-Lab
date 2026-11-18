@@ -726,6 +726,36 @@ Dokumentarische Quellen:
 - [Paper C comparator note](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md#ullinium-methods-1-5-comparator)
 
 
+<a id="post-freeze-source-view-boundaries"></a>
+
+### 8.11 Post-freeze controls: elementarer Zerfall und View-Identität
+
+*Methodennotiz vom 18.11.2026; keine neue Study, kein neuer `F-A0`-Befund und
+keine Manuskriptpromotion.*
+
+Zwei kleine Kontrollen zeigen, wie die Methode starke visuelle Anschlüsse
+begrenzt:
+
+1. Die drei Numbermagick-Kurven `0.429^x`, `0.439^x` und `0.456^x` sind
+   elementare, verschiedene Exponentialfunktionen mit Basen zwischen null und
+   eins. Sie fallen monoton und nähern sich derselben Nullasymptote. Daraus
+   folgt weder ein gemeinsamer Generator noch ein Material-, Frequenz- oder
+   Naturgesetz.
+2. Orange Shadow / Pink Bracket ist eine fokussierte View des bestehenden
+   Breathing Crystal. Blue GH / Ghostgrid bleibt eine getrennte Quellenansicht.
+   Gemeinsame Navigation und visuelle Nähe erzeugen keine Objektidentität.
+
+Damit wird die Orientierungssequenz konkret: Quelle und Identität werden vor
+der View benannt; der Operatorbereich wird typisiert; der Return wird gegen
+den deklarierten Carrier geprüft; nicht gestützte Mechanismen bleiben `HOLD`.
+
+Quellen:
+
+- [Finding extraction](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#post-freeze-five-host-finding-extraction--2026-11-18)
+- [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#post-freeze-findings-paper-routing-20261118)
+- [Numbermagick control](A0_BOOK/A0_NUMBERMAGICK_GRID_RESEARCH.html#grey-pink-decay-gap)
+- [Breathing Crystal parent](A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#breathingCrystalBench)
+
 ## 9. Euler / Navier–Stokes als adversarialer Beispiel-Record
 
 Der Euler/Navier–Stokes-Fall ist nicht die Grundlage der NEXAH-Methode und

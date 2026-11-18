@@ -1,6 +1,6 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;root.A0BreathingCrystalApertureModel=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   const STAGES=['SOURCE','ALIGN','PUNCH','BREATHE','FOURIER','RETURN'];
-  const MATERIALS={bronze:{label:'BRONZE',faces:['#4c2f1e','#8b5a2b','#b57a3b','#d19a55'],edge:'#e3b866'},obsidian:{label:'OBSIDIAN',faces:['#020304','#0a0b0d','#17191c','#292c30'],edge:'#a4854d'},graphite:{label:'GRAPHITE',faces:['#15171a','#2a2d31','#464b50','#6c7277'],edge:'#d0b06a'},gold:{label:'GOLD',faces:['#3d2b08','#75510b','#b9891d','#e7c45b'],edge:'#ffe6a1'}};
+  const MATERIALS={'orange-shadow':{label:'ORANGE SHADOW',faces:['#3a1609','#7a2f10','#c8581d','#f08a32'],edge:'#ffad5c',bracket:'#ff4fbf'},obsidian:{label:'OBSIDIAN',faces:['#020304','#0a0b0d','#17191c','#292c30'],edge:'#a4854d',bracket:'#ff4fbf'},graphite:{label:'GRAPHITE',faces:['#15171a','#2a2d31','#464b50','#6c7277'],edge:'#d0b06a',bracket:'#ff4fbf'},gold:{label:'GOLD',faces:['#3d2b08','#75510b','#b9891d','#e7c45b'],edge:'#ffe6a1',bracket:'#ff4fbf'}};
   function clamp(v,a=0,b=1){return Math.max(a,Math.min(b,v));}
   function ease(v){v=clamp(v);return v*v*(3-2*v);}
   function stageState(stage,time=0){
@@ -21,7 +21,7 @@
   const model=window.A0BreathingCrystalApertureModel,canvas=document.getElementById('crystalCanvas');if(!model||!canvas)return;
   const ctx=canvas.getContext('2d'),img=document.getElementById('fourierTexture'),status=document.getElementById('crystalStatus');
   const stageButtons=[...document.querySelectorAll('[data-crystal-stage]')],materialButtons=[...document.querySelectorAll('[data-crystal-material]')];
-  let stage=0,material='bronze',running=false,stageStart=0,raf=0;
+  let stage=0,material='orange-shadow',running=false,stageStart=0,raf=0;
   function fit(){const r=canvas.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);canvas.width=Math.max(1,Math.round(r.width*d));canvas.height=Math.max(1,Math.round(r.height*d));ctx.setTransform(d,0,0,d,0,0);draw(performance.now());}
   function polygon(points,fill,stroke,width=1){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(...p):ctx.moveTo(...p));ctx.closePath();ctx.fillStyle=fill;ctx.fill();ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke();}
   function drawCrystal(cx,cy,size,state,palette){
@@ -41,7 +41,8 @@
     ctx.strokeStyle='rgba(190,201,205,.18)';ctx.setLineDash([5,8]);ctx.beginPath();ctx.moveTo(w*.5,h*.06);ctx.lineTo(w*.5,h*.94);ctx.moveTo(w*.12,h*.37);ctx.lineTo(w*.88,h*.37);ctx.stroke();ctx.setLineDash([]);
     const ax=w*.5,ay=h*.37,rx=Math.min(w*.34,270),ry=Math.max(34,rx*.22),wall=h*.23;
     ctx.fillStyle='rgba(18,43,49,.72)';ctx.beginPath();ctx.ellipse(ax,ay+wall,rx,ry,0,0,Math.PI);ctx.lineTo(ax-rx,ay);ctx.ellipse(ax,ay,rx,ry,0,Math.PI,Math.PI*2,true);ctx.closePath();ctx.fill();ctx.strokeStyle='#5bdce4';ctx.lineWidth=2;ctx.stroke();
-    ctx.strokeStyle=p.edge;ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(ax,ay,rx,ry,0,0,Math.PI*2);ctx.stroke();
+    ctx.strokeStyle='rgba(255,79,191,.28)';ctx.lineWidth=1.5;ctx.beginPath();ctx.ellipse(ax,ay,rx,ry,0,0,Math.PI*2);ctx.stroke();
+    ctx.save();ctx.strokeStyle=p.bracket;ctx.shadowColor=p.bracket;ctx.shadowBlur=14;ctx.lineWidth=5;ctx.lineCap='round';ctx.beginPath();ctx.ellipse(ax,ay,rx,ry,0,Math.PI,Math.PI*2);ctx.stroke();ctx.beginPath();ctx.moveTo(ax-rx,ay);ctx.lineTo(ax-rx,ay+wall*.16);ctx.moveTo(ax+rx,ay);ctx.lineTo(ax+rx,ay+wall*.16);ctx.stroke();ctx.restore();
     ctx.setLineDash([8,8]);ctx.strokeStyle='rgba(215,224,226,.7)';ctx.beginPath();ctx.moveTo(ax-rx,ay);ctx.lineTo(ax,ay-ry*2.2);ctx.lineTo(ax+rx,ay);ctx.lineTo(ax,ay+ry*2.2);ctx.closePath();ctx.stroke();ctx.setLineDash([]);
     ctx.fillStyle='#0a1115';ctx.strokeStyle='#eef3f2';ctx.setLineDash([4,4]);ctx.lineWidth=1.5;ctx.beginPath();ctx.roundRect(ax-31,ay-22,62,44,10);ctx.fill();ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='#f5f1e8';ctx.font='700 18px ui-monospace,monospace';ctx.textAlign='center';ctx.fillText('X|',ax,ay+6);
     if(state.reveal>0&&img.complete&&img.naturalWidth){ctx.save();ctx.globalAlpha=.08+.16*state.reveal;ctx.globalCompositeOperation='screen';ctx.drawImage(img,ax-rx*.72,ay-rx*.72,rx*1.44,rx*1.44);ctx.restore();}
@@ -55,6 +56,6 @@
   materialButtons.forEach(b=>b.addEventListener('click',()=>{material=b.dataset.crystalMaterial;materialButtons.forEach(x=>x.toggleAttribute('aria-pressed',x===b));draw(performance.now());}));
   document.getElementById('crystalRun').addEventListener('click',async()=>{for(let i=0;i<model.STAGES.length;i++){selectStage(i,i===3||i===4);await new Promise(r=>setTimeout(r,matchMedia('(prefers-reduced-motion: reduce)').matches?180:850));}selectStage(5,false);});
   document.getElementById('crystalReturn').addEventListener('click',()=>selectStage(5,false));
-  document.getElementById('crystalExport').addEventListener('click',()=>{const state=model.stageState(stage,0),payload={schema:'nexah.a0.breathing-crystal-aperture-return/1.0.0',created_at:new Date().toISOString(),identity:'NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1',stage:model.STAGES[stage],material,visual_return:model.returnCheck(model.stageState('RETURN',0)),fourier_texture:'assets/references/Fourier_Reveal_Enhanced_Inverted.png',claim_boundary:'Display demonstrator only; no measured spectrum, resonance evidence, physical prototype or material prescription.'},a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}));a.download='a0-breathing-crystal-aperture-return.json';a.click();URL.revokeObjectURL(a.href);});
+  document.getElementById('crystalExport').addEventListener('click',()=>{const state=model.stageState(stage,0),payload={schema:'nexah.a0.breathing-crystal-aperture-return/1.0.0',created_at:new Date().toISOString(),identity:'NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1',stage:model.STAGES[stage],view_role:material,aperture_role:'pink-bracket',visual_return:model.returnCheck(model.stageState('RETURN',0)),fourier_texture:'assets/references/Fourier_Reveal_Enhanced_Inverted.png',claim_boundary:'Orange Shadow and Pink Bracket are display roles only; no measured spectrum, resonance evidence, physical prototype or material prescription.'},a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}));a.download='a0-breathing-crystal-aperture-return.json';a.click();URL.revokeObjectURL(a.href);});
   new ResizeObserver(fit).observe(canvas);img.addEventListener('load',()=>draw(performance.now()));selectStage(0,false);
 })();

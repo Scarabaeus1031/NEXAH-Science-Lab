@@ -384,6 +384,134 @@ Sources: [Science Desk return](A0_BOOK/A0_RESEARCH_DESK.html#field-notes-living-
 | `F-A0-25` — exact view/residual-or-joint-view Return transfers across Q106/O16, Typed Seam and Decimal D4, but positive fixed-width economy is carrier-specific: `1/3` passes, not the preregistered `2/3` | `CLOSED / OWNER_ACCEPTED / MIXED_RETURN_GRAMMAR_PASS_ECONOMY_GENERALIZATION_FAIL / R2_LOCAL_REPLAY` | Paper B/C method boundary: exact Return and representation economy are separate claims; publication remains separately gated | `A0-BL-055` canonical Labreport; lock `11/11`; byte-identical Primary/Replay; verifier `20/20` twice |
 | `F-A0-26` — the ordered partition `2+3=5` recurs exactly in three typed views: the two black-key groups of one 12-semitone keyboard octave, the degree `2+3=5` decomposition of the bounded Edelweiss slot graph, and the declared three-up/two-down Shadow/Clamp load view; the completed internal null model shows that count alone is non-specific and transports no shared mechanism | `OWNER_SCOPE_CLOSED / BOUNDED_DESCRIPTIVE_FINDING / NULL_MODEL_COMPLETE / INDEPENDENT_REVIEW_OPEN` | Paper E method/representation example; Paper C remains HOLD. No shared transport, mechanism, acoustic law or universality claim | Science Desk `F-A0-26` closeout, interactive Review Probe, Mathfield note, existing Spin→Bloom, TESA Acoustic Overlay and Shadow/D1–D2 returns |
 
+### Literature-position note for `F-A0-12/13` · 2026-11-18
+
+The exact internal result and its evidence state remain unchanged. A bounded
+literature check directly matches the underlying Hurwitz-quaternion `C3`
+action: the binary tetrahedral group contains the generator
+`-(1+i+j+k)/2`, whose conjugation cyclically rotates `i,j,k`. Therefore Paper C
+must present the quaternion action as established mathematics. The retained
+NEXAH contribution candidate is the source-bound connector and Return
+contract—injective carrier representation, explicit inverse, faithfulness
+qualifier and typed non-identity boundaries—not a new quaternion rotation.
+
+This note lowers duplicate-island risk and creates no new Finding, Study,
+evidence result, lifecycle state or publication authority. Literature anchors:
+[Bakuradze 2011](https://tcms.org.ge/Journals/JHRS/xvolumes/2011/n1a3/v6n1a3hl.pdf)
+and [Harland–Manton 2018](https://doi.org/10.1016/j.nuclphysb.2018.08.006).
+
+## A0 joint matrix · established host ↔ exact NEXAH delta · 2026-11-18
+
+This matrix is the current integration surface for the strongest recent A0
+results. It does not create another theory layer. Each row begins with an
+existing source identity, names the established host mathematics or method,
+isolates the exact internal delta and keeps the non-claim and next
+discriminating gate visible.
+
+| Existing joint | Established host | Exact internal NEXAH delta | Evidence state | Does **not** establish | Next discriminating gate |
+|---|---|---|---|---|---|
+| `F-A0-12/13` · Pascal–Quaternion Return | Unit-quaternion conjugation, Hurwitz units, `Q8 semidirect-product C3`, equivariant coordinate actions and the `SO(3)` proper/improper boundary | The declared trinomial carrier is embedded by injective `Phi`; forward and inverse conjugations are typed as exact Return; `N=0` faithfulness and reflection/non-identity boundaries remain explicit | `CLOSED / R2_INTERNAL`; formal result exact; external specialist review open | A new quaternion rotation, new Hurwitz-group theorem, physical rotation mechanism or general Pascal-generation law | Independent qualified review of proof wording and contribution boundary before academic use |
+| `F-A0-18` · Q106→O16 residual Return | Fibres of many-to-one maps, side information, sufficient records, finite group homomorphisms and view-update/inverse problems | Two frozen surjective projections each incur the forced `106-16=90` excess-fibre collision count; an explicit conditional residual restores `106/106`; `gcd(4,5)=1` blocks a nontrivial canonical `C4/C5` cyclic intertwiner | `RESULT_READY / R2_LOCAL_REPLAY / AWAITING_OWNER_DISPOSITION` | `Q106=O16`, a 90-degree sampling law, a canonical projection or a residual-free inverse | Owner disposition; only afterward decide whether it enters the Paper B information-boundary addendum |
+| `F-A0-20` · `C5/C6/C30` perturbation memory | Finite dynamical systems, product clocks, least-common-multiple periods and state augmentation | The frozen channel separates carrier Return `30` from full memory-state Return `60`; every one-sided phase kick remains in the state contract (`0/60` complete erasures) | `CLOSED / R2_LOCAL_REPLAY` | Physical memory, dissipation, recovery, resonance or a universal `30/60` law | If reopened, preregister one changed coupling law and compute its complete orbit partition; do not infer it from numerals |
+| `F-A0-01` + `A0-BL-025` + `F-A0-25` · SCC-003 typed seam | Finite quotient graphs, group actions, reversible coding, conditional side information and provenance-preserving views | On the frozen carrier the typed quotient plus conditional residual returns `140/140`, preserves the declared `D5` action and local inverse transitions, and costs `7.535714` bits on the registered fixed-width mean measure; cross-carrier economy later passes only `1/3` | SCC-003 review lane current; `A0-BL-025` closed positive; `F-A0-25` closed mixed | General compression, universal seam advantage, physical channel behavior, Human utility or worldwide novelty | External SCC-003 review first; any 16-channel economy successor requires separate admission and a same-information baseline |
+| `ART:A0:MATHEMATICAL_JOINTS` · dimensional elevator | Finite Cartesian products, product cardinality, coordinate projections, fibres, sections/lifts and sufficient residual records | The declared register `G_d={0,...,27}^d` gives `|G_d|=28^d` on the existing `2D→3D→4D→6D→8D→12D→24D` ladder; `GAIA′(x)=P_dx` supplies the at-most-3D view, `AmmA′` retains the source fibre and `DaLi` separates projection from controlled lift with shadow record `s=x-L_dP_dx`. The display bundles `3×4D` at 12D and `2×12D` at 24D are explicit view partitions, not intrinsic decompositions | `SOURCE_BOUND FORMAL/ENGINEERING INSTRUMENT / NOT_A_LAB_RUN / NOT_A_NEW_FINDING`; exact cardinalities and declared ladder are test-covered | Physical or hidden spacetime dimensions, a natural or canonical dimension hierarchy, topology, resonance, harmonic mechanism, or identity between the 12-coordinate source, the separate `9D→11D→12D→13D` display sideband and the D1–D12 address-layer shell | Keep 1D as the implicit `G_1` base case unless separately added to the interface; before theorem or economy use, freeze explicit nontrivial `P_d/L_d` maps and a same-information residual-cost contract under a separately admitted gate |
+| Methods `1–5` · Receipt versus standard graph records | Property graphs, bipartite incidence, cospans/pushouts, provenance and bidirectional transformations | Methods 2–5 all reconstruct and fail closed in `10,000/10,000`; the NEXAH receipt makes loss, residual, Return status and claim/governance boundaries co-resident, with `2.0363x` the payload of the best standard comparator | `FROZEN BOUNDED ENGINEERING VERIFICATION`; no new Finding | A distinct reconstruction algorithm, payload advantage, product readiness or demonstrated Human utility | A separately admitted matched Human-utility study comparing the compact cospan record with the NEXAH governance envelope |
+
+### Reading rule
+
+```text
+established host mathematics
++ source-bound finite object
++ explicit representation / loss / residual / inverse contract
++ negative and non-identity boundaries
+= defensible NEXAH joint
+```
+
+The scientific value lies in the joint being exact and inspectable, not in
+renaming the host mathematics. A new island is justified only when a future
+test establishes a delta that cannot already be expressed by one of these
+rows.
+
+## Parked successor A · sixteen-channel address economy
+
+**Status:** `PARKED / NOT_ADMITTED / NO_RUN / NO_NEW_F-A0_ID`
+
+**Owner direction:** documentation and parking only; Structure Freeze remains
+in force.
+
+**Bounded question.** On the same frozen `140`-incidence SCC-003 population,
+can either of two predeclared binary layouts preserve exact Return and the
+existing structural invariants while improving on the registered
+`7.535714`-bit mean?
+
+Candidate layouts:
+
+1. `4+4`: sixteen charged channel addresses times sixteen charged local
+   addresses (`16 x 16 = 256`);
+2. `3+3+2`: one three-axis dyadic layout (`8 x 8 x 4 = 256`).
+
+Required comparison if admitted:
+
+- exact `140/140` source-incidence Return;
+- all channel, local-address and residual bits charged in the primary result;
+- raw fixed-width `8`-bit baseline;
+- existing typed-seam `7.535714`-bit baseline;
+- matched balanced and shuffled channel assignments;
+- level consistency, declared `D5` action and all local inverse transitions;
+- separate out-of-band-channel analysis, labelled non-comparable to the
+  charged primary result.
+
+Primary positive gate: exact Return plus mean charged cost strictly below
+`7.535714` without losing a frozen invariant. Equality, higher cost, a failed
+invariant or a gain available only when the channel is supplied out of band is
+`NO_INCREMENTAL_ECONOMY`. One bounded execution would exhaust the successor;
+no adaptive repartition or numeral-selected rescue is allowed.
+
+Before any run this candidate still requires the Constitution's admission
+fields, a Study Owner record, a Run Contract and an explicit Human Owner
+activation decision.
+
+## Parked successor B · Human utility of the governance envelope
+
+**Status:** `PARKED / NOT_ADMITTED / NO_PARTICIPANTS / NO_RUN / NO_NEW_F-A0_ID`
+
+**Owner direction:** documentation and parking only; no recruitment or data
+collection is authorized.
+
+**Bounded question.** Given identical graph-gluing evidence, does the explicit
+NEXAH governance envelope help a person detect a wrong seam, recover source
+provenance and state the permitted claim more accurately than the compact
+`Cospan_PUSHOUT` record?
+
+Frozen design requirements if later admitted:
+
+- same task statements, source graphs, labels, corruption cases and answer
+  fields in both conditions;
+- equal access to the reconstruction-relevant information;
+- randomized order and condition assignment;
+- primary outcomes fixed before recruitment: exact decision, false-seam
+  detection, provenance reconstruction and claim-boundary classification;
+- time, confidence and confidence calibration retained as secondary outcomes;
+- payload size and reading length reported, not hidden;
+- privacy, consent, retention, exclusion and analysis rules approved before
+  participant contact.
+
+The result may be `UTILITY_ADVANTAGE`, `ACCURACY_EQUIVALENT_WITH_COST`,
+`NO_INCREMENTAL_UTILITY`, `HARM_OR_CONFUSION`, or `INVALID`. A positive result
+would remain task- and population-bounded; it would not establish universal
+Human utility or product readiness. One preregistered comparison is the STOP
+condition; post-hoc subgroup rescue is not permitted.
+
+### Priority and return
+
+1. Keep SCC-003 external review as the current scientific exit.
+2. Keep both successors parked while Structure Freeze remains active.
+3. If the Owner later opens one successor, prefer the Human-utility comparison:
+   it tests the distinctive governance envelope directly. The sixteen-channel
+   comparator is the secondary formal-design question.
+4. Return every future result to this matrix by updating the relevant row,
+   rather than creating a parallel theory page.
+
 <a id="f-a0-26-octave-2plus3-cross-carrier-20261030"></a>
 
 ## F-A0-26 · Octave / 2+3 / clamp cross-carrier partition — 2026-10-30
@@ -3791,3 +3919,60 @@ recover a physical fold, establish a new topology or promote a Finding.
 [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#rolled-layer-seam-return-20261115) ·
 [Builder Log](A0_BOOK/A0_BUILDER_LOG.html#rolled-layer-seam-return-builder-20261115) ·
 [Receipt](A0_BOOK/results/a0-rolled-layer-seam-return-2026-11-15.json)
+
+<a id="post-freeze-five-host-finding-extraction--2026-11-18"></a>
+
+## Post-freeze five-host finding extraction — 2026-11-18
+
+Classification: `FIVE_CANDIDATE_CLUSTERS / SOURCE_BOUND_ENGINEERING_AND_METHOD
+NOTES / NOT_NEW_F-A0_FINDINGS / NO_STUDY_ACTIVATION / NO_PAPER_PROMOTION`.
+
+The delta since the Owner-accepted 15 November integration freeze is
+extracted into five bounded candidate clusters. They are eligible for
+manuscript preparation because their exact statements, negative controls and
+claim boundaries are inspectable. They are not canonical Findings and do not
+change the evidence state of their source instruments.
+
+1. **PF-01 — Grey/Pink exponential control.** For each declared base
+   `b in {0.429,0.439,0.456}`, `0<b<1`, so `b^x` decreases monotonically for
+   increasing real `x` and tends to zero. The three curves remain distinct;
+   proximity, colour and a shared asymptote do not establish a common
+   generator, material, frequency or physical decay law.
+2. **PF-02 — typed angle comparator.** `204° PHASE_ADDRESS` and
+   `135° VIEW_ANCHOR` are different typed fields. Their numerical difference
+   is `69°`; it is not an operator, identity or new axis. A common Return pivot
+   preserves routing, not semantic equivalence.
+3. **PF-03 — involution versus contraction.** The three declared Janus maps
+   satisfy their local involution contracts. The contraction fixture is the
+   retained negative control and does not return by the same predicate.
+   Outer/Inner and A–I–D–A′ remain local view grammar rather than canonical
+   vocabulary.
+4. **PF-04 — Root/Frame/Bloom sequence.** The exact relation
+   `(sqrt(2))^2+(sqrt(3))^2=(sqrt(5))^2` supports the local 2–3–5 triangle.
+   Root Compass, V-Petal and the nine Bloom stages are declared frame states;
+   material, tension, force, foldability and physical coupling remain `HOLD`.
+5. **PF-05 — Crystal identity boundary.** Orange Shadow / Pink Bracket is a
+   focused Aperture View of the existing Breathing Crystal identity. Blue GH /
+   Ghostgrid remains a separate neighboring source view. This is an
+   engineering provenance and anti-duplication result, not a scientific law.
+
+Paper routing:
+
+- **Paper C — Return without identity:** PF-02 and PF-03 as a bounded typed
+  Return methods note; no sixth formal Study and no theorem promotion.
+- **Paper E — Orientation method:** PF-01 and PF-05 as compact examples of
+  source/operator/view/Return separation and claim-ceiling discipline.
+- **Paper F — Frame / Envelope / Observer:** PF-03 Outer/Inner and PF-04 as
+  declared frame-sequence examples with the physical-envelope claims held.
+- **Papers A, B and D:** no state or claim change.
+
+Disposition: `KEEP AS PAPER PREPARATION CANDIDATES / EXISTING PAPER IDS REUSED /
+NEW ID 0 / RELATION 0 / ALIAS 0 / STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE
+0 / PUBLICATION 0`.
+
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#post-freeze-findings-paper-routing-20261118) ·
+[Builder Return](A0_BOOK/A0_BUILDER_LOG.html#post-freeze-desk-rebinding-builder-20261118) ·
+[Paper C](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md#post-freeze-typed-return-comparators) ·
+[Paper E](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#post-freeze-source-view-boundaries) ·
+[Paper F](36_A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER_DRAFT_2026-10-12.md#post-freeze-frame-envelope-examples) ·
+[Receipt](A0_BOOK/results/a0-post-freeze-findings-paper-routing-2026-11-18.json)

@@ -1,0 +1,28 @@
+.pi-scarab-root{margin:34px 0;border:1px solid #295766;background:#020c12;color:#dce9ec;font:13px/1.45 system-ui,sans-serif}
+.pi-scarab-root>header{display:flex;justify-content:space-between;gap:24px;align-items:end;padding:22px 24px;border-bottom:1px solid #295766}
+.pi-scarab-root h2{margin:3px 0 7px;font:700 clamp(28px,4vw,58px)/.96 Georgia,serif;color:#eef8fa}
+.pi-scarab-root header p{max-width:920px;margin:0;color:#aec2c8}
+.pi-scarab-root small,.pi-scarab-root b,.pi-scarab-root output,.pi-scarab-root button,.psr-ledger{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.pi-scarab-root small,.pi-scarab-root output{color:#5de7ef;font-weight:700;letter-spacing:.08em}
+.psr-modes{display:grid;grid-template-columns:repeat(8,1fr);gap:7px;padding:12px 16px;border-bottom:1px solid #295766}
+.psr-modes button,.psr-controls button{min-height:38px;border:1px solid #286072;background:#08202a;color:#b8d0d5;font-size:10px;font-weight:800}
+.psr-modes button:nth-child(n+8){border-top-color:#ffce45}
+.psr-modes button[aria-pressed=true]{border-color:#ff5ab7;background:#341227;color:#ff91cf}
+.psr-grid{display:grid;grid-template-columns:minmax(0,1fr) 310px;min-height:690px}
+.psr-stage{margin:0;display:grid;grid-template-rows:1fr auto;border-right:1px solid #295766}
+.psr-stage canvas{display:block;width:100%;height:650px;touch-action:none}
+.psr-stage figcaption{padding:10px 16px;border-top:1px solid #143a47;color:#5de7ef;font:700 10px ui-monospace,SFMono-Regular,Menlo,monospace}
+.psr-controls{padding:18px;display:flex;flex-direction:column;gap:14px}
+.psr-controls>output{padding:10px;border-left:4px solid #ffce45;background:#0a2530;color:#ffce45}
+.psr-controls label{display:grid;grid-template-columns:1fr auto;gap:8px;color:#ffce45;font:800 10px ui-monospace,SFMono-Regular,Menlo,monospace}
+.psr-controls input{grid-column:1/-1;width:100%;accent-color:#ff5ab7}
+.psr-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.psr-ledger{display:grid;margin:0;border-top:1px solid #295766}
+.psr-ledger div{padding:10px 0;border-bottom:1px solid #214653}
+.psr-ledger dt{font-size:8px;color:#81939a}.psr-ledger dd{margin:3px 0 0;color:#5de7ef;font-size:10px;font-weight:800}
+.psr-chain{display:grid;grid-template-columns:repeat(7,1fr);margin:0;padding:0;list-style:none;border-top:1px solid #295766}
+.psr-chain li{min-height:78px;padding:12px;border-right:1px solid #214653;color:#9bb2b8;font-size:10px}.psr-chain b{display:block;color:#ffce45;margin-bottom:5px}
+.psr-boundary{margin:0;padding:14px 20px;background:#101b1d;color:#aebfc3;font-size:11px}.psr-boundary b{color:#ffce45}
+@media(max-width:1100px){.psr-modes{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:900px){.psr-modes{grid-template-columns:repeat(2,1fr)}.psr-grid{grid-template-columns:1fr}.psr-stage{border-right:0;border-bottom:1px solid #295766}.psr-stage canvas{height:520px}.psr-chain{grid-template-columns:1fr 1fr}.pi-scarab-root>header{display:block}.pi-scarab-root>header output{display:block;margin-top:12px}}
+@media(max-width:560px){.psr-stage canvas{height:430px}.psr-chain{grid-template-columns:1fr}.psr-grid{min-height:0}}

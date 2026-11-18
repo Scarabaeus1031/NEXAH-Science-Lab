@@ -1,0 +1,15 @@
+'use strict';
+const fs=require('fs'),path=require('path'),assert=require('assert');
+const base=__dirname,api=require('./a0-pi-scarab-root-return.js');
+let checks=0;const ok=(v,m)=>{assert.ok(v,m);checks++},near=(a,b,e=1e-12)=>{assert.ok(Math.abs(a-b)<=e,`${a} != ${b}`);checks++};
+assert.deepStrictEqual(api.MODES,['ALGO','HINGE','LANTERN','FOURIER','MIX','SCARAB','ROOT7','PACKED','VEGA','PHI','PIVOT','CUBIT','QUATERNION','ARCHETYPE','TENSOR','IA_PLUS']);checks++;
+near(api.ROOTS.root125,Math.sqrt(5)/2);near(api.ROOTS.root7,Math.sqrt(7));near(api.angularDistanceDegrees(350,10),20);near(api.angularDistanceDegrees(45,45),0);
+const roots=api.rootLengthReport();ok(roots.root125Identity==='sqrt(1.25) = sqrt(5)/2','exact root identity');near(roots.root134,Math.sqrt(1.34));
+near(api.PHI,(1+Math.sqrt(5))/2);ok(api.isPrime(347),'347 prime');ok(!api.isPrime(1836)&&!api.isPrime(3135)&&!api.isPrime(33),'mixed anchor types');ok(api.isPrime(3301),'3301 prime');
+const arithmetic=api.arithmeticAudit();ok(arithmetic.totient17===16,'Euler totient 17');ok(arithmetic.eulerPolynomial17===347,'Euler polynomial pivot');ok(arithmetic.eulerPolynomial17IsPrime,'pivot prime');near(arithmetic.footMetres,.3048);near(arithmetic.inchMetres,.0254);near(arithmetic.cubitMetres,.5236);
+const fourier=api.fourierComparator(45);ok(fourier.status==='PASS_PARSEVAL_MOBIUS_BOUNDARY_DFT','DFT audit');ok(Number.isInteger(fourier.mode)&&fourier.mode>0,'dominant mode');ok(Number.isFinite(fourier.phaseDegrees),'phase');near(fourier.deltaDegrees,api.angularDistanceDegrees(fourier.phaseDegrees,45));ok(fourier.isReferenceMatch===(fourier.deltaDegrees<=1e-9),'no forced phase equality');
+const audit=api.analyze();ok(audit.status==='PASS_INTEGRATED_DISPLAY_COMPARATOR','integrated status');ok(audit.modes.length===16,'sixteen modes');ok(audit.claims.root125IsGoldenRatio===false,'not phi');ok(audit.claims.resonanceMeasured===false,'not measured resonance');ok(audit.claims.vegaAstronomicallyAligned===false,'Vega unbound');ok(audit.claims.gizaEnergyAxisVerified===false,'Giza energy claim unbound');ok(audit.claims.cubitFrequencyBridgeVerified===false,'Cubit frequency bridge unbound');ok(audit.claims.anchorLabelsAllPrime===false,'mixed anchor audit');ok(audit.newCanonicalIds.length===0&&audit.relationChanges.length===0,'graph delta zero');
+const html=fs.readFileSync(path.join(base,'A0_PLATINUM_IRIDIUM_PI_LENS.html'),'utf8'),css=fs.readFileSync(path.join(base,'a0-pi-scarab-root-return.css'),'utf8');
+['id="piScarabRootReturn"','id="psrCanvas"','data-psr-mode="FOURIER"','data-psr-mode="ROOT7"','data-psr-mode="VEGA"','data-psr-mode="TENSOR"','data-psr-mode="IA_PLUS"','a0-pi-scarab-root-return.js','a0-pi-scarab-root-return.css','√1.25 = √5/2','φ(17)=16','17²+17+41=347'].forEach(token=>ok(html.includes(token),`HTML token ${token}`));
+ok(css.includes('@media(max-width:900px)'),'responsive css');ok(css.includes('.psr-grid'),'grid css');
+console.log(JSON.stringify({status:'PASS',checks,fourier:{mode:fourier.mode,phaseDegrees:fourier.phaseDegrees,referenceDegrees:45,deltaDegrees:fourier.deltaDegrees},roots},null,2));
