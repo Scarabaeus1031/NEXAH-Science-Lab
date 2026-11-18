@@ -1,0 +1,14 @@
+'use strict';
+const assert=require('node:assert/strict');
+const model=require('./a0-iota-stage.js');
+assert.equal(model.JOINT_PERIOD,20);
+assert.equal(new Set(model.uniqueAddresses()).size,20);
+assert.deepEqual([0,5,10,15,20].map(n=>model.stateAt(n).angle),[0,90,180,270,0]);
+assert.deepEqual([0,5,10,15,20].map(n=>model.stateAt(n).station),['AM₁','AM₁','AM₁','AM₁','AM₁']);
+assert.equal(model.stateAt(15).orientation,'270° · BACKFLIP');
+assert.equal(model.stateAt(20).exactReturn,true);
+assert.equal(model.stateAt(20).address,0);
+assert.equal(model.stateAt(19).exactReturn,false);
+assert.equal(model.stateAt(-4).requested,0);
+assert.equal(model.stateAt(200).requested,20);
+console.log('A0 Iota Stage tests: PASS (10 assertions; 20 unique C5×C4 addresses)');

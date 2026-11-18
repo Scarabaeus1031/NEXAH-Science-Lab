@@ -1,0 +1,26 @@
+{
+  "schema": "nexah.a0.flow-of-light-lab-return/2",
+  "date": "2026-11-18",
+  "status": "IMPLEMENTED_REFERENCE_DEMONSTRATOR",
+  "identity_reuse": [
+    "A0-VIEW-NEWTON-GOETHE-OBSERVER-LENS",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "SG:LENS:ILAU_ORIENTATION"
+  ],
+  "gates": [
+    {"id": "ADDR28", "classification": "EXACT_FINITE_CODEC", "claim": "integer fixture only"},
+    {"id": "ENERGY", "classification": "ESTABLISHED_ENERGY_SCALE_COMPARATOR", "claim": "typed Joule scales and dimensionless ratios"},
+    {"id": "PLANCK", "classification": "ESTABLISHED_REFERENCE_PHYSICS", "claim": "normalized B_nu computational view"},
+    {"id": "LAYERS", "classification": "DECLARED_SYNTHETIC_LAYER_CHANNEL_PLUS_FINITE_VIEW_NAVIGATOR", "claim": "transmission, modulation delay and residual; sixteen finite windows, fifteen forward steps and explicit 15-to-00 Return"}
+  ],
+  "typed_namespaces": {
+    "VIEW.H/D/L": "HAPTIC / DESIGN-DISPLAY / LIGHT-LAYER interface grammar",
+    "CHANNEL.H0/H1/H2": "AMPLITUDE / DELAY / RESIDUAL computational contract",
+    "WATER.HDL/LDL": "CONCEPT SOURCE ONLY / NOT MODELED"
+  },
+  "verification": {"suite": "node a0-flow-of-light-lab-tests.cjs", "status": "PASS", "checks": 19},
+  "authority": {"lab_run": false, "study": false, "finding": false, "publication": false, "deployment": false},
+  "graph_delta": {"identities": 0, "relations": 0, "aliases": 0},
+  "claim_boundary": "Same digits do not create the same type. ADDR28 does not model propagation. Energy-scale equality is not a mechanism. Planck is established reference physics. The layer channel is synthetic and is not a measured optical or cosmological result. The visual concepts do not import water HDL/LDL equations, planetary temperatures, material claims or an infinite state space."
+}
