@@ -70,10 +70,45 @@ assert.match(html, /not nm\+degree arithmetic/);
 assert.match(html, /a0:goethe-boundary-change/);
 assert.match(html, /shared_visual_field_state_not_physics_operator/);
 assert.match(html, /NEWTON \/ LEIBNIZ \/ GOETHE OBSERVER LENS/);
+assert.match(html, /PROLOGUE 00 · THREE WINDOWS · ONE OBSERVER/);
+assert.match(html, /Keine neue Lichttheorie, sondern eine neu gefügte Vergleichsanordnung/);
+assert.match(html, /Drei Lesarten\. Ein gemeinsamer Beobachtungsrahmen\./);
+assert.match(html, /Bis hierher lesen wir Licht\./);
+assert.match(html, /Ab hier messen wir seinen Weg\./);
+assert.match(html, /Aus einer Messzahl wird eine Adresse\./);
+assert.match(html, /Ohne dass die Adresse zur Physik wird\./);
+assert.ok(html.indexOf('id="readingKey"') < html.indexOf('id="lightTimeMeasurementBridge"'));
+assert.ok(html.indexOf('id="lightTimeMeasurementBridge"') < html.indexOf('id="flowOfLightLab"'));
+assert.equal((html.match(/Newton: geordnete Zerlegung/g) || []).length, 1);
+assert.match(html, /data-journey-deeper href="#readingKey"/);
+assert.match(html, /HOW TO READ FOUNDATION 02 · VALUE \/ TYPE \/ ADDRESS/);
+assert.match(html, /Gleiche Ziffern\. Andere Rolle\./);
+assert.match(html, /Wert und Einheit gehören zusammen\./);
+assert.match(html, /Nur der deklarierte Integer passiert das Gate\./);
+assert.match(html, /Eine endliche Adresse — kein Raum und kein Lichtweg\./);
+assert.match(html, /WAS BEREITS FESTSTEHT/);
+assert.match(html, /WAS JETZT FOLGT/);
+assert.ok(html.indexOf('id="addressReadingKey"') < html.indexOf('data-fol-app'));
+assert.match(html, /id="ghNumberWindow"/);
+assert.match(html, /GH Numbermagick — Zahlen vor Bedeutung\./);
+assert.match(html, /NUMBER → ADDRESS → STORY/);
+assert.match(html, /12 644 353/);
+assert.match(html, /keine Neunerpotenz/);
+assert.match(html, /Poetische Anschlussfähigkeit bleibt erhalten/);
+assert.match(html, /noch eine neue Navigator-Identität oder Relation/);
+assert.ok(html.indexOf('data-fol-app') < html.indexOf('id="ghNumberWindow"'));
+assert.ok(html.indexOf('id="ghNumberWindow"') < html.indexOf('<div class="boundary"><strong>Claim boundary:'));
+assert.match(html, /ANIMATED 3×3 OWNER VISUAL/);
+assert.match(html, /OPEN STANDALONE BOOK/);
+assert.match(html, /THE DUSTY STARRY SKY/);
+assert.match(html, /REPLAY THE JOURNEY/);
+assert.match(html, /RETURN TO THE FOUNDATIONS/);
+assert.match(html, /EXPLORE RELATED A0 INSTRUMENTS/);
+assert.doesNotMatch(html, /Nicht alles auf einer Bühne/);
 
 console.log(JSON.stringify({
   status: 'PASS',
-  assertions: 56,
+  assertions: 91,
   viewId: record.view_id,
   middleLens: relationWindow.lens,
   notation: relationWindow.notation,

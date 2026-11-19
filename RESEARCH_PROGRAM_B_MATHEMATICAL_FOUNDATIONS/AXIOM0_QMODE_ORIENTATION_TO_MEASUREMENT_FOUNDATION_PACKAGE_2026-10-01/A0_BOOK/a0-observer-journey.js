@@ -23,6 +23,13 @@
     Object.freeze({phase:'handoff',station:3,focus:true,holdLens:true,label:'FOLD BELOW'}),
     Object.freeze({phase:'handoff',station:4,focus:true,holdLens:true,label:'RETURN BELOW'})
   ]);
+  const SCORE_STATIONS=Object.freeze([
+    Object.freeze({id:'source',frequencyHz:220,relationHz:0,filterHz:5200,dry:.13,return:.01,delay:.18,bandCount:1,bandMode:'single carrier',label:'FUNDAMENTAL / DRY'}),
+    Object.freeze({id:'relation',frequencyHz:220,relationHz:223,filterHz:4200,dry:.11,return:.025,delay:.21,bandCount:2,bandMode:'paired traces',label:'PAIR / 3 Hz BEAT'}),
+    Object.freeze({id:'boundary',frequencyHz:196,relationHz:294,filterHz:720,dry:.10,return:.04,delay:.24,bandCount:3,bandMode:'aperture selection',label:'FILTER / SHADOW'}),
+    Object.freeze({id:'fold',frequencyHz:164.81,relationHz:247,filterHz:1500,dry:.08,return:.13,delay:.34,bandCount:5,bandMode:'layered neon fold',label:'DELAYED RETURN'}),
+    Object.freeze({id:'return',frequencyHz:220,relationHz:440,filterHz:2800,dry:.055,return:.09,delay:.30,bandCount:1,bandMode:'one carrier + four tails',label:'RESOLVE / TAIL → SILENCE'})
+  ]);
   function stationAt(input){
     const index=Math.max(0,Math.min(STATIONS.length-1,Math.round(Number(input)||0)));
     return Object.freeze({index,...STATIONS[index]});
@@ -31,6 +38,63 @@
   function clockAt(input){
     const state=stationAt(input);
     return Object.freeze({index:state.index,countdown:CLOCK_RHYTHM[state.index],anchor:'Q',plusOne:true,role:'READING_CLOCK_NOT_TIME_MEASUREMENT'});
+  }
+  function scoreAt(input){
+    const station=stationAt(input),score=SCORE_STATIONS[station.index];
+    return Object.freeze({index:station.index,station:station.id,...score,role:'INTERFACE_SONIFICATION_NOT_SOUND_IN_SPACE'});
+  }
+  function createScorePanel(rootNode,documentNode){
+    const panel=documentNode.createElement('section');
+    panel.className='journey-score';
+    panel.dataset.journeyScore='off';
+    panel.setAttribute('aria-label','Tour-Soundtrack der fünf Lesestationen mit manuellem Mute-Schalter');
+    panel.innerHTML='<button type="button" data-journey-score-toggle aria-pressed="false"><b>SOUND / SCORE</b><span>OFF</span></button><div class="journey-score-readout"><small>TOUR SONIFICATION</small><output data-journey-score-frequency>f_z —</output><b data-journey-score-label>READY / STARTS WITH TOUR</b></div><div class="journey-nbands" aria-label="n-Bands: variable Display-Schichtung innerhalb der Pyramide"><div class="journey-nbands-head"><b data-score-bands>n-BANDS · 1 / 5</b><span data-score-band-mode>SINGLE CARRIER</span></div><svg viewBox="0 0 280 62" role="img" aria-label="Fünf mögliche Anzeige-Spuren in einer schematischen Pyramide"><path class="nband-pyramid" d="M140 3 L274 57 H6 Z"></path><g class="nband-lines"><path data-n-band="1" d="M18 31 C66 5 105 53 140 31 S214 5 262 31"></path><path data-n-band="2" d="M18 25 C66 -1 105 47 140 25 S214 -1 262 25"></path><path data-n-band="3" d="M18 37 C66 11 105 59 140 37 S214 11 262 37"></path><path data-n-band="4" d="M34 19 C74 0 108 40 140 19 S206 0 246 19"></path><path data-n-band="5" d="M34 43 C74 24 108 61 140 43 S206 24 246 43"></path></g><line class="nband-aperture" x1="140" y1="9" x2="140" y2="54"></line><circle class="nband-carrier" cx="140" cy="31" r="3.4"></circle></svg></div><div class="journey-score-mix"><span data-score-dry>DRY · —</span><span data-score-return>RETURN · —</span></div><p><strong>PLAY TOUR</strong> startet Bild und Score gemeinsam; am Return blendet der Sound weich aus. Der Schalter bleibt als Mute verfügbar. Kein Schall im Weltraum; <em>Echo</em> bedeutet hier nur verzögerten hörbaren Return. <strong>n-BANDS</strong> sind eine variable Display-Schichtung — nicht Newtons sieben Wellenlängen, keine Lichtschichten und keine Ausführung des historischen, testpflichtigen n-band-Kandidaten.</p>';
+    const footer=rootNode.querySelector('.journey-footer');
+    if(footer)footer.insertAdjacentElement('afterend',panel);else rootNode.appendChild(panel);
+    return panel;
+  }
+  function createAudioScore(windowNode){
+    const AudioContext=windowNode&&(windowNode.AudioContext||windowNode.webkitAudioContext);
+    let context=null,master=null,filter=null,dryGain=null,returnGain=null,feedback=null,delay=null,primary=null,relation=null,primaryGain=null,relationGain=null,enabled=false;
+    function set(param,value,seconds=.08){
+      if(!context||!param)return;
+      param.cancelScheduledValues(context.currentTime);
+      param.setTargetAtTime(value,context.currentTime,seconds);
+    }
+    function ensure(){
+      if(context||!AudioContext)return Boolean(context);
+      context=new AudioContext();master=context.createGain();filter=context.createBiquadFilter();dryGain=context.createGain();returnGain=context.createGain();feedback=context.createGain();delay=context.createDelay(1);primary=context.createOscillator();relation=context.createOscillator();primaryGain=context.createGain();relationGain=context.createGain();
+      primary.type='sine';relation.type='triangle';filter.type='lowpass';master.gain.value=0;primaryGain.gain.value=1;relationGain.gain.value=0;feedback.gain.value=.18;delay.delayTime.value=.2;
+      primary.connect(primaryGain);relation.connect(relationGain);primaryGain.connect(filter);relationGain.connect(filter);filter.connect(dryGain);dryGain.connect(master);filter.connect(delay);delay.connect(returnGain);returnGain.connect(master);returnGain.connect(feedback);feedback.connect(delay);master.connect(context.destination);primary.start();relation.start();
+      return true;
+    }
+    async function setEnabled(next,fadeSeconds=.04){
+      enabled=Boolean(next);
+      if(enabled&&ensure()){
+        if(context.state==='suspended')await context.resume();
+        set(master.gain,.42,fadeSeconds);
+      }else if(context){set(master.gain,0,fadeSeconds)}
+      return enabled&&Boolean(context);
+    }
+    function apply(index){
+      const score=scoreAt(index);
+      if(!enabled||!ensure())return score;
+      set(primary.frequency,score.frequencyHz,.035);set(relation.frequency,score.relationHz||score.frequencyHz,.035);set(relationGain.gain,score.relationHz?.55:0,.06);set(filter.frequency,score.filterHz,.08);set(dryGain.gain,score.dry,.08);set(returnGain.gain,score.return,.1);set(delay.delayTime,score.delay,.08);set(feedback.gain,score.id==='fold'?.26:.16,.1);set(master.gain,.42,.04);
+      return score;
+    }
+    function fadeOut(seconds=1.6){
+      enabled=false;
+      if(context&&master){
+        const now=context.currentTime;
+        master.gain.cancelScheduledValues(now);
+        master.gain.setValueAtTime(master.gain.value,now);
+        master.gain.linearRampToValueAtTime(0,now+seconds);
+      }
+      return false;
+    }
+    function suspend(){if(context)set(master.gain,0,.04)}
+    function state(){return Object.freeze({enabled,available:Boolean(AudioContext),contextState:context?context.state:'uncreated'})}
+    return Object.freeze({setEnabled,apply,fadeOut,suspend,state});
   }
   function mount(rootNode,doc){
     if(!rootNode)return null;
@@ -52,7 +116,35 @@
     const transitionTitle=transitionStage&&transitionStage.querySelector('[data-transition-title]');
     const transitionCopy=transitionStage&&transitionStage.querySelector('[data-transition-copy]');
     const transitionRole=transitionStage&&transitionStage.querySelector('[data-transition-role]');
-    let active=0,mode='overview',touring=false,tourTimer=0,tourToken=0,tourOwnsSweep=false;
+    const scorePanel=createScorePanel(rootNode,documentNode);
+    const scoreToggle=scorePanel.querySelector('[data-journey-score-toggle]');
+    const scoreFrequency=scorePanel.querySelector('[data-journey-score-frequency]');
+    const scoreLabel=scorePanel.querySelector('[data-journey-score-label]');
+    const scoreBands=scorePanel.querySelector('[data-score-bands]');
+    const scoreBandMode=scorePanel.querySelector('[data-score-band-mode]');
+    const bandLines=[...scorePanel.querySelectorAll('[data-n-band]')];
+    const scoreDry=scorePanel.querySelector('[data-score-dry]');
+    const scoreReturn=scorePanel.querySelector('[data-score-return]');
+    const audioScore=createAudioScore(documentNode.defaultView||(typeof globalThis!=='undefined'?globalThis:null));
+    let active=0,mode='overview',touring=false,tourTimer=0,tourToken=0,tourOwnsSweep=false,tourAudioRequested=false;
+    function syncScoreToggle(activeAudio){
+      scoreToggle.setAttribute('aria-pressed',String(activeAudio));
+      scoreToggle.querySelector('span').textContent=activeAudio?'ON':'OFF';
+      scorePanel.dataset.journeyScore=activeAudio?'on':'off';
+    }
+    async function setScoreEnabled(next,fadeSeconds=.04){
+      const activeAudio=await audioScore.setEnabled(next,fadeSeconds);
+      syncScoreToggle(activeAudio);
+      if(activeAudio)audioScore.apply(active);else scoreLabel.textContent=`${scoreAt(active).label} / MUTED`;
+      return activeAudio;
+    }
+    function fadeTourScore(seconds=1.6){
+      tourAudioRequested=false;
+      audioScore.fadeOut(seconds);
+      syncScoreToggle(false);
+      scorePanel.dataset.journeyScore='fadeout';
+      scoreLabel.textContent=`${scoreAt(active).label} / FADING OUT`;
+    }
     function startTourSweep(){
       if(sweepButton&&!sweepButton.classList.contains('active')){sweepButton.click();tourOwnsSweep=true}
     }
@@ -61,7 +153,7 @@
       tourOwnsSweep=false;
     }
     function render(index,focusPanel,holdLensFocus){
-      const state=stationAt(index),clock=clockAt(index);active=state.index;
+      const state=stationAt(index),clock=clockAt(index),score=scoreAt(index);active=state.index;
       mode=focusPanel===false?'overview':'station';
       rootNode.style.setProperty('--journey-position',`${10+state.index*20}%`);
       if(marker)marker.dataset.station=state.id;
@@ -108,19 +200,32 @@
       rootNode.dataset.journeyMode=mode;
       documentNode.body.dataset.observerJourney=state.id;
       documentNode.body.dataset.observerJourneyMode=mode;
-      documentNode.dispatchEvent(new CustomEvent('a0:observer-journey-change',{detail:Object.freeze({...state,mode,clock})}));
+      scorePanel.dataset.station=score.id;
+      scoreFrequency.textContent=`f_z ${score.frequencyHz.toFixed(score.frequencyHz%1?2:0)} Hz`;
+      scoreLabel.textContent=score.label;
+      scoreBands.textContent=`n-BANDS · ${score.bandCount} / 5`;
+      scoreBandMode.textContent=score.bandMode.toUpperCase();
+      bandLines.forEach((line,i)=>{line.dataset.state=i<score.bandCount?'active':score.id==='return'?'tail':'held'});
+      scoreDry.textContent=`DRY · ${Math.round(score.dry*100)}%`;
+      scoreReturn.textContent=`RETURN · ${Math.round(score.return*100)}% / ${Math.round(score.delay*1000)} ms`;
+      audioScore.apply(state.index);
+      documentNode.dispatchEvent(new CustomEvent('a0:observer-journey-change',{detail:Object.freeze({...state,mode,clock,score})}));
       return state;
     }
     function stopTour(resetLabel){
+      const wasTouring=touring;
       tourToken+=1;
       if(tourTimer)timerHost.clearTimeout(tourTimer);
       tourTimer=0;touring=false;rootNode.dataset.touring='false';rootNode.dataset.tourPhase='paused';
       stopTourSweep();
+      if(wasTouring&&tourAudioRequested)fadeTourScore(.28);
       if(tourButton&&resetLabel!==false)tourButton.innerHTML='<span>▶</span><b>PLAY TOUR</b><small>ATEM → 3 FENSTER → EINZELN → RETURN</small>';
       render(active,true,active>=3);
     }
     function runTour(){
       stopTour(false);touring=true;rootNode.dataset.touring='true';
+      tourAudioRequested=true;
+      void setScoreEnabled(true);
       startTourSweep();
       if(deeperLink)deeperLink.hidden=true;
       if(tourButton)tourButton.innerHTML='<span>■</span><b>PAUSE TOUR</b><small>CLOCK + PRISM RUNNING</small>';
@@ -131,6 +236,7 @@
         if(position>=TOUR_SEQUENCE.length){
           touring=false;rootNode.dataset.touring='complete';tourTimer=0;
           rootNode.dataset.tourPhase='complete';stopTourSweep();
+          if(tourAudioRequested||audioScore.state().enabled)fadeTourScore(1.6);
           if(overviewButton)overviewButton.click();
           render(0,false);
           if(status)status.textContent='TOUR COMPLETE · JETZT SELBST SCROLLEN UND ENTDECKEN';
@@ -160,6 +266,11 @@
     if(previousButton)previousButton.addEventListener('click',()=>{stopTour();go(active-1)});
     if(nextButton)nextButton.addEventListener('click',()=>{stopTour();go(active+1)});
     if(tourButton)tourButton.addEventListener('click',()=>touring?stopTour():runTour());
+    if(scoreToggle)scoreToggle.addEventListener('click',async()=>{
+      const next=scoreToggle.getAttribute('aria-pressed')!=='true';
+      const activeAudio=await setScoreEnabled(next,next ? .04 : .18);
+      if(touring)tourAudioRequested=activeAudio;
+    });
     documentNode.querySelectorAll('[data-journey-panel]').forEach((panel,index)=>panel.addEventListener('click',()=>render(index,true)));
     const overviewButton=documentNode.querySelector('#wideModeButton');
     if(overviewButton)overviewButton.addEventListener('click',()=>render(active,false));
@@ -174,10 +285,12 @@
       },{rootMargin:'-18% 0px -52% 0px',threshold:[.05,.25,.5]});
       STATIONS.slice(3).forEach(item=>{const node=documentNode.querySelector(item.selector);if(node)observer.observe(node)});
     }
+    documentNode.addEventListener('visibilitychange',()=>{if(documentNode.hidden)audioScore.suspend()});
+    if(documentNode.defaultView)documentNode.defaultView.addEventListener('pagehide',audioScore.suspend,{once:true});
     render(0,true);
-    return Object.freeze({go,render,runTour,stopTour,setOverview:()=>render(active,false),state:()=>Object.freeze({...stationAt(active),mode,touring})});
+    return Object.freeze({go,render,runTour,stopTour,setOverview:()=>render(active,false),state:()=>Object.freeze({...stationAt(active),mode,touring,score:scoreAt(active),audio:audioScore.state()})});
   }
-  return Object.freeze({STATIONS,CLOCK_RHYTHM,TOUR_TIMING,TOUR_SEQUENCE,stationAt,statusAt,clockAt,mount});
+  return Object.freeze({STATIONS,CLOCK_RHYTHM,TOUR_TIMING,TOUR_SEQUENCE,SCORE_STATIONS,stationAt,statusAt,clockAt,scoreAt,mount});
 });
 
 if(typeof document!=='undefined')document.addEventListener('DOMContentLoaded',()=>document.querySelectorAll('[data-journey-root]').forEach(node=>window.A0ObserverJourney.mount(node,document)));
