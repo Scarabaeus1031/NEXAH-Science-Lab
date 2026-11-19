@@ -25,6 +25,7 @@ assert.ok(receipt.hostRoutes.includes("/about/"));
 assert.ok(receipt.hostRoutes.includes("/library/"));
 assert.ok(receipt.hostRoutes.includes("/contact/"));
 assert.ok(receipt.hostRoutes.includes("/forschen/"));
+assert.ok(receipt.hostRoutes.includes("/laboratory/roedelheim-observatory/"));
 assert.match(receipt.sourceRevision, /^[0-9a-f]{40}$/);
 assert.match(index, /<title>A0 Science · Forschungsstand und Arbeitsraum<\/title>/);
 assert.match(index, /A0 Science · öffentlicher Forschungs- und Quellenraum/);
@@ -53,6 +54,7 @@ assert.doesNotMatch(index, /github\.com\/Scarabaeus1031\/NEXAH-Science-Lab/);
 assert.match(index, /Wir bauen keine Sammlung einzelner Bilder\. Wir untersuchen Übergänge\./);
 assert.match(index, /href="\/library\/">Library/);
 assert.match(index, /href="\/A0_TOURS\.html#explanation-path">Geführte Tour/);
+assert.match(index, /href="\/laboratory\/roedelheim-observatory\/">Rödelheim Observatory/);
 
 for (const page of receipt.pages) {
   const html = fs.readFileSync(path.join(output, page), "utf8");

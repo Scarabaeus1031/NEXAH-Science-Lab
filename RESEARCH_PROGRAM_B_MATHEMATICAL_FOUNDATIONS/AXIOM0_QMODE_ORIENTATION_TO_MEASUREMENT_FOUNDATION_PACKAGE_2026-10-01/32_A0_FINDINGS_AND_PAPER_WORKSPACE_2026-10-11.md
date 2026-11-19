@@ -2,13 +2,15 @@
 
 Date: `2026-10-11`
 
-Documentary currentness: `2026-11-11` — the canonical ledger contains
+Documentary currentness: `2026-11-19` — the canonical ledger contains
 `F-A0-01` through `F-A0-26`; the 23 October Bench/Joint, Tower–Shell,
 LOOK AGAIN and Diamond Lens returns remain synchronized as engineering triage,
 the 26 October session remains a not-admitted scientific intake, and the
 11 November Field-Notes/Living-Blueprint return is routed below as a finite
-method and diagnostic result. Earlier findings retain their original evidence
-state. No new canonical `F-A0` finding or SCC-003 theorem follows from these
+method and diagnostic result. The 19 November TOI currentness check routes the
+open orientation-practice statement only to the existing Paper E and TOI
+Longform sources. Earlier findings retain their original evidence state. No
+new canonical `F-A0` finding or SCC-003 theorem follows from these
 synchronizations.
 
 Status: `DOCUMENTARY_PAPER_WORKSPACE / PREPARATION_ONLY / NOT_ACTIVE / NOT_SUBMITTED`
@@ -37,6 +39,50 @@ research backlog. It prevents two opposite errors:
 This workspace is not a second backlog, Lab Register, Study, Run Contract,
 Navigator identity or publication pipeline. Lifecycle and permission remain in
 the canonical A0 backlog, the Science Lab Register and Mission Control.
+
+<a id="paper-family-currentness-check-20261119"></a>
+
+## Paper-family currentness check — 2026-11-19
+
+Classification: `DOCUMENTARY_CURRENTNESS_AND_EDITORIAL_ROUTING_ONLY /
+NO_NEW_FINDING / NO_PAPER_PROMOTION / NO_PUBLICATION_AUTHORITY`.
+
+The current A0 paper family was checked against the Owner statement that NEXAH
+does not seek a completed Theory of Everything, but teaches renewed
+orientation: look and listen again, distinguish inside from outside, declare
+the cut and preserve the residual. The existing reading key remains
+`TOI = Theory of Oriented Interfaces` inside the A0 method projection, with
+the explicit boundary `TOI != TOE`.
+
+| Lane | Current object and state | 19 November routing decision |
+|---|---|---|
+| **Paper A — SCC-003** | Narrow finite quotient theorem candidate; independent mathematical and prior-art review still absent | **Unchanged.** Do not add TOI, sensory language, astronomy or interface metaphors to the theorem object. Next scientific gate remains qualified external review. |
+| **Paper B — Pascal–Rosetta D30** | Formal design and non-factorization companion; not admitted as a result paper | **Unchanged.** Its typed adapter and loss boundaries may be cited by Paper C/E, but the paper is not broadened into an orientation theory. |
+| **Paper C — Return without identity** | Strongest internal formal-method synthesis; source-bound, not submitted | **Method support for TOI.** It supplies the exact distinction among Return, residual, representation recovery and identity. The new pedagogical statement adds no sixth formal case or theorem. |
+| **Paper D — typed archaeology** | Outline only | **Unchanged.** Historical recurrence, seam and observer labels remain provenance and control material, not the home of TOI. |
+| **Paper E — Orientation Method** | Internal position-and-method draft; documentary, not a Study | **Expanded in scope statement only.** This is the correct bounded paper home for orientation as an open practice: `NOTICE -> ORIENT -> DECLARE CUT -> COMPARE -> RETURN + RESIDUAL`, including explicit outside/inside type separation and `LOOK AGAIN`. No effectiveness claim is added. |
+| **Paper F — Frame / Envelope / Observer** | Conceptual hypothesis with bounded engineering examples | **Related but not merged.** Its intrinsic/observed-envelope distinction supplies an interface example. It does not prove that every surface represents an All, nor a physical or psychological interface theory. |
+| **TOI Gesamtkarte** | Theory- and orientation essay / longform working source | **Expanded as the human meaning layer.** It preserves the open-ended aim: orientation is repeatedly practised rather than completed; finer sensitivity must be paired with stronger distinction. It is not a scientific evidence source. |
+
+Current research position after this check:
+
+1. A0 contains exact finite mathematics, reproducible internal results,
+   negative controls and inspectable instruments.
+2. Paper C carries the strongest formal Return synthesis; Paper E carries the
+   methodological and pedagogical orientation thesis.
+3. TOI is a coherent open research and teaching perspective, not an
+   established scientific field, universal calculus or closed theory.
+4. External review remains missing. This documentary synthesis does not move
+   any paper to `SUBMITTED`, `PUBLICATION_READY`, `E4` or external validity.
+5. No new Paper G, Navigator identity, Study, Finding or graph relation is
+   justified by this currentness check.
+
+External-reader routing draft:
+[`A0_PAPER_FAMILY_EXTERNAL_READERS_GUIDE_DRAFT_2026-11-19.md`](A0_PAPER_FAMILY_EXTERNAL_READERS_GUIDE_DRAFT_2026-11-19.md).
+The guide separates exact mathematics, formal method, instruments, metaphor
+and open review tasks. It reuses the existing paper-family identity and the
+frozen SCC-003 packet; it is not sent, public, publication-authorized or a new
+review result.
 
 <a id="session-scientific-intake-20261026"></a>
 

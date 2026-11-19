@@ -1070,6 +1070,36 @@ formal gefrorenen Operator, einen nichttrivialen Invariantensatz oder einen
 bewiesenen Minimalitäts-/Vollständigkeitssatz; nichts davon wird hier
 vorweggenommen.
 
+#### Open orientation practice: look and listen again
+
+Die TOI-Arbeitsthese ist nicht auf theoretischen Abschluss gerichtet. Ihr
+Gegenstand ist eine wiederholbare Orientierungspraxis für wechselnde Quellen,
+Frames, Instrumente und Beobachterpositionen. NEXAH soll daher nicht eine
+letzte Antwort lehren, sondern die Fähigkeit, erneut hinzusehen, erneut
+hinzuhören und den eigenen Cut zu deklarieren.
+
+```text
+NOTICE -> ORIENT -> DECLARE CUT -> COMPARE -> RETURN + RESIDUAL
+```
+
+`OUTSIDE` bezeichnet Quelle, Umgebung, Instrument und beobachtbare Spur;
+`INSIDE` bezeichnet die protokollierte Beobachterposition, Erwartung,
+Aufmerksamkeitswahl und Reaktion. Beide Seiten bleiben typverschieden. Eine
+innere Reaktion ist keine physikalische Messung, und eine äußere Messung ist
+keine vollständige Beschreibung menschlicher Erfahrung.
+
+„Mehr Sensibilität“ bezeichnet hier eine methodische Lernabsicht: feinere
+Wahrnehmung bei stärkerer Unterscheidung, nicht erhöhte Bereitschaft, visuelle,
+symbolische oder emotionale Ähnlichkeit als Evidenz anzunehmen. Eine
+Oberfläche wird als Interface behandelt, an dem eine Quelle unter einem
+erklärten Frame, Cut und Messvertrag erscheint. Sie ist eine lokale
+Repräsentation und nicht „das Ganze“ selbst.
+
+Diese pädagogische Erweiterung verändert keinen mathematischen Claim. Sie
+erklärt, warum die technischen Verträge über Source, Interface, View, Return
+und Residuum überhaupt gebaut werden: damit Menschen Unterschiede bemerken,
+Perspektiven wechseln und verantwortbar erneut orientieren können.
+
 ## 15. NEXAH Essence — gegenwärtige Kurzform
 
 ```text

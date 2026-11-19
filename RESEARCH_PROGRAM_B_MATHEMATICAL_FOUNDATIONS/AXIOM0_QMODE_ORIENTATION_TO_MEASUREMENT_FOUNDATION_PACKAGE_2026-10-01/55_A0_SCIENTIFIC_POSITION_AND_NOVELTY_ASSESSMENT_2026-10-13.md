@@ -31,6 +31,40 @@ locally and connected to instruments; no principal result has yet received
 qualified external mathematical review, an exhaustive specialist prior-art
 search or external replication.
 
+### Currentness addendum · 2026-11-19 · TOI and the paper family
+
+The later TOI synthesis changes the articulation of the programme, not its
+evidence level. `TOI = Theory of Oriented Interfaces` is an A0 reading key and
+`TOI != TOE` its explicit boundary. It describes an open orientation practice:
+hold a source, declare frame and cut, compare inside/outside records, and
+return the result with visible loss or residual. It does not claim a completed
+theory, universal interface law, physical Theory of Everything or established
+scientific field.
+
+The existing paper family remains differently typed:
+
+- **Paper A** stays the narrow SCC-003 mathematical review object.
+- **Paper B** stays a formal-design companion with open admission gates.
+- **Paper C** carries the strongest formal Return/residual synthesis.
+- **Paper D** remains an outline and provenance/control lane.
+- **Paper E** carries the bounded orientation-method and pedagogical thesis:
+  NEXAH teaches renewed attention and declared perspective rather than final
+  answers.
+- **Paper F** separates carrier, frame, intrinsic envelope, observed envelope
+  and observer cut, but remains a conceptual hypothesis rather than a physical
+  interface theory.
+
+The phrase „look and listen again“ is therefore a research-program purpose,
+not an empirical effectiveness result. `OUTSIDE` and `INSIDE` remain typed
+records: an inner response is not a physical measurement, and an external
+measurement is not a complete account of human experience. Greater
+sensitivity is paired with stronger discrimination, not with weaker evidence
+standards.
+
+This addendum creates no Study, Finding, theorem, paper lane, publication
+state or Navigator relation. The decisive scientific-state transition remains
+qualified external review; none has yet occurred.
+
 ## 1. What has actually changed
 
 The earlier Series-I assessment correctly found no admitted theorem. That
