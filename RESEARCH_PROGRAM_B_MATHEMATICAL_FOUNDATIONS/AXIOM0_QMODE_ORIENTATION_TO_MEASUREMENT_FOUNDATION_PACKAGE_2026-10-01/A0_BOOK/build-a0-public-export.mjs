@@ -113,6 +113,12 @@ function applyPublicContentBoundary(html, relative) {
       .replace(/\s*<section\b[^>]*class=["'][^"']*a0-explanation-next[^"']*["'][^>]*>[\s\S]*?<\/section>/i, "")
       .replace(/R2–R3 · Graph 286\/32 PASS/g, "R2–R3 · Source Graph currentness check open");
   }
+  if (relative === "A0_NEWTON_GOETHE_OBSERVER_LENS.html") {
+    projected = projected.replace(
+      /Internal · parked source-bound question · not public/g,
+      "Public source-bound instrument · claim-bounded"
+    );
+  }
   return projected;
 }
 
