@@ -1,0 +1,86 @@
+{
+  "schema": "nexah.a0-public-export-live-return.v1",
+  "date": "2026-11-21",
+  "status": "DEPLOYED_AND_LIVE_VERIFIED",
+  "public_house": "https://nexah.de/",
+  "release_revision": "nexah-science-r12-20261121",
+  "source_authority": {
+    "repository": "NEXAH-Science-Lab",
+    "branch": "codex/a0-science-currentness-20261121",
+    "commit": "7d1cab22dc4f48bab112891af8945d12a1be9f02",
+    "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/",
+    "public_export_marker_sha256": "62c37b61adc49e399bed21f99b9e459f2719d128d74b8408614544366253a98a"
+  },
+  "channel_implementation": {
+    "repository": "NEXAH-Experience",
+    "branch": "codex/science-currentness-20261121",
+    "commit": "00b91c03e105d43af30f056fd2cd32f35340060f",
+    "deployment_target": "OVH / nexah.de",
+    "snapshot_files": 631,
+    "snapshot_kb": 92048,
+    "rollback_backups": [
+      "/private/tmp/NEXAH deployment backups/2026-11-21_21-24-20",
+      "/private/tmp/NEXAH deployment backups/2026-11-21_21-28-08"
+    ]
+  },
+  "public_export": {
+    "status": "PASS",
+    "pages": 14,
+    "files": 192,
+    "local_references": 523,
+    "anchor_references": 189,
+    "external_links": 52
+  },
+  "currentness_delta": {
+    "instrument_field": "Prime Architecture V1",
+    "master_builds": 6,
+    "closed_suites": 5,
+    "custody_holds": 1,
+    "custody_hold_object": "Primecube",
+    "new_studies": 0,
+    "new_findings": 0,
+    "claim_promotions": 0
+  },
+  "transport_return": {
+    "first_sync": "PARTIAL_TRANSIENT_SFTP_REPLACE_FAILURE",
+    "first_sync_effect": "Core HTML reached revision r12, but 21 Astro/CSS/JS files and one result file failed immediate recreation after remote deletion.",
+    "recovery": "The identical verified artifact was synchronized a second time. Missing files uploaded without deletion and the deploy script returned success.",
+    "final_sync": "PASS"
+  },
+  "live_smoke": {
+    "status": "PASS_9_OF_9_HTTP_200",
+    "checks": [
+      "https://nexah.de/?rev=nexah-science-r12-20261121",
+      "https://nexah.de/forschen/?rev=nexah-science-r12-20261121",
+      "https://nexah.de/laboratory/?rev=nexah-science-r12-20261121",
+      "https://nexah.de/A0_SCIENCE.html?rev=nexah-science-r12-20261121",
+      "https://nexah.de/A0_SCIENTIFIC_POSITION_REPORT.html?rev=nexah-science-r12-20261121",
+      "https://nexah.de/_astro/index.BVM9CsbM.css?rev=nexah-science-r12-20261121",
+      "https://nexah.de/_astro/BaseLayout.B12aRxy2.css?rev=nexah-science-r12-20261121",
+      "https://nexah.de/a0-public-bridge.css?rev=public-shell-r12-20261121",
+      "https://nexah.de/a0-public-bridge.js?rev=public-shell-r12-20261121"
+    ],
+    "content_witnesses": [
+      "Release revision nexah-science-r12-20261121 is present.",
+      "Currentness anchor currentness-20261121 is present.",
+      "Prime Architecture V1 is present on Research and Laboratory surfaces.",
+      "Five closed suites plus one Primecube custody hold are declared.",
+      "No new study, finding or claim promotion is declared."
+    ]
+  },
+  "artifact_hashes": {
+    "index_html": "0b026285d727065598999a03f0c4e2f3a70e3387d5f814189490fb23c8f5c5f1",
+    "forschen_index_html": "365cba76d5c0929fd08c0768e0f5ea1f87be86eea2f7a4a261899b6ee5527ac1",
+    "laboratory_index_html": "bf251fbdc5b351d186d582342b0159f0705461fd4de8aa802ac86369d146f1b6",
+    "a0_science_html": "b0d62662a456d9b87631ac6b5701bed8de73db163c4587b63e28961c66bf74b4",
+    "a0_scientific_position_report_html": "6cbd912e00ddfda8954fe0d8575a6a7063845a3ef58990c2f90ffcd567eb75d4"
+  },
+  "authority_effect": {
+    "study": 0,
+    "finding": 0,
+    "claim_ceiling_change": 0,
+    "evidence_status_change": 0,
+    "source_authority_change": 0,
+    "new_navigator_identity": 0
+  }
+}
