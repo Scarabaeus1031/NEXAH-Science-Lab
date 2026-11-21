@@ -49,11 +49,10 @@ check(html.includes('document.querySelector("#protocols .spread")'), "Engineerin
 check(html.includes("protocolArea.append(engineeringReturns)"), "Engineering Returns must be moved into Protocols");
 check(html.includes("engineeringReturns.hidden = false"), "Engineering Returns must become visible only after protocol placement");
 check(html.includes('href="#engineering-returns-20261021"'), "hero must expose the protocol archive");
-const note = html.indexOf('class="field-notes-postit" id="field-notes-entry"');
-check(note > hero && note < snapshot, "Field Notes post-it must live in the Science Desk hero");
-check(html.includes('id="field-notes-entry" href="A0_FIELD_NOTES.html"'), "Field Notes post-it must open the curated cover");
-check(html.includes("A0 Lesepfad · I → II → III → +1"), "The Field Notes post-it must expose the complete reading path");
-check(html.includes("#field-note-ii-entry{display:none}"), "The separate Field Note II post-it must be consolidated into the cover route");
+check(!html.includes('id="field-notes-entry"'), "The curated Field Notes reader entry must live in A0 Science, not the Desk hero");
+check(!html.includes('id="field-note-ii-entry"'), "The separate Field Note II draft entry must not live in the Desk hero");
+check(html.includes('id="a0-owner-handbook-notes-binding-20261105"'), "The Desk must retain the Field Notes provenance and claim-boundary record");
+check(html.includes("Die A0 Field Notes sind die fortschreibbaren NEXAH-Handbuchnotizen des Human Owners."), "The Desk must retain its historical Field Notes classification");
 check(html.includes('id="fam002-a0-orientation-intake-handoff-20261028"'), "Current FAM-002 intake must remain preserved as its handoff section");
 check(html.includes('FAM_002_HTML_LATEST_INSTRUMENTS_2026-10-28.html'), "FAM-002 handoff must open the current instrument wall");
 check(html.includes('FAM_002_A0_INTAKE_GALLERY_2026-10-28.html'), "FAM-002 handoff must open the preserved gallery");

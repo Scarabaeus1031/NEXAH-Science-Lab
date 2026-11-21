@@ -27,6 +27,12 @@ assert.match(navigation, /a0-workspace-monogram[^>]*>TH<[\s\S]*?Mission Control/
   "the local Owner workspace keeps a clearly labelled Mission Control return");
 assert.match(science, /id="top"[\s\S]*?href="#overview">Mit dem Überblick beginnen<\/a>/,
   "the internal Science Reader begins at its document start and leads into the overview");
+assert.match(science, /href="#field-notes">Field Notes<\/a>/,
+  "A0 Science exposes Field Notes in its primary navigation");
+assert.match(science, /id="field-notes"[\s\S]*?Field Notes — Beobachtung, Differenz und Rückkehr\./,
+  "A0 Science owns the curated Field Notes reader section");
+assert.match(science, /href="A0_FIELD_NOTES\.html#reading-path"/,
+  "the A0 Science section opens the canonical curated Field Notes cover");
 assert.doesNotMatch(science, /science-connect-dot|NEXAH_C_CONNECT\.html#scientific-review/,
   "the Science start page no longer duplicates the dedicated C Connect review route");
 assert.match(connect, /class="route route-review" href="#scientific-review"/,
@@ -34,4 +40,4 @@ assert.match(connect, /class="route route-review" href="#scientific-review"/,
 assert.match(connect, /id="scientific-review"/,
   "the Science Connect entry resolves to an existing bounded section");
 
-console.log(JSON.stringify({ status: "PASS", assertions: 13, surface: "NEXAH Science navigation" }, null, 2));
+console.log(JSON.stringify({ status: "PASS", assertions: 16, surface: "NEXAH Science navigation" }, null, 2));

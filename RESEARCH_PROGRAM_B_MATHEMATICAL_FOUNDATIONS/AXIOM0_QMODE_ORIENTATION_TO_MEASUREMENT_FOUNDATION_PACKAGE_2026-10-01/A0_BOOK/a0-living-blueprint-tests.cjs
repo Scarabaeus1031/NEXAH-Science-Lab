@@ -39,6 +39,9 @@ assert.deepEqual(record.open_question_projection.items.map((item) => item.id), [
 assert.match(record.claim_boundary, /NO_IDENTITY_COLLAPSE/);
 assert.match(html, /A0 Living Blueprint · Mathematical Orientation Map/);
 assert.match(html, /id="map-room"/);
+assert.match(html, /id="field-notes-continuations"/);
+assert.match(html, /Die Grammatik bleibt\. Der Träger wechselt\./);
+for (const route of ['A0_NUMBERMAGICK_GRID_RESEARCH.html#prime-master-builds', 'A0_HELIX_VIEW_ADAPTER.html', 'A0_BLUE_PINK_DODECA_CELL_RETURN.html#asymptoticSeamApertureBridge']) assert.match(html, new RegExp(route.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
 assert.match(html, /Ein Einstieg\. Vier Karten\. Ein Arbeitsraum\./);
 assert.match(html, /Konsolidierung ohne Verschmelzung/);
 for (const route of ['A0_MACHINA_ANATOMY_MAP.html#mainModules', 'A0_FAMILY_CONNECTION_ATLAS.html#map', 'A0_FIELDS_AND_JOINTS_ATLAS.html#joint-workspace', 'A0_BENCH_ENTDECKEN.html#body-exhibition']) assert.match(html, new RegExp(route.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));

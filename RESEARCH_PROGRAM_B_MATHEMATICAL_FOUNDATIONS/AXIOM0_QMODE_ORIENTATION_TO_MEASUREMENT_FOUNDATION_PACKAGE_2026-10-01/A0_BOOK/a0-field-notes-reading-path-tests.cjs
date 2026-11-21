@@ -9,9 +9,13 @@ const story = read('A0_ARCHITECTURE_OF_DIFFERENCE.html');
 const fieldNoteTwo = read('DRAFTS/A0_FIELD_NOTE_II_ARCHITECTURE_OF_DIFFERENCE_2026-11-13.html');
 const betaReturn = read('DRAFTS/A0_BETA_RETURN_MANDELBROT_JULIA_DEMONSTRATOR_2026-11-14.html');
 
-assert.match(page, /<title>A0 Field Notes — Observation → Difference → Time After Time<\/title>/);
+assert.match(page, /<title>A0 Field Notes — Beobachtung, Differenz und Rückkehr<\/title>/);
 assert.match(page, /id="observation-note"/);
 assert.match(page, /id="difference-note"/);
+assert.match(page, /Field Note I vollständig lesen · Editorial Candidate/);
+assert.match(page, /Field Note II vollständig lesen · interner Draft/);
+assert.match(page, /Field Note III vollständig lesen · interner Draft/);
+assert.match(page, /href="A0_SCIENCE\.html#field-notes">← A0 Science<\/a>/);
 assert.match(page, /Wenn eine Differenz sichtbar geworden ist – was tut sie\?/);
 assert.match(page, /The circle returns\./);
 assert.match(page, /One carrier\. Multiple frames\./);
@@ -32,6 +36,7 @@ assert.match(story, /<iframe[^>]+A0_BETA_RETURN_MANDELBROT_JULIA_DEMONSTRATOR_20
 assert.match(story, /quadratischer komplexer Hénon-Typ/);
 assert.match(fieldNoteTwo, /id="ntf-b2-bridge"/);
 assert.match(fieldNoteTwo, /href="#ntf-b2-bridge">NPF → NTF<\/a>/);
+assert.match(fieldNoteTwo, /href="\.\.\/A0_FIELD_NOTES\.html#difference-note">← Lesepfad<\/a>/);
 assert.match(fieldNoteTwo, /Reuse and relate only/);
 assert.match(fieldNoteTwo, /A0_BETA_RETURN_MANDELBROT_JULIA_DEMONSTRATOR_2026-11-14\.html#ntf-reading/);
 assert.match(betaReturn, /id="ntf-reading"/);

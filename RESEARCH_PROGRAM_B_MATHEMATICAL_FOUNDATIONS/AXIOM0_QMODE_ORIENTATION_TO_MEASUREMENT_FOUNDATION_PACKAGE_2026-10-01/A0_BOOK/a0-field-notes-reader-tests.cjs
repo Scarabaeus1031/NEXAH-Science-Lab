@@ -1,7 +1,8 @@
 const fs=require('node:fs'),assert=require('node:assert/strict'),crypto=require('node:crypto'),vm=require('node:vm'),M=require('./build-a0-field-notes.cjs'),VV8=require('./assets/a0-field-notes/vv8-model.js'),PROOF=require('./assets/a0-field-notes/ma-pi-proof-loop.js'),ULLINIUM=require('./assets/a0-field-notes/ullinium-closing-comparator.js');
 const md=fs.readFileSync(M.sourceFile,'utf8'),html=fs.readFileSync(M.outputFile,'utf8'),notes=M.parse(md);let checks=0;const ok=(v,label)=>{assert.ok(v,label);checks++;};
-ok(M.build(md)===html,'deterministic source projection');ok(notes.length===66&&notes.filter(n=>n.kind==='idea').length===31,'all current ideas and old H2 sections preserved');
+ok(M.build(md)===html,'deterministic source projection');ok(notes.length===67&&notes.filter(n=>n.kind==='idea').length===31,'all current ideas and old H2 sections preserved');
 ok(notes[8].title==='131 und 313'&&notes[9].title.startsWith('Check 60')&&notes[40].kind==='source'&&notes[44].title.startsWith('1,1'),'existing note-1..41 routes retained; newer ideas remain appended');
+ok(notes[66].title.startsWith('30. Mirror Edge 63/64')&&notes[66].kind==='source'&&notes[66].body.includes('P_1=(63/64)A+(1/64)B'),'dated Mirror Edge return is appended without shifting existing note routes');
 ok(notes[48].title==='Theory · Big Picture in Kürze'&&notes[48].kind==='idea'&&notes[48].theme==='context','Theory short remains one appended contextual Field Note');
 ok(notes[49].title.startsWith('String Theory / M-Theory')&&notes[49].kind==='idea'&&notes[49].theme==='context','M-Theory comparison remains one parked contextual Field Note');
 ok(notes[50].title.startsWith('Field Notes Visual Atlas')&&notes[50].kind==='idea','Visual Atlas remains one appended handbook note');
@@ -205,7 +206,7 @@ ok(shown().length===31,'archive initially hidden');
 search.value='ORION';search.handlers.input();ok(shown().length>0&&shown().every(c=>/orion/i.test(c.textContent)),'case-insensitive search');
 search.value='';search.handlers.input();buttons[1].handlers.click();ok(shown().every(c=>c.dataset.theme==='tube'),'theme filter');
 archive.checked=true;archive.handlers.change();ok(shown().every(c=>c.dataset.theme==='tube'),'archive respects theme');
-buttons[0].handlers.click();ok(shown().length===66,'all archive sections reachable');
+buttons[0].handlers.click();ok(shown().length===67,'all archive sections reachable');
 search.value='not-a-real-note-48271';search.handlers.input();ok(shown().length===0&&!empty.hidden,'empty state');
 archive.checked=false;search.value='';search.handlers.input();ok(shown().length===31&&empty.hidden,'reset restores ideas');
 workflowButtons.find(b=>b.dataset.workflowButton==='partial').handlers.click();ok(shown().length===9&&shown().every(card=>card.dataset.workflow==='partial'),'workflow filter isolates partially applied notes');
@@ -235,6 +236,7 @@ const theoryDetails={open:false},theoryCard=el({dataset:{kind:'idea',theme:'cont
 const script=html.match(/<script>([\s\S]*?)<\/script>/)[1];new vm.Script(script);ok(true,'browser script syntax');
 const dialog=el({showModal(){this.open=true;},close(){this.open=false;}}),lightboxImage=el({src:'',alt:''}),lightboxCaption=el({textContent:''}),lightboxClose=el(),lightboxOpener=el({dataset:{lightboxSrc:'visuals/example.png',lightboxAlt:'Example alt',lightboxCaption:'Example caption'}});dialog.addEventListener=function(type,fn){this.handlers??={};this.handlers[type]=fn;};const lightboxDoc={getElementById:id=>({'visual-lightbox':dialog,'visual-lightbox-image':lightboxImage,'visual-lightbox-caption':lightboxCaption}[id]),querySelector:q=>q==='[data-lightbox-close]'?lightboxClose:null,querySelectorAll:q=>q==='[data-lightbox-src]'?[lightboxOpener]:[]};M.lightbox(lightboxDoc);lightboxOpener.handlers.click();ok(dialog.open&&lightboxImage.src==='visuals/example.png'&&lightboxImage.alt==='Example alt'&&lightboxCaption.textContent==='Example caption','lightbox opens selected image with accessible copy');lightboxClose.handlers.click();ok(!dialog.open,'lightbox closes from visible control');
 const desk=fs.readFileSync(require('node:path').join(__dirname,'A0_RESEARCH_DESK.html'),'utf8');
-ok(desk.includes('id="field-notes-entry"')&&desk.indexOf('id="field-notes-entry"')<desk.indexOf('id="current-work"'),'Field Notes entry above current work');
-ok(desk.includes('id="field-notes-entry" href="A0_FIELD_NOTES.html"'),'Science Desk opens the curated Field Notes cover before the derived Owner Notes reader');
+const science=fs.readFileSync(require('node:path').join(__dirname,'A0_SCIENCE.html'),'utf8');
+ok(!desk.includes('id="field-notes-entry"')&&desk.includes('id="a0-owner-handbook-notes-binding-20261105"'),'Science Desk retains Field Notes provenance without owning the reader entry');
+ok(science.includes('id="field-notes"')&&science.includes('href="A0_FIELD_NOTES.html#reading-path"'),'A0 Science owns the curated Field Notes reader entry');
 console.log(JSON.stringify({status:'PASS',checks,notes:notes.length,ideas:notes.filter(n=>n.kind==='idea').length,scope:'generated reader, priority order, workflow filters, Theory, parked M-Theory, LANiF seed lens, Maskenschneider and 17/5 inner-star comparisons, seven-image Visual Atlas with bounded OLS-OVS owner visual plus local Visual 1/5/6 crosswalk and VV8 eight-phase counterphase plus A-CC-B four-direction World View shell, real filter handlers in DOM double, source escaping and stable old routes; browser visual acceptance is recorded separately'}));
