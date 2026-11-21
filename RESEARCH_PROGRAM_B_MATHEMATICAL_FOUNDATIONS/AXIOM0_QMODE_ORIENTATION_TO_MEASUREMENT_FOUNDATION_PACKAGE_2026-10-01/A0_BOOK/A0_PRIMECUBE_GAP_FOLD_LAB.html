@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A0 Primecube · 1111 Address & Gap Fold</title>
+  <link rel="stylesheet" href="a0-context-navigation.css">
+  <link rel="stylesheet" href="a0-primecube.css?rev=20261121-r5">
+  <link rel="stylesheet" href="a0-primecube-root.css?rev=20261121-r4">
+  <link rel="stylesheet" href="a0-primecube-seams.css?rev=20261121-r4">
+  <link rel="stylesheet" href="a0-primecube-hrecord.css?rev=20261121-r5">
+</head>
+<body>
+<main class="pc-shell" data-primecube>
+  <section class="pc-hero" aria-labelledby="primecubeTitle">
+    <div class="pc-hero-copy">
+      <div class="pc-kicker">A0 · Number View · finite engineering instrument</div>
+      <h1 id="primecubeTitle">PRIME<br>CUBE</h1>
+      <p>Ein Carrier <b>1…1111</b>, fünf deklarierte Ansichten, ein prüfbares <b>11²-Nähte-Overlay</b> und ein typisierter <b>H‑Record Crosswalk</b>: Zahl, Primrang, Base‑11-Cube, Dice-Zustand und Provenienz bleiben verbunden, aber nicht identisch.</p>
+      <ul class="pc-legend" aria-label="Farblegende">
+        <li><i class="pc-dot" style="--dot:#4f8df7"></i>Prime</li><li><i class="pc-dot" style="--dot:#f05549"></i>Zwilling</li><li><i class="pc-dot" style="--dot:#ffc21a"></i>Drilling</li><li><i class="pc-dot" style="--dot:#ae50ef"></i>Vierling</li><li><i class="pc-dot" style="--dot:#3fbd72"></i>Superprime</li><li><i class="pc-dot" style="--dot:#9c8126"></i>Gap interior</li><li><i class="pc-dot" style="--dot:#19c99a"></i>11² closure</li>
+      </ul>
+    </div>
+    <div class="pc-status" aria-label="A0 owner staging status">
+      <div><b>CHANNEL</b><span>INTERNAL A0</span></div><div><b>REPOSITORY</b><span>NEXAH-SCIENCE-LAB</span></div><div><b>REVISION</b><span>DIRTY / UNCOMMITTED</span></div><div><b>PREVIEW</b><span>OWNER_STAGING</span></div><div><b>ACCEPTANCE</b><span>NOT RECORDED</span></div><div><b>DEPLOYMENT</b><span>NONE / NOT AUTHORIZED</span></div>
+    </div>
+  </section>
+
+  <section class="pc-panel pc-workbench" aria-label="Primecube workbench">
+    <header class="pc-toolbar">
+      <div class="pc-segment" role="group" aria-label="Ansicht">
+        <button type="button" data-pc-view="grid" aria-pressed="true">▦ 2D Matrix</button>
+        <button type="button" data-pc-view="cube" aria-pressed="false">◇ 3D Cube</button>
+        <button type="button" data-pc-view="fold" aria-pressed="false">⌁ Gap Fold</button>
+        <button type="button" data-pc-view="hinge" aria-pressed="false">⊣ 661 Hinge</button>
+        <button type="button" data-pc-view="root" aria-pressed="false">√ Root Ruler</button>
+      </div>
+      <div class="pc-summary" data-pc-summary></div>
+    </header>
+    <div class="pc-toolbar">
+      <div class="pc-segment filter" role="group" aria-label="Konstellationsfilter">
+        <button type="button" data-pc-filter="all" aria-pressed="true">Alle 1111</button>
+        <button type="button" data-pc-filter="prime" aria-pressed="false">Primes</button>
+        <button type="button" data-pc-filter="twin" aria-pressed="false">Zwillinge</button>
+        <button type="button" data-pc-filter="triplet" aria-pressed="false">Drillinge</button>
+        <button type="button" data-pc-filter="quadruplet" aria-pressed="false">Vierlinge</button>
+        <button type="button" data-pc-filter="super" aria-pressed="false">Superprimes</button>
+        <button type="button" data-pc-filter="gap" aria-pressed="false">661→809</button>
+        <button type="button" data-pc-filter="seam" aria-pressed="false">11²-Nähte (9)</button>
+      </div>
+    </div>
+    <div class="pc-seam-rail" aria-label="11² layer closures"><span>Layer closures</span><button type="button" data-pc-seam="121">121</button><button type="button" data-pc-seam="242">242</button><button type="button" data-pc-seam="363">363</button><button type="button" data-pc-seam="484">484</button><button type="button" data-pc-seam="605">605</button><button type="button" data-pc-seam="726">726</button><button type="button" data-pc-seam="847">847</button><button type="button" data-pc-seam="968">968</button><button type="button" data-pc-seam="1089">1089</button><small>RDMH · 29.02.1972 / R–Handle · identity open</small></div>
+    <div class="pc-stage-grid">
+      <div class="pc-canvas-wrap"><canvas aria-label="Interaktive Primecube-Ansicht"></canvas></div>
+      <aside class="pc-detail" data-pc-detail aria-live="polite"></aside>
+    </div>
+    <div class="pc-foldbar">
+      <label for="primecubeFold"><b>Deklarierter Faltwinkel</b></label>
+      <input id="primecubeFold" data-pc-fold type="range" min="0" max="100" value="40" disabled>
+      <output data-pc-fold-out for="primecubeFold">40% · 36°</output>
+      <button class="pc-action" type="button" data-pc-reset>Ansicht zurücksetzen</button>
+    </div>
+  </section>
+
+  <section class="pc-panel pc-hrecord" aria-labelledby="hrecordTitle">
+    <header>
+      <div><div class="pc-eyebrow">Typed H‑space / Address crosswalk</div><h2 id="hrecordTitle">787 → 797 → 809 → 811</h2><p>Vier Primknoten in derselben Cube-Schicht <code>z=6</code>. <code>#n</code> bezeichnet den Primrang; <code>H₅</code> und <code>H₆</code> sind deklarierte Base‑6/Dice-Adressen mit exaktem Return.</p></div>
+      <div class="pc-segment" role="group" aria-label="H-Record Anker"><button type="button" data-pc-hnode="787" aria-pressed="true">787 · #138</button><button type="button" data-pc-hnode="797" aria-pressed="false">797 · #139</button><button type="button" data-pc-hnode="809" aria-pressed="false">809 · #140</button><button type="button" data-pc-hnode="811" aria-pressed="false">811 · #141</button></div>
+    </header>
+    <div class="pc-hgrid" data-pc-hrecord aria-live="polite"></div>
+    <div class="pc-hpath" data-pc-hpath></div>
+    <p class="pc-detail-boundary"><b>17-frame:</b> <code>5 + 6 + 6</code> wird als deklarierte Bestandsaufnahme gelesen: fünf Dice-Positionen, sechs Flächenlabels, sechs Orientierungspole. Keine natürliche Identität mit Primrang, Cube oder Root-Raum wird behauptet. <b>7.83</b> bleibt ohne expliziten Operator eine mnemonische Lesart, keine Gleichheit mit <code>787</code>.</p>
+  </section>
+
+  <section class="pc-notes pc-notes-six">
+    <article class="pc-panel pc-note"><div class="pc-eyebrow">Carrier / Return</div><h2>Der Würfel ist eine Adresse</h2><code class="pc-equation">n−1 = x + 11y + 121z<br>n = 1 + x + 11y + 121z</code><p>Für <code>1≤n≤1111</code> ist die Zuordnung eindeutig. Die 3D-Ansicht verändert die Zahl nicht und kann exakt zu ihr zurückkehren.</p></article>
+    <article class="pc-panel pc-note"><div class="pc-eyebrow">Constellations</div><h2>Geprüfte endliche Population</h2><ul><li>186 Primzahlen</li><li>40 Zwillingspaare</li><li>32 Drillinge der Formen <code>(p,p+2,p+6)</code> oder <code>(p,p+4,p+6)</code></li><li>5 Vierlinge <code>(p,p+2,p+6,p+8)</code></li><li>42 Superprimzahlen</li></ul></article>
+    <article class="pc-panel pc-note"><div class="pc-eyebrow">Gap / Fold</div><h2>661→809 ist kein Prime Gap</h2><p>Zwischen den Zwillingsankern <code>(659,661)</code> und <code>(809,811)</code> liegen 18 einzelne Primzahlen. Die Faltung ist ein frei einstellbarer View-Transform über diese zwillingsfreie Clusterstrecke – kein entdecktes Scharnier der Primzahlen.</p></article>
+    <article class="pc-panel pc-note"><div class="pc-eyebrow">Root / Float boundary</div><h2>Feine Abstände, exakter Return</h2><code class="pc-equation">Δk = √(k+1) − √k<br>= 1/(√(k+1)+√k)</code><p>Die Linse zeigt die monotone Stauchung für <code>1≤k≤1110</code>. <code>√2, √5, √7</code> sind deklarierte Referenzanker. Radikand und Formel bleiben exakt; Dezimalwerte und Residuen sind nur Float64-Anzeigen.</p></article>
+    <article class="pc-panel pc-note"><div class="pc-eyebrow">11² seams / Base 11</div><h2>Neun ganze Layer, dann 22 Knoten</h2><code class="pc-equation">121…1089 = m·11²<br>9×121 + 22 = 1111</code><p>Die neun Abschlüsse liegen bei <code>[10,10,z]</code> für <code>z=0…8</code> und sind garantierte Komposita — strukturelle Negativkontrollen, keine Primevents. <code>RDMH</code> bleibt historische vertikale Provenienz; <code>29.02.1972 · R / Handle</code> ist ein getrennter gültiger Kalenderwitness. Eine Identität beider ist offen.</p></article>
+    <article class="pc-panel pc-note"><div class="pc-eyebrow">Transition / 661 Hinge</div><h2>Indexnaht und Faltachse bleiben typisiert</h2><code class="pc-equation">p₁₂₀=659 · p₁₂₁=661<br>661=551₁₁ · addr=550₁₁</code><p><code>(659,661)</code> ist Zwillingspaar #30 und der linke Anker der längsten zwillingsfreien Clusterstrecke bis 1111. Der starre Hinge rotiert <code>n≥661</code> um <code>uᵧ=0, u_z=1/9</code>. Die 3D-Rotation bleibt bijektiv; nur die anschließende 2D-Projektion kann Quellpunkte überlagern.</p></article>
+  </section>
+
+  <p class="pc-boundary"><b>CLAIM BOUNDARY:</b> Das Instrument prüft endliche Arithmetik, Konstellationsmembership, 37-Spalten-Grid, mod-30/mod-37-Reste, Prime-Index, Base-11-Adresse, 11²-Layerabschluss, Wurzeldifferenzen, H₅/H₆-Dice-Codes und exakten Return per Quellzahl. Primrang <code>#n</code>, Cube-Adresse, Dice-Zustand und SHA‑256-Provenienz sind verschiedene Register. Trägerwert <code>121</code> und Indexaussage <code>p₁₂₁=661</code> bleiben getrennt. Gap Fold und 661 Hinge sind zwei verschiedene deklarierte View-Transforms. Die 3D-Hinge-Rotation ist bijektiv; nur die 2D-Bildprojektion kann überlagern. <b>HG→OF</b>, <b>A5</b>, <b>BHK</b>, <b>AM im PM</b>, <b>RDMH</b>, <b>29.02.1972 · R / Handle</b>, <b>DA–MA</b> und <b>7.83↔787</b> bleiben Owner-/Quellenlesarten ohne eigenen Operator. Es wird keine intrinsische kubische Primzahlgeometrie, natürliche Dice-Korrespondenz oder physisches Faltgelenk behauptet.</p>
+  <footer class="pc-return"><span>Reuses: MOD:NUMBER_VIEW_SUITE · ART:A0:MATHEMATICAL_JOINTS · A0:ROOTROOM_CODON_ORIENTATION_RETURN:V1 · no graph delta</span><nav><a href="A0_ROOTROOM_CODON_ORIENTATION_RETURN.html#source-operator-return">← Source–Operator–Return</a> · <a href="A0_CRT_ROOT_BOUNDARY_AUDIT.html"><strong>CRT–Root Boundary →</strong></a> · <a href="A0_ROOT_SHRINKING_1729_RETURN.html"><strong>Root Shrinking →</strong></a> · <a href="A0_PRIMECUBE_GAP_FOLD_CONTRACT_2026-11-21.md">Contract</a> · <a href="assets/a0-primecube-gap-fold-v1.json">Binding</a> · <a href="results/a0-primecube-gap-fold-2026-11-21.json">Receipt</a></nav></footer>
+</main>
+<script src="a0-primecube-model.js?rev=20261121-r5"></script>
+<script src="a0-primecube-ui.js?rev=20261121-r5"></script>
+<script src="a0-context-navigation.js"></script>
+</body>
+</html>

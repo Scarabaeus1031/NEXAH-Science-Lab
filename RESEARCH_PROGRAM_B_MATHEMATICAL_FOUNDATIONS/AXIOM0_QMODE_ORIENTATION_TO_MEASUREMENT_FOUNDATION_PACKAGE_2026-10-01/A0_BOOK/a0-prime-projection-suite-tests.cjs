@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+'use strict';
+const assert=require('node:assert/strict');
+global.A0PrimeAddressCountershot=require('./a0-prime-address-countershot.js');
+const S=require('./a0-prime-projection-suite.js');let passed=0;const check=(name,value)=>{assert.ok(value,name);passed++};
+const crt=S.crtOrbit();check('21 state CRT orbit',crt.rows.length===21&&crt.period===21);check('start address',JSON.stringify(crt.rows[0].address)==='[1,2,2]');check('step closes address',JSON.stringify(crt.return.address)==='[1,2,2]');check('2037 intersection',JSON.stringify(crt.rows[20].address)==='[0,2,0]'&&JSON.stringify(crt.rows[20].factors)==='[3,7,97]');check('six prime carriers',crt.rows.filter(r=>r.prime).length===6);check('two upward cousin events',crt.rows.filter(r=>r.cousinUp).length===2);
+const z=S.zoneAudit('residue');check('zone table exact',JSON.stringify(z.table)==='[[1,4,8,7,5,6,7,7,7,7,7],[0,6,5,6,7,6,4,5,5,3,5],[0,7,5,5,4,5,7,5,3,5,4]]');check('chi square exact',Math.abs(z.chiSquare-6.322679612870788)<1e-12);check('18 degrees freedom',z.degreesOfFreedom===18);const cell=S.zoneAudit('cell');check('cell convention shifts zero seam',cell.table.every((row,i)=>row[10]===z.table[i][0]));
+const strip=S.stripAudit(1000,40);check('168 primes',strip.primeCount===168);check('window counts exact',JSON.stringify(strip.counts)==='[25,21,16,16,17,14,16,14,15,14]');check('declared flips',JSON.stringify(strip.flipAddress)==='[90,90,270]');check('zone counts return',strip.zones.reduce((n,x)=>n+x.primeCount,0)===168);check('snake return addresses',S.snakeAddress(1,40).col===0&&S.snakeAddress(40,40).col===39&&S.snakeAddress(41,40).col===39&&S.snakeAddress(80,40).col===0);
+const audit=S.audit();check('identity reuse only',audit.newCanonicalIds.length===0&&audit.relationChanges.length===0);console.log(JSON.stringify({suite:'a0-prime-projection-suite',status:'PASS',passed,checks:audit.checks},null,2));
