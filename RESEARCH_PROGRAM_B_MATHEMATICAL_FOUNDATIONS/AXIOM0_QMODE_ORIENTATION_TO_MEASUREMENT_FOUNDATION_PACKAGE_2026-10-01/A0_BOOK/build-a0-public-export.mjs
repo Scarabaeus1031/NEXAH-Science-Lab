@@ -93,6 +93,7 @@ function applyPublicContentBoundary(html, relative) {
   let projected = html
     .replace(/\s*<div class="stat"><small>Operating state<\/small><strong>Structure Freeze · 0 active<\/strong><span>Keine Study aktiviert und keine Publikation autorisiert\.<\/span><\/div>/i, "")
     .replace(/Keine Ausführung, Simulation oder Evidenzproduktion während Structure Freeze\./g, "Keine Ausführung, Simulation oder Evidenzproduktion ohne separate Study-Aktivierung.")
+    .replace(/Der aktuelle Structure Freeze bleibt unverändert/g, "Die aktuelle interne Forschungssteuerung bleibt unverändert")
     .replace(/Structure Freeze/g, "interne Forschungssteuerung");
   if (relative === "A0_SCIENCE.html") {
     projected = projected
