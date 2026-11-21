@@ -1,0 +1,17 @@
+.pc-notes-four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.pc-detail-boundary {
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px solid var(--pc-line);
+  color: #c9bea1 !important;
+  font: 600 11px/1.55 ui-monospace, monospace;
+}
+
+@media (max-width: 980px) {
+  .pc-notes-four {
+    grid-template-columns: 1fr;
+  }
+}

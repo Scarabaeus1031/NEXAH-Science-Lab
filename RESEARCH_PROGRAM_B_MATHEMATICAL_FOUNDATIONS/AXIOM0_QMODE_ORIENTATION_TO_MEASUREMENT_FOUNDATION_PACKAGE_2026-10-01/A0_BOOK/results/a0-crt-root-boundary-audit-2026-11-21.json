@@ -1,0 +1,20 @@
+{
+  "schema": "nexah.a0.engineering-test-receipt/1.0.0",
+  "suite": "a0-crt-root-boundary-audit",
+  "date": "2026-11-21",
+  "status": "PASS",
+  "passed": 49,
+  "failed": 0,
+  "verified": {
+    "ring": "6 source markers; 2 primes and 4 exact composite factorizations",
+    "operators": "J6 closed slot permutation; R637 partial on supplied marker set; N37 residue-only",
+    "prime_index_seam": "p120=659, p121=661, p140=809 and sqrt(121)=11",
+    "shared_residue": "661 mod 37 = 809 mod 37 = 32; difference 148 = 4*37",
+    "crt_carrier": "37 layers by 77 cells cover all 2849 nodes exactly once; ring markers resolve to layers 15,4,19,8,34,12",
+    "boundary_layer": "residue-32 layer retains anchors 180,661,809,883,1031 and contains 13 verified primes",
+    "heatmap": "11 rows by 6 source-fixed columns",
+    "source_binding": "5 source records resolve and match pinned SHA-256 hashes",
+    "graph_delta": "0 identities / 0 relations / 0 aliases"
+  },
+  "claim_boundary": "Finite arithmetic, typed views and owner-supplied observation values only; no shared CRT/root mechanism, physical seam, resonance, Study, Finding or publication claim."
+}

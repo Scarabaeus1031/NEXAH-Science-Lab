@@ -7,15 +7,24 @@
 <meta name="description" content="Von der Zahl zum begehbaren Feld: Originalbilder, Entwicklungswege und ein interaktiver Pascal-Faden zwischen Grid, Bügel, Spirale und Return.">
 <link rel="stylesheet" href="a0-context-navigation.css?rev=flagship-constellation-r1-20261030">
 <style>
-:root{color-scheme:light;--ink:#152b37;--muted:#465c67;--paper:#f7f4ed;--line:#c7d1d4;--accent:#08667d}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:5rem}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 system-ui,sans-serif}a{color:var(--accent);text-underline-offset:3px}a:hover{text-decoration-thickness:2px}a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #9a5d00;outline-offset:4px}header.top{position:relative;padding:1rem max(5vw,1rem);background:#102a39;color:white;display:flex;gap:1rem;flex-wrap:wrap;justify-content:space-between}header.top a{color:#e4f3fa}nav{display:flex;gap:1rem;flex-wrap:wrap}main,footer{max-width:1120px;margin:auto;padding:2rem 1.25rem}.eyebrow{font:700 .76rem/1.5 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}h1{font-size:clamp(2.25rem,5vw,4.3rem);line-height:1.08;max-width:900px;margin:.5rem 0 1rem}h2{font-size:1.65rem;line-height:1.2}h3{margin:.2rem 0 .7rem}p{max-width:85ch}.lead{font-size:1.15rem}.note{border-left:4px solid #a27122;background:#eee8dc;padding:1rem 1.2rem}.links{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.2rem 0}.links a,.open{display:inline-block;border:1px solid #6b8791;padding:.55rem .85rem;border-radius:.35rem;text-decoration:none}.links a:hover,.open:hover{background:#e1ecee}.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:1.8rem 0}.flow article{padding:1rem;border:1px solid var(--line);background:white}.flow strong{display:block;font-size:1.05rem}.flow p{font-size:.93rem;margin:.5rem 0 0}.section{padding:1.7rem 0;border-top:1px solid var(--line)}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem}.cards details,.question{background:white;border:1px solid var(--line);border-radius:.4rem;padding:1rem}.cards details:last-child{grid-column:1/-1}summary{cursor:pointer;font-weight:750;font-size:1.1rem}summary small{display:block;font-size:.9rem;font-weight:400;color:var(--muted)}details[open] summary{margin-bottom:.7rem}.filter{display:block;margin:1rem 0}input[type=search]{display:block;width:100%;max-width:600px;padding:.75rem;font:inherit;border:1px solid #6b8791;border-radius:.3rem;background:white}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:650px;background:white;font-size:.94rem}th,td{padding:.85rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}th{background:#e7edef}.status{font:.8rem ui-monospace,monospace;color:var(--muted)}code{overflow-wrap:anywhere}.questions{display:grid;gap:.8rem}.question b{display:block}footer{border-top:1px solid var(--line);font-size:.9rem}#sourceCount{display:block;color:var(--muted);margin:.5rem 0}[hidden]{display:none!important}@media(max-width:700px){.flow,.cards{grid-template-columns:1fr}.cards details:last-child{grid-column:auto}main{padding:1.5rem 1rem}h1{font-size:2.5rem}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+:root{color-scheme:light;--ink:#152b37;--muted:#465c67;--paper:#f7f4ed;--line:#c7d1d4;--accent:#08667d}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:5rem}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 system-ui,sans-serif}a{color:var(--accent);text-underline-offset:3px}a:hover{text-decoration-thickness:2px}a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #9a5d00;outline-offset:4px}header.top{position:relative;padding:1rem max(5vw,1rem);background:#102a39;color:white;display:flex;gap:1rem;flex-wrap:wrap;justify-content:space-between}header.top a{color:#e4f3fa}nav{display:flex;gap:1rem;flex-wrap:wrap}main,footer{max-width:1120px;margin:auto;padding:2rem 1.25rem}.eyebrow{font:700 .76rem/1.5 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}h1{font-size:clamp(2.25rem,5vw,4.3rem);line-height:1.08;max-width:900px;margin:.5rem 0 1rem}h2{font-size:1.65rem;line-height:1.2}h3{margin:.2rem 0 .7rem}p{max-width:85ch}.lead{font-size:1.15rem}.note{border-left:4px solid #a27122;background:#eee8dc;padding:1rem 1.2rem}.links{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.2rem 0}.links a,.open{display:inline-block;border:1px solid #6b8791;padding:.55rem .85rem;border-radius:.35rem;text-decoration:none}.links a:hover,.open:hover{background:#e1ecee}.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:1.8rem 0}.flow article{padding:1rem;border:1px solid var(--line);background:white}.flow strong{display:block;font-size:1.05rem}.flow p{font-size:.93rem;margin:.5rem 0 0}.section{padding:1.7rem 0;border-top:1px solid var(--line)}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem}.cards details,.question{background:white;border:1px solid var(--line);border-radius:.4rem;padding:1rem}.cards details:last-child{grid-column:1/-1}summary{cursor:pointer;font-weight:750;font-size:1.1rem}summary small{display:block;font-size:.9rem;font-weight:400;color:var(--muted)}details[open] summary{margin-bottom:.7rem}.filter{display:block;margin:1rem 0}input[type=search]{display:block;width:100%;max-width:600px;padding:.75rem;font:inherit;border:1px solid #6b8791;border-radius:.3rem;background:white}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:650px;background:white;font-size:.94rem}th,td{padding:.85rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}th{background:#e7edef}.status{font:.8rem ui-monospace,monospace;color:var(--muted)}code{overflow-wrap:anywhere}.questions{display:grid;gap:.8rem}.question b{display:block}footer{border-top:1px solid var(--line);font-size:.9rem}#sourceCount{display:block;color:var(--muted);margin:.5rem 0}[hidden]{display:none!important}.prime-master-builds{margin:2rem 0;padding:clamp(1rem,3vw,1.8rem);border:1px solid #233e55;border-radius:18px;background:linear-gradient(145deg,#07131f,#0d2131 58%,#171225);color:#e9f3fa;box-shadow:0 20px 60px #102a3922}.prime-master-builds .eyebrow{color:#f0c55c}.prime-master-builds h2{font-size:clamp(1.7rem,3.2vw,2.8rem);margin:.2rem 0}.prime-master-builds>p{color:#b9cad7}.prime-master-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:1.25rem 0}.prime-master-card{display:flex;flex-direction:column;min-height:230px;padding:1rem;border:1px solid #36516a;border-radius:13px;background:#091826}.prime-master-card small{color:#f0c55c;font:700 .68rem ui-monospace,monospace;letter-spacing:.08em}.prime-master-card h3{margin:.45rem 0;color:#fff}.prime-master-card p{margin:.25rem 0 1rem;color:#b9cad7;font-size:.9rem}.prime-master-card a{margin-top:auto;color:#8fe3ff}.prime-address-key{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.55rem;margin-top:1rem}.prime-address-key article{padding:.75rem;border-left:3px solid #f0c55c;background:#07131f}.prime-address-key b,.prime-address-key code{display:block;color:#fff}.prime-address-key span{display:block;color:#9fb4c3;font-size:.78rem}.prime-leaf-boundary{padding:.85rem;border:1px solid #553b68;background:#161125;color:#dccdf0}.prime-master-builds .status{color:#90a8b7}@media(max-width:900px){.prime-master-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.prime-address-key{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:700px){.flow,.cards,.prime-master-grid,.prime-address-key{grid-template-columns:1fr}.cards details:last-child{grid-column:auto}main{padding:1.5rem 1rem}h1{font-size:2.5rem}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 <link rel="stylesheet" href="a0-numbermagick-story.css">
 <link rel="stylesheet" href="a0-six-marker-grid-views.css">
+<link rel="stylesheet" href="a0-six-marker-637-mirror-audit.css">
+<link rel="stylesheet" href="a0-twin-prime-base-grid-audit.css">
+<link rel="stylesheet" href="a0-repunit-scale-fracture-audit.css?rev=r1-20261121">
+<link rel="stylesheet" href="a0-fibonacci-crt-clock.css?rev=r1-20261121">
 <link rel="stylesheet" href="a0-numbermagick-number-lens.css">
 <link rel="stylesheet" href="a0-gh-hinge.css">
 <link rel="stylesheet" href="a0-mod12-alpha-omega.css">
 <link rel="stylesheet" href="a0-reciprocal-angle-hinge.css">
 <link rel="stylesheet" href="a0-exponential-decay-gap.css?rev=grey-pink-r1-20261118">
+<link rel="stylesheet" href="a0-prime-address-countershot.css?rev=r4-20261121">
+<link rel="stylesheet" href="a0-prime-torus-thread-demonstrator.css?rev=r2-euler-20261121">
+<link rel="stylesheet" href="a0-quaternion-binary-lift.css?rev=r1-20261120">
+<link rel="stylesheet" href="a0-numbermagick-plug-rail.css?rev=r1-20261121">
+<link rel="stylesheet" href="a0-scarab-nx-probe.css?rev=r1-20261121">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
@@ -23,7 +32,11 @@
 <a href="index.html">NEXAH · A0</a>
 <nav aria-label="Seitennavigation">
 <a href="#address-context-return">Den Faden verstehen</a>
+<a href="#prime-master-builds">Master Builds</a>
 <a href="#grey-pink-decay-gap">Grey ↔ Pink</a>
+<a href="#prime-address-countershot">Prime Address</a>
+<a href="#numbermagick-plug-rail">Plug Rail</a>
+<a href="#scarab-nx-probe">nₓ Probe</a>
 <a href="A0_PLATINUM_IRIDIUM_PI_LENS.html#numbermagickPiComparator">Numbermagick ↔ PI</a>
 <a href="#reading-paths">Lesepfade</a>
 <a href="#instruments">Instrumente</a>
@@ -50,6 +63,29 @@
 <p class="story-intro">Numbermagick ist hier nicht nur eine Sammlung besonderer Zahlen. Es ist die Arbeit daran, Zahlen, Zeichen und Relationen in verschiedenen Karten lesbar zu machen. Rootroom, Portalstone, Euler-L, Tessarec und die heutigen A0-Instrumente tragen unterschiedliche Teile dieser Entwicklung.</p>
 <p class="story-footnote">Eine Leselinie durch vorhandene Arbeiten, keine lückenlos rekonstruierte Entstehungsgeschichte und kein gemeinsamer Generator. <a href="../../../SCIENCE_LAB/RESEARCH_AREAS/FIELD_GLYPH_NUMBER_ARCHITECTURE_STAGE_0_2026-09-14/08_EVOLUTIONARY_TRANSFORMATION_SPINE.md">Die bestehende Entwicklungsübersicht lesen →</a>
 </p>
+</section>
+<section id="prime-master-builds" class="prime-master-builds" aria-labelledby="primeMasterBuildsTitle">
+<p class="eyebrow">A0 · PRIME MASTER SURFACE · CARRIER / PAIR / PROJECTION / BOUNDARY</p>
+<h2 id="primeMasterBuildsTitle">Die Prime-Architektur: Adresse, Helix, Projektion und Return.</h2>
+<p class="lead">Cube, Helix und Prime Projection sind keine dekorativen Nebenansichten: Sie tragen Adresse, Paarung und Vergleich. CRT↔Root und Root Shrinking markieren die Typgrenzen. Zusammen bilden sie eine navigierbare Architektur; ihre mathematischen Verträge bleiben getrennt.</p>
+<p class="status"><strong>V1-Pfad:</strong> Die Schritte <code>01→06</code> sind als interne Präsentationssequenz gehalten. Der mathematische Build ist prüfbar; vollständige Source Custody bleibt bis zur Wiederaufnahme von drei Owner-Bildern offen.</p>
+<div class="prime-master-grid">
+<article class="prime-master-card"><small>01 · MASTER CARRIER · EXACT RETURN</small><h3>Primecube · 1111 Address &amp; Gap Fold</h3><p><code>n−1=x+11y+121z</code>, exakter Return, Primränge, Base-11-Schichten, Dice-Adressen und der deklarierte 661→809 View-Fold.</p><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html">Primecube öffnen →</a></article>
+<article class="prime-master-card"><small>02 · MASTER HELIX / REGISTER VIEW · FINITE</small><h3>RDMH Helix Register Adapter</h3><p>40 geprüfte Twin-Prime-Sprossen und 19 eindeutige ℤ₃₇-Involutionsorbits; dazu umschaltbare Register <code>1+1</code>, <code>7+7</code>, <code>3×7</code> und <code>1+18</code>. Θ, ι und DAO bleiben explizite View-Metriken.</p><a href="A0_HELIX_VIEW_ADAPTER.html">Helix öffnen →</a></article>
+<article class="prime-master-card"><small>03 · MASTER COMPARATOR · THREE VIEWS</small><h3>Prime Projection Test Suite</h3><p>Ein gehaltener arithmetischer Träger in Snake-Strips, mod-11-Zonen und dem CRT-Orbit <code>37+100k</code>.</p><a href="A0_PRIME_PROJECTION_TEST_SUITE.html">Projection Suite öffnen →</a></article>
+<article class="prime-master-card"><small>04 · TYPE BOUNDARY · PERIODIC / APERIODIC</small><h3>CRT ↔ Root Boundary Audit</h3><p>Periodische Restklassen und irrationale Wurzelabstände werden vergleichbar, ohne einen gemeinsamen Raum oder Generator zu behaupten.</p><a href="A0_CRT_ROOT_BOUNDARY_AUDIT.html">Boundary Audit öffnen →</a></article>
+<article class="prime-master-card"><small>05 · ROOT RULER · EXACT LAW</small><h3>Root Shrinking · 1729 Return</h3><p><code>Δₖ=√(k+1)−√k</code> bleibt exakt und streng fallend; der 1728→1729-Joint ist ein getrenntes Gegenregister.</p><a href="A0_ROOT_SHRINKING_1729_RETURN.html">Root Shrinking öffnen →</a></article>
+<article class="prime-master-card"><small>06 · MIRROR NODES · DECLARED CUBE</small><h3>Mirror Nodes Prime Cube</h3><p>Der 1031/1033↔1301/3301-Spiegelverbund als kontrollierte Würfelprojektion mit klarer Grenze zwischen Arithmetik und Darstellung.</p><a href="A0_MIRROR_NODES_PRIME_CUBE.html">Mirror Cube öffnen →</a></article>
+</div>
+<div class="prime-address-key" aria-label="Prime address legend">
+<article><b><code>n</code></b><span>Integer-Quellwert</span></article>
+<article><b><code>#k</code></b><span>Primrang: <code>pₖ=n</code>, keine Raumdimension</span></article>
+<article><b><code>PC1111:N0811</code></b><span>stabile Record-/Quelladresse</span></article>
+<article><b><code>[x,y,z]</code></b><span>nullbasierte Base-11-Trägeradresse aus <code>n−1</code></span></article>
+</div>
+<p class="prime-leaf-boundary"><strong>Prime-Blätter:</strong> Das Blätterprofil im Polar-Cut-Atlas ist eine normierte Besuchsdichte aus Prim-Punkten und Frame-Crossings. Es ist eine abgeleitete Projektion desselben endlichen Trägers — kein zusätzlicher Prime-Typ, keine eigene <code>#</code>-Adresse und kein neues Primzahlgesetz.</p>
+<p class="status"><strong>Governance:</strong> Surface-/Coverage-Update unter <code>MOD:NUMBER_VIEW_SUITE</code>, <code>ART:A0:MATHEMATICAL_JOINTS</code>, <code>NN:CRT_QRT_37_CARRIER_LADDER</code> und <code>NEXAH:PBM:V1</code>. Keine neue Identity, Relation, Study, Finding oder Publikationsfreigabe.</p>
+<div class="links"><a href="A0_PRIME_ARCHITECTURE_V1_2026-11-21.md">01–06 · V1-Dossier →</a><a href="assets/a0-prime-architecture-v1.json">Machine Manifest →</a><a href="results/a0-numbermagick-prime-master-surface-audit-2026-11-21.json">Coverage Receipt →</a><a href="A0_RESEARCH_DESK.html#prime-projection-helix-paper-routing-20261121">Science Desk Return →</a></div>
 </section>
 <nav id="reading-paths" class="reading-paths" aria-labelledby="readingPathsTitle">
 <div class="reading-paths-heading"><p class="eyebrow">Drei Wege · ein gemeinsamer Return-Fokus</p><h2 id="readingPathsTitle">Wie möchtest du diese Seite lesen?</h2><p>Die Wege sind Einstiege in denselben Bestand. Sie ändern weder Quellenstatus noch mathematische Identität.</p></div>
@@ -949,6 +985,312 @@
 </article>
 </div>
 </section>
+<section id="prime-address-countershot" class="section prime-address-countershot" data-prime-address-countershot aria-labelledby="primeAddressTitle">
+<p class="eyebrow">A0 · PRIME ADDRESS / COUNTERSHOT · 25-STRIP CARRIER · 20.11.2026</p>
+<h2 id="primeAddressTitle">Primwert, Primindex und Plate-Adresse auf derselben Bühne — ohne sie gleichzusetzen.</h2>
+<p class="lead">NEXAH Core bleibt Quellen- und Evidenzautorität für die Prime-Arbeit. A0 liest den vorhandenen Träger als gerichteten Ansichtswechsel: <strong>Index → Primwert → nullbasierte Adresse → Gegenindex → Return.</strong></p>
+<div class="pa-contract" aria-label="Wiederverwendete Verträge">
+<span>NEXAH:PBM:V1</span><span>PBM:PRIME_SEQUENCE</span><span>PBM:PRIME_INDEX</span><span>PBM:GRID11</span><span>MOD:NUMBER_VIEW_SUITE</span>
+</div>
+<div class="pa-controls">
+<label for="primeCarrierMode">Carrier definition
+<select id="primeCarrierMode"><option value="ceiling" selected>Zahlengrenze · n ≤ N</option><option value="count">Primzahlanzahl · k ≤ K</option></select>
+</label>
+<label for="primeAddressIndex">Prime index <output id="primeIndexControlOut" for="primeAddressIndex">10</output>
+<input id="primeAddressIndex" type="range" min="1" max="168" step="1" value="10">
+</label>
+<label for="primeStripLimit">Target N / K
+<select id="primeStripLimit"><option value="100">100</option><option value="500">500</option><option value="1000" selected>1000</option></select>
+</label>
+</div>
+<div class="pa-ledger" aria-live="polite">
+<article><small>INDEX n</small><output id="primeIndexOut">10</output></article>
+<article><small>PRIME VALUE pₙ</small><output id="primeValueOut">29</output></article>
+<article><small>PLATE ADDRESS pₙ−1</small><output id="primeAddressOut">28</output></article>
+<article><small>COUNTERSHOT π(pₙ)</small><output id="primeReverseOut">π(29) = 10</output></article>
+<article><small>SUPERPRIME?</small><output id="primeSuperprimeOut" data-state="no">NO</output></article>
+<article><small>NESTED PRIME</small><output id="primeNestedOut">p₂₉ = 109</output></article>
+</div>
+<output id="primeEquationOut" class="pa-equation">10 ↔ p10=29 ↔ address 29−1=28</output>
+<div class="pa-formal" aria-label="Formale Primzahl-Definition">
+<p><strong>Prädikat:</strong> <code>χℙ(n)=1 ⇔ n≥2 ∧ ∀d∈{2,…,⌊√n⌋}: d∤n</code></p>
+<p><strong>Zählung:</strong> <code>π(x)=Σₙ₌₂ˣ χℙ(n)</code> · <strong>Inverse Adresse:</strong> <code>pₖ=min{x≥2:π(x)=k}</code></p>
+<output id="primeCarrierDomainOut">n ≤ 1000 → π(1000)=168</output>
+<output id="primeCarrierFormulaOut">π(1000) = Σₙ₌₂^1000 χℙ(n) = 168</output>
+</div>
+<div class="pa-dyadic" aria-labelledby="primeDyadicTitle">
+<p class="eyebrow">DYADIC SHELL RETURN · FIVE BANDS + ONE JOINT</p>
+<h3 id="primeDyadicTitle">Ein Halbierungspfad, zwei gekoppelte Sechs-Knoten-Träger.</h3>
+<p>Links stehen fünf verschachtelte Zahlengrenzen. Rechts stehen die fünf <em>disjunkten</em> Prime-Schalen zwischen diesen Grenzen. Der sechste Knoten ist keine weitere Schale, sondern der exakte Summen-Return.</p>
+<div id="primeDyadicSvg" class="pa-dyadic-stage" aria-live="polite"></div>
+<div class="pa-dyadic-readout">
+<output id="primeDyadicEquation">18 + 12 + 23 + 42 + 73 = 168 = π(1000)</output>
+<output id="primeDyadicCumulative">limits [62, 125, 250, 500, 1000] · cumulative π [18, 30, 53, 95, 168]</output>
+</div>
+</div>
+<div class="pa-twin-seam" aria-labelledby="primeTwinSeamTitle">
+<p class="eyebrow">TWIN · SEAM · MIRROR · EXACT FINITE LAYER</p>
+<h3 id="primeTwinSeamTitle">Zwei Primzahlen, eine zusammengesetzte Mitte und zwei getrennte Dezimalspiegel.</h3>
+<p><code>1031</code> und <code>1033</code> bilden ein Twin-Prime-Paar um <code>1032</code>. Die Ziffernumkehr erzeugt zwei weitere Primzahlen; sie ist ein Basis-10-Operator und keine geometrische Gegenrotation.</p>
+<div id="primeTwinSeamSvg" class="pa-twin-seam-stage" aria-live="polite"></div>
+<div class="pa-twin-seam-readout">
+<output id="primeTwinSeamEquation">1031 &lt; 1032 &lt; 1033 · gap 2 · 1032 = 2 × 2 × 2 × 3 × 43</output>
+<output id="primeTwinSeamMirror">rev₁₀(1031)=1301 ∈ ℙ · rev₁₀(1033)=3301 ∈ ℙ</output>
+<output id="primeTwinSeamBridge">62 + 168 = 230 = 10 × p9</output>
+</div>
+<p class="pa-twin-boundary"><strong>Typed boundary:</strong> <code>1031↔1301</code> und <code>1033↔3301</code> sind reversible Prime-Paare, keine Palindrome. <code>1032</code> ist der arithmetische Mittelträger, nicht prim. Die historische CIKADA-3301-Provenienz, geometrische Winkelspiegelung <code>θ↦360°−θ</code>, Fibonacci-Lesart und spektrale/Ihara/Riemann-Frage bleiben getrennte Objekte.</p>
+<div class="links">
+<a href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_IEEE300_GRAPH_TO_GRID_VALIDATION_2026-10-08/morphology_01/RESULT_SUMMARY.md">41–43 / 1031–1033 Number-View Boundary →</a>
+<a href="../../../SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/FINAL_INTAKE_DECISION.md">CIKADA 3301 Provenienz separat →</a>
+<a href="A0_MIRROR_NODES_PRIME_CUBE.html">Mirror Nodes Prime Cube · 3D / Raumdiagonale →</a>
+</div>
+</div>
+<section class="pa-integration" aria-labelledby="primeIntegrationTitle">
+<header class="pa-integration__head">
+<div><p class="eyebrow">CRT · QRT · ANTIPODE · EULER · ILAU · SOURCE-BOUND CROSSWALK</p><h3 id="primeIntegrationTitle">Eine Zahl, mehrere adressierte Ansichten — und jede behält ihren Operator.</h3></div>
+<output id="primeIntegrationValue">137</output>
+</header>
+<div class="pa-integration-picks" role="group" aria-label="Crosswalk Carrier wählen">
+<button type="button" data-prime-integration-value="37">37</button>
+<button type="button" data-prime-integration-value="137" aria-pressed="true">137</button>
+<button type="button" data-prime-integration-value="937">937</button>
+<button type="button" data-prime-integration-value="1031">1031</button>
+<button type="button" data-prime-integration-value="1032">1032</button>
+<button type="button" data-prime-integration-value="1033">1033</button>
+<button type="button" data-prime-integration-value="2037">2037</button>
+</div>
+<div class="pa-integration-rail" aria-live="polite">
+<article><small>PRIME ADDRESS</small><output id="primeIntegrationPrime">PRIME · π(137)=33</output></article>
+<article><small>QRT · n=20q+r</small><output id="primeIntegrationQrt">137=20·6+17 · QRT (6,17)</output></article>
+<article><small>CRT · mod (3,5,7)</small><output id="primeIntegrationCrt">A₁₀₅(137)=(2,2,4)</output></article>
+<article><small>ANTIPODE</small><output id="primeIntegrationAntipode">J₁₀₀₀(n)=1000−n=863 · ADDRESS_AXIS</output></article>
+<article><small>EULER LANE</small><output id="primeIntegrationEuler">HISTORICAL OFFSET · c=137 · nach Zentrierung keine eigene Kurvenform</output></article>
+</div>
+<div class="pa-integration-ilau" aria-label="ILAU Audit auf Root- und Flip-Achse">
+<article class="pa-ilau-i"><b>I · RETAINED</b><output id="primeIntegrationIlauI">integer carrier and declared source record</output></article>
+<article class="pa-ilau-l"><b>L · LOST</b><output id="primeIntegrationIlauL">quotient is lost if only a residue address is shown</output></article>
+<div class="pa-integration-origin" title="Staff x=0 · Flip y=0 · Gegenroot 180°">O</div>
+<article class="pa-ilau-a"><b>A · ADDED</b><output id="primeIntegrationIlauA">polar position, color and petal are view encodings</output></article>
+<article class="pa-ilau-u"><b>U · UNRESOLVED</b><output id="primeIntegrationIlauU">no common CRT–Euler–ILAU generator is established</output></article>
+</div>
+<output id="primeIntegrationExact" class="pa-integration-exact">EXACT BRIDGE · 1031 + 1032 + 1033 + 3201 + 3301 + 7801 = 17399 = 127 × 137 · Verbindung zu 137, aber kein Euler-Generator</output>
+<div class="pa-integration-facts">
+<p><strong>Euler:</strong> <code>137</code> und <code>1031</code> sind beide historische Konstanten <code>c</code> in <code>E<sub>c</sub>(t)=t²+t+c</code>. Nach Zentrierung ist ihre Kurvenform identisch; das ist eine Display-Lane, keine direkte Abbildung. Der exakte lokale Treffer lautet dagegen <code>E<sub>41</sub>(31)=1033</code>.</p>
+<p><strong>Antipoden:</strong> <code>J<sub>1000</sub>(n)=1000−n</code> und <code>R<sub>1032</sub>(n)=2064−n</code> sind verschiedene affine Spiegelungen. Die zweite hält <code>1032</code> fest und tauscht <code>1031↔1033</code>.</p>
+</div>
+<p class="pa-integration-boundary"><strong>ILAU / Root boundary:</strong> I, L, A und U klassifizieren den Vergleichsrecord; sie sind keine Zahleneigenschaften. Staff <code>x=0</code>, Flip <code>y=0</code> und Gegenroots <code>(x,y)↦(−x,−y)</code> organisieren die Ansicht. CRT-Adresse, QRT-Quotient, Primindex, Euler-Offset, Antipode und Petal-Adresse bleiben getrennte Typen.</p>
+<div class="links"><a href="../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/CRT_QRT_37_CARRIER_LADDER_2026-10-11/README.md">CRT/QRT Carrier-Quelle →</a><a href="../71_A0_EULER_TESSAREC_SPECTRUM_COMPARATOR_R1_RESULT_2026-10-13.md">Euler-Negativresultat →</a><a href="A0_MA_PI_J_MIRROR_PROOF_LOOP_SCIENCE_DESK_RETURN_2026-11-11.md">137 / 1031 Crown-Beleg →</a><a href="#ilau-root-square-staff-flip-intake-20261110">ILAU Root-Achsenrolle ↓</a></div>
+<p class="status"><strong>Governance:</strong> Reuse von <code>NN:CRT_QRT_37_CARRIER_LADDER</code>, <code>MOD:NUMBER_VIEW_SUITE</code> und <code>SG:LENS:ILAU_ORIENTATION</code>. Neue Identity, Relation, Alias, Study, Finding und Claim-Ceiling-Änderung: jeweils <code>0</code>.</p>
+</section>
+<section id="numbermagick-plug-rail" class="nmp-rail" data-numbermagick-plug-rail aria-labelledby="numbermagickPlugRailTitle">
+<header class="nmp-rail__head">
+<div><p class="eyebrow">SOURCE → TYPED PORT → DECODE → RETURN RECEIPT</p><h3 id="numbermagickPlugRailTitle">Die vorhandenen Plugs arbeiten jetzt mit demselben gehaltenen Integer.</h3></div>
+<output data-nmp-status aria-live="polite">EXACT</output>
+</header>
+<p class="nmp-rail__intro">Die Carrier-Auswahl ist mit dem Prime-Crosswalk darüber gekoppelt. Vier Ports verwenden direkt den bestehenden <code>nexah.a0.number-representation-plug/2</code>-Codec. CRT, Antipode und ILAU behalten ihre eigenen Typgrenzen.</p>
+<div class="nmp-rail__controls">
+<label>Carrier / Source record
+<select data-nmp-carrier>
+<option value="37">37</option><option value="137" selected>137</option><option value="937">937</option><option value="1031">1031</option><option value="1032">1032</option><option value="1033">1033</option><option value="2037">2037</option>
+</select>
+</label>
+<label class="nmp-key"><input type="checkbox" data-nmp-key checked> Source key stimmt</label>
+</div>
+<div class="nmp-rail__route" aria-label="Numbermagick Plug Route">
+<article class="nmp-node nmp-node--source"><small>01 · SOURCE / INTEGER OUT</small><strong data-nmp-value>137</strong><span data-nmp-source>PRIME · π(137)=33</span><code data-nmp-record>MOD:NUMBER_VIEW_SUITE · HELD</code></article>
+<div class="nmp-cable" aria-hidden="true">→</div>
+<article class="nmp-node nmp-node--adapter"><small>02 · TYPED ADAPTER</small><strong data-nmp-reading>137</strong><span data-nmp-kind>LOSSLESS_INTEGER_CODEC</span><code data-nmp-rule>decode(137)=137</code></article>
+<div class="nmp-cable" aria-hidden="true">→</div>
+<article class="nmp-node nmp-node--receipt"><small>03 · RETURN RECEIPT</small><strong data-nmp-result>EXACT</strong><span data-nmp-witness>FULL_INTEGER_RETAINED</span><code data-nmp-return-key>nmpr-00000000</code></article>
+</div>
+<nav class="nmp-ports" aria-label="Typisierte Numbermagick-Ports">
+<button type="button" data-nmp-port="DEC" aria-pressed="true"><small>01</small>DEC</button>
+<button type="button" data-nmp-port="BIN" aria-pressed="false"><small>02</small>BIN</button>
+<button type="button" data-nmp-port="QRT20" aria-pressed="false"><small>03</small>QRT20</button>
+<button type="button" data-nmp-port="QRT60" aria-pressed="false"><small>04</small>QRT60</button>
+<button type="button" data-nmp-port="CRT105" aria-pressed="false"><small>05</small>CRT 3·5·7</button>
+<button type="button" data-nmp-port="ANTIPODE" aria-pressed="false"><small>06</small>ANTIPODE</button>
+<button type="button" data-nmp-port="ILAU" aria-pressed="false"><small>07</small>ILAU</button>
+</nav>
+<div class="nmp-receipt-ledger" aria-live="polite">
+<article><small>HELD SOURCE</small><output data-nmp-held>n=137 · key retained</output></article>
+<article><small>DECODED / RETURNED</small><output data-nmp-decoded>137</output></article>
+<article><small>RESIDUAL</small><output data-nmp-residual>0</output></article>
+<article><small>CONTRACT</small><output data-nmp-contract>NUMBER REPRESENTATION PLUG / 2</output></article>
+</div>
+<p class="nmp-boundary"><strong>PLUG ≠ MERGE:</strong> <code>DEC</code>, <code>BIN</code>, <code>QRT20</code> und <code>QRT60</code> rekonstruieren den vollständigen Integer. <code>CRT105</code> ist ohne Quotient oder beschränkte Domäne mehrdeutig. <code>ILAU</code> klassifiziert den Vergleichsrecord und ist kein Zahlcodec. Ein deklarierter Antipode kehrt exakt zurück; ohne Operator bleibt er offen. <code>a0.return-gate.v1</code> bleibt separat der Winkel-Preset-Vertrag und wird hier nicht umgedeutet.</p>
+<div class="links"><a href="A0_WERKBANK.html#numberRepresentationPlug">Typed Representation Bus öffnen →</a><a href="A0_WERKBANK.html#nmAxisSwitch">F-IJ-01 Achsensteuerung →</a><a href="#ghReturnGateTitle">Angle Return Gate separat ↑</a><a href="a0-numbermagick-plug-rail-tests.cjs">Rail-Tests →</a></div>
+<p class="status"><strong>Governance:</strong> Source-bound Bedienebene innerhalb von <code>MOD:NUMBER_VIEW_SUITE</code>; Wiederverwendung von <code>NEXAH_A0_ORIENTATION_CONTROLLER_BENCH</code>, <code>NN:CRT_QRT_37_CARRIER_LADDER</code> und <code>SG:LENS:ILAU_ORIENTATION</code>. Neue Identity, Relation, Alias, Operator, Study, Finding und Publikationswirkung: jeweils <code>0</code>.</p>
+</section>
+<section id="scarab-nx-probe" class="snx-probe" data-scarab-nx-probe aria-labelledby="scarabNxTitle">
+<header class="snx-head">
+<div><p class="eyebrow">SCARAB NEGATIVE CONTROL · PRIME CARRIER &lt; 5000 · DIRECT TEST REMAINS AUTHORITATIVE</p><h3 id="scarabNxTitle">Ein absichtlich illegitimer Knoten prüft, welche modularen Räume ihn wirklich bemerken.</h3></div>
+<output data-snx-status aria-live="polite">COMPOSITE · SENSOR HIT</output>
+</header>
+<p class="snx-intro"><code>nₓ</code> wird zwischen seine benachbarten Primzahlen gesetzt. Ein <strong>ZERO HIT</strong> ist ein exakter Teilbarkeitszeuge; eine <strong>NOVEL EDGE</strong> ist nur relativ zum endlichen Prime Carrier neu. Ein <strong>SILENT PASS</strong> beweist keine Primzahl.</p>
+<div class="snx-controls">
+<label>Injected node nₓ<input type="number" min="4" max="4998" step="1" value="1729" data-snx-input></label>
+<button type="button" data-snx-preset="1729">1729 · Ramanujan control</button>
+<button type="button" data-snx-preset="25">25 · silent example</button>
+<button type="button" data-snx-preset="1733">1733 · legit prime</button>
+<label class="snx-check"><input type="checkbox" data-snx-controls> add mod 3 / 5 controls</label>
+</div>
+<div class="snx-route" data-snx-route aria-live="polite"><span>1723</span><i>→</i><strong>1729<small>injected nₓ</small></strong><i>→</i><span>1733</span></div>
+<div class="snx-sensors" data-snx-sensors aria-label="Modular sensor results"></div>
+<div class="snx-ledger" aria-live="polite">
+<article><small>DIRECT CLASSIFICATION</small><output data-snx-factors>1729 = 7 × 13 × 19</output></article>
+<article><small>RESIDUE SIGNATURE</small><output data-snx-signature>(0, 2, 0, 12, 0)</output></article>
+<article><small>DETECTED BY</small><output data-snx-detected>mod 7 · mod 13 · mod 19</output></article>
+<article><small>SILENT AT</small><output data-snx-silent>mod 11 · mod 17</output></article>
+</div>
+<div class="snx-axes">
+<article><b>FACTOR / PRIME-SENSOR AXIS</b><p><code>7 · 13 · 19</code> sind die exakten Faktoren von 1729 und erzeugen deshalb die Nullsignatur. Das ist Teilbarkeit, kein Resonanzbeweis.</p></article>
+<article><b>FOLD / SCALE AXIS</b><p><code>12 · 17 · 204 · 41616</code> bleibt eine getrennte Identitätskette: <code>204=12·17</code> und <code>41616=204²</code>. Mod 17 muss 1729 nicht als Fremdknoten erkennen.</p></article>
+</div>
+<p class="snx-boundary"><strong>BOUNDARY:</strong> Der Probe ist ein reproduzierbarer Anomalietest, kein universeller Primzahltest. Bei allen <code>4319</code> Composite-Injektionen unter 5000 melden die fünf SCARAB-Sensoren <code>3514</code> Fälle (<code>81,36%</code>); mit Mod 3/5 <code>4163</code> (<code>96,39%</code>). Die verbleibenden Silent Passes machen den direkten Primzahltest unverzichtbar.</p>
+<div class="snx-links"><a href="a0-scarab-nx-probe-tests.cjs">Reproduzierbare Tests</a><a href="results/a0-scarab-nx-probe-2026-11-21.json">Result Receipt</a><a href="../98_A0_MARKER_AND_VISUAL_FRAME_SOURCE_ARCHAEOLOGY_2026-10-15.md">SCARAB Source Audit</a></div>
+<p class="status"><strong>Governance:</strong> Erweiterung von <code>MOD:NUMBER_VIEW_SUITE</code> im bestehenden <code>NEXAH_A0_ORIENTATION_CONTROLLER_BENCH</code>. Neue Identity, Relation, Alias, Operator, Study, Finding, Claim-Ceiling- und Publikationswirkung: jeweils <code>0</code>.</p>
+</section>
+<div class="pa-spiral-comparator" aria-labelledby="primeSpiralTitle">
+<p class="eyebrow">PRIME SPIRAL COMPARATOR · BASE N=1000 · 168 FIXED CARRIER POINTS</p>
+<h3 id="primeSpiralTitle">Gleiche Primzahlen. Vier deklarierte Winkelregeln. Keine vorweggenommene Spiralen-Theorie.</h3>
+<div class="pa-spiral-controls">
+<label for="primeSpiralAngleMode">Angle rule
+<select id="primeSpiralAngleMode">
+<option value="golden" selected>Golden angle · 137.508°</option>
+<option value="uniform">Uniform index ring · 360°/168</option>
+<option value="residue">Prime residue spokes</option>
+<option value="null">Deterministic null angles</option>
+</select>
+</label>
+<label for="primeSpiralModulus">Residue modulus
+<select id="primeSpiralModulus" disabled><option value="7" selected>mod 7</option><option value="11">mod 11</option><option value="17">mod 17</option></select>
+</label>
+</div>
+<div class="pa-spiral-metrics" aria-live="polite">
+<article><small>ANGULAR ENTROPY / 12 BINS</small><output id="primeSpiralEntropy">0.9995</output></article>
+<article><small>FIRST RESULTANT |R₁|</small><output id="primeSpiralResultant">0.0033</output></article>
+<article><small>ANGULAR GAP CV</small><output id="primeSpiralGapCv">0.3097</output></article>
+<article><small>MEAN NEAREST DISTANCE</small><output id="primeSpiralNearest">0.1280</output></article>
+</div>
+<div id="primeSpiralSvg" class="pa-spiral-stage" aria-live="polite"></div>
+<div class="pa-spiral-geometry" aria-labelledby="primeSpiralGeometryTitle">
+<article><small id="primeSpiralGeometryTitle">EXACT DISCRETE MAP</small><output id="primeSpiralMapEquation">zₖ=√(pₖ/1000)·eⁱᶿᵏ</output><p><code>rₖ²=pₖ/1000</code> · der Primzahlwert setzt den Radius.</p></article>
+<article><small>ACTIVE ANGLE EQUATION</small><output id="primeSpiralAngleEquation">θₖ=(k−1)π(3−√5)</output><p id="primeSpiralGeometryClass">Golden-angle / Fibonacci-limit view · quasiperiodisch.</p></article>
+<article><small>DECLARED RINGS</small><output id="primeSpiralRingEquation">r=½ ↔ p=250 · r=1 ↔ N=1000</output><p>Innenring = exakte Radialschwelle; weißer Rand = Normierungsgrenze.</p></article>
+</div>
+<p class="pa-spiral-boundary"><strong>Uniform-Naht:</strong> Der sichtbare Spalt liegt zwischen <code>p₁₆₈=997</code> bei <code>357,857143°</code> und <code>p₁=2</code> bei <code>0°</code>. Er ist der periodische Index-Return mit <code>Δθ=360°/168=15/7°≈2,142857°</code> — keine fehlende Primzahlposition.</p>
+<p class="pa-spiral-boundary"><strong>Fixed base:</strong> Der Träger bleibt immer <code>{p∈ℙ:p≤1000}</code> mit <code>168</code> Punkten und <code>r=√(p/1000)</code>. Nur die Winkelregel wechselt. Golden Angle, gleichmäßiger Indexring, Residuenstrahlen und deterministische Nullwinkel sind Vergleichsansichten; eine schöne Verteilung beweist weder Prime-Generator, Fibonacci-Mechanismus, Ihara-Struktur noch Riemann-Bezug.</p>
+<div class="pa-cut-atlas" id="primePolarCutAtlas" aria-labelledby="primePolarCutTitle">
+<div class="pa-cut-atlas__head">
+<div><p class="eyebrow">POLAR CUT ATLAS · THREE SHELLS · DECLARED APERTURE · M ∪ μ(M)</p><h4 id="primePolarCutTitle">Der Frame entscheidet, welche Algorithmuspunkte innen liegen — der Träger bleibt derselbe.</h4></div>
+<p>Gelb ist der feste Ursprung <code>c₀=(0,0)</code>; Weiß ist der gemessene Schwerpunkt <code>z̄</code>. Der zweite Ring liest die Winkeldichte der zugelassenen Punkte und Randübergänge als Blätterprofil.</p>
+</div>
+<div class="pa-cut-controls">
+<label for="primeCutShell">Shell / Sphere cut
+<select id="primeCutShell"><option value="inner">S1 · inner · 0.00–0.34</option><option value="middle" selected>S2 · middle · 0.34–0.68</option><option value="outer">S3 · outer · 0.68–1.00</option></select>
+</label>
+<label for="primeCutCenter">Aperture axis <output id="primeCutCenterOut" for="primeCutCenter">90°</output>
+<input id="primeCutCenter" type="range" min="0" max="359" step="1" value="90">
+</label>
+<label for="primeCutWidth">Angular width <output id="primeCutWidthOut" for="primeCutWidth">120°</output>
+<input id="primeCutWidth" type="range" min="30" max="360" step="2" value="120">
+</label>
+<label class="pa-cut-toggle"><input id="primeCutMirror" type="checkbox" checked> Mirror overlay <code>μ<sub>β</sub>(z)=e<sup>2iβ</sup>z̄</code></label>
+</div>
+<div class="pa-axis-transfer" aria-labelledby="primeAxisTransferTitle">
+<div><p class="eyebrow">SOURCE QUARTER-TURN · FIXED ORIGIN · NORM PRESERVED</p><h5 id="primeAxisTransferTitle">Vom senkrechten Träger zur horizontalen Aperturachse.</h5></div>
+<button id="primeAxisPlay" type="button">Drehung abspielen</button>
+<label for="primeAxisTilt">Source rotation α <output id="primeAxisTiltOut" for="primeAxisTilt">0°</output>
+<input id="primeAxisTilt" type="range" min="0" max="90" step="0.1" value="0">
+</label>
+<button id="primeAxisReset" type="button">Zurück auf 0°</button>
+<output id="primeAxisStatus" aria-live="polite">α 0° · β 90° · vertical carrier</output>
+</div>
+<section class="pa-phase-machine" aria-labelledby="primePhaseMachineTitle">
+<header class="pa-phase-machine__head">
+<div><p class="eyebrow">COUNTER-ROTATING VIEW CLOCK · FOUR PHASES · CLOSED RETURN</p><h5 id="primePhaseMachineTitle">Zwei Räder, ein fester Prime-Träger und der geschlossene AM–VM–PM–TM-Loop.</h5></div>
+<output id="primePhaseState" aria-live="polite">AM · INSIDE / SOURCE · OUTBOUND · α 0.0° / β 90.0°</output>
+</header>
+<div class="pa-phase-actions">
+<button id="primePhasePlay" type="button">Loop abspielen</button>
+<button id="primePhaseStep" type="button">Nächste Phase</button>
+<button id="primePhaseReset" type="button">AM / Reset</button>
+</div>
+<div id="primePhaseWheelSvg" class="pa-phase-wheel-stage" aria-live="polite"></div>
+<div class="pa-phase-ledger">
+<output id="primePhaseSequence">AM → VM → PM → TM → AM · θ 0.0° · ω₂=−ω₁</output>
+<output id="primePhaseEvents">Noch kein Frame-Wechsel · Loop oder Schritt starten.</output>
+</div>
+<div class="pa-phase-roles" aria-label="Vier View-Phasen">
+<article><b>AM</b><span>INSIDE / SOURCE</span><small>Aufnahme in den deklarierten Frame</small></article>
+<article><b>VM</b><span>SEAM / TRANSFER</span><small>gerichteter Grenzübergang</small></article>
+<article><b>PM</b><span>OUTSIDE / PROJECTION</span><small>maximale Vierteldrehung</small></article>
+<article><b>TM</b><span>EXCHANGE / RETURN</span><small>Rückhub ohne Carrier-Wechsel</small></article>
+</div>
+</section>
+<div class="pa-cut-metrics" aria-live="polite">
+<article><small>INSIDE Wⱼ</small><output id="primeCutInside">—</output></article>
+<article><small>OUTSIDE Wⱼ</small><output id="primeCutOutside">—</output></article>
+<article><small>FRAME CROSSINGS</small><output id="primeCutCrossings">—</output></article>
+<article><small>CENTROID DRIFT |z̄−c₀|</small><output id="primeCutDrift">—</output></article>
+<article><small>SELECTED MASK S1/S2/S3</small><output id="primeCutMembership">—</output></article>
+</div>
+<div id="primeCutSvg" class="pa-cut-stage" aria-live="polite"></div>
+<div class="pa-cut-ledger" aria-live="polite">
+<output id="primeCutFrameEquation">—</output>
+<output id="primeCutSamples">—</output>
+</div>
+<p class="pa-cut-boundary"><strong>Typed boundary:</strong> <code>Iⱼ={k:zₖ∈Wⱼ}</code>, <code>Oⱼ={k:zₖ∉Wⱼ}</code>. Innen/außen und die Codes <code>100 / 010 / 001</code> sind endliche View-Adressen. Der Axis Transfer ist ausschließlich die euklidische Vierteldrehung <code>Rα</code> mit <code>β=90°−α</code>; Ursprung, Abstände und der Prime-Träger bleiben fest. Der Vierphasen-Loop <code>AM→VM→PM→TM→AM</code> ist ein gekoppelter Ansichtszyklus: Source-Rad <code>+θ</code>, Apertur-Rad <code>−θ</code>, TM als Exchange/Return. Er erzeugt Frame-Eintritts- und Austrittssequenzen, aber keine neue arithmetische Relation zwischen Primzahlen und keinen physikalischen AM/PM-Zeitclaim. Die violett-pinken Blätter sind eine normierte Besuchsdichte aus Punkten und Frame-Crossings, keine zusätzliche Kugel, keine Energieverteilung und kein Primzahlgesetz. Die historischen Bezeichnungen „Energy Gradient“, „Frequency Density“ und „Prime Resonance“ sowie die Orbit-/Sphere-Operatornamen werden nicht als Mechanismus oder Befund auf diesen Träger übertragen.</p>
+<div class="links"><a href="A0_PRIME_PROJECTION_TEST_SUITE.html">Prime Projection Test Suite →</a><a href="results/a0-prime-polar-cut-atlas-2026-11-20.json">Polar-Cut Machine Receipt →</a><a href="a0-prime-address-countershot-tests.cjs">Reproduzierbare Atlas-Tests →</a></div>
+</div>
+<div class="links"><a href="../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/PRIME_BASE_MODE_2026-10-10/README.md">Prime · Base · Mode Boundary →</a></div>
+</div>
+<div class="prime-torus-thread" id="prime-torus-thread-demonstrator" data-prime-torus-thread aria-labelledby="primeThreadTitle">
+<p class="eyebrow">MOD 7 × MOD 11 · ONE THREAD · PERIODIC RETURN</p>
+<h3 id="primeThreadTitle">Ein Faden bewegt sich; Träger und Endpunkte bleiben exakt.</h3>
+<p>Der vollständige Restklassenrahmen wird vom Einheitenfeld getrennt. Der Slider wählt einen tatsächlichen Übergang auf der Primfolge; „Wobble“ biegt nur seine Ansicht. Gelb zeigt den kürzeren gewickelten Torusweg, Cyan die direkte Linie im gewählten Quadrat.</p>
+<div class="ptd-controls">
+<label for="primeThreadMode">Ansicht
+<select id="primeThreadMode"><option value="prime" selected>Prime Thread</option><option value="lilith">Lilith Shadow</option><option value="euler">Euler Audit</option><option value="difference">Prime ↔ Euler Difference</option></select>
+</label>
+<label for="primeThreadStep">Prime thread <output id="primeThreadStepOut" for="primeThreadStep">4 · 7→11</output>
+<input id="primeThreadStep" type="range" min="1" max="167" step="1" value="4">
+</label>
+<label for="primeThreadWobble">View wobble <output id="primeThreadWobbleOut" for="primeThreadWobble">0.24</output>
+<input id="primeThreadWobble" type="range" min="0" max="1" step="0.01" value="0.24">
+</label>
+<div class="ptd-switches">
+<label><input id="primeThreadWrap" type="checkbox" checked> gewickelte Fortsetzung</label>
+<label><input id="primeThreadFrame" type="checkbox" checked> L-Nullrahmen</label>
+<label><input id="primeThreadMeasures" type="checkbox" checked> Maße</label>
+<label><input id="primeThreadTrail" type="checkbox"> alle 167 Rohfäden</label>
+</div>
+</div>
+<div class="ptd-readout" aria-live="polite">
+<article><small>ROOT / FROM</small><output id="primeThreadRoot">p4=7 · (0,7)</output></article>
+<article><small>TARGET / TO</small><output id="primeThreadTarget">p5=11 · (4,0)</output></article>
+<article><small>RAW / WRAPPED Δ</small><output id="primeThreadDelta">raw (4,−7) · wrap (−3,4)</output></article>
+<article><small>CHART ANGLE</small><output id="primeThreadAngle">raw −46.4° · wrap 141.3°</output></article>
+<article><small>EULER AUDIT</small><output id="primeThreadAudit">135 unique · 27 prime repeats · 24 odd · 270 audit steps · closed</output></article>
+</div>
+<div id="primeThreadSvg" class="ptd-stage" aria-live="polite"></div>
+<p class="ptd-boundary"><strong>Exakte Maße:</strong> Das volle Raster hat <code>7×11=77</code> Restklassenknoten und <code>6×10=60</code> Zellen. Nach Ausschluss der Nullachsen verbleibt das Einheitenfeld mit <code>6×10=60</code> Knoten, also <code>5×9=45</code> Rechteckzellen; seine inneren Knoten bilden <code>4×8=32=2⁵</code>. Der sichtbare L-Rahmen vereinigt Nullspalte und Nullzeile zu <code>7+11−1=17</code> Adressen. In der normierten Darstellung beträgt ein Zellschritt <code>Δx=1/3</code> und <code>Δy=1/5</code>. Deshalb sind die Zellen Rechtecke, keine Quadrate. <strong>Euler-Grenze:</strong> Die Prime-Folge erzeugt im Einheitenfeld <code>162</code> Übergänge auf <code>135</code> unterschiedlichen ungerichteten Kanten, davon <code>27</code> Wiederholungen; der reduzierte Graph besitzt <code>24</code> Knoten ungeraden Grades. Der Audit-Modus verdoppelt deshalb bewusst jede unterschiedliche Kante und konstruiert mit Hierholzer einen geschlossenen <code>270</code>-Schritt-Umlauf. Er ist reproduzierbar, aber nicht als kürzeste Eulerisierung deklariert. Lilith/Wobble bleiben Ansicht; Root und Target bleiben exakt. Eine Cube-Einbettung ist hier noch nicht deklariert.</p>
+<div class="links"><a href="results/a0-prime-torus-thread-demonstrator-2026-11-20.json">Exakter Demonstrator-Receipt →</a><a href="a0-prime-torus-thread-demonstrator-tests.cjs">Reproduzierbare Tests →</a></div>
+</div>
+<div class="pa-strip-stage"><div id="primeStripSvg" aria-live="polite"></div></div>
+<div class="pa-strip-readout"><output id="primeStripSummary"></output><output id="primeResidueSummary"></output></div>
+<div class="pa-boundary">
+<strong>Exakter Unterschied:</strong> Die Zahlengrenze <code>n≤1000</code> enthält 168 Primzahlen; die ersten <code>k≤1000</code> Primzahlen benötigen den Träger bis <code>p<sub>1000</sub>=7919</code>. Das Pentagon ist eine deklarierte dyadische Partition: fünf Prime-Schalen plus Summen-Joint, keine intrinsische Fünfeck-Eigenschaft der Primzahlen. Außerdem gilt <code>p<sub>2·5</sub>=p<sub>10</sub>=29</code>, aber <code>p<sub>2</sub>·p<sub>5</sub>=3·11=33</code>. Die sichtbaren 90°/90°/270°-Flips verändern die Ansicht, nicht den Primträger. Die Mod-11-Zählung ist ein endlicher Vergleichsreadout; aus der Streifenform folgt keine Zone–Residuen-Kopplung und keine neue Prime-Theorie.
+</div>
+<div class="links">
+<a href="../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/PRIME_BASE_MODE_2026-10-10/README.md">Prime · Base · Mode Binder →</a>
+<a href="../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/PRIME_BRIDGE_LINEAGE_2026-10-06/README.md">Prime Bridge Lineage →</a>
+<a href="#grid-collection">Vorhandene Grid-Sammlung ↑</a>
+</div>
+<p class="status"><strong>Governance:</strong> Erweiterung der bestehenden A0-Lesefläche; Wiederverwendung von <code>NEXAH:PBM:V1</code> und <code>MOD:NUMBER_VIEW_SUITE</code>. Neue Identity, Relation, Alias, Study, Finding, Claim-Ceiling-Änderung und Publikationswirkung: jeweils <code>0</code>.</p>
+<noscript>Der interaktive Countershot benötigt JavaScript. Die exakten Beispiele bleiben sichtbar: p₇=17; p₁₀=29; Plate-Adresse 28.</noscript>
+</section>
 <section id="six-marker-comparison" aria-labelledby="sixMarkerTitle">
 <p class="eyebrow">Ausprobieren · dieselben Daten, erklärte Ansichtswechsel</p>
 <h2 id="sixMarkerTitle">Sechs Marker. Vier gekoppelte Fenster.</h2>
@@ -997,6 +1339,196 @@
 </div>
 <p id="gridCandidates">
 </p>
+<section class="mirror-audit" aria-labelledby="mirrorAuditTitle" data-six-marker-637-audit>
+<div class="mirror-audit__head">
+<div>
+<p class="mirror-audit__tag">637 MIRROR AUDIT · THREE OPERATORS · ONE SOURCE SET</p>
+<h3 id="mirrorAuditTitle">Was fällt wirklich zusammen?</h3>
+<p>Derselbe Quellmarker wird durch drei getrennte Operatoren gelesen. Ebenen ausblenden, Marker wechseln und den Unterschied direkt vergleichen.</p>
+</div>
+<output class="mirror-audit__marker" data-audit-selected aria-label="Ausgewählter Marker">537</output>
+</div>
+<div class="mirror-audit__controls" aria-label="Marker für den Mirror Audit">
+<button type="button" data-audit-marker="237" data-grid-marker="237" aria-pressed="false">237</button>
+<button type="button" data-audit-marker="337" data-grid-marker="337" aria-pressed="false">337</button>
+<button type="button" data-audit-marker="537" data-grid-marker="537" aria-pressed="true">537</button>
+<button type="button" data-audit-marker="637" data-grid-marker="637" aria-pressed="false">637</button>
+<button type="button" data-audit-marker="737" data-grid-marker="737" aria-pressed="false">737</button>
+<button type="button" data-audit-marker="937" data-grid-marker="937" aria-pressed="false">937</button>
+</div>
+<div class="mirror-audit__controls" aria-label="Vergleichsebenen ein- oder ausblenden">
+<button type="button" data-audit-layer="slot" aria-pressed="true">J₆ · Slot-Spiegel</button>
+<button type="button" data-audit-layer="numeric" aria-pressed="true">R₆₃₇ · Zahlenspiegel</button>
+<button type="button" data-audit-layer="residue" aria-pressed="true">N₃₇ · Restklassen-Negation</button>
+</div>
+<div class="mirror-audit__lanes" aria-live="polite">
+<article class="mirror-audit__lane" data-audit-lane="slot">
+<strong><code>J₆(i)=−i mod 6</code><small>Namespace · SLOT_INDEX</small></strong>
+<output data-audit-output="slot"></output>
+<small data-audit-slot-pairs></small>
+</article>
+<article class="mirror-audit__lane" data-audit-lane="numeric">
+<strong><code>R₆₃₇(n)=1274−n</code><small>Namespace · INTEGER_VALUE</small></strong>
+<output data-audit-output="numeric"></output>
+<small data-audit-numeric-pairs></small>
+</article>
+<article class="mirror-audit__lane" data-audit-lane="residue">
+<strong><code>N₃₇(r)=−r mod 37</code><small>Namespace · RESIDUE_CLASS_Z37</small></strong>
+<output data-audit-output="residue"></output>
+<small data-audit-residue-pair></small>
+</article>
+</div>
+<p class="mirror-audit__verdict" data-audit-verdict></p>
+<p class="mirror-audit__boundary"><strong>Typgrenze:</strong> <code>18↔19</code> ist hier die additive Gegenklasse in ℤ₃₇. Sie ist nicht die bestehende IJ‑Halbnaht <code>−0,5↔0↔+0,5</code>. Heatmap-Scores bleiben Beobachtungswerte und werden durch keinen der drei Operatoren gespiegelt.</p>
+<p class="status"><strong>Governance:</strong> View-Adapter unter <code>MOD:NUMBER_VIEW_SUITE</code> und <code>NN:CRT_QRT_37_CARRIER_LADDER</code>. Neue Identity, Relation, Alias, Study und Claim: jeweils <code>0</code>.</p>
+</section>
+<section class="twin-audit" aria-labelledby="twinAuditTitle" data-twin-prime-base-audit>
+<div class="twin-audit__head">
+<div>
+<p class="mirror-audit__tag">TWIN PRIME · BASES · MOD 7 × MOD 11 · FINITE AUDIT TO 1111</p>
+<h3 id="twinAuditTitle">Ein Twin-Paar. Zwei Adresstypen. Vier Basen.</h3>
+<p>Der Primwert und sein Primindex werden getrennt auf dasselbe <code>ℤ₇×ℤ₁₁</code>-Feld gelegt. Der 637-Spiegel kontrolliert anschließend, ob nur der Abstand oder auch die Primstruktur zurückkehrt.</p>
+</div>
+<output class="twin-audit__count" data-twin-ordinal>Paar 30/40</output>
+</div>
+<div class="twin-audit__controls">
+<button type="button" data-twin-jump="prev" aria-label="Vorheriges Twin-Paar">←</button>
+<label>Twin-Paar <select data-twin-select aria-label="Twin-Paar bis 1111 auswählen"></select></label>
+<button type="button" data-twin-jump="next" aria-label="Nächstes Twin-Paar">→</button>
+<button type="button" data-twin-jump="30">11²-Naht / größte Lücke</button>
+<button type="button" data-twin-jump="40">Letztes Paar ≤1111</button>
+</div>
+<div class="twin-audit__summary">
+<article><small>PRIME VALUES</small><output data-twin-pair>(659, 661)</output></article>
+<article><small>PRIME POSITIONS</small><output data-twin-positions>p₍120₎ / p₍121₎</output></article>
+<article><small>INDEX FACTORS</small><output data-twin-factors>120=2·2·2·3·5 | 121=11·11</output></article>
+</div>
+<div class="twin-packet" aria-live="polite">
+<div class="twin-packet__head"><strong>L/C/R × ℤ₃₇ · 111-ADDRESS REGISTER</strong><output data-twin-packet-status></output></div>
+<div class="twin-packet__roles" data-twin-packet></div>
+</div>
+<div class="twin-layer">
+<div class="twin-layer__controls">
+<label>Mod‑37-Schicht <output data-twin-layer-value>32</output>
+<input type="range" min="0" max="36" step="1" value="32" data-twin-layer>
+</label>
+<button type="button" data-twin-layer-jump="32">Schicht 32 · 661/809</button>
+<span><code>77×37=2849</code> CRT-Knoten · sichtbar bleibt ein <code>7×11</code>-Slice</span>
+</div>
+<output class="twin-layer__records" data-twin-layer-records></output>
+<output class="twin-layer__special" data-twin-layer-special></output>
+</div>
+<div class="twin-audit__body">
+<div>
+<div class="twin-audit__grid" data-twin-grid aria-live="polite"></div>
+<p class="twin-audit__boundary" data-twin-grid-readout></p>
+</div>
+<div class="twin-audit__readouts">
+<article><small>R₆₃₇ MIRROR CONTROL</small><output data-twin-mirror></output></article>
+<article><small>NEXT TWIN GAP</small><output data-twin-gap></output></article>
+<article><small>COUNT CROSSWALK</small><output>40₁₀ = 1111₃ = 55₇ = 37₁₁ = 13₃₇</output></article>
+</div>
+</div>
+<table>
+<caption>Dieselben Werte und Positionen in vier Schreibbasen</caption>
+<thead><tr><th>Basis</th><th>Primwerte</th><th>Primpositionen</th></tr></thead>
+<tbody data-twin-bases></tbody>
+</table>
+<section class="twin-matrix" aria-labelledby="twinMatrixTitle">
+<div>
+<p class="mirror-audit__tag">111×111 · SPARSE OPERATOR MATRIX · 12,321 POSSIBLE CELLS</p>
+<h4 id="twinMatrixTitle">Quellpaket → R₆₃₇-Spiegelpaket</h4>
+<p>Die drei Punkte sind die deklarierten Rollenabbildungen <code>L→R</code>, <code>C→C</code> und <code>R→L</code>. Das Feld zeigt mögliche Adresspaare, nicht 12.321 beobachtete Prime-Ereignisse.</p>
+<output data-twin-matrix-readout></output>
+</div>
+<div class="twin-matrix__stage" data-twin-matrix></div>
+</section>
+<p class="twin-audit__equation"><strong>11²-Seam:</strong> <code>p₁₂₀=659</code>, <code>p₁₂₁=661</code>; die Positionen wechseln in Basis 11 von <code>AA₁₁</code> zu <code>100₁₁</code>, während die Werte um <code>660=60·11</code> liegen. Das ist eine exakte endliche Ausrichtung, keine Ursache der nachfolgenden Lücke.</p>
+<p class="twin-audit__boundary"><strong>Typgrenze:</strong> Basiswechsel verändert die Notation; Modulo verändert die Koordinate; Primzahl und Primindex bleiben verschiedene Objekte. Im Raster sind Cyan-Ringe Primwert-Adressen, Goldpunkte Primindex-Adressen. Überlagerung bedeutet gleiche Restadresse, nicht Identität.</p>
+<p class="status"><strong>Governance:</strong> Reuse von <code>MOD:NUMBER_VIEW_SUITE</code>, <code>NEXAH:PBM:V1</code> und <code>NN:CRT_QRT_37_CARRIER_LADDER</code>. Neue Identity, Relation, Alias, Study und Claim: jeweils <code>0</code>.</p>
+</section>
+<section class="repunit-fracture" id="repunitScaleFractureAudit" data-repunit-scale-fracture-audit aria-labelledby="repunitScaleFractureTitle">
+<div class="repunit-fracture__head">
+<div>
+<p class="mirror-audit__tag">REPUNIT SCALE &amp; DIAGONAL FRACTURE AUDIT · EXISTING A0 SOURCES</p>
+<h3 id="repunitScaleFractureTitle">Vom 111er-Diagonalband zum 1111er-Streifenfeld.</h3>
+<p>Ein kleiner Comparator verbindet die vorhandene Leiter <code>121 → 1221 → 12321 → 123321 → 1234321</code> mit zwei exakten Restklassenbildern. <code>111×111</code> und <code>1111×1111</code> bleiben Ansichtsträger; gezeichnet werden analytische Residuenlinien, keine Millionen Einzelzellen.</p>
+</div>
+<output data-rsf-status>UNIT_DIAGONALS · a=1</output>
+</div>
+<div class="repunit-fracture__controls" role="group" aria-label="Scale, modulus and path witness controls">
+<button type="button" data-rsf-scale="111" aria-pressed="true">111×111</button>
+<button type="button" data-rsf-scale="1111" aria-pressed="false">1111×1111</button>
+<button type="button" data-rsf-modulus="11" aria-pressed="true">MOD 11</button>
+<button type="button" data-rsf-modulus="121" aria-pressed="false">MOD 121</button>
+<button type="button" data-rsf-word="LRRL" aria-pressed="true">LRRL</button>
+<button type="button" data-rsf-word="RLLR" aria-pressed="false">RLLR</button>
+</div>
+<div class="repunit-fracture__controls" role="group" aria-label="111 by 111 sublattice axis overlays">
+<span class="repunit-fracture__control-label">FIELD OVERLAY</span>
+<button type="button" data-rsf-field="BASE_AXES" aria-pressed="true">BASE AXES</button>
+<button type="button" data-rsf-field="MOD20_VIGESIMAL" aria-pressed="false">MOD 20 · VIGESIMAL</button>
+<button type="button" data-rsf-field="MOD101_SQUARE" aria-pressed="false">MOD 101 · SQUARE</button>
+<button type="button" data-rsf-field="MOD121_SHEAR" aria-pressed="false">MOD 121 · SHEAR</button>
+<button type="button" data-rsf-field="CRT1111_INTERSECTIONS" aria-pressed="false">1111 · INTERSECTIONS</button>
+</div>
+<div class="repunit-fracture__ledger">
+<article><small>CARRIER</small><output data-rsf-scale-readout>111 samples · center 55 · ±11 = 44 / 66</output></article>
+<article><small>RESIDUE LOCUS</small><output data-rsf-locus-readout>x+y ≡ 0 (mod 11)</output></article>
+<article><small>JANUS / CENTER</small><output data-rsf-center-readout>J₁₁₀(55)=55 · fixed</output></article>
+<article><small>PATH WITNESS</small><output data-rsf-word-readout>LRRL · balanced return word</output></article>
+<article><small>SUBLATTICE AXES</small><output data-rsf-field-readout>BASE · x/y carrier axes</output></article>
+</div>
+<div class="repunit-fracture__stage" data-rsf-stage aria-live="polite"></div>
+<output class="repunit-fracture__verdict" data-rsf-fracture>DIAGONAL: 111 ≡ 1 (mod 11), daher x+y ≡ 0.</output>
+<p class="repunit-fracture__boundary"><strong>Typgrenze:</strong> Die Ziffernfolge von <code>Rₖ²</code> ist die Faltung zweier Repunit-Koeffizienten und nur bis <code>k=9</code> ohne Dezimalübertrag „Pascal-artig“; sie ist keine Pascal-Zeile. <code>1111₃=40₁₀</code> und der dezimale Repunit <code>1111₁₀</code> sind verschiedene Zahlen. Die vigesimale Ansicht schreibt <code>111₁₀=5B₂₀</code>, <code>101₁₀=51₂₀</code>, <code>121₁₀=61₂₀</code> und <code>1111₁₀=2FB₂₀</code>; sie ändert keine Adresse. <code>LRRL/RLLR</code> steuert nur den sichtbaren Umlaufsinn einer deklarierten 2D-Fundamentalzelle. Ohne dritte Koordinate und Lift-Operator ist das kein Cube-Transport. <code>110/112</code> bleiben getrennte Con-Dao-Quellmarker.</p>
+<div class="links">
+<a href="../95_A0_11X111_GRID_ELEVATOR_ENGINEERING_RESULT_2026-10-15.md">11×111 Engineering Result</a>
+<a href="results/a0-e06-1221-to-12321-lift-result-2026-11-10.json">1221→12321 Testresultat</a>
+<a href="A0_ORIENTATION_CONTROLLER_BENCH.html#foldedAxisLrrlWindow">LRRL Folded Axis</a>
+<a href="../31_A0_CON_DAO_RETURN_SERIES_ARCHAEOLOGY_2026-10-11.md">Con Dao Archaeology</a>
+<a href="../../../SCIENCE_LAB/CASE_STUDIES/ROEDELHEIM_OBSERVATORY_SOURCE_COURT_2026-09-16/CALIBRATION_REPORT_STEPS_1_TO_5.md">ROSC-E04 Calibration</a>
+</div>
+<p class="status"><strong>Governance:</strong> Reuse von <code>MOD:NUMBER_VIEW_SUITE</code>, <code>NEXAH_A0_ORIENTATION_CONTROLLER_BENCH</code>, <code>A0_11X111_GRID_ELEVATOR</code> und <code>NEXAH:CON_DAO_BREATH:V1</code>. Neue Identity, Relation, Alias, Study und Claim: jeweils <code>0</code>.</p>
+</section>
+<section class="fib-clock" aria-labelledby="fibClockTitle" data-fibonacci-crt-clock>
+<div class="fib-clock__head">
+<div>
+<p class="mirror-audit__tag">FIBONACCI CLOCK · EXACT RECURRENCE · Z7 × Z11 × Z37</p>
+<h3 id="fibClockTitle">Ein Zahlenpaar bewegt sich; der CRT-Träger bleibt.</h3>
+<p>Der exakte Zustand ist das geordnete Paar <code>(Fₙ,Fₙ₊₁)</code>. Das sichtbare Feld zeigt seine Reste modulo 7 und 11; modulo 37 wählt die Schicht. Golden Angle und Uniform sind nur umschaltbare Ansichten desselben Zustands.</p>
+</div>
+<span class="fib-clock__badge">EXACT RETURN · 1520</span>
+</div>
+<div class="fib-clock__controls">
+<button type="button" data-fib-view="RECURRENCE" aria-pressed="true">RECURRENCE</button>
+<button type="button" data-fib-view="GOLDEN" aria-pressed="false">GOLDEN ANGLE VIEW</button>
+<button type="button" data-fib-view="UNIFORM" aria-pressed="false">UNIFORM CONTROL</button>
+<label>n <output data-fib-index-out>0</output><input type="range" min="0" max="1520" step="1" value="0" data-fib-index></label>
+<button type="button" data-fib-action="step">STEP</button>
+<button type="button" data-fib-action="play">PLAY</button>
+<button type="button" data-fib-action="reset">RESET</button>
+</div>
+<div class="fib-clock__controls" aria-label="Exakte Pisano-Returns">
+<button type="button" data-fib-jump="10">π(11)=10</button>
+<button type="button" data-fib-jump="16">π(7)=16</button>
+<button type="button" data-fib-jump="76">π(37)=76</button>
+<button type="button" data-fib-jump="1520">FULL CRT · 1520</button>
+</div>
+<div class="fib-clock__summary">
+<article><small>EXACT PAIR</small><output data-fib-exact></output></article>
+<article><small>CRT ADDRESS / VISIBLE SLICE</small><output data-fib-address></output></article>
+</div>
+<div class="fib-clock__stage" data-fib-stage aria-live="polite"></div>
+<div class="fib-clock__returns" data-fib-returns></div>
+<div class="fib-clock__registers">
+<article><small><code>74 = 2×37</code> · TWO TAGGED SCALAR LANES</small><output data-fib-register74></output></article>
+<article><small><code>111 = 3×37</code> · A / B / SUM CHECK</small><output data-fib-register111></output></article>
+</div>
+<p class="fib-clock__boundary"><strong>Typgrenze:</strong> <output data-fib-mode-boundary></output>. <code>74</code> ist kein vollständiger Paarraum; dieser hat <code>37²=1369</code> Zustände. <code>111</code> sind drei getaggte Restregister, nicht <code>37³</code>. Der Golden Angle ist Darstellungsgeometrie und besitzt keinen endlichen Pisano-Return.</p>
+<p class="fib-clock__boundary"><strong>Bestehender Kontrollbefund:</strong> <code>PASS_CONTROLS_DISTINGUISHED_FIBONACCI_NOT_PRIVILEGED</code>. Der synthetische Ringvergleich unterscheidet Uniform, Fibonacci und Seeded Random; er etabliert kein Fibonacci-Primzahlgesetz, keine natürliche Resonanz und keinen physikalischen Mechanismus.</p>
+<p class="status"><strong>Governance:</strong> Reuse von <code>MOD:NUMBER_VIEW_SUITE</code>, <code>NN:CRT_QRT_37_CARRIER_LADDER</code>, <code>NEXAH:PBM:V1</code> sowie der bestehenden Game-of-Worlds-Fibonacci-Rekurrenz. Neue Identity, Relation, Alias, Study und Claim: jeweils <code>0</code>.</p>
+</section>
 <noscript>Für die gekoppelte Auswahl ist JavaScript erforderlich. Alle Werte und Return-Regeln stehen im verlinkten Prüfprotokoll.</noscript>
 <details>
 <summary>Quellen, Regeln und Grenze</summary>
@@ -1550,6 +2082,15 @@
 <div class="links"><a href="assets/game-of-worlds-play/ioi-world-cube/index.html">IOI Keystone 2501/9 öffnen →</a><a href="results/a0-ioi-keystone-9-white-alu-pulse-return-2026-11-05.json">Pulse-Prüfrecord →</a><a href="results/a0-ioi-keystone-2501-view-return-2026-11-04.json">2501-Prüfrecord →</a><a href="a0-ioi-game-of-worlds-glb-tests.cjs">IOI-Tests →</a><a href="#snce-101-12928-source-reconciliation-20261025">101-Quellenabgleich ↑</a></div>
 <p class="status"><strong>Governance:</strong> Wiederverwendung von <code>MOD:NUMBER_VIEW_SUITE</code>, <code>MOD:TESSAREC</code>, <code>A0_GAME_OF_WORLDS_PLAY</code> und <code>A0_IOI_LEAF_FOLD_RETURN_R0_DRAFT</code>. Keine neue Navigator-Identität oder Relation, keine GLB-Geometrieänderung und kein neues Material, keine neue Study, kein Finding und keine Publikationsfreigabe. „Opium Club“ bleibt eine offene Owner-Mnemonik ohne Bindung an den Clip.</p>
 </section>
+<section class="qbl-demo" id="quaternion-binary-lift-demonstrator" aria-labelledby="qblDemoTitle">
+<header class="qbl-demo__head"><div><small>NUMBERMAGICK · KEYSTONE 2501 · BEDIENBARER HAMILTON-WITNESS</small><h3 id="qblDemoTitle">Quaternion Binary Lift.</h3></div><div class="qbl-demo__state" aria-live="polite"><span id="qblStepState">Step n=0</span><br><span id="qblStateClass">positive scalar start</span></div></header>
+<div class="qbl-demo__body">
+<div class="qbl-demo__stage"><svg id="qblVectorView" viewBox="0 0 620 400" role="img" aria-labelledby="qblSvgTitle qblSvgDesc"><title id="qblSvgTitle">Four-coordinate view of the current quaternion power</title><desc id="qblSvgDesc">The real, i, j and k coordinates of q sub B to the selected integer power from zero through six.</desc><circle class="qbl-demo__guide" cx="310" cy="198" r="142"/><circle class="qbl-demo__guide" cx="310" cy="198" r="92"/><line class="qbl-demo__axis" x1="95" y1="198" x2="525" y2="198"/><line class="qbl-demo__axis" x1="310" y1="25" x2="310" y2="371"/><line class="qbl-demo__axis" x1="165" y1="343" x2="455" y2="53"/><line class="qbl-demo__axis" x1="165" y1="53" x2="455" y2="343"/><text class="qbl-demo__label" x="532" y="203">Re +</text><text class="qbl-demo__label" x="52" y="203">Re −</text><text class="qbl-demo__label" x="318" y="30">i +</text><text class="qbl-demo__label" x="318" y="382">i −</text><text class="qbl-demo__label" x="462" y="48">j +</text><text class="qbl-demo__label" x="122" y="366">j −</text><text class="qbl-demo__label" x="130" y="48">k +</text><text class="qbl-demo__label" x="461" y="366">k −</text><line id="qblVecRe" class="qbl-demo__vector" x1="310" y1="198" x2="446" y2="198"/><line id="qblVecI" class="qbl-demo__vector" x1="310" y1="198" x2="310" y2="198"/><line id="qblVecJ" class="qbl-demo__vector qbl-demo__vector--j" x1="310" y1="198" x2="310" y2="198"/><line id="qblVecK" class="qbl-demo__vector qbl-demo__vector--k" x1="310" y1="198" x2="310" y2="198"/><circle id="qblNodeRe" class="qbl-demo__node" cx="446" cy="198" r="8"/><circle id="qblNodeI" class="qbl-demo__node" cx="310" cy="198" r="8"/><circle id="qblNodeJ" class="qbl-demo__node" cx="310" cy="198" r="8"/><circle id="qblNodeK" class="qbl-demo__node" cx="310" cy="198" r="8"/><circle class="qbl-demo__origin" cx="310" cy="198" r="5"/><text id="qblTuple" class="qbl-demo__value" x="310" y="394" text-anchor="middle">(1, 0, 0, 0)</text></svg></div>
+<aside class="qbl-demo__readout"><div class="qbl-demo__bars" aria-label="Quaternion coordinates"><div class="qbl-demo__bar" data-axis="re"><b>Re</b><div class="qbl-demo__track"><span class="qbl-demo__fill" id="qblBarRe"></span></div><output id="qblOutRe">1</output></div><div class="qbl-demo__bar" data-axis="i"><b>i</b><div class="qbl-demo__track"><span class="qbl-demo__fill" id="qblBarI"></span></div><output id="qblOutI">0</output></div><div class="qbl-demo__bar" data-axis="j"><b>j</b><div class="qbl-demo__track"><span class="qbl-demo__fill" id="qblBarJ"></span></div><output id="qblOutJ">0</output></div><div class="qbl-demo__bar" data-axis="k"><b>k</b><div class="qbl-demo__track"><span class="qbl-demo__fill" id="qblBarK"></span></div><output id="qblOutK">0</output></div></div><div class="qbl-demo__facts"><div class="qbl-demo__fact"><small>Quaternion power</small><strong id="qblPower">qB⁰ = 1</strong></div><div class="qbl-demo__fact"><small>Magnitude</small><strong id="qblMagnitude">|qB⁰| = 1</strong></div><div class="qbl-demo__fact"><small>Carrier magnitude</small><strong id="qblCarrier">2501</strong></div><div class="qbl-demo__fact"><small>Norm</small><strong id="qblNorm">1</strong></div></div><div class="qbl-demo__return" id="qblReturn"><strong>Start:</strong> positive scalar axis; no return has occurred.</div></aside>
+</div>
+<div class="qbl-demo__controls"><div class="qbl-demo__controls-top"><button type="button" data-action="previous" aria-label="Previous quaternion step">← Step</button><button type="button" data-action="play" aria-label="Play quaternion steps" aria-pressed="false">Play</button><button type="button" data-action="next" aria-label="Next quaternion step">Step →</button><label for="qblStep"><span>n</span><input id="qblStep" type="range" min="0" max="6" step="1" value="0"><output id="qblStepOutput">0</output></label></div><div class="qbl-demo__ladder" id="qblLadder" aria-label="Magnitude ladder"></div></div>
+<div class="qbl-demo__boundary"><strong>Boundary:</strong> Die Ansicht zeigt exakte Hamilton-Arithmetik. Drei Schritte liefern die skalare Gegenseite, sechs Schritte die positive Orientierung; Betrag und Zustand schließen nicht. Keine biologische Verzweigung, kein physisches Vierkoordinaten-System und keine Kopplung an Dezimalstempel oder Repunit-Quadrat. <a href="A0_RESEARCH_DESK.html#quaternion-binary-lift-20261120">Science-Desk-Return →</a></div>
+</section>
 <section id="bronze-24-divisor-aperture-20261110" class="section" aria-labelledby="bronze24NumberTitle">
 <p class="eyebrow">NUMBERMAGICK · EXACT DIVISOR CARRIER · BRONZE-24 APERTURE · 10.11.2026</p>
 <h2 id="bronze24NumberTitle">59.192 trägt genau 24 Teiler — sechs Restklassen ordnen den Ring.</h2>
@@ -1677,6 +2218,67 @@
 <div class="links"><a href="A0_MATHEMATICAL_JOINTS.html#ij-half-seam-direction-contract">Mathfield-Vertrag →</a><a href="assets/a0-field-notes/index.html#ij-half-seam-direction">A0 Richtungsvisual →</a><a href="A0_WERKBANK.html#nmAxisSwitch">F-IJ-01 →</a><a href="results/a0-e06-1221-to-12321-lift-result-2026-11-10.json">42.429 Returnbeleg →</a></div>
 <p class="status"><strong>Governance:</strong> Reuse von <code>NEXAH_A0_ORIENTATION_CONTROLLER_BENCH</code>, <code>MOD:NUMBER_VIEW_SUITE</code> und <code>ART:A0:MATHEMATICAL_JOINTS</code>. OTD, AA′, IYODA/JEDI, sixth und red line bleiben Owner-Suchlabels. Neue Identity, Relation, Operator, Study und Finding: jeweils <code>0</code>.</p>
 </section>
+<section id="field-notes-numbergame-source-bridge-20261121" class="section" aria-labelledby="fieldNotesNumbergameBridgeTitle">
+<p class="eyebrow">FIELD NOTES → NUMBERGAME → SOURCE VISUALS · BOUNDED RETURN · 21.11.2026</p>
+<h2 id="fieldNotesNumbergameBridgeTitle">Die letzte Lücke ist kein neuer Mechanismus — sondern die saubere Rollenfolge.</h2>
+<p class="lead"><strong>Field Notes</strong> halten exakte Adressen, Operatoren und Grenzen fest. Das <strong>Numbergame</strong> führt bereits vorhandene Regeln aus. Die historischen NFI-Heatmaps zeigen Overlays über einem Kalenderträger. Das GLB trägt Geometrie und Namen. Erst diese Trennung macht die vier Materialien gemeinsam lesbar.</p>
+<div class="flow">
+<article><strong>1 · Field Notes / Axiom</strong><p><code>MA^π</code> bleibt Owner-Tour-Code; <code>J₁₀₀₀(n)=1000−n</code> ist die exakte Red-Balloon-Spiegelung. Im IJ-Record gelten <code>I=9</code>, <code>J=10</code>, <code>I+J=19</code> und die Halbnaht <code>−0,5 ↔ 0 ↔ +0,5</code>.</p></article>
+<article><strong>2 · Numbergame / Ausführung</strong><p>Euler-/Gaussian-Quarter-Turn, Fibonacci-Paarrekurrenz, CRT/QRT, Wheels und Gruppen bleiben getrennte ausführbare Operatorwelten. Es gibt keinen Feedbackpfad und keine gemeinsame Uhr zwischen ihnen.</p></article>
+<article><strong>3 · Heatmap / Diagnose</strong><p>Die Raster sind historische NFI-/Rulecard-Visuals. Das eigene V5-Dokument nennt „forward synthetic tests“, einen vorgeschlagenen Prime-Month-Gewichtsterm und offene Formalisierung. Farbe und Achsen sind daher Diagnose-Overlays, keine Messwerte oder Vorhersage.</p></article>
+<article><strong>4 · GLB / Trägeransicht</strong><p>Das gefundene <code>tri_mobius…world_moons_full.glb</code> ist statisch: glTF 2.0, <code>2722</code> Nodes, <code>2721</code> Meshes, <code>0</code> Animationen. Jahresnodes sind vorhanden; die USDZ-Namen <code>bridge_TESSARNA_*</code> wurden im GLB nicht gefunden.</p></article>
+</div>
+<div class="cards" aria-label="Historische Heatmap-Quellen">
+<figure class="story-plate">
+<span class="plate-tag">HISTORICAL NFI · DIAGNOSTIC ONLY</span>
+<a href="/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/zzz - Homework/NFI DEPOT SUPPORT/VISUALS/Heatmap mit Prime- und 4-:7er Achsen-Markierung.png">
+<img src="/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/zzz - Homework/NFI DEPOT SUPPORT/VISUALS/Heatmap mit Prime- und 4-:7er Achsen-Markierung.png" alt="Historische NFI-Heatmap 2018 bis 2040 mit eingezeichneten Prime- und 4-zu-7-Achsen" loading="lazy" decoding="async">
+</a>
+<figcaption>Kalenderfeld plus deklarierte Achsenmarken. Der Farbwert erhält erst durch die zugehörige CSV-/Rulecard-Pipeline Bedeutung; die Achsen erzeugen keine Prime-Relation.</figcaption>
+</figure>
+<figure class="story-plate">
+<span class="plate-tag">HISTORICAL NFI · OVERLAY COMPARATOR</span>
+<a href="/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/zzz - Homework/NFI DEPOT SUPPORT/VISUALS/Heatmap mit Prime-30-Achsen (blau) und 113:226er-Primes (rot gestrichelt).png">
+<img src="/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/zzz - Homework/NFI DEPOT SUPPORT/VISUALS/Heatmap mit Prime-30-Achsen (blau) und 113:226er-Primes (rot gestrichelt).png" alt="Historische NFI-Heatmap mit blauen Prime-30-Achsen und rot gestrichelten 113-zu-226-Prime-Markern" loading="lazy" decoding="async">
+</a>
+<figcaption>Zweites Overlay desselben historischen Arbeitsfelds. Sichtbare Übereinstimmung ist ein Suchsignal; ohne Nullmodell, kalendererhaltende Shuffles und rekonstruierbaren Generator ist sie kein Finding.</figcaption>
+</figure>
+</div>
+<table><thead><tr><th>Material</th><th>Was übernommen wird</th><th>Was nicht übernommen wird</th></tr></thead><tbody>
+<tr><td><a href="assets/a0-field-notes/index.html#ij-half-seam-direction">Field Notes · IJ-Halbnaht</a></td><td>exakte Adressen, Spiegelung, Naht und Claim Ceiling</td><td>keine neue Gleichung, Physik oder Operatoridentität</td></tr>
+<tr><td><a href="A0_GAME_OF_WORLDS_PLAY.html#numbers">Numbergame · Numbers</a></td><td>vorhandene endliche Operatorläufe und Returns</td><td>kein gemeinsamer Generator oder Feedbackkanal</td></tr>
+<tr><td><a href="/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/zzz - Homework/NFI DEPOT SUPPORT/METAREADME.md">NFI · Metareadme V1–V5</a></td><td>historische Daten-/Visual-Genealogie</td><td>keine Aktivierung der Rulecard oder Prognosebehauptung</td></tr>
+<tr><td><a href="/Users/tho2020/Desktop/Desktop TASKS/DESKTOP_archy/THOOTH DASHBOARD/Nexahedron_Codex Staging Modules/▲ Regulator_Q-Dimensions_q-elektrodynamics_World_Moons_J.I./tri_mobius_klein_core_silent__world_moons_full.glb">World-Moons GLB</a></td><td>statischer Geometrie-/Node-Träger und Jahresadressen</td><td>keine Identität mit dem USDZ-Screenshot, keine native Bewegung</td></tr>
+</tbody></table>
+<p class="note"><strong>Die anwendbare Verbindung:</strong> Eine Heatmap-Zelle darf als <em>Adresse</em> in das Numbergame gereicht werden; eine Field Note muss den verwendeten Operator und den Rückschlüssel nennen; das GLB darf denselben Record räumlich darstellen. Keines dieser drei Medien darf die fehlende Evidenz des anderen ersetzen.</p>
+<p class="note" style="border-color:#e1b85d;background:rgba(225,184,93,.12);color:#5b4311"><strong>OPEN:</strong> reproduzierbarer Generator der beiden Prime-Achsen-Heatmaps, kalendererhaltendes Nullmodell, Zuordnung der USDZ-Bridge-Namen zum GLB und eine explizite Adress-Map <code>(Jahr, Monat) ↔ GLB-Node</code>. Bis dahin bleiben Moiré, Flügel/Blätter und auffällige Zentren visuelle Phänomene.</p>
+<div class="links"><a href="assets/a0-field-notes/index.html#ma-pi-proof-loop">MA^π Proof Loop →</a><a href="assets/a0-field-notes/index.html#g9-orion-rotation">G9 Orion GLB →</a><a href="A0_GAME_OF_WORLDS_PLAY.html#numbers">Numbergame öffnen →</a><a href="results/a0-field-notes-numbergame-source-bridge-2026-11-21.json">Source Receipt →</a></div>
+<p class="status"><strong>Governance:</strong> Reuse von <code>MOD:NUMBER_VIEW_SUITE</code>, <code>NEXAH_A0_ORIENTATION_CONTROLLER_BENCH</code> und der bestehenden A0-Field-Notes-Genealogie. Neue Identity, Relation, Alias, Operator, Study, Finding und Publikationswirkung: jeweils <code>0</code>.</p>
+</section>
+<section id="tm-lim-janus-cube-handoff-20261121" class="section" aria-labelledby="tmLimJanusCubeTitle">
+<p class="eyebrow">TM → LIM-SEAM → JANUS → CUBE HANDOFF · TYPED RETURN · 21.11.2026</p>
+<h2 id="tmLimJanusCubeTitle">Dasselbe Bild kann von zwei verschiedenen Cube-Seiten kommen.</h2>
+<p class="lead">Numbermagick erhält die neue Lesart nicht als weiteren Spiegeloperator, sondern als vollständigen Übergaberecord. <code>AM</code>, <code>AM′</code> und <code>AM″</code> markieren aufeinanderfolgende Durchläufe; intern bleiben Blatt und Passnummer explizit.</p>
+<div class="flow">
+<article><strong>1 · TM / LIM</strong><p><code>x⁻=lim(t→t₀⁻)x(t)</code> und <code>x⁺=lim(t→t₀⁺)x(t)</code> bleiben getrennt. Die Naht darf beide auf dieselbe zyklische Displayadresse projizieren.</p></article>
+<article><strong>2 · Janus / T</strong><p><code>T(a,ε)=(a,−ε)</code> mit <code>ε∈{−1,+1}</code> und <code>T²=id</code>. Damit gilt <code>AM₊→AM₋→AM₊⁽²⁾</code>; der zweite positive Zustand trägt weiterhin <code>pass=2</code>.</p></article>
+<article><strong>3 · Cube / Tilt</strong><p>Der vorhandene Bracket-Test zeigt <code>Π(X(+60°))=Π(X(−60°))</code>, obwohl die räumlichen Posen verschieden sind. Signierter Tilt oder Tiefen-Witness, Achse, Frame, Residuum und Provenienz müssen die Übergabe begleiten.</p></article>
+<article><strong>4 · Return class</strong><p>Ohne diese Felder liegt höchstens Projection Return vor. Mit vollständigem Record kann Pose-, Carrier- oder Exact Return getrennt geprüft werden.</p></article>
+<article><strong>5 · Ca–Ro–Thé–Ma–Nu</strong><p>Die Owner-Tafeln definieren die größere getypte Folge <code>𝓕=Nu∘Ma∘Thé∘Ro∘Ca</code>: Cut/Puncture → Rotation/Orientierung → Resonanz/Kohärenz → Form/Speicherung → Rückkehr/Integration. Der Janus-Flip <code>T</code> ist darin ein lokaler Blattwechsel und nicht die Gesamttransformation.</p></article>
+</div>
+<table><thead><tr><th>Recordfeld</th><th>Rolle</th><th>Warum nötig</th></tr></thead><tbody>
+<tr><td><code>carrier + address</code></td><td>welcher Zustandsträger / welche lokale Adresse</td><td>verhindert die Gleichsetzung gleicher Bilder aus verschiedenen Quellen</td></tr>
+<tr><td><code>sheet ε + pass</code></td><td>Janus-Seite und Durchlauf</td><td>trennt <code>AM</code>, <code>AM′</code> und <code>AM″</code></td></tr>
+<tr><td><code>signed tilt α</code> oder <code>depth witness</code></td><td>räumliche Orientierung</td><td>rekonstruiert das in der 2D-Projektion verlorene Vorzeichen</td></tr>
+<tr><td><code>axis + frame + projection</code></td><td>Koordinaten- und Kameravertrag</td><td>macht Bildgleichheit reproduzierbar statt visuell vermutet</td></tr>
+<tr><td><code>residual + provenance</code></td><td>verlorene Information und Quelle</td><td>ermöglicht exakten Return ohne Identitätskollaps</td></tr>
+</tbody></table>
+<p class="note"><strong>CARO / Owner grammar:</strong> Green Mirror / Black Mirror / Lotus und die fünf manuellen Lesemarken liefern einen benachbarten Darstellungs-Comparator. <code>CARO closing ≠ TM ≠ Janus ≠ Cube tilt</code>. Die Owner-Schreibweise <code>CaroThemanu</code> ist durch zwei am 21.11.2026 übergebene visuelle Tafeln nun als <code>SOURCE_DEFINED_OWNER_TRANSFORMATION_GRAMMAR</code> gebunden: <code>Ca–Ro–Thé–Ma–Nu</code>. Das definiert Lesart und Reihenfolge, aber keinen kanonischen oder wissenschaftlich validierten Operator.</p>
+<p class="note"><strong>Allgemeiner Träger:</strong> <code>FIELD → CUT → SPACE → POSITION → RELATION → WORLD</code>. Die Kette beschreibt einen Owner-definierten Übergang von Potential zu stabilisierter Struktur; Wahrheit, physische Wirkung und Eindeutigkeit folgen daraus nicht.</p>
+<p class="note" style="border-color:#e1b85d;background:rgba(225,184,93,.12);color:#5b4311"><strong>Exakte Grenze:</strong> <code>SAME PROJECTION ≠ SAME SPATIAL POSE ≠ SAME HISTORICAL RECORD</code>. Zwei Strecken dürfen dieselbe sichtbare Ankunft besitzen, ohne dieselbe Strecke oder denselben Zustand darzustellen.</p>
+<div class="links"><a href="A0_RESEARCH_DESK.html#tm-lim-janus-cube-handoff-return-20261121">Science Desk Return →</a><a href="A0_ORIENTATION_CONTROLLER_BENCH.html#caroOrientationModes">CARO Modes →</a><a href="results/a0-pascal-bracket-tilt-projection-2026-10-25.json">Tilt Projection Receipt →</a><a href="results/a0-tm-lim-janus-cube-handoff-2026-11-21.json">Crosswalk Receipt →</a></div>
+<p class="status"><strong>Governance:</strong> Reuse von <code>MOD:NUMBER_VIEW_SUITE</code> und <code>NEXAH_A0_ORIENTATION_CONTROLLER_BENCH</code>. Dokumentarischer Crosswalk innerhalb bestehender Identitäten; neue Identity, Relation, Alias, Operator, Study, Finding und Publikationswirkung jeweils <code>0</code>.</p>
+</section>
 <section id="weiter" class="section">
 <h2>Der nächste Arbeitsschritt</h2>
 <p>Für einen vorhandenen Grid-Wechsel zuerst Quelle und Decoder verbinden: <strong>Ausgangsrecord → Koordinatenregel → Rand/Farbrolle → erhalten oder verloren → Return-Witness.</strong> Neue Hinweise in der bestehenden Numbermagick-Quellenkarte ergänzen, nicht erneut eine Registry anlegen.</p>
@@ -1695,7 +2297,15 @@
 </script>
 <script src="a0-pascal-thread-views.js">
 </script>
-<script src="a0-six-marker-grid-views.js">
+<script src="a0-six-marker-grid-views.js?rev=mirror-audit-r1-20261121">
+</script>
+<script src="a0-six-marker-637-mirror-audit.js?rev=r1-20261121">
+</script>
+<script src="a0-twin-prime-base-grid-audit.js?rev=r1-20261121">
+</script>
+<script src="a0-repunit-scale-fracture-audit.js?rev=r1-20261121">
+</script>
+<script src="a0-fibonacci-crt-clock.js?rev=r1-20261121">
 </script>
 <script src="a0-family-spatial-navigation.js">
 </script>
@@ -1709,6 +2319,17 @@
 </script>
 <script src="a0-exponential-decay-gap.js?rev=grey-pink-r1-20261118">
 </script>
+<script src="a0-prime-address-countershot.js?rev=r4-20261121">
+</script>
+<script src="a0-prime-torus-thread-demonstrator.js?rev=r2-euler-20261121">
+</script>
+<script src="a0-quaternion-binary-lift.js?rev=r1-20261120"></script>
+<script src="a0-game-of-worlds-model.js?rev=numbermagick-plug-rail-r1-20261121"></script>
+<script src="a0-trinity-lens.js?rev=numbermagick-plug-rail-r1-20261121"></script>
+<script src="a0-game-of-numbers-model.js?rev=numbermagick-plug-rail-r1-20261121"></script>
+<script src="a0-number-representation-plug.js?rev=numbermagick-plug-rail-r1-20261121"></script>
+<script src="a0-numbermagick-plug-rail.js?rev=r1-20261121"></script>
+<script src="a0-scarab-nx-probe.js?rev=r1-20261121"></script>
 <script src="a0-context-navigation.js?rev=flagship-constellation-r1-20261030">
 </script>
 </body>

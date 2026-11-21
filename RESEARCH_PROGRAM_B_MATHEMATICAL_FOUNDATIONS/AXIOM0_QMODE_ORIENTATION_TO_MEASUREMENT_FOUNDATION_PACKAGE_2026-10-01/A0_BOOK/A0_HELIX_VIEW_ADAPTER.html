@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A0 · RDMH Helix Strand Adapter</title>
+  <link rel="stylesheet" href="a0-context-navigation.css">
+  <link rel="stylesheet" href="a0-helix-view-adapter.css?rev=20261121-r3">
+</head>
+<body>
+<main class="hv-shell" data-helix-adapter>
+  <header class="hv-hero">
+    <div>
+      <div class="hv-kicker">A0 · source-bound engineering view · visual encoding only</div>
+      <h1>RDMH HELIX<br>STRAND ADAPTER</h1>
+      <p><code>RN\A</code> zeigt den gerichteten Einzelstrang A. <code>(c)D|⁄|A</code> ergänzt den antipodalen Gegenstrang, Sprossen und ihre exakten Mittelachsen-Schnittpunkte. Beide bleiben deklarierte View-Modi.</p>
+    </div>
+    <dl class="hv-status">
+      <div><dt>Channel</dt><dd>INTERNAL A0</dd></div><div><dt>Model</dt><dd>RDMH · 1.5.0</dd></div><div><dt>Acceptance</dt><dd>NOT RECORDED</dd></div><div><dt>Deployment</dt><dd>NONE</dd></div>
+    </dl>
+  </header>
+
+  <section class="hv-workbench" aria-label="Interaktiver Helix View Adapter">
+    <div class="hv-toolbar">
+      <div class="hv-segment" role="group" aria-label="Strangprojektion">
+        <button type="button" data-hv-strand="double" aria-pressed="true">(c)D|⁄|A · 2-Strang</button>
+        <button type="button" data-hv-strand="single" aria-pressed="false">RN\A · 1-Strang</button>
+      </div>
+      <div class="hv-segment" role="group" aria-label="Sprossenträger">
+        <button type="button" data-hv-mode="twins" aria-pressed="true">40 Twin-Prime-Paare</button>
+        <button type="button" data-hv-mode="z37" aria-pressed="false">19 eindeutige ℤ₃₇-Orbits</button>
+        <button type="button" data-hv-mode="zeta" aria-pressed="false">20 ζ-Nullstellenpaare</button>
+      </div>
+      <div class="hv-segment hv-register-segment" role="group" aria-label="Register-Layer">
+        <button type="button" data-hv-register="pair" aria-pressed="true">PAIR · 1+1</button>
+        <button type="button" data-hv-register="fh14" aria-pressed="false">F/H · 7+7</button>
+        <button type="button" data-hv-register="triad21" aria-pressed="false">TRIAD · 3×7</button>
+        <button type="button" data-hv-register="z37frame" aria-pressed="false">ℤ₃₇ · 1+18</button>
+      </div>
+      <label class="hv-check"><input type="checkbox" data-hv-rail checked> φ-Rail + Fibonacci-Indizes</label>
+    </div>
+
+    <div class="hv-stage-grid">
+      <div class="hv-canvas-wrap">
+        <canvas data-hv-canvas aria-label="Drehbarer RDMH Helix-Strang-Adapter aus endlichen Zahlenträgern">Interaktiver Helix-Strang-Adapter.</canvas>
+        <div class="hv-canvas-note"><span>drag · rotate</span><span data-hv-count>40 rungs</span></div>
+      </div>
+      <aside class="hv-inspector" aria-live="polite">
+        <div class="hv-eyebrow" data-hv-record>HELIX:TWIN:01</div>
+        <div class="hv-pair" data-hv-pair>3 ↔ 5</div>
+        <p class="hv-mode-readout" data-hv-strand-readout><b>(c)D|⁄|A</b> · antipodaler Doppelstrang · <code>Lₖ(1/2)=(0,zₖ,0)</code></p>
+        <p class="hv-mode-readout hv-register-readout" data-hv-register-readout><b>PAIR · 1+1</b> · geprüfter Quellträger ohne zusätzlichen Phasen-Layer</p>
+        <dl data-hv-detail></dl>
+        <div class="hv-nav"><button type="button" data-hv-prev aria-label="Vorherige Sprosse">←</button><label>Sprosse <input data-hv-index type="range" min="1" max="40" value="1"></label><button type="button" data-hv-next aria-label="Nächste Sprosse">→</button></div>
+      </aside>
+    </div>
+
+    <div class="hv-phase-control">
+      <div><label for="helixPhase"><b>THETA Θ · Twist / Phasenverdrehung Δθ pro Schritt</b></label><output id="helixPhaseOut" for="helixPhase">36,000000° · 10er-Takt</output></div>
+      <input id="helixPhase" data-hv-mix type="range" min="0" max="1000" value="0">
+      <div class="hv-phase-labels"><span>36° = 2π/10</span><span>137,507764° = 2π/φ²</span></div>
+      <dl class="hv-torsion-metrics" aria-label="Abgeleitete Helix-Geometrie">
+        <div><dt>Gesamtverdrehung</dt><dd data-hv-turns>3,900000 turns</dd></div>
+        <div><dt>IOTA ι = b</dt><dd data-hv-iota>0,095851 / rad</dd></div>
+        <div><dt>DAO = R²+ι²</dt><dd data-hv-dao>0,322788</dd></div>
+        <div><dt>Pitch / Umdrehung</dt><dd data-hv-pitch>0,602256 view units</dd></div>
+        <div><dt>Krümmung κ</dt><dd data-hv-curvature>1,7347</dd></div>
+        <div><dt>Torsionsgröße |τ|</dt><dd data-hv-torsion>0,2971 / view unit</dd></div>
+      </dl>
+      <p class="hv-torsion-note"><code>γ(t)=(R cos t, ιt+y₀,R sin t)</code> · <code>Θ=Δθ</code> · <code>ι=b=Δz/Δθ</code> · <code>DAO=R²+ι²</code> · <code>κ=R/DAO</code> · <code>|τ|=|ι|/DAO</code>. Diese Namen bezeichnen getrennte View-Register, keine physikalischen Größen.</p>
+    </div>
+    <div class="hv-zeta-control" data-hv-zeta-control hidden>
+      <div class="hv-zeta-control__head"><div><b>RIEMANN EXPLICIT-FORMULA LENS</b><span>finite sample · first 20 positive ordinates</span></div><output data-hv-zeta-summary>z=log x · β=1/2</output></div>
+      <div class="hv-zeta-lens-switch" role="group" aria-label="Vergleichslinse">
+        <button type="button" data-hv-zeta-lens="smooth" aria-pressed="true">SMOOTH ζ / L-WAVE</button>
+        <button type="button" data-hv-zeta-lens="trace" aria-pressed="false">RLLR / LRRL TRACE</button>
+        <button type="button" data-hv-zeta-lens="seam" aria-pressed="false">−1/12 ↔ 11/12 SEAM</button>
+      </div>
+      <div class="hv-trace-switch" data-hv-trace-switch hidden role="group" aria-label="Trace-Wort">
+        <button type="button" data-hv-trace-word="RLLR" aria-pressed="true">RLLR · + − − +</button>
+        <button type="button" data-hv-trace-word="LRRL" aria-pressed="false">LRRL · − + + −</button>
+      </div>
+      <label for="helixLogX">Logarithmische Position <code>z=log x</code></label>
+      <input id="helixLogX" data-hv-logx type="range" min="0.693147" max="13.815511" step="0.001" value="6.907755">
+      <div class="hv-phase-labels"><span>x≈2</span><span>x≈1.000.000</span></div>
+      <label for="helixBetaOffset">Kontrafaktischer Envelope-Probe <code>β−1/2</code> <strong data-hv-beta-label>0,000</strong></label>
+      <input id="helixBetaOffset" data-hv-beta-offset type="range" min="-0.08" max="0.08" step="0.001" value="0">
+      <dl class="hv-torsion-metrics" aria-label="Explicit-Formula-Lesewerte">
+        <div><dt>x</dt><dd data-hv-zeta-x>1000,000</dd></div><div><dt>z = log x</dt><dd data-hv-zeta-logx>6,907755</dd></div>
+        <div><dt>ρ = β+iγ</dt><dd data-hv-zeta-rho>0,5 + 14,134725i</dd></div><div><dt>θ = γ log x</dt><dd data-hv-zeta-theta>97,636 rad</dd></div>
+        <div><dt>x^(β−1/2)</dt><dd data-hv-zeta-envelope>1,000000</dd></div><div><dt>norm. Paarterm</dt><dd data-hv-zeta-contribution>—</dd></div>
+        <div><dt>Comparator lens</dt><dd data-hv-zeta-lens-out>SMOOTH</dd></div><div><dt>Witness</dt><dd data-hv-zeta-witness>θ ↔ −θ</dd></div>
+      </dl>
+      <p class="hv-torsion-note"><code>−(x^ρ/ρ+x^ρ̄/ρ̄)</code> wird gegen <code>√x</code> normiert. <code>RLLR/LRRL</code> sind Pfadwörter mit je zwei Richtungswechseln. <code>−1/12 ≡ 11/12 (mod 1)</code> markiert denselben Kreispunkt mit getrenntem Lift-Witness. Keine dieser beiden Vergleichslinsen definiert einen Dirichlet-Charakter.</p>
+    </div>
+  </section>
+
+  <section class="hv-notes">
+    <article><div class="hv-eyebrow">RDMH / strand modes</div><h2>Ein Träger, zwei deklarierte Projektionen</h2><p><b><code>RN\A</code>:</b> nur <code>γA(k)</code>. <b><code>(c)D|⁄|A</code>:</b> <code>γB(k)=−γA(k)</code> in der radialen Ebene; jede Sprosse besitzt den Mittelpunkt <code>(0,zₖ,0)</code>.</p></article>
+    <article><div class="hv-eyebrow">Sprossen / exact return</div><h2>Zwei geprüfte endliche Träger</h2><p><b>Twin-Modus:</b> 40 Paare <code>(p,p+2)</code> bis 1111. <b>ℤ₃₇:</b> 19 eindeutige Involutionsorbits — der Fixpunkt <code>{0}</code> plus 18 Zweierorbits <code>{r,−r}</code>.</p></article>
+    <article><div class="hv-eyebrow">Treppe / phase</div><h2>Eulerformel ist Sprache, nicht Ursache</h2><p><code>e^{ikθ}</code> beschreibt die Kreisposition. <code>θ=36°</code> ist hier ein deklarierter 10er-Takt; die biologische DNA-Analogie bleibt außerhalb des mathematischen Claims.</p></article>
+    <article><div class="hv-eyebrow">Rail / markers</div><h2>Goldener Winkel, klare Rolle</h2><p>Die äußere Rail liegt im Radiusverhältnis <code>φ:1</code>. Die Indizes <code>1,2,3,5,8,13,21,34</code> werden markiert; Fibonacci steuert weder Primzahlen noch den Träger.</p></article>
+    <article><div class="hv-eyebrow">Twist ≠ torsion</div><h2>Zwei Messgrößen, ein kontrollierter View</h2><p><code>Δθ</code> ist die Verdrehung je diskretem Schritt. <code>|τ|</code> ist die aus Radius und Pitch abgeleitete Frenet-Torsionsgröße der kontinuierlichen Referenzhelix in normierten View-Einheiten.</p></article>
+    <article><div class="hv-eyebrow">Register / phase bundles</div><h2>1+1 → 7+7 → 3×7 → 1+18</h2><p><b>F/H</b> legt sieben antipodale Phasenpaare über denselben Träger. <b>TRIAD</b> erweitert auf 21 eindeutige Phasenlagen. <b>ℤ₃₇</b> zeigt den Fixpunkt 0, 18 Inversionspaare und die deklarierte Achse zur Naht <code>18|19</code>.</p></article>
+    <article><div class="hv-eyebrow">ζ / explicit formula</div><h2>Die Wellen werden als Phase lesbar</h2><p>Für <code>ρ=β+iγ</code> setzt die Linse <code>θ=γ log x</code> und normiert die Hülle mit <code>x^(β−1/2)</code>. Bei <code>β=1/2</code> bleibt sie konstant; das ist eine endliche Visualisierung bekannter Nullstellen, kein RH-Beweis.</p></article>
+    <article><div class="hv-eyebrow">trace / seam comparator</div><h2>Welle, Knick und Naht bleiben getrennte Typen</h2><p><code>RLLR</code> und <code>LRRL</code> sind komplementäre palindromische Trace-Wörter mit je zwei Richtungswechseln. Die Naht <code>−1/12 ↔ 11/12</code> zeigt Modulo-Gleichheit bei erhaltenem Lift-Witness. Beides ist ein View-Adapter, keine Dirichlet-<i>L</i>-Funktion.</p></article>
+  </section>
+
+  <p class="hv-boundary"><b>CLAIM BOUNDARY:</b> <code>RN\A</code>, <code>(c)D|⁄|A</code>, <code>RDMH</code>, <code>F/H</code> und <code>TRIAD</code> sind deklarierte typografische und geometrische View-Bezeichner. <code>Θ</code>, <code>ι</code> und <code>DAO</code> sind hier ausschließlich die explizit definierten normierten Größen <code>Δθ</code>, <code>Δz/Δθ</code> und <code>R²+ι²</code>. Der Backslash wird nicht ohne getrennt definierte Mengen als bewiesene Mengendifferenz gelesen. Die daraus abgeleitete Torsionsgröße <code>|τ|</code> ist keine physikalische Messung. Die ζ-Linse verwendet nur eine endliche Tabelle der ersten 20 positiven nichttrivialen Nullstellenordinaten und den einzelnen konjugierten Paarterm der expliziten Formel; sie berechnet weder die vollständige Formel noch neue Nullstellen und beweist weder RH noch GRH. <code>RLLR/LRRL</code> sind Trace-Wörter, keine Dirichlet-Charaktere; Periodizität modulo <code>q</code>, vollständige Multiplikativität und Nullwerte auf Nicht-Einheiten werden nicht behauptet. <code>−1/12</code> und <code>11/12</code> sind modulo 1 derselbe Phasenpunkt, aber getrennte Lift-/Pfadzeugen. Einzelstrang, Doppelhelix, Phasenüberblendung, Register-Layer und φ-Rail behaupten keine RNA-/DNA-Validierung, biologische Primzahlsteuerung, physikalische Resonanz, keinen Primzahlgenerator und keine natürliche Identität zwischen Twin Primes, ℤ₃₇, ζ-Nullstellen oder Fibonacci.</p>
+  <footer class="hv-return"><span>Reuses: MOD:NUMBER_VIEW_SUITE · ART:A0:MATHEMATICAL_JOINTS · no graph delta</span><nav><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html">← Primecube</a> · <a href="A0_PRIME_PROJECTION_TEST_SUITE.html">Prime Projection</a> · <a href="A0_RESEARCH_DESK.html#prime-projection-helix-paper-routing-20261121">Science Desk</a> · <a href="A0_HELIX_VIEW_ADAPTER_CONTRACT_2026-11-21.md">Contract</a> · <a href="results/a0-helix-view-adapter-2026-11-21.json">Receipt</a></nav></footer>
+</main>
+<script src="a0-primecube-model.js?rev=20261121-r5"></script>
+<script src="a0-helix-view-adapter.js?rev=20261121-r6"></script>
+<script src="a0-helix-view-adapter-ui.js?rev=20261121-r6"></script>
+<script src="a0-context-navigation.js"></script>
+</body>
+</html>

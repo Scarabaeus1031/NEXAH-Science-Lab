@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A0 · CRT–Root Boundary Audit</title>
+  <link rel="stylesheet" href="a0-context-navigation.css">
+  <link rel="stylesheet" href="a0-crt-root-boundary.css?rev=20261121-r2">
+</head>
+<body>
+<main class="crb-shell" data-crt-root-audit>
+  <header class="crb-hero">
+    <div>
+      <div class="crb-kicker">A0 · typed comparison instrument · no admission</div>
+      <h1>CRT ↔ ROOT<br>BOUNDARY AUDIT</h1>
+      <p>Vier getrennte Layer: 637-Polarring, Root-Seam um den Primzahlindex 121, alle 37 CRT-Schichten des Trägers <code>7×11×37</code> und ein quellgebundener 11×6-Beobachtungslayer.</p>
+    </div>
+    <aside><b>Reuses</b><span>MOD:NUMBER_VIEW_SUITE</span><span>NN:CRT_QRT_37_CARRIER_LADDER</span><span>A0:ROOTROOM_CODON_ORIENTATION_RETURN:V1</span><b>Graph delta</b><span>0 identities · 0 relations · 0 claims</span></aside>
+  </header>
+
+  <section class="crb-grid crb-grid-top">
+    <article class="crb-panel" data-crb-ring>
+      <header><div><small>01 · finite slot carrier</small><h2>637-Polarring & typed operators</h2></div><span>DISCRETE</span></header>
+      <div class="crb-segment" role="group" aria-label="Ringoperator">
+        <button type="button" data-crb-op="SOURCE" aria-pressed="true">Source</button>
+        <button type="button" data-crb-op="J6" aria-pressed="false">J₆ slot mirror</button>
+        <button type="button" data-crb-op="R637" aria-pressed="false">R₆₃₇ integer mirror</button>
+        <button type="button" data-crb-op="N37" aria-pressed="false">N₃₇ residue negation</button>
+      </div>
+      <canvas data-crb-ring-canvas aria-label="Sechsstelliger Polarring mit ausgewähltem Operator"></canvas>
+      <div class="crb-ring-detail" data-crb-ring-detail aria-live="polite"></div>
+      <div class="crb-table-wrap"><table><thead><tr><th>Slot</th><th>n</th><th>Typ</th><th>Faktoren</th><th>mod 7</th><th>mod 11</th><th>mod 37</th></tr></thead><tbody data-crb-ring-table></tbody></table></div>
+    </article>
+
+    <article class="crb-panel" data-crb-root>
+      <header><div><small>02 · metric over source index</small><h2>Root Ruler & 11²-Seam</h2></div><span>APERIODIC</span></header>
+      <label class="crb-slider-label" for="crbIndex"><b>Primzahlindex k</b><output data-crb-index-out for="crbIndex">121</output></label>
+      <input id="crbIndex" data-crb-index type="range" min="115" max="142" value="121">
+      <canvas data-crb-root-canvas aria-label="Wurzelreste der Primzahlindizes 115 bis 142"></canvas>
+      <div class="crb-metrics" data-crb-root-detail aria-live="polite"></div>
+      <p class="crb-note"><b>Typkorrektur:</b> Quadratwurzeln nichtquadratischer ganzer Zahlen sind <em>algebraisch irrational</em>, nicht transzendent. Der Root Ruler misst keine Modulo-Slots.</p>
+    </article>
+  </section>
+
+  <section class="crb-panel" data-crb-slice>
+    <header><div><small>03 · complete finite carrier explorer</small><h2>ℤ₇ × ℤ₁₁ × ℤ₃₇ · 37-Layer Navigation</h2></div><span>37 × 77 = 2849 NODES</span></header>
+    <p>Jede Schicht hält genau 77 Repräsentanten <code>0≤n&lt;2849</code>. Die Schnellwahl markiert die sechs Ring-Schichten, die Gegenklassen <code>18↔19</code> und die Boundary-Schicht <code>r₃₇=32</code>.</p>
+    <label class="crb-slider-label" for="crbLayer"><b>Aktive Schicht r₃₇</b><output data-crb-layer-out for="crbLayer">32</output></label>
+    <input id="crbLayer" data-crb-layer type="range" min="0" max="36" value="32">
+    <div class="crb-layer-jumps" role="group" aria-label="Markante CRT-Schichten">
+      <button type="button" data-crb-layer-jump="0" aria-pressed="false">0 · Fix</button>
+      <button type="button" data-crb-layer-jump="4" aria-pressed="false">4 · 337</button>
+      <button type="button" data-crb-layer-jump="8" aria-pressed="false">8 · 637</button>
+      <button type="button" data-crb-layer-jump="12" aria-pressed="false">12 · 937</button>
+      <button type="button" data-crb-layer-jump="15" aria-pressed="false">15 · 237</button>
+      <button type="button" data-crb-layer-jump="18" aria-pressed="false">18 · N₃₇</button>
+      <button type="button" data-crb-layer-jump="19" aria-pressed="false">19 · 537</button>
+      <button type="button" data-crb-layer-jump="32" aria-pressed="true">32 · 661/809</button>
+      <button type="button" data-crb-layer-jump="34" aria-pressed="false">34 · 737</button>
+    </div>
+    <div class="crb-layer-summary" data-crb-layer-summary aria-live="polite"></div>
+    <div class="crb-slice" data-crb-slice-grid aria-label="7 mal 11 CRT-Slice"></div>
+    <div class="crb-slice-detail" data-crb-slice-detail aria-live="polite">Zelle wählen.</div>
+  </section>
+
+  <section class="crb-panel" data-crb-heatmap>
+    <header><div><small>04 · owner supplied observation layer</small><h2>11×6 Scores · source-fixed</h2></div><span>NOT AN OPERATOR OUTPUT</span></header>
+    <p>Die 66 Werte bleiben an den sechs Quellmarkern verankert. J₆, R₆₃₇ und N₃₇ verändern oder spiegeln diesen Layer nicht.</p>
+    <div class="crb-table-wrap"><table class="crb-heatmap-table" data-crb-heatmap-table></table></div>
+  </section>
+
+  <p class="crb-boundary"><b>CLAIM BOUNDARY:</b> Das CRT-Register ist endlich und periodisch; der Root Ruler ist eine reelle Metrik über dem Index; die Scores sind quellgebundene Beobachtungswerte. Die Naht <code>k=121=11²</code>, <code>p₁₂₁=661</code> und der gemeinsame Rest <code>661≡809≡32 (mod 37)</code> sind exakt prüfbare Koordinaten. Sie begründen keine gemeinsame Mechanik, keine physische Fuge, keine Resonanz und keine wissenschaftliche Admission.</p>
+  <footer><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html">← Primecube / Root Ruler</a><span><a href="A0_CRT_ROOT_BOUNDARY_AUDIT_CONTRACT_2026-11-21.md">Contract</a> · <a href="assets/a0-crt-root-boundary-audit-v1.json">Binding</a> · <a href="results/a0-crt-root-boundary-audit-2026-11-21.json">Receipt</a></span></footer>
+</main>
+<script src="a0-crt-root-boundary-model.js?rev=20261121-r2"></script>
+<script src="a0-crt-root-boundary-ui.js?rev=20261121-r2"></script>
+<script src="a0-context-navigation.js"></script>
+</body>
+</html>
