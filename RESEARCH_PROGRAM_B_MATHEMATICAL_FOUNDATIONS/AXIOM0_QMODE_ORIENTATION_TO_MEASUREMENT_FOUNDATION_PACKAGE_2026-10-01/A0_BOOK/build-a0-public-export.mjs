@@ -48,7 +48,7 @@ function rebaseSourceLinks(html, fromFile) {
 }
 
 function projectHtmlLinks(html, fromFile) {
-  return html.replace(/href\s*=\s*(["'])([^"']+)\1/gi, (whole, quote, raw) => {
+  return html.replace(/(href|src)\s*=\s*(["'])([^"']+)\2/gi, (whole, attribute, quote, raw) => {
     const target = localTarget(raw, fromFile);
     if (!target || target === "index.html" || !/\.html?$/i.test(target) || pageSet.has(target)) return whole;
     if (manifest.excludedAuthoritySurfaces.some((name) => target.includes(name))) {
@@ -60,6 +60,7 @@ function projectHtmlLinks(html, fromFile) {
 
 function normalizeKnownPublicRoutes(html) {
   return html
+    .replace(/A0_LIVING_BLUEPRINT\.html#field-notes-reading-gate/g, "A0_SCIENCE.html#overview")
     .replace(/(assets\/game-of-worlds-play\/three-domain-transition-test\/index\.html)#atlas\b/g, "$1#atlasContracts")
     .replace(/(assets\/game-of-worlds-play\/three-domain-transition-test\/index\.html)#blue-body\b/g, "$1#blueBodyMotor")
     .replace(/index\.html#research-now\b/g, "A0_SCIENCE.html#status")
@@ -104,10 +105,22 @@ function applyPublicContentBoundary(html, relative) {
       .replace(/<span>Owner staging<\/span>/gi, "<span>Source-bound</span>")
       .replace(/<strong>Internal · no public release<\/strong>/gi, "<strong>Public Science projection · claim-bounded</strong>")
       .replace(/<article><small>Publication<\/small><strong>Not authorized<\/strong><p>[\s\S]*?<\/p><\/article>/i, "")
+      .replace(/<article><small>Publication<\/small><strong>A0 internal · no release<\/strong><p>[\s\S]*?<\/p><\/article>/i, "")
+      .replace(/Diese interne Lage zeigt/g, "Diese öffentliche Lage zeigt")
+      .replace(/<strong>Staging boundary:<\/strong> Diese A0-Seite ist die interne Owner-Lesefassung\. Sie eröffnet keine Study, aktiviert keinen Run und autorisiert weder Kontakt noch Deployment, Publikation oder Outreach\. Ein Website-Cut benötigt eine exakte manifestgebundene Revision und einen separaten Owner-Release\./g, "<strong>Public boundary:</strong> Diese manifestgebundene Lesefassung eröffnet keine Study, aktiviert keinen Run und fördert keinen wissenschaftlichen Claim. Interne Aufgaben, Entscheidungen und nicht freigegebene Quellen bleiben außerhalb der Projektion.")
       .replace(/SCIENCE RELEASE READY = NONE/g, "SCIENTIFIC CLAIM PROMOTION = NONE")
       .replace(/<strong>Staging boundary:<\/strong> Diese A0-Seite ist die interne Owner-Lesefassung\. Sie eröffnet keine Study, aktiviert keinen Run und autorisiert weder Kontakt noch Deployment, Publikation oder Outreach\. Ein nexah\.de-Cut benötigt eine exakte manifestgebundene Revision und einen separaten Owner-Release\./g, "<strong>Public boundary:</strong> Diese Seite ist eine manifestgebundene Lesefassung. Sie eröffnet keine Study, aktiviert keinen Run und fördert keinen wissenschaftlichen Claim. Der SCC-003-R1-Reviewraum ist eine getrennte, eng begrenzte öffentliche Review-Projektion.")
       .replace(/Diese Seite ist eine interne Orientierungs- und Lesefläche\. Sie erzeugt keine neue Study, aktiviert keine Forschung und autorisiert keine wissenschaftliche oder öffentliche Claim-Promotion\./g, "Diese öffentliche Orientierungs- und Lesefläche erzeugt keine neue Study, aktiviert keine Forschung und fördert keinen wissenschaftlichen Claim.")
       .replace(/\.status-grid\{display:grid;grid-template-columns:repeat\(4,1fr\)\}/, ".status-grid{display:grid;grid-template-columns:repeat(3,1fr)}");
+  }
+  if (relative === "A0_FIELD_NOTES.html") {
+    projected = projected
+      .replace(".nav{position:sticky;top:0;z-index:4;", ".nav{position:relative;top:auto;z-index:4;")
+      .replace(/<section class="note" id="ntf-iteration">[\s\S]*?<\/section>/i, "")
+      .replace(/<a href="#ntf-iteration">[\s\S]*?<\/a>/i, "")
+      .replace(/(<section class="note" id="time-after-time"[\s\S]*?<div class="screw">[\s\S]*?<\/div>)<div class="links">[\s\S]*?<\/div><\/section>/i, "$1</section>")
+      .replace(/<a\s+aria-disabled="true"\s+data-public-boundary="[^"]*">[\s\S]*?<\/a>/gi, "")
+      .replace(/<div class="links">\s*<\/div>/gi, "");
   }
   if (relative === "A0_SCIENTIFIC_POSITION_REPORT.html") {
     projected = projected
@@ -166,7 +179,7 @@ function copyAsset(relative) {
 
 function buildPage(relative) {
   const source = assertSourceFile(relative);
-  let html = normalizeKnownPublicRoutes(projectHtmlLinks(rebaseSourceLinks(stripPrivateShell(fs.readFileSync(source, "utf8")), relative), relative));
+  let html = projectHtmlLinks(normalizeKnownPublicRoutes(rebaseSourceLinks(stripPrivateShell(fs.readFileSync(source, "utf8")), relative)), relative);
   html = applyPublicContentBoundary(html, relative);
   if (shellPageSet.has(relative)) html = applyPublicShell(html);
   for (const ref of collectReferences(html, relative, "html")) {

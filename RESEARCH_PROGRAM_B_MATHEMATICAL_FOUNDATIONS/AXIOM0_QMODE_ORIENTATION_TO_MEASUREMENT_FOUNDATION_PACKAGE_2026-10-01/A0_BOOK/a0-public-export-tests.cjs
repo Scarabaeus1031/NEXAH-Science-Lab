@@ -70,6 +70,24 @@ assert.doesNotMatch(mathfield, /<header\b[^>]*class="top"/);
 assert.doesNotMatch(mathfield, /href="[^"]*github\.com[^"]*"/);
 assert.match(mathfield, /aria-disabled="true" data-public-boundary="source-not-exported">Blue-Body-Anwendung öffnen/);
 assert.match(mathfield, /aria-disabled="true" data-public-boundary="source-not-exported">Coupled Channel · Boundary Lens öffnen/);
+assert.doesNotMatch(mathfield, /(?:href|src)="A0_FOLD_GEOMETRY_NAVIGATOR\.html/);
+
+for (const page of [
+  "A0_FIELD_NOTES.html",
+  "A0_FIELD_NOTE_I_OBSERVATION.html",
+  "A0_FIELD_NOTE_II_DIFFERENCE.html",
+  "A0_FIELD_NOTE_III_TIME_AFTER_TIME.html"
+]) {
+  assert.ok(receipt.pages.includes(page), `public manifest includes ${page}`);
+  assert.ok(fs.existsSync(path.join(output, page)), `public export includes ${page}`);
+}
+const fieldNotes = fs.readFileSync(path.join(output, "A0_FIELD_NOTES.html"), "utf8");
+assert.match(fieldNotes, /Field Notes — Beobachtung, Differenz und Rückkehr/);
+assert.match(fieldNotes, /href="A0_FIELD_NOTE_I_OBSERVATION\.html"/);
+assert.match(fieldNotes, /href="A0_FIELD_NOTE_II_DIFFERENCE\.html"/);
+assert.match(fieldNotes, /href="A0_FIELD_NOTE_III_TIME_AFTER_TIME\.html"/);
+assert.match(fieldNotes, /href="A0_SCIENCE\.html#overview"/);
+assert.doesNotMatch(fieldNotes, /DRAFTS\/|ntf-iteration|\saria-disabled="true"/);
 
 const position = fs.readFileSync(path.join(output, "A0_SCIENTIFIC_POSITION_REPORT.html"), "utf8");
 assert.doesNotMatch(position, /Erklärweg · 4 von 4|Nächster Schritt im Erklärweg|Zur Wegübersicht/);
