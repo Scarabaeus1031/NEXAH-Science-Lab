@@ -82,7 +82,7 @@ let publicHeader = `<a class="a0-public-skip" href="#a0-public-content">Zum Inha
 publicHeader = publicHeader
   .replace('<a href="/A0_TOURS.html#explanation-path">Tour</a>', '<a href="/laboratory/roedelheim-observatory/">Anwenden &amp; erleben</a>')
   .replace('<nav aria-label="Anwenden und erleben"><a href="/A0_TOURS.html#explanation-path">', '<nav aria-label="Anwenden und erleben"><a href="/laboratory/roedelheim-observatory/">Rödelheim Observatory <span>→</span></a><a href="/A0_TOURS.html#explanation-path">')
-  .replace('/A0_SCIENTIFIC_POSITION_REPORT.html"', '/A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261019"')
+  .replace('/A0_SCIENTIFIC_POSITION_REPORT.html"', '/A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261121"')
   .replace('/forschen/#contributions"', '/A0_SCIENCE.html#contributions"')
   .replace('/A0_MATHEMATICAL_JOINTS.html"', '/A0_MATHEMATICAL_JOINTS.html#register-cut-aperture"')
   .replace('/forschen/#validation-boundary"', '/NEXAH_C_CONNECT.html#scientific-review"');
@@ -113,7 +113,7 @@ function applyPublicContentBoundary(html, relative) {
     projected = projected
       .replace(/\s*<nav\b[^>]*class=["'][^"']*a0-explanation-path[^"']*["'][^>]*>[\s\S]*?<\/nav>/i, "")
       .replace(/\s*<section\b[^>]*class=["'][^"']*a0-explanation-next[^"']*["'][^>]*>[\s\S]*?<\/section>/i, "")
-      .replace(/R2–R3 · Graph 286\/32 PASS/g, "R2–R3 · Source Graph currentness check open");
+      .replace(/R2–R3 · Graph 286\/32 PASS/g, "R2–R3 · Source Graph validation passed");
   }
   if (relative === "A0_NEWTON_GOETHE_OBSERVER_LENS.html") {
     projected = projected.replace(

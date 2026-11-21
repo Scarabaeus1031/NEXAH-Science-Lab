@@ -37,7 +37,7 @@ assert.match(index, /NEXAH <span>· Orientation<\/span>/);
 assert.match(index, /aria-label="NEXAH Hauptnavigation"/);
 assert.match(index, /href="\/forschen\/">Science<\/a>/);
 for (const destination of [
-  "/A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261019",
+  "/A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261121",
   "/A0_SCIENCE.html#contributions",
   "/A0_MATHEMATICAL_JOINTS.html#register-cut-aperture",
   "/NEXAH_C_CONNECT.html#scientific-review",
@@ -74,7 +74,7 @@ assert.match(mathfield, /aria-disabled="true" data-public-boundary="source-not-e
 const position = fs.readFileSync(path.join(output, "A0_SCIENTIFIC_POSITION_REPORT.html"), "utf8");
 assert.doesNotMatch(position, /Erklärweg · 4 von 4|Nächster Schritt im Erklärweg|Zur Wegübersicht/);
 assert.doesNotMatch(position, /Graph 286\/32 PASS/);
-assert.match(position, /Source Graph currentness check open/);
+assert.match(position, /Source Graph validation passed/);
 
 const tours = fs.readFileSync(path.join(output, "A0_TOURS.html"), "utf8");
 assert.match(tours, /data-public-href="\/library\/">← Lesen &amp; Erkunden<\/a>/);
