@@ -122,6 +122,12 @@ function applyPublicContentBoundary(html, relative) {
       .replace(/<a\s+aria-disabled="true"\s+data-public-boundary="[^"]*">[\s\S]*?<\/a>/gi, "")
       .replace(/<div class="links">\s*<\/div>/gi, "");
   }
+  if (relative === "A0_MATHEMATICAL_JOINTS.html") {
+    projected = projected.replace(
+      /\s*<section class="arp-system-map" id="a0-svr-01-route"[\s\S]*?<\/section>/i,
+      ""
+    );
+  }
   if (relative === "A0_SCIENTIFIC_POSITION_REPORT.html") {
     projected = projected
       .replace(/\s*<nav\b[^>]*class=["'][^"']*a0-explanation-path[^"']*["'][^>]*>[\s\S]*?<\/nav>/i, "")

@@ -67,6 +67,7 @@ const mathfield = fs.readFileSync(path.join(output, "A0_MATHEMATICAL_JOINTS.html
 assert.match(mathfield, /class="a0-public-top"/);
 assert.match(mathfield, /class="a0-public-primary"/);
 assert.doesNotMatch(mathfield, /<header\b[^>]*class="top"/);
+assert.doesNotMatch(mathfield, /id="a0-svr-01-route"|Mathfield → Blue\/Pink Lens → PULSE/);
 assert.doesNotMatch(mathfield, /href="[^"]*github\.com[^"]*"/);
 assert.match(mathfield, /aria-disabled="true" data-public-boundary="source-not-exported">Blue-Body-Anwendung öffnen/);
 assert.match(mathfield, /aria-disabled="true" data-public-boundary="source-not-exported">Coupled Channel · Boundary Lens öffnen/);
