@@ -1,0 +1,42 @@
+{
+  "schema": "nexah.a0.riemann-halfline-theta-return.receipt/1.1.0",
+  "date": "2026-11-22",
+  "status": "PASS_BOUNDED_ENGINEERING_VIEW",
+  "integration_checks": 91,
+  "identity_disposition": "REUSE_ONLY",
+  "identity_reuse": [
+    "MOD:NUMBER_VIEW_SUITE",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "NEXAH_ORION_REF02_Q_MIRROR_2026_10_01"
+  ],
+  "fixtures": {
+    "pi_1111": 186,
+    "pi_100000": 9592,
+    "moduli": [30, 210, 637, 2849],
+    "theta_t": [0.01, 0.1, 1, 10, 100],
+    "mirror_sigma": [0, 0.1, 0.4, 0.5, 0.6, 0.9, 1],
+    "schoenfeld_domain_start": 2657
+  },
+  "classification": {
+    "modulo_return": "EXACT",
+    "reciprocal_involution": "EXACT",
+    "critical_line_mirror_involution": "EXACT_AFFINE_ANTI_HOLOMORPHIC",
+    "critical_line_fixed_set": "EXACT_RE_S_EQUALS_ONE_HALF",
+    "set_invariance_vs_pointwise_fixation": "EXPLICITLY_SEPARATED",
+    "no_crossing": "NOT_IMPLIED",
+    "theta_transform": "FINITE_NUMERICAL_AUDIT_OF_CLASSICAL_IDENTITY",
+    "prime_residual": "FINITE_NUMERICAL_AUDIT",
+    "sqrt_envelope": "REFERENCE_ONLY",
+    "schoenfeld_envelope": "CONDITIONAL_ON_RH",
+    "circle_or_lemniscate": "DISPLAY_EMBEDDING_ONLY"
+  },
+  "navigator_effect": {
+    "new_identities": 0,
+    "new_relations": 0,
+    "new_aliases": 0,
+    "new_studies": 0,
+    "new_findings": 0,
+    "new_publications": 0
+  },
+  "claim_boundary": "No Riemann proof, zeta-zero localization, no-crossing theorem, physical wave, intrinsic lemniscate or Mobius topology, and no identity with Root Shrinking."
+}

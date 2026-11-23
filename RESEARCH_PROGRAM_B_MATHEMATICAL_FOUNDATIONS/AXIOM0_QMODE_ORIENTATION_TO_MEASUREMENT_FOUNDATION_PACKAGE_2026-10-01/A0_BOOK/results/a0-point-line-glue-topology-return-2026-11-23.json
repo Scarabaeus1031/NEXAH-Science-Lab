@@ -1,0 +1,26 @@
+{
+  "status": "PASS_TYPED_POINT_LINE_GLUE_TOPOLOGY_RETURN",
+  "date": "2026-11-23",
+  "identity": "ART:A0:MATHEMATICAL_JOINTS",
+  "host": "A0_BOUNDARY_GRAPH_DEMONSTRATOR.html#point-line-glue-topology-return",
+  "route": ["DOT", "COLON", "LINE", "SURFACE", "GLUE", "TOPOLOGY", "RETURN"],
+  "sourceBinding": {"carrier": "PC1111", "n": 661, "cubeAddress": [0, 5, 5], "returnId": "PC1111:N0661", "pointRole": "SOURCE_POINT"},
+  "dotRoleBoundary": ["SOURCE_POINT", "CENTER_DOT", "DECIMAL_POINT", "PRODUCT_DOT"],
+  "companionLedger": ["B1_TORUS", "B2_MOBIUS", "B3_SEAM", "B4_KLEIN", "B5_ROOT_SPACE_Q3_Q4", "B6_LOCAL_RETURN"],
+  "rootTypeBoundary": {"rootMetric": "SEPARATE", "q3Q4RootSpace": "DISCRETE_GRAPH_WITNESS", "criticalLineWindingGate": "SEPARATE_BOUNDED_TOPOLOGY_TEST"},
+  "surfaceModes": {
+    "OPEN": {"boundaryCount": 1, "orientable": true, "carrier": "UNPAIRED_RECTANGLE_OR_STRIP_NOT_OPEN_CYLINDER"},
+    "TORUS": {"boundaryCount": 0, "orientable": true},
+    "MOBIUS": {"boundaryCount": 1, "orientable": false},
+    "KLEIN": {"boundaryCount": 0, "orientable": false}
+  },
+  "localReturn": {"interior": "phi: U subset S -> V subset R^2", "boundary": "phi: U subset S -> V subset closed half-plane H^2"},
+  "modelChecks": 14,
+  "integrationChecks": 38,
+  "newCanonicalIds": [],
+  "relationChanges": [],
+  "studyChanges": [],
+  "findingChanges": [],
+  "claimChanges": [],
+  "publicationChanges": []
+}
