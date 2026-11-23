@@ -40,6 +40,84 @@ This workspace is not a second backlog, Lab Register, Study, Run Contract,
 Navigator identity or publication pipeline. Lifecycle and permission remain in
 the canonical A0 backlog, the Science Lab Register and Mission Control.
 
+<a id="primecube-unit-root-shear-20261122"></a>
+
+## Primecube Unit / Root / Shear comparator — 2026-11-22
+
+Classification: `SOURCE_BOUND_ENGINEERING_VIEW / EXACT_FINITE_CROSSWALKS /
+NOT_ADMITTED_FINDING / NO_F-A0_NUMBER`.
+
+The eleventh Primecube view verifies `15.7 international ft = 4.78536 m`,
+the four declared Root-marker squares, the default twelve-step `36°` shear
+and exact return by the retained marker and reversed path. It also records the
+short CRT rail `97=(6,9,6) ↔ 944=(6,9,8)`, where two coordinates are fixed
+and only the mod-13 coordinate changes.
+
+The `34`-pin screen count, the `¡` counter-glyph and candidate
+`696=(3,3,7)` remain bounded Owner/View readings. They do not establish a new
+grid invariant, operator, physical mechanism, prime law, Study or Finding.
+Cubit remains excluded pending a named historical standard. Disposition: keep
+inside the existing Primecube engineering record and Science Desk return.
+
+<a id="primecube-q-lasso-crosswalk-20261122"></a>
+
+## Primecube Q 60-Prime-Lasso and 456151→696 crosswalk — 2026-11-22
+
+Classification: `EXACT_FINITE_CROSSWALK / VIEW_LOCAL_PROJECTION /
+NOT_ADMITTED_FINDING / NO_F-A0_NUMBER`.
+
+Nine values of the exact 60-step `T20+` orbit are prime: `839, 883, 643,
+223, 113, 97, 911, 587, 757`. The orange lasso joins this ordered subsequence
+on screen. It is not a CRT-intersection graph, knot invariant or test of loop
+contractibility.
+
+Of the five declared decimal concatenations, only `456|151=456151` is prime;
+it is prime `#38177`. The exact Euclidean division
+`456151=455*1001+696` maps it to the existing local Q point
+`696=(3,3,7)`. This is a useful typed crosswalk between a large prime and a
+finite CRT carrier, but not a prime generator, topology theorem or new
+identity. `ISO45` remains an unbound screen-orientation label.
+
+### V-peak addendum: `496|12`
+
+Orbit step `35/60` is exactly `496=(6,1,2)`. Since
+`496=2^4*31` and its proper divisors sum to `496`, it is the third perfect
+number. The suffix block `12` is separately typed as the prime rank
+`p_12=37`. The visible V and overlapping lines remain a screen reading, not
+a new CRT invariant. Disposition remains `NOT_ADMITTED_FINDING / Δgraph=0`.
+
+<a id="cross-base-qcube-60-candidate-20261122"></a>
+
+## Q / T20± CRT cuboid · engineering-finding candidate — 2026-11-22
+
+Classification: `EXACT_FINITE_ENGINEERING_RESULT / NULL_CONTROLS_PASS /
+NOT_ADMITTED_FINDING / NO_F-A0_NUMBER`.
+
+The Primecube now contains a separate CRT view over
+`Q=7*11*13=1001`. Its axes retain the residues modulo `7`, `11` and `13`;
+`T20+(n)=20n mod 1001` has exact order `60`, and
+`T20-(n)=951n mod 1001` is its exact inverse. The Base-10 control closes after
+six steps. `lambda(1001)=60`, `20^60 mod 1001=1` and `20*951 mod 1001=1`
+are finite verified statements.
+
+The negative controls prevent promotion of the visually attractive base
+story: among 182 consecutive eligible prime triples only `(7,11,13)` yields
+the joint 60-period, but 14 of 220 three-prime subsets through 43 and 29 of
+2925 through 111 do so. More decisively, all 42 eligible base pairs `(b,2b)`
+through `b=60` inherit the joint 60 bound. Therefore the retained result is
+the CRT cuboid and the maximal order of multiplication by 20, not a unique
+decimal/vigesimal mechanism.
+
+The crosswalk `660=11*60`, `661=p_121`, `121=11^2` is exact but post-hoc.
+The local Q name and `T20±` are not merged with earlier PBDQ/TQ±, Q3D or C9
+roles. `2026 | Q^2*2^3`, `f/u/t`, `6f/2m` and `FC15.7ft` remain unbound owner
+intake. No unit, historical, physical, causal or canonical-Q± claim follows.
+
+Evidence: `A0_BOOK/a0-cross-base-qcube-null-test.cjs` and
+`A0_BOOK/results/a0-cross-base-qcube-60-candidate-2026-11-22.json`.
+Navigator effect: `0 identities / 0 relations / 0 studies / 0 findings /
+0 publications`.
+
 <a id="paper-family-currentness-check-20261119"></a>
 
 ## Paper-family currentness check — 2026-11-19
@@ -4022,3 +4100,323 @@ NEW ID 0 / RELATION 0 / ALIAS 0 / STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE
 [Paper E](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#post-freeze-source-view-boundaries) ·
 [Paper F](36_A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER_DRAFT_2026-10-12.md#post-freeze-frame-envelope-examples) ·
 [Receipt](A0_BOOK/results/a0-post-freeze-findings-paper-routing-2026-11-18.json)
+
+<a id="november-a0-emerald-synthesis-return--2026-11-20"></a>
+
+## November A0 / Emerald synthesis return — 2026-11-20
+
+Classification: `SOURCE_BOUND_PAPER_PREPARATION_RETURN / EXISTING_FINDINGS_AND_PAPER_IDS_REUSED / NOT_NEW_F-A0_FINDING / NO_STUDY_ACTIVATION / NO_PAPER_PROMOTION`.
+
+The 20 November integration closes a large documentary and engineering cycle
+without converting visual correspondences into scientific findings. Five
+bounded preparation clusters are retained:
+
+1. **NS-01 — carrier versus view.** Oval, line, 2D plate, 3D carrier, GIF
+   orbit and camera orbit may present one held source differently. A changed
+   projection is not a changed source object.
+2. **NS-02 — typed Return.** The local Emerald sequence
+   `AM -> P -> PM -> P` returns to its declared mediator `P`. `A`, `P`, `B`,
+   `AM` and `PM` are display roles; the sequence establishes no physical
+   equilibrium, energy or resonance law.
+3. **NS-03 — exact arithmetic with separated carriers.** The accepted finite
+   identities around Pascal rows, cubes, roots and prime addresses remain
+   exact only inside their declared contracts. Shared numbers or crossings do
+   not imply a common generator, operator or mechanism.
+4. **NS-04 — cut, calibration and residual.** Aperture, checkerboard, visible
+   fraction, Pink Shift, visual Echo and Shadow form an inspectable observation
+   ledger. Echo is a displayed lag and Shadow a visible residual, not acoustic
+   or material evidence.
+5. **NS-05 — source custody and anti-duplication.** Historical GIF/GLB assets
+   are hash-bound to the existing A0 Architecture-of-Difference host. PI,
+   Lamella, Root Room, Fold Geometry and SCC-003 remain separately owned
+   instruments and paper sources.
+6. **NS-06 — Prime address versus combinatorial count.** The inner Prime
+   Plates `{2,3,5,7,11,13,17,19,23}`, outside trigger `29`, mirror rule
+   `cell=p mod 9`, `mirror=8-cell`, Pascal equality `sum C(10,k)=1024`,
+   `11x11=121` pair field and historical Alpha-Gate ledger
+   `968 -> 992 -> 1000 -> 1024` are exact within separate declared
+   contracts. Their shared endpoint `1024` is a typed crosswalk, not a common
+   generator, operator or identity. The added 25-wide boustrophedon view
+   partitions `1..1000` into forty slices and ten 100-number windows. It keeps
+   arithmetic prime gaps `p_(k+1)-p_k` separate from projected grid jumps
+   `(delta x,delta y)`. Euler's `n^2+n+41` is retained only as the finite
+   `n=0..39` comparison corridor; `n=40` yields `1681=41^2`.
+
+Paper routing:
+
+- **Paper C — Return without identity:** NS-01, NS-02 and the non-identity
+  boundary of NS-06 as compact carrier/view/mediator and address/count
+  examples. No sixth formal Study or theorem.
+- **Paper E — Orientation method:** NS-03, NS-05 and NS-06 as source-aware typing,
+  custody and claim-ceiling examples. The Owner sign
+  `f1+...+f7=alpha` remains a composition mnemonic until the functions and
+  operation are formally declared.
+- **Paper F — Frame / Envelope / Observer:** NS-01, NS-04 and the 2D/3D view
+  switch of NS-06 as bounded projection, cut and residual examples. No
+  intrinsic-envelope or physical field claim.
+- **Paper A:** SCC-003 remains the narrow finite quotient object; only an
+  existing-source cross-reference is permitted.
+- **Papers B and D:** no state or claim change.
+
+Disposition: `KEEP AS INTERNAL PAPER PREPARATION / EXISTING PAPER IDS C+E+F / NEW ID 0 / RELATION 0 / ALIAS 0 / STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
+
+[Emerald instrument](A0_BOOK/A0_ARCHITECTURE_OF_DIFFERENCE.html#emerald-still-field) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#november-a0-emerald-synthesis-return-20261120) ·
+[Paper C](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md#emerald-carrier-mediator-return) ·
+[Paper E](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#november-source-view-synthesis) ·
+[Paper F](36_A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER_DRAFT_2026-10-12.md#emerald-cut-projection-residual) ·
+[Receipt](A0_BOOK/results/a0-november-emerald-paper-routing-2026-11-20.json)
+
+<a id="numbergame-fibonacci-scientific-relevance--2026-11-21"></a>
+
+## Numbergame / Fibonacci scientific relevance — 2026-11-21
+
+Classification: `SOURCE_BOUND_SCIENTIFIC_SYNTHESIS / EXISTING PAPER IDS C+E
+REUSED / NOT_NEW_F-A0_FINDING / NO_STUDY_ACTIVATION / NO_PAPER_PROMOTION`.
+
+Six bounded preparation clusters are retained:
+
+1. **NG-01 — exact Fibonacci/CRT Return:** ordered pair state with periods
+   `16`, `10`, `76` and joint Return `1520`.
+2. **NG-02 — classified spiral projection:** uniform Fermat spiral versus
+   golden-angle schedule over the same held carrier.
+3. **NG-03 — modular grid transport:** exact address folding and shear;
+   prime points remain an overlay.
+4. **NG-04 — typed mirror algebra:** digit reversal, circle reflection,
+   rotation and Return remain distinct maps.
+5. **NG-05 — vendissimal display codec:** 20-sector circle relations and the
+   typed `ANGLE / VALUE / ADDRESS` junction without dimensional equality.
+6. **NG-06 — negative control:** modular sensors do not certify primality;
+   visual or numerical proximity does not establish a common generator.
+
+Paper routing:
+
+- **Paper C — Return without identity:** NG-01, NG-03, NG-04, NG-05 and NG-06
+  as typed Return/non-identity examples.
+- **Paper E — Orientation method:** all six clusters as a compact
+  state/view/map/codec/falsifier sequence.
+- **Papers A, B, D and F:** no state or claim change.
+
+The exact arithmetic observations around `1729`, `1836`, `107`, `204` and
+`41*20` remain fixtures. They are not promoted without a preregistered
+selection rule, matched controls and independent review.
+
+Disposition: `KEEP AS INTERNAL PAPER PREPARATION / EXISTING A0 + NUMBER VIEW
+SUITE + PAPERS C/E / NEW ID 0 / RELATION 0 / ALIAS 0 / STUDY 0 / CANONICAL
+FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
+
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#numbergame-fibonacci-prime-vendissimal-return-20261121) ·
+[Paper C](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md#numbergame-typed-return-synthesis) ·
+[Paper E](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#numbergame-fibonacci-method-synthesis) ·
+[Receipt](A0_BOOK/results/a0-numbergame-fibonacci-prime-vendissimal-synthesis-2026-11-21.json)
+
+<a id="prime-projection-helix-paper-routing--2026-11-21"></a>
+
+## Prime Projection / Helix findings triage and paper routing — 2026-11-21
+
+Classification: `SOURCE_BOUND_ENGINEERING_FINDING CANDIDATES / EXISTING PAPER IDS C+E+F REUSED / NOT_NEW_F-A0_FINDING / NO_STUDY_ACTIVATION / NO_PAPER_PROMOTION`.
+
+Five bounded preparation clusters are retained:
+
+1. **PPS-01 — retained carrier across views.** The same 168 primes at or below
+   1000 are shown through snake strips, mod-11 zones and a CRT wheel. Membership
+   remains an arithmetic source field and is never derived from view geometry.
+2. **PPS-02 — exact address Return without integer identity.** The sequence
+   `n=37+100k` returns to its start address in `Z3×Z5×Z7` after 21 steps, while
+   the integer advances from `37` to `2137`. Six of the 21 displayed carriers
+   are prime and two directed `+4` cousin events occur in the frozen window.
+3. **PPS-03 — explicit negative control.** The three-zone/mod-11 table gives
+   the descriptive finite value `chi-square=6.322679612870788`, `df=18`, with
+   no visible zone-address coupling. This is not a preregistered inference.
+4. **PPS-04 — projection-dependent distance.** Boustrophedon width and fold
+   change projected jumps while source numbers, prime count and membership
+   remain fixed. The view metric is therefore not an arithmetic invariant.
+5. **PPS-05 — paired finite carriers.** The Helix adapter preserves either 40
+   verified twin-prime rungs through 1111 or all 19 unique orbits of
+   `r -> -r mod 37`. The 36-degree phase step and exact golden angle are
+   declared encodings, not generators or resonance claims.
+
+Paper routing:
+
+- **Paper C — Return without identity:** PPS-02 plus the exact source-record
+  return and the distinction between address return, integer return and
+  screen overlap.
+- **Paper E — Orientation method:** PPS-01, PPS-03, PPS-04 and PPS-05 as a
+  compact source/address/view/falsifier/return workflow.
+- **Paper F — Frame / Envelope / Observer:** PPS-04 and PPS-05 as bounded
+  2D/3D observer cuts whose apparent geometry changes without changing the
+  finite source carrier.
+- **Papers A, B and D:** no state or claim change.
+
+`PPS-01…05` are local preparation labels only, not canonical Finding IDs.
+
+Disposition: `KEEP AS INTERNAL PAPER PREPARATION / EXISTING A0 + NUMBER VIEW SUITE + PAPERS C/E/F / NEW ID 0 / RELATION 0 / ALIAS 0 / STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
+
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#prime-projection-helix-paper-routing-20261121) ·
+[Prime Projection Suite](A0_BOOK/A0_PRIME_PROJECTION_TEST_SUITE.html) ·
+[Double Helix](A0_BOOK/A0_HELIX_VIEW_ADAPTER.html) ·
+[Paper C](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md#prime-projection-address-return) ·
+[Paper E](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#prime-projection-source-view-method) ·
+[Paper F](36_A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER_DRAFT_2026-10-12.md#prime-projection-observer-cuts) ·
+[Receipt](A0_BOOK/results/a0-prime-projection-helix-paper-routing-2026-11-21.json)
+
+## Primecube coupled orbit barcode · 2026-11-22
+
+The existing `T20+` orbit of `1 mod 1001` now has a selectable 60-column
+crosswalk in the Primecube 3D view. Each column preserves one source integer
+and presents two exact addresses:
+
+```text
+j -> n_j -> [x,y,z]_11 <-> (n_j mod 7, n_j mod 11, n_j mod 13).
+```
+
+This is useful for Paper C (same source, different address systems), Paper E
+(source/operator/view/return discipline) and Paper F (screen encoding versus
+retained invariant). It is an engineering observation, not a new canonical
+Finding. `Critical Orbit` is an Owner view label and is not promoted to a
+dynamical-systems claim. Barcode height, colour and alignment are projection
+choices; exact Return is `n_59=951` followed by `20·951 mod 1001=1`.
+
+Disposition: `KEEP AS INTERNAL PAPER PREPARATION / EXISTING PRIME ARCHITECTURE / NEW ID 0 / RELATION 0 / STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
+
+### Riemann mirror line / fixed-set return — 2026-11-22
+
+The existing Half-Line / Theta instrument now exposes the affine
+anti-holomorphic involution `W(s)=1-conj(s)` as an interactive mirror return.
+It verifies `W²=id`, identifies `Fix(W)={s: Re(s)=1/2}`, and keeps three claims
+separate: set invariance, pointwise fixation and no-crossing. The first two are
+defined and demonstrated; no-crossing is not implied. For nontrivial zeta
+zeros, the familiar symmetry orbit `rho`, `conj(rho)`, `1-rho`,
+`1-conj(rho)` remains distinct from the stronger RH assertion that every zero
+is itself fixed by `W`.
+
+[Demonstrator](A0_BOOK/A0_RIEMANN_HALFLINE_THETA_RETURN.html#riemann-mirror-fixed-line) ·
+[Contract](A0_BOOK/A0_RIEMANN_HALFLINE_THETA_RETURN_CONTRACT_2026-11-21.md) ·
+[Receipt](A0_BOOK/results/a0-riemann-halfline-theta-return-2026-11-21.json) ·
+[Paper C](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md#riemann-mirror-fixed-set-return) ·
+[Paper E](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#riemann-mirror-method-example)
+
+Disposition: `R1_VERIFY_EXISTING / EXACT OPERATOR DEMO / NO RH PROOF / NO NO-CROSSING CLAIM / REUSE ONLY / GRAPH DELTA 0 / CANONICAL FINDING 0 / PUBLICATION 0`.
+
+<a id="primecube-sz-khipu-science-desk-paper-return--2026-11-22"></a>
+
+## Primecube S/Z, Khipu and finite-envelope Science Desk return · 2026-11-22
+
+The recent Primecube extensions now return to the A0 Science Desk as one typed
+methods bundle rather than as a new object. The retained carrier is still
+`1..1111` with Base-11 address return. The full `11^3=1331` address envelope
+is partitioned as `1111+220`, equivalently `(101+20)*11`: 101 selected mask
+positions per depth carry records and 20 cross-arm positions per depth remain
+declared shadow addresses. Address existence does not imply record membership.
+
+The exact finite register retained for manuscript preparation is:
+
+- `102 degrees * 60 = 17 * 360 degrees`, with the signed winding readout
+  `W=+17/-17` for the two declared orientations;
+- `102 -> 3`, `204 -> 6`, `258 -> 5 (mod 11)`, with `5+6=0 (mod 11)`;
+- a 25-address inspection window with address 13 as its declared centre;
+- 32 of 32 local contract rows bound to visible demonstrators, including the
+  five-stage reviewer receipt.
+
+The S/Z recurrence is a separate, declared operator from the standard beta
+recurrence. `P=alpha+beta` and `P_chi=alpha+abs(beta)` are parameter
+coordinates, not conserved energy, stability proofs or physical invariants.
+Khipu supplies a bounded historical comparison for carrier, positional value,
+twist and meaningful absence; it is not asserted as a genealogical source or
+an identity with Primecube.
+
+### Manuscript routing
+
+- **Paper C — Return without identity:** exact Return across Base-11, CRT and
+  view coordinates; signed S/Z closure and axis-crossing ambiguity remain
+  non-identical readings of a retained source.
+- **Paper E — Orientation method:** Source -> Operator -> View -> Return,
+  explicit invariant selection, negative controls, and the distinction between
+  a parameter budget and a demonstrated invariant.
+- **Paper F — Frame / envelope / observer:** Z-slices, 101/20 mask extrusion,
+  full envelope, shadow fibre and 25/13 observer window over one fixed carrier.
+
+Papers A, B and D receive no claim change. No canonical Finding is admitted.
+The local demonstrator return is complete, while package source custody remains
+incomplete because three Owner image locators are absent.
+
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#primecube-sz-khipu-paper-return-20261122) ·
+[Instrument](A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html#sz-chirality-invariant-lab) ·
+[R1 receipt](A0_BOOK/results/a0-primecube-sz-khipu-paper-return-2026-11-22.json) ·
+[Paper C](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md#primecube-sz-khipu-return-preparation) ·
+[Paper E](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#primecube-sz-khipu-method-preparation) ·
+[Paper F](36_A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER_DRAFT_2026-10-12.md#primecube-shadow-envelope-preparation)
+
+### Reproducible reviewer figure packet — 2026-11-22
+
+The existing Primecube instrument now exports three local paper figures:
+`PC-RF-C-01` (same source, independent Base-11 and CRT addresses),
+`PC-RF-E-01` (Source -> Operator -> View -> Return with finite `W=+/-17`), and
+`PC-RF-F-01` (Z-slices, 101/20 mask extrusion and full envelope). A five-stage
+reviewer route ends in a downloadable R1 receipt. These are documentary figure
+labels, not Navigator identities, Findings or publication objects.
+
+[Reviewer packet](A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-reviewer-packet) ·
+[Static receipt](A0_BOOK/results/a0-primecube-reviewer-packet-2026-11-22.json)
+
+Disposition: `R1_VERIFY_EXISTING / INTERNAL PAPER PREPARATION / SOURCE_CUSTODY_CLOSED_BY_OWNER_APPROVED_FORMAL_SUPERSESSION / NEW ID 0 / RELATION 0 / ALIAS 0 / STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0 / GRAPH DELTA 0`. The three absent historical image hashes remain preserved; the recovered prompt/chat and retained executable module are their documented successors, not byte-identical reconstructions.
+
+### Mathfield Coupling Deck / typed view adapters
+
+The same lower-page screen chassis now exposes five switchable but non-identical
+adapters: Pentagon fold, Scarab hinge, the existing LOKI `7×8=56` bounded
+display return, the existing MIWA Observer route and a schematic Uranus-moons
+coil. The first four reuse existing instrument or navigation identities. The
+coil remains `HOLD_UNBOUND_OPERATOR`: moon order, winding function, direction,
+period and Return predicate are still required.
+
+This is a view-coupling result only. It does not establish one common mechanism,
+topology, carrier, clock or astronomical law across Pentagon, Scarab, LOKI,
+MIWA and the lunar source.
+
+Disposition: `KEEP AS INTERNAL PAPER PREPARATION / EXISTING IDENTITIES / NEW ID 0 / RELATION 0 / STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
+
+[Instrument](A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html) ·
+[Contract](A0_BOOK/A0_PRIMECUBE_GAP_FOLD_CONTRACT_2026-11-21.md#coupled-grids--critical-orbit-barcode) ·
+[Receipt](A0_BOOK/results/a0-primecube-gap-fold-2026-11-21.json)
+
+### Dedicated demonstrator return
+
+The crosswalk is now also exposed as a full-width lower-page demonstrator,
+separate from the compact rail inside the 3D Cube. Its five lanes retain the
+three CRT residues, the derived `MZ24` compass and Base-11 layer `z`; selecting
+any of the 60 columns returns the exact source record, both addresses, adjacent
+`T20+` values and the prime/perfect-number role. `MZ24=((n mod 11)+(n mod
+13)) mod 24` supplies 15-degree ticks and quarter-turn guides at `0/6/12/18`,
+but remains a non-injective view rather than a CRT identity. In this orbit the
+observed ticks are `2..21`; `0,1,22,23` stay visible negative controls. This is
+an inspection-surface improvement only: model `1.15.0`, existing identities,
+graph delta `0`, canonical Finding `0`.
+
+### Splinter Sail Grid / Root chassis inspection
+
+A second lower-page surface now couples six already retained Root indices in a
+bounded `2x3` ladder:
+
+```text
+top    1 -- 8 -- 11
+       |  /|  / |
+bottom 33--27--22
+
+C6 boundary: 1 -> 8 -> 11 -> 22 -> 27 -> 33 -> 1
+root mean: (1+8+11+22+27+33)/6 = 17
+```
+
+Gold roots `1,8,27` return to sixth-power bridge values `1,64,729`; green
+roots `11,22,33` return to seam-square values `121,484,1089`. Diagonals
+`8<->33` and `11<->27` split the two ladder cells into four explicitly
+screen-level sails. The outer six-cycle is not asserted to be a regular
+hexagon and the triangulation is not promoted to a three-dimensional body.
+
+The local `QCTRL` display selector compares four expression inserts without
+changing the chassis. Only `1105=24^2+23^2=5*13*17=915_11` lies inside the
+carrier, at zero-based address `1104=914_11` and cube `[4,1,9]`. `15625`,
+`41616` and `1729` remain external crosswalks. `LOKI CHASSIS` is an Owner view
+label only and is explicitly not identified with the existing LOKI-Q4 object.
+
+Disposition: `KEEP AS INTERNAL PAPER PREPARATION / EXISTING PRIME ARCHITECTURE / NEW ID 0 / RELATION 0 / STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.

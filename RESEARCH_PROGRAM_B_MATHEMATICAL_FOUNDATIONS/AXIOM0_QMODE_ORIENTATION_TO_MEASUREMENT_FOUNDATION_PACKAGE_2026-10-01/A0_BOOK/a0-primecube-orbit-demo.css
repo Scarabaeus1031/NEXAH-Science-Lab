@@ -1,0 +1,57 @@
+.pc-orbit-demo {
+  margin-top: 18px;
+  overflow: hidden;
+  scroll-margin-top: 18px;
+}
+
+.pc-demo-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  padding: 26px 28px;
+  border-bottom: 1px solid var(--pc-line);
+}
+
+.pc-demo-head h2 {
+  margin: 6px 0 8px;
+  font-size: clamp(1.5rem, 3vw, 2.8rem);
+  letter-spacing: -.035em;
+}
+
+.pc-demo-head p {
+  margin: 0;
+  max-width: 760px;
+  color: #aeb7c8;
+  line-height: 1.6;
+}
+
+.pc-demo-head .pc-mz24-formula {
+  margin-top: 10px;
+  color: #ef9bd0;
+  font: 700 11px/1.55 ui-monospace, monospace;
+}
+
+.pc-demo-key {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px 13px;
+  color: #aeb7c8;
+  font: 700 10px/1.4 ui-monospace, monospace;
+}
+
+.pc-demo-key span { display: flex; align-items: center; gap: 6px; }
+.pc-demo-key i { width: 8px; height: 8px; border-radius: 50%; background: var(--key); }
+.pc-demo-grid { display: grid; grid-template-columns: minmax(0, 1fr) 310px; min-height: 780px; }
+.pc-demo-canvas { padding: 18px; border-right: 1px solid var(--pc-line); }
+.pc-demo-canvas canvas { height: 740px; }
+.pc-demo-boundary { margin: 0; padding: 15px 22px; border-top: 1px solid var(--pc-line); color: #9ca8ba; font: 600 11px/1.65 ui-monospace, monospace; }
+.pc-demo-detail { min-height: 300px; }
+
+@media (max-width: 980px) {
+  .pc-demo-head { align-items: flex-start; flex-direction: column; }
+  .pc-demo-key { justify-content: flex-start; }
+  .pc-demo-grid { grid-template-columns: 1fr; }
+  .pc-demo-canvas { border-right: 0; border-bottom: 1px solid var(--pc-line); }
+}

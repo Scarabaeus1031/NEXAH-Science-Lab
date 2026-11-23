@@ -1,0 +1,18 @@
+{
+  "schema_id": "NEXAH_A0_NUMBER_VIEW_SUITE_PORT_R2",
+  "date": "2026-11-23",
+  "status": "OPERATIONAL_TYPED_PORT_CONNECTED",
+  "identity_reused": "MOD:NUMBER_VIEW_SUITE",
+  "supersedes_item": "DOMAIN_PORT_PENDING",
+  "supersedes_receipt": "a0-workbench-connection-audit-r1-2026-11-22.json",
+  "roles": ["PRIME_BOUND_CORE", "CROSS_DOMAIN_VIEW_ADAPTER", "TYPE_BOUNDARY_AUDIT", "ROOT_METRIC_LENS", "POINT_LINE_GLUE_VIEW_ADAPTER"],
+  "demonstrator_route": ["CARRIER", "POINT", "LINE", "SLICE", "GLUE", "TOPOLOGY", "RETURN"],
+  "fixture": {"n": 661, "cube_address": [0, 5, 5], "return_id": "PC1111:N0661"},
+  "claim_boundary": "VIEW_TOPOLOGY_IS_NOT_INTRINSIC_RECORD_TOPOLOGY",
+  "custody_resolution": {
+    "status": "CLOSED_BY_OWNER_APPROVED_FORMAL_SUPERSESSION",
+    "receipt": "a0-primecube-source-custody-supersession-2026-11-23.json",
+    "publication_authorized": false
+  },
+  "graph_delta": {"identities": 0, "relations": 0, "studies": 0, "findings": 0, "publications": 0}
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "nexah.a0.primecube_reviewer_packet.v1",
+  "date": "2026-11-22",
+  "classification": "R1_VERIFY_EXISTING",
+  "identity": "MOD:NUMBER_VIEW_SUITE",
+  "architecture": "Prime Architecture V1",
+  "instrument": "A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-reviewer-packet",
+  "figures": [
+    {"id": "PC-RF-C-01", "paper": "C", "claim": "same retained source; independent Base-11 and CRT addresses; exact Return"},
+    {"id": "PC-RF-E-01", "paper": "E", "claim": "Source to Operator to View to Return; finite W closure; typed parameter boundary"},
+    {"id": "PC-RF-F-01", "paper": "F", "claim": "equal envelope accounts; carrier records remain distinct from shadow addresses"}
+  ],
+  "reviewer_demo": {"stages": ["SOURCE", "ADDRESS", "VIEW", "BOUNDARY", "RETURN"], "count": 5, "receipt_download_gate": "RETURN_ONLY"},
+  "verified_source": {"n": 496, "record_id": "PC1111:N0496", "cube": {"x": 0, "y": 1, "z": 4}, "crt": {"mod7": 6, "mod11": 1, "mod13": 2}, "return_exact": true},
+  "verified_register": {"contracts_total": 32, "demonstrators_bound": 32, "carrier_records": 1111, "shadow_addresses": 220, "envelope_capacity": 1331},
+  "authority": {"new_id": 0, "new_relation": 0, "study": 0, "finding": 0, "claim_promotion": 0, "publication_authorized": false},
+  "custody": "SOURCE_CUSTODY_CLOSED_BY_OWNER_APPROVED_FORMAL_SUPERSESSION",
+  "source_hashes": {
+    "instrument": {"path": "A0_PRIMECUBE_GAP_FOLD_LAB.html", "sha256": "adc7c1e7d302f06895620122cecd4a797cb689d41b4677d78a8101042fcc6394"},
+    "contract": {"path": "A0_PRIMECUBE_GAP_FOLD_CONTRACT_2026-11-21.md", "sha256": "55b46cfa98809168504c0e758d55975190b4c87418f98d3538e5e288b7fe9ff8"},
+    "model": {"path": "a0-primecube-model.js", "sha256": "2ae9d970c325c6451188f62ae400b9a5f2afb1be80b8e1a6a8830f10634cf814", "version": "1.30.0"},
+    "controller": {"path": "a0-primecube-reviewer-packet.js", "sha256": "1066a8b0a1a2ff4235b3a639f23a15c45dab58fe8f5024b547e678282d8233ff"},
+    "view": {"path": "a0-primecube-reviewer-packet.css", "sha256": "b12d64fac279abc6059e43bbc1cf7f381104ec4cc1c5c62336f8c66691bb3165"},
+    "verification": {"path": "a0-primecube-reviewer-packet-tests.cjs", "sha256": "7b17b329b5d27ee0c7959aad0b60456619e7b1c998b87e1d8bc6bcf06a034a53"}
+  }
+}

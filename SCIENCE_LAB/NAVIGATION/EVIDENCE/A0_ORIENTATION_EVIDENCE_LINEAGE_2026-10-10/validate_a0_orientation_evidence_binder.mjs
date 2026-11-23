@@ -97,6 +97,23 @@ if (process.argv.includes("--rubik-qdc-crosswalk-only")) {
   process.exit(failures.length ? 1 : 0);
 }
 
+if (process.argv.includes("--evolution-joint-crosswalk-only")) {
+  const crosswalk = binder.a0_evolution_joint_crosswalk_20261119;
+  expect(crosswalk?.schema === "nexah.a0.evolution-joint-crosswalk/1", "evolution crosswalk schema");
+  expect(crosswalk?.status === "DATED_DEVELOPMENT_CROSSWALK_NO_NEW_IDENTITY", "development-only status");
+  expect(crosswalk?.stations?.map((item) => item.station_id).join(",") === "ROOT_ROOM,ROOT8_GAMMA_ROOT7_COMPARATOR,LOCAL_EUCLID_RETURN,LETTER_ENVELOPE,ROOT2_PHI_CROSSING,POLE_STAB_CARRIER,SC003_PASCAL_JOINT", "seven declared development stations");
+  expect(crosswalk?.identity_reuse?.includes("NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1") && crosswalk?.identity_reuse?.includes("A0OE:PASCAL_PENTAGON_D5_TEST") && crosswalk?.identity_reuse?.includes("SG:LENS:ROOT7_LOOK"), "existing A0, SCC-003 and Root7 identities reused");
+  expect(crosswalk?.stations?.every((item) => item.href && item.new_reading && item.boundary && item.source_ids?.length), "every station has route reading boundary and source handle");
+  expect(/not sqrt\(2\)=phi/.test(crosswalk?.stations?.find((item) => item.station_id === "ROOT2_PHI_CROSSING")?.boundary || ""), "root2 phi equality explicitly rejected");
+  const root8Comparator = crosswalk?.stations?.find((item) => item.station_id === "ROOT8_GAMMA_ROOT7_COMPARATOR");
+  expect(/gamma=sqrt\(8\)/.test(root8Comparator?.new_reading || "") && /gamma\*beta=sqrt\(7\)/.test(root8Comparator?.new_reading || ""), "Root8 Gamma Root7 comparator exact chain retained");
+  expect(/does not reopen Root7/.test(root8Comparator?.boundary || "") && /a0-root8-gamma-root7-audit/.test(root8Comparator?.audit_href || ""), "Root7 closure and audit route retained");
+  expect(/not silently correct the past/.test(crosswalk?.historical_boundary || ""), "historical development boundary retained");
+  expect(Object.values(crosswalk?.graph_delta || {}).every((value) => value === 0), "zero canonical graph delta");
+  console.log(JSON.stringify({status:failures.length ? "FAIL" : "PASS", scope:"A0 dated evolution joint crosswalk only", stations:crosswalk?.stations?.length || 0, failures}, null, 2));
+  process.exit(failures.length ? 1 : 0);
+}
+
 // Scope check for current documentary receipts; default historical validation
 // remains unchanged and continues to report its pre-existing hash drift.
 if (process.argv.includes("--documentary-only")) {
@@ -344,6 +361,39 @@ for (const [routeName, route] of Object.entries(pulsePersistence?.routes || {}))
   const target = path.resolve(ecosystemRoot, "30 SCIENCE LAB/NEXAH-Science-Lab/SCIENCE_LAB/NAVIGATION/APP", routePath);
   expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), `A0-BL-058 app route exists: ${routeName}`);
 }
+const foldGeometry = binder.fold_geometry_navigator_view_20261120;
+expect(foldGeometry?.status === "SOURCE_BOUND_INTERACTIVE_VIEW_NO_ADMISSION", "Fold Geometry view status");
+expect(foldGeometry?.identity_reuse?.join(",") === "ART:A0:MATHEMATICAL_JOINTS,NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1,SG:LENS:FOLD_ENVELOPE_FRAME_STATE_CROSSWALK", "Fold Geometry reuses existing Mathfield A0 and Fold crosswalk identities");
+expect(foldGeometry?.exact_contract?.cube_trinity === "23^3 + 24^3 + 25^3 = 41616 = 204^2" && foldGeometry?.exact_contract?.triple_half_turn_parity === "(-1)^3 = -1", "Fold Geometry exact cube and parity contracts");
+expect(foldGeometry?.exact_contract?.pascal_depth3_threshold === "sum rows 0..3 = 15 = 7 boundary ones + (2+3+3)=8 interior; shell(d)=2d+1; core(d)=2^(d+1)-2d-2", "Fold Geometry Pascal 7:8 shell/core threshold");
+expect(foldGeometry?.exact_contract?.pascal_row_sum_axis === "sum_k C(n,k)=2^n for n=0..6 gives 1,2,4,8,16,32,64", "Fold Geometry Pascal power-of-two row-sum axis");
+expect(foldGeometry?.view_contract?.theta5_plus_1 === "closure event, not a sixth theta station" && /working label only/.test(foldGeometry?.view_contract?.moebius_96_101 || ""), "Fold Geometry closure and Möbius boundaries");
+expect(foldGeometry?.view_contract?.pascal_t_spine_sequence === "1:2:1 -> 7:8 threshold -> 14641 -> local SCC-003 face crosswalk" && /no new generator/.test(foldGeometry?.view_contract?.pascal_display_lenses || ""), "Fold Geometry integrated Pascal T-Spine view contract");
+expect(foldGeometry?.new_canonical_ids?.length === 0 && foldGeometry?.relation_changes?.length === 0 && foldGeometry?.alias_changes?.length === 0 && foldGeometry?.new_study === false && foldGeometry?.new_finding === false && foldGeometry?.publication_authorized === false, "Fold Geometry creates no identity relation alias Study Finding or publication effect");
+for (const route of [foldGeometry?.instrument, foldGeometry?.pascal_spine_route, foldGeometry?.pascal_spine_style, foldGeometry?.host_return, foldGeometry?.related_view, foldGeometry?.test, foldGeometry?.scc003_pascal_crosswalk_test]) {
+  const relative = String(route || "").split("#")[0];
+  const target = path.resolve(ecosystemRoot, "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01", relative);
+  expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), `Fold Geometry route exists: ${relative}`);
+}
+const primeArchitecture = binder.prime_architecture_v1_register_return_20261121;
+expect(primeArchitecture?.status === "SOURCE_BOUND_PRESENTATION_SEQUENCE_REGISTERED_SOURCE_CUSTODY_CLOSED", "Prime Architecture register return status");
+expect(primeArchitecture?.identity_reuse?.join(",") === "MOD:NUMBER_VIEW_SUITE,ART:A0:MATHEMATICAL_JOINTS,NN:CRT_QRT_37_CARRIER_LADDER,NEXAH:PBM:V1", "Prime Architecture reuses four existing identities");
+expect(primeArchitecture?.master_surface === "A0_BOOK/A0_PRIMEFIELD.html" && primeArchitecture?.parent_surface === "A0_BOOK/A0_NUMBERMAGICK_GRID_RESEARCH.html#prime-master-builds", "Primefield is the dedicated master below Numbermagick");
+expect(primeArchitecture?.surfaces?.length === 6 && primeArchitecture.surfaces.filter((item) => item.status === "SOURCE_BOUND_PASS_CUSTODY_CLOSED_BY_FORMAL_SUPERSESSION").length === 1, "Prime Architecture binds six surfaces with documented custody closure");
+expect(primeArchitecture?.view_laboratory?.length === 6 && primeArchitecture.view_laboratory.some((item) => /prime-spiral-comparator/.test(item.route || "")) && primeArchitecture.view_laboratory.some((item) => /A0_HELIX_VIEW_ADAPTER/.test(item.route || "")), "Prime Architecture binds Spiral Comparator through Helix as one declared view laboratory");
+expect(primeArchitecture?.source_custody?.superseded_owner_files?.length === 3 && primeArchitecture?.source_custody?.closure_withheld === false && primeArchitecture?.source_custody?.original_bytes_restored === false, "Primecube three-source custody closure remains explicit and bounded");
+expect(Object.values(primeArchitecture?.graph_delta || {}).every((value) => value === 0) && primeArchitecture?.publication_authorized === false, "Prime Architecture creates no graph delta or publication effect");
+for (const item of primeArchitecture?.surfaces || []) {
+  for (const route of [item.surface, item.contract, item.receipt]) {
+    const target = path.resolve(ecosystemRoot, "30 SCIENCE LAB/NEXAH-Science-Lab/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01", String(route).split("#")[0]);
+    expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), `Prime Architecture bound route exists: ${route}`);
+  }
+}
+for (const source of primeArchitecture?.source_hashes || []) {
+  const target = path.resolve(ecosystemRoot, source.ecosystem_path);
+  expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), `Prime Architecture hash source exists: ${source.ecosystem_path}`);
+  if (fs.existsSync(target)) expect(hash(target) === source.sha256, `Prime Architecture source hash matches: ${source.ecosystem_path}`);
+}
 expect(binder.reader_architecture?.status === "EDITORIAL_NAVIGATION_FRAME_NO_NEW_IDENTITY", "A0 reader architecture status");
 expect(binder.reader_architecture?.works?.length === 6, "six A0 reader works");
 expect(binder.reader_architecture?.works?.map((item) => item.label).join("→") === "A0 Book→Mathfield→Pascal Joint→SCC-003 Paper→Return Paper→Backlog", "A0 reader work order");
@@ -357,16 +407,16 @@ expect(binder.pentagon_knick_aperture_intake_20261025?.status === "PARKED_SOURCE
 expect(binder.pentagon_knick_aperture_intake_20261025?.instrument_atlas?.status === "SOURCE_BOUND_NAVIGATION_LAYER_NO_NEW_IDENTITY" && binder.pentagon_knick_aperture_intake_20261025?.instrument_atlas?.door_count === 12 && binder.pentagon_knick_aperture_intake_20261025?.instrument_atlas?.contract_fields?.join("→") === "carrier→view→return→boundary" && /not the controlling Mission Control Builder Atlas/.test(binder.pentagon_knick_aperture_intake_20261025?.instrument_atlas?.boundary || ""), "Instrument Atlas return and non-authority boundary");
 expect(binder.sources?.some((item) => item.source_id === "SRC:A0OE:A0_EXPERIENCE_NAVIGATION_FREEZE_RETURN" && /zero canonical-count/.test(item.authority_role)), "A0 experience freeze return retained with no-count boundary");
 expect(binder.sources?.some((item) => item.source_id === "SRC:A0OE:A0_EXPERIENCE_NAVIGATION_FREEZE_MC_RETURN" && /reciprocal Mission Control/.test(item.authority_role)), "reciprocal Mission Control experience-freeze return retained");
-expect(binder.a0_surface_coverage?.coverage_id === coverage.coverage_id && binder.a0_surface_coverage?.bound_surfaces === 84 && binder.a0_surface_coverage?.work_groups === 13, "A0 84-of-84 surface coverage binding");
+expect(binder.a0_surface_coverage?.coverage_id === coverage.coverage_id && binder.a0_surface_coverage?.bound_surfaces === 91 && binder.a0_surface_coverage?.work_groups === 14, "A0 91-of-91 surface coverage binding");
 expect(coverage.status === "INTERNAL_SOURCE_BOUND_COVERAGE_NO_NEW_IDENTITY", "A0 surface coverage status");
-expect(coverage.expected_surface_count === 84 && coverage.bound_surface_count === 84 && coverage.unbound_surfaces?.length === 0, "A0 surface coverage counts");
+expect(coverage.expected_surface_count === 91 && coverage.bound_surface_count === 91 && coverage.unbound_surfaces?.length === 0, "A0 surface coverage counts");
 expect(coverage.policy_effect?.changes_canonical_counts === false && coverage.policy_effect?.creates_module_identity === false && coverage.policy_effect?.activates_study === false && coverage.policy_effect?.promotes_evidence === false && coverage.policy_effect?.authorizes_publication === false, "A0 surface coverage policy boundary");
 const coveredSurfaces = coverage.work_bindings.flatMap((item) => item.surfaces).sort();
 const manifestSurfaces = manifest.surface_registry.map((item) => item.surface).sort();
 expect(new Set(coveredSurfaces).size === coverage.expected_surface_count && JSON.stringify(coveredSurfaces) === JSON.stringify(manifestSurfaces), "A0 surface coverage exactly matches manifest registry");
 expect(binder.sources?.some((item) => item.source_id === "SRC:A0OE:A0_MODULE_SURFACE_COVERAGE" && item.sha256 === hash(coveragePath)), "A0 coverage sidecar source and hash");
 expect(["SRC:A0OE:PINK_DIAMOND_GRID_ATLAS", "SRC:A0OE:VISUAL_FIELD_LIBRARY", "SRC:A0OE:VISUAL_FIELD_LIBRARY_REGISTRY", "SRC:A0OE:DEMONSTRATOR_CONSOLIDATION_101_106"].every((id) => binder.sources.some((item) => item.source_id === id)), "A0 grid atlas, visual library, registry and consolidation source-bound");
-expect(binder.demonstrator_source_registry?.owner === "NEXAH Science Lab" && binder.demonstrator_source_registry?.records?.length === 9 && binder.demonstrator_source_registry?.new_demonstrator_template?.required_fields?.includes("return_path"), "Science Lab-owned demonstrator source registry and reusable template");
+expect(binder.demonstrator_source_registry?.owner === "NEXAH Science Lab" && binder.demonstrator_source_registry?.records?.length === 10 && binder.demonstrator_source_registry?.new_demonstrator_template?.required_fields?.includes("return_path"), "Science Lab-owned demonstrator source registry and reusable template");
 for (const record of binder.demonstrator_source_registry?.records?.slice(3) || []) {
   for (const field of binder.demonstrator_source_registry.new_demonstrator_template.required_fields) expect(record[field] !== undefined, `registered current demonstrator carries ${field}: ${record.label}`);
   const relativePath = String(record.canonical_path || "").split("#")[0];

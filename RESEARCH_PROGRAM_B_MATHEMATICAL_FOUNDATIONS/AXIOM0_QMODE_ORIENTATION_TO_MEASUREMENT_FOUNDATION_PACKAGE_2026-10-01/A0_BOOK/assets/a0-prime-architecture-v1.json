@@ -1,0 +1,88 @@
+{
+  "schema": "nexah.a0.presentation-sequence/1.0.0",
+  "label": "A0 Prime Architecture V1",
+  "date": "2026-11-21",
+  "status": "INTERNAL_PRESENTATION_SEQUENCE_SOURCE_CUSTODY_CLOSED_NOT_PUBLIC",
+  "canonical_identity_created": false,
+  "publication": "NOT_AUTHORIZED",
+  "master_surface": "A0_PRIMEFIELD.html",
+  "parent_surface": "A0_NUMBERMAGICK_GRID_RESEARCH.html",
+  "reuses": [
+    "MOD:NUMBER_VIEW_SUITE",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "NN:CRT_QRT_37_CARRIER_LADDER",
+    "NEXAH:PBM:V1"
+  ],
+  "sequence": [
+    {"step": 1, "role": "MASTER_CARRIER_EXACT_RETURN", "path": "A0_PRIMECUBE_GAP_FOLD_LAB.html"},
+    {"step": 2, "role": "MASTER_PAIR_VIEW_FINITE", "path": "A0_HELIX_VIEW_ADAPTER.html"},
+    {"step": 3, "role": "MASTER_COMPARATOR_THREE_VIEWS", "path": "A0_PRIME_PROJECTION_TEST_SUITE.html"},
+    {"step": 4, "role": "TYPE_BOUNDARY_PERIODIC_APERIODIC", "path": "A0_CRT_ROOT_BOUNDARY_AUDIT.html"},
+    {"step": 5, "role": "ROOT_RULER_EXACT_LAW", "path": "A0_ROOT_SHRINKING_1729_RETURN.html"},
+    {"step": 6, "role": "MIRROR_NODES_DECLARED_CUBE", "path": "A0_MIRROR_NODES_PRIME_CUBE.html"}
+  ],
+  "view_laboratory": {
+    "fixed_carrier": "168_PRIMES_P_LE_1000",
+    "carrier_rule": "SAME_SOURCE_RECORDS_VIEW_RULE_CHANGES",
+    "instruments": [
+      {"role": "FOUR_ANGLE_COMPARATOR", "path": "A0_NUMBERMAGICK_GRID_RESEARCH.html#prime-spiral-comparator", "views": ["GOLDEN_ANGLE", "UNIFORM_INDEX_RING", "PRIME_RESIDUE_SPOKES", "DETERMINISTIC_NULL_ANGLES"]},
+      {"role": "POLAR_CUT_MEMBERSHIP", "path": "A0_NUMBERMAGICK_GRID_RESEARCH.html#primePolarCutAtlas"},
+      {"role": "QUARTER_TURN_AXIS_TRANSFER", "path": "A0_NUMBERMAGICK_GRID_RESEARCH.html#prime-axis-transfer"},
+      {"role": "FOUR_PHASE_VIEW_RETURN", "path": "A0_NUMBERMAGICK_GRID_RESEARCH.html#prime-phase-machine", "phases": ["AM", "VM", "PM", "TM", "AM"]},
+      {"role": "TORUS_THREAD_EULER_AUDIT", "path": "A0_NUMBERMAGICK_GRID_RESEARCH.html#prime-torus-thread-demonstrator"},
+      {"role": "RESIDUE_HELIX_PAIR_ADAPTER", "path": "A0_HELIX_VIEW_ADAPTER.html"}
+    ],
+    "claim_boundary": "DECLARED_FINITE_VIEWS_ONLY_NO_NATURAL_PRIME_SPIRAL_HELIX_PHYSICAL_CLOCK_OR_GENERATOR"
+  },
+  "retained_layers": ["SOURCE_CARRIER", "ADDRESS", "VIEW_TRANSFORM", "BOUNDARY_RETURN"],
+  "grammar": {
+    "version": "1.0.0",
+    "authority": "A0_PRIME_ARCHITECTURE_V1_2026-11-21.md",
+    "rule": "KEEP_CARRIER_FIXED_NAME_REGISTER_DECLARE_VIEW_RETURN_BY_SOURCE_IDENTITY",
+    "pipeline": [
+      "SOURCE_INTEGER",
+      "TYPED_ADDRESSES",
+      "FINITE_MEMBERSHIPS",
+      "DECLARED_VIEW_TRANSFORM",
+      "RECEIPT",
+      "EXACT_OR_SOURCE_BOUND_RETURN"
+    ],
+    "canonical_record_fields": [
+      "n",
+      "source_id",
+      "prime_rank",
+      "cube",
+      "grid37",
+      "residues",
+      "memberships",
+      "view_state",
+      "return",
+      "provenance"
+    ],
+    "equations": {
+      "cube_encode": "q=n-1; x=q mod 11; y=floor(q/11) mod 11; z=floor(q/121)",
+      "cube_decode": "n=1+x+11y+121z",
+      "grid37_encode": "column=(n-1) mod 37; row=floor((n-1)/37)",
+      "grid37_decode": "n=1+column+37*row",
+      "layer_closure": "n_m=121m; cube(n_m)=[10,10,m-1]; m=1..9",
+      "root_ruler": "delta_k=sqrt(k+1)-sqrt(k)=1/(sqrt(k+1)+sqrt(k))",
+      "residue_angle": "theta_m(p)=2pi*(p mod m)/m"
+    },
+    "memberships": ["PRIME", "TWIN", "TRIPLET", "QUADRUPLET", "SUPERPRIME", "11_SQUARED_CLOSURE"],
+    "return_policy": "NEVER_DECODE_FROM_SCREEN_COORDINATES",
+    "boundary_policy": "FROZEN_PRIMECUBE_CARRIER_1_TO_1111; OUTSIDE_VALUES_REQUIRE_TYPED_PORT"
+  },
+  "source_custody": {
+    "complete": true,
+    "resolution": "CLOSED_BY_OWNER_APPROVED_FORMAL_SUPERSESSION",
+    "superseded_owner_images": [
+      "Screenshot 2026-11-21 at 1.56.10 PM.png",
+      "Screenshot 2026-11-21 at 1.56.28 PM.png",
+      "download.jpg"
+    ],
+    "receipt": "A0_BOOK/results/a0-primecube-source-custody-supersession-2026-11-23.json",
+    "original_bytes_restored": false
+  },
+  "graph_delta": {"identities": 0, "relations": 0, "aliases": 0, "studies": 0, "findings": 0},
+  "claim_boundary": "Finite arithmetic, typed addresses, declared projections and exact returns only; no intrinsic prime geometry, physical mechanism, common generator, scientific admission or publication claim."
+}

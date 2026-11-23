@@ -1,0 +1,28 @@
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
+const api = require("./a0-number-view-suite-port.js");
+let checks = 0;
+function ok(value, message) { assert.ok(value, message); checks += 1; }
+function eq(a, b, message) { assert.deepEqual(a, b, message); checks += 1; }
+
+eq(api.IDENTITY, "MOD:NUMBER_VIEW_SUITE");
+eq(api.STAGES, ["CARRIER", "POINT", "LINE", "SLICE", "GLUE", "TOPOLOGY", "RETURN"]);
+eq(api.primeAddress(1), { n:1,x:0,y:0,z:0,address:"[0,0,0]",returnId:"PC1111:N0001" });
+eq(api.primeAddress(661), { n:661,x:0,y:5,z:5,address:"[0,5,5]",returnId:"PC1111:N0661" });
+eq(api.primeAddress(809), { n:809,x:5,y:7,z:6,address:"[5,7,6]",returnId:"PC1111:N0809" });
+eq(api.primeAddress(1111), { n:1111,x:10,y:1,z:9,address:"[10,1,9]",returnId:"PC1111:N1111" });
+assert.throws(() => api.primeAddress(0), RangeError); checks += 1;
+assert.throws(() => api.primeAddress(1112), RangeError); checks += 1;
+eq(Object.keys(api.ROLES).length, 5);
+eq(api.inspect("TOPOLOGY_ADAPTER", 5, 661).intrinsicTopology, false);
+eq(api.inspect("TOPOLOGY_ADAPTER", 5, 661).graphDelta, 0);
+eq(api.inspect("BAD", 99, 661).roleKey, "PRIME_CORE");
+eq(api.inspect("BAD", 99, 661).stage, "RETURN");
+
+for (const file of ["A0_WERKBANK.html", "A0_PRIMECUBE_GAP_FOLD_LAB.html", "A0_MACHINA_ANATOMY_MAP.html", "A0_BUILDER_LOG.html", "A0_RESEARCH_DESK.html"]) {
+  const html = fs.readFileSync(path.join(__dirname, file), "utf8");
+  ok(html.includes("MOD:NUMBER_VIEW_SUITE"), `${file} identity binding`);
+  ok(html.includes("number-view-suite-port"), `${file} port binding`);
+}
+console.log(`PASS ${checks}/${checks} · Number View Suite Port`);

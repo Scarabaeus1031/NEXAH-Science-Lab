@@ -1,0 +1,43 @@
+{
+  "schema": "nexah.a0.source-custody-supersession-receipt/1.0.0",
+  "receipt_id": "A0-PRIMECUBE-SOURCE-CUSTODY-SUPERSESSION-20261123",
+  "date": "2026-11-23",
+  "status": "CLOSED_BY_OWNER_APPROVED_FORMAL_SUPERSESSION",
+  "subject": "A0 Primecube Gap Fold source custody",
+  "owner_decision": "The retained Primecube module and recovered prompt/chat source are sufficient to close the three-image custody hold by formal supersession.",
+  "recovered_prompt_source": {
+    "path": "/Users/tho2020/.codex/attachments/00c618c8-91a2-49ed-984e-b7adf64ac2d2/Pasted text.txt",
+    "sha256": "1eb99d19d2db1651f2bc3e9fab9b09bc0ab60547336e872c62fa2d2736573108",
+    "content_witness": "Google AI chat export containing the 726 discussion, Base-11 layer-closure prompt and directly runnable Primecube HTML response."
+  },
+  "superseded_visual_locators": [
+    {
+      "historical_path": "/Users/tho2020/Desktop/Screenshot 2026-11-21 at 1.56.10 PM.png",
+      "historical_sha256": "e3ff2a5c6d0d4fcdb72af1485a687440eca3ab21a8195d9907b5741f04e57398",
+      "successor_path": "A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html",
+      "successor_sha256": "adc7c1e7d302f06895620122cecd4a797cb689d41b4677d78a8101042fcc6394"
+    },
+    {
+      "historical_path": "/Users/tho2020/Desktop/Screenshot 2026-11-21 at 1.56.28 PM.png",
+      "historical_sha256": "ffae0f72e988c5890db9c6c460b3651fbfb1cbd40bcf3b9b5b1ddec4428ea44b",
+      "successor_path": "A0_BOOK/a0-primecube-model.js",
+      "successor_sha256": "2ae9d970c325c6451188f62ae400b9a5f2afb1be80b8e1a6a8830f10634cf814"
+    },
+    {
+      "historical_path": "/Users/tho2020/Desktop/download.jpg",
+      "historical_sha256": "d8de5aed14395b3ef93dff9a072e4d19549ee06bd4f98e7e1f0bd0cf49dd55ba",
+      "successor_path": "A0_BOOK/a0-primecube-ui.js",
+      "successor_sha256": "aa0ad1629872fab5d41f3f63e6d812d0dbe1641a4c763544e63a02200cac6e14"
+    }
+  ],
+  "disposition": {
+    "original_bytes_restored": false,
+    "historical_hashes_preserved": true,
+    "provenance_recovered": true,
+    "executable_module_retained": true,
+    "source_custody_hold_open": false,
+    "publication_authorized": false,
+    "graph_delta": 0
+  },
+  "claim_boundary": "Formal supersession closes the missing-file custody defect only. It does not claim that successor files reproduce the historical images byte-for-byte, and it does not activate a Study, Finding, publication or new Navigator identity/relation."
+}

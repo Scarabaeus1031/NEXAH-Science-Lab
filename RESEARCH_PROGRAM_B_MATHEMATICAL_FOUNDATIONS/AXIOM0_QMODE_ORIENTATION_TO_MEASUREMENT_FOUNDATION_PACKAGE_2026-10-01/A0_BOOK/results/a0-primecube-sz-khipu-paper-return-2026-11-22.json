@@ -1,0 +1,89 @@
+{
+  "schema": "nexah.a0.science_desk_return.v1",
+  "recorded_at": "2026-11-22",
+  "classification": "R1_VERIFY_EXISTING",
+  "status": "INTERNAL_PAPER_PREPARATION_SOURCE_CUSTODY_CLOSED_NOT_PUBLIC",
+  "reuses": [
+    "MOD:NUMBER_VIEW_SUITE",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "NN:CRT_QRT_37_CARRIER_LADDER",
+    "NEXAH:PBM:V1"
+  ],
+  "source_files": {
+    "instrument": {
+      "path": "A0_PRIMECUBE_GAP_FOLD_LAB.html",
+      "sha256": "adc7c1e7d302f06895620122cecd4a797cb689d41b4677d78a8101042fcc6394"
+    },
+    "contract": {
+      "path": "A0_PRIMECUBE_GAP_FOLD_CONTRACT_2026-11-21.md",
+      "sha256": "55b46cfa98809168504c0e758d55975190b4c87418f98d3538e5e288b7fe9ff8"
+    },
+    "model": {
+      "path": "a0-primecube-model.js",
+      "sha256": "2ae9d970c325c6451188f62ae400b9a5f2afb1be80b8e1a6a8830f10634cf814",
+      "version": "1.30.0"
+    },
+    "verification_suite": {
+      "path": "a0-primecube-tests.cjs",
+      "sha256": "e89f203fd5ffc3d3a6113577bda88158ca336af6fcaa1bcf493e2246266d2a08"
+    },
+    "sz_operator": {
+      "path": "a0-primecube-sz-chirality.js",
+      "sha256": "5a221142440ea355d1411c673b51399a34ac4566522cf93e930ac5220b72864c"
+    },
+    "sz_view": {
+      "path": "a0-primecube-sz-chirality.css",
+      "sha256": "347f6eedd6b64af8b5bde14b7e776f1a7821ff5cd8929f5c004799673f9c24bc"
+    }
+  },
+  "verified_register": {
+    "carrier": "1..1111",
+    "envelope": 1331,
+    "record_addresses": 1111,
+    "shadow_addresses": 220,
+    "mask_positions_per_depth": 101,
+    "shadow_positions_per_depth": 20,
+    "depth": 11,
+    "angle_degrees": 102,
+    "closure_steps": 60,
+    "signed_winding": [17, -17],
+    "mod11": { "102": 3, "204": 6, "258": 5, "pair_204_258": 0 },
+    "window_size": 25,
+    "window_center_address": 13,
+    "demonstrators_bound": 32,
+    "contracts_total": 32
+  },
+  "typed_boundaries": [
+    "STANDARD_BETA_OPERATOR_NOT_IDENTICAL_TO_STATE_DEPENDENT_SZ_OPERATOR",
+    "P_ALPHA_PLUS_BETA_IS_PARAMETER_COORDINATE_NOT_ENERGY_OR_STABILITY_INVARIANT",
+    "P_CHI_ALPHA_PLUS_ABS_BETA_IS_PARAMETER_COORDINATE_NOT_ENERGY_OR_STABILITY_INVARIANT",
+    "KHIPU_IS_A_BOUNDED_HISTORICAL_COMPARISON_LENS_NOT_A_GENEALOGICAL_OR_MECHANISM_CLAIM",
+    "SHADOW_ADDRESS_EXISTS_DOES_NOT_MEAN_RECORD_EXISTS",
+    "ZERO_NULL_AND_UNDEFINED_COORDINATE_REMAIN_TYPED_SEPARATE",
+    "COSINE_INPUT_MINUS_0_834_IS_NOT_EQUAL_TO_MASK_RATIO_101_OVER_121"
+  ],
+  "paper_routing": {
+    "paper_c": "../34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md#primecube-sz-khipu-return-preparation",
+    "paper_e": "../35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#primecube-sz-khipu-method-preparation",
+    "paper_f": "../36_A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER_DRAFT_2026-10-12.md#primecube-shadow-envelope-preparation",
+    "papers_a_b_d_claim_change": false
+  },
+  "authority_effect": {
+    "new_identities": 0,
+    "new_relations": 0,
+    "new_aliases": 0,
+    "new_studies": 0,
+    "new_findings": 0,
+    "claim_ceiling_changed": false,
+    "lifecycle_activated": false,
+    "publication_authorized": false,
+    "graph_delta": 0
+  },
+  "custody_resolution": {
+    "code": "SOURCE_CUSTODY_CLOSED_BY_OWNER_APPROVED_FORMAL_SUPERSESSION",
+    "superseded_owner_image_locators": 3,
+    "receipt": "results/a0-primecube-source-custody-supersession-2026-11-23.json",
+    "arithmetic_invalidated": false,
+    "publication_authorized_by_closure": false
+  }
+}
