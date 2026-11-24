@@ -56,8 +56,16 @@ and only the mod-13 coordinate changes.
 The `34`-pin screen count, the `¡` counter-glyph and candidate
 `696=(3,3,7)` remain bounded Owner/View readings. They do not establish a new
 grid invariant, operator, physical mechanism, prime law, Study or Finding.
-Cubit remains excluded pending a named historical standard. Disposition: keep
-inside the existing Primecube engineering record and Science Desk return.
+Cubit is now retained only as a named Owner-intake display factor
+`1 cubit = 0.523 m`, with source receipt
+`A0_BOOK/results/a0-cubit-unit-source-intake-2026-11-24.json`. The receipt
+separates the supplied transcript for *Egyptian Math: Part 1* from the
+non-transcribed visual witness in *Ancient Egyptian Math Is Modern Computing?*.
+It also records that the displayed `20 9/16 in` converts exactly to
+`52.22875 cm`, so `52.3 cm` is a rounded view value rather than an exact or
+universal historical standard. Disposition: keep inside the existing
+Primecube engineering record and Science Desk return; no Study, Finding or
+Source Graph relation is created.
 
 <a id="primecube-q-lasso-crosswalk-20261122"></a>
 
@@ -4278,6 +4286,87 @@ dynamical-systems claim. Barcode height, colour and alignment are projection
 choices; exact Return is `n_59=951` followed by `20·951 mod 1001=1`.
 
 Disposition: `KEEP AS INTERNAL PAPER PREPARATION / EXISTING PRIME ARCHITECTURE / NEW ID 0 / RELATION 0 / STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
+
+### Paper E — Methodenbeispiel: Julia, Shadow und Frame-Δ · 24. November 2026
+
+**Vorgemerkt für die Redaktion.** In Schritt 1 bleibt der Julia-Parameter
+`c` fest. Nur Ausschnitt und Abtastung des Shadows sind bedienbar. In
+Schritt 2 bleiben diese Anzeigeeinstellungen fest und `c` wandert auf der
+Kreisbahn. Das Frame-Δ liest die Differenz zum vorigen Kreis-Frame auf
+dem festen Messraster. Das Beispiel konkretisiert den Übergang von
+deklarierter Eingabe und Schnitt zum beobachtbaren Unterschied.
+
+**Für Paper E vormerken.** Der Rastercheck bestätigt die großen Δ-Spitzen
+unter sechs Anzeigeeinstellungen. Die kritische Bahn liefert eine eigene
+Aussage zum Zusammenhang. Vor der großen Spitze gibt es einen
+Zusammenhangswechsel zwischen geprüften Kreisparametern. In den beiden
+Frames der Spitze selbst sind die Julia-Mengen jeweils unzusammenhängend.
+Das Beispiel eignet sich für die Frage, wie eine numerische Auslese mit
+einem eigenständigen mathematischen Kriterium verglichen wird.
+
+**Finding offen.** Die Winkelzeugen begrenzen beobachtete Wechsel. Eine
+vollständige Klassifikation der Kreisbahn und eine allgemeine Beziehung
+zwischen Δ und Zusammenhang bleiben offen.
+
+[Bedienbares Beispiel in A0 Science](A0_BOOK/A0_SCIENCE.html#same-carrier-shadow-delta) ·
+[Prüfung im Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#primecube-algo-connectivity-check)
+
+### Paper E — Methodenbeispiel: Still-Point Bands und D
+
+**Vorgemerkt für die Redaktion.** Die gewählte affine Anzeige setzt den
+Imaginärteil der gespiegelten Bahnen auf die 432er-Skala. Bei ε = 0,2250
+entspricht das Strip-Fenster dem inneren Band [424, 440]. Dieselben
+Trefferpositionen bleiben auf beiden Spiegelbahnen sichtbar. Gegenüber
+ε = 0,2211 zeigt der zusätzliche gemeinsame Treffer bei n=3 im
+Spiegel-Frame bei n=4 weiterhin AFTER, jetzt mit 1/3 statt 2/3.
+θ4=n4 bleibt Testannahme. **Finding offen.**
+
+[Prüfung im Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#clockwork-orange-432-hof-check) ·
+[Still-Point Bands](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#clockwork-orange-still-point-bands) ·
+[D im Hof](A0_BOOK/A0_SCIENCE.html#algo-hof-d-panel)
+
+### Paper E — Methodenbeispiel: Alpha–Rath und der Punkt
+
+**Vorgemerkt für die Redaktion.** Die Euler-Bridges-v4-Tafel liefert den
+direkten Weg Alpha → Rath und den Weg Alpha → Cathedral → Rath. Im
+Numbergame hält der Punkt bei Rath die Kantenfolge fest. Beim Wechsel der
+Rückroute bleibt das Ziel Alpha gleich, und der Gesamtweg erhält die dritte
+Kante des Dreiecks. Der Vergleich zeigt, welche Information die Zieladresse
+und welche das Wegprotokoll liefert. AH, TB / TßR und ß bleiben Testlabels.
+**Finding offen.**
+
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#alpha-rath-method-return-20261124) ·
+[Numbergame](A0_BOOK/A0_NUMBERMAGICK_GRID_RESEARCH.html#alpha-rath-bridge) ·
+[Paper-E-Arbeitsfassung](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#alpha-rath-method-example)
+
+### Millennium Grid / Decimal Carrier `10^6` — 2026-11-24
+
+The existing `1000x1000` NP/RR carrier is now exposed inside Primecube as a
+bounded child view of `MOD:NUMBER_VIEW_SUITE`. The new `MG1M` notation is only
+a one-based presentation adapter over the retained zero-based address law:
+
+```text
+n0 = 1000*NP + RR       n0 in 0..999999
+n1 = n0 + 1             n1 in 1..1000000
+```
+
+The instrument compares three typed divisor overlays without changing the
+carrier. `5040` produces 198 complete blocks, a `+40`-column drift, a 25-block
+/ 126-row synchronization cycle and the exact residual `2080 = 80+1000+1000`.
+`108000` produces nine blocks and a 28000-address residual; a tenth block would
+overhang by 80000. `1000` closes all 1000 rows with zero residual. Record
+`MG1M:N0997920` returns exactly from square address `[919,997]`, cube address
+`[19,79,99]` and existing NP/RR record `n0=997919`.
+
+The macro field and edge loupe are aggregated Canvas views; they do not create
+one million interface nodes. The divisor counts and cuts are exact finite
+arithmetic, not a scale constant, physical mechanism, new carrier identity or
+scientific Finding. `108 mode` is explicitly the `108000` block.
+
+[Instrument](A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html#millennium-decimal-carrier) ·
+[Receipt](A0_BOOK/results/a0-primecube-millennium-decimal-carrier-2026-11-24.json)
+
+Disposition: `DOCUMENTARY ENGINEERING RETURN / EXISTING IDENTITY / NEW ID 0 / RELATION 0 / ALIAS 0 / STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0 / GRAPH DELTA 0`.
 
 <a id="primecube-nexah-core-agent-rebinding--2026-11-24"></a>
 

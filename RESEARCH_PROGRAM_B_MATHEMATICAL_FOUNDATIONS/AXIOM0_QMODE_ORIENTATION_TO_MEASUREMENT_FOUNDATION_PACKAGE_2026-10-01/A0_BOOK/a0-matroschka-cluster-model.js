@@ -168,6 +168,28 @@
       controls:{witnessless:{address:witnessless,epsilon:witnesslessEpsilon,exact:witnesslessEpsilon<EPS},wrongOrder:{address:wrongOrder,epsilon:wrongOrderEpsilon,exact:wrongOrderEpsilon<EPS}}
     };
   }
+  function radiusReadout(record, radius=record.rho){
+    const direction=scale(record.return.cube,1/record.rho);
+    const cube=scale(direction,radius);
+    const address=nearestAddress(cube);
+    const axes=record.source.map((digit,i)=>{
+      const center=record.cube[i];
+      const low=digit===0?-Infinity:center-.2;
+      const high=digit===5?Infinity:center+.2;
+      return {low,high,changed:address[i]!==digit};
+    });
+    const radialBounds=axes.map(({low,high},i)=>{
+      const v=direction[i];
+      return v>0?[low/v,high/v]:[high/v,low/v];
+    });
+    return {
+      direction,cube,address,axes,
+      lower:Math.max(0,...radialBounds.map(([low])=>low)),
+      upper:Math.min(...radialBounds.map(([,high])=>high)),
+      error:norm(sub(cube,record.cube)),
+      addressChanged:axes.some(axis=>axis.changed)
+    };
+  }
   function allAddresses(){const out=[];for(let a=0;a<6;a++)for(let b=0;b<6;b++)for(let c=0;c<6;c++)out.push([a,b,c]);return out}
   function census(){
     const rows=allAddresses().map(x=>route(x));
@@ -291,5 +313,5 @@
       boundary:'The standard Hopf map displays a continuous S1 fiber phase while its S2 base remains fixed; it is not identified with the discrete C5/Hashimoto route. The Ihara layer audits only the declared non-backtracking finite cycle. Local iota is a retained witness label, not the UTG threshold event. Yen is the reused visible typed return marker and is neither currency nor an algebraic operator. No physical field, causal Hopf mechanism, natural 19-to-1.9 law, new operator, Study, Finding or graph relation is asserted.'
     };
   }
-  return {EPS,CLUSTERS,A1,A2,A3,F0_MINUS,H,HINV,WRONG_INV,SNAP_SEQUENCE,DISPLAY_RETURN,MATRYOSHKA_CARRIER,MAITROSCHKA_JOINT,NEXAHEDRON_V3_SOURCE_LENS,snapOf,address,clusterOf,cubeOf,sphereOf,stereographic,inverseStereographic,observer,route,allAddresses,census,finiteJanusFrame,ghostgridComparator,finalPlugFrame,math:{dot,norm,sub,scale,transpose,mv,mm,det,eye,matrixDistance}};
+  return {EPS,CLUSTERS,A1,A2,A3,F0_MINUS,H,HINV,WRONG_INV,SNAP_SEQUENCE,DISPLAY_RETURN,MATRYOSHKA_CARRIER,MAITROSCHKA_JOINT,NEXAHEDRON_V3_SOURCE_LENS,snapOf,address,clusterOf,cubeOf,sphereOf,stereographic,inverseStereographic,observer,route,radiusReadout,allAddresses,census,finiteJanusFrame,ghostgridComparator,finalPlugFrame,math:{dot,norm,sub,scale,transpose,mv,mm,det,eye,matrixDistance}};
 });

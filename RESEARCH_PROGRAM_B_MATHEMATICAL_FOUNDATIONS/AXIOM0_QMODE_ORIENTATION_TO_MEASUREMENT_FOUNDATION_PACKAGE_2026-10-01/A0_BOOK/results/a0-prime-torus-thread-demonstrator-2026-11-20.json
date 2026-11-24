@@ -1,6 +1,6 @@
 {
-  "schema": "nexah.a0.prime-torus-thread-demonstrator/2",
-  "date": "2026-11-21",
+  "schema": "nexah.a0.prime-torus-thread-demonstrator/3",
+  "date": "2026-11-24",
   "carrier": {
     "limit": 1000,
     "prime_count": 168,
@@ -36,6 +36,13 @@
     "audit_transition_count": 270,
     "closed": true,
     "algorithm": "HIERHOLZER"
+  },
+  "view_lenses": {
+    "odd_degree_color_lens": {
+      "marker_count": 24,
+      "ordering": "LEXICOGRAPHIC_RESIDUE_KEY",
+      "semantic_role": "AUDIT_NODE_HIGHLIGHT_ONLY"
+    }
   },
   "interpretation_boundary": {
     "wobble": "VIEW_ONLY_ENDPOINTS_EXACT",

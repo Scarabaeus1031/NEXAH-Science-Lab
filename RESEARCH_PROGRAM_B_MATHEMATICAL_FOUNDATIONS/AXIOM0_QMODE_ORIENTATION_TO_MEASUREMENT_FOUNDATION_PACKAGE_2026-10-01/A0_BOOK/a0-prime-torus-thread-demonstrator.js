@@ -182,6 +182,7 @@
     const showMeasures=options.showMeasures!==false;
     const showFrame=options.showFrame!==false;
     const showWrap=options.showWrap!==false;
+    const showOddColors=Boolean(options.showOddColors);
     const wobble=Math.max(0,Math.min(1,Number(options.wobble)||0));
     const W=1000,H=650,left=255,top=55,plot=420,right=left+plot,bottom=top+plot;
     const x=r=>left+r/(MOD_X-1)*plot;
@@ -220,6 +221,14 @@
     for(let r7=0;r7<MOD_X;r7++)for(let r11=0;r11<MOD_Y;r11++){
       const unit=r7!==0&&r11!==0;
       parts.push(`<circle cx="${x(r7)}" cy="${y(r11)}" r="${unit?2.6:3.6}" class="${unit?'ptd-node ptd-unit-node':'ptd-node ptd-zero-node'}"><title>(${r7},${r11})</title></circle>`);
+    }
+
+    if(showOddColors){
+      graph.oddVertices.forEach((key,oddIndex)=>{
+        const point=graph.byKey.get(key),hue=Math.round(oddIndex*360/graph.oddVertices.length);
+        parts.push(`<circle cx="${x(point.r7)}" cy="${y(point.r11)}" r="8" class="ptd-odd-node" style="--ptd-odd-color:hsl(${hue} 84% 62%)"><title>odd-degree audit node ${oddIndex+1}/24 · (${point.r7},${point.r11})</title></circle>`);
+      });
+      parts.push('<text x="760" y="422" class="ptd-odd-note">24 ODD-DEGREE NODES · COLOR LENS</text>');
     }
 
     if(showTrail&&mode!=='euler'&&mode!=='difference'){
@@ -296,6 +305,7 @@
     const measuresInput=host.querySelector('#primeThreadMeasures');
     const frame=host.querySelector('#primeThreadFrame');
     const wrap=host.querySelector('#primeThreadWrap');
+    const oddColors=host.querySelector('#primeThreadOddColors');
     const svg=host.querySelector('#primeThreadSvg');
     const outputs={
       step:host.querySelector('#primeThreadStepOut'),
@@ -320,10 +330,10 @@
       outputs.delta.textContent=`raw ${readout.raw} · wrap ${readout.wrapped}`;
       outputs.angle.textContent=`raw ${readout.rawAngle.toFixed(1)}° · wrap ${readout.wrappedAngle.toFixed(1)}°`;
       if(outputs.audit)outputs.audit.textContent=`${analysis.graph.edges.length} unique · ${analysis.graph.repeatedPrimeTraversals} prime repeats · ${analysis.graph.oddVertices.length} odd · ${analysis.audit.transitions.length} audit steps · ${analysis.audit.closed?'closed':'open'}`;
-      svg.innerHTML=svgFor(data,index,{mode:currentMode,showTrail:trail.checked,showMeasures:measuresInput.checked,showFrame:frame.checked,showWrap:wrap.checked,wobble:Number(wobble.value)});
+      svg.innerHTML=svgFor(data,index,{mode:currentMode,showTrail:trail.checked,showMeasures:measuresInput.checked,showFrame:frame.checked,showWrap:wrap.checked,showOddColors:oddColors&&oddColors.checked,wobble:Number(wobble.value)});
     }
     [step,wobble].forEach(input=>input.addEventListener('input',render));
-    [trail,measuresInput,frame,wrap].forEach(input=>input.addEventListener('change',render));
+    [trail,measuresInput,frame,wrap,oddColors].filter(Boolean).forEach(input=>input.addEventListener('change',render));
     if(mode)mode.addEventListener('change',render);
     render();
     return Object.freeze({render,data,analysis});

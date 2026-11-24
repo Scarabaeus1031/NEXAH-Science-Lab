@@ -36,6 +36,8 @@ blocked.doc.hidden=true;blocked.events.visibilitychange();eq(blocked.nodes.clubD
 eq(blocked.deck.snapshot().sourceStateTransferred,false);eq(blocked.deck.snapshot().sharedClock,false);
 const html=fs.readFileSync(__dirname+'/DRAFTS/A0_FAMILY_NAVIGATOR_DEMO.html','utf8');
 ok(html.includes('href="#club-deck-room"'));ok(html.includes('data-jukebox-room="deck"'));ok(!html.includes('club-coming'));ok(!html.includes('Dancefloor betreten'));ok(!html.includes('<details class="club-wayfinding"'));ok(!html.includes('<iframe'));
+for(const s of ['NEXAH · FOH Stage','FOH-Rolle:','keine neue Quelle','kein zusätzlicher Carrier'])ok(html.includes(s),s);
+for(const s of ['FOH / DJ PULT','FOH STAGE · THREE DECKS','FOH-Auslesebühne'])ok(original.includes(s),s);
 for(const id of ['club-deck-room','clubDeckHost','clubDeckStatus','clubDeckReload'])ok(html.includes('id="'+id+'"'));
 const js=fs.readFileSync(__dirname+'/a0-family-club-deck.js','utf8');
 ok(!/\.snapshot\(\)|\.apply\(|postMessage|localStorage|setInterval|lens_mix|q4Address|deskIndex|fetch\(/.test(js));

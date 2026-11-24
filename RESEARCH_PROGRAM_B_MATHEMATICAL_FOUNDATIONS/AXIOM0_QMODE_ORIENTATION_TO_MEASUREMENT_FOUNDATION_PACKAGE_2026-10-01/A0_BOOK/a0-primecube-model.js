@@ -5,7 +5,7 @@
 })(typeof window!=='undefined'?window:globalThis,function(){
   'use strict';
 
-  const VERSION='1.56.0';
+  const VERSION='1.58.0';
   const MAX_N=1111;
   const GRID_COLUMNS=37;
   const CUBE_SIZE=11;
@@ -698,10 +698,34 @@
     };
     const sTrack=track(1),zTrack=track(-1);
     const proximities=Object.freeze(sTrack.map((point,index)=>Object.freeze({index,distance:Math.hypot(point.x-zTrack[index].x,point.y-zTrack[index].y)})).filter(item=>item.distance<.035));
+    const halfPlane=point=>point.y>=0?1:-1;
+    const bridgeTrack=Object.freeze(sTrack.map((point,index)=>Object.freeze({
+      index,
+      x:(point.x+zTrack[index].x)/2,
+      y:(point.y+zTrack[index].y)/2,
+      distance:Math.hypot(point.x-zTrack[index].x,point.y-zTrack[index].y)
+    })));
+    const switchEvents=Object.freeze(sTrack.slice(1).map((point,offset)=>{
+      const index=offset+1,sBefore=halfPlane(sTrack[index-1]),sAfter=halfPlane(point),zBefore=halfPlane(zTrack[index-1]),zAfter=halfPlane(zTrack[index]);
+      if(sBefore===sAfter&&zBefore===zAfter)return null;
+      const previousDistance=bridgeTrack[index-1].distance,currentDistance=bridgeTrack[index].distance;
+      return Object.freeze({
+        index,sBefore,sAfter,zBefore,zAfter,
+        bridgeDistance:currentDistance,
+        memoryMagnitude:Math.abs(beta)*Math.abs(currentDistance-previousDistance),
+        label:`S ${sBefore>0?'+':'-'}→${sAfter>0?'+':'-'} · Z ${zBefore>0?'+':'-'}→${zAfter>0?'+':'-'}`
+      });
+    }).filter(Boolean));
+    const bridge=Object.freeze({
+      symbol:'βχ',role:'MEMORY_BRIDGE',color:'#ff4fc3',track:bridgeTrack,switchEvents,
+      operator:'chi(z)*|beta|*(z(n)-z(n-1))',
+      status:'BOUNDED_VIEW_BRIDGE_NOT_THIRD_CHIRALITY',
+      return:'DISPLAY_EVENT_LOOP_ONLY_OPERATOR_RETURN_UNRESOLVED'
+    });
     const stations=Object.freeze(Array.from({length:25},(_,index)=>Object.freeze({address:index+1,row:Math.floor(index/5),column:index%5,center:index===12})));
     return Object.freeze({
       name:'SZ_CHIRALITY_INVARIANT_LAB',
-      polar:Object.freeze({angle,counterAngle:360-angle,canonicalSteps:Object.freeze({s:angle,z:-angle}),alpha,beta,steps,sTrack,zTrack,proximities,closure:Object.freeze({gcd:integerGcd,steps:closureSteps,signedTurnsS:signedTurns,signedTurnsZ:-signedTurns,status:'EXACT_INTEGER_ANGLE_CLOSURE'})}),
+      polar:Object.freeze({angle,counterAngle:360-angle,canonicalSteps:Object.freeze({s:angle,z:-angle}),alpha,beta,steps,sTrack,zTrack,proximities,bridge,closure:Object.freeze({gcd:integerGcd,steps:closureSteps,signedTurnsS:signedTurns,signedTurnsZ:-signedTurns,status:'EXACT_INTEGER_ANGLE_CLOSURE'})}),
       mod11:Object.freeze({angle102:mod(102,11),angle204:mod(204,11),angle258:mod(258,11),inversePair:Object.freeze([5,6]),equation:'258+204=462=42*11',status:'ADDITIVE_INVERSES_NOT_ANTIPODAL'}),
       torsion:Object.freeze({
         operator:'z(n+1)=z(n)^2+c+alpha*z(n)+chi(z(n))*|beta|*(z(n)-z(n-1))',
@@ -719,7 +743,7 @@
       ]),
       window25:Object.freeze({shape:Object.freeze([5,5]),count:25,center:13,stations,labels:Object.freeze(['BIG BIRD','CON DAO','THUNDER BIRD']),status:'OWNER_WINDOW_HOLD_NO_OPERATOR'}),
       navigatorEffect:Object.freeze({newCanonicalIds:0,relationChanges:0}),
-      boundary:'S and Z are declared signed display directions, not a universal decoding of Andean textile meaning. P_chi is held constant only when the controls enforce it; it is not conserved energy or an orbit invariant. Screen proximity is not a knot, resonance or physical stabilization event. The 25/13 window is an exact finite address plate; Big Bird, Con Dao and Thunder Bird remain Owner labels on HOLD.'
+      boundary:'S and Z are declared signed display directions, not a universal decoding of Andean textile meaning. The beta-chi bridge connects sampled half-plane switch events as a bounded view trace; it is not a third chirality, state trajectory or exact operator closure. Its switch tour is a display return only. P_chi is held constant only when the controls enforce it; it is not conserved energy or an orbit invariant. Screen proximity is not a knot, resonance or physical stabilization event. The 25/13 window is an exact finite address plate; Big Bird, Con Dao and Thunder Bird remain Owner labels on HOLD.'
     });
   }
 
@@ -1221,8 +1245,9 @@
   }
 
   const UNIT_FACTORS_METRES=Object.freeze({
-    km:1000,m:1,dm:.1,cm:.01,mi:1609.344,yd:.9144,ft:.3048,in:.0254
+    km:1000,m:1,dm:.1,cm:.01,mi:1609.344,yd:.9144,ft:.3048,in:.0254,cubit:.523
   });
+  const UNIT_VIEW_STEPS=Object.freeze({km:.001,m:1,dm:10,cm:100,mi:.0005,yd:1,ft:2,in:24,cubit:1});
 
   function unitRootShearRecord(markerValue=15.7,unit='m',intensity=.4){
     const markerKey=String(markerValue),markers=Object.freeze([
@@ -1235,10 +1260,17 @@
     const sourceMetres=4.78536,converted=sourceMetres/UNIT_FACTORS_METRES[unit],f=Math.max(0,Math.min(1,Number(intensity)||0)),angleDegrees=90*f,angleRadians=angleDegrees*Math.PI/180;
     const cos=Math.cos(angleRadians),sin=Math.sin(angleRadians),tan=Math.tan(angleRadians),x=marker.value*cos,y=marker.value*sin,reconstructed=Math.hypot(x,y);
     const stair=Object.freeze(Array.from({length:13},(_,index)=>{const degrees=angleDegrees*index/12,radians=degrees*Math.PI/180;return Object.freeze({index,degrees,radians,x:marker.value*Math.cos(radians),y:marker.value*Math.sin(radians)})}));
-    const conversions=Object.freeze(Object.fromEntries(Object.entries(UNIT_FACTORS_METRES).map(([name,factor])=>[name,sourceMetres/factor])));
+    const conversions=Object.freeze(Object.fromEntries(Object.entries(UNIT_FACTORS_METRES).map(([name,factor])=>[name,sourceMetres/factor]))),tickStep=UNIT_VIEW_STEPS[unit],tickCeiling=Math.ceil(converted/tickStep)*tickStep;
+    const displayScale=Object.freeze({unit,span:converted,tickStep,tickCeiling,ticks:Object.freeze(Array.from({length:Math.round(tickCeiling/tickStep)+1},(_,index)=>Object.freeze({value:index*tickStep,normalized:index*tickStep/converted}))),status:'VIEW_SCALE_ONLY_SOURCE_METRES_RETAINED'});
+    const rootMaximum=markers.at(-1).value,rootScale=Object.freeze({maximum:rootMaximum,selected:marker.value,fraction:marker.value/rootMaximum,status:'DECLARED_ROOT_VIEW_EXTENT'});
     return Object.freeze({
       name:'UNIT_ROOT_SHEAR_COMPARATOR_VIEW',marker,markers,
-      physicalSource:Object.freeze({value:15.7,unit:'ft',metres:sourceMetres,exact:'157/10 ft = 59817/12500 m',conversions,selectedUnit:unit,selectedValue:converted}),
+      physicalSource:Object.freeze({
+        value:15.7,unit:'ft',metres:sourceMetres,exact:'157/10 ft = 59817/12500 m',conversions,
+        selectedUnit:unit,selectedValue:converted,displayScale,
+        selectedStandard:unit==='cubit'?Object.freeze({name:'ROYAL_CUBIT_OWNER_INTAKE',factorMetres:.523,display:'1 cubit = 0.523 m',status:'DECLARED_OWNER_INTAKE_VIEW_FACTOR'}):Object.freeze({name:'SI_OR_INTERNATIONAL_UNIT',factorMetres:UNIT_FACTORS_METRES[unit],display:`1 ${unit} = ${UNIT_FACTORS_METRES[unit]} m`,status:'DECLARED_EXACT_CONVERSION_FACTOR'})
+      }),
+      rootScale,
       fold:Object.freeze({intensity:f,angleDegrees,angleRadians,cos,sin,tan,components:Object.freeze({x,y}),reconstructed,residual:reconstructed-marker.value,law:'Sθ(ℓ)=(ℓ cosθ, ℓ sinθ)',returnLaw:'√(x²+y²)=ℓ'}),
       stair:Object.freeze({steps:12,stepDegrees:angleDegrees/12,forward:stair,return:Object.freeze(stair.slice().reverse()),closure:'EXACT_BY_RETAINED_MARKER_AND_REVERSED_DECLARED_PATH'}),
       angleGrids:Object.freeze({selectedAngleTwelveSteps:angleDegrees/12,quarterTurnTwelveSteps:7.5,twelveSectorThirds:10}),
@@ -1298,19 +1330,71 @@
           apertureSource:'results/a0-breathing-crystal-aperture-return-2026-10-29.json',
           status:'SOURCE_BOUND_DISPLAY_PHASE_NOT_PHYSICAL_BREATH_MODEL'
         }),
-        boundary:'The four source readings share one comparator dock only. They do not share an operator, carrier identity, clock, physical mechanism or canonical Source Graph relation. Dzhanibekov remains an unbound visual analogy until an inertia tensor and falsifiable operator contract are supplied.'
+        cubitExchange:Object.freeze({
+          standard:'ROYAL_CUBIT_OWNER_INTAKE',factorMetres:.523,statement:'1 cubit = 0.523 m',
+          provenanceLabel:'OWNER VISUAL INTAKE · 2026-11-24 · 52.3 cm rounded reading',
+          sourceReceipt:'results/a0-cubit-unit-source-intake-2026-11-24.json',
+          sources:Object.freeze([
+            Object.freeze({id:'YOUTUBE_98ZM4NOZEKI',url:'https://www.youtube.com/watch?v=98Zm4noZekI',transcript:'OWNER_SUPPLIED_TEXT_AVAILABLE',role:'HISTORICAL_MATHEMATICS_CONTEXT_ONLY'}),
+            Object.freeze({id:'YOUTUBE_WCIL_YCMZE8',url:'https://www.youtube.com/watch?v=wciL_yCmZe8',transcript:'NO_TRANSCRIPT_IN_CURRENT_INTAKE',role:'SECONDARY_AUDIOVISUAL_WITNESS'})
+          ]),
+          returnLaw:'selected cubits × 0.523 m = retained 4.78536 m source',
+          status:'DECLARED_VIEW_FACTOR_NOT_UNIVERSAL_HISTORICAL_STANDARD',
+          boundary:'The 0.523 m factor is the explicitly selected rounded intake reading. The displayed 20 9/16 international inches converts to 52.22875 cm, not exactly 52.3 cm. Cubit traditions vary; no universal ancient standard, dimensional resonance or physical conversion mechanism is asserted.'
+        }),
+        boundary:'The source readings share one comparator dock only. They do not share an operator, carrier identity, clock, physical mechanism or canonical Source Graph relation. Dzhanibekov remains an unbound visual analogy until an inertia tensor and falsifiable operator contract are supplied.'
       }),
       qReturn:Object.freeze({source:1,crtAddress:qCubeAddress(1),notation:'1 ↔ (1,1,1)',exact:true}),
       mirror:Object.freeze({glyph:'¡',role:'OWNER_COUNTERPOINT_TO_1_RETURN',operator:'UNDEFINED',status:'HOLD'}),
       qrtBoundary:'In ART:ROSETTA:QRT_FIXTURE, R is the declared inverse and address-aligned Return. QRT20 remains a controlled address label and receives no universal letter expansion here.',
-      unitBoundary:'km, m, dm, cm, international mile, yard, international foot and inch use declared exact conversion factors. Cubit is excluded until a named historical standard and factor are supplied.',
+      unitBoundary:'km, m, dm, cm, international mile, yard, international foot and inch use declared exact conversion factors. The Cubit view uses the separately named Owner-intake factor 0.523 m and remains approximate historical provenance, not a universal standard. Every changing tick grid is a view scale over the retained 4.78536 m source, not a change of source geometry.',
       projectionBoundary:'The 4x3 and outer 3/3/4/6/6 clusters are a reproducible screen overlay, not proof that projected line crossings share a CRT address.',
       return:'RETAINED_MARKER_EXACT_UNIT_CODEC_AND_INVERSE_SHEAR_VIEW'
     });
   }
 
+  const MILLENNIUM_TOTAL=1000000;
+  const MILLENNIUM_DIVISORS=Object.freeze([5040,108000,1000]);
+  function millenniumGridRecord(n=997920,divisor=5040){
+    const sourceNumber=Math.max(1,Math.min(MILLENNIUM_TOTAL,Math.trunc(Number(n)||1))),d=Math.trunc(Number(divisor));
+    if(!MILLENNIUM_DIVISORS.includes(d))throw new RangeError(`divisor must be one of ${MILLENNIUM_DIVISORS.join(', ')}`);
+    const index=sourceNumber-1,x=index%1000,y=Math.floor(index/1000),a=index%100,b=Math.floor(index/100)%100,c=Math.floor(index/10000);
+    const fullBlocks=Math.floor(MILLENNIUM_TOTAL/d),covered=fullBlocks*d,residual=MILLENNIUM_TOTAL-covered,isResidual=sourceNumber>covered;
+    const blockNumber=Math.floor(index/d)+1,offset=(index%d)+1;
+    const cut=Object.freeze({
+      divisor:d,fullBlocks,covered,residual,isResidual,blockNumber,offset,
+      residualIndex:isResidual?sourceNumber-covered:0,
+      overhangForNextBlock:covered+d-MILLENNIUM_TOTAL
+    });
+    const familyTable=Object.freeze([
+      Object.freeze({n:1111,factors:'11·101',divisorCount:4,squareRole:'√1111 ≈ 33.3317',role:'BASE_11_PRIME_GAP_CARRIER'}),
+      Object.freeze({n:5040,factors:'2^4·3^2·5·7',divisorCount:60,squareRole:'71²−1',role:'HIGHLY_DIVISIBLE_SMALL_CARRIER'}),
+      Object.freeze({n:10080,factors:'2^5·3^2·5·7',divisorCount:72,squareRole:'√10080 ≈ 100.3992',role:'DOUBLE_5040'}),
+      Object.freeze({n:10800,factors:'2^4·3^3·5²',divisorCount:60,squareRole:'√10800 ≈ 103.9230',role:'108_FAMILY_CARRIER'}),
+      Object.freeze({n:108000,factors:'2^5·3^3·5^3',divisorCount:96,squareRole:'√108000 ≈ 328.6335',role:'DECIMAL_108_EXTENSION'}),
+      Object.freeze({n:1000000,factors:'2^6·5^6',divisorCount:49,squareRole:'1000²',role:'EXACT_DECIMAL_SQUARE'})
+    ]);
+    return Object.freeze({
+      schema:'nexah.a0.millennium-decimal-carrier-view/1',status:'EXACT_FINITE_ADDRESS_AND_RESIDUAL_VIEW',
+      identityReuse:Object.freeze(['MOD:NUMBER_VIEW_SUITE','ART:A0:MATHEMATICAL_JOINTS']),graphDelta:Object.freeze({identities:0,relations:0,aliases:0}),
+      carrier:Object.freeze({min:1,max:MILLENNIUM_TOTAL,count:MILLENNIUM_TOTAL,square:Object.freeze([1000,1000]),cube:Object.freeze([100,100,100]),factorization:'2^6·5^6',divisorCount:49}),
+      sourceNumber,recordId:`MG1M:N${String(sourceNumber).padStart(7,'0')}`,
+      squareAddress:Object.freeze({x,y,law:'n=1+x+1000y',return:1+x+1000*y}),
+      cubeAddress:Object.freeze({a,b,c,law:'n=1+a+100b+10000c',return:1+a+100*b+10000*c}),
+      zeroBasedCrosswalk:Object.freeze({n0:index,np:y,rr:x,law:'n0=1000·NP+RR; n1=n0+1',status:'PRESENTATION_ADAPTER_TO_EXISTING_NP_RR_GRID'}),
+      cut,
+      drift5040:Object.freeze({rowSpan:5,columnStep:40,blockPeriod:25,cycleAddresses:126000,cycleRows:126,completeCycles:7,alignedRows:882,tailBlocks:23,tailCovered:115920,residualShape:Object.freeze([{y:997,x0:920,x1:999,count:80},{y:998,x0:0,x1:999,count:1000},{y:999,x0:0,x1:999,count:1000}])}),
+      cut108000:Object.freeze({fullBlocks:9,covered:972000,residual:28000,residualRows:28,nextBlockOverhang:80000}),
+      squareOf5040:Object.freeze({value:25401600,factorization:'2^8·3^4·5²·7²',divisorCount:405}),
+      familyTable,
+      return:Object.freeze({method:'RETAINED_SOURCE_NUMBER',n:sourceNumber,squareExact:1+x+1000*y===sourceNumber,cubeExact:1+a+100*b+10000*c===sourceNumber}),
+      boundary:'One finite decimal carrier with three typed divisor overlays. The one-based MG1M record is a presentation adapter over the existing zero-based NP/RR grid. Divisibility, square/cube reshaping and residual geometry do not identify Primecube, 5040, 108000 or the million carrier and create no universal scale, physical mechanism or new Navigator relation.'
+    });
+  }
+
   function windowSequence111213Record(step=0,viewAngle=0,motionStep=0){
     const normalizedStep=mod(Math.trunc(Number(step)||0),7),angle=mod(Number(viewAngle)||0,360),motionPhase=mod(Number(motionStep)||0,28),motionAngle=motionPhase*360/28;
+    const thetaLiftProgress=normalizedStep/6,thetaLiftRoute=Object.freeze(['W11','+23','W12','72−','Σ12','72+','W13']);
     const rootMetrics=Object.freeze(Array.from({length:12},(_,column)=>Object.freeze({column:column+1,...rootGap(column+1),sourceView:'AM',targetView:'PM'})));
     const seamEdges=Object.freeze(Array.from({length:12},(_,column)=>Object.freeze({column:column+1,from:Object.freeze({row:6,column:column+1}),to:Object.freeze({row:7,column:column+1}),rootMetric:rootMetrics[column]})));
     const states=Object.freeze([
@@ -1343,6 +1427,14 @@
         exactReturn:Object.freeze({afterSteps:28,blueDegrees:28*360/28,pinkDegrees:-28*360/28,modulo360:Object.freeze({blue:mod(28*360/28,360),pink:mod(-28*360/28,360)})}),
         status:'OWNER_NAMED_DISPLAY_CYCLE_NOT_PHYSICAL_TESLA_MECHANISM',
         boundary:'4×7 means four display quadrants with seven stations each. Blue W11 and pink W13 counter-rotate around the retained W12 screen body and return after 28 steps. No electromagnetic, Tesla-coil, energy, resonance or physical-body claim follows.'
+      }),
+      thetaLift:Object.freeze({
+        role:'RETAINED_CUBE_VIEW_PHASE_LIFT',step:normalizedStep,station:normalizedStep+1,stationCount:7,progress:thetaLiftProgress,thetaDegrees:angle,
+        route:thetaLiftRoute,current:thetaLiftRoute[normalizedStep],displaySpan:11+2*thetaLiftProgress,verticalDisplayOffset:-1+2*thetaLiftProgress,
+        drift:Object.freeze({stepDegrees:80,exactComparatorDegrees:72,residualPerStep:8,fiveStepDegrees:400,fiveStepResidual:mod(5*80,360)}),
+        source:Object.freeze({carrier:'W11_W12_TRANSVERSAL_SEAM_W13_SEQUENCE',addressMutation:false,identity:'MOD:NUMBER_VIEW_SUITE'}),
+        return:Object.freeze({method:'RETAINED_SOURCE_VIEW',sourceReturnExact:true,routeEndpoint:normalizedStep===0||normalizedStep===6,angularClosure:false,graphDelta:Object.freeze({identities:0,relations:0,aliases:0})}),
+        boundary:'Theta Lift is a seven-station display transform of the retained W11-W13 cube view. Scale, screen position, angle and trail change; carrier addresses, source identity and the return contract do not.'
       }),
       typedInventory:Object.freeze({lowerCells:72,seamEdges:12,upperCells:72,displayTotal:156,boundary:'72+12+72 counts two cell sets and one edge set; 156 is not an area or cell total.'}),
       view:Object.freeze({angle,halfTurnSwapsInsideOutside:mod(angle,360)===180,exactFiveStep72Return:mod(5*72,360)===0,eightyDegreeFiveStepResidual:mod(5*80,360)}),
@@ -1381,6 +1473,56 @@
         parameterRadius,apertureWeight:apertureWeights[lattice.step],apertureWeights,
         direction:insideOutside?'J_TO_M_VIEW_SWAP':'M_TO_J_PARAMETER_TRANSFER',
         halfTurnFlipsDirection:Boolean(insideOutside),
+        dirichletPentagon:Object.freeze({
+          role:'FIVE_TYPED_L_FUNCTION_VIEWS_ON_ONE_DECLARED_CRITICAL_LINE',criticalLine:'Re(s)=1/2',status:'CHARACTER_DEFINITION_DISPLAY_NOT_ZERO_PLOT',
+          tracks:Object.freeze([
+            Object.freeze({id:'L1',label:'ζ · χ₁',modulus:1,character:'trivial mod 1',values:Object.freeze(['1']),pair:null,color:'#eef7fb'}),
+            Object.freeze({id:'L5_0',label:'L · χ₅⁰',modulus:5,character:'principal mod 5',values:Object.freeze(['1','1','1','1']),pair:null,color:'#35d3ee'}),
+            Object.freeze({id:'L5_1',label:'L · χ₅¹',modulus:5,character:'complex quartic',values:Object.freeze(['1','i','−i','−1']),pair:'L5_3',color:'#f078b8'}),
+            Object.freeze({id:'L5_2',label:'L · χ₅²',modulus:5,character:'quadratic',values:Object.freeze(['1','−1','−1','1']),pair:null,color:'#f4c84a'}),
+            Object.freeze({id:'L5_3',label:'L · χ₅³',modulus:5,character:'complex quartic conjugate',values:Object.freeze(['1','−i','i','−1']),pair:'L5_1',color:'#8e78ff'})
+          ]),
+          angleCarrier:Object.freeze({
+            pentagon:Object.freeze({interiorAngle:108,interiorSum:540,centralAngle:72,tenthDegreeCarrier:5400,law:'5400=50·108=15·360'}),
+            circlePair:Object.freeze({lower:5040,upper:5400,difference:360,laws:Object.freeze(['5040=14·360','5400=15·360'])}),
+            decimalSquare:Object.freeze({value:6400,law:'5400+1000=6400=80²=2⁸·5²',twoPowerRegister:'2⁶·100'}),
+            millionCuts:Object.freeze([
+              Object.freeze({block:720,quotient:1388,remainder:640,role:'72.0° tenth-degree step'}),
+              Object.freeze({block:3600,quotient:277,remainder:2800,role:'360° in tenth-degrees'}),
+              Object.freeze({block:5040,quotient:198,remainder:2080,role:'14 full circles'}),
+              Object.freeze({block:5400,quotient:185,remainder:1000,role:'15 full circles / one final row'}),
+              Object.freeze({block:21600,quotient:46,remainder:6400,role:'arcminutes in one circle'})
+            ]),
+            unitBoundary:'3600 tenth-degrees equals 360 degrees; separately, 3600 arcseconds equals 1 degree. Equal numeral, different unit.'
+          }),
+          orientationCoupler:Object.freeze({
+            id:'GRH_TEST_LINE_THREE_ANGLE_COUPLER',
+            primary:Object.freeze({
+              source:'AL_JABR_LENS_TYPED_DOT',
+              angles:Object.freeze([102,204,258]),
+              viewRegisters:Object.freeze(['AM','PM','VM']),
+              roles:Object.freeze(['TURN','DOUBLE_TURN','RETURN_COMPLEMENT_TO_360']),
+              exactRelations:Object.freeze(['204=2·102','258+102=360','258+204=462=42·11']),
+              operator:'SELECT_TYPED_ANGLE_VIEW',
+              return:'SAME_CARRIER_C'
+            }),
+            comparisonRails:Object.freeze([
+              Object.freeze({id:'DODECA_PHASE_VIEW',angles:Object.freeze([204,135]),difference:69,source:'A0_BLUE_PINK_DODECA_CELL_RETURN.html#module-entry',status:'TYPED_DISPLAY_COMPARATOR_ONLY'}),
+              Object.freeze({id:'A0_101_Q_FOLD',angles:Object.freeze([90,45]),relation:'45=90/2',source:'DRAFTS/A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html#a0-101-orientation-coupler',tour:'DRAFTS/A0_IOI_LEAF_FOLD_RETURN_2026-11-02.html#leaf-tour-cube',status:'TYPED_ORIENTATION_AND_FOLD_VIEWS'})
+            ]),
+            cubeRoutes:Object.freeze({
+              full11:'A0_PRIMECUBE_GAP_FOLD_LAB.html#shadow-cube-envelope',
+              full11Role:'11^3_ADDRESS_ENVELOPE_1111_CARRIER_PLUS_220_RECORD_ABSENT_SHADOW_ADDRESSES',
+              qCube:'A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-workbench',
+              qCubeRole:'CRT_7_BY_11_BY_13_VIEW_NOT_11_CUBED'
+            }),
+            display:Object.freeze({line:'Re(s)=1/2',dotRole:'SELECTED_ANGLE_MARKER',nickname:'GALGEN_SCREEN_FORM_ONLY'}),
+            return:Object.freeze({source:'AL_JABR_LENS_TYPED_DOT',operator:'SELECT_TYPED_ANGLE_VIEW',contract:'RETURN_TO_SAME_CARRIER_C',graphDelta:Object.freeze({identities:0,relations:0,aliases:0,studies:0,findings:0})}),
+            boundary:'The common GRH test line is a display axis only. The 102, 204 and 258 degree states are typed Al-Jabr views of one retained carrier. The 204/135 and 90/45 rails retain their own source, operator and Return contracts; numeric overlap does not identify them. The 11^3 envelope and the 7x11x13 Q cube are different carriers. Galgen is a visual nickname for the screen form, not an operator, theorem, historical derivation or GRH evidence.'
+          }),
+          return:Object.freeze({source:'OMIJ_LANTERN_SEAM',operator:'SELECT_CHARACTER_VIEW',method:'RETAINED_LANTERN_VIEW',graphDelta:Object.freeze({identities:0,relations:0,aliases:0,studies:0,findings:0})}),
+          boundary:'The five lanes are zeta for the trivial character modulo 1 plus the four Dirichlet characters modulo 5. They show character definitions and conjugacy on the declared line Re(s)=1/2; their screen paths are schematic and are not evaluated L-values, zero locations, a proof of GRH or a new common operator.'
+        }),
         observerWitnessLedger:Object.freeze({
           ownerMnemonic:'PSHYSIC',ownerPhrase:'OHNE PSYCHE KEINE PHYSIC',
           scientificRestatement:'PHYSICS_AS_KNOWLEDGE_REQUIRES_MEASUREMENT_RECORD_WITNESS_AND_INTERPRETATION',
@@ -1413,6 +1555,21 @@
     });
   }
 
+  function tliftJanusAdapterRecord(d0=4,degree=7,ghostY=.35,glyphIndex=0,witness=false){
+    const threshold=Math.max(1,Math.round(Number(d0)||1)),probe=Math.max(1,Math.round(Number(degree)||1)),y=Math.max(-1,Math.min(1,Number(ghostY)||0)),glyphs=Object.freeze(['d','q','b','p']),index=mod(Math.trunc(Number(glyphIndex)||0),glyphs.length),fixed=Math.abs(y)<1e-9,liftReady=probe>=threshold,candidates=fixed?1:2,hasWitness=Boolean(witness),decide=liftReady&&(fixed||hasWitness),mirrorY=-y,mirrorGlyph=glyphs[mod(index+2,glyphs.length)];
+    const selfTest=Object.freeze({janusInvolution:-mirrorY===y,fixedSet:fixed===(Math.abs(y)<1e-9),threshold:(probe>=threshold)===liftReady,witnessGate:decide===(liftReady&&(fixed||hasWitness)),glyphReturn:glyphs[mod(index+4,glyphs.length)]===glyphs[index]});
+    return Object.freeze({
+      name:'YUGO_JOGI_TLIFT_JANUS_ADAPTER',role:'PRIMECUBE_SUBORDINATE_OBSERVER_VIEW',d0:threshold,degree:probe,ghostY:y,ghostDistance:2*Math.abs(y),fixed,liftReady,candidates,witness:hasWitness,decision:decide?'DECIDE':'ABSTAIN',return:decide?'EXACT':'HOLD',
+      source:Object.freeze({glyph:glyphs[index],carrier:'YUGO_JOGI_5_PLUS_2_FUSION_FRAME'}),
+      orientation:Object.freeze({glyphOperator:'R180_ON_DECLARED_GLYPH_ORBIT',glyph:mirrorGlyph,orbit:glyphs}),
+      janus:Object.freeze({operator:'J(x,y)=(x,-y)',imageY:mirrorY,involution:true,fixedSet:'Fix(J)={y=0}'}),
+      tlift:Object.freeze({statement:'exists d0, for all d >= d0',display:'∃d₀ ∀d≥d₀',ready:liftReady,status:'SOURCE_BOUND_DISPLAY_OF_TLIFTK_NOT_LEAN_PROOF'}),
+      selfTest:Object.freeze({checks:5,passed:Object.values(selfTest).filter(Boolean).length,pass:Object.values(selfTest).every(Boolean),ledger:selfTest}),
+      identityReuse:Object.freeze(['MOD:NUMBER_VIEW_SUITE','ART:A0:MATHEMATICAL_JOINTS']),navigatorEffect:Object.freeze({newCanonicalIds:0,relationChanges:0,aliases:0,studies:0,findings:0}),
+      boundary:'This is a subordinate Primecube observer adapter. The glyph half-turn and the coordinate reflection are separate declared operators. TLiftK supplies source notation only; the finite threshold display is not a Lean proof, physical lift, GRH claim, new carrier, identity or relation.'
+    });
+  }
+
   function buildDataset(limit=MAX_N){
     if(limit!==MAX_N)throw new Error('Primecube v1 freezes the carrier at 1..1111');
     const primes=sieve(limit),primeSet=new Set(primes),primeIndex=new Map(primes.map((p,i)=>[p,i+1]));
@@ -1434,7 +1591,7 @@
     const gapInteriorPrimes=primes.filter(p=>p>661&&p<809);
     const superprimes=nodes.filter(node=>node.isSuperprime).map(node=>node.n);
     return Object.freeze({
-      schema:'nexah.a0.primecube-gap-fold/1.56.0',version:VERSION,identityReuse:Object.freeze(['MOD:NUMBER_VIEW_SUITE','ART:A0:MATHEMATICAL_JOINTS','A0:ROOTROOM_CODON_ORIENTATION_RETURN:V1','ART:ROSETTA:QRT_FIXTURE','FESN:4774','A0OE:PASCAL_PENTAGON_D5_TEST']),
+      schema:'nexah.a0.primecube-gap-fold/1.58.0',version:VERSION,identityReuse:Object.freeze(['MOD:NUMBER_VIEW_SUITE','ART:A0:MATHEMATICAL_JOINTS','A0:ROOTROOM_CODON_ORIENTATION_RETURN:V1','ART:ROSETTA:QRT_FIXTURE','FESN:4774','A0OE:PASCAL_PENTAGON_D5_TEST']),
       carrier:Object.freeze({min:1,max:limit,count:limit,cubeShape:Object.freeze([11,11,10]),gridColumns:GRID_COLUMNS,fill:carrierFillRecord()}),
       nodes:Object.freeze(nodes),primes:Object.freeze(primes),groups,
       counts:Object.freeze({primes:primes.length,twins:groups.twins.length,triplets:groups.triplets.length,quadruplets:groups.quadruplets.length,superprimes:superprimes.length,layerClosures:LAYER_CLOSURES.length,squareLayerClosures:LAYER_CLOSURES.filter(n=>Number.isInteger(Math.sqrt(n))).length}),
@@ -1464,8 +1621,9 @@
       szChiralityLab:szChiralityLabRecord(),
       qCube:qCubeRecord(),
       unitRootShear:unitRootShearRecord(),
+      millenniumGrid:millenniumGridRecord(),
       windowSequence111213:windowSequence111213Record(),
-      yugoJogiFusion:yugoJogiFusionRecord(),
+      yugoJogiFusion:yugoJogiFusionRecord(),tliftJanusAdapter:tliftJanusAdapterRecord(),
       gap:Object.freeze({...GAP,interiorPrimeCount:gapInteriorPrimes.length,interiorPrimes:Object.freeze(gapInteriorPrimes)}),
       roots:Object.freeze({domain:Object.freeze([1,MAX_N-1]),referenceAnchors:Object.freeze([2,5,7]),codonF1:Object.freeze([5,11,17]),perfectCubeAnchors:Object.freeze([8,27,64,125,216,343,512,729,1000]),operators:Object.freeze({square:'Δ₂(k) = √(k+1) − √k = 1/(√(k+1)+√k)',cube:'Δ₃(k) = ∛(k+1) − ∛k = 1/((∛(k+1))²+∛(k+1)∛k+(∛k)²)'}),asymptotics:Object.freeze({square:'Δ₂(k) ~ 1/(2√k)',cube:'Δ₃(k) ~ 1/(3k^(2/3))'}),tridentSourceOverlay:Object.freeze({anglesDegrees:Object.freeze([90,210,330]),role:'VIEW_ONLY_THREE_AXIS_GUIDE'}),return:'RETAINED_SOURCE_NUMBER'}),
       hSpace:Object.freeze({name:'TYPED_H_RECORD_CROSSWALK',path:orientationPath(),diceSpaces:Object.freeze({h5:'{1,…,6}^5',h6:'{1,…,6}^6'}),frame17:'5+6+6 declared inventory; no natural identity asserted'}),
@@ -1486,5 +1644,5 @@
     });
   }
 
-  return Object.freeze({VERSION,MAX_N,GRID_COLUMNS,CUBE_SIZE,LAYER_AREA,LAYER_CLOSURES,GAP,UNIT_FACTORS_METRES,isPrime,sieve,divisors,primeFactorization,mod,gcd,multiplicativeOrder,modularPower,constellationGroups,cubeAddress,cubeNumber,fullCubeAddress,gridAddress,residueRecord,toBase11,diceAddress,diceNumber,hammingDistance,hRecord,orientationPath,layerClosureRecord,carrierFillRecord,seamShadowRecord,shadowCubeEnvelopeRecord,criticalLineRootTopologyRecord,thothKhipuKnotRecord,szChiralityLabRecord,gapPhase,rootGap,cubeRootGap,rootRulerRecord,rootRecord,theodorosRecord,rootGeometryRecord,squareSeamTriangleRecord,centeredPlateWindowRecord,lokiChassisRecord,splinterBookFoldRecord,mathfieldCouplingDeckRecord,pentagonCurtainControlRecord,transversalPlaneScienceReturnRecord,wheelGate13Record,alphaBetaFixedPointRecord,contractDemoCoverageRecord,fractalDirectFieldRecord,alJabrDotLensRecord,viewInvarianceAuditRecord,returnSeam4774Record,draftDriftHousingRecord,scarabControlLensRecord,foldAddress,hingeAddress,transition661Record,dualGridOrientationRecord,sliceAtlasRecord,eulerCompassRecord,qCubeAddress,mz24CompassRecord,qCubeRecord,unitRootShearRecord,windowSequence111213Record,yugoJogiFusionRecord,buildDataset,numberRecord});
+  return Object.freeze({VERSION,MAX_N,GRID_COLUMNS,CUBE_SIZE,LAYER_AREA,LAYER_CLOSURES,GAP,UNIT_FACTORS_METRES,MILLENNIUM_TOTAL,MILLENNIUM_DIVISORS,isPrime,sieve,divisors,primeFactorization,mod,gcd,multiplicativeOrder,modularPower,constellationGroups,cubeAddress,cubeNumber,fullCubeAddress,gridAddress,residueRecord,toBase11,diceAddress,diceNumber,hammingDistance,hRecord,orientationPath,layerClosureRecord,carrierFillRecord,seamShadowRecord,shadowCubeEnvelopeRecord,criticalLineRootTopologyRecord,thothKhipuKnotRecord,szChiralityLabRecord,gapPhase,rootGap,cubeRootGap,rootRulerRecord,rootRecord,theodorosRecord,rootGeometryRecord,squareSeamTriangleRecord,centeredPlateWindowRecord,lokiChassisRecord,splinterBookFoldRecord,mathfieldCouplingDeckRecord,pentagonCurtainControlRecord,transversalPlaneScienceReturnRecord,wheelGate13Record,alphaBetaFixedPointRecord,contractDemoCoverageRecord,fractalDirectFieldRecord,alJabrDotLensRecord,viewInvarianceAuditRecord,returnSeam4774Record,draftDriftHousingRecord,scarabControlLensRecord,foldAddress,hingeAddress,transition661Record,dualGridOrientationRecord,sliceAtlasRecord,eulerCompassRecord,qCubeAddress,mz24CompassRecord,qCubeRecord,unitRootShearRecord,millenniumGridRecord,windowSequence111213Record,yugoJogiFusionRecord,tliftJanusAdapterRecord,buildDataset,numberRecord});
 });

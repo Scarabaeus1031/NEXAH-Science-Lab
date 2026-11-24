@@ -1,5 +1,5 @@
 {
-  "schema": "a0.matroschka-cluster-bridge.return.v20",
+  "schema": "a0.matroschka-cluster-bridge.return.v21",
   "fixtureId": "A0-MATH-MCB-01",
   "date": "2026-11-15",
   "classification": "DETERMINISTIC_FINITE_MATH_FIXTURE / SOURCE-BOUND A0 ENGINEERING / NOT_A_LAB_RUN / NOT_ADMITTED",
@@ -4381,7 +4381,7 @@
     {
       "id": "V13",
       "pass": true,
-      "statement": "Translation lens exposes four Ghostgrid comparison modes and visible relation controls",
+      "statement": "Translation lens exposes five Ghostgrid comparison modes and visible relation controls",
       "detail": "PASS"
     },
     {
@@ -4431,11 +4431,23 @@
       "pass": true,
       "statement": "Play Wheels advances the ten-second GLB timeline with an explicit frame clock",
       "detail": "PASS"
+    },
+    {
+      "id": "V22",
+      "pass": true,
+      "statement": "Viewer-unavailable environments receive a visible code-native source fallback",
+      "detail": "PASS"
+    },
+    {
+      "id": "V23",
+      "pass": true,
+      "statement": "Lantern projects three closed Hopf pearl display loops into the Mandelbrot view without identity claim",
+      "detail": "PASS"
     }
   ],
   "summary": {
-    "checksPassed": 109,
-    "checksTotal": 109,
+    "checksPassed": 111,
+    "checksTotal": 111,
     "pass": true,
     "graphDelta": {
       "identities": 0,
@@ -4638,7 +4650,13 @@
       "loading": "EAGER",
       "posterDismiss": "FORCED_ON_LOAD",
       "snapControl": "CAMERA_ORBIT_NOT_ELEMENT_ROTATION",
-      "defaultOrbit": "0deg 68deg 145%"
+      "defaultOrbit": "0deg 68deg 145%",
+      "compatibilityFallback": {
+        "trigger": "CUSTOM_ELEMENTS_UNAVAILABLE_OR_GLB_TIMEOUT",
+        "display": "CODE_NATIVE_Q_CORE_TRIPLE_WHEEL_LADDER",
+        "sourceAssetPreserved": true,
+        "newAssetIdentity": false
+      }
     },
     "hopf": {
       "station": 6,
@@ -4715,6 +4733,27 @@
     "sourceMutation": false,
     "derivativeMutation": false,
     "newAssetIdentity": false,
+    "graphDelta": {
+      "identities": 0,
+      "relations": 0,
+      "aliases": 0,
+      "studies": 0,
+      "findings": 0,
+      "promotions": 0
+    }
+  },
+  "hopfLanternMandelbrotOverlay": {
+    "identityAction": "EXTEND_EXISTING_A0_MATROSCHKA_TRANSLATION_LENS",
+    "source": "VISIBLE_LANTERN_DISPLAY_ORIGIN",
+    "target": "MANDELBROT_DISPLAY",
+    "fibers": 3,
+    "pearls": 33,
+    "role": "SOURCE_BOUND_DISPLAY_OVERLAY",
+    "claims": {
+      "mandelbrotHasHopfStructure": false,
+      "commonGenerator": false,
+      "physicalField": false
+    },
     "graphDelta": {
       "identities": 0,
       "relations": 0,

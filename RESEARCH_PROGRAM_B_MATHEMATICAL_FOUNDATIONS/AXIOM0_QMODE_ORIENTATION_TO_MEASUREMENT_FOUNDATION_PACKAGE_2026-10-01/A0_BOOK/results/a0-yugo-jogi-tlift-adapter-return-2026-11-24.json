@@ -1,0 +1,58 @@
+{
+  "schema": "nexah.a0.yugo-jogi-tlift-adapter-return/1",
+  "date": "2026-11-24",
+  "status": "PASS_SOURCE_BOUND_PRIMECUBE_ADAPTER",
+  "identity_reuse": [
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "SRC:A0OE:EMP02",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "CAND:POLARPASS"
+  ],
+  "routes": {
+    "science": "A0_SCIENCE.html#yugo-jogi-tlift-adapter-20261124",
+    "science_desk": "A0_RESEARCH_DESK.html#yugo-jogi-tlift-adapter-return-20261124",
+    "navigator_crosswalk": "yugo_jogi_tlift_adapter_crosswalk_20261124",
+    "canonical_instrument": "A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-window-11-12-13-sequence",
+    "canonical_mode": "OBSERVER · TLIFT · JANUS",
+    "development_fixture": "/Users/tho2020/.codex/visualizations/2026/11/23/01a205e4-9424-7a83-8ef2-fcfc335433a4/yugo-jogi-five-plus-one.html",
+    "test": "a0-primecube-tests.cjs"
+  },
+  "contract": {
+    "route": "SOURCE -> GLYPH ORIENTATION -> TLiftK -> GHOSTLINE / FIXED SET -> DECIDE OR ABSTAIN -> RETURN",
+    "quantifier": "exists d0 in N such that for all d greater than or equal to d0",
+    "involution": "J(x,y)=(x,-y); J^2=I; Fix(J) is y=0",
+    "glyph_mirror": "d<->b and q<->p",
+    "ambiguity": "off Fix(J), a two-candidate pair requires a witness; otherwise ABSTAIN"
+  },
+  "verification": {
+    "status": "PASS",
+    "checks": 5,
+    "syntax": true,
+    "involution": true,
+    "fixed_set": true,
+    "quantifier_threshold": true,
+    "witness_decision": true,
+    "finite_return": true
+  },
+  "source_roles": {
+    "EMP-02": "observer and reconstruction display grammar",
+    "EXP-JANUS-16D": "involution and fixed-set reference",
+    "POLARPASS-FLB": "pipeline layout reference only"
+  },
+  "graph_delta": {
+    "identities": 0,
+    "relations": 0,
+    "aliases": 0,
+    "studies": 0,
+    "findings": 0,
+    "claim_promotions": 0,
+    "publications": 0
+  },
+  "integration": {
+    "carrier": "MOD:NUMBER_VIEW_SUITE / Primecube 1111",
+    "view": "YUGO / JOGI FUSION FRAME -> OBSERVER · TLIFT · JANUS",
+    "canvas": "existing Primecube 11/12/13 seam canvas",
+    "standalone_role": "development fixture only; not a canonical reader route"
+  },
+  "claim_boundary": "No experiment is reopened. No fluid-physics, positive-mass-gap, RH, GRH or physical TLiftK mechanism claim is made. The observer surface is a subordinate Primecube view and creates no carrier or Navigator identity."
+}

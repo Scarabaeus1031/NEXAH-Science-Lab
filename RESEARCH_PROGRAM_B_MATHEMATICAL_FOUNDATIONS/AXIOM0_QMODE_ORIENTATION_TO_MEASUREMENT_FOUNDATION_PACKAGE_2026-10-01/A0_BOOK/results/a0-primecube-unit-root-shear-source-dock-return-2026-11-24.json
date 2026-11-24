@@ -1,5 +1,5 @@
 {
-  "schema": "nexah.a0.primecube-unit-root-shear-source-dock-return/1.1",
+  "schema": "nexah.a0.primecube-unit-root-shear-source-dock-return/1.3",
   "date": "2026-11-24",
   "status": "SOURCE_BOUND_COMPARATOR_REFINEMENT_NO_GRAPH_DELTA",
   "identity_reuse": [
@@ -31,6 +31,19 @@
     "pink_grey": ["position", "color/pink shift", "echo lag", "shadow fraction"],
     "breath": "fixed CORE; three display bands; phase offsets 0/120/240 degrees; four-second declared display cycle",
     "mycel_root_split": "selected decimal Root marker drives the stair; one display trunk splits to 97=(6,9,6) and 944=(6,9,8); only the mod-13 coordinate changes"
+  },
+  "active_subcontract_display": {
+    "default": "mycel",
+    "choices": ["angle333", "plate", "pinkGrey", "breath", "mycel"],
+    "required_fields": ["source", "operator", "return", "boundary"],
+    "canvas_binding": "the selected subcontract alone receives the active visual highlight",
+    "identity_effect": "selection changes the declared reading only; no carrier, operator or Source Graph identity is merged or created"
+  },
+  "visual_scale_return": {
+    "root_extent": "the selected Root marker is drawn against the fixed 15.7 maximum; stair, Mycel trunk and split hub share that extent",
+    "unit_grid": "km/m/dm/cm/mi/yd/ft/in redraw deterministic labelled ticks over the retained 4.78536 m source",
+    "separation": "Root changes geometry extent; Unit changes the view codec only; neither changes the retained source record",
+    "status": "PASS_VISIBLE_TYPED_SCALE_RESPONSE"
   },
   "claim_boundary": "Shared display does not establish a shared operator, carrier identity, clock, physical mechanism or canonical relation. Dzhanibekov is retained only as an unbound visual analogy until an inertia tensor and falsifiable operator contract exist.",
   "graph_delta": {

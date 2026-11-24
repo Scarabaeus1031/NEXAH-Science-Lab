@@ -45,13 +45,17 @@ const eulerSvg=D.svgFor(data,1,{mode:'euler',showWrap:false,wobble:0});
 check('Euler mode declares closed non-minimal audit',eulerSvg.includes('135 UNIQUE EDGES × 2 = 270')&&eulerSvg.includes('CLOSED · NON-MINIMAL AUDIT'));
 const differenceSvg=D.svgFor(data,1,{mode:'difference',showWrap:false,wobble:.2});
 check('difference mode distinguishes repeats and audit copies',differenceSvg.includes('ptd-prime-repeat')&&differenceSvg.includes('ptd-audit-copy'));
+const oddColorSvg=D.svgFor(data,1,{mode:'euler',showWrap:false,showOddColors:true,wobble:0});
+equal('odd-node color lens renders exactly twenty-four audit markers',(oddColorSvg.match(/class="ptd-odd-node"/g)||[]).length,24);
+check('odd-node color lens remains explicitly typed',oddColorSvg.includes('24 ODD-DEGREE NODES · COLOR LENS'));
 
 const html=fs.readFileSync(path.join(__dirname,'A0_NUMBERMAGICK_GRID_RESEARCH.html'),'utf8');
-for(const id of ['prime-torus-thread-demonstrator','primeThreadTitle','primeThreadMode','primeThreadStep','primeThreadWobble','primeThreadWrap','primeThreadFrame','primeThreadMeasures','primeThreadTrail','primeThreadRoot','primeThreadTarget','primeThreadDelta','primeThreadAngle','primeThreadAudit','primeThreadSvg'])check('HTML anchor '+id,html.includes('id="'+id+'"'));
+for(const id of ['prime-torus-thread-demonstrator','primeThreadTitle','primeThreadMode','primeThreadStep','primeThreadWobble','primeThreadWrap','primeThreadFrame','primeThreadMeasures','primeThreadTrail','primeThreadOddColors','primeThreadRoot','primeThreadTarget','primeThreadDelta','primeThreadAngle','primeThreadAudit','primeThreadSvg'])check('HTML anchor '+id,html.includes('id="'+id+'"'));
 check('demonstrator assets linked',html.includes('a0-prime-torus-thread-demonstrator.css')&&html.includes('a0-prime-torus-thread-demonstrator.js'));
 check('cube boundary remains explicit',html.toLowerCase().includes('eine cube-einbettung ist hier noch nicht deklariert'));
 check('five by eight is corrected by exact counts',html.includes('5×9=45')&&html.includes('4×8=32'));
 check('Euler claim boundary is explicit',html.includes('nicht als kürzeste Eulerisierung deklariert'));
+check('color lens boundary keeps characters strings and tones separate',html.includes('keine 24 Dirichlet-Charaktere')&&html.includes('keine Tonhöhen')&&html.includes('keine physikalischen Saiten'));
 
 const receipt=JSON.parse(fs.readFileSync(path.join(__dirname,'results/a0-prime-torus-thread-demonstrator-2026-11-20.json'),'utf8'));
 equal('receipt carrier counts',[receipt.carrier.prime_count,receipt.carrier.transition_count],[168,167]);

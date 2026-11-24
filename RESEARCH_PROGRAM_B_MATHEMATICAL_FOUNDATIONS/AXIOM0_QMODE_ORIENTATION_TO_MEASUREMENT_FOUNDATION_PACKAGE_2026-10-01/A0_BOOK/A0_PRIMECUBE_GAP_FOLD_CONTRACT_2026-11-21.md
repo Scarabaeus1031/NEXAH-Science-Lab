@@ -85,9 +85,34 @@ international foot, yard, inch and mile factors and with metric factors for
 kilometre, metre, decimetre and centimetre. `cubit` is excluded until a named
 historical standard and exact factor are supplied.
 
+The visual now separates both scale controls. Changing the Root marker changes
+the visible path extent against the retained `15.7` maximum, so the stair,
+Mycel trunk and split hub move together. Changing the Unit view redraws a
+labelled background tick grid over the same exact `4.78536 m` source. That
+grid is a codec/view scale only: it never rescales the Root geometry or changes
+the source length.
+
 The screen reading `4×3 + 3/3 + 4 + 6/6 = 34` is a reproducible Owner overlay,
 not a CRT invariant. The counter-glyph `¡` remains `HOLD` without an operator.
 The exact source return is `1 ↔ (1,1,1)` in the local CRT address.
+
+### Active subcontract display
+
+The comparator dock now requires one visible active subcontract. Its five
+allowed selections retain separate Source, Operator, Return and Boundary
+fields:
+
+| Selection | Source | Operator | Return |
+| --- | --- | --- | --- |
+| `333` | angle/address comparison receipt | finite `333° mod 120°` direction counter | step 40, 40 directions, three visits each |
+| `Plate / Mirror` | plate/mirror reference receipt | declared plate selection and `X/O` view switch | source address retained |
+| `Pink / Grey` | four-register typed source receipt | compare position, pink shift, echo and shadow; Grey controls | full only when all four registers return |
+| `Breath` | existing Breathing Prime Crystal identity and receipt | fixed CORE with three display bands at `0°/120°/240°` | CORE invariant under its own display clock |
+| `Mycel / CRT` | selected Root marker, Mycel source and lower CRT rail | declared `Sθ(ℓ)` display plus shared `(mod 7, mod 11)` split | retained marker and exact `97 ↔ 944` rail |
+
+Selecting a subcontract highlights only its corresponding canvas region. It
+does not disable or merge the other source records, and it creates no common
+operator for the dock.
 
 Two lower screen anchors do form an exact CRT rail:
 
@@ -1096,6 +1121,15 @@ piecewise complex two-step recurrence. `P=alpha+beta` and
 `P_chi=alpha+|beta|` are separate parameter coordinates; neither is conserved
 energy, an orbit invariant, or a stability guarantee. Finite non-escape is not
 Mandelbrot membership, and screen-proximity nodes are not resonances or knots.
+
+The pink `beta-chi` bridge is a fourth display role, not a third chirality. It
+joins the sampled S/Z positions only at indices where at least one strand
+changes the sign of its screen half-plane. Its ordered switch list therefore
+has a reproducible source (`sTrack`, `zTrack`), operator
+`chi(z)*|beta|*(z(n)-z(n-1))`, and a bounded view-return contract. The animated
+`SWITCH TOUR` cycles through that finite event list. Completing the tour is a
+display return only; it does not establish an additional state trajectory,
+physical coupling, conserved quantity or exact operator closure.
 
 The third mode is an exact `5x5` address plate with addresses `1..25` and
 center address `13`. `BIG BIRD`, `CON DAO`, `THUNDER BIRD` and the curtain are

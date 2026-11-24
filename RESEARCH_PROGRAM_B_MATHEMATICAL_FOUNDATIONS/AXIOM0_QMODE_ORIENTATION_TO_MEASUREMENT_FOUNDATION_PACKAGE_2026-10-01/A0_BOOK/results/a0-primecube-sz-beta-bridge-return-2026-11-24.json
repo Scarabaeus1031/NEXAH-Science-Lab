@@ -1,0 +1,64 @@
+{
+  "schema": "nexah.a0.primecube_sz_beta_bridge_return.v1",
+  "date": "2026-11-24",
+  "status": "IMPLEMENTED_AND_VISUALLY_VERIFIED",
+  "classification": "R1_VERIFY_EXISTING_VIEW_EXTENSION",
+  "identity": "MOD:NUMBER_VIEW_SUITE",
+  "model_version": "1.57.0",
+  "surface": "A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html#sz-chirality-invariant-lab",
+  "source": {
+    "carrier": "PC1111 / retained Primecube carrier",
+    "tracks": ["polar.sTrack", "polar.zTrack"],
+    "operator": "chi(z)*|beta|*(z(n)-z(n-1))"
+  },
+  "view": {
+    "role": "BETA_CHI_MEMORY_BRIDGE",
+    "color": "#ff4fc3",
+    "event_predicate": "s half-plane sign changes OR z half-plane sign changes",
+    "player": "ordered finite switch-event tour",
+    "default_fixture": {
+      "angle_degrees": 102,
+      "alpha": 0.99,
+      "beta": 0.25,
+      "steps": 180,
+      "switch_events": 103
+    }
+  },
+  "return": {
+    "s_z": "EXACT_INTEGER_ANGLE_CLOSURE",
+    "beta_chi": "DISPLAY_EVENT_LOOP_ONLY_OPERATOR_RETURN_UNRESOLVED"
+  },
+  "boundaries": [
+    "BETA_CHI_BRIDGE_IS_VIEW_CONNECTOR_NOT_THIRD_CHIRALITY",
+    "SWITCH_TOUR_LOOP_IS_DISPLAY_RETURN_NOT_OPERATOR_CLOSURE",
+    "NO_STATE_TRAJECTORY_IDENTITY",
+    "NO_PHYSICAL_COUPLING",
+    "NO_CONSERVED_ENERGY_OR_STABILITY_CLAIM"
+  ],
+  "verification": {
+    "javascript_syntax": "PASS",
+    "model_and_ui_checks_before_external_custody_hold": 837,
+    "browser_visual": "PASS",
+    "player_transition": "SWITCH_1_TO_SWITCH_2_OBSERVED",
+    "known_external_hold": "/Users/tho2020/Desktop/Screenshot 2026-11-23 at 5.12.31 PM.png missing from existing binding"
+  },
+  "sources": [
+    {"path": "A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html", "sha256": "3b5697141c8c44394aa472aeee6de6ea04b7871f2fed45b550ed7b8dab428704"},
+    {"path": "A0_BOOK/a0-primecube-model.js", "sha256": "9242f10ac602d4c68970870974966ce4538f4f5e74bcdcf459d2c51ab3e64bab"},
+    {"path": "A0_BOOK/a0-primecube-sz-chirality.js", "sha256": "ff45ed6777941c56a99821ce2d52aa6560bca3abbcf70b7fb0f1487a879ca8d8"},
+    {"path": "A0_BOOK/a0-primecube-sz-chirality.css", "sha256": "b28414ae6578f8bc8963260537c0ba04129e12830e682e91cd293e7f761bd198"},
+    {"path": "A0_BOOK/a0-primecube-tests.cjs", "sha256": "9f83d97ce0c7035884ce9da1ee76914ff80ac529fcf6e93a55e5ad22d8bbc745"},
+    {"path": "A0_BOOK/A0_PRIMECUBE_GAP_FOLD_CONTRACT_2026-11-21.md", "sha256": "fb7ecddd9c5930ccfec77d041ced8013e0d4268e0101bd179c67d7a29c8aafb6"},
+    {"path": "A0_BOOK/assets/a0-primecube-gap-fold-v1.json", "sha256": "d75e47d38ec803daf00272a06b7ab5419b1160aa0f4d55ccbe5d7b3c0a4c7276"}
+  ],
+  "authority_effect": {
+    "new_identity": 0,
+    "new_relation": 0,
+    "new_alias": 0,
+    "study": 0,
+    "finding": 0,
+    "claim_promotion": 0,
+    "publication": 0,
+    "graph_delta": 0
+  }
+}

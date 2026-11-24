@@ -1,0 +1,85 @@
+{
+  "schema": "nexah.a0.millennium-decimal-carrier-view/1",
+  "version": "1.0.0",
+  "date": "2026-11-24",
+  "status": "EXACT_FINITE_ADDRESS_AND_RESIDUAL_VIEW",
+  "host": "A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html#millennium-decimal-carrier",
+  "identityReuse": [
+    "MOD:NUMBER_VIEW_SUITE",
+    "ART:A0:MATHEMATICAL_JOINTS"
+  ],
+  "carrier": {
+    "rangeOneBased": [1, 1000000],
+    "square": [1000, 1000],
+    "cube": [100, 100, 100],
+    "factorization": "2^6*5^6",
+    "divisorCount": 49
+  },
+  "addressContract": {
+    "existingZeroBased": "n0=1000*NP+RR; n0 in 0..999999",
+    "presentationAdapter": "n1=n0+1; n1 in 1..1000000",
+    "square": "n1=1+x+1000*y",
+    "cube": "n1=1+a+100*b+10000*c"
+  },
+  "referenceRecord": {
+    "id": "MG1M:N0997920",
+    "n": 997920,
+    "squareAddress": [919, 997],
+    "cubeAddress": [19, 79, 99],
+    "zeroBasedCrosswalk": {
+      "n0": 997919,
+      "NP": 997,
+      "RR": 919
+    },
+    "return": "EXACT"
+  },
+  "overlays": {
+    "5040": {
+      "fullBlocks": 198,
+      "covered": 997920,
+      "residual": 2080,
+      "rowDrift": "5040=5*1000+40",
+      "period": "25 blocks=126000 addresses=126 rows",
+      "alignedPrefix": "7*126=882 rows",
+      "residualShape": [
+        {"y": 997, "x": [920, 999], "count": 80},
+        {"y": 998, "x": [0, 999], "count": 1000},
+        {"y": 999, "x": [0, 999], "count": 1000}
+      ]
+    },
+    "108000": {
+      "fullBlocks": 9,
+      "covered": 972000,
+      "residual": 28000,
+      "nextBlockOverhang": 80000
+    },
+    "1000": {
+      "fullBlocks": 1000,
+      "covered": 1000000,
+      "residual": 0
+    }
+  },
+  "arithmeticAudit": {
+    "tau1111": 4,
+    "tau5040": 60,
+    "tau10080": 72,
+    "tau10800": 60,
+    "tau108000": 96,
+    "tau1000000": 49,
+    "tau5040Squared": 405,
+    "difference10080To10800": 720
+  },
+  "rendering": {
+    "strategy": "AGGREGATED_CANVAS_NO_MILLION_DOM_NODES",
+    "views": ["126_ROW_DRIFT", "EDGE_LOUPE", "DIVISOR_CYCLE_SWITCH", "RESIDUAL_TOUR"]
+  },
+  "graphDelta": {
+    "newCanonicalIds": 0,
+    "relationChanges": 0,
+    "aliasChanges": 0,
+    "studies": 0,
+    "findings": 0,
+    "publications": 0
+  },
+  "claimBoundary": "MG1M is a one-based presentation adapter over the already documented zero-based 1000 by 1000 NP/RR carrier. The three divisor overlays are typed views of one finite carrier. Divisibility, square/cube reshaping and residual geometry imply no universal scale, physical mechanism or new Navigator relation. The 108 mode is explicitly 108000, not 108."
+}

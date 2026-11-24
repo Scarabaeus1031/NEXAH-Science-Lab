@@ -7,6 +7,8 @@ ok(fs.readFileSync(__dirname+'/assets/game-of-worlds-play/ioi-world-cube/algo-ei
 ok(!/<iframe|autoplay|fetch\(/.test(html));ok(!/setInterval|setTimeout|requestAnimationFrame|localStorage|postMessage/.test(js));
 for(const s of ['prefers-reduced-motion','650px','950px','opium-paused','opium-winds-off','opium-chamber-off','op-wind-flow','op-coil-route','op-ghost-drift','op-zipper-breathe','animation-play-state:paused'])ok(css.includes(s),s);
 for(const s of ['KEIN LIVE-READOUT','Lokal gekoppelt','Noch offen','kein Zugriff','keine Veröffentlichung']){if(s==='kein Zugriff')continue;ok(html.includes(s),s);}
+for(const s of ['FOH STAGE','gemeinsame Präsentations- und Beobachtungsrolle','Keine neue Club-, Quellen- oder Trägeridentität'])ok(html.includes(s),s);
+for(const s of ['opiumPrimecubeDock','Primecube · Platte, Rille, Lesepunkt.','Q4-Player, Mixer, Club-Uhr und Q‑Cube','a0-opium-primecube-dock.js'])ok(html.includes(s),s);
 eq((html.match(/<a href="[^"]+"><small>0[1-6]/g)||[]).length,6);
 eq((html.match(/class="op-wind w\d+"/g)||[]).length,11);eq((html.match(/<g class="op-wind-nodes">[\s\S]*?<\/g>/)||[''])[0].match(/<circle/g).length,11);
 eq((html.match(/class="op-ghost op-ghost-\d"/g)||[]).length,3);ok(html.includes('class="op-orange-coil"'));ok(html.includes('class="op-zipper"'));ok(html.includes('Connector Chamber'));

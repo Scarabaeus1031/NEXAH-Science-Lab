@@ -1393,3 +1393,18 @@ observation from being promoted into an RH proof.
 
 Method evidence: [mirror/fixed-line demonstrator](A0_BOOK/A0_RIEMANN_HALFLINE_THETA_RETURN.html#riemann-mirror-fixed-line)
 and [contract](A0_BOOK/A0_RIEMANN_HALFLINE_THETA_RETURN_CONTRACT_2026-11-21.md).
+
+
+<a id="alpha-rath-method-example"></a>
+
+### Vorbereitung für Paper E · Alpha–Rath
+
+Der Punkt bei Rath hält die Ankunft fest. Die zwei Wege in der
+Euler-Bridges-v4-Tafel haben dasselbe Ziel und verschiedene Kantenfolgen.
+Bei der Rückkehr über die andere Route entsteht der Dreiecksweg. Die
+Numbergame-Ansicht führt daher Zieladresse und Wegprotokoll als zwei
+prüfbare Auslesen. Die Zuordnungen AH, TB / TßR und ß gelten im
+Methodenbeispiel als Testlabels. **Finding offen.**
+
+[Science-Desk-Protokoll](A0_BOOK/A0_RESEARCH_DESK.html#alpha-rath-method-return-20261124) ·
+[A0 Science](A0_BOOK/A0_SCIENCE.html#alpha-rath-open-loop)
