@@ -1,0 +1,83 @@
+{
+  "record_id": "A0:IHARA_RAMANUJAN_AXIS08_BOUNDARY_AUDIT:2026-11-21",
+  "status": "PASS_WITH_MANIFEST_INTAKE_REJECTED",
+  "classification": "ENGINEERING_AUDIT_REPLAY_NOT_SCIENCE_RUN",
+  "identity_reuse": [
+    "MOD:NUMBER_VIEW_SUITE",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "MOD:TESSAREC",
+    "AXIS08_CROSS_LENS"
+  ],
+  "source_hashes_sha256": {
+    "a0-tessarec-blue-body-v1.js": "638927d81256451a62eaebd5079a7d1921ffbe7fdc7dfcb22ab3d87a67000f8b",
+    "a0-tessarec-spectral-audit-v1.js": "b7a326680b124090a4e6209f0033f4d8014ce81f5b2068a3700f4758994255d5",
+    "a0-tessarec-e8-axis08-adapter-v1.js": "7c26ffd4aaa32760768468c9dde6e4da24e1acfd56c68254312c56b53a56ed45",
+    "e8_axis08_core.js": "ce8d4e476bbbae1a502265c4b80d2f80b55015aa425a9b6f020022b3430beda9",
+    "AXIS08_02_FORMAL_MODEL.md": "b0a2c7c85876d33b51c8502fbb90248126a16281bc06b23d8fe5b7280b48963b"
+  },
+  "graph": {
+    "carrier": "O2-P16-H8 Blue Body shell",
+    "vertices": 48,
+    "edges": 72,
+    "degree": 3,
+    "connected": true,
+    "bipartite": false,
+    "max_nontrivial_abs_eigenvalue": 2.7313013160030897,
+    "ramanujan_bound": 2.8284271247461903,
+    "margin": 0.09712580874310062,
+    "result": "NUMERICAL_RAMANUJAN_PASS"
+  },
+  "ihara": {
+    "nontrivial_pole_count": 94,
+    "target_radius": 0.7071067811865475,
+    "max_radius_error": 1.1102230246251565e-16,
+    "result": "NONTRIVIAL_POLES_ON_REGULAR_CIRCLE_NUMERICALLY"
+  },
+  "modulo_210_cross_lens": {
+    "phi_210": 48,
+    "relation_to_graph": "CARDINALITY_MATCH_ONLY",
+    "graph_isomorphism_or_carrier_binding_declared": false
+  },
+  "axis08": {
+    "mapping": "8 lanes -> 7 quotient lanes + explicit residual lane",
+    "scalar_lane_reconstruction_error": 5.204170427930421e-18,
+    "vector_rule": "residual is componentwise and has the source-vector dimension",
+    "result": "EXACT_RETURN_WITH_RESIDUAL_WITHIN_FLOAT64_TOLERANCE"
+  },
+  "e8": {
+    "roots": 240,
+    "integer_roots": 112,
+    "half_integer_roots": 128,
+    "antipodal_axes": 120,
+    "relation_to_graph": "REFERENCE_CROSS_LENS_NOT_IDENTITY"
+  },
+  "attached_manifest_intake": {
+    "sha256": "9f175bdaef2458dfffa87ebfdf538b2645ffa7d5905e37000598dd1b7817cecf",
+    "parse_status": "JSON_PARSE_FAIL",
+    "parser_message": "Unexpected token ',' after a property colon",
+    "missing_value_slots": 12,
+    "missing_fields": [
+      "domain",
+      "dimensions",
+      "full_121_layer_ends",
+      "pair",
+      "prime_indices",
+      "moduli",
+      "markers",
+      "primes",
+      "composites",
+      "anchors",
+      "orbit_nodes",
+      "prime_factors"
+    ],
+    "registry_admission": "REJECTED_UNTIL_CORRECTED_AND_REHASHED"
+  },
+  "governance_delta": {
+    "new_identities": 0,
+    "new_relations": 0,
+    "new_aliases": 0,
+    "new_studies": 0,
+    "publication_authorized": false
+  },
+  "claim_boundary": "Finite graph spectrum, finite E8 root enumeration and invertible quotient-residual coordinate adapter only. No Riemann-zeta proof, E8 identity, modulo-210 carrier identity, physical field, resonance, novelty, optimality or publication claim."
+}

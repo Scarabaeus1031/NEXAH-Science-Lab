@@ -1,0 +1,49 @@
+{
+  "schema": "nexah.a0.primecube-720-840-window-control/1",
+  "version": "1.0.0",
+  "date": "2026-11-23",
+  "status": "PASS_EXACT_MODULAR_RECURRENCE_CUBE_DERIVATION_NOT_ESTABLISHED",
+  "unitWindow": 720,
+  "unitGroup": {
+    "modulus": 1001,
+    "factorization": [7, 11, 13],
+    "phi": 720
+  },
+  "jointPeriod": 840,
+  "arithmeticControls": {
+    "jointMinus120": 720,
+    "jointPlus600": 1440,
+    "doubleWindow": 1440,
+    "windowJointReturn": 5040,
+    "windowCount": 7,
+    "jointReturnCount": 6
+  },
+  "loki": {
+    "type": "C7xC8",
+    "windowResidueMod56": 48,
+    "signedWindowOffset": -8,
+    "gcd720And56": 8,
+    "stations": [0, 6, 5, 4, 3, 2, 1, 0],
+    "orientations": [0, 0, 0, 0, 0, 0, 0, 0],
+    "steps": [0, 720, 1440, 2160, 2880, 3600, 4320, 5040]
+  },
+  "cubeCrosswalk": {
+    "eightEqualsTwoCubed": true,
+    "lokiOrientationCount": 8,
+    "numericCrosswalkExact": true,
+    "cubeGeometryDerivationEstablished": false
+  },
+  "verification": {
+    "controlAndIntegrationChecks": 65,
+    "uiChecks": 65
+  },
+  "identityReuse": [
+    "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "MOD:NUMBER_VIEW_SUITE",
+    "MOD:TESSAREC"
+  ],
+  "newCanonicalIds": [],
+  "relationChanges": [],
+  "claimBoundary": "The stable minus-eight recurrence is modular arithmetic in the retained Q60, C7xC8 and Fold2 registers. Equality with 2^3 is a typed numeric crosswalk, not a cube-derived physical or geometric mechanism."
+}

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>A0 · RDMH Helix Strand Adapter</title>
   <link rel="stylesheet" href="a0-context-navigation.css">
-  <link rel="stylesheet" href="a0-helix-view-adapter.css?rev=20261121-r3">
+  <link rel="stylesheet" href="a0-helix-view-adapter.css?rev=20261122-r4">
 </head>
 <body>
 <main class="hv-shell" data-helix-adapter>
@@ -16,7 +16,7 @@
       <p><code>RN\A</code> zeigt den gerichteten Einzelstrang A. <code>(c)D|⁄|A</code> ergänzt den antipodalen Gegenstrang, Sprossen und ihre exakten Mittelachsen-Schnittpunkte. Beide bleiben deklarierte View-Modi.</p>
     </div>
     <dl class="hv-status">
-      <div><dt>Channel</dt><dd>INTERNAL A0</dd></div><div><dt>Model</dt><dd>RDMH · 1.5.0</dd></div><div><dt>Acceptance</dt><dd>NOT RECORDED</dd></div><div><dt>Deployment</dt><dd>NONE</dd></div>
+      <div><dt>Channel</dt><dd>INTERNAL A0</dd></div><div><dt>Model</dt><dd>RDMH · 1.6.0</dd></div><div><dt>Acceptance</dt><dd>NOT RECORDED</dd></div><div><dt>Deployment</dt><dd>NONE</dd></div>
     </dl>
   </header>
 
@@ -30,6 +30,7 @@
         <button type="button" data-hv-mode="twins" aria-pressed="true">40 Twin-Prime-Paare</button>
         <button type="button" data-hv-mode="z37" aria-pressed="false">19 eindeutige ℤ₃₇-Orbits</button>
         <button type="button" data-hv-mode="zeta" aria-pressed="false">20 ζ-Nullstellenpaare</button>
+        <button type="button" data-hv-mode="residue" aria-pressed="false">168 Prime Residue Helix</button>
       </div>
       <div class="hv-segment hv-register-segment" role="group" aria-label="Register-Layer">
         <button type="button" data-hv-register="pair" aria-pressed="true">PAIR · 1+1</button>
@@ -93,6 +94,20 @@
       </dl>
       <p class="hv-torsion-note"><code>−(x^ρ/ρ+x^ρ̄/ρ̄)</code> wird gegen <code>√x</code> normiert. <code>RLLR/LRRL</code> sind Pfadwörter mit je zwei Richtungswechseln. <code>−1/12 ≡ 11/12 (mod 1)</code> markiert denselben Kreispunkt mit getrenntem Lift-Witness. Keine dieser beiden Vergleichslinsen definiert einen Dirichlet-Charakter.</p>
     </div>
+    <div class="hv-residue-control" data-hv-residue-control hidden>
+      <div class="hv-zeta-control__head"><div><b>PRIME RESIDUE HELIX · SHARED FINITE CARRIER</b><span>168 primes p≤1000 · 18-prime tail 1000&lt;p≤1111 remains outside this shared view</span></div><output data-hv-residue-summary>7|11 · two declared angle rails</output></div>
+      <div class="hv-zeta-lens-switch" role="group" aria-label="Residuen-Winkelregel">
+        <button type="button" data-hv-residue-angle="mod7" aria-pressed="false">MOD 7 · eine Rail</button>
+        <button type="button" data-hv-residue-angle="mod11" aria-pressed="false">MOD 11 · eine Rail</button>
+        <button type="button" data-hv-residue-angle="paired" aria-pressed="true">7|11 · gekoppelte Rails</button>
+      </div>
+      <dl class="hv-torsion-metrics" aria-label="Prime-Residue-Helix-Vertrag">
+        <div><dt>Carrier</dt><dd>168 primes · p≤1000</dd></div><div><dt>Vertical order</dt><dd>prime index ↑</dd></div>
+        <div><dt>Angle A</dt><dd>2π(p mod 7)/7</dd></div><div><dt>Angle B</dt><dd>2π(p mod 11)/11</dd></div>
+        <div><dt>Pairing</dt><dd>same prime record</dd></div><div><dt>Return</dt><dd>PC1111:Nxxxx</dd></div>
+      </dl>
+      <p class="hv-torsion-note">Die Höhe ordnet den Primzahlindex; die beiden Winkelregeln setzen denselben Record auf zwei getrennte Rails. Die Verbindung ist ein View-Crosswalk, keine antipodale Sprosse, keine natürliche Primzahlhelix und nicht der separate 270-Schritt-Euler-Audit.</p>
+    </div>
   </section>
 
   <section class="hv-notes">
@@ -104,14 +119,15 @@
     <article><div class="hv-eyebrow">Register / phase bundles</div><h2>1+1 → 7+7 → 3×7 → 1+18</h2><p><b>F/H</b> legt sieben antipodale Phasenpaare über denselben Träger. <b>TRIAD</b> erweitert auf 21 eindeutige Phasenlagen. <b>ℤ₃₇</b> zeigt den Fixpunkt 0, 18 Inversionspaare und die deklarierte Achse zur Naht <code>18|19</code>.</p></article>
     <article><div class="hv-eyebrow">ζ / explicit formula</div><h2>Die Wellen werden als Phase lesbar</h2><p>Für <code>ρ=β+iγ</code> setzt die Linse <code>θ=γ log x</code> und normiert die Hülle mit <code>x^(β−1/2)</code>. Bei <code>β=1/2</code> bleibt sie konstant; das ist eine endliche Visualisierung bekannter Nullstellen, kein RH-Beweis.</p></article>
     <article><div class="hv-eyebrow">trace / seam comparator</div><h2>Welle, Knick und Naht bleiben getrennte Typen</h2><p><code>RLLR</code> und <code>LRRL</code> sind komplementäre palindromische Trace-Wörter mit je zwei Richtungswechseln. Die Naht <code>−1/12 ↔ 11/12</code> zeigt Modulo-Gleichheit bei erhaltenem Lift-Witness. Beides ist ein View-Adapter, keine Dirichlet-<i>L</i>-Funktion.</p></article>
+    <article><div class="hv-eyebrow">Euler compass → helix view</div><h2>Ein Träger, zwei Residuenwinkel</h2><p>Die 168 Primzahlen bis 1000 bleiben dieselben adressierten Records. Nur ihre Winkelregel wechselt zwischen <code>mod 7</code>, <code>mod 11</code> und der gekoppelten <code>7|11</code>-Ansicht; die Höhe bewahrt die Primindex-Reihenfolge.</p></article>
   </section>
 
-  <p class="hv-boundary"><b>CLAIM BOUNDARY:</b> <code>RN\A</code>, <code>(c)D|⁄|A</code>, <code>RDMH</code>, <code>F/H</code> und <code>TRIAD</code> sind deklarierte typografische und geometrische View-Bezeichner. <code>Θ</code>, <code>ι</code> und <code>DAO</code> sind hier ausschließlich die explizit definierten normierten Größen <code>Δθ</code>, <code>Δz/Δθ</code> und <code>R²+ι²</code>. Der Backslash wird nicht ohne getrennt definierte Mengen als bewiesene Mengendifferenz gelesen. Die daraus abgeleitete Torsionsgröße <code>|τ|</code> ist keine physikalische Messung. Die ζ-Linse verwendet nur eine endliche Tabelle der ersten 20 positiven nichttrivialen Nullstellenordinaten und den einzelnen konjugierten Paarterm der expliziten Formel; sie berechnet weder die vollständige Formel noch neue Nullstellen und beweist weder RH noch GRH. <code>RLLR/LRRL</code> sind Trace-Wörter, keine Dirichlet-Charaktere; Periodizität modulo <code>q</code>, vollständige Multiplikativität und Nullwerte auf Nicht-Einheiten werden nicht behauptet. <code>−1/12</code> und <code>11/12</code> sind modulo 1 derselbe Phasenpunkt, aber getrennte Lift-/Pfadzeugen. Einzelstrang, Doppelhelix, Phasenüberblendung, Register-Layer und φ-Rail behaupten keine RNA-/DNA-Validierung, biologische Primzahlsteuerung, physikalische Resonanz, keinen Primzahlgenerator und keine natürliche Identität zwischen Twin Primes, ℤ₃₇, ζ-Nullstellen oder Fibonacci.</p>
+  <p class="hv-boundary"><b>CLAIM BOUNDARY:</b> <code>RN\A</code>, <code>(c)D|⁄|A</code>, <code>RDMH</code>, <code>F/H</code> und <code>TRIAD</code> sind deklarierte typografische und geometrische View-Bezeichner. <code>Θ</code>, <code>ι</code> und <code>DAO</code> sind hier ausschließlich die explizit definierten normierten Größen <code>Δθ</code>, <code>Δz/Δθ</code> und <code>R²+ι²</code>. Der Backslash wird nicht ohne getrennt definierte Mengen als bewiesene Mengendifferenz gelesen. Die daraus abgeleitete Torsionsgröße <code>|τ|</code> ist keine physikalische Messung. Die ζ-Linse verwendet nur eine endliche Tabelle der ersten 20 positiven nichttrivialen Nullstellenordinaten und den einzelnen konjugierten Paarterm der expliziten Formel; sie berechnet weder die vollständige Formel noch neue Nullstellen und beweist weder RH noch GRH. <code>RLLR/LRRL</code> sind Trace-Wörter, keine Dirichlet-Charaktere; Periodizität modulo <code>q</code>, vollständige Multiplikativität und Nullwerte auf Nicht-Einheiten werden nicht behauptet. <code>−1/12</code> und <code>11/12</code> sind modulo 1 derselbe Phasenpunkt, aber getrennte Lift-/Pfadzeugen. Die Prime-Residue-Helix ordnet einen endlichen bekannten Primzahlträger nach Index und weist deklarierte Modulo-Winkel zu; sie ist weder eine natürliche Primzahlhelix noch identisch mit dem separaten Euler-7×11-Kantenaudit. Einzelstrang, Doppelhelix, Phasenüberblendung, Register-Layer und φ-Rail behaupten keine RNA-/DNA-Validierung, biologische Primzahlsteuerung, physikalische Resonanz, keinen Primzahlgenerator und keine natürliche Identität zwischen Twin Primes, ℤ₃₇, ζ-Nullstellen oder Fibonacci.</p>
   <footer class="hv-return"><span>Reuses: MOD:NUMBER_VIEW_SUITE · ART:A0:MATHEMATICAL_JOINTS · no graph delta</span><nav><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html">← Primecube</a> · <a href="A0_PRIME_PROJECTION_TEST_SUITE.html">Prime Projection</a> · <a href="A0_RESEARCH_DESK.html#prime-projection-helix-paper-routing-20261121">Science Desk</a> · <a href="A0_HELIX_VIEW_ADAPTER_CONTRACT_2026-11-21.md">Contract</a> · <a href="results/a0-helix-view-adapter-2026-11-21.json">Receipt</a></nav></footer>
 </main>
 <script src="a0-primecube-model.js?rev=20261121-r5"></script>
-<script src="a0-helix-view-adapter.js?rev=20261121-r6"></script>
-<script src="a0-helix-view-adapter-ui.js?rev=20261121-r6"></script>
+<script src="a0-helix-view-adapter.js?rev=20261122-r7"></script>
+<script src="a0-helix-view-adapter-ui.js?rev=20261122-r7"></script>
 <script src="a0-context-navigation.js"></script>
 </body>
 </html>

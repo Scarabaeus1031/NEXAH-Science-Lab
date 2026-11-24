@@ -1,0 +1,46 @@
+{
+  "schema": "nexah.a0.coupled-channel-white-cross-return/1",
+  "date": "2026-11-20",
+  "status": "PASS_SOURCE_BOUND_VIEW_EXTENSION",
+  "existing_identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+  "entry": "A0_BLUE_PINK_DODECA_CELL_RETURN.html#coupledChannelBoundaryLens",
+  "view_contract": {
+    "colour_grammar": "C_YM_K_VIEW_ONLY",
+    "ym": "COUPLED_CHROMATIC_VIEW_PAIR_NOT_IDENTITY_MERGE",
+    "k": "MASK_SHUTTER_ONLY",
+    "tm": "TRANSFER_MIRROR_VIEW_WITH_TM_SQUARED_IDENTITY",
+    "ch40": "LOCAL_OWNER_VIEW_ADDRESS_UNBOUND",
+    "white_oval": "FIXED_DISPLAY_REFERENCE",
+    "white_cross": "FIXED_DISPLAY_REFERENCE",
+    "violet_axis": "FIXED_DISPLAY_REFERENCE",
+    "moving_views": ["AM", "VM", "PM"]
+  },
+  "authority": {
+    "new_identity": false,
+    "new_graph_relation": false,
+    "new_channel": false,
+    "new_operator": false,
+    "trademark_identity": false,
+    "source_mutation": false,
+    "physical_stillpoint_claim": false,
+    "science_run": false,
+    "publication_authorized": false
+  },
+  "verification": {
+    "deterministic_tests": {
+      "command": "node a0-coupled-channel-boundary-tests.cjs",
+      "status": "PASS",
+      "checks": 281
+    },
+    "syntax": {
+      "model": "PASS",
+      "view": "PASS"
+    }
+  },
+  "artifacts": {
+    "model_sha256": "cb0133bf3a9f485b9a14fb41f906f420a1d6f9fca7787b6a1380eb57deab75f6",
+    "view_sha256": "d6dd3e9a62ef50f7e0004fd7014c98ab5c97250c59fd747abe5af7a2edf0c3c0",
+    "css_sha256": "5cc81a8714f19a85dbb5a012935dd4062f77c58b86735f8bfc6f8c5dcc823c77",
+    "host_sha256": "44d788f4d15123c1ab2524bc80445155d26ecf189725e849e353e9b1a7102445"
+  }
+}

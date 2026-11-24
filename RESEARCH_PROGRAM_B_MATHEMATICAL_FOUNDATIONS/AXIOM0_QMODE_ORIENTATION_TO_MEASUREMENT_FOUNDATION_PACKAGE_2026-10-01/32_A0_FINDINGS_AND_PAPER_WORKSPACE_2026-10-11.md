@@ -4279,6 +4279,216 @@ choices; exact Return is `n_59=951` followed by `20·951 mod 1001=1`.
 
 Disposition: `KEEP AS INTERNAL PAPER PREPARATION / EXISTING PRIME ARCHITECTURE / NEW ID 0 / RELATION 0 / STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
 
+<a id="primecube-nexah-core-agent-rebinding--2026-11-24"></a>
+
+## Primecube × NEXAH Core × Agents rebinding · 2026-11-24
+
+This return records six bounded implementation/evidence results and five
+relation candidates. It does **not** admit six canonical Findings or five
+Source Graph relations.
+
+### Bounded results available for later paper triage
+
+1. Record `661` remains source-bound while seven views move and leave a
+   retained trace; the sequence returns to `PC1111:N0661`.
+2. The view-invariance audit compares 13 views × 11 observables and keeps four
+   destructive controls fail-visible.
+3. The EXP-J × Tube comparator reconstructs the supplied normalized peaks,
+   including the three-peak `m=41/43` structures, while preserving its
+   Fourier/DFT trace.
+4. The local suites pass `791/791`, `49/49` and `31/31`.
+5. The Core validation is a decisive negative control: unique Mod-17 status
+   and the fixed `7→17` bridge are not supported; Mod 23 leads that frozen
+   held-out comparison.
+6. The editorial order now states carrier, motion, view changes, controlled
+   comparison and contract boundary in that order.
+
+### Relation candidates held below graph admission
+
+| Candidate | Type | Present value | STOP boundary |
+|---|---|---|---|
+| Number View Suite ↔ Prime Base Mode | source lineage | shared finite carrier vocabulary | no common dynamical manifold inferred |
+| EXP-J × Tube ↔ Prime Modular Resonance | comparator | shared residue/transition test surface | source scripts for supplied boards not yet bound |
+| Tube states ↔ Janus | operator comparator | mirror, gate, persistence and forward/return vocabulary | eight-state identity not defined |
+| moving view trace ↔ Navigation Kernel | interface analogy | continuous display motion + discrete view switch + exact Return | no autonomous control implemented |
+| Core multi-agent work ↔ Primecube | future harness | trajectories, coupling, risk and gate controls already exist in Core | requires a separate Run Contract |
+
+### Agent provenance
+
+`DYNAMICAL_AGENT` names a modeled trajectory/controller. `TOOLING_AGENT`
+names an implementation or review actor. Tooling-agent output is provenance,
+not scientific evidence, authorship, observer dependence or physical agency.
+
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#primecube-nexah-core-agent-rebinding-20261124) ·
+[Source note](A0_BOOK/A0_PRIMECUBE_NEXAH_CORE_AGENT_REBINDING_2026-11-24.md) ·
+[Instrument](A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-control-plane) ·
+[Receipt](A0_BOOK/results/a0-primecube-nexah-core-agent-rebinding-2026-11-24.json)
+
+Disposition: `R1_VERIFY_EXISTING / 6 BOUNDED RESULTS / 5 RELATION CANDIDATES /
+TWO AGENT CLASSES / NEW ID 0 / RELATION 0 / ALIAS 0 / STUDY 0 / CANONICAL
+FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0 / GRAPH DELTA 0`.
+
+<a id="primecube-boundary-series-science-return--2026-11-23"></a>
+
+## Primecube / Boundary Series — collection return · 2026-11-23
+
+This is a paper collection note, not a candidate Finding. It consolidates the
+recent Primecube control-plane, Origami/Splinter, Mod-9/Pascal, Scarab-1024 and
+N-Band Quadrature work without asserting a common mechanism.
+
+### Candidate statements that are presently supportable
+
+- Exact shell differences, trigonometric complement, CRT addressing and the
+  bounded integer returns can be stated as finite mathematics.
+- A retained cube/screen chassis can host several typed adapters while keeping
+  source identity and Return separate.
+- The strongest methodological result is the separation of exact register,
+  executable representation, interpretive reading and physical hypothesis.
+
+### Not presently supportable
+
+- No Quartz/piezoelectric, iron/magnetostrictive, thermal or phase mechanism
+  has been measured.
+- No String Theory, E8, Riemann, resonance or cosmological conclusion follows
+  from shared numbers or visual alignment.
+- KAIN/ABEL and other Owner mnemonics are not scientific entities.
+
+### Possible manuscript routing
+
+- **Paper C:** same record, multiple non-identical addresses and Returns.
+- **Paper E:** source → operator → view → invariant/residual → Return method.
+- **Paper F:** frame, projection, shell, envelope and observer/display boundary.
+- **Paper A:** no route without a new theorem or reviewed prior-art result.
+
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#primecube-boundary-series-return-20261123) ·
+[Source note](A0_BOOK/A0_PRIMECUBE_BOUNDARY_SERIES_SCIENCE_DESK_RETURN_2026-11-23.md) ·
+[Instrument](A0_BOOK/A0_BOUNDARY_GRAPH_DEMONSTRATOR.html#nband-quadrature-boundary) ·
+[Receipt](A0_BOOK/results/a0-primecube-boundary-series-science-desk-return-2026-11-23.json)
+
+Disposition: `PAPER COLLECTION NOTE / R0 DOCUMENTED / R1 VERIFY EXISTING /
+CANONICAL FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0 / GRAPH DELTA 0`.
+
+<a id="string-m-theory-currentness-owner-working-note-20261123"></a>
+
+## String-/M-Theory comparator after NLK, Primecube and the bridge returns — Owner working note · 2026-11-23
+
+Status: `OWNER WORKING NOTE / INTERNAL PAPER COLLECTION / UNREVIEWED COMPARATOR / NOT A FINDING / NOT A STUDY / NOT A PAPER CLAIM`
+
+This note keeps one place in the existing Findings and Paper Workspace where
+the Human Owner can continue collecting the String-/M-Theory comparison after
+the later A0 engineering and source returns. It updates the reading context of
+the earlier Field Note; it does not promote that archived analogy, merge the
+listed carriers or assert a physical correspondence.
+
+### Earlier comparator
+
+The retained Field Note compared a still incomplete common M-theory centre and
+its differently accessible descriptions with the NEXAH orientation question:
+
+```text
+multiple descriptions
+  -> different limits / lenses
+  -> typed translations
+  -> retained quantities and witnesses
+  -> a common, partly unknown centre
+```
+
+String theories were read editorially as different views, coupling strength
+and radius as possible view parameters, dualities as typed translations and a
+complete M-theory as an unclosed centre. The World Cube and the M2-brane
+surface-to-line example supplied didactic comparison views only. That note
+predates several later A0 instruments and bindings.
+
+Source: [Field Note 50 · String Theory / M-Theory](A0_BOOK/FIELD_NOTES_A0.md#string-theory--m-theory--überraschende-strukturähnlichkeit).
+
+### What exists now that the earlier note did not yet synthesize
+
+| NEXAH object or strand | Current retained content | Evidence / boundary in this note |
+|---|---|---|
+| NLK / L-Shell finite-grid observatory | finite relational carrier; declared cut, camera, shell, body, package, wave, seam and CRT/QRT layers; exact local Return checks | tested engineering instrument; no shared physical mechanism |
+| Primecube / Base-11 carrier | `n-1=x+11y+121z`, stable source record, finite carrier, declared folds and exact address Return | exact finite arithmetic and view contract; no intrinsic prime geometry or physical cube |
+| Prime Architecture V1 | source, address, pair view, projection, type boundary, root metric, mirror projection and Return as one reading route | presentation and paper-preparation sequence; its instruments keep separate mathematical types |
+| Grids and typed crosswalks | PrimeGrid, Numbermagick, Ghost/Pink/Boundary grids, Q3/LOKI, E8 orbit view, 7/11 crosswalk and NLK expose different carriers and address systems | comparable only through declared ports; no universal Grid operator |
+| CRT/QRT 37 Carrier Ladder | exact `n=20q+17` column, separate multiplier connector `i -> 37i mod N`, open 1461 attachment | governed source-bound evidence lens; shared residue is not shared identity or generator history |
+| Eight-state / E8 / physics strand | `2^3=8` declared states, `8x8=64` relation cells, and separately `8x30=240` E8 roots in Coxeter orbits | exact finite objects, explicitly non-identical; recurrence of eight is an orientation bridge, not an E8 derivation |
+| Root 8 / `sqrt(8)` | retained in local numeric, angle or boundary views | not currently bound to E8, an eight-state carrier or a String-/M-Theory operator |
+| Alpha-Beta-Gamma Bridge | Alpha/NXA, Beta/SCARAB and Gamma/XVA source roles; `63/64` retained as a source marker | architecture and provenance are present; common converter and measured resonance are absent |
+| Rath Bridge | historical descriptions of counterrotation/synchronisation, the `0.429` axis and a separate `294` marker | retrospective source custody; operator, units, baseline, invariant and Return remain unresolved |
+| IOI / Edelweiss / brane comparator | bounded question for `surface -> declared fold/projection -> line` while tracking address, length, neighbourhood, orientation and Return | documentary comparison only; no physical brane or dimension identity |
+
+Primary internal routes:
+
+- [NLK / L-Shell return](A0_BOOK/A0_NLK_LSHELL_DEVELOPMENT_PROBE.html)
+- [Prime Architecture V1](A0_BOOK/A0_PRIME_ARCHITECTURE_V1_2026-11-21.md)
+- [Primecube contract](A0_BOOK/A0_PRIMECUBE_GAP_FOLD_CONTRACT_2026-11-21.md)
+- [CRT/QRT 37 Carrier Ladder](../../SCIENCE_LAB/NAVIGATION/EVIDENCE/CRT_QRT_37_CARRIER_LADDER_2026-10-11/README.md)
+- [Science Desk · Alpha-Beta-Gamma and brane source markers](A0_BOOK/A0_RESEARCH_DESK.html#cathedral-format-source-return-20261018)
+- [CIKADA later-marker claim and operator ledger](../../SCIENCE_LAB/CASE_STUDIES/CIKADA_3301_LATER_MARKER_PROVENANCE_INTAKE/06_CLAIM_AND_OPERATOR_LEDGER.csv)
+
+### Current comparison map — not an identity map
+
+| String-/M-Theory comparison term | Possible NEXAH reading object | What would have to be shown before a stronger statement |
+|---|---|---|
+| several descriptions of one domain | several declared views over one retained source record | same source domain, explicit maps and non-post-hoc invariants |
+| duality | typed forward/backward translation between two representations | operator in both directions, domain restrictions, information-loss account and Return test |
+| compactification or dimensional reduction | declared projection, fold, slice or envelope view | exact source and target spaces, parameter, fibres/residual and reconstruction boundary |
+| wrapped brane appearing lower-dimensional | IOI/Edelweiss surface-to-line comparator | source geometry, projection rule, preserved quantities, lost information and controlled baseline |
+| holographic or boundary description | Inside/Outside/Boundary, shadow and envelope lenses | formal boundary map and reconstruction result; visual boundary placement is insufficient |
+| common M-theory centre | shared source or higher carrier from which views are derived | one independently motivated carrier and typed derivations; a central Cube image is insufficient |
+| moduli / coupling parameters | declared view, cut, phase, radius or coupling controls | units, allowed parameter space, observable consequences and null comparison |
+
+The strongest current internal similarity is methodological: NEXAH now has
+multiple finite carriers, typed addresses, explicit view transforms, visible
+residuals and exact or source-bound Returns. This makes a renewed comparison
+more substantial than the original visual analogy. It still does not show
+that a NEXAH carrier is a string-theory object, that a Cube dimension is a
+spacetime dimension, that E8 is derived from Root 8, or that the Rath and
+Alpha-Beta-Gamma source languages describe a physical duality.
+
+### Owner collection ledger
+
+Add new observations here without changing their evidence class. One row
+should contain one possible relation only.
+
+| Date | Observation / possible relation | NEXAH source object | External comparison source | Proposed operator or map | Candidate invariant / residual | Current class | What would falsify or stop it? |
+|---|---|---|---|---|---|---|---|
+| 2026-11-23 | The old String-/M-Theory comparison should be reread after NLK, Primecube, the 11-carrier, CRT/QRT and later bridge returns | objects listed above | specialist source review still required | none frozen | none selected | `COLLECTION_NOTE` | no bounded pair of models or testable map can be stated |
+| — | — | — | — | — | — | `OWNER_NOTE` | — |
+
+Collection rules:
+
+1. Preserve the Owner wording, date and source path.
+2. Mark each addition as `EXACT`, `IMPLEMENTED`, `SOURCE_PROVENANCE`,
+   `COMPARATOR`, `OPEN_OPERATOR` or `OWNER_NOTE`.
+3. Do not use repeated numbers, names, colours or visual resemblance as an
+   operator.
+4. Keep Root 8, eight-state records and E8 separate until an explicit typed
+   map exists.
+5. Keep Alpha-Beta-Gamma and Rath source language visible even when its
+   mathematical or physical contract is missing.
+6. A possible later paper passage requires a specialist source, a bounded pair
+   of objects, an explicit comparison map, an invariant or residual, a null
+   case and a STOP condition.
+
+### Paper routing and present ceiling
+
+- **Paper C:** potentially relevant only where one source record has exact,
+  non-identical address systems and a declared Return.
+- **Paper E:** primary method route for source/operator/view/residual/Return
+  discipline and comparison across multiple descriptions.
+- **Paper F:** possible route for frame, projection, boundary, envelope,
+  observer and lower-dimensional appearance.
+- **Paper A:** no route unless a new bounded mathematical theorem or reviewed
+  prior-art result is produced.
+
+Next permitted action: continue source-bound collection in this note and, if
+one comparison becomes sufficiently precise, prepare one read-only comparison
+table with source object, target object, parameter, map, invariant, residual,
+Return and STOP condition. No experiment, Study, Finding, manuscript claim or
+publication is opened by this note.
+
+Disposition: `REUSE EXISTING A0 FIELD NOTE + FINDINGS/PAPER WORKSPACE + EXISTING INSTRUMENT IDENTITIES / OWNER COLLECTION OPEN / NEW ID 0 / RELATION 0 / ALIAS 0 / STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0 / GRAPH DELTA 0`.
+
 ### Riemann mirror line / fixed-set return — 2026-11-22
 
 The existing Half-Line / Theta instrument now exposes the affine

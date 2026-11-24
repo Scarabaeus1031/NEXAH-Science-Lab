@@ -126,6 +126,38 @@ const rosettaBase = '00_INCOMING/NEXAH_DUAL_VIEW_ROSETTA_INTAKE_2026-09-05/';
 const root7Base = 'SCIENCE_LAB/CASE_STUDIES/NEXAH_ROOT7_CUSTODY_2026-09-28/Nexah_Root7/';
 
 function documentedDecision(path) {
+  const primeArchitectureBase = 'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/';
+  const primeArchitectureSurfaces = {
+    'A0_PRIMEFIELD.html': ['SOURCE_BOUND_PRIME_RESEARCH_MASTERMAP_NO_NEW_IDENTITY', 'A0_PRIME_ARCHITECTURE_V1_2026-11-21.md', 'assets/a0-prime-architecture-v1.json', 'Dedicated reader and research atlas over the existing Prime Architecture V1 instruments; Numbermagick remains the parent number landscape.'],
+    'A0_PRIMECUBE_GAP_FOLD_LAB.html': ['SOURCE_BOUND_FINITE_ADDRESS_AND_VIEW_INSTRUMENT_SOURCE_CUSTODY_INCOMPLETE', 'A0_PRIMECUBE_GAP_FOLD_CONTRACT_2026-11-21.md', 'results/a0-primecube-gap-fold-2026-11-21.json', 'Finite Base-11 carrier and declared fold view; three referenced Owner images remain missing.'],
+    'A0_HELIX_VIEW_ADAPTER.html': ['SOURCE_BOUND_DETERMINISTIC_3D_VIEW_ADAPTER', 'A0_HELIX_VIEW_ADAPTER_CONTRACT_2026-11-21.md', 'results/a0-helix-view-adapter-2026-11-21.json', 'Single/dual strand embedding, phase and torsion are deterministic view encodings only.'],
+    'A0_PRIME_PROJECTION_TEST_SUITE.html': ['SOURCE_BOUND_FINITE_PROJECTION_AUDIT', 'A0_PRIME_PROJECTION_TEST_SUITE_CONTRACT_2026-11-21.md', 'results/a0-prime-projection-suite-2026-11-21.json', 'Finite prime-tuple and declared projection tests; no prime generator or RH claim.'],
+    'A0_CRT_ROOT_BOUNDARY_AUDIT.html': ['SOURCE_BOUND_CRT_ROOT_TYPE_BOUNDARY_AUDIT', 'A0_CRT_ROOT_BOUNDARY_AUDIT_CONTRACT_2026-11-21.md', 'results/a0-crt-root-boundary-audit-2026-11-21.json', 'Periodic CRT residues and aperiodic root scales remain explicitly type-separated.'],
+    'A0_ROOT_SHRINKING_1729_RETURN.html': ['SOURCE_BOUND_EXACT_ROOT_DIFFERENCE_RETURN', 'A0_ROOT_SHRINKING_1729_CONTRACT_2026-11-21.md', 'results/a0-root-shrinking-1729-return-2026-11-21.json', 'Exact root-difference identity with bounded Float64 display; no physical shrinking claim.'],
+    'A0_MIRROR_NODES_PRIME_CUBE.html': ['SOURCE_BOUND_FINITE_MIRROR_PROJECTION_INSTRUMENT', 'A0_PRIME_ARCHITECTURE_V1_2026-11-21.md', 'results/a0-numbermagick-prime-master-surface-audit-2026-11-21.json', 'Finite digit-mirror and cube projection view; no canonical prime hexahedron.']
+  };
+  if (path.startsWith(primeArchitectureBase)) {
+    const surface = path.slice(primeArchitectureBase.length);
+    const decision = primeArchitectureSurfaces[surface];
+    if (decision) return {
+      representation_role: surface === 'A0_PRIMEFIELD.html' ? 'source-bound-domain-master' : 'source-bound-instrument',
+      content_role: surface === 'A0_PRIMEFIELD.html' ? 'reader' : 'functional_instrument',
+      centrality_score: surface === 'A0_PRIMEFIELD.html' ? 4 : 3,
+      lifecycle: 'current_bounded',
+      evidence_status: decision[0],
+      record: primeArchitectureBase + decision[2],
+      decision_sources: [
+        primeArchitectureBase + 'A0_BOOK_MANIFEST.json',
+        primeArchitectureBase + 'A0_PRIME_ARCHITECTURE_V1_2026-11-21.md',
+        primeArchitectureBase + 'assets/a0-prime-architecture-v1.json',
+        primeArchitectureBase + decision[1],
+        primeArchitectureBase + decision[2]
+      ],
+      claim_ceiling: 'Exact finite carriers and declared projections only. No intrinsic prime geometry, natural root room, physical fold or resonance, prime generator, Riemann-hypothesis proof, new identity, relation, Study, Finding, claim promotion or publication.',
+      note: decision[3] + ' Member of the existing Prime Architecture V1 presentation sequence under MOD:NUMBER_VIEW_SUITE and ART:A0:MATHEMATICAL_JOINTS; no new Navigator identity.'
+    };
+  }
+
   if (path === 'RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/A0_TESSAREC_BLUE_BODY_LAB.html') return {
     representation_role: 'source-bound-workbench',
     content_role: 'functional_instrument',

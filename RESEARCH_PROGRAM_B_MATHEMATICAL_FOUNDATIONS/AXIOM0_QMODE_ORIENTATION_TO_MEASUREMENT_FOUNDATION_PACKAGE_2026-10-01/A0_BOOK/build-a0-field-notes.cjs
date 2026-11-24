@@ -446,7 +446,12 @@ function parse(md){const parking=md.split(/^## .*Ideenparkplatz.*$/m)[1]?.split(
  // deep links remain attached to the same content.
  const marker='### Gesammelte Gedanken vom 22. Oktober 2026',parts=parking.split(marker);
  const archivedNotes=blocks(archive,2,'source').filter(n=>!/^28\. A0 Science Desk|^29\. Owner-Reaffirmation/.test(n.title));
- return [...blocks(parts[0],4,'idea'),...archivedNotes,...blocks(parts.slice(1).join(marker),4,'idea')].map((n,i)=>({...n,id:'note-'+(i+1)}));}
+ // Dated integration returns are appended after the already published cards.
+ // That keeps every existing note-* deep link stable while still exposing the
+ // new source-bound record in the archive filter.
+ const datedReturns=archivedNotes.filter(n=>/^30\. Mirror Edge 63\/64/.test(n.title));
+ const stableArchive=archivedNotes.filter(n=>!datedReturns.includes(n));
+ return [...blocks(parts[0],4,'idea'),...stableArchive,...blocks(parts.slice(1).join(marker),4,'idea'),...datedReturns].map((n,i)=>({...n,id:'note-'+(i+1)}));}
 function inline(t){return esc(t).replace(/\[([^\]]+)\]\(([^)]+)\)/g,(_,label,target)=>{const d=target.replace(/&amp;/g,'&');if(/^[a-z]+:/i.test(d)&&!/^https?:|^file:/i.test(d))return label;const url=/^https?:|^file:/i.test(d)?d:fileURL(d.split('#')[0])+(d.includes('#')?'#'+d.split('#').slice(1).join('#'):'');return'<a href="'+esc(url)+'">'+label+'</a>';}).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\x60([^\x60]+)\x60/g,'<code>$1</code>');}
 function body(t){let out=[],paragraph=[],code=[],fenced=false;const flush=()=>{if(paragraph.length){out.push('<p>'+inline(paragraph.join(' '))+'</p>');paragraph=[];}};
  for(const line of t.split('\n')){if(/^\x60{3}/.test(line)){flush();if(fenced){out.push('<pre><code>'+esc(code.join('\n'))+'</code></pre>');code=[];}fenced=!fenced;continue;}if(fenced){code.push(line);continue;}if(!line.trim()){flush();continue;}const image=line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);if(image){flush();const target=image[2],url=/^https?:|^file:/i.test(target)?target:assetURL(target);out.push('<figure><img src="'+esc(url)+'" alt="'+esc(image[1])+'" loading="lazy"><figcaption>'+esc(image[1])+'</figcaption></figure>');}else if(/^#{3,6} /.test(line)){flush();out.push('<h4>'+inline(line.replace(/^#+ /,''))+'</h4>');}else if(/^\s*[-*] /.test(line)){flush();out.push('<p class="bullet">• '+inline(line.replace(/^\s*[-*] /,''))+'</p>');}else paragraph.push(line);}flush();if(code.length)out.push('<pre><code>'+esc(code.join('\n'))+'</code></pre>');return out.join('\n');}

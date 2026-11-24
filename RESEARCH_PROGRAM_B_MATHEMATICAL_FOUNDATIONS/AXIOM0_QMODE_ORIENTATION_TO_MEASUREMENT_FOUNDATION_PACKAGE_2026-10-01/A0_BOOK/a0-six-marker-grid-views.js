@@ -10,6 +10,7 @@ function slot(i,mirror){return mirror?(6-i)%6:i;}
 function restore(r,q){return r+105*q;}
 const api={data,address,reduced,candidates,slot,restore};
 if(typeof module!=="undefined"&&module.exports)module.exports=api;
+if(root)root.A0SixMarkerGridViews=api;
 if(!root.document)return;
 const doc=root.document,host=doc.getElementById("six-marker-comparison");
 if(!host)return;

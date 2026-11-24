@@ -48,6 +48,27 @@ quellengebundene und freigegebene Teile können aufgenommen werden, ohne aus
 dem Paper einen zweiten Katalog oder eine nachträgliche Universaltheorie zu
 machen.
 
+### Redaktionelle Currentness und Paper-Grenze — 2026-11-23
+
+Die November-Erweiterungen zu Primecube, Prime Projection / Helix und
+Riemann-Spiegelung werden hier als ein gemeinsames Methodenbündel gelesen. Sie
+beantworten die Frage, wie Quelle, Operator, Ansicht, Falsifier, Residuum und
+Return sichtbar getrennt werden können. Sie begründen weder eine neue Family
+noch die universelle Wirksamkeit der Methode.
+
+- [Paper C](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md) prüft,
+  welcher Return unter welchem Vertrag gilt und warum daraus keine stärkere
+  Identität folgt.
+- Dieses Paper E beschreibt die Arbeitsfolge, die Typgrenzen und die Rolle
+  negativer Kontrollen.
+- [Paper F](36_A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER_DRAFT_2026-10-12.md)
+  trennt Carrier, Frame, Envelope, Schattenfaser und Beobachterschnitt.
+- Papers A, B und D bleiben in Proposition, Evidenz und Status unverändert.
+
+Die Beispiele sind damit enactments der bestehenden Family Method. Sie sind
+keine neue Theorieebene, kein empirischer Nutzennachweis und keine
+Publikationsfreigabe.
+
 ## Paper object — Abgrenzung von Mission und Selbstbeschreibung
 
 Mission Statement, Selbstbeschreibung und Methodenpaper erfüllen
@@ -67,7 +88,7 @@ begrenzten Records sichtbar, typisierbar, prüfbar und rückführbar zu machen.
 
 ### Aufbau — von der Theory zum prüfbaren Methodenpaper
 
-Die [Theory-Arbeitsfassung v0.38](<../../../../00 EXECUTIVE/NEXAH-Mission-Control/AREAS/EXPERIENCE_AND_WORKS/NEXAH_TOI_THEORIE_ARBEITSFASSUNG.md>)
+Die [Theory-Arbeitsfassung v0.41](<../../../../00 EXECUTIVE/NEXAH-Mission-Control/AREAS/EXPERIENCE_AND_WORKS/NEXAH_TOI_THEORIE_ARBEITSFASSUNG.md>)
 trägt die ursprüngliche Ideenentwicklung. Dieses Paper verdichtet daraus vier
 Ebenen; es ersetzt die Arbeitsfassung nicht:
 
@@ -440,6 +461,30 @@ binary tree of depth d:
 leaves = 2^d,
 all vertices = 2^(d+1)-1.
 ```
+
+The binary carrier also admits an exact quaternion-coordinate lift without
+identifying it with either decimal concatenation or the repunit square. To
+avoid collision with the existing local names `q=1+i-j` and `u=i-j`, define
+
+```text
+q_B = 1+i+j+k,
+Q_n = 2501*q_B^n.
+```
+
+Then `N(q_B)=4`, hence `|q_B|=2` and
+
+```text
+|Q_n| = 2501*2^n.
+```
+
+The first quaternion coordinates are
+`(1,0,0,0)`, `(1,1,1,1)`, `(-2,2,2,2)` and `(-8,0,0,0)`.
+Moreover `q_B^3=-8` and `q_B^6=64`: three steps give an exact scalar
+opposite-side return and six steps restore the positive scalar orientation.
+The magnitude does not close, so this is an orientation return rather than a
+state return. It is a standard Hamilton-algebra witness, not a biological
+branch law, physical four-coordinate mechanism, new A0 operator family or
+formal finding.
 
 Beim Dezimalstempel ist die Kopie eine Aussage über zwei feste Blöcke der
 Breite `m`; führende Nullen müssen als Formatbestandteil erhalten bleiben.
@@ -1122,6 +1167,98 @@ werden nicht aufgenommen, weil sie gut klingen, sondern wenn sie eine bisher
 ungedeckte Funktion erfüllen und ihre Quelle, Grenze und Rückführung sichtbar
 bleiben.
 
+<a id="november-source-view-synthesis"></a>
+
+### 15.1 November source / view synthesis
+
+The Architecture-of-Difference integration provides one internal worked
+example of the Orientation Method across historical assets, exact finite
+relations and interactive views:
+
+```text
+SOURCE -> DECLARE CARRIER -> CHOOSE CUT/VIEW -> COMPARE
+       -> RETURN ADDRESS + RESIDUAL -> SOURCE RECEIPT.
+```
+
+The useful method result is documentary: GIF, GLB, code-native geometry,
+equations and Owner readings can share one navigable host while keeping
+source custody, operation, evidence status and claim ceiling separate. Exact
+Pascal, cube, root and prime statements remain attached to their own typed
+carriers. Visual crossings, shared colours and repeated numbers remain
+comparison prompts rather than inferred identities.
+
+The Prime Plate crosswalk makes that typing rule concrete. It keeps the
+finite prime window and outside trigger, the `3x3` cell/mirror address, the
+Pascal identity `sum C(10,k)=1024`, the `11x11=121` pair field and the
+historical `968 -> 992 -> 1000 -> 1024` sector ledger as five inspectable
+records. A shared terminal number does not erase the construction path or
+authorize a common operator.
+
+The 25-wide snake supplies the path-specific control: alternating row
+orientation changes `(delta x,delta y)` while leaving the ordered integer gap
+unchanged. The finite Euler corridor is shown with its first failure rather
+than promoted to a universal prime rule.
+
+The Owner notation `f1+f2+...+f7=alpha` and its integral variant are retained
+as composition signs. They become mathematical claims only after domains,
+codomains, functions, integration variables, measures and equality predicates
+are declared. `Æ-ballo-ON` remains a closing mnemonic, not a new operator or
+canonical vocabulary term.
+
+This addendum creates no method-effectiveness result, Study, Finding, Family,
+Navigator identity or publication authority.
+
+- [finding extraction](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#november-a0-emerald-synthesis-return--2026-11-20)
+- [Architecture of Difference](A0_BOOK/A0_ARCHITECTURE_OF_DIFFERENCE.html#emerald-still-field)
+- [Prime Plate view](A0_BOOK/A0_ARCHITECTURE_OF_DIFFERENCE.html#prime-plate-navigator)
+- [machine receipt](A0_BOOK/results/a0-november-emerald-paper-routing-2026-11-20.json)
+
+<a id="numbergame-fibonacci-method-synthesis"></a>
+
+### 15.2 Six-result method synthesis: state, view, map, codec, falsifier
+
+The 21 November Numbergame return sharpens six result roles already required
+by the Orientation Method:
+
+1. **Exact finite state return.** The Fibonacci pair clock closes after 1520
+   steps across the declared CRT registers.
+2. **Classified projection.** The uniform view obeys
+   `r_n=sqrt(n/N)`, `theta_n=2*pi*n/N`, hence `r^2=theta/(2*pi)`: a normalized
+   Fermat spiral. The golden-angle view changes the angular schedule, not the
+   source state.
+3. **Declared modular transport.** `n -> (n mod 111, floor(n/111))` explains
+   the observed bands and shear without treating a prime overlay as their
+   generator.
+4. **Typed operator algebra.** Digit reversal, modular reflection and rotation
+   receive separate domains, codomains and Return predicates.
+5. **Typed codec rather than dimensional collapse.** Angle, fraction, sector
+   count and address may meet only through an explicit decoder. `90 degrees`
+   is not `50 percent` even when both occur on the same 20-sector display.
+6. **Reproducible negative result.** Modular sensors can establish selected
+   divisibility facts but do not constitute a primality test or a shared
+   natural generator.
+
+The methodological contribution is not any isolated numerical coincidence.
+It is the ability to preserve the distinction
+
+```text
+STATE -> OPERATION -> REPRESENTATION -> MEASUREMENT -> RETURN / RESIDUAL
+```
+
+while retaining negative and non-identity outcomes. The arithmetic fixtures
+`1836+1729=3565`, `1836-1729=107`, `107+97=204`, and
+`206^2-204^2=41*20` remain exact observations. Without a preregistered
+selection rule and independent comparator they are not promoted to mechanisms
+or laws.
+
+This addendum creates no Study, canonical Finding, Family, Navigator relation,
+claim-ceiling change or publication authority.
+
+- [Science Desk synthesis](A0_BOOK/A0_RESEARCH_DESK.html#numbergame-fibonacci-prime-vendissimal-return-20261121)
+- [Findings/Paper triage](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#numbergame-fibonacci-scientific-relevance--2026-11-21)
+- [Paper C typed Return note](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md#numbergame-typed-return-synthesis)
+- [machine receipt](A0_BOOK/results/a0-numbergame-fibonacci-prime-vendissimal-synthesis-2026-11-21.json)
+
 ## Reference anchors for later literature review
 
 These references are starting anchors, not a completed prior-art or novelty
@@ -1176,3 +1313,83 @@ CREATE  one growing documentary position-and-method draft
 CREATE  no Study, Family, Navigator identity, graph relation or active cycle
 CHANGE  no claim ceiling and grant no publication authority
 ```
+## Prime Projection source/view method
+
+<a id="prime-projection-source-view-method"></a>
+
+### Preparation note — source, address, view, falsifier, Return
+
+
+<a id="primecube-sz-khipu-method-preparation"></a>
+
+### Preparation note — invariant selection in the S/Z–Khipu instrument
+
+This bundle gives the orientation method a deliberately small worked grammar:
+
+```text
+Source -> Operator -> View -> Return
+1..1111 -> standard beta or declared S/Z operator -> slice/envelope/knot -> n
+```
+
+The method requires the reader to name what is actually retained. In the polar
+demonstrator the verified finite invariant is the winding closure
+`102 degrees * 60 = 17 * 360 degrees`, reported as signed `W=+17/-17` after
+orientation is chosen. By contrast, `P=alpha+beta` and
+`P_chi=alpha+abs(beta)` are coordinates on parameter space. Fixing either does
+not by itself conserve energy, bound an orbit or prove stability.
+
+The Khipu lens contributes a disciplined negative control: a visible gap can be
+information without being the number zero, and a twist direction can select a
+reading without changing the source carrier. Historical analogy, dynamical
+operator and arithmetic address remain separate evidence types.
+
+Reviewer figure `PC-RF-E-01` freezes this chain as an exportable diagram.
+Standard beta and the declared S/Z switch remain separate operators; the
+finite `W=+/-17` closure and the parameter-coordinate boundary remain visible.
+This is a method illustration, not an effectiveness or universality claim.
+
+[Open figure and five-stage receipt](A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-reviewer-packet)
+
+Status: `INTERNAL METHODS PREPARATION / EXISTING IDENTITY / CLAIM CEILING UNCHANGED`.
+
+#### Existing Prime Projection source/view note
+
+The Prime Projection / Helix pair provides a concise enactment of the Family
+Method. One finite source carrier is retained; multiple address systems and
+views are declared; a negative control is kept visible; and Return occurs only
+through the source record rather than visual resemblance. The finite mod-11
+table (`chi-square=6.322679612870788`, `df=18`) is particularly important: a
+non-suggestive result remains part of the instrument instead of being hidden.
+
+Likewise, changing strip width changes projected jump lengths but not prime
+membership. The Helix's 36-degree step and golden angle are explicit view
+parameters rather than causes. Together these cases support a methods passage
+about maintaining difference while connecting records. They do not establish
+a new prime law, physical field, common generator, canonical Finding or
+publication state.
+
+[Science Desk return](A0_BOOK/A0_RESEARCH_DESK.html#prime-projection-helix-paper-routing-20261121) ·
+[Prime Projection Suite](A0_BOOK/A0_PRIME_PROJECTION_TEST_SUITE.html) ·
+[Double Helix](A0_BOOK/A0_HELIX_VIEW_ADAPTER.html)
+
+## Riemann mirror as a method example {#riemann-mirror-method-example}
+
+The critical-line comparator is a compact example of the method's required
+typing discipline. The affine anti-holomorphic involution
+`W(s)=1-conj(s)` supplies an exact transform, `W²=id` supplies an exact Return,
+and `Fix(W)={Re(s)=1/2}` supplies an exact fixed-set predicate. These contracts
+can be demonstrated independently of any claim about where zeta zeros occur.
+
+Three result types must remain visibly distinct:
+
+1. a set is invariant under `W`;
+2. an individual point is fixed by `W`;
+3. a parameterized object cannot cross the fixed line.
+
+Only the first two are represented by the present instrument, and the second
+holds only on the half-line. The third requires a separately declared dynamic
+or spectral family and proof. This distinction prevents a valid symmetry
+observation from being promoted into an RH proof.
+
+Method evidence: [mirror/fixed-line demonstrator](A0_BOOK/A0_RIEMANN_HALFLINE_THETA_RETURN.html#riemann-mirror-fixed-line)
+and [contract](A0_BOOK/A0_RIEMANN_HALFLINE_THETA_RETURN_CONTRACT_2026-11-21.md).

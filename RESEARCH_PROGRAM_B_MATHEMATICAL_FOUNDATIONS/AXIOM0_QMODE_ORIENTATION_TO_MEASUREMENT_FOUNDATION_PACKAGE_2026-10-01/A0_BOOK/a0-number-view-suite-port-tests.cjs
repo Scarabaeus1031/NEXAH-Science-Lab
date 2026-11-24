@@ -8,6 +8,14 @@ function eq(a, b, message) { assert.deepEqual(a, b, message); checks += 1; }
 
 eq(api.IDENTITY, "MOD:NUMBER_VIEW_SUITE");
 eq(api.STAGES, ["CARRIER", "POINT", "LINE", "SLICE", "GLUE", "TOPOLOGY", "RETURN"]);
+eq(api.STAGE_ACTIONS.length, 7);
+eq(api.traceIndices(0), [0]);
+eq(api.traceIndices(4), [0,1,2,3,4]);
+eq(api.traceIndices(99), [0,1,2,3,4,5,6]);
+eq(api.MOTION.length, 7);
+eq(api.motionForStage(0), { x:0,y:0,angle:0 });
+eq(api.motionForStage(3), { x:126,y:18,angle:-4 });
+eq(api.motionForStage(6), { x:0,y:0,angle:0 });
 eq(api.primeAddress(1), { n:1,x:0,y:0,z:0,address:"[0,0,0]",returnId:"PC1111:N0001" });
 eq(api.primeAddress(661), { n:661,x:0,y:5,z:5,address:"[0,5,5]",returnId:"PC1111:N0661" });
 eq(api.primeAddress(809), { n:809,x:5,y:7,z:6,address:"[5,7,6]",returnId:"PC1111:N0809" });
@@ -19,10 +27,29 @@ eq(api.inspect("TOPOLOGY_ADAPTER", 5, 661).intrinsicTopology, false);
 eq(api.inspect("TOPOLOGY_ADAPTER", 5, 661).graphDelta, 0);
 eq(api.inspect("BAD", 99, 661).roleKey, "PRIME_CORE");
 eq(api.inspect("BAD", 99, 661).stage, "RETURN");
+eq(api.inspect("PRIME_CORE", 4, 661).action, "GLUE DECLARED");
+const fullTrace = api.diagram(api.inspect("PRIME_CORE", 6, 661), api.traceIndices(6));
+ok(fullTrace.includes("nvp-artifact-point"), "retained point artifact");
+ok(fullTrace.includes("nvp-artifact-glue"), "retained glue artifact");
+ok(fullTrace.includes("nvp-artifact-topology"), "retained topology artifact");
+ok(fullTrace.includes("nvp-artifact-return"), "retained return artifact");
+ok(fullTrace.includes("retained stage trace"), "accessible retained trace label");
+ok(fullTrace.includes("nvp-cube-moving"), "view body has a declared moving transform");
+ok(fullTrace.includes("SOURCE 661 · LOCKED"), "source record remains visibly fixed while view body moves");
+ok(fullTrace.includes("nvp-motion-trace"), "movement path remains visible as a trace");
 
 for (const file of ["A0_WERKBANK.html", "A0_PRIMECUBE_GAP_FOLD_LAB.html", "A0_MACHINA_ANATOMY_MAP.html", "A0_BUILDER_LOG.html", "A0_RESEARCH_DESK.html"]) {
   const html = fs.readFileSync(path.join(__dirname, file), "utf8");
   ok(html.includes("MOD:NUMBER_VIEW_SUITE"), `${file} identity binding`);
   ok(html.includes("number-view-suite-port"), `${file} port binding`);
+  if (["A0_WERKBANK.html", "A0_PRIMECUBE_GAP_FOLD_LAB.html"].includes(file)) {
+    ok(html.includes("data-nvp-play"), `${file} play control`);
+    ok(html.includes("data-nvp-clear"), `${file} trace reset control`);
+    ok(html.includes("data-nvp-trace"), `${file} live trace output`);
+  }
 }
+const primecube = fs.readFileSync(path.join(__dirname, "A0_PRIMECUBE_GAP_FOLD_LAB.html"), "utf8");
+ok(primecube.indexOf('id="primecube-workbench"') < primecube.indexOf('id="number-view-suite-port"'), "workbench precedes the motion chapter");
+ok(primecube.indexOf('id="number-view-suite-port"') < primecube.indexOf('id="contract-demo-audit"'), "motion chapter precedes the contract overview");
+ok(primecube.includes("data-nvp-cycle"), "visible phase and cycle counter");
 console.log(`PASS ${checks}/${checks} · Number View Suite Port`);

@@ -1,0 +1,86 @@
+{
+  "schema": "nexah.a0.primecube-control-plane-coupling/1",
+  "version": "1.0.0",
+  "date": "2026-11-23",
+  "status": "PASS_STEPS_4_TO_6_WITH_PHASE_LINE_NEGATIVE",
+  "classification": "BOUNDED_ENGINEERING_FORMAL_DESIGN_FIXTURE_NOT_LAB_RUN",
+  "checks": {
+    "model": 25,
+    "integration": 11,
+    "total": 36
+  },
+  "step_4_joint_return": {
+    "component_periods": {
+      "q_t20": 60,
+      "loki_c7_c8": 56,
+      "fold_parity": 2
+    },
+    "least_common_multiple": 840,
+    "first_complete_return": 840,
+    "unique_pre_return_product_states": 840,
+    "return_state": {
+      "q": 1,
+      "loki": [0, 0],
+      "fold": 0
+    },
+    "status": "EXACT_SYNCHRONIZED_PRODUCT_RETURN",
+    "boundary": "Independent retained periods; no common natural clock or physical coupling established."
+  },
+  "step_5_splinter_q_adapter": {
+    "source_boundary_order": [1, 8, 11, 22, 27, 33],
+    "operator": "T20^10",
+    "stride": 10,
+    "generator_mod_1001": 771,
+    "reverse_stride": 50,
+    "reverse_generator_mod_1001": 309,
+    "all_order_six_strides_below_60": [10, 50],
+    "q_states": [1, 771, 848, 155, 386, 309],
+    "injective": true,
+    "return_after": 6,
+    "fold_map": "(1 11)(33 22)(8)(27)",
+    "fixed_axis": [8, 27],
+    "fold_index_law": "F(i)=2-i mod 6",
+    "dihedral_law": "F R F = R^-1",
+    "dihedral_law_verified_on_all_six_anchors": true,
+    "status": "PASS_TYPED_C6_ADAPTER_WITH_PHASE_NONINVARIANCE",
+    "boundary": "Declared sampling adapter, not a natural identity of Splinter labels and CRT residues."
+  },
+  "step_6_colon_phase_probe": {
+    "q_state_edge": {
+      "forward_law": "q'=771q mod 1001",
+      "inverse_law": "q'=309q mod 1001",
+      "deterministic": true,
+      "reversible": true,
+      "return_after": 6,
+      "status": "PASS_EXPLICIT_TYPED_Q_STATE_EDGE"
+    },
+    "mz24_phase_line": {
+      "ticks": [2, 5, 4, 13, 10, 11],
+      "edge_deltas_mod_24": [3, 23, 9, 21, 1, 15],
+      "constant_delta_exists": false,
+      "six_edge_delta_sum_mod_24": 0,
+      "status": "FAIL_UNIFORM_PHASE_TRANSPORT"
+    },
+    "colon_default": "OPEN_TYPED_JOINT_NO_GLUING_NO_GLOBAL_PHASE_MEANING",
+    "disposition": "PASS_REVERSIBLE_Q_STATE_EDGE / FAIL_UNIFORM_MZ24_PHASE_LINE / COLON_REMAINS_OPEN_BY_DEFAULT"
+  },
+  "holds": [
+    "COMMON_NATURAL_CLOCK_NOT_ESTABLISHED",
+    "SPLINTER_Q_NATURAL_IDENTITY_NOT_ESTABLISHED",
+    "UNIFORM_MZ24_PHASE_LINE_REJECTED",
+    "COLON_GLOBAL_PHASE_MEANING_REJECTED"
+  ],
+  "identity_reuse": [
+    "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "MOD:NUMBER_VIEW_SUITE",
+    "MOD:TESSAREC",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "study_effect": "NONE",
+  "finding_effect": "NONE",
+  "publication_effect": "NONE",
+  "claim_boundary": "Exact finite modular and permutation engineering only. No Study, Finding, common physical carrier, shared natural clock, causal phase line, energy channel or publication state is created."
+}

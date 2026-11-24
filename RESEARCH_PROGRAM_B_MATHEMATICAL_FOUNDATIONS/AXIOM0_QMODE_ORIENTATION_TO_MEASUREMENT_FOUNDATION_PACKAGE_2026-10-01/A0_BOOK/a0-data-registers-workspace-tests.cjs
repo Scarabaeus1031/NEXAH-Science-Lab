@@ -15,6 +15,21 @@ assert.match(html, /id="bindings"/);
 for (const label of ["THE MACHINA", "Produktionskette", "Entdecken &amp; verbinden", "Bestand &amp; Cuts"]) assert.match(html, new RegExp(label));
 assert.match(html, /Navigation ist keine Admission, Aktivierung, wissenschaftliche Validierung oder Publikation/);
 assert.match(html, /<main id="top">/);
+assert.match(html, /id="mastermap"/);
+assert.match(html, /Der Zusammenhang vor dem Detail/);
+assert.equal((html.match(/<article class="master-zone"/g) || []).length, 6);
+for (const stage of ["SOURCE", "CARRIER", "OPERATOR", "VIEW", "RETURN", "EVIDENCE"]) {
+  assert.match(html, new RegExp(`<span>${stage}</span>`));
+}
+for (const route of [
+  "A0_FIELDS_AND_JOINTS_ATLAS.html#joint-workspace",
+  "A0_NUMBERMAGICK_GRID_RESEARCH.html#prime-master-builds",
+  "A0_BLUE_PINK_DODECA_CELL_RETURN.html#module-entry",
+  "SCIENCE_LAB/NAVIGATION/APP/index.html#lab-register",
+  "SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence",
+]) assert.ok(html.includes(route), `mastermap route missing: ${route}`);
+for (const state of ["EXACT", "BOUNDED", "OPEN", "PROVENANCE"]) assert.match(html, new RegExp(`<span>${state}</span>`));
+assert.match(html, /Δ GRAPH = 0 · Δ STUDIES = 0 · Δ CLAIMS = 0/);
 assert.match(html, /history\.scrollRestoration="manual"/);
 assert.match(html, /\["wheel","touchstart","pointerdown","keydown"\]/);
 assert.match(html, /document\.querySelectorAll\("\.register-window iframe"\)/);
@@ -34,6 +49,16 @@ assert.match(html, /<h3>Builder Register Stack<\/h3>/);
 assert.match(html, /Tool Inventory · gepflegter Werkzeugbestand/);
 assert.match(html, /Toolbox · What we can build/);
 assert.match(html, /Builder Desk<\/a>/);
+assert.match(html, /id="master-build-consolidation"/);
+assert.match(html, /Master-Builds im Zusammenhang lesen/);
+for (const route of [
+  "A0_NUMBERMAGICK_GRID_RESEARCH.html#prime-master-builds",
+  "A0_BLUE_PINK_DODECA_CELL_RETURN.html#module-entry",
+  "A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html",
+  "A0_AXIS08_FOLD_RETURN_SEQUENCER.html",
+]) assert.ok(html.includes(route), `master-build route missing: ${route}`);
+assert.match(html, /0 neue Identitäten · 0 Relationen · 0 Aliase · 0 Studies · 0 Findings/);
+assert.match(html, /PARTIAL SOURCE CUSTODY/);
 
 assert.match(builderDesk, /id="register-stack"/);
 assert.match(builderDesk, /MAINTAINED SOURCE REGISTER/);

@@ -1,0 +1,50 @@
+{
+  "schema": "nexah.a0.primecube-c24-inch-cm-adapter/1",
+  "version": "1.0.0",
+  "date": "2026-11-23",
+  "status": "PASS_EXACT_TYPED_ADAPTERS_MZ24_IDENTITY_NEGATIVE",
+  "c24": {
+    "modulus": 24,
+    "c6": [0, 4, 8, 12, 16, 20],
+    "c8": [0, 3, 6, 9, 12, 15, 18, 21],
+    "d12": [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22],
+    "intersections": {
+      "c8_d12": [0, 6, 12, 18],
+      "c6_c8": [0, 12],
+      "c6_d12": [0, 4, 8, 12, 16, 20]
+    },
+    "crossProportion": {
+      "angleRatio": "90/60",
+      "cardinalityRatio": "84/56",
+      "reduced": "3/2",
+      "leftProduct": 5040,
+      "rightProduct": 5040,
+      "determinant": 0,
+      "expanded84Factors": [6, 7, 2]
+    },
+    "mz24Comparator": {
+      "constructedC6": [0, 4, 8, 12, 16, 20],
+      "observed": [2, 5, 4, 13, 10, 11],
+      "positionMatches": 0,
+      "identityEstablished": false
+    }
+  },
+  "lengthAdapter": {
+    "definition": "1 inch = 2.54 cm = 127/50 cm",
+    "tickMillimeters": "0.2",
+    "ticksPerCentimeter": 50,
+    "ticksPerInch": 127,
+    "disk10": {"inches": 10, "centimeters": "25.40", "ticks": 1270},
+    "disk12": {"inches": 12, "centimeters": "30.48", "ticks": 1524},
+    "diskRatio": "5:6",
+    "commonReturn": {"inches": 50, "centimeters": 127, "ticks": 6350}
+  },
+  "verification": {
+    "controlAndIntegrationChecks": 81,
+    "uiChecks": 92
+  },
+  "identityReuse": ["NEXAH_AX0_QMODE_FOUNDATION_PACKAGE", "ART:A0:MATHEMATICAL_JOINTS", "MOD:NUMBER_VIEW_SUITE", "MOD:TESSAREC"],
+  "newCanonicalIds": [],
+  "relationChanges": [],
+  "claimBoundary": "Exact index and rational length adapters only. C24 is not MZ24; unit conversion creates no angle, phase, state-count or physical identity."
+}

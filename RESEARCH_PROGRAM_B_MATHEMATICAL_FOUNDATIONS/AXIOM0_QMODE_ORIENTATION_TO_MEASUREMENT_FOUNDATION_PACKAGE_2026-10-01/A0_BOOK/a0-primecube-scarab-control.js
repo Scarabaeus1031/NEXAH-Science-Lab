@@ -18,9 +18,23 @@
       <text x="18" y="382" fill="#756f68" font-size="8">WHEEL ARCS ≠ EUCLIDEAN INTERIOR ANGLES · ORANGE TRIANGLE IS A SCREEN FRAME</text>
     </svg>`;
   }
+  function mirrorGateMarkup(record,mode){
+    const source=record.sourceRail;
+    const target=mode==='DECIMAL_MIRROR'?record.decimalMirror.records:mode==='BIT11_MIRROR'?record.binaryMirror.records:source;
+    const labels={PRIME_CARRY:['PRIME / CARRY RAIL','P173 · EXIT/SEAM · P174'],DECIMAL_MIRROR:['REV10 · DECIMAL DIGIT MIRROR','1301 · 2301 · 3301'],BIT11_MIRROR:['REV2,11 · FIXED WIDTH','1793 · 129 · 1153']}[mode];
+    const cards=source.map((item,index)=>{
+      const out=target[index],prime=mode==='PRIME_CARRY'?item.prime:out.prime;
+      const targetValue=mode==='PRIME_CARRY'?item.n:out.target??out.value;
+      const targetMeta=mode==='PRIME_CARRY'?(item.prime?`P${item.primeIndex}`:item.factorization):(prime?`P${out.primeIndex}`:out.factorization);
+      const bitLine=mode==='BIT11_MIRROR'?`<code>${out.sourceBits}</code><i>↕</i><code>${out.reversedBits}</code>`:'';
+      return `<article class="${prime?'is-prime':'is-composite'}"><small>${item.n}${mode==='PRIME_CARRY'?'':' → '+targetValue}</small><b>${targetValue}</b><span>${prime?'PRIME':'COMPOSITE'} · ${targetMeta}</span>${bitLine}</article>`;
+    }).join('');
+    const seam=mode==='PRIME_CARRY'?`<p><b>Euler / Carry:</b> φ(1033)=1032 · <code>10000000111 + 1 = 10000001000</code> · <code>1032 &amp; 7 = 0</code></p>`:mode==='DECIMAL_MIRROR'?`<p><b>Decimal:</b> 1031↔1301 · 1032↔2301 · 1033↔3301. Digit reversal is not bit reversal.</p>`:`<p><b>Bit‑11:</b> 1031→1793=11·163 · 1032→129=3·43 · 1033→1153=P191. Width and leading zeros are retained.</p>`;
+    return `<div class="pc-scarab-gate-head"><strong>${labels[0]}</strong><span>${labels[1]}</span></div><div class="pc-scarab-gate-cards">${cards}</div>${seam}<footer>1031=P173 · REV2,11(1031)=1793=11·163 · same fixture, different typed coordinates</footer>`;
+  }
   function boot(){
     const root=document.querySelector('[data-pc-scarab-control]'),M=window.A0PrimecubeModel,S=window.A0ScarabPillarProjection;if(!root||!M||!S)return;
-    const base=M.scarabControlLensRecord(),state={view:'side',angle:108,triangle:true};
+    const base=M.scarabControlLensRecord(),state={view:'side',angle:108,triangle:true,gate:'PRIME_CARRY',gateTimer:null};
     const svg=root.querySelector('[data-pc-scarab-svg]'),detail=root.querySelector('[data-pc-scarab-detail]'),slider=root.querySelector('[data-pc-scarab-angle]'),out=root.querySelector('[data-pc-scarab-angle-out]');
     root.querySelector('[data-pc-scarab-points]').innerHTML=pointsMarkup(base.sourceScreenPoints);
     root.querySelector('[data-pc-scarab-triangle]').innerHTML=triangleMarkup(base.wheelTriangle);
@@ -31,8 +45,10 @@
       detail.innerHTML=`<div class="pc-eyebrow">Reused Scarab Three-Face Transit</div><h3>${esc(record.phase.label)}</h3><span class="pc-mathfield-status">${esc(state.view.toUpperCase())} · θ ${state.angle.toFixed(3)}°</span><dl><dt>Body</dt><dd>${record.body.outsidePyramids} pyramids · ${record.body.connectingTriangles} transit faces</dd><dt>Handle</dt><dd>${esc(record.handle.direction.replaceAll('_',' '))}</dd><dt>Fold 108</dt><dd>${base.fold108.equation} · ${base.fold108.scarabPhase.replaceAll('_',' ')}</dd><dt>Cosine input</dt><dd>cos θ = ${base.cosineInput.value}<br>θ = ${base.cosineInput.thetaDegrees.toFixed(6)}°</dd><dt>Hinge scale</dt><dd>${base.hingeScale.rational} = ${base.hingeScale.decimal.toFixed(3)}<br>×1000 → 661 · p₁₂₁<br>[${base.hingeScale.cube.x},${base.hingeScale.cube.y},${base.hingeScale.cube.z}]</dd><dt>Pink strip</dt><dd>${record.pinkStrip.distanceDegrees.toFixed(3)}° from face-on</dd><dt>Authority</dt><dd>0 new IDs · 0 relations</dd></dl><a href="A0_ORIENTATION_CONTROLLER_BENCH.html#scarabPillarProjection">Vollständige Scarab-Quelle öffnen →</a><br><a href="A0_SCARAB_ORIGIN_MOBIUS_RAMANUJAN.html">Scarab Origin Lens öffnen →</a>`;
       root.querySelectorAll('[data-pc-scarab-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.pcScarabView===state.view)));
       const triangle=root.querySelector('[data-pc-scarab-wheel-triangle]'),toggle=root.querySelector('[data-pc-scarab-triangle-toggle]');triangle.hidden=!state.triangle;toggle.setAttribute('aria-pressed',String(state.triangle));
+      root.querySelector('[data-pc-scarab-mirror]').innerHTML=mirrorGateMarkup(base.mirrorCarryGate,state.gate);
+      root.querySelectorAll('[data-pc-scarab-gate]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.pcScarabGate===state.gate)));
     }
-    root.addEventListener('click',event=>{const view=event.target.closest('[data-pc-scarab-view]'),preset=event.target.closest('[data-pc-scarab-preset]'),triangle=event.target.closest('[data-pc-scarab-triangle-toggle]');if(view)state.view=view.dataset.pcScarabView;if(preset)state.angle=preset.dataset.pcScarabPreset==='cosine'?base.cosineInput.thetaDegrees:Number(preset.dataset.pcScarabPreset);if(triangle)state.triangle=!state.triangle;if(view||preset||triangle)render();});
+    root.addEventListener('click',event=>{const view=event.target.closest('[data-pc-scarab-view]'),preset=event.target.closest('[data-pc-scarab-preset]'),triangle=event.target.closest('[data-pc-scarab-triangle-toggle]'),gate=event.target.closest('[data-pc-scarab-gate]'),play=event.target.closest('[data-pc-scarab-gate-play]');if(view)state.view=view.dataset.pcScarabView;if(preset)state.angle=preset.dataset.pcScarabPreset==='cosine'?base.cosineInput.thetaDegrees:Number(preset.dataset.pcScarabPreset);if(triangle)state.triangle=!state.triangle;if(gate)state.gate=gate.dataset.pcScarabGate;if(play){const order=['PRIME_CARRY','DECIMAL_MIRROR','BIT11_MIRROR'];if(state.gateTimer){clearInterval(state.gateTimer);state.gateTimer=null;play.textContent='▶ Run Gate'}else{play.textContent='Ⅱ Hold Gate';state.gateTimer=setInterval(()=>{state.gate=order[(order.indexOf(state.gate)+1)%order.length];render()},1400)}}if(view||preset||triangle||gate||play)render();});
     slider.addEventListener('input',()=>{state.angle=Number(slider.value);render();});render();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();

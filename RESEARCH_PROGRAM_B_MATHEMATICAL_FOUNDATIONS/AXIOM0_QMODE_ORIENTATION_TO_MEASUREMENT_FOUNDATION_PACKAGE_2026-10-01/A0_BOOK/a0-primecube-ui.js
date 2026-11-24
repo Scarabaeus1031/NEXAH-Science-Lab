@@ -4,8 +4,8 @@
   const data=M.buildDataset(),orientation=data.dualGridOrientation,colors={prime:'#4f8df7',twin:'#f05549',triplet:'#ffc21a',quadruplet:'#ae50ef',super:'#3fbd72',gap:'#9c8126',seam:'#19c99a',composite:'#333947',unit:'#525866'};
 
   function mount(root){
-    const canvas=root.querySelector('.pc-workbench canvas'),ctx=canvas.getContext('2d'),detail=root.querySelector('[data-pc-detail]'),summary=root.querySelector('[data-pc-summary]'),foldOut=root.querySelector('[data-pc-fold-out]'),foldInput=root.querySelector('[data-pc-fold]'),hrecord=root.querySelector('[data-pc-hrecord]'),hpath=root.querySelector('[data-pc-hpath]'),sliceRail=root.querySelector('[data-pc-slice-rail]'),eulerRail=root.querySelector('[data-pc-euler-rail]'),measureRail=root.querySelector('[data-pc-measure-rail]'),demoCanvas=root.querySelector('[data-pc-orbit-demo]'),demoCtx=demoCanvas&&demoCanvas.getContext('2d'),demoDetail=root.querySelector('[data-pc-orbit-detail]'),contractGrid=root.querySelector('[data-pc-contract-grid]'),contractCount=root.querySelector('[data-pc-contract-count]');
-    let view='grid',filter='all',sliceZ=0,eulerMode='mod7',measureMarker=15.7,measureUnit='ft',fold=.4,rotX=.56,rotY=-.68,drag=false,last={x:0,y:0},hover=null,points=[];
+    const canvas=root.querySelector('.pc-workbench canvas'),ctx=canvas.getContext('2d'),detail=root.querySelector('[data-pc-detail]'),summary=root.querySelector('[data-pc-summary]'),foldOut=root.querySelector('[data-pc-fold-out]'),foldInput=root.querySelector('[data-pc-fold]'),hrecord=root.querySelector('[data-pc-hrecord]'),hpath=root.querySelector('[data-pc-hpath]'),sliceRail=root.querySelector('[data-pc-slice-rail]'),eulerRail=root.querySelector('[data-pc-euler-rail]'),measureRail=root.querySelector('[data-pc-measure-rail]'),plateRail=root.querySelector('[data-pc-plate-rail]'),plateCountInput=root.querySelector('[data-pc-plate-count]'),plateOut=root.querySelector('[data-pc-plate-out]'),demoCanvas=root.querySelector('[data-pc-orbit-demo]'),demoCtx=demoCanvas&&demoCanvas.getContext('2d'),demoDetail=root.querySelector('[data-pc-orbit-detail]'),contractGrid=root.querySelector('[data-pc-contract-grid]'),contractCount=root.querySelector('[data-pc-contract-count]');
+    let view='grid',filter='all',sliceZ=0,selectedDeck=null,deckLabelMode='all',plateBase=11,plateCount=10,plateCoupling='open',eulerMode='mod7',measureMarker=15.7,measureUnit='ft',fold=.4,rotX=.56,rotY=-.68,drag=false,last={x:0,y:0},hover=null,points=[];
     const dpr=()=>Math.max(1,Math.min(2,win.devicePixelRatio||1));
 
     function resize(){const r=canvas.getBoundingClientRect(),p=dpr();canvas.width=Math.max(1,Math.round(r.width*p));canvas.height=Math.max(1,Math.round(r.height*p));ctx.setTransform(p,0,0,p,0,0);draw()}
@@ -58,6 +58,51 @@
     function edge(a,b,w,h,stroke='rgba(140,165,193,.28)',width=1){const p=project3(a.x,a.y,a.z,w,h),q=project3(b.x,b.y,b.z,w,h);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke()}
     function cubeFrame(w,h){const xs=[0,10],ys=[0,10],zs=[0,9];for(const x of xs)for(const y of ys)edge({x,y,z:0},{x,y,z:9},w,h);for(const x of xs)for(const z of zs)edge({x,y:0,z},{x,y:10,z},w,h);for(const y of ys)for(const z of zs)edge({x:0,y,z},{x:10,y,z},w,h)}
     function layerPlane(z,w,h,strong=false){const stroke=strong?'rgba(25,201,154,.9)':'rgba(25,201,154,.22)',width=strong?2:1;edge({x:0,y:0,z},{x:10,y:0,z},w,h,stroke,width);edge({x:10,y:0,z},{x:10,y:10,z},w,h,stroke,width);edge({x:10,y:10,z},{x:0,y:10,z},w,h,stroke,width);edge({x:0,y:10,z},{x:0,y:0,z},w,h,stroke,width)}
+    function fillLayerDeck(z,w,h){
+      const corners=[{x:0,y:0,z},{x:10,y:0,z},{x:10,y:10,z},{x:0,y:10,z}].map(point=>project3(point.x,point.y,point.z,w,h));
+      ctx.save();ctx.beginPath();corners.forEach((p,index)=>index?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.closePath();
+      const gradient=ctx.createLinearGradient(corners[0].x,corners[0].y,corners[2].x,corners[2].y);gradient.addColorStop(0,'rgba(25,201,154,.16)');gradient.addColorStop(.55,'rgba(79,141,247,.075)');gradient.addColorStop(1,'rgba(25,201,154,.035)');ctx.fillStyle=gradient;ctx.fill();ctx.restore();
+    }
+    function drawPlateTriad(w,h){
+      const base=plateBase,max=base-1,index=plateCount-1,area=base*base,closure=plateCount*area,volume=base*base*base,remaining=volume-closure;
+      const project=(x,y,z)=>{const X=(x/max-.5)*10,Y=(y/max-.5)*10,Z=(z/max-.5)*10,x1=X*Math.cos(rotY)-Z*Math.sin(rotY),z1=X*Math.sin(rotY)+Z*Math.cos(rotY),y1=Y*Math.cos(rotX)-z1*Math.sin(rotX),z2=Y*Math.sin(rotX)+z1*Math.cos(rotX),scale=Math.min(w,h)*.056,persp=18/(18+z2);return{x:w/2+x1*scale*persp,y:h/2+y1*scale*persp,z:z2}};
+      const line=(a,b,stroke='rgba(140,165,193,.25)',width=1)=>{const p=project(a.x,a.y,a.z),q=project(b.x,b.y,b.z);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke()};
+      const plane=(family,corners,stroke,fill)=>{const pts=corners.map(p=>project(p.x,p.y,p.z));ctx.save();ctx.beginPath();pts.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.closePath();ctx.fillStyle=fill;ctx.fill();ctx.strokeStyle=stroke;ctx.lineWidth=2;ctx.stroke();ctx.restore();label(family,pts[2].x+8,pts[2].y-6,'left',stroke,'800 11px ui-monospace, monospace')};
+      points=[];
+      for(const x of [0,max])for(const y of [0,max])line({x,y,z:0},{x,y,z:max});
+      for(const x of [0,max])for(const z of [0,max])line({x,y:0,z},{x,y:max,z});
+      for(const y of [0,max])for(const z of [0,max])line({x:0,y,z},{x:max,y,z});
+      const gridAlpha='rgba(140,165,193,.105)';
+      for(let i=0;i<base;i++){
+        line({x:i,y:0,z:index},{x:i,y:max,z:index},gridAlpha);line({x:0,y:i,z:index},{x:max,y:i,z:index},gridAlpha);
+        line({x:i,y:index,z:0},{x:i,y:index,z:max},gridAlpha);line({x:0,y:index,z:i},{x:max,y:index,z:i},gridAlpha);
+        line({x:index,y:i,z:0},{x:index,y:i,z:max},gridAlpha);line({x:index,y:0,z:i},{x:index,y:max,z:i},gridAlpha);
+      }
+      plane('XY · z', [{x:0,y:0,z:index},{x:max,y:0,z:index},{x:max,y:max,z:index},{x:0,y:max,z:index}],'#57d6ef','rgba(87,214,239,.09)');
+      plane('XZ · y', [{x:0,y:index,z:0},{x:max,y:index,z:0},{x:max,y:index,z:max},{x:0,y:index,z:max}],'#cf73ef','rgba(207,115,239,.085)');
+      plane('YZ · x', [{x:index,y:0,z:0},{x:index,y:max,z:0},{x:index,y:max,z:max},{x:index,y:0,z:max}],'#e7c64d','rgba(231,198,77,.075)');
+      const joint=project(index,index,index);ctx.beginPath();ctx.arc(joint.x,joint.y,6,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();ctx.strokeStyle='#19c99a';ctx.lineWidth=2;ctx.stroke();
+      if(plateCoupling!=='open'){
+        const green='#55ef86',active=plateCoupling==='tablet';
+        ctx.save();ctx.setLineDash([7,5]);
+        if(active){
+          line({x:0,y:0,z:index},{x:max,y:0,z:index},green,2.4);line({x:max,y:0,z:index},{x:max,y:max,z:index},green,2.4);line({x:max,y:max,z:index},{x:0,y:max,z:index},green,2.4);
+          line({x:0,y:index,z:0},{x:max,y:index,z:0},green,2.4);line({x:max,y:index,z:0},{x:max,y:index,z:max},green,2.4);line({x:max,y:index,z:max},{x:0,y:index,z:max},green,2.4);
+          ctx.setLineDash([10,6]);line({x:0,y:index,z:index},{x:max,y:index,z:index},'#66efff',3.2);
+          const hinge=project(max*.48,index,index);label(`TABLET HINGE · ${base} ADDRESSES`,hinge.x+8,hinge.y-9,'left','#66efff','800 9px ui-monospace, monospace');
+          label('ACTIVE L / TABLET · XY + XZ',joint.x+10,joint.y+20,'left',green,'800 9px ui-monospace, monospace');
+        }else{
+          line({x:index,y:0,z:0},{x:index,y:max,z:0},green,2.4);line({x:index,y:max,z:0},{x:index,y:max,z:max},green,2.4);line({x:index,y:max,z:max},{x:index,y:0,z:max},green,2.4);line({x:index,y:0,z:max},{x:index,y:0,z:0},green,2.4);
+          const tag=project(index,max,max);label('SHADOW PLATE · YZ',tag.x+8,tag.y-7,'left',green,'800 9px ui-monospace, monospace');
+        }
+        ctx.restore();
+      }
+      label(`PLATE TRIAD · BASE ${base} · ${plateCount}/${base} COMPLETED`,22,25,'left','#dbe6ff','700 12px ui-monospace, monospace');
+      label(`${plateCount} × ${area} = ${closure} · ${remaining?`${remaining} TO ${volume}`:`FULL ${base}³ = ${volume}`}`,22,45,'left','#9be8d2','700 10px ui-monospace, monospace');
+      label('three orthogonal leaf families · one address volume',w/2,h-20,'center','#8d9bb1','9px ui-monospace, monospace');label('drag to rotate',w-22,25,'right','#6f7b91');
+      const coupling=plateCoupling==='open'?'OPEN · THREE SEPARATE LEAVES':plateCoupling==='tablet'?'ACTIVE L / TABLET · XY + XZ':`SHADOW PLATE · YZ`;
+      detail.innerHTML=`<small>ORTHOGONAL PLATE COMPARATOR · GRAPH Δ0</small><h3>${closure}</h3><p><b>${plateCount} × ${base}² · ${plateCount===base?'FULL VOLUME':'PRE-CLOSURE'}</b></p><dl><dt>Base</dt><dd>${base}</dd><dt>Plate area</dt><dd>${base}² = ${area}</dd><dt>Completed</dt><dd>${plateCount} / ${base}</dd><dt>Volume</dt><dd>${base}³ = ${volume}</dd><dt>Remaining</dt><dd>${remaining}</dd><dt>Leaf XY</dt><dd>z = ${index} · TABLET ARM</dd><dt>Leaf XZ</dt><dd>y = ${index} · TABLET ARM</dd><dt>Tablet hinge</dt><dd>y=z=${index} · ${base} ADDRESSES</dd><dt>Leaf YZ</dt><dd>x = ${index} · SHADOW</dd><dt>Reading</dt><dd>${coupling}</dd><dt>Return</dt><dd>EXACT COUNT → ${closure}</dd></dl><p class="pc-detail-boundary"><b>ONE VOLUME, ACTIVE L, ONE SHADOW.</b><br>XY and XZ are read together as the active L / tablet; their exact intersection is the ${base}-address hinge line. YZ stays visible as the separate shadow plate. A projected hourglass may be laid over this carrier, but it remains a view. <code>G77</code> is the separate 7×11 CRT / Rath-grid adapter (77 cells), not the identity of this line. Cyan, magenta and gold are display roles only; green marks the selected reading. No new Cube identity is introduced. The separate 2501/5002 arithmetic is not assigned to this plate view. Base 12 does not extend or rename the Base‑11 Primecube.</p>`;
+    }
     function lineBetweenNumbers(from,to,addressFor,w,h,stroke,width=1.5,dash=[]){const aa=addressFor(from),bb=addressFor(to),a=project3(aa.x,aa.y,aa.z,w,h),b=project3(bb.x,bb.y,bb.z,w,h);ctx.save();ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.setLineDash(dash);ctx.stroke();ctx.restore()}
     function diamond(x,y,r,stroke,fill='transparent',width=1.5){ctx.beginPath();ctx.moveTo(x,y-r);ctx.lineTo(x+r,y);ctx.lineTo(x,y+r);ctx.lineTo(x-r,y);ctx.closePath();ctx.fillStyle=fill;ctx.fill();ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke()}
     function familyPin(node,p,scale=1){
@@ -102,7 +147,10 @@
     function draw3D(w,h,mode){
       const isFold=mode==='fold',isHinge=mode==='hinge',isTransform=isFold||isHinge,addressFor=n=>isFold?M.foldAddress(n,fold):isHinge?M.hingeAddress(n,fold):M.cubeAddress(n);
       cubeFrame(w,h);points=[];const projected=[];
-      if(filter==='seam'){
+      if(selectedDeck!==null&&mode==='cube'){
+        fillLayerDeck(selectedDeck,w,h);
+        for(let z=0;z<9;z++)layerPlane(z,w,h,z===selectedDeck);
+      }else if(filter==='seam'){
         for(let z=0;z<9;z++)layerPlane(z,w,h,Boolean(hover&&hover.layerClosure.isClosure&&hover.layerClosure.layerIndex===z));
         edge({x:10,y:10,z:0},{x:10,y:10,z:8},w,h,'rgba(25,201,154,.95)',2.2);
         const mid=project3(5,5,4,w,h);label('RDMH',mid.x,mid.y-5,'center','#ecfff9','700 16px ui-monospace, monospace');label('29.02.1972 · R / Handle',mid.x,mid.y+13,'center','#73dfc1','10px ui-monospace, monospace');label('OPEN PROVENANCE · NO DATE↔RDMH MAP',mid.x,mid.y+28,'center','#6f7b91','9px ui-monospace, monospace');
@@ -110,10 +158,24 @@
       if(isHinge){edge({x:0,y:5,z:5},{x:10,y:5,z:5},w,h,'rgba(240,85,73,.96)',2.6);const hp=project3(5,5,5,w,h);label('661 HINGE · y=5 · z=5',hp.x,hp.y-10,'center','#ff8d82','700 11px ui-monospace, monospace')}
       for(const node of data.nodes){const a=addressFor(node.n),p=project3(a.x,a.y,a.z,w,h);projected.push({node,p})}
       projected.sort((a,b)=>b.p.z-a.p.z);
-      for(const {node,p} of projected){const on=visible(node),kind=activeKind(node);ctx.beginPath();ctx.arc(p.x,p.y,on?(kind==='composite'?p.r*.62:p.r*1.35):p.r*.42,0,Math.PI*2);ctx.fillStyle=on?color(node):(node.isPrime?'rgba(79,141,247,.09)':'rgba(51,57,71,.14)');ctx.fill();if(node.inTwinClusterGap&&(filter==='gap'||isTransform)){ctx.strokeStyle='rgba(231,198,77,.72)';ctx.lineWidth=.8;ctx.stroke()}if(isHinge&&[659,661,809].includes(node.n)){ctx.strokeStyle=node.n===661?'#fff':'#ff8d82';ctx.lineWidth=node.n===661?2.2:1.3;ctx.stroke()}if(on)points.push({node,x:p.x,y:p.y,r:9,z:p.z})}
+      const deckLabels=[];
+      for(const {node,p} of projected){
+        const inDeck=selectedDeck===null||node.cube.z===selectedDeck,on=visible(node)&&inDeck,kind=activeKind(node),deckFocused=selectedDeck!==null&&node.cube.z===selectedDeck;
+        ctx.beginPath();ctx.arc(p.x,p.y,on?(deckFocused?(kind==='composite'?Math.max(1.8,p.r*.85):Math.max(2.5,p.r*1.55)):(kind==='composite'?p.r*.62:p.r*1.35)):p.r*(selectedDeck===null?.42:.24),0,Math.PI*2);
+        ctx.fillStyle=on?color(node):(node.isPrime?'rgba(79,141,247,.055)':'rgba(51,57,71,.085)');ctx.fill();
+        if(deckFocused&&node.isPrime){ctx.strokeStyle='rgba(219,235,255,.58)';ctx.lineWidth=.65;ctx.stroke()}
+        if(node.inTwinClusterGap&&(filter==='gap'||isTransform)){ctx.strokeStyle='rgba(231,198,77,.72)';ctx.lineWidth=.8;ctx.stroke()}
+        if(isHinge&&[659,661,809].includes(node.n)){ctx.strokeStyle=node.n===661?'#fff':'#ff8d82';ctx.lineWidth=node.n===661?2.2:1.3;ctx.stroke()}
+        if(on)points.push({node,x:p.x,y:p.y,r:deckFocused?11:9,z:p.z});
+        if(deckFocused&&(deckLabelMode==='all'||(deckLabelMode==='primes'&&node.isPrime)||node.layerClosure.isClosure))deckLabels.push({node,p});
+      }
+      if(selectedDeck!==null&&mode==='cube'){
+        for(const {node,p} of deckLabels){const isClosure=node.layerClosure.isClosure,fill=isClosure?'#9bf1d7':node.isPrime?'#f4f8ff':'#7f8ca2',font=isClosure||node.isPrime?'700 7px ui-monospace, monospace':'600 6px ui-monospace, monospace';label(String(node.n),p.x,p.y-4,'center',fill,font)}
+        const first=selectedDeck*121+1,last=Math.min((selectedDeck+1)*121,M.MAX_N);label(`DECK z${selectedDeck} · ${first}…${last} · ${last-first+1} ADDRESSES · NUMBERS ${deckLabelMode.toUpperCase()}`,22,48,'left','#9be8d2','700 10px ui-monospace, monospace');
+      }
       if(filter==='quadruplet'||filter==='all')for(const group of data.groups.quadruplets){ctx.beginPath();group.forEach((n,i)=>{const a=addressFor(n),p=project3(a.x,a.y,a.z,w,h);i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y)});ctx.strokeStyle='rgba(174,80,239,.78)';ctx.lineWidth=1.5;ctx.stroke()}
       if(mode==='cube')drawCoupledOrbitBarcode(w,h);
-      label(isFold?`distributed gap fold · θmax ${(fold*90).toFixed(0)}°`:isHinge?`rigid 661 hinge · θ ${(fold*90).toFixed(0)}° · upper n≥661`:'11 × 11 × 10 address carrier',22,25);
+      label(isFold?`distributed gap fold · θmax ${(fold*90).toFixed(0)}°`:isHinge?`rigid 661 hinge · θ ${(fold*90).toFixed(0)}° · upper n≥661`:selectedDeck===null?'11 × 11 × 10 address carrier':`11 × 11 DECK ${selectedDeck+1}/9 · closure ${(selectedDeck+1)*121}`,22,25);
       label('drag to rotate',w-22,25,'right','#6f7b91');
     }
     function drawOrientation(w,h){
@@ -282,7 +344,7 @@
     }
     function draw(){
       const w=canvas.clientWidth,h=canvas.clientHeight;ctx.clearRect(0,0,w,h);const g=ctx.createRadialGradient(w*.5,h*.48,10,w*.5,h*.48,Math.max(w,h)*.65);g.addColorStop(0,'#141b2a');g.addColorStop(1,'#080c14');ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
-      if(view==='grid')drawGrid(w,h);else if(view==='root')drawRoots(w,h);else if(view==='geometry')drawRootGeometry(w,h);else if(view==='qcube')drawQCube(w,h);else if(view==='measure')drawMeasure(w,h);else if(view==='slice')drawSlice(w,h);else if(view==='euler')drawEuler(w,h);else if(view==='orientation')drawOrientation(w,h);else draw3D(w,h,view);
+      if(view==='grid')drawGrid(w,h);else if(view==='root')drawRoots(w,h);else if(view==='geometry')drawRootGeometry(w,h);else if(view==='qcube')drawQCube(w,h);else if(view==='plates')drawPlateTriad(w,h);else if(view==='measure')drawMeasure(w,h);else if(view==='slice')drawSlice(w,h);else if(view==='euler')drawEuler(w,h);else if(view==='orientation')drawOrientation(w,h);else draw3D(w,h,view);
       if(hover){const p=points.find(q=>q.node.n===hover.n);if(p){ctx.beginPath();ctx.arc(p.x,p.y,11,0,Math.PI*2);ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke()}}
     }
 
@@ -326,8 +388,15 @@
     canvas.addEventListener('pointerup',e=>{drag=false;try{canvas.releasePointerCapture(e.pointerId)}catch(_){}});
     canvas.addEventListener('pointermove',e=>{if(drag){rotY+=(e.clientX-last.x)*.009;rotX+=(e.clientY-last.y)*.009;last={x:e.clientX,y:e.clientY};draw();return}const node=nearest(e);if(node&&(!hover||node.n!==hover.n))show(node)});
     canvas.addEventListener('click',e=>{const node=nearest(e);if(node)show(node)});
-    function setFilter(next){filter=next;root.querySelectorAll('[data-pc-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.pcFilter===next)));draw()}
-    function setView(next){view=next;root.querySelectorAll('[data-pc-view]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.pcView===next)));foldInput.disabled=!['fold','hinge','orientation','measure'].includes(view);if(sliceRail)sliceRail.hidden=view!=='slice';if(eulerRail)eulerRail.hidden=view!=='euler';if(measureRail)measureRail.hidden=view!=='measure';if(view==='slice'){const retained=hover&&hover.cube.z===sliceZ?hover:data.nodes[sliceZ===0?100:data.sliceAtlas.layers[sliceZ].min-1];show(retained)}else if(view==='euler')show(hover&&hover.isPrime?hover:data.nodes[660]);else if(view==='geometry')show(data.nodes[120]);else if(view==='qcube')show(data.nodes[0]);else if(view==='measure')show(data.nodes[96]);else show(view==='hinge'||view==='orientation'?data.nodes[660]:(hover||data.nodes[1]))}
+    function setFilter(next){if(next==='seam'){selectedDeck=null;root.querySelectorAll('[data-pc-seam]').forEach(x=>x.setAttribute('aria-pressed','false'))}filter=next;root.querySelectorAll('[data-pc-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.pcFilter===next)));draw()}
+    function selectDeck(n){
+      selectedDeck=data.nodes[n-1].cube.z;filter='all';view='cube';
+      root.querySelectorAll('[data-pc-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.pcFilter==='all')));
+      root.querySelectorAll('[data-pc-view]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.pcView==='cube')));
+      root.querySelectorAll('[data-pc-seam]').forEach(x=>x.setAttribute('aria-pressed',String(Number(x.dataset.pcSeam)===n)));
+      foldInput.disabled=true;show(data.nodes[n-1]);
+    }
+    function setView(next){view=next;root.querySelectorAll('[data-pc-view]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.pcView===next)));foldInput.disabled=!['fold','hinge','orientation','measure'].includes(view);if(sliceRail)sliceRail.hidden=view!=='slice';if(eulerRail)eulerRail.hidden=view!=='euler';if(measureRail)measureRail.hidden=view!=='measure';if(plateRail)plateRail.hidden=view!=='plates';if(view==='plates'){hover=null;draw()}else if(view==='slice'){const retained=hover&&hover.cube.z===sliceZ?hover:data.nodes[sliceZ===0?100:data.sliceAtlas.layers[sliceZ].min-1];show(retained)}else if(view==='euler')show(hover&&hover.isPrime?hover:data.nodes[660]);else if(view==='geometry')show(data.nodes[120]);else if(view==='qcube')show(data.nodes[0]);else if(view==='measure')show(data.nodes[96]);else show(view==='hinge'||view==='orientation'?data.nodes[660]:(hover||data.nodes[1]))}
     function showSeamShadow(){
       const s=data.seamShadow;hover=null;detail.innerHTML=`<small>EXTENDED ADDRESS · NO CARRIER RECORD</small><h3>${s.n} · shadow closure</h3><p><b>${s.role.replaceAll('_',' ')}</b></p><dl><dt>Value</dt><dd>${s.multiplier}×11²</dd><dt>37-grid</dt><dd>row ${s.grid.row}, col ${s.grid.column}</dd><dt>Extended cube</dt><dd>[${s.extendedCube.x}, ${s.extendedCube.y}, ${s.extendedCube.z}]</dd><dt>Base 11 n</dt><dd>${s.base11.number}<sub>11</sub></dd><dt>Address n−1</dt><dd>${s.base11.address}<sub>11</sub></dd><dt>Factors</dt><dd>${s.factorization}</dd><dt>Carrier end</dt><dd>${s.carrierMax}</dd><dt>Missing nodes</dt><dd>${s.missingFromCarrier}</dd><dt>Next full cube</dt><dd>${s.nextFullCubeClosure}=11³</dd></dl><p class="pc-detail-boundary"><b>SHADOW, NOT HIDDEN DATA.</b><br>${s.boundary}</p>`;draw();
     }
@@ -347,8 +416,12 @@
     }
     root.querySelectorAll('[data-pc-view]').forEach(btn=>btn.addEventListener('click',()=>setView(btn.dataset.pcView)));
     root.querySelectorAll('[data-pc-filter]').forEach(btn=>btn.addEventListener('click',()=>setFilter(btn.dataset.pcFilter)));
-    root.querySelectorAll('[data-pc-seam]').forEach(btn=>btn.addEventListener('click',()=>{const n=Number(btn.dataset.pcSeam);setFilter('seam');setView('cube');show(data.nodes[n-1])}));
-    root.querySelector('[data-pc-seam-shadow]')?.addEventListener('click',()=>{setFilter('seam');view='grid';root.querySelectorAll('[data-pc-view]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.pcView==='grid')));foldInput.disabled=true;showSeamShadow()});
+    root.querySelectorAll('[data-pc-seam]').forEach(btn=>btn.addEventListener('click',()=>selectDeck(Number(btn.dataset.pcSeam))));
+    root.querySelector('[data-pc-deck-labels]')?.addEventListener('click',event=>{deckLabelMode=deckLabelMode==='all'?'primes':deckLabelMode==='primes'?'off':'all';event.currentTarget.textContent=`Numbers · ${deckLabelMode}`;event.currentTarget.setAttribute('aria-pressed',String(deckLabelMode!=='off'));draw()});
+    root.querySelectorAll('[data-pc-plate-base]').forEach(btn=>btn.addEventListener('click',()=>{plateBase=Number(btn.dataset.pcPlateBase);plateCount=plateBase===11?10:12;plateCountInput.max=String(plateBase);plateCountInput.value=String(plateCount);root.querySelectorAll('[data-pc-plate-base]').forEach(x=>x.setAttribute('aria-pressed',String(x===btn)));plateOut.textContent=`${plateCount} × ${plateBase*plateBase} = ${plateCount*plateBase*plateBase}`;draw()}));
+    plateCountInput?.addEventListener('input',()=>{plateCount=Number(plateCountInput.value);plateOut.textContent=`${plateCount} × ${plateBase*plateBase} = ${plateCount*plateBase*plateBase}`;draw()});
+    root.querySelectorAll('[data-pc-plate-coupling]').forEach(btn=>btn.addEventListener('click',()=>{plateCoupling=btn.dataset.pcPlateCoupling;root.querySelectorAll('[data-pc-plate-coupling]').forEach(x=>x.setAttribute('aria-pressed',String(x===btn)));draw()}));
+    root.querySelector('[data-pc-seam-shadow]')?.addEventListener('click',()=>{selectedDeck=null;root.querySelectorAll('[data-pc-seam]').forEach(x=>x.setAttribute('aria-pressed','false'));setFilter('seam');view='grid';root.querySelectorAll('[data-pc-view]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.pcView==='grid')));foldInput.disabled=true;showSeamShadow()});
     root.querySelectorAll('[data-pc-slice]').forEach(btn=>btn.addEventListener('click',()=>{sliceZ=Number(btn.dataset.pcSlice);root.querySelectorAll('[data-pc-slice]').forEach(x=>x.setAttribute('aria-pressed',String(x===btn)));setView('slice')}));
     root.querySelectorAll('[data-pc-euler]').forEach(btn=>btn.addEventListener('click',()=>{eulerMode=btn.dataset.pcEuler;root.querySelectorAll('[data-pc-euler]').forEach(x=>x.setAttribute('aria-pressed',String(x===btn)));setView('euler')}));
     root.querySelectorAll('[data-pc-measure-marker]').forEach(btn=>btn.addEventListener('click',()=>{measureMarker=Number(btn.dataset.pcMeasureMarker);root.querySelectorAll('[data-pc-measure-marker]').forEach(x=>x.setAttribute('aria-pressed',String(x===btn)));show(data.nodes[96])}));
@@ -364,7 +437,7 @@
     root.querySelector('[data-pc-reset]').addEventListener('click',()=>{rotX=.56;rotY=-.68;fold=.4;foldInput.value='40';foldOut.textContent='40% · 36°';if(view==='slice'){sliceZ=0;root.querySelectorAll('[data-pc-slice]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.pcSlice==='0')));show(data.nodes[100])}else draw()});
     summary.innerHTML=`<b>${data.counts.primes}</b> primes · <b>${data.counts.twins}</b> twins · <b>${data.counts.triplets}</b> triplets · <b>${data.counts.quadruplets}</b> quadruplets · <b>${data.counts.superprimes}</b> superprimes · <b>${data.counts.layerClosures}</b> 11² seams`;
     renderContractAudit();renderHPath();show(data.nodes[786]);foldInput.disabled=true;new ResizeObserver(resize).observe(canvas);resize();if(demoCanvas){new ResizeObserver(drawOrbitDemonstrator).observe(demoCanvas);drawOrbitDemonstrator()}
-    root.primecube={data,draw,show,snapshot:()=>({view,filter,sliceZ,eulerMode,measureMarker,measureUnit,fold,hover:hover&&hover.n})};
+    root.primecube={data,draw,show,snapshot:()=>({view,filter,sliceZ,selectedDeck,deckLabelMode,plateBase,plateCount,plateCoupling,eulerMode,measureMarker,measureUnit,fold,hover:hover&&hover.n})};
   }
   win.addEventListener('DOMContentLoaded',()=>document.querySelectorAll('[data-primecube]').forEach(mount));
 })(window);

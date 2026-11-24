@@ -1,0 +1,35 @@
+{
+  "schema": "nexah.a0.4774-ncs292-return-seam-result/1.1.0",
+  "date": "2026-11-23",
+  "status": "PASS_SOURCE_BOUND_NO_ADMISSION",
+  "surface": "A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html#return-seam-4774",
+  "identity_reuse": ["FESN:4774", "MOD:NUMBER_VIEW_SUITE", "ART:A0:MATHEMATICAL_JOINTS", "A0OE:PASCAL_PENTAGON_D5_TEST"],
+  "exact": {
+    "factorization": "4774=2*7*11*31",
+    "half_sum": "47+74=121=11^2",
+    "half_difference": "74-47=27=3^3",
+    "matrix": [[4, 7], [7, 4]],
+    "trace": 8,
+    "determinant": -33,
+    "eigenvalues": [11, -3],
+    "block_swap": "S2(47|74)=74|47; S2^2=id",
+    "block_swap_target_factorization": "7447=11*677",
+    "moire_display": {"line_families": [47, 74], "total": 121, "difference_parameter": 27},
+    "mirror_comparator": {"forward": "9119=11*829", "swapped": "1991=11*181", "operator": "S2"},
+    "display_return_steps": 4,
+    "prime_293_rank": 62,
+    "cube_293": [6, 4, 2],
+    "cube_292": [5, 4, 2]
+  },
+  "boundaries": {
+    "memory": "LOSSY_MANY_TO_ONE_VIEW_NOT_WHOLE_RECONSTRUCTION",
+    "ncs": "293_TO_292_PREDECESSOR_VIEW_IS_NOT_RECOVERED_NCS_TRANSLATION",
+    "hopf": "HOLD_NO_S3_TO_S2_OR_S1_FIBRES_DERIVED",
+    "screen": "SIX_LIGHT_PLUS_SIX_DARK_IS_OWNER_COUNT_NOT_PHYSICAL_INVARIANT",
+    "moire": "CONSTRUCTED_DISPLAY_CONTRAST_ONLY_NOT_PHYSICAL_SCHLIEREN_OR_RESONANCE",
+    "mirror_9119": "SEPARATE_EXACT_COMPARATOR_NOT_FESN_4774_IDENTITY"
+  },
+  "tests": {"primecube": {"passed": 671, "total": 671}, "source_records": 52, "hashes_match": true, "navigator_app": {"passed": 255, "total": 255}, "mission_control_projection": {"status": "PASS", "components": 21}, "source_graph": {"status": "PASS", "base": "329/29", "composed": "332/32", "new_failures": 0}},
+  "navigator_effect": {"new_identities": 0, "new_relations": 0, "new_aliases": 0, "new_studies": 0, "new_findings": 0, "new_publications": 0},
+  "publication_authorized": false
+}

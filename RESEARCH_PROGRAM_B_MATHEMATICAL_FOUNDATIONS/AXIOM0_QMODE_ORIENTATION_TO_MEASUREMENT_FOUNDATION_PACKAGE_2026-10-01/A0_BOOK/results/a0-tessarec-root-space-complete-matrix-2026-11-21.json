@@ -1,0 +1,45 @@
+{
+  "schema": "nexah.a0.tessarec-root-space-complete-matrix-result/1",
+  "date": "2026-11-21",
+  "status": "PASS",
+  "identity": {
+    "module": "MOD:TESSAREC",
+    "artifact": "ART:TESSAREC:ROOT_SPACE_8_16",
+    "effect": "REUSE_EXTEND_NO_NEW_IDENTITY_NO_NEW_RELATION"
+  },
+  "carrier": {
+    "roots": [2, 3, 5, 7],
+    "vertex_count": 16,
+    "edge_count": 32,
+    "degree": 4,
+    "gram_diagonal": [2, 3, 5, 7],
+    "opposite_corner_distance_squared": 17,
+    "raw_geometry": "FOUR_DIMENSIONAL_ROOT_ORTHOTOPE",
+    "normalized_geometry": "Q4_TESSERACT"
+  },
+  "in_between": {
+    "open_cell": "(0,sqrt(2)) x (0,sqrt(3)) x (0,sqrt(5)) x (0,sqrt(7))",
+    "dimension": 4,
+    "boundary": "CONTINUUM_INTERIOR_NOT_A_NEW_NUMBER_TYPE_NOT_A_LITERAL_GAP_IN_R"
+  },
+  "algebraic_crosscheck": {
+    "field": "Q(sqrt(2),sqrt(3),sqrt(5),sqrt(7))",
+    "degree": 16,
+    "boundary": "FIELD_BASIS_AND_Q4_VERTEX_SET_HAVE_EQUAL_COUNTS_BUT_ARE_DIFFERENT_OBJECTS"
+  },
+  "verification": {
+    "command": "node A0_BOOK/a0-tessarec-root-space-matrix-tests.cjs",
+    "assertions": 643,
+    "result": "PASS"
+  },
+  "graph_delta": {
+    "identities": 0,
+    "relations": 0,
+    "aliases": 0,
+    "studies": 0,
+    "findings": 0,
+    "claim_promotions": 0,
+    "publications": 0
+  },
+  "claim_boundary": "Finite geometry and algebraic bookkeeping only; no natural preferred geometry, time quantum, unit conversion, resonance, physical motion or universal mechanism."
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "nexah.a0.orange-packing-boundary-return/1.0.0",
+  "date": "2026-11-23",
+  "status": "PASS_WITH_PREEXISTING_SOURCE_GRAPH_FAILURE",
+  "host": "A0_BOUNDARY_GRAPH_DEMONSTRATOR.html#orange-packing-ladder",
+  "identity_reuse": [
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "dimension_ladder": [8, 16, 24],
+  "equations": {
+    "e8": "8 = 2^3",
+    "missing_midpoint": "16 = 2 * 2^3",
+    "three_block_staging": "24 = 3 * 2^3",
+    "notation_control_1": "(2^3)^2 / 2 = 32",
+    "notation_control_2": "2^(3^2) / 2 = 256"
+  },
+  "claim_boundary": {
+    "dimension_8": "E8_PROVEN_OPTIMAL_KISSING_NUMBER_240",
+    "dimension_16": "TWO_E8_BLOCK_CONTROL_NO_OPTIMALITY_CLAIM",
+    "dimension_24_staging": "E8_DIRECT_SUM_CUBED_HAS_ROOTS_NOT_LEECH",
+    "dimension_24_leech": "LEECH_PROVEN_OPTIMAL_ROOTLESS_KISSING_NUMBER_196560",
+    "identity_guard": "E8_CUBED_NOT_EQUAL_TO_LEECH",
+    "comparator_scope": "DN_HOLE_COMPARISON_LOCAL_TO_DECLARED_CONSTRUCTION"
+  },
+  "graph_delta": {
+    "entities": 0,
+    "relations": 0,
+    "aliases": 0,
+    "studies": 0,
+    "findings": 0
+  },
+  "files": {
+    "A0_BOUNDARY_GRAPH_DEMONSTRATOR.html": "9217ed3bc4980cc367c752a7b612975bb924826095aae9d578b1e591feaecd3c",
+    "a0-orange-packing-ladder.js": "710a330f23097c660ca8f83a1a2c9b6dd054901f08b7d1f7f3fc762c28d24d0e",
+    "a0-orange-packing-ladder.css": "6b314934537ab7366b94b70b2e7a31e436afef72e0b9e7b8c2ffceac94b6a6ba",
+    "a0-orange-packing-ladder-tests.cjs": "63d4632d1463bf525b38434c24f45a5969b9df891c186c59365eedaceb4ed297"
+  },
+  "owner_sources": {
+    "orange_packing_transcript": "c98f1b3b3f713fc01032595cc1b8dfff888bdaa6bbb722c60031f6ee1105715e",
+    "boundary_module_screenshot": "0d532d6b7ebbbf6c700a4c86f0960f787a0e2fe2998031427641a344e05f5c3c",
+    "ledger_screenshot": "818303e617a2e0eb4bb898942cb546c1a14d80ee23637a4ae55c069fb8769b2c"
+  },
+  "tests": {
+    "orange_packing_ladder": "14/14 PASS",
+    "boundary_grid_atlas_regression": "147/147 PASS",
+    "point_line_topology_regression": "38/38 PASS",
+    "javascript_syntax": "PASS",
+    "mission_control_projection": "PASS_21_COMPONENTS",
+    "navigator_app_audit": "255/255 PASS",
+    "source_graph": "EXPECTED_FAIL_ONLY_RED_BALLOON_BASE_329_29_COMPOSED_332_32"
+  },
+  "primary_sources": [
+    "https://arxiv.org/abs/1603.04246",
+    "https://arxiv.org/abs/1603.06518",
+    "https://arxiv.org/abs/2311.18309"
+  ],
+  "known_external_failure": "Red Balloon canonical source hash matches"
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "nexah.a0.prime-torus-thread-demonstrator/2",
+  "date": "2026-11-21",
+  "carrier": {
+    "limit": 1000,
+    "prime_count": 168,
+    "transition_count": 167,
+    "moduli": [7, 11]
+  },
+  "grid": {
+    "full_nodes": 77,
+    "full_cells": 60,
+    "unit_nodes": 60,
+    "unit_cell_columns": 5,
+    "unit_cell_rows": 9,
+    "unit_cells": 45,
+    "inner_unit_nodes": 32,
+    "zero_frame_addresses": 17,
+    "normalized_pitch": [0.3333333333333333, 0.2]
+  },
+  "default_thread": {
+    "index": 4,
+    "from_prime": 7,
+    "to_prime": 11,
+    "from_residue": [0, 7],
+    "to_residue": [4, 0],
+    "raw_delta": [4, -7],
+    "wrapped_delta": [-3, 4]
+  },
+  "euler_audit": {
+    "unit_prime_transitions": 162,
+    "unique_undirected_edges": 135,
+    "repeated_prime_traversals": 27,
+    "odd_degree_vertices_after_edge_collapse": 24,
+    "construction": "EVERY_UNIQUE_EDGE_DOUBLED_NON_MINIMAL",
+    "audit_transition_count": 270,
+    "closed": true,
+    "algorithm": "HIERHOLZER"
+  },
+  "interpretation_boundary": {
+    "wobble": "VIEW_ONLY_ENDPOINTS_EXACT",
+    "directions": "CHART_COORDINATES_NOT_CUBE_EMBEDDING",
+    "topology": "PERIODIC_QUOTIENT_VIEW_NOT_PHYSICAL_THREAD_MODEL",
+    "claim": "FINITE_DEMONSTRATOR_NO_NEW_PRIME_THEORY",
+    "euler": "COMPUTED_VIEW_LENS_NOT_SHORTEST_EULERIZATION_CLAIM"
+  },
+  "identity_reuse": [
+    "NEXAH:PBM:V1",
+    "PBM:MOD7",
+    "PBM:MOD11",
+    "PBM:MOD77",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "new_identity": false,
+  "new_relation": false,
+  "publication_authorized": false
+}

@@ -1,13 +1,15 @@
 {
   "schema": "nexah.a0.source-binding/1.0.0",
-  "record_id": "A0-PRIMECUBE-GAP-FOLD-20261121-R10",
+  "record_id": "A0-PRIMECUBE-GAP-FOLD-20261121-R14",
   "status": "SOURCE_BOUND_ENGINEERING_VIEW_NO_ADMISSION",
   "surface": "A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html",
   "identity_reuse": [
     "MOD:NUMBER_VIEW_SUITE",
     "ART:A0:MATHEMATICAL_JOINTS",
     "A0:ROOTROOM_CODON_ORIENTATION_RETURN:V1",
-    "ART:ROSETTA:QRT_FIXTURE"
+    "ART:ROSETTA:QRT_FIXTURE",
+    "FESN:4774",
+    "A0OE:PASCAL_PENTAGON_D5_TEST"
   ],
   "custody_resolution": {
     "status": "CLOSED_BY_OWNER_APPROVED_FORMAL_SUPERSESSION",
@@ -68,14 +70,26 @@
     {
       "role": "retained Primecube surface formally superseding missing owner screenshot 4; not a byte-identical reconstruction",
       "path": "A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html",
-      "sha256": "adc7c1e7d302f06895620122cecd4a797cb689d41b4677d78a8101042fcc6394",
+      "sha256": "eb71009adac8982ede1bf417ac1065a75a966c87bb5fd9b1880043c2fd5cda42",
       "authority": "OWNER_APPROVED_FORMAL_SUPERSESSION"
     },
     {
       "role": "retained deterministic Primecube model formally superseding missing owner screenshot 5; not a byte-identical reconstruction",
       "path": "A0_BOOK/a0-primecube-model.js",
-      "sha256": "2ae9d970c325c6451188f62ae400b9a5f2afb1be80b8e1a6a8830f10634cf814",
+      "sha256": "cd0eb8f8635a03887c036ea8e46681474eba6391521489346366bee2d59dea7f",
       "authority": "OWNER_APPROVED_FORMAL_SUPERSESSION"
+    },
+    {
+      "role": "source-bound view-invariance audit renderer; ILAU matrix and destruction controls",
+      "path": "A0_BOOK/a0-primecube-view-invariance-audit.js",
+      "sha256": "ae2202e975af264e0fc20780b55896aa34e66df193f8efc46b0439cbc1fa048a",
+      "authority": "A0_EXISTING_ENGINEERING_MODEL"
+    },
+    {
+      "role": "view-invariance audit presentation layer",
+      "path": "A0_BOOK/a0-primecube-view-invariance-audit.css",
+      "sha256": "d4e8b6d4b0b0fe1f6baa93d00ae511583c73124bc8b17953d6e5202363ea90ab",
+      "authority": "A0_EXISTING_ENGINEERING_MODEL"
     },
     {
       "role": "owner supplied Base-11 layer-closure assessment; corrected and bounded before use",
@@ -86,7 +100,7 @@
     {
       "role": "retained Primecube interface implementation formally superseding missing 726 image witness; recovered prompt remains separately bound",
       "path": "A0_BOOK/a0-primecube-ui.js",
-      "sha256": "aa0ad1629872fab5d41f3f63e6d812d0dbe1641a4c763544e63a02200cac6e14",
+      "sha256": "ee68613867610163bd0d7761a8abb8a086c0aa43b440b0dbfe0fdbc8d9b001bd",
       "authority": "OWNER_APPROVED_FORMAL_SUPERSESSION"
     },
     {
@@ -144,10 +158,202 @@
       "authority": "OWNER_VISUAL"
     },
     {
+      "role": "owner Zirkel source visual 1 of 8; Zeta butterfly role graph; labels retained as source content and not adopted as resonance evidence",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/5/5C10D4B8-6F8F-4236-95EC-811807DB30E4_1_102_o.jpeg",
+      "sha256": "cd72693a3c33476718e6c0fa7f0070ef5a8e2f78eff871b5938a6c187d1b0be7",
+      "authority": "OWNER_VISUAL_SOURCE_WITNESS"
+    },
+    {
+      "role": "owner Zirkel source visual 2 of 8; number and role table; arithmetic independently checked before use",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/masters/0/0325D7A7-F32C-4E09-8061-E67D6B871B92_4_5005_c.jpeg",
+      "sha256": "ed0414fe7a3bee6ae19c4f21f69275a3b901b3cc754f03346bea5367204885e7",
+      "authority": "OWNER_VISUAL_SOURCE_WITNESS"
+    },
+    {
+      "role": "owner Zirkel source visual 3 of 8; polar bar view; raw value radius and role labels are display encodings",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/E/E980CC38-10D6-4E1A-AF32-6B45A367BC9B_1_102_o.jpeg",
+      "sha256": "7cfbf57f2cd0869db5edd130f5231b1e0d907f79bf009c8783dec1b7993e4d63",
+      "authority": "OWNER_VISUAL_SOURCE_WITNESS"
+    },
+    {
+      "role": "owner Zirkel source visual 4 of 8; linear bar comparator; value magnitude is not a resonance measure",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/F/FDB2835E-693E-402F-9A59-8ED513BF49BF_1_102_o.jpeg",
+      "sha256": "295be0d51e52e1acfacee6231d500b630849fe498bae88b77453fb85b2113628",
+      "authority": "OWNER_VISUAL_SOURCE_WITNESS"
+    },
+    {
+      "role": "owner Zirkel source visual 5 of 8; early 11-role field with duplicate 8 label; superseded locally by explicit 8 9 10 11 roles",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/C/C4C7DC1D-5F53-443F-80F6-39F5C538CCAA_1_102_o.jpeg",
+      "sha256": "72258c65883b2b3e798af841406f37776ac2bfe992118869b7e6aa2b5d77b7db",
+      "authority": "OWNER_VISUAL_SOURCE_WITNESS"
+    },
+    {
+      "role": "owner Zirkel source visual 6 of 8; synthetic Freeflow curves; no measured dynamics or physical impact adopted",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/A/A135E814-2AC1-49C6-B624-9FF7AFAD7B04_1_102_o.jpeg",
+      "sha256": "2f00042f24a72460c0428ac3e4bf1938f7d270dfbc62b1ddafc572aa03ca0864",
+      "authority": "OWNER_VISUAL_SOURCE_WITNESS"
+    },
+    {
+      "role": "owner Zirkel source visual 7 of 8; activated Black Line state with observed edges 8 to 10 and 8 to 11",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/D/D5507F3D-1E0D-48CC-83F0-72EAD1AD0615_1_102_o.jpeg",
+      "sha256": "db04d9c7d4f28378f70b434f1072cab1a856bb8a411c5fbeb233cbb74ced6730",
+      "authority": "OWNER_VISUAL_SOURCE_WITNESS"
+    },
+    {
+      "role": "owner Zirkel source visual 8 of 8; idle Black Line animation state with explicit 7 plus 1 plus 3 labels",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/E/E3BE7F98-B828-4DD4-A7E9-E95C82C9DF71_1_102_o.jpeg",
+      "sha256": "7560fbb7d7bad2b7eecebfcfc19ceba8add3b149f956dcb51f264e6ec737dfc0",
+      "authority": "OWNER_VISUAL_SOURCE_WITNESS"
+    },
+    {
       "role": "existing Prime Torus 7x11 and doubled Euler audit operator reused by Euler Compass",
       "path": "A0_BOOK/a0-prime-torus-thread-demonstrator.js",
       "sha256": "9fb127401ea6fff92338080623ed2e03bfc08d0183faf11ee892f39ae3acb385",
       "authority": "A0_EXISTING_ENGINEERING_MODEL"
+    },
+    {
+      "role": "bounded Primecube Control Plane coupling, exhaustive controls, Origami transport, Zirkel, center-13/5040, 1025 quantization seam, carrier-switch and calendar comparators",
+      "path": "A0_BOOK/a0-primecube-control-plane-coupling.js",
+      "sha256": "cba4d4d9ee4d9415bcedbad2e0dfdd5c05e2ece9efb82316ccf49e253cb9b26e",
+      "authority": "A0_EXISTING_IDENTITY_ENGINEERING_EXTENSION"
+    },
+    {
+      "role": "interactive Control Plane renderer with Origami transport, Zirkel, 1025 quantization receipt, carrier-switch and bounded calendar controls",
+      "path": "A0_BOOK/a0-primecube-control-plane-ui.js",
+      "sha256": "8ce57ae93edc4c903dcd6d8e8398b665de80968237b5f7c16ecfe4ab3c515e62",
+      "authority": "A0_EXISTING_IDENTITY_INTERFACE_EXTENSION"
+    },
+    {
+      "role": "Primecube Control Plane presentation stylesheet",
+      "path": "A0_BOOK/a0-primecube-control-plane.css",
+      "sha256": "5f0abcbcdf2a58ae6541e50e60e8885afbd7cbde064b21b9d1ae034642e45b1c",
+      "authority": "A0_EXISTING_IDENTITY_INTERFACE_EXTENSION"
+    },
+    {
+      "role": "owner numeric receipt witness for address 1025 and the displayed floating channel value normalized by the bounded 1/1200 raster comparator",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/masters/C/CD7AC699-9CCA-491D-8899-D06037D7A012_4_5005_c.jpeg",
+      "sha256": "028cd6ff30d9064904e8e1fc9a7650b35c394482da8c1d871f233baa3a3cb360",
+      "authority": "OWNER_VISUAL_SOURCE_WITNESS"
+    },
+    {
+      "role": "owner Primecube 101-handle and mod-11 rail interface witness; arithmetic rechecked before extension",
+      "path": "/var/folders/3d/xzcg7l8n4kv1fk25bbmfgzx40000gn/T/TemporaryItems/NSIRD_screencaptureui_kIsV5R/Screenshot 2026-11-23 at 3.44.17 PM.png",
+      "sha256": "5f7dceae92e377a63463e03a8f2c28a8e9fba84de39c43b64a76d2353d0cef02",
+      "authority": "OWNER_VISUAL_SOURCE_WITNESS"
+    },
+    {
+      "role": "complete mod-11 rotor renderer and 101-handle view",
+      "path": "A0_BOOK/a0-primecube-fractal-field.js",
+      "sha256": "b501a809f234987c6d06cce4542d3bd71986f321c53ef96d65db5fa464c5fbbe",
+      "authority": "A0_EXISTING_IDENTITY_INTERFACE_EXTENSION"
+    },
+    {
+      "role": "Primecube rotor and typed 8/9 control presentation stylesheet",
+      "path": "A0_BOOK/a0-primecube-rotor.css",
+      "sha256": "0e815433cebf0647a4e8762f8bf3b57acd0f65118ffe3f724a04aba12fda3d1c",
+      "authority": "A0_EXISTING_IDENTITY_INTERFACE_EXTENSION"
+    },
+    {
+      "role": "interactive 101-handle mod-11 rotor and typed control demonstrator",
+      "path": "A0_BOOK/a0-primecube-rotor-demonstrator.js",
+      "sha256": "a5ee0ba48794189a9ad5b479a5c8e4ae734f0ca1af590f11a39585aad29280c1",
+      "authority": "A0_EXISTING_IDENTITY_INTERFACE_EXTENSION"
+    },
+    {
+      "role": "deterministic Primecube rotor demonstrator contract tests",
+      "path": "A0_BOOK/a0-primecube-rotor-demonstrator-tests.cjs",
+      "sha256": "31c1062499bf2a29d2fbf4a8ed35fc3a9e741cb54a8b581c1c3ce1f2c5f89d84",
+      "authority": "A0_EXISTING_IDENTITY_INTERFACE_EXTENSION"
+    },
+    {
+      "role": "owner Al-Jabr 101-mask top-view witness motivating the local 1 i j k axis overlay",
+      "path": "/var/folders/3d/xzcg7l8n4kv1fk25bbmfgzx40000gn/T/TemporaryItems/NSIRD_screencaptureui_wyGS63/Screenshot 2026-11-23 at 4.14.34 PM.png",
+      "sha256": "545b1f741caa47345dc7dee88a2a6851990ea817c8b474dca3fbfd6ef6c723c3",
+      "authority": "OWNER_VISUAL_SOURCE_WITNESS"
+    },
+    {
+      "role": "existing Q4 joint audit supplying the exact Durer planar and Khajuraho toroidal 4 by 4 view plates",
+      "path": "A0_BOOK/A0_Q4_MAGIC_SQUARE_JOINT_AUDIT.html",
+      "sha256": "ee86577110d4252e13df178b6de86c8a1c9429ea20bbf091630f2fe318a8eb5f",
+      "authority": "A0_EXISTING_IDENTITY_ENGINEERING_SOURCE"
+    },
+    {
+      "role": "interactive Al-Jabr one-carrier top side and dual-Q4-view-plate renderer",
+      "path": "A0_BOOK/a0-primecube-aljabr-dot.js",
+      "sha256": "c2a4fbe8c674bb0fee5263184fe1ad33b9f326f6703c918018704f63fb1498b5",
+      "authority": "A0_EXISTING_IDENTITY_INTERFACE_EXTENSION"
+    },
+    {
+      "role": "Al-Jabr typed dot one-carrier and dual-Q4-view-plate presentation stylesheet",
+      "path": "A0_BOOK/a0-primecube-aljabr-dot.css",
+      "sha256": "a1c2085bc239567cdf6bc2e0a46b9a018a02d9233ba1a98ecde1efdcf9e5dda6",
+      "authority": "A0_EXISTING_IDENTITY_INTERFACE_EXTENSION"
+    },
+    {
+      "role": "A0 Science Desk return retaining FESN 4774 and explicitly withholding Hopf transfer",
+      "path": "A0_BOOK/A0_MA_PI_J_MIRROR_PROOF_LOOP_SCIENCE_DESK_RETURN_2026-11-11.md",
+      "sha256": "aa8c78384518b9b29fe2292476c20dfb4578da99a6c582139951075ad7436492",
+      "authority": "A0_SCIENCE_DESK_BOUNDARY_RETURN"
+    },
+    {
+      "role": "existing FESN 4774 executable seam record and four-step orientation return",
+      "path": "A0_BOOK/a0-game-of-numbers-model.js",
+      "sha256": "e321ad3d8cc58d8c494793f0c36270a6723ee00193312c4e242c68e66fa92f83",
+      "authority": "A0_EXISTING_IDENTITY_MODEL"
+    },
+    {
+      "role": "recovered NCS 292 operator result separating common translation from proposed 293 predecessor view",
+      "path": "/Users/tho2020/Documents/NEXAH ECOSYSTEM/10 NEXAH CORE/NEXAH/RESEARCH/NOTES/PASCAL_PENTAGON_D5_TEST_2026-10-10/PASCAL_ROSETTA_JOINT_DESIGN_2026-10-11/NCS_292_Q106_INTERTWINER_RETURN_PACKAGE_2026-10-11/RESULT.json",
+      "sha256": "303e299694ebad23c422f2400532a521adc2e24a28686fc4a9d75cca162f6b0b",
+      "authority": "NCS_292_EXISTING_FORMAL_RETURN"
+    },
+    {
+      "role": "interactive FESN 4774 whole memory punctuation and NCS comparator renderer",
+      "path": "A0_BOOK/a0-primecube-4774-return-seam.js",
+      "sha256": "5e88901f4eb07ed6a67ad95529164a2c1b8d4e49f1111e8a7b9f077a893c80c0",
+      "authority": "A0_EXISTING_IDENTITY_INTERFACE_EXTENSION"
+    },
+    {
+      "role": "FESN 4774 return-seam demonstrator presentation stylesheet",
+      "path": "A0_BOOK/a0-primecube-4774-return-seam.css",
+      "sha256": "6cbe3f11a935ec52bf3071f9ee9cfa1dc75fa56de5e88d227e67dbdb935c0d1f",
+      "authority": "A0_EXISTING_IDENTITY_INTERFACE_EXTENSION"
+    },
+    {
+      "role": "owner v9.8 Mandelbrot Euler lattice and NCS 292 concept plate; visual intake only",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/3/3150E701-7D6B-4119-A384-B7042A571E40_1_102_o.jpeg",
+      "sha256": "b6ce3ff88514ec7b48aab233314aeef8031963e542d0714c4c74300764b12d05",
+      "authority": "OWNER_VISUAL_SOURCE_WITNESS_NOT_INSTRUCTION"
+    },
+    {
+      "role": "owner Root Cube twelve-fold and NCS 292 concept plot; visual intake only",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/6/663F43C1-8B22-4BF8-AC51-5BD58E4FF772_1_102_o.jpeg",
+      "sha256": "b909c6f171c1ad18feb7e8f97ec67195816f12ef959a438d559bfdbab9f3a149",
+      "authority": "OWNER_VISUAL_SOURCE_WITNESS_NOT_INSTRUCTION"
+    },
+    {
+      "role": "owner Transition Gap and Root Thread concept card; visual intake only",
+      "path": "/Users/tho2020/Pictures/Photos Library.photoslibrary/resources/derivatives/0/02C39F60-9932-4856-B519-8541CCFFCFB2_1_105_c.jpeg",
+      "sha256": "88424557ced01372b86c7894e5bb0435b05f32ab0d27fc0edf53ed7ceb989de5",
+      "authority": "OWNER_VISUAL_SOURCE_WITNESS_NOT_INSTRUCTION"
+    },
+    {
+      "role": "owner eight-glyph morphology register witness",
+      "path": "/Users/tho2020/Desktop/Screenshot 2026-11-23 at 5.12.31 PM.png",
+      "sha256": "e49a495413bc5b23aab0744b41cd578c25e2c3851f42b78a25c3996ca55d630a",
+      "authority": "OWNER_VISUAL_SOURCE_WITNESS_NOT_INSTRUCTION"
+    },
+    {
+      "role": "interactive Draft Drift Housing six-gate renderer",
+      "path": "A0_BOOK/a0-primecube-draft-drift-housing.js",
+      "sha256": "78073fb1f4f29b8452f72df728ab02e261b7e65f9945aa8049cd92ddb6220322",
+      "authority": "A0_EXISTING_IDENTITY_INTERFACE_EXTENSION"
+    },
+    {
+      "role": "Draft Drift Housing six-gate presentation stylesheet",
+      "path": "A0_BOOK/a0-primecube-draft-drift-housing.css",
+      "sha256": "a85458e596b8835ff41d6f10635ad5677512286066b423ecce89c339bd062e49",
+      "authority": "A0_EXISTING_IDENTITY_INTERFACE_EXTENSION"
     }
   ],
   "owner_visuals": [
@@ -164,7 +370,21 @@
     "cb1e3dd9f8ff33b3c7983c93801ee08812e5d976598f7255b99a5748a11e1ff2",
     "d5f24b972851b8199f833d7a858e9711b4bdc2a533f9274ac3f2b264b340d7e0",
     "4ed4c949a996af85d500ba2bf2e8d22245f45d6e3e9d5902109a1507906323b7",
-    "dba535531a1da20c4f44b1ba7ca533e845f111bf86e485378499333cb9fafd68"
+    "dba535531a1da20c4f44b1ba7ca533e845f111bf86e485378499333cb9fafd68",
+    "cd72693a3c33476718e6c0fa7f0070ef5a8e2f78eff871b5938a6c187d1b0be7",
+    "ed0414fe7a3bee6ae19c4f21f69275a3b901b3cc754f03346bea5367204885e7",
+    "7cfbf57f2cd0869db5edd130f5231b1e0d907f79bf009c8783dec1b7993e4d63",
+    "295be0d51e52e1acfacee6231d500b630849fe498bae88b77453fb85b2113628",
+    "72258c65883b2b3e798af841406f37776ac2bfe992118869b7e6aa2b5d77b7db",
+    "2f00042f24a72460c0428ac3e4bf1938f7d270dfbc62b1ddafc572aa03ca0864",
+    "db04d9c7d4f28378f70b434f1072cab1a856bb8a411c5fbeb233cbb74ced6730",
+    "7560fbb7d7bad2b7eecebfcfc19ceba8add3b149f956dcb51f264e6ec737dfc0"
+    ,"5f7dceae92e377a63463e03a8f2c28a8e9fba84de39c43b64a76d2353d0cef02"
+    ,"545b1f741caa47345dc7dee88a2a6851990ea817c8b474dca3fbfd6ef6c723c3"
+    ,"b6ce3ff88514ec7b48aab233314aeef8031963e542d0714c4c74300764b12d05"
+    ,"b909c6f171c1ad18feb7e8f97ec67195816f12ef959a438d559bfdbab9f3a149"
+    ,"88424557ced01372b86c7894e5bb0435b05f32ab0d27fc0edf53ed7ceb989de5"
+    ,"e49a495413bc5b23aab0744b41cd578c25e2c3851f42b78a25c3996ca55d630a"
   ],
   "corrections": {
     "triplet_count": {
@@ -497,6 +717,15 @@
     "new_relations": 0,
     "new_aliases": 0,
     "canonical_count_change": false
+  },
+  "control_plane_extension": {
+    "date": "2026-11-23",
+    "status": "SOURCE_BOUND_UI_AND_EXHAUSTIVE_FINITE_CONTROLS",
+    "surface_anchor": "#primecube-control-plane",
+    "exact_positive": ["Q60 x LOKI56 x Fold2 first joint return at 840", "T20^10 and T20^50 are the two order-six T20 orientations", "C6 rotation plus retained Fold satisfies F R F = R^-1", "D6 reflection chamber is pi/6", "720 equals phi(1001) and advances LOKI by minus eight modulo 56", "seven 720 windows equal six 840 returns at 5040", "C6 C8 and twelve D6 operations embed into one exact index C24", "60 times 84 equals 90 times 56 equals 5040", "one inch equals 127 common ticks and one centimeter equals 50 common ticks", "Origami Splinter delta minus-one plus-one minus-one preserves vertical gaps and injective display labels", "Zirkel preserves a typed seven plus one plus three role decomposition", "all symmetric critical-line probes preserve midpoint one-half and reciprocal normalized-envelope product one", "multiplication by two modulo eleven has one ten-step orbit through every nonzero residue", "the rotor demonstrator returns exactly from one to two after ten steps", "the top overlay partitions four five-by-five quadrants into four signed i j sectors around scalar one", "the side overlay declares plus-k carrier and minus-k shadow while j remains edge-on", "plus-zero and times-zero each select 101 cells with twenty noncentral zeros", "the selected intersection counts eighty-one and the selected union counts one-hundred-twenty-one", "prime-sector labels sum to seventeen and multiply to two-hundred-ten", "four times two-hundred-ten is eight-hundred-forty and twenty-four times two-hundred-ten is five-thousand-forty", "FESN 4774 factors as two times seven times eleven times thirty-one", "the directed halves satisfy forty-seven plus seventy-four equals one-hundred-twenty-one and seventy-four minus forty-seven equals twenty-seven", "the symmetric 4774 matrix has trace eight determinant minus thirty-three and eigenvalues eleven and minus three", "293 is prime rank sixty-two and the predecessor 292 occupies the adjacent Base-11 cube address"],
+    "negative_and_limits": ["48 of 720 linear relabelings pass; four cyclic classes remain", "56 units modulo 1001 have order six", "zero informative uniform MZ24 order-six phase transports", "colon global phase meaning rejected", "8 equals 2 cubed only as a numeric crosswalk; cube derivation is not established", "constructed C24 and retained MZ24 have zero of six position matches on the C6 rail", "exact inch-centimeter conversion creates no angle phase or state-count identity", "zero-sum Origami control preserves total 102 but fails injective address relabeling", "transported integer labels are not promoted to prime anchors or physical motion", "one-eleventh one-twelfth and one-tenth probes share the same reciprocal mirror law, so one-eleventh specialness is not established", "eleven visible roles do not establish a regular C11 carrier or phase step", "source visual edges are 8 to 10 and 8 to 11; the 8 to 9 polarity edge is a declared local comparator extension", "the arithmetic midpoint of 1031 and 1033 is 1032 rather than the source-visual label 1034", "101 to 2501 is a representative switch and not integer doubling", "decimal concatenation 8 bar 3 is not multiplication or a residue operation", "3 6 9 is not closed under multiplication by two modulo 11; Root2 identity remains unestablished", "local 1 i j k labels do not prove quaternion multiplication from the grid", "the declared k depth does not identify the Shadow Cube with physical space", "the eighty-one-cell intersection is not a contiguous nine-by-nine subgrid", "prime labels are sector types rather than cell values", "twenty-four times two-hundred-ten is a constructed permutation comparator rather than a derivation of 5040 from the grid", "the six white and six black sectors are an owner-counted screen reading rather than a physical invariant", "the memory slice is lossy and does not uniquely reconstruct the retained whole", "293 to 292 is a proposed predecessor address adapter and not the recovered NCS 292 translation", "no Hopf fibration S3 to S2 quotient or S1 fibre is transferred"],
+    "glyph_holds": ["EURO owner candidate remains unbound", "CENT remains unbound"],
+    "graph_delta": {"identities": 0, "relations": 0, "aliases": 0, "studies": 0, "findings": 0, "publications": 0}
   },
   "publication_authorized": false
 }

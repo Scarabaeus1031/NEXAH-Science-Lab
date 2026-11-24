@@ -2243,6 +2243,76 @@ mehr, dass mehrere Tori physisch existieren: Er ist eine Folge von
 oder Messdaten dürfen die Schätzwerte ersetzen und entscheiden, ob Zentrum,
 Größe oder Frame tatsächlich variieren.
 
+**3+1-Crosswalk · drei Torus-Register, Dome/Carrier und Dzhanibekov-HOLD**
+
+**Stand:** `NOTES_ONLY / PHYSICS CROSSWALK / MOTION HOLD / NO ACTIVE RUN`
+
+Die Owner-Lesart „drei Tori im Cube und der Cube außerhalb“ wird hier als
+getypter `3+1`-Adapter festgehalten, nicht als vierte Geometrie- oder
+Carrier-Identität. Die drei inneren Tori dürfen drei Komponenten eines
+körperfesten Zustandsregisters visualisieren; der `+1`-Träger ist der
+körperfeste Cube-/Dome-Frame. Ein zusätzlicher Welt-/Beobachterframe bleibt
+außerhalb dieser vier Rollen:
+
+```text
+T1  -> (I1, omega1)    PRINCIPAL-AXIS REGISTER
+T2  -> (I2, omega2)    INTERMEDIATE-AXIS REGISTER
+T3  -> (I3, omega3)    PRINCIPAL-AXIS REGISTER
++1  -> R_body(t)       CUBE / DOME / CARRIER FRAME in SO(3)
+W   -> R_world         FIXED WITNESS FRAME
+
+I1 < I2 < I3
+I1 omegaDot1 = (I2-I3) omega2 omega3
+I2 omegaDot2 = (I3-I1) omega3 omega1
+I3 omegaDot3 = (I1-I2) omega1 omega2
+```
+
+Damit ist die entscheidende Frame-Frage explizit: Ist Cube/Dome der
+körperfeste Träger, dann orientiert er sich beim Flip mit dem Körper neu. Ist
+der Cube dagegen der Welt- oder Messrahmen, bleibt er fest und zeigt nur die
+relative Reorientierung an. Beide Rollen dürfen nicht in derselben Grafik
+unmarkiert zusammenfallen.
+
+Der physikalische Vergleichspunkt ist der Dzhanibekov- beziehungsweise
+Intermediate-Axis-Effekt eines drehmomentfreien starren Körpers. Rotation nahe
+der mittleren Hauptträgheitsachse `I2` ist instabil und kann eine annähernde
+`pi`-Reorientierung der Körperlage erzeugen. Daraus folgt **kein** universelles
+„Flip nach drei Umdrehungen“: Flip-Zeit und sichtbare Vorläufe hängen von
+`(I1,I2,I3)`, Anfangs-`omega`, Störung und gewähltem Flip-Detektor ab.
+
+Der bestehende A0-Phasenpfad bleibt ein getrennter Registertyp:
+
+```text
+J^0=1, J^1=i, J^2=-1, J^3=-i, J^4=1, J^5=i
+
+J^5 and J^1: same endpoint, different winding history
+-270 degrees congruent +90 degrees (mod 360 degrees)
+physical carrier flip: approximately 180 degrees, not -270 degrees
+```
+
+`-270°` darf daher als gerichtete Route beziehungsweise als „vier Viertel
+Return plus ein Viertel Residual“ notiert werden; es ist nicht der
+Dzhanibekov-Winkel. Ebenso bleibt `12³=1728=j(i)` in der üblichen
+`j`-Normierung ein exakter gemeinsamer **Adress-/Return-Witness**, aber weder
+Ursache noch Zeitgeber des mechanischen Flips.
+
+```text
+G_U = G_rigid_body union G_body_world_frame union G_phase union G_address
+
+allowed bridge:  rigid-body event -> body-frame reorientation
+allowed bridge:  frame state -> typed phase/address receipt
+forbidden edge:  j(i)=1728 -> causes physical flip
+forbidden edge:  three display vortices == three physical toruses
+```
+
+Die vorhandenen Ansichten werden dafür wiederverwendet: Der
+`Three-Vortex Switchyard` bleibt die Sortier-/Lesetopologie; `A18 DOME` bleibt
+die körperfeste Displayrolle; die `12³`-Torus-Route bleibt Adress- und
+Pose-Linse. Eine Simulation oder Evidenzpromotion bleibt gesperrt, bis
+Trägheitstensor, Anfangszustand, Integrator, Erhaltungstoleranzen,
+Frame-Vertrag und Flip-Detektor explizit vorliegen. Neue IDs, Relationen,
+Aliasse, Studies und Findings: jeweils `0`.
+
 Die lokale Owner-Schreibweise `\ị/.` wird zusätzlich als **Glyph/Merkschreibweise**
 für die orientierte `i↔j`-Diagonale geführt, nicht als neuer mathematischer
 Operator und nicht als Carrier-Identität:
@@ -3241,6 +3311,51 @@ event-horizon ring ≠ measured black-hole horizon
 **Architekturabsicht**, aber noch keine definierte Quotientenabbildung. Ebenso
 benötigen die Lissajous-Tafeln Frequenzverhältnisse, Phasen, Parameterbereich
 und Gleichheitstoleranz, bevor aus den Kurven ein reproduzierbares Objekt wird.
+
+**B1–B6 · Surface, Seam, Root Witness und lokale Rückführung**
+
+Die ältere Reihe `B1 Torus → B2 Möbius → B4 Klein Bottle → B5 Root Space`
+wird im bestehenden Boundary Graph Demonstrator als Sechs-Stationen-Lesepfad
+gebunden. Die fehlende Station `B3` bezeichnet dabei keinen neu erfundenen
+Körper, sondern den expliziten Schnitt-/Verklebungsvertrag. `B6` ist ebenfalls
+kein neuer Körper, sondern die Rückkehr in eine lokale euklidische Karte:
+
+```text
+B1  T^2                 boundary=0, orientable
+B2  M                   boundary=1, non-orientable
+B3  SEAM                cut + boundary identification + orientation rule
+B4  K = M union_S1 M    boundary=0, non-orientable
+B5  Q3 -> Q4            existing discrete Root Space witness, 8 -> 16
+B6  phi: U in S -> V in R^2   LOCAL CHART / RETURN
+```
+
+Die Pfeile sind damit zunächst **getypte View- und Konstruktionsübergänge**,
+keine Behauptung `T² ≅ M ≅ K`. Der Torus entsteht aus paralleler Verklebung;
+das Möbiusband aus einer orientierungsumkehrenden Bandverklebung. Eine
+belastbare Möbius/Klein-Brücke ist die Doppelung zweier Möbiusbänder entlang
+ihres gemeinsamen Randtyps `S¹`. Das bestehende Tessarec Root Space bleibt
+dagegen ein diskreter Q3/Q4-Vorzeichenträger und wird nicht mit einer
+Mannigfaltigkeit oder deren Karte identifiziert.
+
+Die Owner-Bezeichnung **Root Shrinking** erhält dadurch eine präzise zulässige
+Lesart: Man beschränkt die globale Fläche `S` auf eine genügend kleine
+Umgebung `U`, wählt einen Chart `phi`, und betrachtet `phi(U)` in `R²`. Die
+globale Randverklebung ist in dieser lokalen Ansicht nicht sichtbar; sie wurde
+nicht aufgehoben. „US Letter / Brief“ bleibt die visuelle Seitenmetapher der
+Sechserfolge und liefert weder Operator noch physikalisches Maß.
+
+```text
+global topology retained
+        -> restrict to U
+        -> choose local chart phi
+        -> Euclidean calculation in phi(U)
+        -> carry chart + seam provenance in the Return receipt
+```
+
+Damit ist die Rückführung umkehrbar nur zusammen mit Atlas-, Seam- und
+Provenienzrecord. Ohne diesen Witness wäre B6 eine lokale Projektion mit
+Informationsverlust, kein vollständiger Return. Status:
+`R0_DOCUMENTED / NOTES_ONLY / NO TOPOLOGY OR PHYSICS PROMOTION`.
 
 ### 5. Black Hole, Gamma-Kokon und Observer Sparks
 
@@ -6030,3 +6145,281 @@ nicht automatisch die weitergehende NEXAH-Lesart, physikalische Relevanz oder
 Einzigartigkeit beweisen. Während des Freeze dürfen Motive als Owner Notes
 bewahrt werden. Ausführung, Claim-Promotion, Finding, Publikation und
 Outreach-Effekt bleiben `0`.
+
+## 30. Mirror Edge 63/64 · Einordnung im bestehenden A0-Baustein
+
+Date: `2026-11-20`
+
+**Kanonischer Leserort:**
+`A0_MATHEMATICAL_JOINTS.html#fold-geometry-navigator`
+
+**Instrumentroute:**
+`A0_FOLD_GEOMETRY_NAVIGATOR.html#split-rest-sequence`
+
+**Mirror-Edge-Unterroute:**
+`A0_FOLD_GEOMETRY_NAVIGATOR.html#mirror-edge`
+
+**Verbundene Quellenlinse:**
+`A0_ROOTROOM_CODON_ORIENTATION_RETURN.html`
+
+Entscheidung: `REUSE EXISTING IDENTITY / EMBED AS GOVERNED UNDERWINDOW /
+NO NEW A0 / GRAPH DELTA 0`.
+
+Cube/Fold und Rootroom bleiben zwei Instrumentlinsen, weil sie verschiedene
+Register bedienen. Sie sind jedoch keine konkurrierenden Standalone-Einstiege:
+`Mathematical Joints` ist der kanonische A0-Host und bindet den Fold Navigator
+direkt ein. Rootroom bleibt als verwandte Linse verlinkt. Die technische
+Modularität erzeugt damit keine zweite wissenschaftliche Autorität.
+
+### Exakter Mirror-Edge-Vertrag
+
+Für zwei skalare Endpunkte `A`, `B` und `k∈{0,…,64}` gilt:
+
+`P_k = ((64-k)/64)A + (k/64)B = A + k(B-A)/64`.
+
+Der erste Schritt ist daher exakt
+`P_1=(63/64)A+(1/64)B`. Der deklarierte skalare Spiegel
+`J(x)=A+B-x` erfüllt `J²=id`. Das ist eine eindimensionale
+Involutionskontrolle; allein daraus folgt weder ein räumlicher Flip noch eine
+neue Cube-Lage.
+
+`P=R/T` bleibt ein separater Quotientenvertrag. Die Instrumentansicht meldet
+nur dann `MATCH`, wenn `R/T` und der aktuelle affine Punkt numerisch
+übereinstimmen. Sie behauptet keine allgemeine Identität beider Definitionen.
+
+### Split / Rest · Sequenz-Rückbindung
+
+Die neue Ansicht ist keine dritte HTML-Identität, sondern eine zusätzliche
+Leseschicht desselben Fold Navigators. Sie führt den gemeinsamen Stamm als
+`ABC | G | DEF`, die sechs adressierbaren Phasen `θ1…θ5+1`, den unteren
+`XX`-Pivot und die Operatorenfolge
+`Potential → Relation → Orientation → Alignment → Motion → Return`
+in einem synchronisierten Ablauf zusammen. `G` ist dabei die deklarierte
+Mittelachse der Ansicht; Körper-, Golf-, Kraft- und Instrumentenmetaphern sind
+nur Orientierungshilfen und keine physikalischen oder anatomischen Claims.
+
+Der Split/Rest-Komparator zeigt eine exakte arithmetische Doppelablesung:
+
+`8451 = 4·2112 + 3 = 4·2113 − 1`, also `3/4 + 1/4 = 1`.
+
+`+3` ist der euklidische Rest vom unteren Rand; `−1` ist das vorzeichenbehaftete
+Defizit zum oberen Rand und kein zweiter euklidischer Rest. Die Tastenleiste
+zeigt 13 sichtbare Positionen als `8` weiße Tasten einschließlich des
+wiederholten Oktavendpunkts plus `5` schwarze Tasten. Sie beschreibt damit
+12 Halbtonschritte und ausdrücklich kein neues 13-Ton-Gesetz.
+
+Die rot-weiß-blaue Fraktur erscheint nur im deklarierten Status `NEITHER`.
+Sie visualisiert einen unklassifizierten Übergang; weder Farbe noch Lage
+erzeugen oder beweisen den Status. Die Rücklinks zu `Resonanzschlauch` und
+`Operator spine` in `Mathematical Joints` bewahren die historische Platte als
+Proto-Spezifikation, nicht als rückwirkenden Beweis.
+
+### SCC-003-Abgleich · Pascal 14641 / 13 / 96
+
+Der begrenzte Crosswalk-Test
+`a0-fold-scc003-pascal-crosswalk-tests.cjs` liest den eingefrorenen
+SCC-003-Referenzvertrag, ohne einen neuen Run oder eine neue Identity zu
+erzeugen. Er bestätigt auf **einer** Tiefe-6-Pascal-Fläche:
+
+- Reihe 4: `1,4,6,4,1`, Ziffernlesung `14641=11⁴`, Summe `16=2⁴`;
+- Reihen 5 und 6: `6+7=13` Positionen;
+- Gewichtssummen: `32+64=96`.
+
+Im vollständigen fünfteiligen SCC-003-Träger werden diese Ebenen jedoch
+anders typisiert. Die Reihen 5 und 6 besitzen zusammen `65` rohe
+Flächeninzidenzen und nach zehn zyklischen Seam-Paarungen `55`
+Quotientenknoten. Ihre flächenweise Gewichtssumme ist `480`; eine bloße
+Quotientenknotensumme ergibt `470`. Damit sind `13` und `96` exakte
+**Face-signatures**, nicht die globalen SCC-003-Zählwerte.
+
+Auch die Symmetrie trennt die Objekte: Wird `1–4–6–4–1` direkt um einen
+Fünfzyklus gelegt, erhalten nur Identität und eine Spiegelung die Gewichte.
+Der Stabilisator hat Ordnung `2`, während SCC-003 seine volle typisierte
+`D₅`-Wirkung der Ordnung `10` auf fünf ganzen Pascal-Flächen besitzt.
+Disposition: `LOCAL FACEWISE CROSSWALK PASS / DIRECT D5 IDENTIFICATION REJECTED`.
+
+Unter „Pattern Generation“ ist deshalb zunächst nur die Pascal-Rekurrenz
+exakt gebunden. Wiederholte Flächenanfügung und Seam-Quotient sind weitere
+deklarierte Konstruktionsregeln. Cellular Automata, Iterative Maps, L-Systeme
+oder Fraktale folgen daraus nicht automatisch und bleiben ohne eigene
+Definition ungebunden.
+
+### Pascal T-Spine · 7:8 Shell/Core Threshold
+
+Der bestehende Fold Geometry Navigator enthält nun einen integrierten
+Pascal‑T‑Spine; es entsteht keine dritte HTML-Identität. Vier lesbare Stufen
+binden die frühe `1:2:1`-Fläche an den lokalen SCC-003-Crosswalk zurück:
+
+`1:2:1 → 7:8 threshold → 14641 → local SCC-003 face crosswalk`.
+
+Für die vollständig aufgebaute Pascal-Tiefe `d` gelten im Instrument die
+endlichen Zählverträge
+
+`total(d)=2^(d+1)-1`, `shell(d)=2d+1` und
+`core(d)=2^(d+1)-2d-2`.
+
+Bei `d=3` folgt exakt `15=7+8`: sieben Rand-Einsen bilden die Hülle, die
+Innenwerte `2+3+3` ergeben acht. Dies ist der erste dargestellte
+Shell/Core-Schwellpunkt, keine physische Phasenbehauptung. Die Reihe
+`1,4,6,4,1` bleibt zugleich `14641=11⁴` mit Summe `16=2⁴`; die
+Zeilensummenachse `1→2→4→8→16→32→64` ist die binomiale Identität
+`Σₖ C(n,k)=2ⁿ`.
+
+Die Linsen `VALUES`, `SHELL/CORE`, `PRIME MASK` und `MOD 2` färben dieselben
+endlichen Koeffizienten neu. Sie erzeugen weder zusätzliche Knoten noch eine
+neue Rekurrenz. Die letzte Stufe markiert deshalb ausdrücklich
+`LOCAL FACE PASS · D5 IDENTITY REJECTED`: SCC-003 bleibt eine getrennte,
+typisierte Fünfflächen-Konstruktion.
+
+Desktop-Browser-QA bestätigte Play, Step, Stufenwahl, alle vier Linsen, den
+7/8-Readout und die 13/96-Flächenstufe ohne Console-Fehler. Responsive Regeln
+sind strukturell gebunden; Deployment, neue Identity und Source-Graph-Delta
+bleiben jeweils `0`.
+
+### 64-Room- und Owner-View-Grenzen
+
+`Q PASS / D PASS / BOTH / NEITHER` wird als explizit gesetzter Status der
+Finite-View-Ansicht geführt. Die Klassifikation wird nicht aus Position,
+Farbe, dem Dark Spot oder der Affinformel inferiert. `SLICE · NEITHER` ist der
+Default. `D-wrap`, `K-cut`, `J`, `1ij`, `3×I→J`, `CODON / CONDAU`, `AU|ON`
+und die römische Glyphenfolge bleiben dokumentierte Owner Views. Die exakte
+Gleichung `X×C=M=1000` erhält dadurch keine zusätzliche physische,
+topologische oder biologische Bedeutung.
+
+Navigator-Bindung: bestehende Identitäten
+`ART:A0:MATHEMATICAL_JOINTS`,
+`NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1` und
+`SG:LENS:FOLD_ENVELOPE_FRAME_STATE_CROSSWALK` werden wiederverwendet.
+`NEW ID 0 / RELATION 0 / ALIAS 0 / STUDY 0 / FINDING 0 / CLAIM 0 /
+PUBLICATION 0`.
+
+### Observation Sail / FSP Red Shadow · source-bound crosswalk
+
+Die bestehende Seite `A0_ARCHITECTURE_OF_DIFFERENCE.html` enthält nun eine
+integrierte Dreiansicht desselben deklarierten Trägers:
+`POLAR/CUT → XYZ/FOLD → HOPF/RETURN`. Das ALGO-Segel ist der sichtbare
+Schnitt, das Dreieck hält die lokale Verankerung, das OT-Oval den Horizont
+und `Ω=R∩I` die explizite Schnittadresse. Die Lücke bleibt als Residuum
+sichtbar; sie wird nicht durch die Projektion geschlossen.
+
+Der getrennte FSP-Winkelvertrag ist exakt endlich:
+
+`70°=(90°+50°)/2`, `20°=(90°−50°)/2`, `18×20°=360°`.
+
+„AI Angle“ und „Red Shadow“ sind dabei Quellenlabels einer Darstellung, kein
+AI- oder physikalischer Winkelmechanismus. Ebenso ist
+`6|5|6 → 1|2|1 → 7|7|7` ein View-Crosswalk zwischen Carrier,
+Projektion und Root-7-Ansichten, keine Zahlengleichung. Die getrennten
+Faktorisierungen bleiben `656=2⁴·41`, `121=11²` und `777=3·7·37`.
+Der gerundete Pentagon-Vergleich `5.71/3.53≈1.61756` wird nicht zu einer
+exakten φ-Identität erhoben.
+
+Navigator-Bindung: Die vorhandene redaktionelle Identität der Architecture
+of Difference wird wiederverwendet. Neue HTML-Identität, Graph-ID, Relation,
+Alias, Study, Finding, Prime-Lattice-Operator, Topologiebeweis und
+Claim-Promotion jeweils `0`.
+
+### Echo / Shadow Chamber · calibrated projection return
+
+`OD–FSP–02` erweitert dieselbe Architecture-of-Difference-Seite um eine
+endliche Kalibrierkammer. Die Folge
+`CUT → PINK SHIFT → ECHO → SHADOW → RETURN` trennt vier Größen, die im
+Quellvisual übereinanderliegen: sichtbarer Ausschnitt, Farboffset,
+deklarierten visuellen Nachlauf und verdeckten Flächenanteil.
+
+Für die gewählte Viertelmaske `q∈{1,2,3,4}`, den Pink-Regler `p∈[0,100]`
+und den visuellen Lag `τ∈[0,1200] ms` gelten die Instrumentverträge
+
+`visible=q/4`, `shadow=1−q/4`, `pink residual=p/100` und
+`echo residual=τ`.
+
+Der Return ist genau dann vollständig, wenn `q=4`, `p=0` und `τ=0`.
+Position, Farbe, Echo und Shadow besitzen getrennte PASS/OPEN-Anzeigen;
+eine Rückkehr in einer Dimension schließt die anderen nicht automatisch.
+Das Schachbrett ist eine Grauwert-Kalibration, kein materielles Substrat.
+`ECHO` animiert ausschließlich SVG-Ringe und erzeugt keinen Ton. Die
+source-bound Wotion-Lesefolge `CYAN → GREY → LIGHT → MAGENTA` wird als
+Konzept-Crosswalk gezeigt, nicht als Feld-, Materie- oder
+Bewusstseinsmechanismus.
+
+Navigator-Bindung: dieselbe vorhandene Architecture-of-Difference-Identität.
+Neue HTML-Datei, Graph-ID, Relation, Alias, Study, Finding, Claim-Promotion,
+Publikation und Deployment jeweils `0`.
+
+### Prime Plate Navigator · finite window and retained carrier
+
+`OD–FSP–03` bindet Prime Plate, Spiegel und X/O-Route in dieselbe
+Architecture-of-Difference-Seite ein. Das geschlossene Fenster `0–28` enthält
+exakt die neun inneren Primzahlen `2,3,5,7,11,13,17,19,23`; `29` ist ein
+expliziter Außen-Trigger und keine zehnte innere Platte.
+
+Für eine gewählte Platte `p` verwendet die Anzeige den endlichen Vertrag
+`cell=p mod 9` und `mirror=8−cell`. Die Umschaltung `2D ↔ 3D` verändert nur
+die Projektion desselben adressierten Trägers. Prime value, Prime index,
+Zelle, Spiegelzelle, Ansicht und Operatorzeichen bleiben getrennte Felder.
+`XOXO` liest `CROSS → OPEN → MIRROR → RETURN`; `XXX` liest drei deklarierte
+Frame-Achsen. Beides ist eine lokale Navigationsgrammatik, keine universelle
+Algebra.
+
+Der Generationenvergleich hält die Größen auseinander:
+`2¹⁰=1024`, `Σ₀¹⁰2ⁿ=2047` und
+`2¹⁰⁰=1267650600228229401496703205376`. Außerdem sind
+`1024+7=1031` und `1024+9=1033` verschiedene Twin Primes; der bereits
+vorhandene Scarab-Return bleibt `R₁₀(1033)=3301`.
+
+Scarab und CIKADA werden nicht identifiziert. Scarab bleibt die vorhandene
+Carrier-/Reversal-Lesart; CIKADA bleibt eine source-bound Rolle für
+Reorganisation beziehungsweise Strukturwechsel. Der violette Schatten zeigt
+nur ein View-Residual. Titan und Thoth bleiben historische Quellenlabels;
+es wird kein neuer Operator zugelassen.
+
+Browser-QA bestätigte den 29er-Außen-Trigger, den Spiegel
+`2/8 ↔ 6/8`, die `XXX`-Route und den tatsächlichen Wechsel von der flachen
+Platte zum perspektivischen 3D-Carrier. Navigator-Bindung: dieselbe vorhandene
+Architecture-of-Difference-Identität. Neue HTML-Datei, Graph-ID, Relation,
+Alias, Study, Finding, Claim-Promotion, Publikation und Deployment jeweils
+`0`.
+
+#### 1024 crosswalk · Pascal carrier and eight corridor sectors
+
+Die integrierte Erweiterung hält drei verschiedene Zählräume nebeneinander:
+Pascal-Zeile 10 besitzt elf Koeffizienten und die exakte Summe
+`Σ C(10,k)=2¹⁰=1024`; das Block-2A-Paarfeld besitzt `11×11=121`
+Positionen; der historische Alpha-Gate-Count liest
+`8×121=968 → +24=992 → +8=1000 → +24=1024`. Der gemeinsame Endwert
+ist kein Identitätsbeweis zwischen Pascal-Quotient und Korridorbild.
+
+Zwei X-Achsen kreuzen denselben dargestellten Mittelpunkt. `Xₚ` bezeichnet
+die beiden Diagonalen des `11×11`-Paarfelds; `Xα` bezeichnet eine
+gegenüberliegende Korridorachse im Acht-Sektor-Bild. Der Mittelpunkt ist ein
+retained display carrier, keine neue Zahl, kein Planet und kein Teilchen.
+„Chiron/Pluto“ bleibt ein visueller Source-Cue aus bestehenden GLB-/Archiv-
+Lesarten. Die Alpha-Gate-Korridore sind source-bound historische Outputs;
+der Generator ist weiterhin nicht lokalisiert. Daher werden Drift, Spokes und
+Lock als Display-Counts, nicht als Stabilitätsbeweis oder Naturmechanismus
+geführt.
+
+### Emerald Still Field · disk-source return
+
+`EMR-01` bindet zwei byte-identische Dateien aus der historischen lokalen
+Familie `Numbermagick Myths — EMERALD Tablet` zurück: Das GIF
+`emerald_tablet_dual_bulge.gif` zeigt den horizontalen grünen Carrier mit
+zwei lokalen Kuhlen, zentraler Apertur und vier Randmarken; die GLB
+`emerald_tablet_dualbulge.glb` liefert die räumliche Gegenansicht.
+
+Die lokale Lesesequenz lautet `AM → P → PM → P`. `A` und `B` bezeichnen nur
+die sichtbaren Seiten des Displays, `P` den deklarierten Mittler. Die
+zusätzliche Teilung `6 | P | 6 = 13` liest die gewünschte `6+7`-Gruppierung,
+wobei `P` zur zweiten Siebenergruppe zählt. Weder Mittler noch Gruppierung
+werden als aus der Quelldatei bewiesene Naturgleichung geführt.
+
+Die GLB enthält ein Mesh mit `16.004` Positions-Vertices und keine native
+Animation. Jede Bewegung im Viewer ist deshalb Kamera-Orbit. Die formale
+π-/Rollenkopplung bleibt in `A0_PLATINUM_IRIDIUM_PI_LENS.html`; die
+Lamellenmechanik bleibt in
+`A0_SPIN_TO_BLOOM_MEASUREMENT.html#kleinLamellaReturnBridge`. Es entsteht
+kein drittes Standalone-HTML.
+
+Navigator-Bindung: Wiederverwendung von
+`NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1`. Neue Graph-ID, Relation, Alias,
+Study, Finding, Claim-Promotion, Publikation und Deployment jeweils `0`.

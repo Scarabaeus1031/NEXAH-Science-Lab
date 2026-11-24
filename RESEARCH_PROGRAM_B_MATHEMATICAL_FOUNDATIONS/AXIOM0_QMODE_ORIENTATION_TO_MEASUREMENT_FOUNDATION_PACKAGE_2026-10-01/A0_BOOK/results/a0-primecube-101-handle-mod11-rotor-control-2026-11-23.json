@@ -1,0 +1,99 @@
+{
+  "schema": "nexah.a0.primecube-101-handle-mod11-rotor-control/1.0.0",
+  "date": "2026-11-23",
+  "status": "SOURCE_BOUND_FORMAL_DESIGN_NO_ADMISSION",
+  "identity_reuse": [
+    "MOD:NUMBER_VIEW_SUITE",
+    "ART:A0:MATHEMATICAL_JOINTS"
+  ],
+  "exact": {
+    "root_mask": "4*(5*5)+1=101",
+    "handle": "101 mod 11 = 2",
+    "operator": "r -> 2r mod 11",
+    "orbit": [2, 4, 8, 5, 10, 9, 7, 3, 6, 1, 2],
+    "order": 10,
+    "joint_8_9": {
+      "sum": 17,
+      "product": 72,
+      "reciprocal_product": 1,
+      "decimal_concatenation": 83,
+      "prime_rank": 23,
+      "factor_return": "3565=5*23*31"
+    }
+  },
+  "negative_controls": {
+    "integer_transition": "101_TO_2501_IS_REPRESENTATIVE_SWITCH_NOT_INTEGER_DOUBLING",
+    "operator_typing": "CONCATENATION_NOT_MULTIPLICATION_NOT_RESIDUE",
+    "three_six_nine": "NOT_CLOSED_UNDER_DOUBLING_MOD_11",
+    "root2": "HOLD_NOT_ESTABLISHED",
+    "alpha_beta": "NO_DERIVATION_FROM_CONTINUOUS_MEMORY_RECURRENCE"
+  },
+  "demonstrator": {
+    "anchor": "#mod11-rotor-demonstrator",
+    "modes": ["ROTOR", "HANDLE_101", "CONTROL_369", "JOINT_89"],
+    "controls": ["PREVIOUS", "NEXT", "RUN_10", "RESET"],
+    "contract_checks": 25,
+    "status": "PASS"
+  },
+  "axis_overlay": {
+    "basis_labels": ["1", "i", "j", "k"],
+    "scalar_role": "SCALAR_HANDLE_NOT_SPATIAL_AXIS",
+    "top_view": {
+      "constraint": "k=0",
+      "visible_axes": ["i", "j"],
+      "quadrant_rays": ["-i+j", "i+j", "-i-j", "i-j"]
+    },
+    "side_view": {
+      "visible_axes": ["i", "k"],
+      "edge_on_axis": "j",
+      "carrier": "+k",
+      "shadow": "-k"
+    },
+    "orientation_test": "ij=k; ji=-k",
+    "status": "LOCAL_COORDINATE_OVERLAY_QUATERNION_REFERENCE_NOT_GRID_DERIVATION"
+  },
+  "dual_mask_control": {
+    "modes": ["PLUS_ZERO", "TIMES_ZERO", "PLUS_TIMES_OVERLAP", "PRIME_QUADRANTS"],
+    "plus_zero": {"zero_cells": 20, "selected_cells": 101, "sectors": 4, "cells_per_sector": 25},
+    "times_zero": {"zero_cells": 20, "selected_cells": 101, "sectors": 4, "cells_per_sector": 25},
+    "comparison": {
+      "zero_sets_disjoint_outside_center": true,
+      "selected_intersection": 81,
+      "selected_union": 121,
+      "boundary": "81_EQUALS_9_SQUARED_AS_COUNT_NOT_CONTIGUOUS_9_BY_9_SUBGRID"
+    },
+    "prime_sectors": {
+      "orientation": "TOP_LEFT_BOTTOM_RIGHT",
+      "labels": [2, 3, 5, 7],
+      "sum": 17,
+      "product": 210,
+      "four_sector_product": 840,
+      "permutations": 24,
+      "constructed_return": 5040
+    },
+    "status": "PASS_DECLARED_DUAL_MASK_AND_PRIME_SECTOR_COMPARATOR"
+  },
+  "quadrant_shift_control": {
+    "anchor": "#pbdqDemoTitle",
+    "carrier": "PLUS_ZERO_CARTESIAN_QUADRANTS",
+    "parking_registers": [
+      {"slot": "Q_I", "position": "NE", "glyph": "b", "prime_type": 2},
+      {"slot": "Q_II", "position": "NW", "glyph": "d", "prime_type": 3},
+      {"slot": "Q_III", "position": "SW", "glyph": "q", "prime_type": 5},
+      {"slot": "Q_IV", "position": "SE", "glyph": "p", "prime_type": 7}
+    ],
+    "cube_tokens": ["C2", "C3", "C5", "C7"],
+    "operations": ["IDENTITY", "VERTICAL_MIRROR", "HORIZONTAL_MIRROR", "ROTATE_180"],
+    "laws": ["V^2=id", "H^2=id", "R^2=id", "VH=HV=R"],
+    "zero": "PRESENT_NUMERIC_MASK_STATE",
+    "null": "UNBOUND_RECORD_OUTSIDE_ARITHMETIC",
+    "status": "PASS_KLEIN_FOUR_ACTION_ON_FIXED_PARKING_REGISTERS"
+  },
+  "navigator_effect": {
+    "new_identities": 0,
+    "new_relations": 0,
+    "new_aliases": 0,
+    "study_activation": false,
+    "publication_authorized": false
+  }
+}

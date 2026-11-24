@@ -1,0 +1,74 @@
+{
+  "schema": "nexah.a0.primecube-control-plane-baseline/1",
+  "version": "1.0.0",
+  "date": "2026-11-23",
+  "status": "PASS_BASELINE_WITH_EXPLICIT_HOLDS",
+  "scope": [
+    "current Primecube page inventory",
+    "typed glyph and component grammar",
+    "independent replay of existing Q60, LOKI56, ISO45 Fold2 and MZ24 contracts"
+  ],
+  "checks": {
+    "model": 25,
+    "integration": 35,
+    "total": 60
+  },
+  "inventory": {
+    "visible_sections": 21,
+    "contract_modules": 34,
+    "contract_modules_bound": 34
+  },
+  "periods": {
+    "q_t20": 60,
+    "loki_c7_c8": 56,
+    "iso45_fold": 2
+  },
+  "mz24": {
+    "declared_slots": 24,
+    "global_reachable_ticks": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+    "global_unreachable_ticks": [23],
+    "t20_orbit_observed_ticks": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+    "t20_orbit_missing_ticks": [0, 1, 22, 23],
+    "classification": "NON_INJECTIVE_24_SLOT_READOUT_WITH_RESTRICTED_IMAGE"
+  },
+  "splinter_q_baseline": {
+    "anchors": [1, 8, 11, 22, 27, 33],
+    "t20_images": [20, 160, 220, 440, 540, 660],
+    "closed_under_t20": false,
+    "fold_pair_phase_deltas_degrees": {
+      "1_11": 135,
+      "33_22": 30
+    },
+    "uniform_fold_phase_delta": false,
+    "classification": "BASELINE_NEGATIVE_NO_DIRECT_Q_TO_SPLINTER_CLOSURE"
+  },
+  "glyph_disposition": {
+    "source_dot": "BOUND_ADDRESSED_SOURCE_POINT",
+    "center_dot": "BOUND_SELECTED_GRID_CELL",
+    "decimal_point": "BOUND_SCALE_CHANGE",
+    "product_dot": "BOUND_MULTIPLICATION",
+    "colon": "BOUND_OPEN_TYPED_JOINT_NO_PHASE_TRANSPORT",
+    "euro": "OWNER_CANDIDATE_HOLD",
+    "cent": "UNBOUND_HOLD"
+  },
+  "holds": [
+    "COLON_PHASE_TRANSPORT_UNDEFINED",
+    "CENT_GLYPH_UNBOUND",
+    "EURO_OPERATOR_UNBOUND",
+    "DIRECT_Q_TO_SPLINTER_ADAPTER_ABSENT",
+    "COMBINED_840_STEP_TEST_NOT_STARTED"
+  ],
+  "identity_reuse": [
+    "NEXAH_AX0_QMODE_FOUNDATION_PACKAGE",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "MOD:NUMBER_VIEW_SUITE",
+    "MOD:TESSAREC",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "study_effect": "NONE",
+  "finding_effect": "NONE",
+  "publication_effect": "NONE",
+  "claim_boundary": "Inventory, notation typing and existing finite-model replay only. No physical mechanism, common carrier, shared clock, phase line, currency relation or universal theory is established."
+}

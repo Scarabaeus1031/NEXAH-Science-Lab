@@ -1,0 +1,21 @@
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const M=require('./a0-orange-packing-ladder.js');
+let passed=0;function ok(value,label){assert.ok(value,label);passed++;}
+const proof=M.verify(),n=M.notation(),html=fs.readFileSync(path.join(__dirname,'A0_BOUNDARY_GRAPH_DEMONSTRATOR.html'),'utf8');
+ok(proof.ok,'model invariants pass');
+ok(n.intended16===16,'2^3 times 2 is 16');
+ok(n.parenthesized32===32,'(2^3)^2/2 is 32');
+ok(n.exponentTower256===256,'2^(3^2)/2 is 256');
+ok(M.receipt('D16').status==='STAGING / NO OPTIMALITY CLAIM','16D stays an explicit control');
+ok(M.receipt('E8X3').identity_boundary==='VIEW_DOES_NOT_MERGE_LATTICE_IDENTITIES','direct sum remains a view');
+ok(M.receipt('LEECH').identity_boundary==='LEECH_IS_NOT_E8_DIRECT_SUM','Leech/direct-sum identity merge is forbidden');
+ok(M.receipt('LEECH').kissing_number===196560,'Leech kissing number is fixed');
+ok(M.receipt('E8').kissing_number===240,'E8 kissing number is fixed');
+ok(M.receipt('LEECH').graph_delta.entities===0,'graph entity delta is zero');
+ok(html.includes('id="orange-packing-ladder"'),'ladder is mounted');
+ok(html.includes('16D · 2×8 control'),'missing 16D cube is visible');
+ok(html.includes('E8³ ≠ Leech'),'non-identity boundary is visible');
+ok(html.includes('a0-orange-packing-ladder.js'),'runtime is wired');
+console.log(JSON.stringify({status:'PASS',assertions:passed},null,2));

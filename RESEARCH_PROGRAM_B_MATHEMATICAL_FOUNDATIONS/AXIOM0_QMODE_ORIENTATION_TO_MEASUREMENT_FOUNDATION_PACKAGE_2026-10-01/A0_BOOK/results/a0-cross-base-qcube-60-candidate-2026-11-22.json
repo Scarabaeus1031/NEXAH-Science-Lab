@@ -1,0 +1,28 @@
+{
+  "receipt": "a0-cross-base-qcube-60-candidate-2026-11-22",
+  "status": "ENGINEERING_FINDING_CANDIDATE / NULL_CONTROLS_PASS / NOT_ADMITTED_FINDING",
+  "date": "2026-11-22",
+  "exact": {
+    "Q": 1001,
+    "factors": [7, 11, 13],
+    "phi": 720,
+    "carmichael_lambda": 60,
+    "order_base_10": 6,
+    "order_base_20": 60,
+    "inverse_of_20_mod_Q": 951,
+    "20_power_60_mod_Q": 1,
+    "crosswalk": ["660 = 11*60", "661 = p_121", "121 = 11^2"]
+  },
+  "null_controls": {
+    "eligible_primes_through_1111": 184,
+    "consecutive_prime_triples_tested": 182,
+    "consecutive_hits": [[7, 11, 13]],
+    "all_three_subsets_through_43": {"tested": 220, "hits": 14},
+    "all_three_subsets_through_111": {"tested": 2925, "hits": 29},
+    "eligible_base_pairs_b_and_2b_through_60": {"tested": 42, "joint_period_60": 42}
+  },
+  "owner_intake_hold": ["2026 | Q^2*2^3", "f/u/t", "6f/2m", "FC15.7ft"],
+  "conclusion": "The exact object is the CRT cuboid Q=7*11*13=1001 with group exponent 60; multiplication by 20 has maximal order 60. The 10/20 base pair is not unique and receives no special-status claim.",
+  "boundary": "Finite modular engineering result only. No canonical Finding admission, new Q+- identity, unit conversion, historical attribution, physical model or causal claim.",
+  "navigator_effect": {"new_identities": 0, "new_relations": 0, "new_studies": 0, "new_findings": 0, "new_publications": 0}
+}

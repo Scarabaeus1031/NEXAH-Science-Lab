@@ -5,7 +5,7 @@
 })(typeof window!=='undefined'?window:globalThis,function(){
   'use strict';
 
-  const VERSION='1.30.0';
+  const VERSION='1.53.0';
   const MAX_N=1111;
   const GRID_COLUMNS=37;
   const CUBE_SIZE=11;
@@ -303,6 +303,34 @@
     });
   }
 
+  function splinterBookFoldRecord(angle=90,diagonalMode='SOURCE'){
+    if(!Number.isFinite(angle)||angle<0||angle>180)throw new RangeError('angle must be finite and within 0..180 degrees');
+    const modes=Object.freeze(['SOURCE','TRANSPORT','SYMMETRIC']);
+    if(!modes.includes(diagonalMode))throw new RangeError(`diagonalMode must be one of ${modes.join(', ')}`);
+    const halfOpeningDegrees=angle/2,radians=halfOpeningDegrees*Math.PI/180,s=Math.sin(radians),c=Math.cos(radians);
+    const point=(x,y,z)=>Object.freeze({x,y,z});
+    const coordinates=Object.freeze({
+      1:point(-s,1,c),8:point(0,1,0),11:point(s,1,c),
+      33:point(-s,-1,c),27:point(0,-1,0),22:point(s,-1,c)
+    });
+    const pair=(a,b)=>Object.freeze([a,b]);
+    const diagonalSets=Object.freeze({
+      SOURCE:Object.freeze([pair(8,33),pair(11,27)]),
+      TRANSPORT:Object.freeze([pair(8,22),pair(1,27)]),
+      SYMMETRIC:Object.freeze([pair(8,33),pair(8,22)])
+    });
+    return Object.freeze({
+      name:'SPLINTER_BOOK_FOLD_PROBE',angleDegrees:angle,halfOpeningDegrees,
+      preset:angle===180?'FLAT':angle===90?'ISO45':angle===0?'GLUE':'FREE',
+      axis:Object.freeze([8,27]),coordinates,diagonalMode,diagonals:diagonalSets[diagonalMode],diagonalSets,
+      closure:Object.freeze({map:Object.freeze({1:11,11:1,33:22,22:33,8:8,27:27}),cycles:'(1 11)(22 33)(8)(27)',involution:true,gluePairs:Object.freeze([pair(1,11),pair(33,22)]),glueDistance:2*s,axisDrift:0}),
+      invariance:Object.freeze({source:false,sourceImage:'{8↔22, 1↔27}',sourceSymmetricDifference:4,symmetric:true}),
+      return:Object.freeze({route:'FLAT → ACTIVE → FLAT',exact:true,maxCoordinateError:0}),
+      arithmeticOverlay:Object.freeze({elevenRail:'11→22→33→44',iso45:'44+1=45',cornerFold:'33+45=78',triangular:'T12=78',diskReadings:Object.freeze(['78=7·10+8','78=6·12+6']),status:'OWNER_ARITHMETIC_OVERLAY_NOT_GEOMETRIC_DERIVATION'}),
+      boundary:'This is a reversible screen-space book fold around the retained 8–27 rung. ISO45 names the 90-degree book opening with leaves at ±45 degrees. It does not prove a physical suspension, energy channel, LOKI identity or a derivation of 45 and 78 from the chassis.'
+    });
+  }
+
   function mathfieldCouplingDeckRecord(){
     const adapter=(id,label,status,operator,returnContract,identityReuse,href,boundary,extra={})=>Object.freeze({
       id,label,status,operator,returnContract,identityReuse:Object.freeze(identityReuse),href,boundary,...extra
@@ -311,6 +339,8 @@
       name:'MATHFIELD_COUPLING_DECK',carrier:'SPLINTER_SAIL_GRID',defaultAdapter:'PENTAGON',
       adapters:Object.freeze([
         adapter('PENTAGON','Pentagon / Fold','BOUND_VIEW','PENT_UI:FOLD → COUPLING:TRIANGLES','UI_STATE_RETURN',['A0OE:PASCAL_PENTAGON_D5_TEST','ART:A0:MATHEMATICAL_JOINTS'],'A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html','Fivefold screen overlay on the retained six-anchor chassis; it does not identify the carriers.'),
+        adapter('PENTAGON_CURTAIN','Pentagon / Gradient Curtain','SOURCE_BOUND_STATE_ADAPTER','C=(theta,gamma,phi,yaw,t) → GEOMETRY + VIEW + ILAU_AUDIT','PHI_TO_ZERO_REFERENCE_RETURN',['A0OE:PASCAL_PENTAGON_D5_TEST','ART:A0:MATHEMATICAL_JOINTS','MOD:NUMBER_VIEW_SUITE'],'downloads/A0_PENTAGON_KNICK_APERTURE_INTAKE_2026-10-25/sources/lantern/NEXAH_PENTAGON_GELENKLATERNE_LAB.html#cockpitTitle','The adapter synchronizes a declared view state only. Theta is the relative frame rotation, gamma the hinge interior angle and phi the additional local curtain fold. Radix changes the address label, not the geometry. The red cap is a normalized residual envelope, not an added body or physical mushroom.',{stateSchema:'C=(theta,gamma,phi,yaw,t)',defaults:Object.freeze({theta:12.5,gamma:137,phi:0,yaw:10,t:1,radix:2}),radices:Object.freeze([2,3,4,5]),auditGrammar:'ILAU',redCapRole:'ABS_PHI_OVER_180_DISPLAY_ENVELOPE'}),
+        adapter('ISO45_FOLD','ISO45 / ζ Fold','BOUNDED_FOLD_PROBE','BOOK_FOLD_AROUND_8_27','EXACT_VIEW_RETURN',['MOD:NUMBER_VIEW_SUITE','ART:A0:MATHEMATICAL_JOINTS'],'DRAFTS/IOI_PRINCIPLE_90_DEGREE_FOLD_CANDIDATE.html','The 8–27 rung remains fixed while the two ladder cells open and close as a reversible book view. SOURCE, TRANSPORT and SYMMETRIC diagonals are separate tests; the arithmetic 45/78 overlay is not a geometric or physical derivation.',{defaultAngle:90,angleRange:Object.freeze([0,180]),presets:Object.freeze([180,90,0]),diagonalModes:Object.freeze(['SOURCE','TRANSPORT','SYMMETRIC'])}),
         adapter('SCARAB','Scarab / Hinge','BOUND_VIEW_OPEN_CROSS_MODE','SOURCE_BOUND_SIX_STATE_DISPLAY','SOURCE_CAMERA_RETURN',['ART:A0:MATHEMATICAL_JOINTS','MOD:ORIENTATION_DEMONSTRATORS','NEXAH_A0_ORIENTATION_CONTROLLER_BENCH'],'A0_SCARAB_ORIGIN_MOBIUS_RAMANUJAN.html','The Scarab hinge is a display adapter. Its cross-mode kinematic map remains open and is not a physical mechanism.'),
         adapter('LOKI','LOKI / Tessarec','BOUNDED_DISPLAY_TEST','C7 × C8','EXACT_56_STEP_RETURN',['MOD:TESSAREC','ART:A0:MATHEMATICAL_JOINTS'],'A0_WERKBANK.html','Seven stations by eight orientations close after 56 display steps; the local Splinter Sail label does not become the LOKI identity.',{stations:7,orientations:8,period:56,returnState:Object.freeze([0,0])}),
         adapter('MIWA','MIWA / Observer','ROUTE_ONLY','NONE_ASSIGNED','EXPLICIT_NAV_RETURN',['ART:MIWA:MAIN','MOD:OBSERVATORY_MIWA'],'../../../SCIENCE_LAB/EXPORTS/MIWA_PINEAP_AN_DROMEDA.html?a0BenchPreset=miwa-uranus','MIWA remains a separate observer and Uranus/Moons source view with its own controls; no shared operator or clock is asserted.'),
@@ -318,7 +348,28 @@
         adapter('URANUS_SPOOL','Uranus Moons / Spool','HOLD_UNBOUND_OPERATOR','UNDEFINED','OPEN',[],'','The coil is a schematic intake only. Moon order, winding function, direction, period and return predicate must be declared before binding.',{requirements:Object.freeze(['ORDERED_MOON_SET','WINDING_FUNCTION w(i)','DIRECTION_AND_ORIENTATION','PERIOD','RETURN_PREDICATE'])})
       ]),
       navigatorEffect:Object.freeze({newCanonicalIds:0,relationChanges:0}),
-      boundary:'This deck is a typed view switch over one retained screen chassis. It neither merges Pentagon, Scarab, LOKI, MIWA and lunar-source identities nor asserts one shared mechanism, topology, carrier, clock or astronomical law.'
+      boundary:'This deck is a typed view switch over one retained screen chassis. It neither merges Pentagon, ISO45/zeta fold, Scarab, LOKI, MIWA and lunar-source identities nor asserts one shared mechanism, topology, carrier, clock, physical suspension or astronomical law.'
+    });
+  }
+
+  function pentagonCurtainControlRecord(theta=12.5,gamma=137,phi=0,yaw=10,t=1,radix=2){
+    theta=Number(theta);gamma=Number(gamma);phi=Number(phi);yaw=Number(yaw);t=Number(t);radix=Math.trunc(Number(radix));
+    if(![theta,gamma,phi,yaw,t].every(Number.isFinite)||Math.abs(theta)>85||gamma<0||gamma>180||Math.abs(phi)>180||t<0||t>1||![2,3,4,5].includes(radix))throw new RangeError('Curtain state outside declared control bounds');
+    const toRad=degrees=>degrees*Math.PI/180,side=1,length=1,beta=180-gamma;
+    const circumradius=side/(2*Math.sin(toRad(36))),chord=length*Math.cos(toRad(beta)/2),heightSquared=chord*chord-4*circumradius*circumradius*Math.sin(toRad(theta)/2)**2;
+    const valid=heightSquared>=-1e-10,height=valid?Math.sqrt(Math.max(0,heightSquared)):null,limit=2*Math.asin(Math.min(1,chord/(2*circumradius)))*180/Math.PI;
+    const capAmplitude=Math.abs(phi)/180,returned=Math.abs(phi)<1e-12;
+    const quantized=Math.round(t*(radix**5-1)),address=quantized.toString(radix).padStart(5,'0');
+    return Object.freeze({
+      name:'PENTAGON_GRADIENT_CURTAIN_CONTROL',schema:'nexah.a0.pentagon-curtain-control/1.0.0',
+      state:Object.freeze({theta,gamma,phi,yaw,t,radix}),geometry:Object.freeze({valid,side,length,beta,circumradius,chord,height,heightSquared,thetaLimit:limit,parallelCoaxialModel:true}),
+      timeline:Object.freeze({phase:t,foldApplied:phi*t,yawApplied:yaw*t,frameAndHingeAnimated:false}),
+      addressCodec:Object.freeze({radix,digits:5,value:quantized,address,role:'VIEW_ADDRESS_ONLY_NOT_GEOMETRY'}),
+      residual:Object.freeze({redCapAmplitude:capAmplitude,blueCapAmplitude:-capAmplitude,zeroLine:0,role:'NORMALIZED_DISPLAY_ENVELOPE',seamMetric:'MEASURED_ONLY_IN_SOURCE_COCKPIT'}),
+      ilau:Object.freeze({I:valid?'DECLARED_STATE_RETAINED':'INVALID_GEOMETRY',L:'NO_SOURCE_GEOMETRY_REMOVED',A:capAmplitude>0?'RED_BLUE_CAP_OVERLAY':'NONE',U:valid?'LOCAL_SEAM_AND_COLLISION_REQUIRE_SOURCE_COCKPIT':'GEOMETRY_UNRESOLVED'}),
+      return:Object.freeze({predicate:'phi=0 relative to captured reference',returned,route:'REFERENCE → FOLD → REFERENCE',exactViewReturn:returned}),
+      navigatorEffect:Object.freeze({newCanonicalIds:0,relationChanges:0}),
+      boundary:'This record couples controls and audit roles, not identities or mechanisms. Radix 2/3/4/5 is a representation codec. Red and blue caps visualize a normalized fold envelope; source seam gaps, rigidity errors and collisions must be measured in the full Pentagon cockpit.'
     });
   }
 
@@ -328,12 +379,19 @@
     const real=discriminant>=0;
     const roots=real?Object.freeze([(1-alpha-Math.sqrt(discriminant))/2,(1-alpha+Math.sqrt(discriminant))/2]):Object.freeze([]);
     const selected=real?roots[0]:null,magnitude=selected===null?null:Math.abs(selected),p=alpha+beta;
-    const jacobianTrace=selected===null?null:2*selected+p,jacobianDeterminant=beta;
-    const eigenDiscriminant=jacobianTrace===null?null:jacobianTrace*jacobianTrace-4*jacobianDeterminant;
-    const eigenvalues=eigenDiscriminant===null?Object.freeze([]):eigenDiscriminant>=0
-      ?Object.freeze([(jacobianTrace+Math.sqrt(eigenDiscriminant))/2,(jacobianTrace-Math.sqrt(eigenDiscriminant))/2])
-      :Object.freeze([{real:jacobianTrace/2,imaginary:Math.sqrt(-eigenDiscriminant)/2},{real:jacobianTrace/2,imaginary:-Math.sqrt(-eigenDiscriminant)/2}].map(Object.freeze));
-    const spectralRadius=eigenDiscriminant===null?null:eigenDiscriminant>=0?Math.max(...eigenvalues.map(Math.abs)):Math.sqrt(Math.abs(jacobianDeterminant));
+    const localState=(fixedPoint,index)=>{
+      const A=2*fixedPoint+p,determinant=beta,eigenDiscriminant=A*A-4*determinant;
+      const eigenvalues=eigenDiscriminant>=0
+        ?Object.freeze([(A+Math.sqrt(eigenDiscriminant))/2,(A-Math.sqrt(eigenDiscriminant))/2])
+        :Object.freeze([{real:A/2,imaginary:Math.sqrt(-eigenDiscriminant)/2},{real:A/2,imaginary:-Math.sqrt(-eigenDiscriminant)/2}].map(Object.freeze));
+      const spectralRadius=eigenDiscriminant>=0?Math.max(...eigenvalues.map(Math.abs)):Math.sqrt(Math.abs(determinant));
+      const eigenvectors=eigenDiscriminant>=0?Object.freeze(eigenvalues.map(lambda=>{
+        const norm=Math.hypot(lambda,1);
+        return Object.freeze({lambda,x:lambda/norm,y:1/norm,u:(lambda+1)/(Math.SQRT2*norm),v:(lambda-1)/(Math.SQRT2*norm)});
+      })):Object.freeze([]);
+      return Object.freeze({index,fixedPoint,A,jacobian:Object.freeze([[A,-beta],[1,0]].map(Object.freeze)),trace:A,determinant,eigenDiscriminant,eigenvalues,eigenvectors,spectralRadius,classification:spectralRadius<1?'ATTRACTING':'NOT_ATTRACTING',eigenType:eigenDiscriminant>=0?'REAL_SPLIT':'COMPLEX_PAIR',commonDifferenceMatrix:Object.freeze([[A-beta+1,A+beta+1],[A-beta-1,A+beta-1]].map(row=>Object.freeze(row.map(value=>value/2))))});
+    };
+    const localStates=real?Object.freeze(roots.map(localState)):Object.freeze([]),selectedState=real?localStates[0]:null;
     const bandValues=Object.freeze([.429,.456,.487]);
     const bands=Object.freeze(bandValues.map(value=>Object.freeze({
       id:`BAND_0.${String(value).split('.')[1]}`,value,positive:value,negative:-value,
@@ -348,9 +406,58 @@
       discriminant,real,roots,selected,magnitude,
       exact:defaultSlice?Object.freeze({negative:'(7−√177)/16',positive:'(7+√177)/16',field:'Q(√177)',minimalPolynomial:'8z²−7z−4=0'}):null,
       transforms:selected===null?null:Object.freeze({square:selected*selected,squareExact:defaultSlice?'(113−7√177)/128':null,squareRootOfMagnitude:Math.sqrt(magnitude),mirror:-selected}),
-      stability:Object.freeze({jacobian:'[[2z*+alpha+beta, −beta],[1,0]]',trace:jacobianTrace,determinant:jacobianDeterminant,eigenDiscriminant,eigenvalues,spectralRadius,classification:spectralRadius===null?'NOT_EVALUATED':spectralRadius<1?'ATTRACTING':'NOT_ATTRACTING'}),
+      stability:selectedState?Object.freeze({jacobian:'[[2z*+alpha+beta, −beta],[1,0]]',trace:selectedState.trace,determinant:selectedState.determinant,eigenDiscriminant:selectedState.eigenDiscriminant,eigenvalues:selectedState.eigenvalues,spectralRadius:selectedState.spectralRadius,classification:selectedState.classification}):Object.freeze({jacobian:'[[2z*+alpha+beta, −beta],[1,0]]',trace:null,determinant:beta,eigenDiscriminant:null,eigenvalues:Object.freeze([]),spectralRadius:null,classification:'NOT_EVALUATED'}),
+      stateSpace:Object.freeze({coordinates:Object.freeze({memory:Object.freeze(['delta_z_n','delta_z_(n-1)']),commonDifference:Object.freeze(['u=(delta_z_n+delta_z_(n-1))/sqrt(2)','v=(delta_z_n-delta_z_(n-1))/sqrt(2)'])}),localStates,role:'REAL_LOCAL_LINEARIZATION',complexBoundary:'The full complex two-step recurrence is four-dimensional over R. This two-axis view is a real local slice, not the imaginary plane or a global basin.'}),
       bands,declared478:Object.freeze({value:.478,status:'NEGATIVE_CONTROL_NOT_A_BOUND_BAND',nearestBoundBand:.487,delta:.009}),
       sourceBoundary:'BAND_0.429, BAND_0.456 and BAND_0.487 are retained Breathing Crystal display nodes. Their symmetric +/- placement is a comparator view, not an identity with the alpha/beta fixed point. BAND_0.478 is not present in the bound source.'
+    });
+  }
+
+  function transversalPlaneScienceReturnRecord(){
+    const classify=(zBefore,zAfter,normalVelocity)=>{
+      if(![zBefore,zAfter,normalVelocity].every(Number.isFinite))return 'UNDEFINED_INPUT';
+      if(zBefore*zAfter<0&&normalVelocity!==0)return 'TRANSVERSAL_CROSSING';
+      if(zBefore===0||zAfter===0)return normalVelocity===0?'NONTRANSVERSAL_CONTACT':'BOUNDARY_SAMPLE_REQUIRES_TWO_SIDED_SIGN';
+      return 'NO_CROSSING';
+    };
+    return Object.freeze({
+      id:'PRIMECUBE_BOUNDARY_TRANSVERSAL_PLANE_RETURN',
+      plane:Object.freeze({symbol:'Pi_T',equation:'z=0',normal:Object.freeze([0,0,1]),role:'DECLARED_TYPE_AND_RETURN_CROSS_SECTION'}),
+      crossingPredicate:'z_before*z_after<0 AND dz/dt!=0',
+      controls:Object.freeze({crossing:classify(-1,1,2),tangent:classify(0,0,0),sameSide:classify(1,2,1)}),
+      registers:Object.freeze(['EXACT','BUILT','READING','HOLD','NEXT_TEST']),
+      routes:Object.freeze({scienceDesk:'A0_RESEARCH_DESK.html#primecube-boundary-series-return-20261123',sourceNote:'A0_PRIMECUBE_BOUNDARY_SERIES_SCIENCE_DESK_RETURN_2026-11-23.md',receipt:'results/a0-primecube-boundary-series-science-desk-return-2026-11-23.json'}),
+      distinction:'TRANSVERSAL_PLANE_NOT_RIEMANN_CRITICAL_LINE_NOT_ROOT_AXIS_LINE',
+      navigatorEffect:Object.freeze({newCanonicalIds:0,relationChanges:0,aliases:0,studies:0,findings:0}),
+      classify
+    });
+  }
+
+  function wheelGate13Record(step=0){
+    const displayStep=Math.max(0,Math.min(729,Math.trunc(Number(step)||0)));
+    const operatorStep=displayStep===729?728:displayStep;
+    const goldbachPairs=Object.freeze([[23,197],[29,191],[41,179],[47,173],[53,167],[71,149],[83,137],[89,131],[107,113]].map(pair=>Object.freeze(pair)));
+    const classification=displayStep===729?'CLOSURE_PLUS_ONE_TO_729':operatorStep===728?'TRIPLE_RETURN':operatorStep===56?'PAIR_RETURN_GATE13_OPEN':'IN_FLIGHT';
+    return Object.freeze({
+      id:'PRIMECUBE_W7_W8_G13_TRIPLE_RETURN',
+      carrier:'Z7 x Z8 x Z13',cardinality:728,displayStep,operatorStep,classification,
+      operators:Object.freeze({wheel7:'n -> n+1 mod 7',wheel8:'n -> n-1 mod 8',gate13:'n -> n+1 mod 13'}),
+      periods:Object.freeze({wheel7:7,wheel8:8,gate13:13,pairReturn:56,tripleReturn:728}),
+      state:Object.freeze({wheel7:operatorStep%7,wheel8:mod(-operatorStep,8),gate13:operatorStep%13}),
+      projections:Object.freeze({
+        top:Object.freeze({id:'TOP_IJ',role:'REGISTER_PLAN_VIEW',axes:Object.freeze(['i','j'])}),
+        side:Object.freeze({id:'SIDE_IK',role:'CARRIER_DEPTH_VIEW',axes:Object.freeze(['i','k'])}),
+        transversal:Object.freeze({id:'TRANSVERSAL_PI_T',role:'DECLARED_SAMPLING_RETURN_PLANE',equation:'z=0'})
+      }),
+      observerMarker:Object.freeze({id:'RED_BALLOON',role:'SELECTED_SOURCE_OBSERVER_MARKER',changesState:false,changesOperator:false,evidence:'DISPLAY_ONLY'}),
+      partialReturn:Object.freeze({step:56,state:Object.freeze({wheel7:0,wheel8:0,gate13:4}),status:'PAIR_CLOSED_GATE13_OPEN'}),
+      closure729:Object.freeze({value:729,equalities:Object.freeze(['728+1','9^3','27^2','3^6']),role:'EXTERNAL_CLOSURE_MARKER_NOT_OPERATOR_PERIOD'}),
+      factor1729:Object.freeze({value:1729,factors:Object.freeze([7,13,19]),wheel8IsFactor:false,status:'WHEEL7_AND_GATE13_FACTOR_CROSSWALK_ONLY'}),
+      shadow220:Object.freeze({left:83,right:137,sum:220,envelope:'1331-1111',primePairCount:goldbachPairs.length,unique:false,pairs:goldbachPairs,status:'EXACT_NON_UNIQUE_COMPARATOR'}),
+      historicalLabels:Object.freeze({wheel7:'Wheel 7 (1729-Kreis)',wheel8:'Wheel 8 (1836-Kreis)',gate13:'Quaternion Gate',status:'SOURCE_LABEL_HOLD'}),
+      sourceBinding:Object.freeze({family:'FAM-002',role:'OBSERVED_3D_ASSET_UNREVIEWED',existingSurface:'A0_GAME_OF_WORLDS_PLAY.html#hexaptychon'}),
+      navigatorEffect:Object.freeze({newCanonicalIds:0,relationChanges:0,aliases:0,studies:0,findings:0}),
+      boundary:'Finite product-state adapter only. Historical labels do not establish quaternion algebra, a Riemann/Zeta mechanism, physical resonance or a unique 83+137 pairing.'
     });
   }
 
@@ -384,9 +491,13 @@
       item('EULER_COMPASS','Euler Compass','primecube-workbench',{view:'euler'}),
       item('H_RECORD','Typed H-Record','hrecord-crosswalk',{anchor:true}),
       item('MATHFIELD','Mathfield Coupling Deck','mathfield-coupling-deck',{adapter:'PENTAGON'}),
+      item('W11_W12_W13','W11 / W12 seam / W13 sequence','primecube-window-11-12-13-sequence',{anchor:true,step:0}),
+      item('TRANSVERSAL_RETURN','Primecube Boundary Series / transversal plane return','primecube-boundary-transversal-plane-return',{anchor:true}),
+      item('W7_W8_G13','Wheel 7 / Wheel 8 / Gate 13 triple return','primecube-wheel-7-8-gate13-demonstrator',{anchor:true,step:728}),
       item('SCARAB_CONTROL','Scarab control lens / Fold 108','scarab-control-lens',{anchor:true}),
       item('DIRECT_FIELD','Direct Mandelbrot / alpha-beta field','mandelbrot-memory-field',{anchor:true}),
       item('AL_JABR_DOT','Al-Jabr lens / typed dot operators','al-jabr-dot-lens',{anchor:true}),
+      item('VIEW_INVARIANCE_AUDIT','View-invariance audit / ILAU matrix','view-invariance-audit',{anchor:true,control:'BASELINE'}),
       item('MEMORY_TRACE','Memory trace + shadow lens','mathfield-coupling-deck',{adapter:'FRACTAL',fractalMode:'memory'}),
       item('FIXED_POINT_BANDS','Fixed point / +/- N-band comparator','fixed-point-nband-demonstrator',{anchor:true})
     ]);
@@ -574,14 +685,30 @@
       ]),
       rootMask:Object.freeze({axis:'5+1+5=11',quadrantBlocks:4,quadrantSide:5,quadrantCells:100,centerCells:1,selectedCells:101,excludedCrossArmCells:20,fullGridCells:121,equation:'4*(5*5)+1=101'}),
       mod11Rail:Object.freeze([
-        Object.freeze({n:101,base11:'92',residue:2,role:'1111/11'}),
-        Object.freeze({n:2501,base11:'1974',residue:4,role:'50^2+1'}),
-        Object.freeze({n:5002,base11:'3838',residue:8,role:'2*(50^2+1)'}),
-        Object.freeze({n:10004,base11:'7575',residue:5,role:'4*(50^2+1)'})
+        Object.freeze({n:101,base11:'92',residue:2,role:'ROOT_MASK_HANDLE',transition:'REPRESENTATIVE_SWITCH_NOT_INTEGER_DOUBLING'}),
+        Object.freeze({n:2501,base11:'1974',residue:4,role:'50^2+1',transition:'RESIDUE_DOUBLE_FROM_2'}),
+        Object.freeze({n:5002,base11:'3838',residue:8,role:'2*(50^2+1)',transition:'INTEGER_AND_RESIDUE_DOUBLE'}),
+        Object.freeze({n:10004,base11:'7575',residue:5,role:'4*(50^2+1)',transition:'INTEGER_AND_RESIDUE_DOUBLE'})
       ]),
+      mod11Rotor:Object.freeze({
+        operator:'r -> 2r mod 11',generator:2,order:10,
+        orbit:Object.freeze([2,4,8,5,10,9,7,3,6,1,2]),
+        nonzeroResidues:Object.freeze([1,2,3,4,5,6,7,8,9,10]),
+        status:'FULL_NONZERO_RESIDUE_ORBIT_PRIMITIVE_ROOT_2',
+        threeSixNineControl:Object.freeze({subset:Object.freeze([3,6,9]),images:Object.freeze([6,1,7]),closed:false,status:'NOT_CLOSED_UNDER_DOUBLING_MOD_11'}),
+        boundary:'The orbit acts on residue classes. It does not make 101 the integer predecessor of 2501 and it does not derive a Root2 identity.'
+      }),
+      joint89:Object.freeze({
+        operands:Object.freeze([8,9]),sum:17,product:72,
+        reciprocalPair:Object.freeze(['8/9','9/8']),reciprocalProduct:1,
+        decimalConcatenation:Object.freeze({value:83,prime:true,primeRank:23,status:'DECIMAL_CONCATENATION_NOT_PRODUCT_OR_RESIDUE'}),
+        factorReturn:Object.freeze({n:3565,factors:Object.freeze([5,23,31]),factor:23,divides:true}),
+        crosswalk72:Object.freeze({hours:1728,days:72,status:'UNIT_BOUND_CROSSWALK_NOT_DERIVATION'}),
+        root2Status:'HOLD_NOT_ESTABLISHED'
+      }),
       base11Mirror:Object.freeze({decimal:122,base11:'101',equation:'122_(10)=101_(11)'}),
       navigatorEffect:Object.freeze({newCanonicalIds:0,relationChanges:0}),
-      boundary:'The 101-cell root mask is a declared selection inside the 121-cell grid; it excludes the other 20 cells of the central cross. The mod-11 rail is exact integer arithmetic but is not derived from the continuous alpha/beta dynamics. For beta nonzero the map is a two-step complex quadratic Henon-type recurrence, not the classical Mandelbrot family. Finite non-escape is not a proof of set membership.'
+      boundary:'The 101-cell root mask is a declared selection inside the 121-cell grid; it excludes the other 20 cells of the central cross. The mod-11 rotor is exact residue arithmetic but is not derived from the continuous alpha/beta dynamics. The first 101-to-2501 link is a representative switch, not integer doubling. Decimal concatenation 8|3, multiplication 8*9 and prime-index lookup p_23=83 remain typed operations. The 3-6-9 subset is not closed under doubling modulo 11, and no Root2 identity is established. For beta nonzero the map is a two-step complex quadratic Henon-type recurrence, not the classical Mandelbrot family. Finite non-escape is not a proof of set membership.'
     });
   }
 
@@ -592,6 +719,10 @@
       Object.freeze({degrees:204,residue:mod(204,11),role:'DOUBLE_TURN'}),
       Object.freeze({degrees:258,residue:mod(258,11),role:'RETURN_COMPLEMENT_TO_360'})
     ]);
+    const coupledCompletionSequence=Object.freeze(Array.from({length:21},(_,step)=>{
+      const phase=Math.min(2,Math.floor(step/7));
+      return Object.freeze({step,completion:step,visible:101+step,closed:step===20,carrier:'C',bodyColor:'BLUE',activeMarker:'GOLD',role:['CENTER_DOT','DECIMAL_POINT','PRODUCT_DOT'][phase],angle:[102,204,258][phase],phase:['CENTER','SCALE','PRODUCT'][phase],viewRegister:['AM','PM','VM'][phase]});
+    }));
     return Object.freeze({
       name:'AL_JABR_LENS_TYPED_DOT',
       grid:Object.freeze({side:11,full:121,quadrants:100,center:1,crossArms:20,completion:added,visible:101+added,closed:added===20,equation:`101+${added}=${101+added}`}),
@@ -601,10 +732,162 @@
         Object.freeze({id:'PRODUCT_DOT',glyph:'·',equation:'4·(5·5)+1=101',meaning:'multiplication in the selected root mask'})
       ]),
       completionSquare:Object.freeze({historicalAnalogy:'geometric completion of a square by adding missing areas',status:'ANALOGY_NOT_PROVENANCE',currentEquation:'101+20=121'}),
+      carrierInvariant:Object.freeze({id:'C',count:1,state:'UNCHANGED_WORLD_CUBE',bodyColor:'BLUE',activeMarker:'GOLD',law:'C(102°)=C(204°)=C(258°) as carrier identity; only the declared view changes'}),
+      phaseTrack:Object.freeze({angles:Object.freeze([102,204,258]),viewRegisters:Object.freeze(['AM','PM','VM']),pathColor:'BLUE',activeMarker:'GOLD',role:'ONE_CARRIER_THREE_TYPED_READOUT_PHASES',boundary:'AM PM and VM are local view registers. They do not add bodies, time zones or geometries.'}),
+      viewPlates:Object.freeze({
+        DURER_Q:Object.freeze({id:'DURER_Q',label:'Dürer · Q',placement:'R180_PLANAR',matrix:Object.freeze([Object.freeze([16,3,2,13]),Object.freeze([5,10,11,8]),Object.freeze([9,6,7,12]),Object.freeze([4,15,14,1])]),lineSum:34,law:'P(C(v))=R180(P(v))',scope:'ROWS_COLUMNS_MAIN_DIAGONALS'}),
+        KHAJURAHO_D:Object.freeze({id:'KHAJURAHO_D',label:'Khajuraho · D',placement:'T_2_2_TOROIDAL',matrix:Object.freeze([Object.freeze([7,12,1,14]),Object.freeze([2,13,8,11]),Object.freeze([16,3,10,5]),Object.freeze([9,6,15,4])]),windowSum:34,law:'P(C(v))=T(2,2)(P(v))',scope:'TOROIDAL_2_BY_2_WINDOWS'})
+      }),
+      coupledCompletion:Object.freeze({sequence:coupledCompletionSequence,period:21,route:'101 OPEN → 121 CLOSED',coupledRegisters:Object.freeze(['GRID_COMPLETION','TYPED_DOT_ROLE','DECLARED_ANGLE','VIEW_REGISTER']),independentRegisters:Object.freeze(['ALPHA','BETA','AXIS_VIEW','MASK_MODE']),boundary:'This is a declared display choreography over one unchanged carrier C. Cell completion does not derive alpha, beta or the polar recurrence, and the three angle phases are typed views rather than three bodies or a proof of algebraic coupling.'}),
+      quaternionAxisOverlay:Object.freeze({
+        basis:Object.freeze(['1','i','j','k']),
+        scalar:Object.freeze({label:'1',role:'SCALAR_HANDLE_NOT_SPATIAL_AXIS',cell:Object.freeze([5,5])}),
+        topSlice:Object.freeze({view:'TOP_IJ',constraint:'k=0',visibleAxes:Object.freeze(['i','j']),hiddenAxis:'k',axisLabels:Object.freeze({left:'−i',right:'+i',top:'+j',bottom:'−j'}),quadrantRays:Object.freeze(['−i+j','i+j','−i−j','i−j'])}),
+        sideSlice:Object.freeze({view:'SIDE_IK',visibleAxes:Object.freeze(['i','k']),edgeOnAxis:'j',carrierLayer:'+k',shadowLayer:'−k',status:'DECLARED_DEPTH_LIFT_NOT_DERIVED_FROM_2D_MASK'}),
+        crossArms:Object.freeze({cells:20,role:'OPEN_I_J_COORDINATE_CHANNELS_EXCLUDED_FROM_101_SELECTION'}),
+        multiplicationReference:Object.freeze({squares:Object.freeze(['i²=−1','j²=−1','k²=−1']),forward:Object.freeze(['ij=k','jk=i','ki=j']),reverse:Object.freeze(['ji=−k','kj=−i','ik=−j']),orientationTest:'ij=k; ji=−k',status:'QUATERNION_ALGEBRA_REFERENCE_NOT_DERIVED_FROM_GRID'}),
+        punctuationBoundary:'The center may display 1, dot or multiplication glyph by typed mode; these roles are not interchangeable.',
+        identityBoundary:'Axis labels are a local coordinate overlay. They do not create a Quaternion identity, prove quaternion multiplication from the mask or identify the Shadow Cube with a physical depth.'
+      }),
+      dualMaskControl:Object.freeze({
+        modes:Object.freeze(['PLUS_ZERO','TIMES_ZERO','PLUS_TIMES_OVERLAP','PRIME_QUADRANTS']),
+        plusZero:Object.freeze({zeroCells:20,centerCells:1,selectedCells:101,sectors:4,cellsPerSector:25,shape:'FOUR_5_BY_5_SQUARE_QUADRANTS',equation:'121−20=101=4·25+1'}),
+        timesZero:Object.freeze({zeroCells:20,centerCells:1,selectedCells:101,sectors:4,cellsPerSector:25,shape:'FOUR_ROTATED_WEDGE_SECTORS',equation:'121−20=101=4·25+1'}),
+        comparison:Object.freeze({nonCenterZeroSetsDisjoint:true,zeroUnionCells:40,selectedIntersectionCells:81,selectedUnionCells:121,intersectionEquation:'101+101−121=81=9²',unionEquation:'101+101−81=121=11²',intersectionStatus:'COUNT_9_SQUARED_NOT_CONTIGUOUS_9_BY_9_SUBGRID'}),
+        primeQuadrants:Object.freeze({orientation:'ROTATED_SCREEN_ORDER_TOP_LEFT_BOTTOM_RIGHT',records:Object.freeze([Object.freeze({id:'Q_I',sector:'TOP',prime:2,cells:25}),Object.freeze({id:'Q_II',sector:'LEFT',prime:3,cells:25}),Object.freeze({id:'Q_III',sector:'BOTTOM',prime:5,cells:25}),Object.freeze({id:'Q_IV',sector:'RIGHT',prime:7,cells:25})]),primeSum:17,primeProduct:210,quadrantProduct:840,labelPermutations:24,permutationWeightedReturn:5040,laws:Object.freeze(['2+3+5+7=17','2·3·5·7=210','4·210=840','4!·210=24·210=5040=7!']),status:'DECLARED_PRIME_SECTOR_LABELS_NOT_CELL_VALUES'}),
+        glyphGrammar:Object.freeze({O:'ACTIVE_ZERO_SET',I:'CENTER_IDENTITY_HANDLE',X:'DIAGONAL_ZERO_MASK',PLUS:'ORTHOGONAL_ZERO_MASK'}),
+        boundary:'The plus and times masks are two declared 101-cell selections. The 81-cell intersection is a count equal to 9 squared, not a contiguous 9 by 9 subgrid. Prime labels are sector types, not values assigned to every cell. The 5040 comparison deliberately multiplies the invariant product 210 by all 24 label permutations; it is a constructed comparator, not a derivation of the factorial from the grid.'
+      }),
+      quadrantShiftControl:Object.freeze({
+        name:'PBDQ_VIEW_PLATE_PERMUTATION',
+        carrier:Object.freeze({id:'C',count:1,state:'UNCHANGED',bodyColor:'BLUE'}),
+        center:Object.freeze({value:1,role:'IDENTITY_HANDLE'}),
+        zero:Object.freeze({value:0,role:'PRESENT_NUMERIC_MASK_STATE'}),
+        null:Object.freeze({value:null,role:'UNBOUND_RECORD_OUTSIDE_ARITHMETIC'}),
+        parkingRegisters:Object.freeze([
+          Object.freeze({slot:'Q_I',position:'NE',glyph:'b',primeType:2,coordinate:Object.freeze([1,1])}),
+          Object.freeze({slot:'Q_II',position:'NW',glyph:'d',primeType:3,coordinate:Object.freeze([-1,1])}),
+          Object.freeze({slot:'Q_III',position:'SW',glyph:'q',primeType:5,coordinate:Object.freeze([-1,-1])}),
+          Object.freeze({slot:'Q_IV',position:'SE',glyph:'p',primeType:7,coordinate:Object.freeze([1,-1])})
+        ]),
+        initialViewPlacement:Object.freeze({Q_I:'b',Q_II:'d',Q_III:'q',Q_IV:'p'}),
+        transforms:Object.freeze({
+          VERTICAL_MIRROR:Object.freeze({Q_I:'Q_II',Q_II:'Q_I',Q_III:'Q_IV',Q_IV:'Q_III'}),
+          HORIZONTAL_MIRROR:Object.freeze({Q_I:'Q_IV',Q_IV:'Q_I',Q_II:'Q_III',Q_III:'Q_II'}),
+          ROTATE_180:Object.freeze({Q_I:'Q_III',Q_III:'Q_I',Q_II:'Q_IV',Q_IV:'Q_II'})
+        }),
+        laws:Object.freeze(['V²=id','H²=id','R²=id','VH=HV=R']),
+        comparator:'KLEIN_FOUR_ACTION_ON_FOUR_VIEW_REGISTERS',
+        boundary:'The p b q d glyphs are local screen-orientation view registers around one unchanged carrier C. Only their view assignment is permuted; no cube token, body or canonical identity moves. ZERO is a present numeric mask state. NULL is an unbound record and is excluded from arithmetic, cell counts and the permutation group. The Klein-four description applies only to the declared V H R view permutations.'
+      }),
       polar:Object.freeze({angles,exactRelations:Object.freeze(['204=2·102','258+102=360','258+204=462=42·11']),residuePair:Object.freeze({a:mod(204,11),b:mod(258,11),sum:mod(204+258,11),relation:'ADDITIVE_INVERSES_MOD_11',regular11gonBoundary:'NOT_ANTIPODAL: an odd regular 11-gon has no opposite vertex'})}),
       recurrence:Object.freeze({operator:'r(n+1)=alpha*r(n)+beta*(r(n)-r(n-1))',classification:'DECLARED_POLAR_DISPLAY_RECURRENCE',defaultParameters:Object.freeze({alpha:.985,beta:.25,steps:60}),boundary:'This recurrence is a display model, not the definition of polar coordinates and not a stability or physical-law claim.'}),
       navigatorEffect:Object.freeze({newCanonicalIds:0,relationChanges:0}),
-      boundary:'Al-Khwarizmi is a historical analogy for geometric completion of quadratic expressions, not the source identity of the 11x11 mask. CENTER_DOT, DECIMAL_POINT and PRODUCT_DOT are typed roles and are not interchangeable. Residues 5 and 6 are additive inverses modulo 11, but are not antipodal vertices of a regular 11-gon.'
+      boundary:'Al-Khwarizmi is a historical analogy for geometric completion of quadratic expressions, not the source identity of the 11x11 mask. CENTER_DOT, DECIMAL_POINT and PRODUCT_DOT are typed readout roles over one unchanged blue carrier C. The 1 i j k labels are a local coordinate overlay: 1 is scalar, i and j are visible top-view axes, and k is a declared depth lift. Quaternion multiplication is a reference algebra and is not derived from the grid. PLUS_ZERO and TIMES_ZERO are distinct 101-cell selections; their 81-cell intersection is a count, not a contiguous 9 by 9 grid. Dürer Q and Khajuraho D reuse the same labels 1 through 16 and sum 34 but retain different planar and toroidal placement operators. The p b q d and AM PM VM labels are view registers; they do not add or move bodies. ZERO is a present numeric state; NULL is record absence and stays outside arithmetic. The 2 3 5 7 sector labels and the 5040 permutation comparator are declared constructions. Residues 5 and 6 are additive inverses modulo 11, but are not antipodal vertices of a regular 11-gon.'
+    });
+  }
+
+  function viewInvarianceAuditRecord(control='BASELINE'){
+    const controls=Object.freeze({
+      BASELINE:Object.freeze({id:'BASELINE',label:'Baseline',target:'NONE',expectedBreaks:0}),
+      SHUFFLED_PLATES:Object.freeze({id:'SHUFFLED_PLATES',label:'Plate Shuffle',target:'SIGMA34 @ Q,D',expectedBreaks:2}),
+      WRONG_OPERATOR:Object.freeze({id:'WRONG_OPERATOR',label:'Wrong Operator',target:'LOCAL_OPERATOR_LAW @ D',expectedBreaks:1}),
+      CHANGED_CARRIER:Object.freeze({id:'CHANGED_CARRIER',label:'Changed Carrier',target:'CARRIER_ID / CARDINALITY / CHECKSUM @ ALL',expectedBreaks:39}),
+      AXIS_HIT:Object.freeze({id:'AXIS_HIT',label:'Axis Hit',target:'POLAR_ANGLE / WINDING @ LINE',expectedBreaks:2})
+    });
+    const selected=controls[String(control)]||controls.BASELINE;
+    const views=Object.freeze([
+      ['AM','102° view register'],['PM','204° view register'],['VM','258° view register'],['Q','Dürer planar plate'],['D','Khajuraho toroidal plate'],
+      ['p','screen view p'],['b','screen view b'],['q','screen view q'],['d','screen view d'],['LINE','critical-line complement'],
+      ['PLANE','transversal plane'],['ROOT','root metric'],['GAP','greyspace seam']
+    ].map(([id,label])=>Object.freeze({id,label})));
+    const observables=Object.freeze([
+      ['CARRIER_ID','Carrier C','C'],['CARDINALITY_121','121 cells','121'],['SOURCE_CHECKSUM_7381','source checksum','Σ1…121=7381'],
+      ['LABEL_MULTISET_1_16','plate labels','{1…16}'],['SIGMA34','plate sum','Σ34'],['LOCAL_OPERATOR_LAW','typed operator law','R180 / T(2,2)'],
+      ['SCREEN_POSITION_ASSIGNMENT','screen assignment','AM/PM/VM · p/b/q/d'],['POLAR_ANGLE','polar angle','φ'],['WINDING','winding','w'],
+      ['ROOT_METRIC','root metric','Δk'],['SEAM_EDGE_COUNT_12','seam edges','|Σ12|=12']
+    ].map(([id,label,value])=>Object.freeze({id,label,value})));
+    const status=(view,observable)=>{
+      let outcome='UNRESOLVED',note='not represented in this declared view';
+      if(['CARRIER_ID','CARDINALITY_121','SOURCE_CHECKSUM_7381'].includes(observable)){outcome='RETAINED';note='same finite carrier record';}
+      else if(observable==='LABEL_MULTISET_1_16'&&['Q','D'].includes(view)){outcome='RETAINED';note='same labels 1…16';}
+      else if(observable==='SIGMA34'&&['Q','D'].includes(view)){outcome='RETAINED';note='typed plate test returns 34';}
+      else if(observable==='LOCAL_OPERATOR_LAW'){outcome='RETAINED';note='declared view operator remains typed';}
+      else if(observable==='SCREEN_POSITION_ASSIGNMENT'){
+        if(view==='AM'){outcome='RETAINED';note='reference screen assignment';}
+        else if(['PM','VM','p','b','q','d'].includes(view)){outcome='LOST';note='screen position changes by design';}
+      }else if(observable==='POLAR_ANGLE'){
+        if(['AM','PM','VM'].includes(view)){outcome='ADDED';note='view coordinate, not carrier property';}
+        else if(view==='LINE'){outcome='RETAINED';note='defined only in the line complement';}
+      }else if(observable==='WINDING'&&view==='LINE'){outcome='RETAINED';note='integer while the orbit avoids the line';}
+      else if(observable==='ROOT_METRIC'&&['ROOT','GAP'].includes(view)){outcome='RETAINED';note='same twelve root-ruler increments';}
+      else if(observable==='SEAM_EDGE_COUNT_12'&&['PLANE','GAP'].includes(view)){outcome='RETAINED';note='same twelve transversal seam edges';}
+      if(selected.id==='SHUFFLED_PLATES'&&observable==='SIGMA34'&&['Q','D'].includes(view)){outcome='LOST';note='destruction control breaks Σ34';}
+      if(selected.id==='WRONG_OPERATOR'&&observable==='LOCAL_OPERATOR_LAW'&&view==='D'){outcome='LOST';note='planar operator substituted for T(2,2)';}
+      if(selected.id==='CHANGED_CARRIER'&&['CARRIER_ID','CARDINALITY_121','SOURCE_CHECKSUM_7381'].includes(observable)){outcome='LOST';note='source carrier intentionally replaced';}
+      if(selected.id==='AXIS_HIT'&&view==='LINE'&&['POLAR_ANGLE','WINDING'].includes(observable)){outcome='UNRESOLVED';note='undefined at the declared axis crossing';}
+      return Object.freeze({outcome,note});
+    };
+    const matrix=Object.freeze(views.flatMap(view=>observables.map(observable=>Object.freeze({view:view.id,observable:observable.id,...status(view.id,observable.id)}))));
+    const counts=Object.freeze(['RETAINED','LOST','ADDED','UNRESOLVED'].reduce((acc,key)=>{acc[key]=matrix.filter(cell=>cell.outcome===key).length;return acc;},{}));
+    const baseline=selected.id==='BASELINE'?null:viewInvarianceAuditRecord('BASELINE');
+    const observedBreaks=baseline?matrix.filter((cell,index)=>cell.outcome!==baseline.matrix[index].outcome).length:0;
+    return Object.freeze({
+      name:'PRIMECUBE_VIEW_INVARIANCE_AUDIT',identity:'MOD:NUMBER_VIEW_SUITE',artifact:'ART:A0:MATHEMATICAL_JOINTS',
+      control:selected,views,observables,matrix,counts,observedBreaks,controlPass:observedBreaks===selected.expectedBreaks,
+      method:'SOURCE_BOUND_ILAU_COMPARISON',scope:'SYNTHETIC_DESIGN_FEASIBILITY_INSTRUMENT',
+      provenance:Object.freeze({methodReferences:Object.freeze(['QAW01','VST01']),claim:'METHOD_REUSE_ONLY_NO_RESULT_INHERITANCE'}),
+      navigatorEffect:Object.freeze({newCanonicalIds:0,relationChanges:0,aliases:0,studies:0,findings:0,publications:0}),
+      boundary:'A local source-bound comparison of declared Primecube views. Retained means invariant only for the named observable and operator contract. Added and lost are cartographic outcomes, unresolved is not false. This demonstrator is not a Lab Run, does not activate a Study and produces no scientific Finding.'
+    });
+  }
+
+  function returnSeam4774Record(step=0,view='WHOLE_W'){
+    const normalized=((Math.trunc(Number(step)||0)%4)+4)%4,turnDegrees=normalized*90;
+    const allowedViews=Object.freeze(['WHOLE_W','MEMORY_M','PUNCTUATION_X','BLOCK_SWAP_S2','MOIRE_OVERLAY','MIRROR_9119','NCS_292']);
+    if(!allowedViews.includes(view))throw new RangeError(`view must be one of ${allowedViews.join(', ')}`);
+    const p293=Object.freeze({n:293,prime:true,primeRank:62,cube:cubeAddress(293),crt:qCubeAddress(293)});
+    const n292=Object.freeze({n:292,prime:false,factorization:'2²·73 = 4·p₂₁',cube:cubeAddress(292),crt:qCubeAddress(292)});
+    return Object.freeze({
+      name:'FESN_4774_RETURN_SEAM_MEMORY_SLICE',identityReuse:Object.freeze(['FESN:4774','MOD:NUMBER_VIEW_SUITE','ART:A0:MATHEMATICAL_JOINTS','A0OE:PASCAL_PENTAGON_D5_TEST']),
+      view,views:allowedViews,
+      seam:Object.freeze({word:'4|7|7|4',value:4774,palindrome:true,factorization:'2·7·11·31',matrix:Object.freeze([Object.freeze([4,7]),Object.freeze([7,4])]),trace:8,determinant:-33,eigenvalues:Object.freeze([11,-3]),directedHalves:Object.freeze([47,74]),halfSum:121,halfDifference:27,laws:Object.freeze(['47+74=121=11²','74−47=27=3³','4774=2·7·11·31'])}),
+      blockSwap:Object.freeze({operator:'S₂',source:Object.freeze({word:'47|74',value:4774,palindrome:true,factorization:'2·7·11·31'}),target:Object.freeze({word:'74|47',value:7447,palindrome:true,factorization:'11·677'}),law:'S₂(47|74)=74|47; S₂²=id',involutive:true,ordinaryDigitReversal:false,status:'EXACT_DECIMAL_TWO_BLOCK_SWAP'}),
+      moireOverlay:Object.freeze({families:Object.freeze([Object.freeze({label:'47',lineCount:47,color:'CYAN'}),Object.freeze({label:'74',lineCount:74,color:'MAGENTA'})]),totalLines:121,differenceParameter:27,construction:'TWO_DECLARED_SCREEN_LINE_FAMILIES_OVERLAID_AT_RETURN_PLANE',role:'DISPLAY_CONTRAST_ONLY_NOT_PHYSICAL_SCHLIEREN',inputsRemainDistinct:true}),
+      mirror9119:Object.freeze({operator:'S₂',source:Object.freeze({word:'91|19',value:9119,palindrome:true,factorization:'11·829'}),target:Object.freeze({word:'19|91',value:1991,palindrome:true,factorization:'11·181'}),law:'S₂(91|19)=19|91; S₂²=id',sharedFactor:11,status:'EXACT_COMPARATOR_NOT_FESN_4774_IDENTITY'}),
+      returnGate:Object.freeze({step:normalized,turnDegrees,word:normalized%2===0?'47|74':'74|47',exactReturnAfterSteps:4,returned:normalized===0,operator:'R₉₀^step',status:'EXACT_DISPLAY_ORIENTATION_RETURN'}),
+      carrier:Object.freeze({sectors:12,white:6,black:6,reading:'OWNER_COUNTED_ALTERNATING_SCREEN_SECTORS',horizontalPlane:'DECLARED_RETURN_PLANE',center:Object.freeze({glyph:'·',crossGlyph:'X',role:'PUNCTUATION_ANCHOR'})}),
+      memorySlice:Object.freeze({whole:'W = retained 12-sector carrier plus seam and source return',partial:'M = selected sectors plus seam word; unselected carrier information is intentionally lost',projection:'M(W) is many-to-one',reconstruction:'NOT_UNIQUE_WITHOUT_RETAINED_W'}),
+      ncsComparator:Object.freeze({prime:p293,predecessor:n292,proposedAdapter:Object.freeze({law:'293→292 = n−1',cubeDelta:Object.freeze([-1,0,0]),crtDelta:Object.freeze([-1,-1,-1]),status:'PROPOSED_TYPED_NEIGHBOR_VIEW_NOT_RECOVERED_NCS_OPERATOR'}),recoveredNcs:Object.freeze({law:'T_d(x,y,z)=(x+d,y+d,z)',d:'0.8·0.28·sin(0.16 frame)',status:'EXISTING_NCS_292_PLANAR_TRANSLATION_NO_HIDDEN_PERMUTATION'})}),
+      hopfControl:Object.freeze({status:'HOLD_NEGATIVE_CONTROL',s3ToS2Map:false,s1FibresDerived:false,reason:'A0 return explicitly transfers no Hopf structure; the separate global commutation candidate was rejected.'}),
+      navigatorEffect:Object.freeze({newCanonicalIds:0,relationChanges:0,newStudy:0,newPublication:0}),
+      boundary:'FESN:4774 is reused as a typed palindromic display seam. The 6+6 sectors and horizontal plane are owner screen readings, not a physical field or topology. W is a retained carrier and M a lossy view. S2 is an exact two-block swap, distinct from ordinary four-digit reversal. The 47/74 moire is a constructed screen overlay whose inputs remain distinct; it is not physical schlieren, stored energy or resonance. 9119/1991 is a separate exact comparator and not a FESN:4774 identity. The 293-to-292 predecessor step is a proposed address-neighbor adapter and is not the recovered NCS 292 translation. No Hopf fibration, S3-to-S2 quotient, energy invariant or new identity is inferred.'
+    });
+  }
+
+  function draftDriftHousingRecord(mode='DRAFT_112',transitionStep=0,glyphIndex=0){
+    const modes=Object.freeze(['DRAFT_112','TRIPLE_TRANSITION','GLYPH_REGISTER','NUMBER_OPERATORS','PI_IJ_AXES','TYPED_ADAPTERS']);
+    if(!modes.includes(mode))throw new RangeError(`mode must be one of ${modes.join(', ')}`);
+    const step=((Math.trunc(Number(transitionStep)||0)%3)+3)%3,index=((Math.trunc(Number(glyphIndex)||0)%8)+8)%8;
+    const glyphs=Object.freeze([
+      Object.freeze({position:1,glyph:'ö',mark:'DIAERESIS',role:'OWNER_GLYPH'}),Object.freeze({position:2,glyph:'ô',mark:'CIRCUMFLEX',role:'OWNER_GLYPH'}),
+      Object.freeze({position:3,glyph:'ò',mark:'GRAVE',role:'OWNER_GLYPH'}),Object.freeze({position:4,glyph:'ó',mark:'ACUTE',role:'OWNER_GLYPH'}),
+      Object.freeze({position:5,glyph:'ö',mark:'DIAERESIS_RETURN',role:'OWNER_REJOIN_CANDIDATE'}),Object.freeze({position:6,glyph:'œ',mark:'LIGATURE',role:'OWNER_GLYPH'}),
+      Object.freeze({position:7,glyph:'ø',mark:'SLASH',role:'CUT_CANDIDATE'}),Object.freeze({position:8,glyph:'ō',mark:'MACRON',role:'RETURN_PLANE_CANDIDATE'})
+    ]);
+    return Object.freeze({
+      name:'DRAFT_DRIFT_HOUSING_112_SIX_GATE',mode,modes,
+      identityReuse:Object.freeze(['MOD:NUMBER_VIEW_SUITE','ART:A0:MATHEMATICAL_JOINTS','A0OE:PASCAL_PENTAGON_D5_TEST']),
+      draft:Object.freeze({fraction:'1/112',numerator:1,denominator:112,denominatorFactorization:'2⁴·7',decimal:1/112,rounded5:0.00893,display:'0.008928571428…',role:'DECLARED_DRAFT_STEP_NOT_MEASURED_PHYSICAL_DRIFT'}),
+      housing:Object.freeze({source:181,prime:true,primeRank:42,decomposition:'181=69+112',left:Object.freeze({n:69,factorization:'3·23'}),right:Object.freeze({n:112,factorization:'2⁴·7'}),role:'EXACT_ARITHMETIC_HOUSING_COMPARATOR'}),
+      tripleTransition:Object.freeze({step,current:Object.freeze(['INSIDE','OUTSIDE','INSIDE_PRIME'][step]),states:Object.freeze(['INSIDE','OUTSIDE','INSIDE_PRIME']),displayLaw:'INSIDE → OUTSIDE → INSIDE′',classification:'THREE_STATE_DISPLAY_RETURN',mandelbrotBoundary:'For one fixed classical quadratic orbit, crossing a certified escape radius is not followed by renewed membership. INSIDE_PRIME must mean a changed parameter, retained display return or non-classical memory state.'}),
+      glyphRegister:Object.freeze({index,current:glyphs[index],glyphs,carrier:'EIGHT_POSITION_OWNER_MORPHOLOGY_REGISTER',tracks:Object.freeze({i:Object.freeze({baseStates:6,markedStates:2}),j:Object.freeze({baseStates:6,markedStates:2}),status:'OWNER_6_PLUS_2_TRACK_HYPOTHESIS_NOT_QUATERNION_DERIVATION'}),candidatePath:'ø CUT → ō RETURN_PLANE → ö REJOIN',boundary:'Glyph shape, diacritic and position are categorical display data. They are not numbers or quaternion products.'}),
+      numberOperators:Object.freeze({reversal:Object.freeze({source:18,target:81,law:'REV₂(18)=81',involution:true}),concatenation:Object.freeze({blocks:Object.freeze([18,81]),value:1881,factorization:'3²·11·19',law:'18|81=1881'}),primeControl:Object.freeze({n:881,prime:true,primeRank:152,law:'881=p₁₅₂'}),fixtures:Object.freeze(['18=2·3²','81=3⁴','18+81=99','81−18=63','18·81=1458']),correction:'3²·11·19 factors 1881, not 881'}),
+      piAxes:Object.freeze({pi:Object.freeze({role:'REAL_SCALAR_ANGLE_PARAMETER',value:Math.PI}),basis:Object.freeze(['1','i','j','k']),laws:Object.freeze(['ij=k','ji=−k','exp(uθ)=cosθ+u sinθ','exp(uπ)=−1 for unit pure quaternion u']),ratioStatus:'PI_IS_NOT_THE_RATIO_OF_I_AND_J',block141:Object.freeze({value:141,factorization:'3·47',typedSequence:'1|4|1',status:'NUMBER_AND_SEQUENCE_REMAIN_SEPARATE'})}),
+      adapters:Object.freeze({mandelbrot:Object.freeze({role:'FIXED_PARAMETER_ESCAPE_AND_ALPHA_BETA_MEMORY_COMPARATOR',identity:'MOD:NUMBER_VIEW_SUITE',sharedMechanism:false}),ncs292:Object.freeze({role:'RECOVERED_COMMON_XY_TRANSLATION_COMPARATOR',identity:'A0OE:PASCAL_PENTAGON_D5_TEST',operator:'T_d(x,y,z)=(x+d,y+d,z)',sharedMechanism:false}),chassis:'ONE_VISIBLE_COMPARISON_CHASSIS_TYPED_ADAPTERS_NO_IDENTITY_MERGE'}),
+      controls:Object.freeze({nullBoundary:'ZERO_IS_A_VALUE; NULL_IS_RECORD_ABSENCE',atToken:Object.freeze({glyph:'AT',status:'OWNER_TOKEN_UNBOUND_HOLD'}),physicalDrift:false,mandelbrotReentry:false,quaternionDerivation:false}),
+      navigatorEffect:Object.freeze({newCanonicalIds:0,relationChanges:0,newStudy:0,newPublication:0}),
+      boundary:'The six modes are typed comparison views. Exact arithmetic does not establish physical drift, housing mechanics, a Mandelbrot re-entry orbit, quaternion derivation from glyph morphology or one NCS/fractal mechanism. The eight glyphs and AT remain Owner display tokens. Zero and NULL remain distinct.'
     });
   }
 
@@ -613,7 +896,7 @@
     if(!Number.isFinite(cosine)||cosine < -1||cosine > 1)throw new RangeError('cosine must be in [-1,1]');
     if(!Number.isFinite(foldDegrees)||foldDegrees < 0||foldDegrees > 180)throw new RangeError('foldDegrees must be in [0,180]');
     if(hingeNumerator!==661)throw new RangeError('this bounded lens freezes the hinge numerator at 661');
-    const thetaDegrees=Math.acos(cosine)*180/Math.PI,primeRanks=new Map(sieve(1033).map((n,index)=>[n,index+1]));
+    const thetaDegrees=Math.acos(cosine)*180/Math.PI,primeRanks=new Map(sieve(3301).map((n,index)=>[n,index+1]));
     const wheelNodes=Object.freeze([41,42,43].map(h=>{const n=h+990;return Object.freeze({h,n,prime:isPrime(n),primeIndex:primeRanks.get(n)||null,mod9:mod(n,9),naturalLog:Math.log(n),factorization:primeFactorization(n).exact});}));
     const wheelTriangle=Object.freeze({
       name:'ORANGE_TRIANGLE_WHEEL_CROSSWALK',
@@ -628,6 +911,32 @@
       cikada:Object.freeze({tokens:Object.freeze(['CI','KA','DA']),states:Object.freeze(['INSIDE','OUTSIDE','INSIDE_PRIME']),addressBinding:Object.freeze([1031,1032,1033]),returnStatus:'RETURNED_INTERIOR_NOT_IDENTICAL_TO_INITIAL',tokenMappingStatus:'HOLD_OWNER_SEGMENTATION'}),
       boundary:'The orange triangle is a screen frame over the exact 41-42-43 to 1031-1032-1033 address crosswalk. Its equal-sided drawing does not assert metric equality, the wheel arcs are not interior angles, and CI|KA|DA remains an Owner segmentation on HOLD.'
     });
+    const decimalReverse=n=>Number(String(n).split('').reverse().join(''));
+    const reverseBits=(n,width)=>{
+      const sourceBits=n.toString(2).padStart(width,'0');
+      if(sourceBits.length!==width)throw new RangeError('number exceeds declared bit width');
+      const reversedBits=sourceBits.split('').reverse().join('');
+      return Object.freeze({width,sourceBits,reversedBits,value:parseInt(reversedBits,2),leadingZeroCount:(reversedBits.match(/^0+/)||[''])[0].length});
+    };
+    const factorText=n=>{
+      let rest=n;const factors=[];
+      for(let p=2;p*p<=rest;p+=(p===2?1:2))while(rest%p===0){factors.push(p);rest/=p}
+      if(rest>1)factors.push(rest);
+      const counts=new Map();factors.forEach(p=>counts.set(p,(counts.get(p)||0)+1));
+      return [...counts].map(([p,e])=>`${p}${e===1?'':`^${e}`}`).join('*')||'1';
+    };
+    const mirrorCarryGate=Object.freeze({
+      name:'SCARAB_CARRY_MIRROR_GATE',
+      sourceRail:Object.freeze([1031,1032,1033].map(n=>Object.freeze({n,prime:isPrime(n),primeIndex:primeRanks.get(n)||null,factorization:factorText(n)}))),
+      primeRail:Object.freeze({left:'1031=P173',center:'1032=2^3*3*43',right:'1033=P174',twinGap:2,midpoint:1032}),
+      eulerCarrySeam:Object.freeze({equation:'phi(1033)=1032',reason:'1033 is prime, therefore phi(p)=p-1',binaryCarry:'10000000111 + 1 = 10000001000',alignment:'1032 & 7 = 0',kernighan:'1032 & 1031 = 1024'}),
+      decimalMirror:Object.freeze({operator:'REV10_DIGITS',involution:true,records:Object.freeze([1031,1032,1033].map(n=>{const target=decimalReverse(n);return Object.freeze({source:n,target,prime:isPrime(target),primeIndex:primeRanks.get(target)||null,factorization:factorText(target)});})),boundary:'Decimal digit reversal is not fixed-width bit reversal.'}),
+      binaryMirror:Object.freeze({operator:'REV2_WIDTH_11',width:11,involution:true,records:Object.freeze([1031,1032,1033].map(n=>{const reversed=reverseBits(n,11);return Object.freeze({source:n,...reversed,prime:isPrime(reversed.value),primeIndex:primeRanks.get(reversed.value)||null,factorization:factorText(reversed.value)});})),boundary:'Width eleven and leading zeros are part of the operator type; dropping them destroys the declared return.'}),
+      bridge:Object.freeze({ordinal:'1031=P173',factor:'REV2_WIDTH_11(1031)=1793=11*163',typedConnection:'The same source value exposes 173 in prime-index space and 163 only as a factor after fixed-width bit reversal.'}),
+      status:'PASS_TYPED_SCARAB_PRIME_CARRY_DECIMAL_AND_BINARY_MIRROR_GATE',
+      authority:Object.freeze({newIdentity:false,newRelation:false,newStudy:false,newFinding:false,publicationAuthorized:false}),
+      boundary:'Prime rank, Euler totient, decimal digit reversal and fixed-width bit reversal are four distinct operators. Their shared fixture does not establish one generator, a physical exit, a universal Scarab law or a binary-palindrome claim.'
+    });
     return Object.freeze({
       name:'SCARAB_CONTROL_LENS_FOLD_108',
       identityReuse:Object.freeze(['NEXAH_A0_ORIENTATION_CONTROLLER_BENCH','MOD:ORIENTATION_DEMONSTRATORS','ART:A0:MATHEMATICAL_JOINTS']),
@@ -636,13 +945,14 @@
       fold108:Object.freeze({degrees:foldDegrees,ticks:9,tickDegrees:12,equation:`${foldDegrees}=9*12`,scarabPhase:foldDegrees>=63&&foldDegrees<118?'HANDLE_CROSSING':'OUTSIDE_HANDLE_WINDOW'}),
       hingeScale:Object.freeze({rational:'661/1000',decimal:hingeNumerator/1000,carrierNumber:661,primeIndex:121,cube:Object.freeze(cubeAddress(661)),equation:'0.661*1000=661',relation:'DECLARED_DECIMAL_SCALE_CROSSWALK_NOT_IDENTITY'}),
       wheelTriangle,
+      mirrorCarryGate,
       sourceScreenPoints:Object.freeze([
         Object.freeze({x:3.3,y:3.3,role:'SOURCE_POINT'}),Object.freeze({x:6.6,y:6.6,role:'SOURCE_CLUSTER'}),
         Object.freeze({x:9.9,y:9.9,role:'SOURCE_POINT'}),Object.freeze({x:12.3,y:13.0,role:'SOURCE_POINT'})
       ]),
       sourceScreenAxes:Object.freeze({x:'Distance (Billion Light Years)',y:'Time since Big Bang (Gyr)',status:'UNVERIFIED_SOURCE_SCREEN_LABELS_NOT_PHYSICAL_MODEL'}),
       authority:Object.freeze({researchRun:false,scientificEvidence:false,newIdentity:false,newRelation:false,newCarrier:false,newOperator:false,publicationAuthorized:false}),
-      boundary:'The Scarab body and view rotation reuse the existing Three-Face Transit display source. The cosine value, decimal hinge cue, Fold 108, orange address triangle, CIKADA state strip and source-screen points are separate registers. Resonance and hyperstructure remain Owner labels; no causal, cosmological or physical mechanism is asserted.'
+      boundary:'The Scarab body and view rotation reuse the existing Three-Face Transit display source. The cosine value, decimal hinge cue, Fold 108, orange address triangle, CIKADA state strip, typed carry/mirror gate and source-screen points are separate registers. Resonance and hyperstructure remain Owner labels; no causal, cosmological or physical mechanism is asserted.'
     });
   }
 
@@ -897,6 +1207,110 @@
     });
   }
 
+  function windowSequence111213Record(step=0,viewAngle=0,motionStep=0){
+    const normalizedStep=mod(Math.trunc(Number(step)||0),7),angle=mod(Number(viewAngle)||0,360),motionPhase=mod(Number(motionStep)||0,28),motionAngle=motionPhase*360/28;
+    const rootMetrics=Object.freeze(Array.from({length:12},(_,column)=>Object.freeze({column:column+1,...rootGap(column+1),sourceView:'AM',targetView:'PM'})));
+    const seamEdges=Object.freeze(Array.from({length:12},(_,column)=>Object.freeze({column:column+1,from:Object.freeze({row:6,column:column+1}),to:Object.freeze({row:7,column:column+1}),rootMetric:rootMetrics[column]})));
+    const states=Object.freeze([
+      Object.freeze({id:'W11',label:'W11',kind:'GRID',gridSize:11,cellCount:121,equation:'11² = 121'}),
+      Object.freeze({id:'DELTA23',label:'+23',kind:'BOUNDARY_SHELL',from:11,to:12,cellCount:23,equation:'12² − 11² = 23'}),
+      Object.freeze({id:'W12',label:'W12',kind:'GRID',gridSize:12,cellCount:144,equation:'12² = 144'}),
+      Object.freeze({id:'H_MINUS_72',label:'72⁻',kind:'HALF_GRID',gridSize:12,rows:Object.freeze([1,6]),cellCount:72,equation:'6·12 = 72'}),
+      Object.freeze({id:'SIGMA12',label:'Σ12 · G√',kind:'TRANSVERSAL_SEAM_EDGES',gridSize:12,betweenRows:Object.freeze([6,7]),edgeCount:12,edges:seamEdges,rootMetrics,equation:'|Σ12| = 12 edges; Δk = √(k+1) − √k'}),
+      Object.freeze({id:'H_PLUS_72',label:'72⁺',kind:'HALF_GRID',gridSize:12,rows:Object.freeze([7,12]),cellCount:72,equation:'6·12 = 72'}),
+      Object.freeze({id:'DELTA25_W13',label:'+25 → W13',kind:'BOUNDARY_SHELL_AND_GRID',from:12,to:13,shellCellCount:25,gridSize:13,cellCount:169,equation:'13² − 12² = 25; 13² = 169'})
+    ]);
+    return Object.freeze({
+      name:'W11_W12_TRANSVERSAL_SEAM_W13_SEQUENCE',
+      sequence:Object.freeze(states.map(state=>state.id)),states,current:states[normalizedStep],step:normalizedStep,
+      exactLaws:Object.freeze(['11²=121','12²−11²=23','12²=144=72+72','|Σ12|=12 edges','Δk=√(k+1)−√k','Σ[k=1..12]Δk=√13−1','13²−12²=25','13²=169']),
+      greyspace:Object.freeze({id:'G_ROOT_12',role:'METRIC_TRANSITION_LAYER',sourceView:'AM',targetView:'PM',metricCount:12,metrics:rootMetrics,telescopingExact:'√13 − 1',telescopingApproximation:Math.sqrt(13)-1,cellCount:0,edgeCount:12,status:'BOUND_TO_SIGMA12_NOT_AN_ADDITIONAL_GRID_ROW'}),
+      depthStack:Object.freeze({
+        role:'SCREEN_DEPTH_COMPOSITE',
+        layers:Object.freeze([
+          Object.freeze({id:'W11',gridSize:11,depth:-1,scale:.96,offset:Object.freeze([-.035,-.025]),opacity:.28}),
+          Object.freeze({id:'W12',gridSize:12,depth:0,scale:1,offset:Object.freeze([0,0]),opacity:.48}),
+          Object.freeze({id:'W13',gridSize:13,depth:1,scale:1.04,offset:Object.freeze([.035,.025]),opacity:.28})
+        ]),
+        fineThreads:Object.freeze({count:13,parameter:'t=i/12, i=0…12',law:'connect normalized W11 and W13 screen frames at equal t',status:'DISPLAY_DEPTH_THREADS_NOT_CELL_EDGES'}),
+        boundary:'The three grids are retained simultaneously as screen-depth layers. Offset, scale, opacity and normalized fine threads are cartographic encodings; they add no cells, edges, dimensions or relations.'
+      }),
+      motion28:Object.freeze({
+        ownerLabel:'TESLA 4×7',role:'PINK_BLUE_COUNTER_ROTATION_DISPLAY',period:28,quadrants:4,stationsPerQuadrant:7,phase:motionPhase,phaseIndex:Math.floor(motionPhase),quadrant:Math.floor(motionPhase/7),station:Math.floor(motionPhase)%7,stepDegrees:360/28,
+        layerAngles:Object.freeze({W11_BLUE:motionAngle,W12_BODY:0,W13_PINK:-motionAngle}),
+        exactReturn:Object.freeze({afterSteps:28,blueDegrees:28*360/28,pinkDegrees:-28*360/28,modulo360:Object.freeze({blue:mod(28*360/28,360),pink:mod(-28*360/28,360)})}),
+        status:'OWNER_NAMED_DISPLAY_CYCLE_NOT_PHYSICAL_TESLA_MECHANISM',
+        boundary:'4×7 means four display quadrants with seven stations each. Blue W11 and pink W13 counter-rotate around the retained W12 screen body and return after 28 steps. No electromagnetic, Tesla-coil, energy, resonance or physical-body claim follows.'
+      }),
+      typedInventory:Object.freeze({lowerCells:72,seamEdges:12,upperCells:72,displayTotal:156,boundary:'72+12+72 counts two cell sets and one edge set; 156 is not an area or cell total.'}),
+      view:Object.freeze({angle,halfTurnSwapsInsideOutside:mod(angle,360)===180,exactFiveStep72Return:mod(5*72,360)===0,eightyDegreeFiveStepResidual:mod(5*80,360)}),
+      windowGrammar:Object.freeze({localMeasures:Object.freeze(['P','D','C','PHI','S']),views:Object.freeze(['IN','OUT']),count:'5+2',status:'DISPLAY_ROLES_ONLY'}),
+      identityReuse:Object.freeze(['MOD:NUMBER_VIEW_SUITE','ART:A0:MATHEMATICAL_JOINTS']),
+      navigatorEffect:Object.freeze({newCanonicalIds:0,relationChanges:0,aliases:0}),
+      boundary:'W11, W12 and W13 are finite square-grid views. Σ12 is the set of twelve crossing edges between rows 6 and 7 of W12. G_ROOT_12 assigns the existing Root Ruler metric Δk to those edges as an AM-to-PM transition view; it is not a third row, twelve extra cells, a critical line, a time-zone claim or a new topology. Mandelbrot parameter space, Julia dynamical space, Prime Cube address space and the five local measure labels remain distinct typed views.'
+    });
+  }
+
+  function yugoJogiFusionRecord(step=0,viewAngle=0,motionStep=0,sequence='JOGI',insideOutside=false){
+    const lattice=windowSequence111213Record(step,viewAngle,motionStep);
+    const sequences=Object.freeze({
+      YUGO:Object.freeze([Object.freeze([-.75,0]),Object.freeze([-.12256,.74486]),Object.freeze([-.8,.156]),Object.freeze([-.4,.6]),Object.freeze([.285,.01])]),
+      JOGI:Object.freeze([Object.freeze([-.1011,.9563]),Object.freeze([-.70176,-.3842]),Object.freeze([-.835,-.2321]),Object.freeze([-.54,.54]),Object.freeze([-.7269,.1889])])
+    });
+    const sequenceId=Object.prototype.hasOwnProperty.call(sequences,sequence)?sequence:'JOGI';
+    const activeLocalIndex=lattice.step%5;
+    const activeParameter=sequences[sequenceId][activeLocalIndex];
+    const parameterRadius=Math.hypot(activeParameter[0],activeParameter[1]);
+    const apertureWeights=Object.freeze([.18,.31,.47,.63,.82,.58,.26]);
+    return Object.freeze({
+      name:'YUGO_JOGI_5_PLUS_2_FUSION_FRAME',
+      mode:'FUSION_5_PLUS_2',
+      lattice,
+      sequence:sequenceId,
+      parameters:sequences[sequenceId],
+      sequences,
+      localMeasures:Object.freeze(['P','D','C','PHI','S']),
+      activeLocalIndex,
+      lanternSeam:Object.freeze({
+        id:'OMIJ_LANTERN_SEAM',ownerMnemonic:'LANTERN · HC·O',grammar:'(O|M)+(I|J)+1',
+        leftPair:Object.freeze({tokens:Object.freeze(['O','M']),view:'OUT',space:'MANDELBROT_PARAMETER_SPACE'}),
+        rightPair:Object.freeze({tokens:Object.freeze(['I','J']),view:'IN',space:'JULIA_DYNAMICAL_SPACE'}),
+        plusOneRole:'SHARED_C_PARAMETER_TRANSFER_SEAM',sharedParameter:activeParameter,
+        parameterRadius,apertureWeight:apertureWeights[lattice.step],apertureWeights,
+        direction:insideOutside?'J_TO_M_VIEW_SWAP':'M_TO_J_PARAMETER_TRANSFER',
+        halfTurnFlipsDirection:Boolean(insideOutside),
+        observerWitnessLedger:Object.freeze({
+          ownerMnemonic:'PSHYSIC',ownerPhrase:'OHNE PSYCHE KEINE PHYSIC',
+          scientificRestatement:'PHYSICS_AS_KNOWLEDGE_REQUIRES_MEASUREMENT_RECORD_WITNESS_AND_INTERPRETATION',
+          chain:Object.freeze(['PHYSICAL_EVENT','MEASUREMENT_INTERACTION','RECORD','WITNESS','INTERPRETATION']),
+          glyphs:Object.freeze([
+            Object.freeze({glyph:'€',role:'OWNER_CANDIDATE',status:'UNBOUND',boundary:'VISUAL_EPSILON_RESEMBLANCE_NOT_EPSILON'}),
+            Object.freeze({glyph:'¢',role:'UNBOUND_GLYPH_LEDGER',status:'HOLD',boundary:'NO_OPERATOR_ASSIGNED'}),
+            Object.freeze({glyph:'ε',role:'APERTURE_THRESHOLD_PARAMETER',status:'BOUND_DISPLAY_PARAMETER'}),
+            Object.freeze({glyph:'Ψ',role:'OBSERVER_WITNESS_STATE_MARKER',status:'BOUND_VIEW_GLYPH_NOT_WAVEFUNCTION'}),
+            Object.freeze({glyph:'R90(Ψ)',role:'QUARTER_TURN_GLYPH_VIEW',status:'VIEW_TRANSFORM_NOT_NEW_IDENTITY'}),
+            Object.freeze({glyph:'¶',role:'DECLARED_BOUNDARY_MARKER',status:'BOUND_CARTOGRAPHY'}),
+            Object.freeze({glyph:'⁄',role:'CUT_SEAM_MARKER',status:'BOUND_CARTOGRAPHY'})
+          ]),
+          lineTypes:Object.freeze(['VISIBLE_STROKE','DECLARED_DISPLAY_AXIS','MATHEMATICAL_LINE']),
+          lineBoundary:'VISIBLE_STROKE_NOT_AUTOMATICALLY_DISPLAY_AXIS_OR_MATHEMATICAL_LINE',
+          ontologyBoundary:'A physical event is not asserted to require psyche or consciousness. The ledger states only that scientific physics-as-knowledge requires a measurement interaction, durable record, witness and interpretation.'
+        }),
+        status:'CARTOGRAPHIC_ACTIVE_SEAM_NOT_NEW_OPERATOR',
+        boundary:'The Lantern strip visualizes the existing shared c parameter between the Mandelbrot parameter view and the selected Julia dynamical view. Its width, glow, whiteout and direction are display encodings. HC·O is an unbound Owner mnemonic, not a chemical species, physical lantern, carrier identity or new relation.'
+      }),
+      views:Object.freeze({
+        in:Object.freeze({id:'IN',role:'MANDELBROT_PARAMETER_SPACE',operator:'z(n+1)=z(n)^2+c'}),
+        out:Object.freeze({id:'OUT',role:'ACTIVE_JULIA_RETURN_VIEW',operator:'z(n+1)=z(n)^2+c',insideOutside:Boolean(insideOutside)})
+      }),
+      display:Object.freeze({pinkPentagon:'RETURN_ROPE_SCREEN_OVERLAY',blueMachine:'FRACTAL_WINDOW_CARRIER',fade:'STEP_WEIGHTED_CARTOGRAPHY',lattice:'W11_W12_W13_DEPTH_STACK',lantern:'OMIJ_SHARED_C_ACTIVE_SEAM'}),
+      exactControls:Object.freeze({turn72:lattice.view.exactFiveStep72Return,turn80Residual:lattice.view.eightyDegreeFiveStepResidual,halfTurn:'IN_OUT_VIEW_SWAP'}),
+      identityReuse:lattice.identityReuse,
+      navigatorEffect:lattice.navigatorEffect,
+      boundary:'The Fusion Frame composes five local Julia measure windows, one Mandelbrot parameter-space view, one active Julia Return view and the existing W11/W12/W13 depth stack in one screen carrier. The OMIJ Lantern seam exposes their shared c parameter without subtracting or identifying the two mathematical spaces. Composition, fading, overlap, seam width, glow and direction are cartographic. Mandelbrot parameter space, Julia dynamical space, Primecube address space and the P/D/C/PHI/S labels remain distinct typed views; no new identity, relation, mechanism or scientific claim follows.'
+    });
+  }
+
   function buildDataset(limit=MAX_N){
     if(limit!==MAX_N)throw new Error('Primecube v1 freezes the carrier at 1..1111');
     const primes=sieve(limit),primeSet=new Set(primes),primeIndex=new Map(primes.map((p,i)=>[p,i+1]));
@@ -918,7 +1332,7 @@
     const gapInteriorPrimes=primes.filter(p=>p>661&&p<809);
     const superprimes=nodes.filter(node=>node.isSuperprime).map(node=>node.n);
     return Object.freeze({
-      schema:'nexah.a0.primecube-gap-fold/1.30.0',version:VERSION,identityReuse:Object.freeze(['MOD:NUMBER_VIEW_SUITE','ART:A0:MATHEMATICAL_JOINTS','A0:ROOTROOM_CODON_ORIENTATION_RETURN:V1','ART:ROSETTA:QRT_FIXTURE']),
+      schema:'nexah.a0.primecube-gap-fold/1.53.0',version:VERSION,identityReuse:Object.freeze(['MOD:NUMBER_VIEW_SUITE','ART:A0:MATHEMATICAL_JOINTS','A0:ROOTROOM_CODON_ORIENTATION_RETURN:V1','ART:ROSETTA:QRT_FIXTURE','FESN:4774','A0OE:PASCAL_PENTAGON_D5_TEST']),
       carrier:Object.freeze({min:1,max:limit,count:limit,cubeShape:Object.freeze([11,11,10]),gridColumns:GRID_COLUMNS,fill:carrierFillRecord()}),
       nodes:Object.freeze(nodes),primes:Object.freeze(primes),groups,
       counts:Object.freeze({primes:primes.length,twins:groups.twins.length,triplets:groups.triplets.length,quadruplets:groups.quadruplets.length,superprimes:superprimes.length,layerClosures:LAYER_CLOSURES.length,squareLayerClosures:LAYER_CLOSURES.filter(n=>Number.isInteger(Math.sqrt(n))).length}),
@@ -930,11 +1344,16 @@
       eulerCompass:eulerCompassRecord(),
       rootGeometry:squareSeamTriangleRecord(),
       lokiChassis:lokiChassisRecord(),
-      mathfieldCouplingDeck:mathfieldCouplingDeckRecord(),
+      mathfieldCouplingDeck:mathfieldCouplingDeckRecord(),pentagonCurtainControl:pentagonCurtainControlRecord(),
+      transversalPlaneScienceReturn:transversalPlaneScienceReturnRecord(),
+      wheelGate13:wheelGate13Record(),
       alphaBetaFixedPoint:alphaBetaFixedPointRecord(),
       contractDemoCoverage:contractDemoCoverageRecord(),
       fractalDirectField:fractalDirectFieldRecord(),
       alJabrDotLens:alJabrDotLensRecord(),
+      viewInvarianceAudit:viewInvarianceAuditRecord(),
+      returnSeam4774:returnSeam4774Record(),
+      draftDriftHousing:draftDriftHousingRecord(),
       scarabControlLens:scarabControlLensRecord(),
       shadowCubeEnvelope:shadowCubeEnvelopeRecord(),
       criticalLineRootTopology:criticalLineRootTopologyRecord(),
@@ -942,6 +1361,8 @@
       szChiralityLab:szChiralityLabRecord(),
       qCube:qCubeRecord(),
       unitRootShear:unitRootShearRecord(),
+      windowSequence111213:windowSequence111213Record(),
+      yugoJogiFusion:yugoJogiFusionRecord(),
       gap:Object.freeze({...GAP,interiorPrimeCount:gapInteriorPrimes.length,interiorPrimes:Object.freeze(gapInteriorPrimes)}),
       roots:Object.freeze({domain:Object.freeze([1,MAX_N-1]),referenceAnchors:Object.freeze([2,5,7]),operator:'Δk = √(k+1) − √k = 1/(√(k+1)+√k)',return:'RETAINED_SOURCE_NUMBER'}),
       hSpace:Object.freeze({name:'TYPED_H_RECORD_CROSSWALK',path:orientationPath(),diceSpaces:Object.freeze({h5:'{1,…,6}^5',h6:'{1,…,6}^6'}),frame17:'5+6+6 declared inventory; no natural identity asserted'}),
@@ -962,5 +1383,5 @@
     });
   }
 
-  return Object.freeze({VERSION,MAX_N,GRID_COLUMNS,CUBE_SIZE,LAYER_AREA,LAYER_CLOSURES,GAP,UNIT_FACTORS_METRES,isPrime,sieve,divisors,primeFactorization,mod,gcd,multiplicativeOrder,modularPower,constellationGroups,cubeAddress,cubeNumber,fullCubeAddress,gridAddress,residueRecord,toBase11,diceAddress,diceNumber,hammingDistance,hRecord,orientationPath,layerClosureRecord,carrierFillRecord,seamShadowRecord,shadowCubeEnvelopeRecord,criticalLineRootTopologyRecord,thothKhipuKnotRecord,szChiralityLabRecord,gapPhase,rootGap,rootRecord,theodorosRecord,rootGeometryRecord,squareSeamTriangleRecord,lokiChassisRecord,mathfieldCouplingDeckRecord,alphaBetaFixedPointRecord,contractDemoCoverageRecord,fractalDirectFieldRecord,alJabrDotLensRecord,scarabControlLensRecord,foldAddress,hingeAddress,transition661Record,dualGridOrientationRecord,sliceAtlasRecord,eulerCompassRecord,qCubeAddress,mz24CompassRecord,qCubeRecord,unitRootShearRecord,buildDataset,numberRecord});
+  return Object.freeze({VERSION,MAX_N,GRID_COLUMNS,CUBE_SIZE,LAYER_AREA,LAYER_CLOSURES,GAP,UNIT_FACTORS_METRES,isPrime,sieve,divisors,primeFactorization,mod,gcd,multiplicativeOrder,modularPower,constellationGroups,cubeAddress,cubeNumber,fullCubeAddress,gridAddress,residueRecord,toBase11,diceAddress,diceNumber,hammingDistance,hRecord,orientationPath,layerClosureRecord,carrierFillRecord,seamShadowRecord,shadowCubeEnvelopeRecord,criticalLineRootTopologyRecord,thothKhipuKnotRecord,szChiralityLabRecord,gapPhase,rootGap,rootRecord,theodorosRecord,rootGeometryRecord,squareSeamTriangleRecord,lokiChassisRecord,splinterBookFoldRecord,mathfieldCouplingDeckRecord,pentagonCurtainControlRecord,transversalPlaneScienceReturnRecord,wheelGate13Record,alphaBetaFixedPointRecord,contractDemoCoverageRecord,fractalDirectFieldRecord,alJabrDotLensRecord,viewInvarianceAuditRecord,returnSeam4774Record,draftDriftHousingRecord,scarabControlLensRecord,foldAddress,hingeAddress,transition661Record,dualGridOrientationRecord,sliceAtlasRecord,eulerCompassRecord,qCubeAddress,mz24CompassRecord,qCubeRecord,unitRootShearRecord,windowSequence111213Record,yugoJogiFusionRecord,buildDataset,numberRecord});
 });

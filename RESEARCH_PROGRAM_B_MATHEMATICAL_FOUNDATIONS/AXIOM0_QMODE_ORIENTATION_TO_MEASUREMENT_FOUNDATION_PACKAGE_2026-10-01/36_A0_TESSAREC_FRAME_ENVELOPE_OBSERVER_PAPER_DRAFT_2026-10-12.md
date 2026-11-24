@@ -31,6 +31,27 @@ Fibonacci numbers, Euler mathematics or a physical system. It defines a
 testable representation contract and identifies where additional hypotheses
 may be placed without collapsing carrier, sequence, envelope and view.
 
+### Editorial currentness and paper boundary — 2026-11-23
+
+The November Primecube and Prime Projection / Helix additions are synchronized
+here as bounded observer-cut examples. Their role is to test whether one held
+finite carrier remains distinguishable from its slices, projections,
+envelopes and record-absent shadow addresses. They add no envelope theorem and
+no physical or topological mechanism.
+
+- [Paper C](34_A0_RETURN_WITHOUT_IDENTITY_PAPER_DRAFT_2026-10-11.md) owns the
+  typed Return and non-identity analysis.
+- [Paper E](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md)
+  owns the orientation workflow and falsifier discipline.
+- This Paper F owns the frame / intrinsic envelope / observed envelope /
+  observer-cut distinction.
+- Papers A, B and D receive no proposition, evidence or status change from
+  these additions.
+
+The preparation notes therefore form one coordinated C/E/F bundle over
+existing sources. They create no Study, canonical Finding, Navigator identity,
+claim promotion or publication authority.
+
 ## 1. Research question
 
 Can the changing frame sequence of the bounded Tessarec carrier be converted
@@ -801,6 +822,48 @@ Sources:
 - [Spin-to-Bloom route](A0_BOOK/A0_SPIN_TO_BLOOM_MEASUREMENT.html#rootMyceliumBridge)
 - [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#post-freeze-findings-paper-routing-20261118)
 
+<a id="emerald-cut-projection-residual"></a>
+
+## 17.2 Emerald cut, projection and residual example
+
+*Preparation addendum dated 20 November 2026; engineering view only.*
+
+The integrated observation sequence separates four records over held sources:
+
+- an aperture or cut selects the visible fraction;
+- a 2D/3D or front/edge switch changes projection;
+- Pink Shift and visual Echo record display-local colour and lag;
+- Shadow records the non-visible or displaced remainder.
+
+The Emerald carrier adds the companion case: two visible wells, one central
+aperture and a freely orbitable mesh. Front, oval, line and GLB records are
+observer/view outputs, not distinct intrinsic bodies. Camera orbit is not
+native mesh animation, and the displayed two-well form is not an intrinsic
+physical envelope.
+
+The Prime Plate view supplies the corresponding discrete projection check:
+2D plate and perspective 3D carrier preserve the declared prime/cell record
+while changing only the view. The two displayed axes `X_p` and `X_alpha` are
+observer guides, not intrinsic axes of one newly inferred object; Pascal,
+pair-field and sector-ledger counts remain separate carriers.
+
+Likewise, the 25-wide boustrophedon layout is a declared observer projection.
+The snake may change direction at a slice boundary even though prime order and
+the arithmetic gap do not. Its polyline is therefore a view path, not an
+intrinsic prime trajectory.
+
+These examples may inform a later frozen `H-FE-01` or `H-SYN-01` protocol, but
+they do not satisfy either hypothesis and do not change this paper's
+conceptual status.
+
+Sources:
+
+- [finding extraction](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#november-a0-emerald-synthesis-return--2026-11-20)
+- [observation ledger](A0_BOOK/A0_ARCHITECTURE_OF_DIFFERENCE.html#observation-echo-shadow)
+- [Emerald carrier](A0_BOOK/A0_ARCHITECTURE_OF_DIFFERENCE.html#emerald-still-field)
+- [Prime Plate projection](A0_BOOK/A0_ARCHITECTURE_OF_DIFFERENCE.html#prime-plate-navigator)
+- [machine receipt](A0_BOOK/results/a0-november-emerald-paper-routing-2026-11-20.json)
+
 ## 18. Disposition
 
 The bounded 28-address Pentagon fold ledger is not added here as an envelope
@@ -821,3 +884,62 @@ G8_WORKED_RETURN_FIXTURE = SPECIFIED / NOT A CARRIER-LEVEL PASS
 NEXT_PERMITTED_ACTION = STATIC G8 ADAPTER DESIGN AND G5-G7 PREREGISTRATION ONLY
 PUBLICATION_AUTHORIZED = NO
 ```
+## Prime Projection observer cuts
+
+<a id="prime-projection-observer-cuts"></a>
+
+### Preparation note — 2D/3D envelopes over a fixed finite carrier
+
+
+<a id="primecube-shadow-envelope-preparation"></a>
+
+### Preparation note — Primecube shadow envelope and observer cuts
+
+Primecube now supplies three equivalent pack views over a single declared
+address body: Z-slices, `101/20` mask extrusion and the full `11^3` envelope.
+Their finite balance is
+
+```text
+1331 = 11 * 121
+1111 = 11 * 101
+ 220 = 11 * 20
+```
+
+Thus `101/121` of the address mask carries the retained 1111 records and
+`20/121` denotes shadow positions. The near match
+`101/121 = 0.834710...` to the separate trigonometric input `-0.834` is shown
+only as a comparison; equality and mechanism are explicitly rejected.
+
+Z-slice, mask-extrusion, full-envelope, root-slice and the 25-address window
+centred at 13 are observer cuts. They may change adjacency, occlusion and
+apparent boundary while source membership and exact address Return stay fixed.
+The shadow fibre is therefore an address-level complement, not an unseen
+physical body or an additional set of Primecube records.
+
+Reviewer figure `PC-RF-F-01` exports the three pack readings as one bounded
+diagram. It retains `1111` carrier records and `220` record-absent shadow
+addresses as different types; the equality of the volume accounts adds no
+physical boundary, topology or observer identity.
+
+[Open figure and five-stage receipt](A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-reviewer-packet)
+
+Status: `INTERNAL FRAME/OBSERVER PREPARATION / NO ENVELOPE THEOREM / NO PUBLICATION AUTHORITY`.
+
+#### Existing Prime Projection observer-cut note
+
+Snake strips, a polar residue map, a CRT wheel and the Double Helix form four
+observer-dependent envelopes over bounded integer records. Their apparent
+adjacency, distance, angle and depth change with the declared projection. The
+held integer, prime membership, pair membership and exact address Return do
+not. This provides a clean finite illustration of the paper's three-level
+distinction between source state, declared aggregation/address and observed
+envelope.
+
+The example is intentionally negative at the mechanism boundary: no intrinsic
+Prime Cube geometry, physical field, energy, resonance or biological helix is
+inferred. It is retained as an internal Paper F preparation note and not as a
+new Finding, Study or publication claim.
+
+[Science Desk return](A0_BOOK/A0_RESEARCH_DESK.html#prime-projection-helix-paper-routing-20261121) ·
+[Prime Projection Suite](A0_BOOK/A0_PRIME_PROJECTION_TEST_SUITE.html) ·
+[Double Helix](A0_BOOK/A0_HELIX_VIEW_ADAPTER.html)

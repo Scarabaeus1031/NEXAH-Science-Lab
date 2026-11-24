@@ -1,0 +1,50 @@
+{
+  "schema": "nexah.a0.universal-clockwork-grid-adapter-test/1",
+  "date": "2026-11-20",
+  "status": "PASS",
+  "source": {
+    "file": "Universal_Clockwork_11x11x11_Build.mp4",
+    "sha256": "84a01e728aa108a314b27c5b55a1d71ceda7ce8fd88dddef81382e84dd85b960",
+    "dimensions": [1200, 1200],
+    "frames": 26,
+    "fps": 16,
+    "duration_seconds": 1.625,
+    "authority": "HISTORICAL_DESKTOP_SOURCE_REFERENCE_READ_ONLY"
+  },
+  "adapter": {
+    "grid": [11, 11, 11],
+    "point_count": 1331,
+    "build_order": [0, 1, -1, 2, -2, 3, -3, 4, -4, 5, -5],
+    "iteration_counts": [1, 8, 27, 64, 125, 216, 343, 512, 729, 1000, 1331],
+    "shell_formula": "s(n)=n^3-(n-1)^3=3n^2-3n+1",
+    "shell_counts": [1, 7, 19, 37, 61, 91, 127, 169, 217, 271, 331],
+    "grid37_witness": "shell 4 = 37; 1+7+19+37=64=4^3",
+    "coordinate_axes": ["X", "Y", "Z"],
+    "zero": "The unique coordinate origin (0,0,0); invariant under display scaling.",
+    "null": "An absent sample or state; not a geometric point and not rendered.",
+    "breathing": "Display scale only: 1.0 -> 0.0 -> 1.0 around the fixed origin. At scale zero all coordinates coincide with Zero; this is still not Null."
+  },
+  "axis_view_layer": {
+    "shell_mode_family": ["BUILD", "SHELLS", "COORDS"],
+    "yen_shadow_coordinate": "eta=2*scale-1 in [-1,+1]; owner glyph / display axis only, not a constant or spatial dimension",
+    "hourglass_labels": ["V", "S", "HG"],
+    "basis_aliases": {"X": "i", "Y": "j", "Z": "k"},
+    "origin_glyph": "HEX_NUT",
+    "owner_mnemonic": {"tokens": ["ZZ", "NN", "MANN HÄLT DEN HOF"], "status": "HOLD_UNBOUND_OWNER_VOCABULARY"}
+  },
+  "identity_reuse": ["ART:A0:MATHEMATICAL_JOINTS", "MOD:ORIENTATION_DEMONSTRATORS", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+  "archive_family_match": "FAM-006 Universal Clockwork historical staging reference only; no identity merge.",
+  "ramanujan_crosswalk": {
+    "source": "S. Ramanujan, Modular equations and approximations to pi (1914)",
+    "binding": "PARALLEL_ITERATION_READOUT_ONLY",
+    "non_identity": "Cube-shell counts do not derive the Ramanujan 1/pi series. The existing 9801/396 comparator remains source- and operator-separated."
+  },
+  "carrier_101": {
+    "role": "EXISTING_A0_COORDINATE_AND_ADDRESS_LENS",
+    "prime_index": "P26=101",
+    "boundary": "VIEW_ADAPTER_NOT_CUBE_DIMENSION"
+  },
+  "claim_boundary": "The animation is a coordinate/display adapter. Cube-shell counts are exact finite differences. It does not establish physical expansion, compression, energy, equilibrium or a universal clockwork law; it does not derive Ramanujan's series; and 101 is not the cube dimension.",
+  "new_canonical_ids": [],
+  "relation_changes": []
+}

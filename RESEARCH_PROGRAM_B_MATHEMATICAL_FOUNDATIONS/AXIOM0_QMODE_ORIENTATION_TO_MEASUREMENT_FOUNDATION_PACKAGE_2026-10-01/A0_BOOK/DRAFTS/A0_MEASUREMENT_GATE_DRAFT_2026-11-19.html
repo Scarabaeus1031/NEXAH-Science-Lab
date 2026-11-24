@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>The Measurement Gate · A0 Draft</title>
+  <style>
+    :root{
+      --night:#041118;--deep:#071a24;--panel:#0a202b;--panel2:#0d2935;
+      --ink:#eff9f8;--muted:#9cb6bd;--line:#24424c;--cyan:#56d9e8;
+      --pink:#f05cae;--gold:#f2c65b;--green:#68ddb2;--red:#ff7b7b;
+      --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      --serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;
+      --max:1280px
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--night)}
+    body{margin:0;color:var(--ink);background:
+      radial-gradient(circle at 12% 8%,rgba(86,217,232,.13),transparent 28rem),
+      radial-gradient(circle at 88% 12%,rgba(240,92,174,.1),transparent 32rem),var(--night);
+      font:16px/1.55 var(--sans)}
+    button,select{font:inherit}
+    button{color:inherit}
+    a{color:var(--cyan);text-underline-offset:.2em}
+    a:hover{color:#b9f7ff}
+    :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    .topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem max(1rem,calc((100vw - var(--max))/2));background:rgba(4,17,24,.92);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+    .brand{font:800 .86rem/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+    .top-status{display:flex;align-items:center;gap:.65rem;color:var(--muted);font:700 .78rem var(--mono)}
+    .top-status i{width:.65rem;height:.65rem;border-radius:50%;background:var(--green);box-shadow:0 0 12px rgba(104,221,178,.65)}
+    main{max-width:var(--max);margin:auto;padding:0 1.2rem 7rem}
+    .hero{min-height:72vh;display:grid;grid-template-columns:1.08fr .92fr;gap:3.5rem;align-items:center;padding:6rem 0 4rem;border-bottom:1px solid var(--line)}
+    .eyebrow,.room-label{color:var(--gold);font:800 .75rem/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+    h1{max-width:10ch;margin:.65rem 0 1.25rem;font:650 clamp(4rem,9vw,8.4rem)/.84 var(--serif);letter-spacing:-.065em}
+    h1 span{display:block;color:var(--cyan);font-style:italic;font-weight:400}
+    .lead{max-width:46rem;margin:0;color:#d4e3e2;font-size:clamp(1.15rem,2vw,1.5rem)}
+    .boundary{margin-top:1.5rem;padding:1rem 1.1rem;border-left:3px solid var(--gold);background:rgba(242,198,91,.08);color:#e8debf}
+    .boundary strong{color:var(--gold)}
+    .gate-mark{position:relative;min-height:34rem;border:1px solid var(--line);border-radius:50%;background:radial-gradient(circle,rgba(242,198,91,.08),transparent 48%),rgba(7,26,36,.7);overflow:hidden}
+    .gate-mark::before,.gate-mark::after{content:"";position:absolute;top:13%;bottom:13%;width:42%;border:2px solid var(--cyan);border-radius:50%}
+    .gate-mark::before{left:10%;transform:rotate(-12deg)}
+    .gate-mark::after{right:10%;border-color:var(--pink);transform:rotate(12deg)}
+    .gate-axis{position:absolute;left:50%;top:8%;bottom:8%;border-left:1px dashed var(--gold)}
+    .gate-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:5rem;height:5rem;display:grid;place-items:center;border:1px solid var(--gold);border-radius:50%;background:var(--night);color:var(--gold);font:800 1.1rem var(--mono);box-shadow:0 0 34px rgba(242,198,91,.22)}
+    .gate-caption{position:absolute;left:50%;bottom:8%;transform:translateX(-50%);width:76%;text-align:center;color:var(--muted);font:700 .7rem/1.45 var(--mono);letter-spacing:.06em;overflow-wrap:anywhere}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .chain{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem;padding:1.2rem 0 4rem;border-bottom:1px solid var(--line)}
+    .chain div{padding:.85rem .7rem;border-top:2px solid var(--line);color:var(--muted);font:750 .75rem var(--mono);text-align:center}
+    .chain div:nth-child(1),.chain div:nth-child(2){border-color:var(--cyan)}
+    .chain div:nth-child(3),.chain div:nth-child(4){border-color:var(--pink)}
+    .chain div:nth-child(5),.chain div:nth-child(6){border-color:var(--gold)}
+    .room{padding:5rem 0;border-bottom:1px solid var(--line)}
+    .room-head{display:grid;grid-template-columns:.76fr 1.24fr;gap:2.5rem;align-items:end;margin-bottom:2rem}
+    h2{max-width:13ch;margin:.35rem 0 0;font:650 clamp(2.8rem,6vw,5.2rem)/.9 var(--serif);letter-spacing:-.05em}
+    .room-copy{max-width:42rem;color:var(--muted);font-size:1.05rem}
+    .case-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin:2rem 0}
+    .case-button{min-height:9rem;padding:1rem;border:1px solid var(--line);border-radius:.8rem;background:linear-gradient(145deg,var(--panel2),var(--panel));text-align:left;cursor:pointer;transition:border-color .2s,transform .2s}
+    .case-button:hover{transform:translateY(-2px);border-color:#4f7781}
+    .case-button[aria-pressed="true"]{border-color:var(--cyan);box-shadow:inset 0 0 0 1px var(--cyan),0 0 22px rgba(86,217,232,.1)}
+    .case-button small{display:block;margin-bottom:.65rem;color:var(--gold);font:750 .76rem var(--mono)}
+    .case-button strong{display:block;font-size:1.13rem}
+    .case-button span{display:block;margin-top:.4rem;color:var(--muted);font-size:.88rem}
+    .declare-layout{display:grid;grid-template-columns:.78fr 1.22fr;gap:1rem}
+    .control-panel,.value-panel,.visual-panel,.receipt-panel{border:1px solid var(--line);border-radius:1rem;background:rgba(10,32,43,.82)}
+    .control-panel{padding:1.2rem}
+    label{display:block;margin-bottom:.5rem;color:var(--muted);font:750 .88rem var(--mono)}
+    select{width:100%;padding:.8rem 2.5rem .8rem .85rem;border:1px solid #42626c;border-radius:.55rem;background-color:#071820;color:var(--ink);background-image:linear-gradient(45deg,transparent 50%,var(--cyan) 50%),linear-gradient(135deg,var(--cyan) 50%,transparent 50%);background-position:calc(100% - 18px) 52%,calc(100% - 12px) 52%;background-size:6px 6px;background-repeat:no-repeat;appearance:none}
+    .meta-list{margin:1.2rem 0 0;padding:0;list-style:none}
+    .meta-list li{display:grid;grid-template-columns:8rem 1fr;gap:.65rem;padding:.62rem 0;border-top:1px solid var(--line)}
+    .meta-list b{color:var(--muted);font:700 .76rem var(--mono);text-transform:uppercase}
+    .meta-list span{overflow-wrap:anywhere}
+    .value-panel{position:relative;overflow:hidden;padding:1.4rem 1.5rem;min-height:23rem}
+    .value-panel::after{content:"TYPE ≠ VALUE ≠ OBJECT";position:absolute;right:1rem;bottom:.7rem;color:#66818a;font:750 .7rem var(--mono);letter-spacing:.08em}
+    .value-kicker{color:var(--pink);font:750 .78rem var(--mono);text-transform:uppercase;letter-spacing:.09em}
+    .big-value{margin:.8rem 0 .35rem;font:700 clamp(2.8rem,7vw,6rem)/.92 var(--serif);letter-spacing:-.045em;color:var(--gold);overflow-wrap:anywhere}
+    .big-unit{color:var(--cyan);font:750 1.05rem var(--mono)}
+    .type-title{margin:2rem 0 .4rem;font-size:1.35rem}
+    .type-note{max-width:48rem;color:var(--muted)}
+    .operator-tabs{display:flex;flex-wrap:wrap;gap:.65rem;margin:1.5rem 0}
+    .operator-tabs button,.small-button{padding:.72rem .95rem;border:1px solid #42626c;border-radius:.55rem;background:#071820;cursor:pointer;font:750 .82rem var(--mono)}
+    .operator-tabs button[aria-pressed="true"]{border-color:var(--pink);background:rgba(240,92,174,.12);color:#ffd2e9}
+    .operator-tabs button:disabled{opacity:.35;cursor:not-allowed}
+    .visual-panel{padding:1rem;min-height:36rem}
+    .visual-panel svg{display:block;width:100%;height:auto;min-height:32rem}
+    .svg-grid{stroke:#1c3a44;stroke-width:1}.svg-muted{stroke:#55717a;fill:none}.svg-cyan{stroke:var(--cyan);fill:none}.svg-pink{stroke:var(--pink);fill:none}.svg-gold{stroke:var(--gold);fill:none}.svg-label{fill:#dceceb;font:700 15px var(--mono)}.svg-small{fill:#8fa9b0;font:13px var(--mono)}
+    .trace-ledger{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+    .trace-card{padding:1.15rem;border:1px solid var(--line);border-radius:.8rem;background:var(--panel)}
+    .trace-card h3{margin:.2rem 0 .7rem;font-size:1.12rem}
+    .trace-card p{margin:.45rem 0;color:var(--muted)}
+    .return-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:1rem}
+    .receipt-panel{padding:1.25rem}
+    .receipt-status{display:inline-flex;align-items:center;gap:.55rem;padding:.4rem .65rem;border:1px solid var(--green);border-radius:99px;color:var(--green);font:800 .74rem var(--mono)}
+    .receipt-status.hold{border-color:var(--red);color:var(--red)}
+    pre{max-height:34rem;margin:1rem 0 0;padding:1rem;border:1px solid var(--line);border-radius:.65rem;background:#030d12;color:#dceceb;font:13px/1.55 var(--mono);overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+    .return-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1rem}
+    .small-button:hover{border-color:var(--cyan)}
+    .source-stack{display:grid;gap:.7rem}
+    .source-card{padding:1rem;border:1px solid var(--line);border-radius:.7rem;background:var(--panel)}
+    .source-card b{display:block;margin-bottom:.35rem;color:var(--gold)}
+    .source-card p{margin:.3rem 0;color:var(--muted)}
+    .source-card a{font:750 .82rem var(--mono)}
+    .claim-note{margin-top:1rem;padding:1rem;border:1px dashed var(--gold);color:#e8debf}
+    footer{max-width:var(--max);margin:auto;padding:2rem 1.2rem 5rem;display:flex;justify-content:space-between;gap:1rem;color:var(--muted);font:700 .78rem var(--mono)}
+    @media(max-width:920px){.hero,.room-head,.declare-layout,.return-layout{grid-template-columns:1fr}.hero{padding-top:4rem}.case-grid{grid-template-columns:1fr 1fr}.gate-mark{min-height:28rem}.room-copy{max-width:none}}
+    @media(max-width:620px){.top-status span{display:none}.case-grid,.trace-ledger{grid-template-columns:1fr}.chain{grid-template-columns:repeat(2,1fr)}h1{font-size:4rem}.gate-mark{min-height:23rem}.room{padding:3.5rem 0}.meta-list li{grid-template-columns:1fr}.visual-panel{min-height:25rem}.visual-panel svg{min-height:22rem}footer{display:block}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.case-button{transition:none}.case-button:hover{transform:none}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">NEXAH · A0 · Nonpublic Draft</div>
+    <div class="top-status"><i aria-hidden="true"></i><span>Source-bound · offline · Δgraph 0</span></div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="pageTitle">
+      <div>
+        <div class="eyebrow">Orientation before measurement</div>
+        <h1 id="pageTitle">The <span>Measurement Gate.</span></h1>
+        <p class="lead">A value becomes inspectable only when its type, unit, reference, frame and source remain attached. Choose a carrier, declare the cut, compare the trace, then return a bounded receipt.</p>
+        <p class="boundary"><strong>Claim boundary:</strong> This instrument demonstrates source and representation discipline. It does not create an orbit, prove a shared planetary mechanism or promote NEXAH glyph readings into physics.</p>
+      </div>
+      <div class="gate-mark" role="img" aria-label="Two overlapping carrier loops meet at a typed measurement gate">
+        <div class="gate-axis"></div><div class="gate-center">TYPE</div>
+        <div class="gate-caption">SOURCE · FRAME · QUANTITY · REFERENCE</div>
+      </div>
+    </section>
+
+    <nav class="chain" aria-label="Measurement Gate sequence">
+      <span class="sr-only">SOURCE → TYPE → CUT → TRACE → COMPARE → RETURN</span>
+      <div>SOURCE</div><div>TYPE</div><div>CUT</div><div>TRACE</div><div>COMPARE</div><div>RETURN</div>
+    </nav>
+
+    <section class="room" id="declare" aria-labelledby="declareTitle">
+      <div class="room-head"><div><div class="room-label">Room A · Declare</div><h2 id="declareTitle">A number needs a type.</h2></div><p class="room-copy">Select a source-bound case and then a quantity. The interface refuses to show a bare number without its semantic and metrological address.</p></div>
+      <div class="case-grid" id="caseButtons" role="group" aria-label="Choose a source case"></div>
+      <div class="declare-layout">
+        <aside class="control-panel">
+          <label for="quantitySelect">Quantity type</label>
+          <select id="quantitySelect"></select>
+          <ul class="meta-list" id="sourceMeta"></ul>
+        </aside>
+        <article class="value-panel" aria-live="polite">
+          <div class="value-kicker" id="valueKicker">Typed value</div>
+          <div class="big-value" id="valueDisplay">—</div>
+          <div class="big-unit" id="unitDisplay">—</div>
+          <h3 class="type-title" id="typeTitle">Select a case</h3>
+          <p class="type-note" id="typeNote"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="room" id="cut" aria-labelledby="cutTitle">
+      <div class="room-head"><div><div class="room-label">Room B · Cut</div><h2 id="cutTitle">The view selects. The source remains.</h2></div><p class="room-copy">Each case permits only its declared operator. The diagram shows a view or derivation, not a replacement for the carrier.</p></div>
+      <div class="operator-tabs" id="operatorTabs" role="group" aria-label="Choose an operator"></div>
+      <div class="visual-panel" id="visualPanel" aria-live="polite"></div>
+      <div class="trace-ledger">
+        <article class="trace-card"><div class="room-label">Source record</div><h3 id="sourceRecordTitle">—</h3><p id="sourceRecordText">—</p></article>
+        <article class="trace-card"><div class="room-label">Produced trace</div><h3 id="traceTitle">—</h3><p id="traceText">—</p></article>
+      </div>
+    </section>
+
+    <section class="room" id="return" aria-labelledby="returnTitle">
+      <div class="room-head"><div><div class="room-label">Room C · Return</div><h2 id="returnTitle">Return the distinction.</h2></div><p class="room-copy">The receipt names what passed, what was derived, what remained unavailable and what the visualization does not imply.</p></div>
+      <div class="return-layout">
+        <div class="source-stack" id="sourceStack"></div>
+        <article class="receipt-panel">
+          <div class="receipt-status" id="receiptStatus">PASS</div>
+          <pre id="receiptJson" aria-label="Machine-readable return receipt"></pre>
+          <div class="return-actions"><button class="small-button" id="copyReceipt" type="button">Copy receipt</button><a class="small-button" href="A0_MEASUREMENT_GATE_BUILD_CONTRACT_2026-11-19.md">Open build contract</a></div>
+        </article>
+      </div>
+      <p class="claim-note"><strong>Working status:</strong> local nonpublic HTML draft · no research activation · no deployment · no new Navigator identity or relation.</p>
+    </section>
+  </main>
+
+  <footer><span>THE MEASUREMENT GATE · DRAFT 2026-11-19</span><span>R1 INTERFACE FIXTURE · Δgraph 0</span></footer>
+
+  <script type="application/json" id="measurementGateData">
+  {
+    "schema":"nexah.a0.measurement-gate.data.v1",
+    "retrieved":"2026-11-19",
+    "cases":[
+      {
+        "id":"earth-sun-control","label":"Earth–Sun","subtitle":"Bound conic control","operator":"CONIC_GATE","analogy":false,
+        "source":{"authority":"NASA NSSDC Planetary Fact Sheet","title":"Earth Fact Sheet","url":"https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html","solution":"reference fact sheet","epoch":"reference values","retrieved":"2026-11-19"},
+        "carrier":{"object":"Earth around the Sun","frame":"heliocentric two-body orientation model"},
+        "quantities":[
+          {"id":"e","type":"orbital eccentricity","symbol":"e","value":0.0167,"display":"0.0167","unit":"dimensionless","qualifier":"rounded reference value","note":"Because 0 ≤ e < 1, the idealized conic class is elliptic."},
+          {"id":"a","type":"semi-major axis","symbol":"a","value":1,"display":"1.000","unit":"au","qualifier":"declared reference scale","note":"The semi-major axis is a distance scale, not a diameter or separation."},
+          {"id":"energy","type":"specific orbital energy","symbol":"ε","value":-443.56,"display":"−443.56","unit":"km²/s²","qualifier":"derived two-body value","note":"Negative specific orbital energy is consistent with a bound Keplerian orbit."}
+        ],
+        "trace":{"title":"Elliptic return class","text":"The selected type crosses the conic classifier and returns BOUND / ELLIPTIC. The drawing is schematic and not to scale."},
+        "return":{"status":"PASS_TYPED_CLASSIFICATION","class":"ELLIPTIC","preserves":["source identity","quantity type","unit","conic class"],"suppresses":["perturbations","uncertainty propagation","full ephemeris"],"does_not_imply":["a perfect two-body universe","that the diagram is an ephemeris"]}
+      },
+      {
+        "id":"3i-atlas-jpl-55","label":"3I/ATLAS","subtitle":"Hyperbolic passage","operator":"CONIC_GATE","analogy":false,"time_sensitive":true,
+        "source":{"authority":"NASA/JPL SBDB","title":"C/2025 N1 (ATLAS) · solution 55","url":"https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=3I%2FATLAS&full-prec=1&cd-epoch=1","solution":"55","solution_date":"2026-10-21","epoch":"2026-10-27.0 TDB","retrieved":"2026-11-19"},
+        "carrier":{"object":"C/2025 N1 (ATLAS)","frame":"heliocentric J2000 ecliptic osculating orbit"},
+        "quantities":[
+          {"id":"e","type":"orbital eccentricity","symbol":"e","value":6.123467394525528,"display":"6.123467","unit":"dimensionless","qualifier":"JPL solution 55","note":"e > 1 classifies the osculating conic as hyperbolic."},
+          {"id":"a","type":"semi-major axis","symbol":"a","value":-0.2638835217034532,"display":"−0.263884","unit":"au","qualifier":"JPL solution 55","note":"A negative semi-major axis is the conventional hyperbolic-orbit parameter, not a negative distance measurement."},
+          {"id":"q","type":"perihelion distance","symbol":"q","value":1.351998619400212,"display":"1.351999","unit":"au","qualifier":"JPL solution 55","note":"Perihelion distance is distinct from semi-major axis and eccentricity."}
+        ],
+        "trace":{"title":"Hyperbolic passage class","text":"The current pinned JPL solution returns PASSAGE / HYPERBOLIC. The receipt keeps the solution ID and epoch because the orbital fit can change."},
+        "return":{"status":"PASS_TYPED_CLASSIFICATION","class":"HYPERBOLIC","preserves":["JPL solution ID","epoch","quantity type","unit","conic class"],"suppresses":["future orbit updates","full covariance","non-gravitational model detail"],"does_not_imply":["future values remain unchanged","NEXAH caused the orbit","a physical portal exists"]}
+      },
+      {
+        "id":"jupiter-resonance-sorter","label":"Jupiter","subtitle":"Resonance sorter","operator":"RESONANCE_SORTER","analogy":false,
+        "source":{"authority":"NASA/JPL Solar System Dynamics","title":"Asteroid Main-Belt Distribution","url":"https://ssd.jpl.nasa.gov/diagrams/mb_hist.html","solution":"derived orientation fixture","epoch":"declared aJ = 5.203 au","retrieved":"2026-11-19"},
+        "carrier":{"object":"Jupiter / inner small-body resonances","frame":"heliocentric semi-major-axis comparison"},
+        "quantities":[
+          {"id":"4:1","type":"4:1 mean-motion resonance radius","symbol":"a₄:₁","value":2.065,"display":"2.065","unit":"au","qualifier":"derived from aJ = 5.203 au","note":"A location associated with a strong inner-belt resonance; outcome depends on dynamics and time."},
+          {"id":"3:1","type":"3:1 mean-motion resonance radius","symbol":"a₃:₁","value":2.501,"display":"2.501","unit":"au","qualifier":"derived from aJ = 5.203 au","note":"A major Kirkwood-gap resonance in the main belt."},
+          {"id":"5:2","type":"5:2 mean-motion resonance radius","symbol":"a₅:₂","value":2.825,"display":"2.825","unit":"au","qualifier":"derived from aJ = 5.203 au","note":"One of the primary Jupiter mean-motion resonances visible in belt distributions."},
+          {"id":"7:3","type":"7:3 mean-motion resonance radius","symbol":"a₇:₃","value":2.958,"display":"2.958","unit":"au","qualifier":"derived from aJ = 5.203 au","note":"Resonance location is a coordinate, not an automatic fate for every body."},
+          {"id":"2:1","type":"2:1 mean-motion resonance radius","symbol":"a₂:₁","value":3.278,"display":"3.278","unit":"au","qualifier":"derived from aJ = 5.203 au","note":"A strong outer main-belt resonance."},
+          {"id":"3:2","type":"3:2 mean-motion resonance radius","symbol":"a₃:₂","value":3.971,"display":"3.971","unit":"au","qualifier":"derived from aJ = 5.203 au","note":"Associated with the Hilda resonant population; stable trapping is possible for appropriate states."},
+          {"id":"1:1","type":"1:1 co-orbital resonance radius","symbol":"a₁:₁","value":5.203,"display":"5.203","unit":"au","qualifier":"declared Jupiter semi-major axis","note":"Jupiter Trojans share the orbital period near the L4 and L5 regions."}
+        ],
+        "trace":{"title":"Resonance coordinate","text":"The selected ratio returns a derived semi-major-axis location. Clear, trap and scatter remain outcome labels requiring initial conditions and a dynamical model."},
+        "return":{"status":"PASS_DERIVATION_REPRODUCED","class":"MEAN_MOTION_RESONANCE_LOCATION","preserves":["declared Jupiter scale","resonance ratio","derived radius","unit"],"suppresses":["eccentricity","inclination","libration amplitude","long-term integrations"],"does_not_imply":["every resonance clears material","every object is trapped","Jupiter is a deterministic sorting machine"]}
+      },
+      {
+        "id":"saturn-titan-qrt","label":"Saturn–Titan","subtitle":"QRT record analogy","operator":"QRT_RECORD","analogy":true,
+        "source":{"authority":"NEXAH Solar Clockwork custody + Library of Congress","title":"Saturn QRT Record / sound carrier formats","url":"../../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_SOLAR_SYSTEM_CLOCKWORK_DOCUMENT_FAMILY_2026-09-14/SOURCE_SNAPSHOT/saturn-titan-qrt-record.html","solution":"preserved source HTML","epoch":"custody 2026-09-14","retrieved":"2026-11-19"},
+        "carrier":{"object":"Record-format analogy","frame":"carrier / cut / mask / trace / return"},
+        "quantities":[
+          {"id":"ep45","type":"record carrier format","symbol":"EP","value":45,"display":"7″ · 45","unit":"rpm","qualifier":"typical format association","note":"A compact cut and playback format; size/speed association is typical, not absolute."},
+          {"id":"lp33","type":"record carrier format","symbol":"LP","value":33.333333,"display":"12″ · 33⅓","unit":"rpm","qualifier":"typical format association","note":"A slower long-playing carrier format."},
+          {"id":"sh78","type":"record carrier format","symbol":"78","value":78,"display":"10″ · 78","unit":"rpm","qualifier":"historical shellac association","note":"A historical rapid format with materially recorded grooves."}
+        ],
+        "trace":{"title":"Material record analogy","text":"One carrier is presented through selectable cuts; the groove stands for a stored trace that can be compared on return."},
+        "return":{"status":"N_A_ANALOGY_ONLY","class":"ORIENTATION_ANALOGY","preserves":["carrier identity","selected format","cut label","trace comparison"],"suppresses":["measured Saturn-Titan dynamics","physical transfer function","astronomical scale"],"does_not_imply":["Saturn is a record player","Titan writes a measured groove","QRT is a universal physical operator"]}
+      }
+    ]
+  }
+  </script>
+  <script>
+    (()=>{
+      const data=JSON.parse(document.getElementById('measurementGateData').textContent);
+      const $=id=>document.getElementById(id);
+      const state={caseId:data.cases[0].id,quantityId:data.cases[0].quantities[0].id};
+      const operators=[['CONIC_GATE','Conic Gate'],['RESONANCE_SORTER','Resonance Sorter'],['QRT_RECORD','QRT Record']];
+      const currentCase=()=>data.cases.find(item=>item.id===state.caseId);
+      const currentQuantity=()=>currentCase().quantities.find(item=>item.id===state.quantityId) || currentCase().quantities[0];
+      const escapeHtml=value=>String(value).replace(/[&<>'"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+      function renderCaseButtons(){
+        $('caseButtons').innerHTML=data.cases.map((item,index)=>`<button class="case-button" type="button" data-case="${item.id}" aria-pressed="${item.id===state.caseId}"><small>CASE ${String(index+1).padStart(2,'0')}</small><strong>${escapeHtml(item.label)}</strong><span>${escapeHtml(item.subtitle)}</span></button>`).join('');
+        $('caseButtons').querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{state.caseId=button.dataset.case;state.quantityId=currentCase().quantities[0].id;render()}));
+      }
+      function renderDeclare(){
+        const item=currentCase(),quantity=currentQuantity();
+        $('quantitySelect').innerHTML=item.quantities.map(q=>`<option value="${q.id}"${q.id===quantity.id?' selected':''}>${escapeHtml(q.type)} · ${escapeHtml(q.symbol)}</option>`).join('');
+        $('sourceMeta').innerHTML=[['Carrier',item.carrier.object],['Frame',item.carrier.frame],['Authority',item.source.authority],['Solution',item.source.solution],['Epoch',item.source.epoch],['Retrieved',item.source.retrieved]].map(([key,value])=>`<li><b>${key}</b><span>${escapeHtml(value)}</span></li>`).join('');
+        $('valueKicker').textContent=`${quantity.symbol} · ${quantity.qualifier}`;
+        $('valueDisplay').textContent=quantity.display;
+        $('unitDisplay').textContent=quantity.unit;
+        $('typeTitle').textContent=quantity.type;
+        $('typeNote').textContent=quantity.note;
+      }
+      function renderOperatorTabs(){
+        const item=currentCase();
+        $('operatorTabs').innerHTML=operators.map(([id,label])=>`<button type="button" data-operator="${id}" aria-pressed="${id===item.operator}" ${id!==item.operator?'disabled':''}>${label}</button>`).join('');
+      }
+      function conicSvg(item,quantity){
+        const hyper=item.return.class==='HYPERBOLIC';
+        const orbit=hyper?'<path class="svg-pink" stroke-width="5" d="M535 370 C570 260 650 188 815 155"/><path class="svg-pink" stroke-width="2" stroke-dasharray="8 8" d="M535 370 C570 480 650 550 815 585"/>':'<ellipse class="svg-cyan" stroke-width="5" cx="485" cy="370" rx="275" ry="150"/><path class="svg-cyan" stroke-width="2" d="M220 370 l-18 -10 m18 10 l-18 10"/>';
+        return `<svg viewBox="0 0 920 640" role="img" aria-label="${hyper?'Hyperbolic passage':'Elliptic return'} schematic"><g class="svg-grid"><path d="M80 370H850"/><path d="M535 80V580"/></g><circle cx="535" cy="370" r="34" fill="#f2c65b"/><circle cx="535" cy="370" r="52" fill="none" stroke="#f2c65b" opacity=".25"/>${orbit}<text class="svg-label" x="85" y="90">Q° PORT · CONIC GATE</text><text class="svg-small" x="85" y="120">typed classification · schematic · not to scale</text><text class="svg-label" x="85" y="545">${escapeHtml(item.return.class)}</text><text class="svg-small" x="85" y="573">${escapeHtml(quantity.symbol)} = ${escapeHtml(quantity.display)} ${escapeHtml(quantity.unit)}</text><text class="svg-small" x="585" y="405">FOCUS / SUN</text></svg>`;
+      }
+      function resonanceSvg(quantity){
+        const rows=[['4:1',2.065],['3:1',2.501],['5:2',2.825],['7:3',2.958],['2:1',3.278],['3:2',3.971],['1:1',5.203]];
+        const selected=quantity.id;
+        return `<svg viewBox="0 0 920 640" role="img" aria-label="Jupiter mean-motion resonance coordinate plot"><text class="svg-label" x="55" y="70">JUPITER · RESONANCE COORDINATES</text><text class="svg-small" x="55" y="100">a = aJ · (q/p)^(2/3) · aJ = 5.203 au</text><line class="svg-muted" x1="95" y1="470" x2="840" y2="470"/><text class="svg-small" x="95" y="505">2 au</text><text class="svg-small" x="795" y="505">5.2 au</text>${rows.map(([id,value],i)=>{const x=95+(value-2)/3.203*745;const active=id===selected;return `<line x1="${x}" y1="${active?175:245}" x2="${x}" y2="470" stroke="${active?'#f05cae':'#56d9e8'}" stroke-width="${active?5:2}" opacity="${active?1:.55}"/><circle cx="${x}" cy="470" r="${active?9:5}" fill="${active?'#f2c65b':'#56d9e8'}"/><text class="svg-small" x="${x-14}" y="${active?155:225}">${id}</text><text class="svg-small" x="${x-22}" y="${active?135:205}">${value}</text>`}).join('')}<circle cx="840" cy="470" r="36" fill="#d7a45d"/><text class="svg-label" x="790" y="545">JUPITER</text><text class="svg-small" x="55" y="590">COORDINATE ≠ OUTCOME · CLEAR / TRAP / SCATTER REQUIRE CONDITIONS</text></svg>`;
+      }
+      function qrtSvg(quantity){
+        const rings={ep45:3,lp33:6,sh78:9}[quantity.id]||3;
+        return `<svg viewBox="0 0 920 640" role="img" aria-label="Carrier cut trace and return record analogy"><text class="svg-label" x="55" y="65">SATURN–TITAN · QRT RECORD</text><text class="svg-small" x="55" y="95">one carrier · selected cut · comparable trace</text><path class="svg-cyan" stroke-width="5" d="M55 315 C120 260 165 370 245 315"/><path fill="#56d9e8" d="M228 286 L270 315 L228 344Z"/><circle cx="435" cy="315" r="82" fill="#d18a4d" opacity=".95"/>${Array.from({length:rings},(_,i)=>`<ellipse cx="435" cy="315" rx="${125+i*14}" ry="${54+i*7}" fill="none" stroke="${i===rings-1?'#f05cae':'#f2c65b'}" stroke-width="${i===rings-1?5:2}" opacity="${.9-i*.05}"/>`).join('')}<line x1="435" y1="315" x2="650" y2="210" stroke="#68ddb2" stroke-width="4"/><circle cx="650" cy="210" r="17" fill="#68ddb2"/><path d="M690 235 A78 78 0 0 1 690 395Z" fill="#edf2f2"/><path d="M690 235 A78 78 0 0 0 690 395Z" fill="#09151c" stroke="#81949a"/><line x1="690" y1="224" x2="690" y2="406" stroke="#f05cae" stroke-width="5"/><path class="svg-gold" stroke-width="5" d="M790 315 l18 0 8 -48 13 95 14 -80 16 64 16 -31 22 0"/><text class="svg-small" x="55" y="545">${escapeHtml(quantity.display)} ${escapeHtml(quantity.unit)} · ${escapeHtml(quantity.qualifier)}</text><text class="svg-small" x="55" y="578">ANALOGY ONLY · NO MEASURED SATURN–TITAN TRANSFER FUNCTION</text></svg>`;
+      }
+      function renderCut(){
+        const item=currentCase(),quantity=currentQuantity();
+        $('visualPanel').innerHTML=item.operator==='CONIC_GATE'?conicSvg(item,quantity):item.operator==='RESONANCE_SORTER'?resonanceSvg(quantity):qrtSvg(quantity);
+        $('sourceRecordTitle').textContent=item.carrier.object;
+        $('sourceRecordText').textContent=`${quantity.type}: ${quantity.display} ${quantity.unit}. ${quantity.qualifier}.`;
+        $('traceTitle').textContent=item.trace.title;
+        $('traceText').textContent=item.trace.text;
+      }
+      function receiptFor(item,quantity){
+        return {schema:'nexah.a0.measurement-gate.receipt.v1',generated_from:'pinned local data',case_id:item.id,source:item.source,carrier:item.carrier,selected_quantity:{type:quantity.type,symbol:quantity.symbol,value:quantity.value,unit:quantity.unit,qualifier:quantity.qualifier},operator:item.operator,return:item.return,claim_ceiling:item.analogy?'orientation analogy only':'typed classification or declared derivation; no new physical law'};
+      }
+      function renderReturn(){
+        const item=currentCase(),quantity=currentQuantity(),receipt=receiptFor(item,quantity);
+        $('sourceStack').innerHTML=`<article class="source-card"><b>Source authority</b><p>${escapeHtml(item.source.authority)}</p><a href="${escapeHtml(item.source.url)}">Open source record</a></article><article class="source-card"><b>Preserved</b><p>${escapeHtml(item.return.preserves.join(' · '))}</p></article><article class="source-card"><b>Suppressed / unavailable</b><p>${escapeHtml(item.return.suppresses.join(' · '))}</p></article><article class="source-card"><b>Does not imply</b><p>${escapeHtml(item.return.does_not_imply.join(' · '))}</p></article>`;
+        $('receiptStatus').textContent=item.return.status;
+        $('receiptStatus').classList.toggle('hold',item.return.status.startsWith('HOLD')||item.return.status.startsWith('SOURCE'));
+        $('receiptJson').textContent=JSON.stringify(receipt,null,2);
+      }
+      function render(){renderCaseButtons();renderDeclare();renderOperatorTabs();renderCut();renderReturn()}
+      $('quantitySelect').addEventListener('change',event=>{state.quantityId=event.target.value;renderDeclare();renderCut();renderReturn()});
+      $('copyReceipt').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('receiptJson').textContent);$('copyReceipt').textContent='Receipt copied'}catch(error){$('copyReceipt').textContent='Copy unavailable'}setTimeout(()=>$('copyReceipt').textContent='Copy receipt',1800)});
+      render();
+    })();
+  </script>
+</body>
+</html>

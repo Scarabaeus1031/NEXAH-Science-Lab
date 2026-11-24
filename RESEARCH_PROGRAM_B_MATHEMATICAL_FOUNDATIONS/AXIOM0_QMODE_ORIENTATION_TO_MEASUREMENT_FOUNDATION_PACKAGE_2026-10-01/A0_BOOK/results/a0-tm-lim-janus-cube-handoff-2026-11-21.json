@@ -1,0 +1,75 @@
+{
+  "schema": "nexah.a0.tm-lim-janus-cube-handoff/1.1.0",
+  "date": "2026-11-21",
+  "status": "INTERNAL_PREPARATION_RETURN",
+  "scope": "Typed documentary crosswalk for one-sided seam states, a declared Janus flip, projection ambiguity and a complete Cube handoff record.",
+  "reused_identities": [
+    "MOD:NUMBER_VIEW_SUITE",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"
+  ],
+  "state_model": {
+    "one_sided_limits": [
+      "x_minus = lim(t -> t0-) x(t)",
+      "x_plus = lim(t -> t0+) x(t)"
+    ],
+    "janus_flip": "T(a,epsilon)=(a,-epsilon)",
+    "involution": "T^2=id",
+    "display_sequence": ["AM", "AM'", "AM''"],
+    "typed_sequence": [
+      {"view": "AM_plus", "pass": 0},
+      {"view": "AM_minus", "pass": 1},
+      {"view": "AM_plus", "pass": 2}
+    ]
+  },
+  "cube_handoff_required_fields": [
+    "carrier",
+    "address",
+    "sheet_sign",
+    "pass",
+    "signed_tilt_or_depth_witness",
+    "residual",
+    "axis",
+    "frame",
+    "projection_contract",
+    "provenance"
+  ],
+  "projection_control": {
+    "source": "a0-pascal-bracket-tilt-projection-2026-10-25.json",
+    "statement": "The declared +60 and -60 degree spatial poses have equal complete 2D point data under orthographic XY projection but are different spatial poses.",
+    "lost_information": ["signed depth z", "sign of tilt"]
+  },
+  "caro_comparator": {
+    "source": "A0_ORIENTATION_CONTROLLER_BENCH.html#caroOrientationModes",
+    "roles": ["OPEN / GREEN MIRROR", "CLOSED / BLACK MIRROR / LOTUS", "five manual day-reading markers"],
+    "non_identity": "CARO_CLOSING != TM != JANUS != CUBE_TILT"
+  },
+  "owner_transformation_grammar": {
+    "name": "CaroThemanu",
+    "status": "SOURCE_DEFINED_OWNER_TRANSFORMATION_GRAMMAR",
+    "composition": "F = Nu o Ma o The o Ro o Ca",
+    "stages": [
+      {"token": "Ca", "reading": "Cut / Puncture / first distinction"},
+      {"token": "Ro", "reading": "Rotation / orientation / directional change"},
+      {"token": "The", "display_label": "Thé", "reading": "sound-law / resonance / coherence"},
+      {"token": "Ma", "reading": "form / matter / storage"},
+      {"token": "Nu", "reading": "the new / return / integration"}
+    ],
+    "carrier_sequence": ["FIELD", "CUT", "SPACE", "POSITION", "RELATION", "WORLD"],
+    "janus_boundary": "T is a local sheet involution inside the larger typed sequence; T != F",
+    "source_class": "OWNER_SUPPLIED_VISUAL_DEFINITION",
+    "source_hashes": {
+      "ANU_THE_REGULATOR_CAROTHEMANU_PLATE": "85f0333fb697dbb7620227dc0a6d6714799c8913050dd5163d85bfdda365a44e",
+      "NEXAH_META_VISUAL_TRANSFORMATION_PLATE": "2f9e0a7c866ccaafb33f712c6b60f9a2f273af35066fca28d6fd1cd1ae53e6c3"
+    },
+    "authority_boundary": "The plates define Owner terminology, ordering and visual roles only. They do not establish a canonical operator, unique mathematics, physical mechanism, evidence result or truth claim."
+  },
+  "controlling_non_identity": "SAME_PROJECTION != SAME_SPATIAL_POSE != SAME_HISTORICAL_RECORD",
+  "claim_boundary": "This receipt records a typed comparison, minimum return witness and source-defined Owner transformation grammar. It does not create a Cube or CaroThemanu operator, identify CARO with TM or Janus, recover a historical generator, establish a physical time or mirror mechanism, admit a Study, promote a Finding or authorize publication.",
+  "graph_delta": {
+    "nodes": 0,
+    "relations": 0,
+    "aliases": 0,
+    "reason": "Existing Number View Suite and Orientation Controller Bench identities are reused; the work is a documentary preparation crosswalk only."
+  },
+  "publication_authorized": false
+}

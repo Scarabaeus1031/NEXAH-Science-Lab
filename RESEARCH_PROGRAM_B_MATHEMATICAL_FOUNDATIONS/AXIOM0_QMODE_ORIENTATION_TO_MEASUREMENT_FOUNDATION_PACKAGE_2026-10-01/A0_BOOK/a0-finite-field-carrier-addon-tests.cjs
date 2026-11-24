@@ -1,0 +1,16 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),A=require('./a0-finite-field-carrier-addon.js');let checks=0;
+const eq=(a,b,m)=>{assert.deepEqual(a,b,m);checks++},ok=(v,m)=>{assert.ok(v,m);checks++};
+eq(A.isPrime(101),true);eq(A.isPrime(1009),true);eq(A.isPrime(1001),false);eq(A.isPrime(1),false);
+eq(A.finiteFieldClock(101,1),{p:101,b:1,q:101,field:'F_101',law:'q=p^b',primeField:true,exactReturn:true});
+eq(A.finiteFieldClock(7,3),{p:7,b:3,q:343,field:'F_343',law:'q=p^b',primeField:false,exactReturn:true});
+assert.throws(()=>A.finiteFieldClock(9,1));checks++;assert.throws(()=>A.finiteFieldClock(2,99));checks++;
+eq(A.polynomialRootAudit(60,6),{degree:60,observedRoots:6,rootCeiling:60,admitted:true,scope:'NONZERO_UNIVARIATE_POLYNOMIAL_OVER_A_FIELD',claim:'at most d distinct roots'});
+eq(A.polynomialRootAudit(5,6).admitted,false);assert.throws(()=>A.polynomialRootAudit(-1,0));checks++;
+const audit=A.audit();eq(audit.rule,'REUSE_WHITE_LINE_REFERENCE_ASSETS_ONLY');eq(audit.claims.newBody,false);eq(audit.claims.newWhiteLine,false);eq(audit.claims.assetDuplication,false);eq(audit.claims.riemannHypothesisProof,false);eq(audit.claims.physicalGluing,false);eq(audit.claims.glyphIdentityCollapse,false);
+eq(A.ADDONS.filter(x=>x.status==='REUSE_NATIVE').length,3);eq(A.ADDONS.filter(x=>x.status==='SOURCE_BOUND_ADDON').length,3);eq(A.GLYPHS.find(x=>x.glyph==='ø').status,'PRESERVE_REGISTERED_SPLIT_CUT');eq(A.GLYPHS.find(x=>x.glyph==='œ').status,'PRESERVE_REGISTERED_SEAM_TRANSITION');
+const html=fs.readFileSync('./A0_BLUE_PINK_DODECA_CELL_RETURN.html','utf8'),css=fs.readFileSync('./a0-finite-field-carrier-addon.css','utf8'),desk=fs.readFileSync('./A0_RESEARCH_DESK.html','utf8'),receipt=JSON.parse(fs.readFileSync('./results/a0-finite-field-carrier-addon-2026-11-21.json','utf8'));
+for(const id of ['finiteFieldCarrierAddon','finiteFieldP','finiteFieldB','finiteFieldD','finiteFieldRoots','finiteFieldQ','finiteFieldRootAudit','finiteFieldAddonRegistry','finiteFieldGlyphRegistry'])ok(html.includes(`id="${id}"`));
+ok(html.includes('Die Dateien bleiben Add-ons. Die White Line bleibt der Träger.'));ok(html.includes('q=pᵇ'));ok(html.includes('höchstens <code>d</code> verschiedene Nullstellen'));ok(html.includes('nicht kopiert, nicht neu gebaut'));ok(html.includes('a0-finite-field-carrier-addon.js'));ok(html.includes('a0-finite-field-carrier-addon.css'));ok(css.includes('.finite-field-addon__pearls'));ok(css.includes('.finite-field-addon__registry'));ok(css.includes('@media(max-width:720px)'));
+ok(desk.includes('id="finite-field-carrier-addon-return-20261121"'));ok(desk.includes('A0_BLUE_PINK_DODECA_CELL_RETURN.html#finiteFieldCarrierAddon'));eq(receipt.recordId,'A0-FINITE-FIELD-CARRIER-ADDON-20261121');eq(receipt.carrierDecision.newWhiteLine,false);eq(receipt.claimBoundary.graphDelta,0);
+console.log(JSON.stringify({status:'PASS',checks,rule:audit.rule,claims:audit.claims,addons:A.ADDONS.map(x=>[x.id,x.status])}));

@@ -7,16 +7,18 @@
   const modeButtons=[...root.querySelectorAll('[data-hv-mode]')],strandButtons=[...root.querySelectorAll('[data-hv-strand]')],registerButtons=[...root.querySelectorAll('[data-hv-register]')],railToggle=root.querySelector('[data-hv-rail]');
   const mixInput=root.querySelector('[data-hv-mix]'),phaseOut=root.querySelector('#helixPhaseOut');
   const phaseControl=root.querySelector('.hv-phase-control'),zetaControl=root.querySelector('[data-hv-zeta-control]'),logXInput=root.querySelector('[data-hv-logx]'),betaOffsetInput=root.querySelector('[data-hv-beta-offset]');
+  const residueControl=root.querySelector('[data-hv-residue-control]'),residueAngleButtons=[...root.querySelectorAll('[data-hv-residue-angle]')],residueSummary=root.querySelector('[data-hv-residue-summary]');
   const zetaLensButtons=[...root.querySelectorAll('[data-hv-zeta-lens]')],traceWordButtons=[...root.querySelectorAll('[data-hv-trace-word]')],traceSwitch=root.querySelector('[data-hv-trace-switch]');
   const zetaSummary=root.querySelector('[data-hv-zeta-summary]'),betaLabel=root.querySelector('[data-hv-beta-label]'),zetaX=root.querySelector('[data-hv-zeta-x]'),zetaLogX=root.querySelector('[data-hv-zeta-logx]'),zetaRho=root.querySelector('[data-hv-zeta-rho]'),zetaTheta=root.querySelector('[data-hv-zeta-theta]'),zetaEnvelope=root.querySelector('[data-hv-zeta-envelope]'),zetaContribution=root.querySelector('[data-hv-zeta-contribution]'),zetaLensOut=root.querySelector('[data-hv-zeta-lens-out]'),zetaWitness=root.querySelector('[data-hv-zeta-witness]');
   const turnsOut=root.querySelector('[data-hv-turns]'),iotaOut=root.querySelector('[data-hv-iota]'),daoOut=root.querySelector('[data-hv-dao]'),pitchOut=root.querySelector('[data-hv-pitch]'),curvatureOut=root.querySelector('[data-hv-curvature]'),torsionOut=root.querySelector('[data-hv-torsion]');
   const indexInput=root.querySelector('[data-hv-index]'),prev=root.querySelector('[data-hv-prev]'),next=root.querySelector('[data-hv-next]');
   const recordEl=root.querySelector('[data-hv-record]'),pairEl=root.querySelector('[data-hv-pair]'),detailEl=root.querySelector('[data-hv-detail]'),countEl=root.querySelector('[data-hv-count]'),strandReadout=root.querySelector('[data-hv-strand-readout]'),registerReadout=root.querySelector('[data-hv-register-readout]');
-  let mode='twins',strandMode='double',registerMode='pair',mix=0,logX=Math.log(1000),betaOffset=0,zetaLens='smooth',traceWord='RLLR',showRail=true,selected=0,rotX=-0.08,rotY=0.42,drag=null,screenRungs=[];
+  let mode='twins',strandMode='double',registerMode='pair',residueAngle='paired',mix=0,logX=Math.log(1000),betaOffset=0,zetaLens='smooth',traceWord='RLLR',showRail=true,selected=0,rotX=-0.08,rotY=0.42,drag=null,screenRungs=[];
 
   function css(name){return getComputedStyle(document.documentElement).getPropertyValue(name).trim()}
   function records(){return M.modeRecords(mode)}
-  function geometry(){return M.buildGeometry(records(),{mix,strandMode,logX,betaOffset,zetaLens,traceWord})}
+  function geometry(){return M.buildGeometry(records(),{mix,strandMode,logX,betaOffset,zetaLens,traceWord,residueAngle})}
+  function doubleView(){return mode==='residue'?residueAngle==='paired':strandMode==='double'}
   function resize(){
     const rect=canvas.getBoundingClientRect(),dpr=Math.min(2,window.devicePixelRatio||1);
     if(canvas.width!==Math.round(rect.width*dpr)||canvas.height!==Math.round(rect.height*dpr)){canvas.width=Math.round(rect.width*dpr);canvas.height=Math.round(rect.height*dpr)}
@@ -34,7 +36,7 @@
   }
   function dot(point,r,color,stroke){ctx.beginPath();ctx.arc(point.x,point.y,r,0,M.TAU);ctx.fillStyle=color;ctx.fill();if(stroke){ctx.lineWidth=2;ctx.strokeStyle=stroke;ctx.stroke()}}
   function registerOverlay(g,w,h,colors){
-    if(mode==='zeta'||registerMode==='pair')return;
+    if(mode==='zeta'||mode==='residue'||registerMode==='pair')return;
     if(registerMode==='fh14'||registerMode==='triad21'){
       const bundle=M.registerGeometry(registerMode,g.rungs.length,{step:g.step,radius:g.innerRadius*1.18,height:g.height});
       const palette=registerMode==='fh14'?[colors.a,colors.b]:[colors.a,colors.blue,colors.b];
@@ -50,29 +52,29 @@
   }
   function draw(){
     const rect=canvas.getBoundingClientRect(),w=rect.width,h=rect.height,g=geometry();ctx.clearRect(0,0,w,h);
-    const colors={a:css('--cyan'),b:css('--orange'),rail:css('--gold'),line:css('--line'),text:css('--text'),blue:css('--blue')};
+    const colors={a:css('--cyan'),b:css('--orange'),rail:css('--gold'),line:css('--line'),text:css('--text'),blue:css('--blue')},showDouble=doubleView();
     const projected=g.rungs.map(r=>({r,a:project(r.strandA,w,h),b:project(r.strandB,w,h),mid:project(r.midpoint,w,h),railA:project(r.railA,w,h),railB:project(r.railB,w,h)}));
     const byDepth=projected.slice().sort((u,v)=>u.a.z-v.a.z);screenRungs=projected;
     registerOverlay(g,w,h,colors);
-    if(strandMode==='double'&&mode!=='zeta'){
+    if(showDouble&&mode!=='zeta'&&mode!=='residue'){
       const axisTop=project({x:0,y:-g.height/2,z:0},w,h),axisBottom=project({x:0,y:g.height/2,z:0},w,h);
       ctx.save();ctx.setLineDash([4,5]);path([axisTop,axisBottom],colors.line,1.1,.65);ctx.restore();
     }
-    if(mode==='zeta'&&zetaLens==='seam'&&strandMode==='double'){
+    if(mode==='zeta'&&zetaLens==='seam'&&showDouble){
       ctx.save();ctx.setLineDash([7,5]);path(projected.map(x=>x.b),colors.b,4,.86);ctx.restore();path(projected.map(x=>x.a),colors.a,2.1,.95);
-    }else{path(projected.map(x=>x.a),colors.a,2.2,.82);if(strandMode==='double')path(projected.map(x=>x.b),colors.b,2.2,.78)}
-    if(showRail&&mode!=='zeta'){path(projected.map(x=>x.railA),colors.rail,1.4,.64);if(strandMode==='double')path(projected.map(x=>x.railB),colors.rail,1.4,.42)}
+    }else{path(projected.map(x=>x.a),colors.a,2.2,.82);if(showDouble)path(projected.map(x=>x.b),colors.b,2.2,.78)}
+    if(showRail&&mode!=='zeta'&&mode!=='residue'){path(projected.map(x=>x.railA),colors.rail,1.4,.64);if(showDouble)path(projected.map(x=>x.railB),colors.rail,1.4,.42)}
     for(const item of byDepth){
-      const active=item.r.index-1===selected;if(strandMode==='double'&&!(mode==='zeta'&&zetaLens==='seam')){path([item.a,item.b],active?colors.text:(item.r.kink?colors.blue:item.r.codon?colors.blue:colors.line),active?2.6:(item.r.kink?2:1),active?1:.72);if(mode!=='zeta')dot(item.mid,active?3.7:1.8,active?colors.text:colors.blue)}
-      const radius=(item.r.codon?4:2.5)*item.a.p;dot(item.a,radius,colors.a,active?colors.text:null);if(strandMode==='double')dot(item.b,radius,colors.b,active?colors.text:null);
-      if(mode==='zeta'&&item.r.kink){dot(item.a,6.2*item.a.p,colors.blue,active?colors.text:colors.rail);if(strandMode==='double')dot(item.b,6.2*item.b.p,colors.blue,active?colors.text:colors.rail)}
+      const active=item.r.index-1===selected;if(showDouble&&!(mode==='zeta'&&zetaLens==='seam')){path([item.a,item.b],active?colors.text:(item.r.kink?colors.blue:item.r.codon?colors.blue:colors.line),active?2.6:(item.r.kink?2:1),active?1:(mode==='residue'?.18:.72));if(mode!=='zeta'&&mode!=='residue')dot(item.mid,active?3.7:1.8,active?colors.text:colors.blue)}
+      const radius=(item.r.codon?4:mode==='residue'?2.1:2.5)*item.a.p;dot(item.a,radius,mode==='residue'?residueColor(item.r,residueAngle==='mod11'?11:7):colors.a,active?colors.text:null);if(showDouble)dot(item.b,radius,mode==='residue'?residueColor(item.r,11):colors.b,active?colors.text:null);
+      if(mode==='zeta'&&item.r.kink){dot(item.a,6.2*item.a.p,colors.blue,active?colors.text:colors.rail);if(showDouble)dot(item.b,6.2*item.b.p,colors.blue,active?colors.text:colors.rail)}
       if(mode==='zeta'&&zetaLens==='seam'&&active){dot(item.b,8.5*item.b.p,colors.b,colors.text);dot(item.a,4.5*item.a.p,colors.a,colors.text)}
-      if(showRail&&mode!=='zeta'&&item.r.fibonacci){dot(item.railA,4.4*item.railA.p,colors.rail,colors.text);if(strandMode==='double')dot(item.railB,4.4*item.railB.p,colors.rail,colors.text)}
+      if(showRail&&mode!=='zeta'&&mode!=='residue'&&item.r.fibonacci){dot(item.railA,4.4*item.railA.p,colors.rail,colors.text);if(showDouble)dot(item.railB,4.4*item.railB.p,colors.rail,colors.text)}
     }
   }
   function setSelected(index){
-    const list=records();selected=(index+list.length)%list.length;indexInput.max=String(list.length);indexInput.value=String(selected+1);countEl.textContent=mode==='zeta'?`${list.length} zero pairs · ${zetaLens.toUpperCase()} LENS`:`${list.length} ${strandMode==='double'?'rungs':'nodes'} · ${registerLabel()}`;const info=M.inspection(mode,selected,mix,strandMode,{logX,betaOffset,zetaLens,traceWord});
-    recordEl.textContent=info.recordId;pairEl.textContent=strandMode==='double'?`${info.pair[0]} ↔ ${info.pair[1]}`:`${info.single[0]}`;
+    const list=records();selected=(index+list.length)%list.length;indexInput.max=String(list.length);indexInput.value=String(selected+1);countEl.textContent=mode==='zeta'?`${list.length} zero pairs · ${zetaLens.toUpperCase()} LENS`:mode==='residue'?`${list.length} prime records · ${residueAngle.toUpperCase()}`:`${list.length} ${strandMode==='double'?'rungs':'nodes'} · ${registerLabel()}`;const info=M.inspection(mode,selected,mix,strandMode,{logX,betaOffset,zetaLens,traceWord,residueAngle});
+    recordEl.textContent=info.recordId;pairEl.textContent=mode==='residue'?String(info.prime):strandMode==='double'?`${info.pair[0]} ↔ ${info.pair[1]}`:`${info.single[0]}`;
     if(mode==='zeta'){
       const trace=M.traceWordData(traceWord),seam=M.phaseSeamData();
       const mirror=zetaLens==='smooth'?'θ ↔ −θ · conjugate wave':zetaLens==='trace'?`${traceWord} slot ${info.traceSlot}/4 · ${info.traceSymbol} · ${info.kink?'KINK':'run'}`:'−1/12 ≡ 11/12 (mod 1) · lift Δ=1';
@@ -82,6 +84,14 @@
       zetaSummary.textContent=`x=${formatNumber(info.x,3)} · β=${decimal(info.beta,3)}`;betaLabel.textContent=decimal(betaOffset,3);
       zetaX.textContent=formatNumber(info.x,3);zetaLogX.textContent=decimal(info.logX,6);zetaRho.textContent=`${decimal(info.beta,3)} + ${decimal(info.gamma,6)}i`;zetaTheta.textContent=`${decimal(info.theta,6)} rad`;zetaEnvelope.textContent=decimal(info.normalizedAmplitude,6);zetaContribution.textContent=decimal(info.normalizedContribution,8);
       zetaLensOut.textContent=zetaLens.toUpperCase();zetaWitness.textContent=zetaLens==='smooth'?'θ ↔ −θ':zetaLens==='trace'?`${traceWord} · kinks ${trace.kinkPositions.join(',')}`:`${fraction(seam.shadow)} ↔ ${fraction(seam.visible)} · lift +1`;
+      draw();return;
+    }
+    if(mode==='residue'){
+      const viewLabel=info.angleMode==='paired'?'7|11 · SAME RECORD / TWO RAILS':info.angleMode.toUpperCase();
+      detailEl.innerHTML=`<dt>Carrier</dt><dd>Prime p≤1000 · shared finite carrier</dd><dt>Prime index</dt><dd>${info.index} / 168</dd><dt>p mod 7</dt><dd>${info.residue7} · ${decimal(info.angleDegrees7,6)}°</dd><dt>p mod 11</dt><dd>${info.residue11} · ${decimal(info.angleDegrees11,6)}°</dd><dt>Tail boundary</dt><dd>${info.tail.length} primes · 1000&lt;p≤1111 · outside view</dd><dt>Return</dt><dd>EXACT → ${info.return.values[0]}</dd>`;
+      strandReadout.innerHTML=`<b>${viewLabel}</b> · vertical order = prime index · angle only changes the view`;
+      registerReadout.innerHTML='<b>VIEW CROSSWALK</b> · same <code>PC1111</code> record · no antipodal/DNA rung claim';
+      residueSummary.textContent=info.angleMode==='paired'?'7|11 · two declared angle rails':`${info.angleMode.toUpperCase()} · one declared angle rail`;
       draw();return;
     }
     const role=mode==='twins'?'Twin prime pair':(info.fixed?'Fixed point orbit':'Two-cycle orbit');
@@ -96,8 +106,8 @@
   function decimal(value,digits){return value.toFixed(digits).replace('.',',')}
   function formatNumber(value,digits){return new Intl.NumberFormat('de-DE',{maximumFractionDigits:digits}).format(value)}
   function setMode(nextMode){
-    mode=nextMode;const zeta=mode==='zeta';modeButtons.forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.hvMode===mode)));
-    phaseControl.hidden=zeta;zetaControl.hidden=!zeta;registerButtons.forEach(btn=>btn.disabled=zeta);railToggle.disabled=zeta;railToggle.closest('.hv-check').classList.toggle('is-disabled',zeta);
+    mode=nextMode;const zeta=mode==='zeta',residue=mode==='residue',locked=zeta||residue;modeButtons.forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.hvMode===mode)));
+    phaseControl.hidden=locked;zetaControl.hidden=!zeta;residueControl.hidden=!residue;registerButtons.forEach(btn=>btn.disabled=locked);strandButtons.forEach(btn=>btn.disabled=residue);railToggle.disabled=locked;railToggle.closest('.hv-check').classList.toggle('is-disabled',locked);
     setSelected(0);
   }
   function setStrandMode(nextMode){strandMode=M.strandMode(nextMode);strandButtons.forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.hvStrand===strandMode)));setSelected(selected)}
@@ -109,6 +119,8 @@
   function setBetaOffset(value){betaOffset=Math.max(-.08,Math.min(.08,value));setSelected(selected)}
   function setZetaLens(value){zetaLens=M.zetaLensMode(value);zetaLensButtons.forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.hvZetaLens===zetaLens)));traceSwitch.hidden=zetaLens!=='trace';setSelected(selected)}
   function setTraceWord(value){traceWord=M.traceWordData(value).word;traceWordButtons.forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.hvTraceWord===traceWord)));setSelected(selected)}
+  function setResidueAngle(value){residueAngle=M.residueAngleMode(value);residueAngleButtons.forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.hvResidueAngle===residueAngle)));setSelected(selected)}
+  function residueColor(record,modulus){const residue=modulus===11?record.residue11:record.residue7;return `hsl(${Math.round(300*residue/(modulus-1)+25)} 82% 62%)`}
   function fraction(value){return value===-1/12?'−1/12':value===11/12?'11/12':decimal(value,6)}
   function distanceToSegment(p,a,b){const dx=b.x-a.x,dy=b.y-a.y,l2=dx*dx+dy*dy;if(!l2)return Math.hypot(p.x-a.x,p.y-a.y);const t=Math.max(0,Math.min(1,((p.x-a.x)*dx+(p.y-a.y)*dy)/l2));return Math.hypot(p.x-(a.x+t*dx),p.y-(a.y+t*dy))}
   function point(event){const r=canvas.getBoundingClientRect();return{x:event.clientX-r.left,y:event.clientY-r.top}}
@@ -117,9 +129,10 @@
   registerButtons.forEach(btn=>btn.addEventListener('click',()=>setRegisterMode(btn.dataset.hvRegister)));
   zetaLensButtons.forEach(btn=>btn.addEventListener('click',()=>setZetaLens(btn.dataset.hvZetaLens)));
   traceWordButtons.forEach(btn=>btn.addEventListener('click',()=>setTraceWord(btn.dataset.hvTraceWord)));
+  residueAngleButtons.forEach(btn=>btn.addEventListener('click',()=>setResidueAngle(btn.dataset.hvResidueAngle)));
   railToggle.addEventListener('change',()=>{showRail=railToggle.checked;draw()});mixInput.addEventListener('input',()=>setMix(Number(mixInput.value)/1000));logXInput.addEventListener('input',()=>setLogX(Number(logXInput.value)));betaOffsetInput.addEventListener('input',()=>setBetaOffset(Number(betaOffsetInput.value)));indexInput.addEventListener('input',()=>setSelected(Number(indexInput.value)-1));prev.addEventListener('click',()=>setSelected(selected-1));next.addEventListener('click',()=>setSelected(selected+1));
   canvas.addEventListener('pointerdown',event=>{canvas.setPointerCapture(event.pointerId);drag={...point(event),rotX,rotY,moved:false}});
   canvas.addEventListener('pointermove',event=>{if(!drag)return;const p=point(event);if(Math.abs(p.x-drag.x)+Math.abs(p.y-drag.y)>4)drag.moved=true;rotY=drag.rotY+(p.x-drag.x)*.009;rotX=Math.max(-1.2,Math.min(1.2,drag.rotX+(p.y-drag.y)*.007));draw()});
-  canvas.addEventListener('pointerup',event=>{const p=point(event);if(drag&&!drag.moved){let best={distance:Infinity,index:0};screenRungs.forEach((r,i)=>{const distance=strandMode==='double'?distanceToSegment(p,r.a,r.b):Math.hypot(p.x-r.a.x,p.y-r.a.y);if(distance<best.distance)best={distance,index:i}});if(best.distance<18)setSelected(best.index)}drag=null});
+  canvas.addEventListener('pointerup',event=>{const p=point(event);if(drag&&!drag.moved){let best={distance:Infinity,index:0};screenRungs.forEach((r,i)=>{const distance=doubleView()?distanceToSegment(p,r.a,r.b):Math.hypot(p.x-r.a.x,p.y-r.a.y);if(distance<best.distance)best={distance,index:i}});if(best.distance<18)setSelected(best.index)}drag=null});
   window.addEventListener('resize',resize);new ResizeObserver(resize).observe(canvas);setMix(0);resize();
 })();

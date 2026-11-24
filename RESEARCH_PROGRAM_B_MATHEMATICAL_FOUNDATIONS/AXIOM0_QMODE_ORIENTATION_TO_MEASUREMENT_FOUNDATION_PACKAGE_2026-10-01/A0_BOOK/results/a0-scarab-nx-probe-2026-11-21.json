@@ -1,0 +1,47 @@
+{
+  "schema": "nexah.a0.scarab-nx-probe-result/1",
+  "date": "2026-11-21",
+  "status": "REPRODUCIBLE_NEGATIVE_CONTROL",
+  "carrier": {
+    "definition": "ordered primes p < 5000",
+    "transition": "(p_n mod m, p_(n+1) mod m)",
+    "singular_prime_rule": "transitions are counted only when both primes exceed m"
+  },
+  "injection": {
+    "nx": 1729,
+    "route": [1723, 1729, 1733],
+    "factorization": [7, 13, 19],
+    "signature_mod_7_11_13_17_19": [0, 2, 0, 12, 0],
+    "zero_hits": [7, 13, 19],
+    "silent_pass": [11, 17]
+  },
+  "legitimate_edge_counts": {
+    "7": 36,
+    "11": 87,
+    "13": 112,
+    "17": 145,
+    "19": 154
+  },
+  "composite_sweep_below_5000": {
+    "tested": 4319,
+    "core_moduli_7_11_13_17_19": {"detected": 3514, "silent": 805, "rate": 0.8136142625607779},
+    "with_controls_3_5": {"detected": 4163, "silent": 156, "rate": 0.9638805278999769}
+  },
+  "claim_boundary": [
+    "The direct primality test is authoritative; modular sensors are anomaly views.",
+    "A zero residue is an exact divisibility witness for the selected modulus.",
+    "A novel edge is relative to this finite carrier and cutoff.",
+    "Silent pass does not establish primality.",
+    "No physical resonance, universal prime test, or unique mod-17 stabilization follows."
+  ],
+  "navigator": {
+    "reuse": ["MOD:NUMBER_VIEW_SUITE", "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH"],
+    "new_identity": 0,
+    "new_relation": 0,
+    "new_alias": 0,
+    "new_operator": 0,
+    "new_study": 0,
+    "new_finding": 0,
+    "publication_effect": 0
+  }
+}

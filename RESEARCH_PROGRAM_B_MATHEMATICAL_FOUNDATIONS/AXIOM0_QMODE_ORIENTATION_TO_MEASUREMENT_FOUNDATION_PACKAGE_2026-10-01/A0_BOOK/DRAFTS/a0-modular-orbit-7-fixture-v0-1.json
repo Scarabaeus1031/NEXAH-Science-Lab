@@ -1,0 +1,81 @@
+{
+  "schema": "a0.modular-orbit-slog.fixture.v0.1",
+  "status": "WORKING_NOTE_DETERMINISTIC_FIXTURE",
+  "identity_reuse": [
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "new_navigator_identity": false,
+  "new_source_graph_relation": false,
+  "slog_expansion": "STEP_LOG_LOCAL_LABEL_ONLY",
+  "primary": {
+    "id": "MODULAR_ORBIT_7_FORWARD",
+    "seed": 1,
+    "multiplier": 3,
+    "increment": 0,
+    "modulus": 7,
+    "inverse_multiplier": 5,
+    "states": [1, 3, 2, 6, 4, 5, 1],
+    "period": 6,
+    "classification": "FULL_NONZERO_RESIDUE_CYCLE"
+  },
+  "return": {
+    "id": "MODULAR_ORBIT_7_RETURN",
+    "seed": 1,
+    "multiplier": 5,
+    "increment": 0,
+    "modulus": 7,
+    "states": [1, 5, 4, 6, 2, 3, 1],
+    "period": 6,
+    "classification": "EXACT_INVERSE_ORIENTATION"
+  },
+  "controls": [
+    {
+      "id": "ZERO_FIXED_POINT",
+      "seed": 0,
+      "multiplier": 3,
+      "increment": 0,
+      "modulus": 7,
+      "states": [0, 0],
+      "period": 1,
+      "classification": "FIXED_POINT"
+    },
+    {
+      "id": "PARTIAL_CYCLE_A2_M7",
+      "seed": 1,
+      "multiplier": 2,
+      "increment": 0,
+      "modulus": 7,
+      "states": [1, 2, 4, 1],
+      "period": 3,
+      "classification": "PROPER_SUBCYCLE"
+    },
+    {
+      "id": "NONINVERTIBLE_COLLAPSE_A2_M8",
+      "seed": 1,
+      "multiplier": 2,
+      "increment": 0,
+      "modulus": 8,
+      "states": [1, 2, 4, 0, 0],
+      "period": 1,
+      "classification": "COLLAPSE_TO_FIXED_POINT"
+    },
+    {
+      "id": "AFFINE_C1_SEPARATION_CONTROL",
+      "seed": 1,
+      "multiplier": 3,
+      "increment": 1,
+      "modulus": 7,
+      "states": [1, 4, 6, 5, 2, 0, 1],
+      "period": 6,
+      "classification": "AFFINE_ORBIT_NOT_PLUS_ONE_EVENT"
+    }
+  ],
+  "boundaries": [
+    "The recurrence is a finite modular demonstrator, not a random-number-quality claim.",
+    "SLOG means only the local deterministic step log in this draft.",
+    "The modular inverse exists only when gcd(multiplier, modulus) = 1.",
+    "increment = 1 is an affine arithmetic term and is not the YUGO PLUS_ONE event.",
+    "Wheel, rows, three-dimensional triples and Lotus are views of retained records, not new mathematical identities."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schema": "nexah.a0.nband-quadrature-boundary/1.0.0",
+  "date": "2026-11-23",
+  "status": "PASS_TYPED_ADAPTER_INTEGRATED_WITH_PHYSICAL_HOLD",
+  "identity_reuse": ["ART:A0:MATHEMATICAL_JOINTS", "MOD:NUMBER_VIEW_SUITE"],
+  "source_formula": {
+    "provenance": "FIELD_NOTES_A0.md",
+    "q_plus": "cos^2(delta_phi/2)",
+    "q_minus": "sin^2(delta_phi/2)",
+    "closure": "q_plus + q_minus = 1"
+  },
+  "quadrature_audit": {
+    "domain_degrees": [0, 720],
+    "step_degrees": 0.5,
+    "samples": 1441,
+    "maximum_residual": 2.220446049250313e-16,
+    "tolerance": 1e-12,
+    "status": "PASS_EXACT_NUMERIC_QUADRATURE_CLOSURE"
+  },
+  "shell_audit": {
+    "bands": [1, 64],
+    "square_identity": "n^2-(n-1)^2=2n-1",
+    "cube_identity": "n^3-(n-1)^3=3n^2-3n+1",
+    "failures": 0,
+    "status": "PASS_SQUARE_AND_CUBE_SHELL_IDENTITIES"
+  },
+  "display_carriers": ["Q_PLUS_COS2", "CLOSURE_ONE", "Q_MINUS_SIN2"],
+  "material_adapters": [
+    {"id": "QUARTZ", "class": "PIEZOELECTRIC_ADAPTER", "physical_model": false, "measurement_required": true},
+    {"id": "IRON", "class": "MAGNETOSTRICTIVE_THERMAL_COMPARATOR", "physical_model": false, "measurement_required": true},
+    {"id": "ICE_WATER", "class": "PHASE_BOUNDARY_COMPARATOR", "physical_model": false, "measurement_required": true}
+  ],
+  "fire": {"role": "ENERGY_PROCESS_RAIL", "material_node": false, "operator_identity": false},
+  "gate": {
+    "display_integration": "GO_TYPED_ADAPTER_ONLY",
+    "physical_mechanism": "HOLD_MEASUREMENT_REQUIRED",
+    "prime_cube_identity": false
+  },
+  "graph_delta": {"identities": 0, "relations": 0, "aliases": 0, "studies": 0, "findings": 0},
+  "files": {
+    "A0_BOUNDARY_GRAPH_DEMONSTRATOR.html": "9217ed3bc4980cc367c752a7b612975bb924826095aae9d578b1e591feaecd3c",
+    "A0_NBAND_QUADRATURE_BOUNDARY_LAB.html": "ab904064204dfa3f4d11658c3b2bd4d99f38418ea5cacd57271707a6e64b4c20",
+    "a0-nband-quadrature-boundary.js": "cf65201cb1e9eaf1b31a51874a0a4d92809ff9848ac621df9cc8ac68f3a4bf16",
+    "a0-nband-quadrature-boundary.css": "706ea8f40063a9f8c30029f4c9c8fb3e1ebdaf64c27a9ebc62707de7aab9cd2b",
+    "a0-nband-quadrature-boundary-tests.cjs": "51f3032ec4164ec2d022530a32fc563d3b181df9e9ed09cf2d3b5d162546bf61"
+  },
+  "tests": {"module": "58/58 PASS", "javascript_syntax": "PASS", "go_hold_reject_paths": "PASS", "mission_control_projection": "PASS · 21 components", "navigator_app_audit": "255/255 PASS", "source_graph": "base 329/29 · composed 332/32 · FAIL only known Red Balloon canonical hash"},
+  "known_external_failure": "Red Balloon canonical source hash matches"
+}

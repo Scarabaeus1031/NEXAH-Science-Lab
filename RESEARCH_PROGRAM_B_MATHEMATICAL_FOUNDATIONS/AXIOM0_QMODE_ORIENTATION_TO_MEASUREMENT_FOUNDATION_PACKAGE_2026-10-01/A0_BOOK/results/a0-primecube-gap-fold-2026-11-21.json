@@ -3,7 +3,7 @@
   "suite": "a0-primecube-gap-fold",
   "date": "2026-11-22",
   "status": "PASS_IMPLEMENTATION / SOURCE_CUSTODY_CLOSED_BY_FORMAL_SUPERSESSION",
-  "passed": 518,
+  "passed": 791,
   "failed": 0,
   "implementation_failed": 0,
   "source_custody_failed": 0,
@@ -38,6 +38,16 @@
     "mathfield_fractal_boundary": "non-escape through finite N is BOUNDED_AT_N rather than membership/interior proof; parameter plane, dynamical plane, Prime, Root and chassis registers remain non-identical",
     "mathfield_alpha_beta_memory": "z_(n+1)=z_n^2+c+alpha*z_n+beta*(z_n-z_(n-1)); P=alpha+beta; complete state S_n=(z_n,z_(n-1)); complex quadratic Henon-type recurrence",
     "mathfield_alpha_beta_boundary": "P is a parameter-space partition coordinate, not conserved energy or a stability bound; at fixed points the beta difference vanishes and the fixed-point equation depends on alpha",
+    "fixed_point_memory_plane": "switchable real local state view (delta z_n, delta z_(n-1)); beta remains active through det(J)=beta even though it cancels from fixed-point location",
+    "fixed_point_eigen_split": "orthogonal common/difference coordinates u=(x+y)/sqrt(2), v=(x-y)/sqrt(2); both fixed roots selectable; balance fixture separates negative-root complex pair from positive-root real split",
+    "fixed_point_dimension_boundary": "the local two-axis view is not an imaginary or spatial y-axis; the full complex two-step state is four-dimensional over R and no global basin or N-band manifold is asserted",
+    "aljabr_side_completion": "SIDE i/k retains the active 0..20 square-completion state as a visible twenty-position rail between the declared carrier and shadow layers",
+    "aljabr_coupled_sequence": "21 display frames run 101 OPEN to 121 CLOSED through CENTER/102/AM, SCALE/204/PM and PRODUCT/258/VM while preserving one unchanged blue carrier C and one gold active marker; alpha, beta, axis and mask remain independent registers",
+    "aljabr_dual_q4_view_plates": "Durer Q reuses the exact planar R180 4x4 placement and Khajuraho D the exact toroidal T(2,2) 4x4 placement; both use labels 1..16 and read 34 under their declared scopes without identity merge",
+    "aljabr_view_permutation_boundary": "p b q d and AM PM VM are local view registers; their display assignment may move while carrier C, body count, canonical identities and relations remain unchanged",
+    "view_invariance_audit": "13 declared views x 11 named observables = 143 ILAU cells; baseline plus Plate Shuffle, Wrong Operator, Changed Carrier and Axis Hit destruction controls",
+    "view_invariance_controls": "observed/expected outcome changes are 2/2, 1/1, 39/39 and 2/2; all controls PASS",
+    "view_invariance_boundary": "synthetic source-bound design-feasibility instrument; not a Lab Run, Study activation or Finding; graph delta zero",
     "mathfield_memory_trace_window": "T0..T39 = 40 visible nodes; T0,T1,T2,T3 form the declared 3+1 transient",
     "mathfield_memory_prime_steps": [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37],
     "mathfield_memory_superprime_steps": [3, 5, 11, 17, 31],
@@ -54,6 +64,7 @@
     "base11_101_mirror": "122 decimal = 101 base 11; distinct from 101 decimal = 92 base 11",
     "uranus_spool_hold": "requires ordered moon set, winding function w(i), direction/orientation, period and return predicate before binding",
     "mathfield_graph_delta": "0 canonical identities / 0 relations",
+    "number_view_suite_playback": "seven-stage Carrier-to-Return sequence with cumulative retained display trace, explicit pause/replay and deliberate trace reset; record identity and exact address return unchanged",
     "layer_closures": [121, 242, 363, 484, 605, 726, 847, 968, 1089],
     "square_layer_closures": [121, 484, 1089],
     "layer_closure_role": "guaranteed-composite structural negative controls",
@@ -123,7 +134,27 @@
     "lower_crt_rail": "97=(6,9,6) at T20 step 31 and 944=(6,9,8) at step 21 share mod 7 and mod 11; 696=(3,3,7) remains a separate unassigned Owner candidate",
     "mirror_boundary": "inverted-exclamation counter-glyph is HOLD with no operator; source 1 returns exactly at CRT address (1,1,1)",
     "hit_test_boundary": "filtered-out 3D records are excluded from screen hit testing",
-    "graph_delta": "0 identities / 0 relations / 0 aliases"
+    "graph_delta": "0 identities / 0 relations / 0 aliases",
+    "transversal_plane_return": "Pi_T={(x,y,z):z=0}; a crossing requires a two-sided sign change and nonzero normal velocity; tangent contact is NONTRANSVERSAL",
+    "transversal_plane_boundary": "The declared return plane is neither the Riemann critical line nor the Root-axis line L={(0,0,h)}",
+    "yugo_jogi_fusion_frame": "one screen carrier composes five local Julia measures P/D/C/PHI/S, Mandelbrot IN, active Julia Return OUT and the retained W11/W12/W13 depth stack",
+    "fusion_compositing": "36 screen-composited Schlieren paths, a five-petal Lotus mask and seven step-dependent Whiteout weights mix the display layers without merging their mathematical spaces",
+    "fusion_switch_return": "explicit data-pc-111213-mode attribute read closes LATTICE -> FUSION and restores the Mandelbrot/Julia frame",
+    "fusion_lantern_seam": "(O|M)+(I|J)+1; one active pink shared-c transfer strip with seven aperture weights, 28-step glow and half-turn direction flip",
+    "fusion_lantern_boundary": "HC·O is an unbound Owner mnemonic; the strip does not subtract or identify Mandelbrot and Julia spaces and creates no chemical, physical or new operator meaning",
+    "fusion_pshysic_ledger": "physical event -> measurement interaction -> record -> witness -> interpretation; physics-as-knowledge requires the latter four stages without asserting that events require consciousness",
+    "fusion_glyph_ledger": "€ OWNER_CANDIDATE UNBOUND; ¢ UNBOUND_GLYPH_LEDGER HOLD; ε aperture parameter; Ψ witness-view glyph; R90(Ψ) view rotation; ¶ boundary; ⁄ cut",
+    "fusion_line_boundary": "visible stroke, declared display axis and mathematical line remain distinct types",
+    "fusion_editorial_route": "Mathfield Coupling Deck -> F/Mandelbrot -> OMIJ Lantern -> 5+2 Return; the route reuses existing views and creates no identity or relation",
+    "fusion_lantern_zoom": "synchronized two-panel zoom isolates O|M, I|J and the shared-c pink strip below the main frame; sequence step, aperture and 180-degree direction remain live",
+    "fusion_lantern_source_link": "A0_LANTERN_PANEL_V_CONTROL_LENS.html is linked as a related five-channel control view and is not identified with the OMIJ parameter-transfer seam",
+    "fusion_boundary": "composition, fading, overlap, Schlieren, Lotus, Whiteout and Lantern seam are cartographic; no new operator, mechanism, identity, relation, Study, Finding or publication follows"
+    ,"wheel_gate13_carrier": "Z7 x Z8 x Z13 with operators +1, -1, +1; exact cardinality and triple return 728"
+    ,"wheel_gate13_partial_return": "step 56 closes W7/W8 while G13 remains at 4"
+    ,"wheel_gate13_closure_boundary": "729=728+1=9^3=27^2=3^6 is an external closure marker, not the operator period"
+    ,"wheel_gate13_shadow_control": "83+137=220=1331-1111 is exact but non-unique; nine prime pairs sum to 220"
+    ,"scarab_carry_mirror_gate": "same 1031|1032|1033 fixture exposes four typed lanes: prime ranks P173/P174; phi(1033)=1032 and the 0111-to-1000 carry; decimal reversals 1301/2301/3301; fixed-width REV2_WIDTH_11 targets 1793=11*163, 129=3*43 and prime 1153=P191"
+    ,"scarab_carry_mirror_boundary": "prime rank, Euler totient, decimal digit reversal and width-11 bit reversal remain distinct operators; width and leading zeros are retained; no shared generator, physical exit, universal Scarab law or palindrome claim follows"
   },
   "source_custody": {
     "status": "CLOSED_BY_OWNER_APPROVED_FORMAL_SUPERSESSION",

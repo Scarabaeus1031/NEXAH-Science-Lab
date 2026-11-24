@@ -26,6 +26,16 @@
     "peer_address": ["9", "11"],
     "relation": "SAME_GRAMMAR / DISTINCT_ORDERED_ADDRESS / NO_INFERRED_OPERATOR"
   },
+  "origin_lower_return": {
+    "origin": 1024,
+    "source_axis": [1031, 1032, 1033],
+    "source_offsets": [7, 8, 9],
+    "side_values": [1050, 1060],
+    "midpoint": 1055,
+    "return_offsets": [26, 36],
+    "roles": ["KAIN", "ABEL"],
+    "role_status": "DISPLAY_ROLE_ONLY / NO_IDENTITY_OR_RELATION"
+  },
   "excluded": {
     "value": 1997,
     "status": "HOLD_OMITTED",
@@ -38,10 +48,10 @@
     "claim_boundary": "NO_RUNTIME_SAMPLING_PHOTON_COSMOLOGY_OR_SHARED_GENERATOR_CLAIM"
   },
   "verification": {
-    "root_route_suite": "75/75 PASS",
+    "root_route_suite": "83/83 PASS",
     "boundary_atlas_suite": "147/147 PASS",
-    "source_graph": "PASS 21 COMPONENTS / BASE 329:29 / COMPOSED 332:32",
-    "app_audit": "253/253 PASS"
+    "source_graph": "FAIL ONLY PREEXISTING RED BALLOON CANONICAL HASH / 21 COMPONENTS / BASE 329:29 / COMPOSED 332:32",
+    "app_audit": "255/255 PASS"
   },
   "graph_effect": {
     "identities": 0,

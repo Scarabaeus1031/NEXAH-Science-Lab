@@ -1,5 +1,5 @@
 {
-  "schema": "nexah.a0.helix-view-adapter.return/1.5.0",
+  "schema": "nexah.a0.helix-view-adapter.return/1.6.0",
   "date": "2026-11-21",
   "status": "PASS",
   "classification": [
@@ -61,6 +61,23 @@
       "lift_delta": 1,
       "dirichlet_character_claim": false
     },
+    "prime_residue_helix": {
+      "shared_prime_records_p_le_1000": 168,
+      "first_prime": 2,
+      "last_prime": 997,
+      "tail_primes_1000_lt_p_le_1111": 18,
+      "tail_first": 1009,
+      "tail_last": 1109,
+      "vertical_order": "PRIME_INDEX_ASCENDING",
+      "angle_modes": {
+        "mod7": "2pi*(p mod 7)/7",
+        "mod11": "2pi*(p mod 11)/11",
+        "paired": "SAME_PC1111_RECORD_ON_TWO_VIEW_RAILS"
+      },
+      "exact_return": "PC1111:Nxxxx_TO_INTEGER",
+      "natural_prime_helix_claim": false,
+      "euler_270_step_audit_identity": false
+    },
     "euler_ten_step_closure": true,
     "golden_angle_degrees": 137.50776405003785,
     "phi_rail_ratio_exact_by_formula": true,
@@ -71,5 +88,5 @@
     "delta": "NONE",
     "reason": "Existing A0 module and artifact identities are reused; no new canonical relation is asserted."
   },
-  "boundary": "RN\\A, (c)D|⁄|A and RDMH are declared view labels. Twist and derived torsion magnitude remain separate normalized view metrics; |tau| is not a physical measurement. The zeta lens is a finite visualization of 20 known conjugate zero pairs and one normalized explicit-formula pair term, not a complete reconstruction or RH/GRH proof. RLLR/LRRL are trace words, not Dirichlet characters; the -1/12 and 11/12 phases are modulo-one equal while retaining distinct lift histories. No RNA/DNA validation, biological law, physical resonance, prime generator or Fibonacci control mechanism is claimed."
+  "boundary": "RN\\A, (c)D|⁄|A and RDMH are declared view labels. Twist and derived torsion magnitude remain separate normalized view metrics; |tau| is not a physical measurement. The zeta lens is a finite visualization of 20 known conjugate zero pairs and one normalized explicit-formula pair term, not a complete reconstruction or RH/GRH proof. RLLR/LRRL are trace words, not Dirichlet characters; the -1/12 and 11/12 phases are modulo-one equal while retaining distinct lift histories. The prime-residue helix orders a frozen finite carrier and assigns declared modulo angles; it is not a natural prime helix, a prime generator or the separate Euler edge audit. No RNA/DNA validation, biological law, physical resonance or Fibonacci control mechanism is claimed."
 }

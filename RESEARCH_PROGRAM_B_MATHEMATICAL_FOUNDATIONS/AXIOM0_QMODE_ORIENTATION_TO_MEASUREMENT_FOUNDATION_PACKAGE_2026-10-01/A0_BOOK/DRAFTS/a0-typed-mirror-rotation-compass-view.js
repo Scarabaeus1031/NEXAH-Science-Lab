@@ -25,6 +25,26 @@
   document.getElementById('tangent-radius').textContent=geometry.tangentRadius.toFixed(4);
   document.getElementById('ring-gap').textContent=geometry.ringGap.toFixed(4);
   document.getElementById('trail-count').textContent=`${geometry.trailPoints} / ${geometry.trailSegments}`;
+  function renderSeam203204(view){
+    const audit=A.seam203204Audit(view),reversed=audit.orientation==='REVERSED';
+    document.getElementById('seam-left-value').textContent=audit.activePair[0];
+    document.getElementById('seam-right-value').textContent=audit.activePair[1];
+    document.getElementById('seam-direction').textContent=reversed?'←':'→';
+    document.getElementById('seam-orientation').textContent=`ORDER ${audit.orientation} · Δ=${audit.activeDelta>0?'+':''}${audit.activeDelta}`;
+    document.querySelectorAll('[data-seam-view]').forEach(button=>{const selected=button.dataset.seamView===view;button.classList.toggle('active',selected);button.setAttribute('aria-pressed',String(selected));});
+  }
+  document.querySelectorAll('[data-seam-view]').forEach(button=>button.addEventListener('click',()=>renderSeam203204(button.dataset.seamView)));
+  renderSeam203204('source');
+  function renderBlockMirror1087(view){
+    const audit=A.blockMirror1087Audit(view),labels={full:'EXACT FOUR-DIGIT INVOLUTION',blocks:'THREE-DIGIT REVERSE · DIGIT 7 HELD',gap:'AFFINE PRIME-GAP COMPARATOR · +598'};
+    document.getElementById('block-mirror-left').textContent=audit.active.left;
+    document.getElementById('block-mirror-operator').textContent=audit.active.operator;
+    document.getElementById('block-mirror-right').textContent=audit.active.right;
+    document.getElementById('block-mirror-status').textContent=labels[view];
+    document.querySelectorAll('[data-block-mirror-view]').forEach(button=>{const selected=button.dataset.blockMirrorView===view;button.classList.toggle('active',selected);button.setAttribute('aria-pressed',String(selected));});
+  }
+  document.querySelectorAll('[data-block-mirror-view]').forEach(button=>button.addEventListener('click',()=>renderBlockMirror1087(button.dataset.blockMirrorView)));
+  renderBlockMirror1087('full');
   const seedSvg=document.getElementById('seed-field'),seedField=A.seedFieldAudit(),primeGrid=A.primeGateGridAudit(),seedCx=360,seedCy=360,seedOuter=308;
   function seedEl(name,attrs,parent=seedSvg){const node=document.createElementNS(NS,name);Object.entries(attrs).forEach(([k,v])=>node.setAttribute(k,v));parent.appendChild(node);return node;}
   const seedRings=seedEl('g',{class:'seed-rings'}),wheelSeeds=seedEl('g',{class:'seed-cloud wheel-seeds'}),goldenSeeds=seedEl('g',{class:'seed-cloud golden-seeds'}),primeThreads=seedEl('g',{class:'prime-grid-threads'}),primeTriangles=seedEl('g',{class:'prime-grid-triangles'}),primeRelations=seedEl('g',{class:'prime-grid-svg-relations'}),gateSeeds=seedEl('g',{class:'seed-gates'}),seedLabels=seedEl('g',{class:'seed-labels'});
@@ -336,12 +356,40 @@
   const ex=n=>45+n/60*620,ey=v=>350-(v-13)/(5119-13)*310;
   [0,20,40,60].forEach(n=>{eulerEl('line',{x1:ex(n),y1:32,x2:ex(n),y2:350,class:'euler-grid'});const t=eulerEl('text',{x:ex(n),y:373,'text-anchor':'middle',class:'euler-label'});t.textContent=n;});
   [0,1000,2000,3000,4000,5000].forEach(v=>{eulerEl('line',{x1:45,y1:ey(Math.max(v,13)),x2:665,y2:ey(Math.max(v,13)),class:'euler-grid'});const t=eulerEl('text',{x:39,y:ey(Math.max(v,13))+4,'text-anchor':'end',class:'euler-label'});t.textContent=v;});
-  euler.historicalFloors.forEach((c,i)=>{let d='';for(let n=0;n<=60;n+=2){d+=`${n?'L':'M'} ${ex(n)} ${ey(n*n+n+c)} `;}eulerEl('path',{d,class:`euler-curve floor-${i<8?'lower':'upper'}`,stroke:eulerColours[i]});});
+  const eulerPaths=[];
+  function floorPath(c){let d='';for(let n=0;n<=60;n+=2)d+=`${n?'L':'M'} ${ex(n)} ${ey(n*n+n+c)} `;return d;}
+  euler.historicalFloors.forEach((c,i)=>eulerPaths.push(eulerEl('path',{d:floorPath(c),class:`euler-curve floor-${i<8?'lower':'upper'}`,stroke:eulerColours[i]})));
+  const eulerFloorMarker=eulerEl('circle',{r:8,class:'euler-floor-marker'});
   const gearSvg=document.getElementById('zeta-timegear'),gear=A.timegearAudit(),gcx=260,gcy=260,gearRadii=[128,174,220],gearColours=['#e7f6fa','#43d6e6','#a56de2'];
   function gearEl(name,attrs){const node=document.createElementNS(stairNS,name);Object.entries(attrs).forEach(([k,v])=>node.setAttribute(k,v));gearSvg.appendChild(node);return node;}
   gear.cycles.forEach((count,ring)=>{const radius=gearRadii[ring];gearEl('circle',{cx:gcx,cy:gcy,r:radius,fill:'none',stroke:gearColours[ring],class:'gear-ring'});for(let tick=0;tick<count;tick++){const a=-Math.PI/2+2*Math.PI*tick/count,major=tick%(count/20)===0,inner=radius-(major?11:4);gearEl('line',{x1:gcx+inner*Math.cos(a),y1:gcy+inner*Math.sin(a),x2:gcx+radius*Math.cos(a),y2:gcy+radius*Math.sin(a),stroke:gearColours[ring],class:major?'gear-tick major':'gear-tick'});}});
-  for(let g=0;g<20;g++){const a=-Math.PI/2+2*Math.PI*g/20;gearEl('line',{x1:gcx+88*Math.cos(a),y1:gcy+88*Math.sin(a),x2:gcx+116*Math.cos(a),y2:gcy+116*Math.sin(a),class:'gear-spoke'});}
+  const gearSpokes=[];
+  for(let g=0;g<20;g++){const a=-Math.PI/2+2*Math.PI*g/20;gearSpokes.push(gearEl('line',{x1:gcx+88*Math.cos(a),y1:gcy+88*Math.sin(a),x2:gcx+116*Math.cos(a),y2:gcy+116*Math.sin(a),class:'gear-spoke'}));}
   const centre=gearEl('text',{x:gcx,y:gcy-4,'text-anchor':'middle',class:'gear-centre'});centre.textContent='20 GATES';const centre2=gearEl('text',{x:gcx,y:gcy+16,'text-anchor':'middle',class:'gear-centre small'});centre2.textContent='18° · RETURN 8400';
+  const floorStep=document.getElementById('floor-clock-step'),floorPlay=document.getElementById('floor-clock-play'),pillarLayer=document.querySelector('.pillar-projection-layer'),pillarMarker=document.getElementById('floor-pillar-marker');
+  let floorSource='historical',floorTimer=null;
+  function renderFloorClock(){
+    const audit=A.floorClockCrosswalkAudit(Number(floorStep.value),floorSource),markerN=30,markerY=markerN*markerN+markerN+audit.floorConstant;
+    eulerPaths.forEach((path,index)=>{path.setAttribute('d',floorPath(audit.floors[index]));path.classList.toggle('floor-selected',index===audit.visibleFloorIndex);path.classList.toggle('floor-muted',index!==audit.visibleFloorIndex);});
+    eulerFloorMarker.setAttribute('cx',ex(markerN));eulerFloorMarker.setAttribute('cy',ey(markerY));
+    gearSpokes.forEach((spoke,index)=>spoke.classList.toggle('gate-selected',index===audit.gate));
+    document.getElementById('euler-terminal-label').textContent=audit.floors.at(-1);
+    document.getElementById('floor-clock-step-label').textContent=`${audit.step} / 60`;
+    document.getElementById('floor-clock-floor').textContent=`${audit.floorNumber} / 13 · c=${audit.floorConstant}`;
+    document.getElementById('floor-clock-pitch').textContent=`${audit.pitchClass} / 11`;
+    document.getElementById('floor-clock-gate').textContent=`${audit.gate} / 19 · ${audit.gateAngle}°`;
+    document.getElementById('floor-clock-seam').textContent=audit.jointReturn?'JOINT RETURN':audit.octaveReturn?'12 → 0 · OCTAVE':'OPEN';
+    pillarMarker.setAttribute('cy',183-audit.visibleFloorIndex/12*138);
+  }
+  function stopFloorClock(){if(floorTimer!==null){clearInterval(floorTimer);floorTimer=null;}floorPlay.textContent='PLAY';floorPlay.setAttribute('aria-pressed','false');}
+  function shiftFloorClock(delta){stopFloorClock();floorStep.value=String(Math.max(0,Math.min(60,Number(floorStep.value)+delta)));renderFloorClock();}
+  floorStep.addEventListener('input',()=>{stopFloorClock();renderFloorClock();});
+  document.getElementById('floor-clock-back').addEventListener('click',()=>shiftFloorClock(-1));
+  document.getElementById('floor-clock-forward').addEventListener('click',()=>shiftFloorClock(1));
+  floorPlay.addEventListener('click',()=>{if(floorTimer!==null){stopFloorClock();return;}floorPlay.textContent='PAUSE';floorPlay.setAttribute('aria-pressed','true');floorTimer=setInterval(()=>{floorStep.value=String(Number(floorStep.value)>=60?0:Number(floorStep.value)+1);renderFloorClock();},420);});
+  document.querySelectorAll('[data-floor-source]').forEach(button=>button.addEventListener('click',()=>{floorSource=button.dataset.floorSource;document.querySelectorAll('[data-floor-source]').forEach(candidate=>{const selected=candidate===button;candidate.classList.toggle('active',selected);candidate.setAttribute('aria-pressed',String(selected));});renderFloorClock();}));
+  document.getElementById('floor-pillar-toggle').addEventListener('click',event=>{const on=event.currentTarget.getAttribute('aria-pressed')!=='true';event.currentTarget.setAttribute('aria-pressed',String(on));event.currentTarget.textContent=on?'PILLAR ON':'PILLAR OFF';pillarLayer.classList.toggle('hidden',!on);});
+  renderFloorClock();
   const breathSvg=document.getElementById('euler-ring-breath-svg'),breathCx=380,breathCy=280,breathMaxRadius=226,breathDirect=seedEl('g',{class:'euler-breath-rings direct'},breathSvg),breathMirror=seedEl('g',{class:'euler-breath-rings mirror'},breathSvg),breathBridge=seedEl('line',{class:'euler-breath-bridge'},breathSvg);
   const directRings=[],mirrorRings=[];
   for(let ring=1;ring<=13;ring++){

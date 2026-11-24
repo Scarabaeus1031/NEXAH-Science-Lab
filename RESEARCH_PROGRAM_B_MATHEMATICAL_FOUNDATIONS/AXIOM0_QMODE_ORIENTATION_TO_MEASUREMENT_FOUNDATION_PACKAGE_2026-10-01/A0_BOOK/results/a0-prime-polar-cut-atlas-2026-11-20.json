@@ -1,0 +1,98 @@
+{
+  "schema": "a0.prime-polar-cut-atlas.receipt/1.1.0",
+  "date": "2026-11-21",
+  "status": "PASS_BOUNDED_POLAR_CUT_FOUR_PHASE_VIEW_134_OF_134",
+  "host": "A0_NUMBERMAGICK_GRID_RESEARCH.html#primePolarCutAtlas",
+  "runtime": "a0-prime-address-countershot.js",
+  "style": "a0-prime-address-countershot.css",
+  "test": "a0-prime-address-countershot-tests.cjs",
+  "identity_reuse": [
+    "NEXAH:PBM:V1",
+    "MOD:NUMBER_VIEW_SUITE"
+  ],
+  "carrier": {
+    "definition": "{p in primes: p <= 1000}",
+    "count": 168,
+    "point": "z_k = sqrt(p_k/1000) exp(i theta_k)",
+    "angle_modes": [
+      "golden",
+      "uniform",
+      "residue",
+      "deterministic_null"
+    ]
+  },
+  "shells": [
+    {"key": "S1", "radius": "0.00 <= r < 0.34", "mask": "100"},
+    {"key": "S2", "radius": "0.34 <= r < 0.68", "mask": "010"},
+    {"key": "S3", "radius": "0.68 <= r <= 1.00", "mask": "001"}
+  ],
+  "default_frame": {
+    "shell": "S2",
+    "axis_degrees": 90,
+    "angular_width_degrees": 120,
+    "inside": 20,
+    "outside": 148,
+    "consecutive_edge_crossings": 40,
+    "centroid_drift": 0.44017626503876006
+  },
+  "axis_transfer": {
+    "source": "zeta-drehung-animiert.html",
+    "operation": "Euclidean quarter-turn R_alpha around c0=(0,0)",
+    "domain_degrees": "0 <= alpha <= 90",
+    "aperture_mapping": "beta = 90 degrees - alpha",
+    "start": "alpha=0 degrees, beta=90 degrees, vertical carrier",
+    "end": "alpha=90 degrees, beta=0 degrees, horizontal aperture",
+    "origin_fixed": true,
+    "norm_preserved": true,
+    "carrier_changed": false,
+    "claim_effect": "VIEW_CONTROL_ONLY"
+  },
+  "phase_cycle": {
+    "sequence": ["AM", "VM", "PM", "TM", "AM"],
+    "roles": {
+      "AM": "INSIDE / SOURCE",
+      "VM": "SEAM / TRANSFER",
+      "PM": "OUTSIDE / PROJECTION",
+      "TM": "EXCHANGE / RETURN"
+    },
+    "source_wheel": "+theta",
+    "aperture_wheel": "-theta",
+    "effective_axis": "alpha(theta) = triangular wave 0 degrees -> 90 degrees -> 0 degrees",
+    "aperture_mapping": "beta(theta) = 90 degrees - alpha(theta)",
+    "event_output": "finite prime-address entries and exits between consecutive frames",
+    "carrier_changed": false,
+    "relation_effect": "VIEW_SEQUENCE_ONLY"
+  },
+  "mirror": {
+    "map": "mu_beta(z) = exp(2 i beta) conjugate(z)",
+    "involution": true,
+    "radius_preserved": true,
+    "identity_effect": "VIEW_OVERLAY_ONLY"
+  },
+  "leaf_density": {
+    "bins": 24,
+    "source": "admitted point visits plus frame crossings; mirrored when overlay is enabled",
+    "normalization": "display only",
+    "physical_interpretation": false
+  },
+  "role_separation": {
+    "yellow": "fixed origin c0=(0,0)",
+    "white": "centroid of admitted points",
+    "selected_prime": "white halo around its carrier point"
+  },
+  "verification": {
+    "suite": "a0-prime-address-countershot",
+    "assertions": 134,
+    "result": "PASS"
+  },
+  "governance": {
+    "classification": "SOURCE_BOUND_ENGINEERING_VIEW",
+    "new_canonical_ids": [],
+    "relation_changes": [],
+    "new_study": false,
+    "new_finding": false,
+    "claim_ceiling_change": false,
+    "publication_effect": false
+  },
+  "boundary": "Finite membership, crossing, density, axis-control and four-phase event readouts for an existing prime carrier. The axis adapter imports only a norm-preserving Euclidean quarter-turn around the fixed origin. AM, VM, PM and TM are local view phases; TM is Exchange / Return, not a new arithmetic operator or physical time channel. Counter-rotation creates changing frame membership only and does not create a relation among primes. Historical Energy Gradient, Frequency Density, Prime Resonance and sphere/orbit labels remain visual comparison language; their physical readings are not imported. No prime generator, energy field, Riemann result or new body is asserted."
+}

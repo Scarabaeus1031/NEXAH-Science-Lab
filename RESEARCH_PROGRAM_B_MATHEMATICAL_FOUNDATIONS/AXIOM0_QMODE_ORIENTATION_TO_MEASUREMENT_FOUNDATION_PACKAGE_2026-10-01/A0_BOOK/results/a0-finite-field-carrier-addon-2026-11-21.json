@@ -1,0 +1,41 @@
+{
+  "schema": "nexah.a0.science-desk-return/1",
+  "recordId": "A0-FINITE-FIELD-CARRIER-ADDON-20261121",
+  "hostId": "A0_BLUE_PINK_DODECA_CELL_RETURN",
+  "moduleAnchor": "finiteFieldCarrierAddon",
+  "classification": "SOURCE_BOUND_ENGINEERING_VIEW",
+  "mathematics": {
+    "finiteFieldClock": "q=p^b",
+    "characteristic": "p prime",
+    "extensionDegree": "b positive integer",
+    "polynomialDegree": "d non-negative integer",
+    "rootCeiling": "a nonzero univariate polynomial over a field has at most d distinct roots",
+    "example": {"p": 101, "b": 1, "q": 101, "d": 60, "observedRoots": 6, "status": "PASS"}
+  },
+  "carrierDecision": {
+    "whiteLine": "REUSE_NATIVE",
+    "newWhiteLine": false,
+    "newBody": false,
+    "assetDuplication": false
+  },
+  "assets": [
+    {"id": "A0_WHITE_FOLD_AXIS", "format": "LIVE_VIEW", "status": "REUSE_NATIVE"},
+    {"id": "A0_BLUE_PEARL", "format": "GLB", "status": "REUSE_NATIVE"},
+    {"id": "A0_TESSAREC_FOLD", "format": "GLB", "status": "REUSE_NATIVE"},
+    {"id": "LOTUS_DRIFT_TORUS", "format": "OBJ", "status": "SOURCE_BOUND_ADDON"},
+    {"id": "LOTUS_DRIFT_BREATH", "format": "GIF", "status": "SOURCE_BOUND_ADDON"},
+    {"id": "RA_TH_MOBIUS", "format": "OBJ", "status": "SOURCE_BOUND_ADDON"}
+  ],
+  "glyphGuard": {
+    "locked": {"ø": "REGISTERED_SPLIT_CUT", "œ": "REGISTERED_SEAM_TRANSITION"},
+    "openLocal": ["ö", "ô", "ò", "ó", "õ", "ō"]
+  },
+  "verification": {"addon": "45/45 PASS", "parent": "369/369 PASS"},
+  "claimBoundary": {
+    "riemannHypothesisProof": false,
+    "physicalGluing": false,
+    "stepanovToClassicalRHTransfer": false,
+    "canonicalFindingPromotion": false,
+    "graphDelta": 0
+  }
+}

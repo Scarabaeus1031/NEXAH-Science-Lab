@@ -1,0 +1,90 @@
+{
+  "schema": "nexah.a0.harmonic-prime-channel-overlay-test/1",
+  "date": "2026-11-20",
+  "status": "PASS",
+  "scope": "Bounded source-formula test before any new overlay or demonstrator is built.",
+  "identity_reuse": [
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "MOD:ORIENTATION_DEMONSTRATORS"
+  ],
+  "source_modules": [
+    "a0-harmonic-prime-grid37.js",
+    "a0-scarab-origin.js"
+  ],
+  "supported": {
+    "prime_carrier": {
+      "angle_formula": "theta(p) = p*pi/30 = 2*pi*p/60",
+      "prime_points_through_797": 139,
+      "exceptional_primes": [2, 3, 5],
+      "carrier_points": 136,
+      "modulus": 60,
+      "reduced_residue_rays": [1, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 49, 53, 59],
+      "ray_count": 16,
+      "opposite_ray_pairs": 8,
+      "cyclic_gaps": [6, 4, 2, 4, 2, 4, 6, 2, 6, 4, 2, 4, 2, 4, 6, 2],
+      "gap_histogram": {
+        "2": 6,
+        "4": 6,
+        "6": 4
+      },
+      "largest_channels": [[1, 7], [23, 29], [31, 37], [53, 59]]
+    },
+    "drift": {
+      "formula": "r(t)=1+0.1*sin(5t), t in [0,6*pi]",
+      "turns": 3,
+      "radial_harmonic": 5,
+      "sampled_radial_maxima": 15,
+      "interpretation": "Five-fold radial carrier; not a literal pentagon polygon."
+    },
+    "lilith": {
+      "frequencies": [3, 4, 5],
+      "fundamental_closure": "2*pi",
+      "closed": true
+    },
+    "ramanujan_diamond": {
+      "vertices": 4,
+      "closed": true,
+      "side_length": "2*sqrt(2)",
+      "diagonals": [4, 4],
+      "area": 8
+    },
+    "grid37_connector": {
+      "segments": 1,
+      "from": "primePoint(37)",
+      "to": "lilith()[11]"
+    },
+    "grid37_address": {
+      "indexed_neighbors": [
+        { "index": 11, "prime": 31 },
+        { "index": 12, "prime": 37 }
+      ],
+      "digit_and_position_mirror": {
+        "prime": 37,
+        "reversed_prime": 73,
+        "prime_index": 12,
+        "reversed_prime_index": 21
+      },
+      "repeated_digit_identity": "37*3*k = 111*k for k=1..9",
+      "repeated_digits": [111, 222, 333, 444, 555, 666, 777, 888, 999],
+      "additional_exact_addresses": [
+        { "index": 8, "prime": 19 },
+        { "index": 19, "prime": 67 },
+        { "index": 29, "prime": 109 }
+      ]
+    }
+  },
+  "view_dependent": [
+    "The placement of the four large channels as left/right/top/bottom changes with camera and projection.",
+    "Boomerang and butterfly are useful projected silhouettes, not invariants of the 3D curves."
+  ],
+  "not_supported_by_current_generators": [
+    "Two violet connector boomerangs: the source generator contains exactly one p37-to-Lilith[11] segment.",
+    "A physical, energetic or universal channel law.",
+    "Three decay curves with one common asymptote: no three curve equations, common domain or limit receipt are currently supplied.",
+    "Con Dao, middle-hit and loop are interpretive names, not consequences of the verified prime indices.",
+    "The secretary-problem threshold and body-temperature association are context analogies, not derived Grid 37 properties."
+  ],
+  "decision": "Hold the proposed 5-fold Drift x 16 Prime-Spokes x 3:4:5 Lissajous Return overlay until a separate visual adapter is implemented. Do not change source authority or accepted identity.",
+  "new_canonical_ids": [],
+  "relation_changes": []
+}

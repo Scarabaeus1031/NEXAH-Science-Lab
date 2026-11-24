@@ -1,0 +1,84 @@
+{
+  "schema": "a0.bounded-mathematical-audit.return.v1",
+  "auditId": "A0-MATH-ROOT8-GAMMA-ROOT7-01",
+  "date": "2026-11-19",
+  "authority": "HUMAN_OWNER_AUTHORIZED_BOUNDED_ENGINEERING_VERIFICATION",
+  "classification": "DETERMINISTIC_DIMENSIONLESS_MATH_AUDIT / NOT_A_LAB_RUN / NOT_ADMITTED",
+  "identityDisposition": "REUSES_EXISTING_A0_ORIENTATION_EVIDENCE_LINEAGE_AND_ROOT7_LOOK",
+  "claimCeiling": "STANDARD_SPECIAL_RELATIVITY_ALGEBRA / A0_TYPED_COMPARATOR / NO_NEW_PHYSICS",
+  "exactCore": {
+    "cube": {
+      "2^3": 8,
+      "cbrt(8)": 2,
+      "sqrt(8)": 2.828427124746,
+      "2*sqrt(2)": 2.828427124746
+    },
+    "lorentz": {
+      "definition": "gamma=1/sqrt(1-beta^2), beta=v/c",
+      "assignedGamma": "sqrt(8)",
+      "betaSquared": "7/8",
+      "beta": "sqrt(7/8)",
+      "betaDecimal": 0.935414346693,
+      "gammaBeta": "sqrt(7)",
+      "gammaBetaDecimal": 2.645751311065,
+      "invariant": "gamma^2-(gamma*beta)^2=1",
+      "rapidityDefinition": "gamma=cosh(eta), gamma*beta=sinh(eta)",
+      "rapidity": 1.700042207057
+    },
+    "lightLimitSamples": [
+      {"beta": 0.5, "gamma": 1.154700538379},
+      {"beta": 0.9, "gamma": 2.294157338706},
+      {"beta": 0.99, "gamma": 7.088812050083},
+      {"beta": 0.9999, "gamma": 70.712445951915},
+      {"beta": 0.999999, "gamma": 707.106957949232}
+    ]
+  },
+  "conditionalCkReading": {
+    "status": "CONDITIONAL_ON_CK_DENOTING_THE_BINOMIAL_GAMMA_SERIES",
+    "series": "(1-beta^2)^(-1/2)=sum_{k>=0} c_k beta^(2k)",
+    "coefficient": "c_k=binomial(2k,k)/4^k",
+    "recurrence": "c_(k+1)=c_k*(2k+1)/(2k+2)",
+    "coefficients": [
+      {"k": 0, "value": 1},
+      {"k": 1, "value": 0.5},
+      {"k": 2, "value": 0.375},
+      {"k": 3, "value": 0.3125},
+      {"k": 4, "value": 0.2734375},
+      {"k": 5, "value": 0.24609375}
+    ],
+    "note": "The odd values 1,3,5,7,... occur in recurrence numerators; this alone does not bind the existing A0 CK glyph or a 5-3-7 mechanism."
+  },
+  "typedBoundary": {
+    "ghostGrid": "EXISTING_COMMON_ADDRESS_AND_COMPARISON_FIELD_NOT_PHYSICAL_SPACE / NOT_DERIVED_FROM_LORENTZ_FACTOR",
+    "rootRoom": "SOURCE_BOUND_SYMBOLIC_GEOMETRY / MAY_HOST_THE_COMPARATOR / NOT_A_RELATIVISTIC_REGION",
+    "underworld": "NARRATIVE_VIEW_LABEL_ONLY",
+    "gammaLight": "PROPOSED_DISPLAY_LABEL_ONLY / REQUIRES_DECLARED_BETA_AND_UNITS_FOR_PHYSICS",
+    "vonNeumann": "KEEP_3X3_NEIGHBORHOOD_AND_PAULI_GHZ_FIXTURE_DISTINCT / NEITHER_IS_DERIVED_HERE",
+    "ulam": "UNBOUND_IN_THIS_AUDIT",
+    "root7": "EXACTLY_GAMMA_BETA_ONLY_UNDER_THE_DECLARED_ASSIGNMENT_GAMMA_EQUALS_SQRT8"
+  },
+  "checks": [
+    {"id": "R8-01", "pass": true, "statement": "2^3=8 and cbrt(8)=2"},
+    {"id": "R8-02", "pass": true, "statement": "sqrt(8)=2*sqrt(2)"},
+    {"id": "R8-03", "pass": true, "statement": "gamma=sqrt(8) implies beta^2=7/8"},
+    {"id": "R8-04", "pass": true, "statement": "gamma=sqrt(8) implies beta=sqrt(7/8)"},
+    {"id": "R8-05", "pass": true, "statement": "gamma*beta=sqrt(7)"},
+    {"id": "R8-06", "pass": true, "statement": "gamma^2-(gamma*beta)^2=1"},
+    {"id": "R8-07", "pass": true, "statement": "sqrt(8) is finite and is not gamma infinity"},
+    {"id": "R8-08", "pass": true, "statement": "gamma grows monotonically in the sampled approach to beta=1"},
+    {"id": "R8-09", "pass": true, "statement": "gamma diverges only at the beta=1 denominator boundary"},
+    {"id": "CK-01", "pass": true, "statement": "conditional c_k series begins 1, 1/2"},
+    {"id": "CK-02", "pass": true, "statement": "conditional c_k series continues 3/8, 5/16"},
+    {"id": "CK-03", "pass": true, "statement": "conditional c_k series continues 35/128, 63/256"},
+    {"id": "BND-01", "pass": true, "statement": "cube root and square root remain different operations"},
+    {"id": "BND-02", "pass": true, "statement": "root7 is gamma*beta, not beta"},
+    {"id": "BND-03", "pass": true, "statement": "finite rapidity accompanies gamma=sqrt(8)"}
+  ],
+  "summary": {
+    "outcome": "PASS_EXACT_ALGEBRA_WITH_SEMANTIC_HOLDS",
+    "checksPassed": 15,
+    "checksTotal": 15,
+    "graphDelta": {"identities": 0, "relations": 0, "aliases": 0, "studies": 0, "findings": 0, "promotions": 0}
+  },
+  "stop": "No identification of Root Room, Ghost Grid, Ulam/von Neumann systems, CK glyphs, light, spacetime, matter or a physical mechanism follows from the exact Root8/Root7 algebra."
+}

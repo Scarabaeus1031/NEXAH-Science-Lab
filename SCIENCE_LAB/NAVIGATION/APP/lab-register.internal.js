@@ -1,7 +1,7 @@
 window.NEXAH_LAB_REGISTER = {
   "schema": "nexah.science-lab.lab-register-lens/1.0.0",
   "status": "INTERNAL_READ_ONLY_SOURCE_BOUND_LENS",
-  "generated": "2026-11-16T01:08:25.208Z",
+  "generated": "2026-11-21T19:03:02.395Z",
   "source": "SCIENCE_LAB/LAB_REGISTER.md",
   "source_sha256": "5c73f26d048b8aa8e45a284457b24ff42bdac2cc27fa62aabe8deba7bc427067",
   "authority": "LAB_REGISTER retains identity, lifecycle and disposition authority; this lens is read-only.",

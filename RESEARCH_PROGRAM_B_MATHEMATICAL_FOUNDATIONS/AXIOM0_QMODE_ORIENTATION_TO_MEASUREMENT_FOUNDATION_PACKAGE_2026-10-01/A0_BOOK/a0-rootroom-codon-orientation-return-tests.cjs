@@ -1,4 +1,5 @@
 const assert = require("node:assert/strict");
+const fs = require("node:fs");
 const engine = require("./a0-rootroom-codon-orientation-return.js");
 
 assert.equal(engine.GOLDEN_ANGLE, 137.5);
@@ -23,4 +24,29 @@ assert.ok(double.stations.every((s) => s.orientation_sign === 1));
 assert.equal(double.classification, "ORIENTABLE_CONTROL_RETURN");
 assert.throws(() => engine.run({ codonKey: "F5" }), /unknown CODON/);
 
-console.log("PASS a0-rootroom-codon-orientation-return · 4 source triplets · 5 gates · 1/2-loop return");
+const html = fs.readFileSync("./A0_ROOTROOM_CODON_ORIENTATION_RETURN.html", "utf8");
+const ui = fs.readFileSync("./a0-rootroom-codon-orientation-return-ui.js", "utf8");
+const css = fs.readFileSync("./a0-rootroom-codon-orientation-return.css", "utf8");
+assert.match(html, /id="codonTraveler"/);
+assert.match(html, /id="animateButton"/);
+assert.match(html, /id="animationProgress"/);
+assert.match(html, /θ1\+θ2<\/span>Load/);
+assert.match(html, /id="loadBridge"/);
+assert.match(html, /id="directionGuide"/);
+assert.match(html, /id="smackPulse"/);
+assert.match(html, /5–3–7 Ghost-Grid view/);
+assert.match(ui, /getPointAtLength/);
+assert.match(ui, /requestAnimationFrame\(animationStep\)/);
+assert.match(ui, /visits = loops \* receipt\.gate_count/);
+assert.match(ui, /θ1 \+ θ2 · LOAD/);
+assert.match(ui, /isCoupledLoad = selected === 1 && i === 0/);
+assert.match(ui, /stage\.dataset\.phase = phase\.key/);
+assert.match(ui, /θ4 · SMACK/);
+assert.match(ui, /θ5 · PUSH-OFF/);
+assert.match(css, /data-phase="load"/);
+assert.match(css, /data-phase="direction"/);
+assert.match(css, /data-phase="smack"/);
+assert.match(css, /data-phase="push-off"/);
+assert.match(css, /prefers-reduced-motion:reduce/);
+
+console.log("PASS a0-rootroom-codon-orientation-return · 4 source triplets · 5 semantic phases · coupled load/direction/SMACK/push-off · 1/2-loop return");

@@ -5,7 +5,7 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
 
-  const VERSION='1.12.0';
+  const VERSION='1.13.0';
   const SCHEMA='nexah.a0.coupled-channel-boundary-lens/1';
   const IDENTITY='NEXAH_A0_ORIENTATION_CONTROLLER_BENCH';
   const PHASES=Object.freeze(['APPROACH','FIT','CONTACT','TRANSFER','RELEASE','RETURN']);
@@ -130,6 +130,11 @@
       coupledParameter:Object.freeze({parameter:'c',value:Object.freeze([state.cRe,state.cIm]),sharedBy:Object.freeze(['MANDELBROT_PARAMETER_PLANE','JULIA_DYNAMICAL_PLANE']),sharedByOtherModules:false}),
       painter:Object.freeze({mode:state.painterMode,mix:state.painterMix,mutatesSources:false}),
       latex:Object.freeze({enabled:state.latexOverlay,source:'assets/a0-coupled-channel-boundary-overlay-v1.tex',runtime:'OPTIONAL_DOCKED_SOURCE_DRAWER_WITH_ACCESSIBLE_FALLBACK_NO_EXTERNAL_TYPESETTER'}),
+      viewVocabulary:Object.freeze({
+        colourGrammar:Object.freeze({id:'C_YM_K_VIEW_ONLY',legacy:'CMY_PLUS_K_VIEW_ONLY',carrier:'C',ymPair:Object.freeze({id:'YM',members:Object.freeze(['Y','M']),role:'COUPLED_CHROMATIC_VIEW_PAIR',identityMerge:false}),key:'K_MASK_SHUTTER'}),
+        transferMirror:Object.freeze({id:'TM',role:'TRANSFER_MIRROR_VIEW',mapping:'F_TO_NEGATIVE_F',involution:true,trademarkIdentity:false,newOperator:false}),
+        referenceCross:Object.freeze({id:'CH40_WHITE_CROSS',address:'CH40',addressStatus:'LOCAL_OWNER_VIEW_ADDRESS_UNBOUND',whiteOval:'FIXED',whiteCross:'FIXED',violetAxis:'FIXED',role:'READ_ONLY_DISPLAY_REFERENCE',sourceMutation:false,newChannel:false,newIdentity:false,physicalStillpointClaim:false})
+      }),
       authority:Object.freeze({researchRun:false,scientificEvidence:false,newIdentity:false,newGraphRelation:false,newCarrier:false,newOperator:false,claimPromotion:false,physicalMechanism:false,publicationAuthorized:false}),
       boundary:'One read-only coupling lens over existing A0 sources. Shared c couples Mandelbrot and Julia only. Geometric side, dynamical class and return role remain separate namespaces. Visual similarity creates no carrier, operator, mechanism or identity.'
     });

@@ -723,6 +723,7 @@
         "title": "Grids · Adressen und Projektionen",
         "pages": [
           "A0_NUMBERMAGICK_GRID_RESEARCH.html",
+          "A0_PRIMEFIELD.html",
           "A0_PINK_DIAMOND_GRID_ATLAS.html"
         ]
       },

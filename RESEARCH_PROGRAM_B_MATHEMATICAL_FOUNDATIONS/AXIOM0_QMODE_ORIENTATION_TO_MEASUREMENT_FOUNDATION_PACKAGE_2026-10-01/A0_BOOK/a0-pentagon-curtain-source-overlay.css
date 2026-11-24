@@ -1,0 +1,38 @@
+.curtain-critical-pentagon {
+  fill: rgba(255,255,255,.018);
+  stroke: #f3fbff;
+  stroke-width: 2.1;
+  stroke-linejoin: round;
+  stroke-opacity: .94;
+  filter: url(#curtainGlow);
+}
+.curtain-balance-ring {
+  fill: none;
+  stroke: #f3fbff;
+  stroke-width: 1.8;
+  stroke-opacity: .92;
+  filter: url(#curtainGlow);
+}
+.curtain-aperture { stroke-width: 1.4; stroke-dasharray: 3 4; }
+.curtain-eye-halo {
+  fill: #ee6ca5;
+  fill-opacity: .13;
+  stroke: #ee6ca5;
+  stroke-opacity: .3;
+  stroke-width: 8;
+  filter: url(#curtainGlow);
+}
+.curtain-eye {
+  fill: #ee6ca5;
+  stroke: #ffd7e8;
+  stroke-width: 1.6;
+  filter: url(#curtainGlow);
+}
+.curtain-pin {
+  fill: #ffe45e;
+  stroke: #e5b340;
+  stroke-width: 2.4;
+  filter: url(#curtainGlow);
+}
+.curtain-label { fill: #f3fbff; font-size: 9px; }
+.curtain-label.stillpoint { fill: #e5b340; }

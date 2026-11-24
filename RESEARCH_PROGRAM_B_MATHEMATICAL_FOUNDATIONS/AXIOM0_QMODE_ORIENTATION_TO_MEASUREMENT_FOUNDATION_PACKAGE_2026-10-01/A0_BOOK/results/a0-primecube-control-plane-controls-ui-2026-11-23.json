@@ -1,0 +1,156 @@
+{
+  "schema": "nexah.a0.primecube-control-plane-controls-ui-result/1",
+  "version": "1.10.0",
+  "date": "2026-11-23",
+  "status": "PASS_STEPS_7_TO_14_STATIC_AND_MODEL_WITH_ZIRKEL_STRIP_CONTROL",
+  "controls": {
+    "status": "PASS_STEPS_7_TO_14_WITH_ZIRKEL_SPLIT_RETURN_CONTROL",
+    "checks": 103,
+    "relabeling": {
+      "linearOrdersTested": 720,
+      "passingLinearOrders": 48,
+      "passingCyclicClasses": 4,
+      "retainedOrder": [1, 8, 11, 22, 27, 33],
+      "retainedOrderPass": true,
+      "unique": false
+    },
+    "d6": {
+      "order": 12,
+      "rotationAngle": "pi/3",
+      "reflectionChamber": "pi/6",
+      "lawsVerified": ["R^6=id", "F^2=id", "F R F=R^-1"]
+    },
+    "generators": {
+      "unitsModulo1001": 720,
+      "orderSixUnits": 56,
+      "t20OrderSixStrides": [10, 50],
+      "t20OrderSixGenerators": [771, 309]
+    },
+    "phase": {
+      "orderSixGeneratorsTested": 56,
+      "uniformGenerators": [430, 859],
+      "uniformDelta": 0,
+      "informativeUniformGenerators": 0,
+      "mz24GlobalPhaseEdge": "REJECTED"
+    },
+    "unitWindow": {
+      "phi1001": 720,
+      "jointPeriod": 840,
+      "signedLokiOffset": -8,
+      "stationSequence": [0, 6, 5, 4, 3, 2, 1, 0],
+      "return": 5040,
+      "cubeDerivationEstablished": false
+    },
+    "refinement24": {
+      "c8_d12Intersection": [0, 6, 12, 18],
+      "crossProduct": 5040,
+      "mz24PositionMatches": 0,
+      "mz24IdentityEstablished": false
+    },
+    "lengthAdapter": {
+      "ticksPerCentimeter": 50,
+      "ticksPerInch": 127,
+      "diskRatio": "5:6",
+      "commonReturnTicks": 6350
+    },
+    "origamiTransport": {
+      "wanderingDelta": [-1, 1, -1],
+      "wanderingTop": [0, 9, 10],
+      "wanderingBottom": [32, 28, 21],
+      "verticalGaps": [32, 19, 11],
+      "wanderingInjective": true,
+      "wanderingTotal": 100,
+      "conservationDelta": [-1, 2, -1],
+      "conservationTotal": 102,
+      "conservationInjective": false,
+      "collision": 10
+    },
+    "zirkelSplitControl": {
+      "decomposition": "7+1+3",
+      "observedEdges": [[8,10],[8,11]],
+      "declaredComparatorEdges": [[8,9],[8,10],[8,11]],
+      "zeroStripEdge": [8,10],
+      "zeroStrip": ["1/12","11/12"],
+      "zeroStripCenter": "1/2",
+      "zeroStripHalfWidth": "5/12",
+      "deltaOneTwelfthProbe": ["5/12","7/12"],
+      "port11IsStripEndpoint": false,
+      "regularC11Established": false
+    },
+    "baselAlphaBetaControl": {
+      "baselLaw": "zeta(2)=pi^2/6",
+      "coprimeDensity": "6/pi^2",
+      "cubeFaceCount": 6,
+      "cubeDerivationEstablished": false,
+      "alphaBeta": ["5/12","7/12"],
+      "glyphCuts": ["73","37"],
+      "glyphNumericIdentityEstablished": false,
+      "n720": {"coprime": 315387, "total": 518400}
+    },
+    "scarabT11ShadowRailControl": {
+      "operator": "T11(n)=n+11",
+      "centerToOuter": [17,28],
+      "scarabLift": [[41,1031],[42,1032],[43,1033]],
+      "scarabSteps": 90,
+      "shadowCrossing": [1106,1117],
+      "butterflyRowStep": [1031,1042],
+      "factorBridge": "1036=4*259=28*37",
+      "negativeControlDeltas": [10,12],
+      "newIdentity": false,
+      "newRelation": false
+    },
+    "center13And5040Control": {
+      "countView": "12+1+12=25",
+      "weightedView": "12+13+12=37=p12",
+      "integerIndexView": "13+i, i in [-12,12], gives 1..25",
+      "imaginaryNegativeControlNormSquared": 170,
+      "cubicReturn": [1728,1729],
+      "cubeSums": ["12^3+1^3=1729","10^3+9^3=1729"],
+      "factorBridge1729": [7,13,19],
+      "factorialNeighborhood": [5039,5040,5041],
+      "neighborhoodTypes": ["PRIME_P675","7_FACTORIAL_60_DIVISORS","71_SQUARED"],
+      "decimalSuffixes": {"39":[3,13],"40":[2,2,2,5],"41":"PRIME_P13"},
+      "eulerPolynomialControl": {"law":"n^2+n+41","primeForN":"0..39","failureAt40":1681},
+      "centerMod13": 9,
+      "carrierSwitch": {"sourcePair":[3564,1476],"operator":[1,-1],"targetPair":[3565,1475],"total":5040,"gcdChange":[36,5]},
+      "markerRail": {"cuts":["1|47|6","1|47|5","71|19"],"partSums":[54,53,90],"return":"90*56=5040","ownerEquation":{"literal":"1113+51+1=1165=5*233","power":"11^3+5^1+1=1337=7*191","status":"TWO_EXACT_TYPED_READINGS"}},
+      "quantizationSeam1025": {"addressLaw":"1025=1024+1=2^10+1","factorization":[5,5,41],"primeFactorRank":13,"primeGap":{"lower":1021,"upper":1031,"distances":[4,6],"midpoint":1026,"offset":-1},"channelReceipt":{"observedText":"0.002499999999979167","ticks":3,"tickDenominator":1200,"exact":"1/400","display":0.0025},"boundary":"OWNER_SCREENSHOT_RECEIPT_NOT_CANONICAL_DATASET_OR_PHYSICAL_AMPLITUDE"},
+      "ramanujanPrimeSubstitution": {"radicalRows":{"classical":[2,3,4,5],"prime":[2,3,5,7],"depth":12,"classicalReadout":2.998630317889081,"primeReadout":3.223259890774551},"reciprocalRows":{"leibniz":[1,3,5,7,9,11],"prime":[1,3,5,7,11,13]},"boundary":"PRIME_SUBSTITUTION_DOES_NOT_PRESERVE_EQUAL_3_OR_PI_OVER_4"},
+      "calendarClockControl": {
+        "yearResidues": {"364":0,"365":1,"366":2},
+        "weekMinutes": 10080,
+        "halfWeekMinutes": 5040,
+        "return5040Days": {"weeks":720,"ideal360DayYears":14},
+        "julian28YearComparator": {"days":10227,"weeks":1461,"gregorianUniversalReturn":false},
+        "gregorian400YearReturn": {"days":146097,"weeks":20871,"iso52WeekYears":329,"iso53WeekYears":71},
+        "springingOneStatus": "INTERPRETIVE_ANALOGY_OVER_EXACT_REMAINDER_ARITHMETIC"
+      },
+      "newIdentity": false,
+      "newRelation": false
+    }
+  },
+  "glyphDecision": {
+    ".:SOURCE": "BOUND",
+    ":": "BOUND_DEFAULT_OPEN_TYPED_JOINT",
+    ":Q+": "BOUND_LOCAL_Q_EDGE_771",
+    ":Q-": "BOUND_LOCAL_Q_EDGE_309",
+    ":phi": "HOLD_REJECTED_FOR_MZ24",
+    "EUR": "OWNER_CANDIDATE_UNBOUND",
+    "CENT": "UNBOUND_HOLD"
+  },
+  "verification": {
+    "couplingAndControlChecks": 223,
+    "uiChecks": 221,
+    "primecubeSuiteChecks": 671,
+    "browserVisualQA": {
+      "status": "BLOCKED",
+      "reason": "The available in-app browser security policy rejects local file URLs."
+    }
+  },
+  "graphDelta": {
+    "newCanonicalIds": 0,
+    "relationChanges": 0,
+    "statusChanges": 0
+  },
+  "claimBoundary": "Bounded exact engineering/formal-design fixture only; no physical mechanism, natural phase law, Study, Finding or publication state is asserted."
+}

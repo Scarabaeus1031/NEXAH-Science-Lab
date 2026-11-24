@@ -5,7 +5,7 @@
 })(typeof window!=='undefined'?window:globalThis,function(primecube){
   'use strict';
 
-  const VERSION='1.5.0';
+  const VERSION='1.6.0';
   const LIMIT=1111;
   const TAU=Math.PI*2;
   const PHI=(1+Math.sqrt(5))/2;
@@ -23,6 +23,7 @@
   ]);
   const ZETA_LENS_MODES=Object.freeze(['smooth','trace','seam']);
   const TRACE_WORDS=Object.freeze(['RLLR','LRRL']);
+  const RESIDUE_ANGLE_MODES=Object.freeze(['mod7','mod11','paired']);
 
   function isPrime(n){
     if(primecube&&typeof primecube.isPrime==='function')return primecube.isPrime(n);
@@ -41,6 +42,45 @@
       ])
     }));
     return Object.freeze(pairs);
+  }
+
+  function primeResidueRecords(limit=1000){
+    const records=[];
+    for(let prime=2;prime<=limit;prime++)if(isPrime(prime))records.push(Object.freeze({
+      index:records.length+1,prime,a:prime,b:prime,kind:'PRIME_RESIDUE_HELIX_RECORD',
+      residue7:prime%7,residue11:prime%11,
+      sourceIds:Object.freeze([`PC1111:N${String(prime).padStart(4,'0')}`])
+    }));
+    return Object.freeze(records);
+  }
+
+  function primeTailRecords(lower=1000,upper=LIMIT){
+    const records=[];
+    for(let prime=lower+1;prime<=upper;prime++)if(isPrime(prime))records.push(prime);
+    return Object.freeze(records);
+  }
+
+  function residueAngleMode(value='paired'){
+    if(!RESIDUE_ANGLE_MODES.includes(value))throw new RangeError('residue angle mode must be mod7, mod11 or paired');
+    return value;
+  }
+
+  function buildPrimeResidueGeometry(records,options={}){
+    const angleMode=residueAngleMode(options.residueAngle||'paired');
+    const innerRadius=Number.isFinite(options.innerRadius)?options.innerRadius:0.72;
+    const height=Number.isFinite(options.height)?options.height:3.05;
+    const center=(records.length-1)/2;
+    const rungs=records.map((record,i)=>{
+      const angle7=TAU*record.residue7/7,angle11=TAU*record.residue11/11;
+      const y=records.length===1?0:(i-center)*height/(records.length-1);
+      const point7=Object.freeze({x:Math.cos(angle7)*innerRadius,y,z:Math.sin(angle7)*innerRadius});
+      const point11=Object.freeze({x:Math.cos(angle11)*innerRadius,y,z:Math.sin(angle11)*innerRadius});
+      const strandA=angleMode==='mod11'?point11:point7;
+      const strandB=angleMode==='paired'?point11:strandA;
+      const midpoint=Object.freeze({x:(strandA.x+strandB.x)/2,y,z:(strandA.z+strandB.z)/2});
+      return Object.freeze({...record,angle7,angle11,angleMode,angleDegrees7:degrees(angle7),angleDegrees11:degrees(angle11),point7,point11,codon:false,fibonacci:false,kink:false,strandA,strandB,midpoint,rail:strandA,railA:strandA,railB:strandB,axisIntersection:null});
+    });
+    return Object.freeze({kind:'prime-residue-helix',angleMode,strandMode:angleMode==='paired'?'double':'single',step:null,stepDegrees:null,innerRadius,railRadius:null,railRatio:null,height,measures:null,rungs:Object.freeze(rungs),tail:primeTailRecords()});
   }
 
   function z37Orbits(){
@@ -210,6 +250,7 @@
 
   function buildGeometry(records,options={}){
     if(records[0]&&records[0].kind==='ZETA_ZERO_CONJUGATE_PAIR')return buildZetaGeometry(records,options);
+    if(records[0]&&records[0].kind==='PRIME_RESIDUE_HELIX_RECORD')return buildPrimeResidueGeometry(records,options);
     const mix=clamp01(options.mix),step=phaseStep(mix),count=records.length,viewMode=strandMode(options.strandMode||'double');
     const innerRadius=Number.isFinite(options.innerRadius)?options.innerRadius:0.56;
     const railRadius=innerRadius*PHI;
@@ -234,12 +275,20 @@
     if(mode==='z37')return z37Orbits();
     if(mode==='twins')return twinRungs();
     if(mode==='zeta')return zetaZeroRecords();
-    throw new RangeError('mode must be twins, z37 or zeta');
+    if(mode==='residue')return primeResidueRecords();
+    throw new RangeError('mode must be twins, z37, zeta or residue');
   }
 
   function inspection(mode,index,mix=0,viewMode='double',options={}){
     const records=modeRecords(mode),geometry=buildGeometry(records,{mix,strandMode:viewMode,...options}),rung=geometry.rungs[index];
     if(!rung)throw new RangeError('rung index outside mode');
+    if(mode==='residue')return Object.freeze({
+      recordId:rung.sourceIds[0],mode,strandMode:geometry.strandMode,index:rung.index,prime:rung.prime,
+      pair:Object.freeze([rung.prime,rung.prime]),single:Object.freeze([rung.prime]),sourceIds:rung.sourceIds,
+      residue7:rung.residue7,residue11:rung.residue11,angleDegrees7:rung.angleDegrees7,angleDegrees11:rung.angleDegrees11,
+      angleMode:rung.angleMode,axisIntersection:null,measures:null,tail:geometry.tail,
+      return:Object.freeze({method:'RETAINED_PRIME_RECORD',values:Object.freeze([rung.prime]),exact:true})
+    });
     if(mode==='zeta')return Object.freeze({
       recordId:`HELIX:ZETA:${String(rung.index).padStart(2,'0')}`,mode,strandMode:geometry.strandMode,index:rung.index,
       pair:Object.freeze([rung.a,rung.b]),single:Object.freeze([rung.a]),sourceIds:rung.sourceIds,
@@ -260,11 +309,11 @@
   }
 
   function audit(){
-    const twins=twinRungs(),orbits=z37Orbits();
+    const twins=twinRungs(),orbits=z37Orbits(),residuePrimes=primeResidueRecords(),tail=primeTailRecords();
     return Object.freeze({
       schema:'nexah.a0.helix-view-adapter/1.0.0',version:VERSION,
       identityReuse:Object.freeze(['MOD:NUMBER_VIEW_SUITE','ART:A0:MATHEMATICAL_JOINTS']),
-      carrier:Object.freeze({limit:LIMIT,twinRungs:twins.length,z37Orbits:orbits.length,z37FixedPoints:orbits.filter(x=>x.fixed).length,zetaZeroPairs:ZETA_ZERO_ORDINATES.length}),
+      carrier:Object.freeze({limit:LIMIT,twinRungs:twins.length,z37Orbits:orbits.length,z37FixedPoints:orbits.filter(x=>x.fixed).length,zetaZeroPairs:ZETA_ZERO_ORDINATES.length,primeResidueSharedCarrier:residuePrimes.length,primeResidueTail:tail.length}),
       phase:Object.freeze({eulerTenStepRadians:EULER_STEP,eulerTenStepDegrees:degrees(EULER_STEP),goldenAngleRadians:GOLDEN_ANGLE,goldenAngleDegrees:degrees(GOLDEN_ANGLE),interpolation:'DECLARED_LINEAR_VIEW_PARAMETER'}),
       rail:Object.freeze({radiusRatio:'φ',phi:PHI,fibonacciIndices:FIBONACCI_INDICES,role:'INDEX_MARKERS_ON_GOLDEN_ANGLE_RAIL'}),
       strands:Object.freeze({single:'RN\\A_DECLARED_VIEW_LABEL',double:'(c)D|⁄|A_DECLARED_VIEW_LABEL',doublePhaseOffset:'π',midpoint:'L_k(1/2)=(0,z_k,0)'}),
@@ -272,9 +321,10 @@
       differentialGeometry:Object.freeze({curve:'gamma(t)=(R cos t, b t + y0, R sin t)',theta:'Theta=Delta theta',iota:'iota=b=Delta z/Delta theta',dao:'DAO=R^2+iota^2',curvature:'kappa=R/DAO',torsionMagnitude:'|tau|=|iota|/DAO',role:'DERIVED_NORMALIZED_VIEW_METRICS'}),
       explicitFormula:Object.freeze({sample:'FIRST_20_POSITIVE_NONTRIVIAL_ZERO_ORDINATES',sourceBeta:0.5,phase:'theta=gamma log x',normalizedEnvelope:'x^(beta-1/2)',pairTerm:'-(x^rho/rho + x^conj(rho)/conj(rho))',betaProbe:'COUNTERFACTUAL_VIEW_PARAMETER_ONLY',claim:'FINITE_NUMERICAL_LENS_NOT_RH_PROOF'}),
       traceSeam:Object.freeze({words:TRACE_WORDS,kinksPerWord:2,shadow:'-1/12',visible:'11/12',equivalence:'-1/12 == 11/12 (mod 1)',liftWitness:'1',dirichletCharacter:false,missingTests:Object.freeze(['PERIOD_MOD_Q','COMPLETELY_MULTIPLICATIVE','ZERO_ON_NON_UNITS']),role:'TRACE_AND_VIEW_SEAM_COMPARATOR'}),
-      boundary:'Finite source pairs, Z37 involution orbits, sampled zeta-zero conjugate pairs, strand labels, phase steps and markers are visual encodings. RN\\A is not inferred as a set difference without separately declared sets. RLLR and LRRL remain trace words, not Dirichlet characters. The -1/12 and 11/12 records are the same phase modulo one but retain different lift histories. The explicit-formula lens is a finite numerical visualization, not a proof of RH, an evaluation of the complete explicit formula or a new zero computation. No biological RNA/DNA law, physical resonance, prime generator or Fibonacci control mechanism is asserted.'
+      residueHelix:Object.freeze({sharedCarrier:'168_PRIMES_P_LE_1000',tail:'18_PRIMES_1000_LT_P_LE_1111_OUTSIDE_SHARED_VIEW',verticalOrder:'PRIME_INDEX_ASCENDING',angleRules:Object.freeze({mod7:'2pi*(p mod 7)/7',mod11:'2pi*(p mod 11)/11',paired:'SAME_PRIME_RECORD_ON_TWO_VIEW_RAILS'}),naturalHelixClaim:false,eulerAuditIdentity:false}),
+      boundary:'Finite source pairs, Z37 involution orbits, sampled zeta-zero conjugate pairs, strand labels, phase steps and markers are visual encodings. RN\\A is not inferred as a set difference without separately declared sets. RLLR and LRRL remain trace words, not Dirichlet characters. The -1/12 and 11/12 records are the same phase modulo one but retain different lift histories. The explicit-formula lens is a finite numerical visualization, not a proof of RH, an evaluation of the complete explicit formula or a new zero computation. The prime-residue helix orders the shared finite prime carrier by index and assigns declared modulo angles; it is neither a natural prime helix nor identical to the separate Euler 7x11 edge audit. No biological RNA/DNA law, physical resonance, prime generator or Fibonacci control mechanism is asserted.'
     });
   }
 
-  return Object.freeze({VERSION,LIMIT,TAU,PHI,EULER_STEP,GOLDEN_ANGLE,FIBONACCI_INDICES,STRAND_MODES,REGISTER_MODES,ZETA_ZERO_ORDINATES,ZETA_LENS_MODES,TRACE_WORDS,isPrime,twinRungs,z37Orbits,zetaZeroRecords,explicitFormulaPair,zetaLensMode,traceWordData,phaseSeamData,buildZetaGeometry,phaseStep,degrees,strandMode,registerMode,helixMeasures,bundleStrand,fhBundle,triadBundle,z37Frame,registerGeometry,buildGeometry,modeRecords,inspection,audit});
+  return Object.freeze({VERSION,LIMIT,TAU,PHI,EULER_STEP,GOLDEN_ANGLE,FIBONACCI_INDICES,STRAND_MODES,REGISTER_MODES,ZETA_ZERO_ORDINATES,ZETA_LENS_MODES,TRACE_WORDS,RESIDUE_ANGLE_MODES,isPrime,twinRungs,primeResidueRecords,primeTailRecords,residueAngleMode,buildPrimeResidueGeometry,z37Orbits,zetaZeroRecords,explicitFormulaPair,zetaLensMode,traceWordData,phaseSeamData,buildZetaGeometry,phaseStep,degrees,strandMode,registerMode,helixMeasures,bundleStrand,fhBundle,triadBundle,z37Frame,registerGeometry,buildGeometry,modeRecords,inspection,audit});
 });

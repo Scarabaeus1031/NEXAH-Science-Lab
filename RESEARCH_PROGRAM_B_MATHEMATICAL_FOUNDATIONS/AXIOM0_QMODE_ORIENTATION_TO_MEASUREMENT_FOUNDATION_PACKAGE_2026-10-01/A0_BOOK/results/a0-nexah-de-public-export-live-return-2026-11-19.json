@@ -1,0 +1,93 @@
+{
+  "schema": "nexah.a0-public-export-live-return.v1",
+  "date": "2026-11-19",
+  "status": "DEPLOYED_AND_LIVE_VERIFIED",
+  "public_house": "https://nexah.de/",
+  "source_authority": {
+    "repository": "NEXAH-Science-Lab",
+    "path": "RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/A0_BOOK/",
+    "revision": "5d5e64f4746d559c83a2122160174f2d6aee3899",
+    "manifest": "a0-public-export-manifest.json"
+  },
+  "channel_implementation": {
+    "repository": "NEXAH-Experience",
+    "branch": "codex/five-h-binding",
+    "commit": "b01e8db2817429a942d35991107f27133c5d5a5d",
+    "deployment_target": "OVH / nexah.de",
+    "snapshot_files": 621,
+    "snapshot_kb": 85688,
+    "rollback_backup": "40 EXPERIENCE PRODUCTION/NEXAH deployment backups/2026-11-19_04-10-07"
+  },
+  "public_export": {
+    "pages": 14,
+    "files": 192,
+    "host_routes": 17,
+    "page_allowlist": [
+      "A0_SCIENCE.html",
+      "A0_SCIENTIFIC_POSITION_REPORT.html",
+      "A0_MATHEMATICAL_JOINTS.html",
+      "01_FROM_LINE_TO_READOUT.html",
+      "A0_TOURS.html",
+      "A0_NEWTON_GOETHE_OBSERVER_LENS.html",
+      "NEXAH_C_CONNECT.html",
+      "A0_NEXAH_RESEARCH_METHOD.html",
+      "A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html",
+      "A0_RETURN_WITHOUT_IDENTITY_PAPER.html",
+      "A0_FIELDS_AND_JOINTS_ATLAS.html",
+      "A0_BOUNDARY_GRAPH_DEMONSTRATOR.html",
+      "assets/core-snapshots/PASCAL_PENTAGON_EXPLORER_2026-10-15.html",
+      "assets/game-of-worlds-play/three-domain-transition-test/index.html"
+    ]
+  },
+  "live_smoke": {
+    "status": "PASS_7_OF_7_HTTP_200",
+    "checks": [
+      "https://nexah.de/",
+      "https://nexah.de/library/?lang=de",
+      "https://nexah.de/laboratory/roedelheim-observatory/?lang=de",
+      "https://nexah.de/laboratory/roedelheim-observatory/?lang=en",
+      "https://nexah.de/laboratory/roedelheim-observatory/rooms/thread-loom/?lang=de",
+      "https://nexah.de/observatory-rooms/thread-loom/index.html",
+      "https://nexah.de/A0_NEWTON_GOETHE_OBSERVER_LENS.html?lang=de"
+    ],
+    "content_witnesses": [
+      "German Observatory introduction visible",
+      "English Observatory introduction visible",
+      "German Library English-only publication notice visible",
+      "German Thread Loom reading boundary visible",
+      "Thread Loom standalone instrument embedded and rendered"
+    ]
+  },
+  "host_boundary": {
+    "statement": "Rödelheim Observatory and its six Experience-owned rooms are host integration surfaces, not additional A0 export pages or new scientific identities.",
+    "observer_lens_role": "Existing allowlisted A0 public projection embedded and routed by NEXAH-Experience."
+  },
+  "desk_rebinding": {
+    "science_desk": {
+      "path": "A0_RESEARCH_DESK.html#nexah-de-public-release-return-20261119",
+      "sha256": "fc45c11c78a4555d191f0ff6ed8b17731754845780ca5ba55a816ca3360dc193"
+    },
+    "builder_desk": {
+      "path": "A0_BUILDER_TOY_STORE.html#nexah-de-public-release-return-20261119",
+      "sha256": "a06321a5e373f04bb21f47c7c0d88bae13d825f79e457768be66e4d4f65b6f4f"
+    },
+    "navigator_validation": "PASS_BASE_329_29_COMPOSED_332_32",
+    "app_audit": "PASS_253_OF_253"
+  },
+  "navigator_effect": {
+    "identity_reuse": [
+      "A0-VIEW-NEWTON-GOETHE-OBSERVER-LENS"
+    ],
+    "new_identities": 0,
+    "new_relations": 0,
+    "new_aliases": 0,
+    "canonical_count_delta": 0
+  },
+  "authority_effect": {
+    "study": 0,
+    "finding": 0,
+    "claim_ceiling_change": 0,
+    "evidence_status_change": 0,
+    "source_authority_change": 0
+  }
+}

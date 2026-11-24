@@ -199,6 +199,71 @@ values, prime/perfect-number role and the retained return. This lower surface
 is a larger inspection view of the same frozen 60 records, not a second orbit
 or a new Navigator identity.
 
+## EXP-J / Tube Operator coupled Cube lens
+
+The additional source-bound lens reuses the existing eight local Tube
+Occupancy addresses
+
+```text
+H0+ · H0- · H180+ · H180- · V270+ · V270- · V90+ · V90-
+```
+
+as eight declared screen corners. It does not identify those addresses with
+intrinsic Cube axes. The supplied `EXP-J` poster values drive only two visible
+motifs: a three-point `m=41` trace and a five-point `m=43` trace. The Series-XI
+moduli `41, 42, 43, 59, 61, 97` retain separate Tube occupancy and persistence
+readouts.
+
+Play advances through the local transition display and retains the visited
+Tube addresses until an explicit clear. The small DFT strip is computed only
+from that retained display-address trace. It is not the historical JANUS FFT,
+not a scientific replay and not a physical spectrum.
+
+The May 19 Series-X/XI boards are retained as supplied visual sources. Their
+generating scripts were not located in the current NEXAH checkout, so
+occupancy fractions and EXP-J peak ratios are explicitly classified as
+poster-digitized approximations. The NEXAH Core Prime Modular Resonance,
+Janus Operator, frequency-decomposition and Navigation Kernel sources remain
+separate implementation and conceptual authorities.
+
+The lens reuses `MOD:NUMBER_VIEW_SUITE`,
+`NEXAH_A0_ORIENTATION_CONTROLLER_BENCH` and
+`SG:LENS:ILAU_ORIENTATION`; graph delta is zero.
+
+## Editorial sequence and moving Number View body
+
+The page now opens with a bounded definition of the Primecube as a finite
+address machine: one source record, several typed addresses and views, and an
+exact return. The illuminated split-Cube hero is cartography. Its blue `A0`
+sphere represents the retained source light; the pink/gold seam is a declared
+view boundary, not a physical aperture or a new Cube identity.
+
+The visible reading order is:
+
+```text
+INTRODUCTION / SOURCE LIGHT
+-> PRIME CARRIER AND ADDRESS WORKBENCH
+-> SEVEN-PHASE NUMBER VIEW MOTION
+-> ENVELOPES, OPERATORS AND COUPLED VIEWS
+-> VIEW-INVARIANCE EVIDENCE
+-> CONTRACT COVERAGE AND CLAIM BOUNDARY
+```
+
+The `MOD:NUMBER_VIEW_SUITE` port keeps source record `661` fixed while the
+view body moves through `CARRIER -> POINT -> LINE -> SLICE -> GLUE ->
+TOPOLOGY -> RETURN`. Phase, tick and completed-cycle registers are visible.
+The moving cuboid and its retained screen trail are view artifacts; the fixed
+source marker and `PC1111:N0661` return prevent the motion from being read as
+an integer mutation. The final return occupies the source transform again.
+
+The contract coverage grid is deliberately placed after the working
+instruments. It verifies implementation completeness and does not serve as the
+reader's introduction. The View-Invariance Audit now states its three primary
+lessons before exposing the full matrix.
+
+Identity reuse remains `MOD:NUMBER_VIEW_SUITE` and the existing Primecube
+surface. Graph delta is zero.
+
 ## Splinter Sail Grid / local Loki Chassis view
 
 The second full-width surface below the main workbench reuses six exact Root
@@ -658,6 +723,21 @@ of the retained Breathing Crystal nodes `BAND_0.429`, `BAND_0.456` and
 control: no bound source node `BAND_0.478` exists. Band and fixed-point remain
 different typed records.
 
+The same section now has three switchable readings. `ROOT LINE` retains the
+one-dimensional algebraic comparator. `ALPHA/BETA MEMORY PLANE` lifts the
+real recurrence locally to `(x,y)=(delta z_n,delta z_(n-1))`; its second axis
+is the previous-state coordinate, not an imaginary or spatial axis. `EIGEN
+SPLIT` applies the orthogonal common/difference coordinates
+`u=(x+y)/sqrt(2)` and `v=(x-y)/sqrt(2)`. The latter makes the delayed
+difference channel visible without claiming that the transformed Jacobian is
+diagonal. For each root the display derives the local Jacobian, determinant
+`det J=beta`, eigenvalues, spectral radius and, where real, eigenlines. At the
+Balance fixture the negative root has a complex conjugate eigenpair with
+radius `sqrt(1/8)`, while the positive root has a real unstable split. This is
+a real local linearization only: the complete complex two-step recurrence is
+four-dimensional over the reals, and the view is neither a global basin nor a
+new N-band identity.
+
 ### Direct Mandelbrot / αβ Memory Field
 
 The full-width field directly below the adapter freezes four declared parameter
@@ -775,6 +855,53 @@ Base-11 address occupancy of those records. The supplied trigonometric input
 `-0.834` remains separate from the positive fill ratio
 `101/121 = 0.8347107438...`; proximity is not equality or derivation.
 
+## Primecube Boundary Series / Transversal Plane Return
+
+The Science Desk consolidation returns to the owning Primecube as a declared
+cross-section
+
+```text
+Pi_T = {(x,y,z): z=0}.
+```
+
+For a parameterized path, the view reports a `TRANSVERSAL_CROSSING` only when
+the normal coordinate changes side and its normal velocity at the crossing is
+nonzero. A zero normal velocity at contact is the explicit
+`NONTRANSVERSAL_CONTACT` control; a path remaining on one side returns
+`NO_CROSSING`.
+
+The plane carries five typed documentary registers: `EXACT`, `BUILT`,
+`READING`, `HOLD` and `NEXT_TEST`. It is a return and type-boundary surface,
+not a new geometric identity or a physical membrane. In particular it is not
+the Riemann critical line. The separately retained Root Topology Gate below
+uses an explicitly declared axis line `L={(0,0,h)}` and therefore remains a
+line-complement winding problem.
+
+Identity reuse is `ART:A0:MATHEMATICAL_JOINTS` and
+`MOD:NUMBER_VIEW_SUITE`; new identity, relation, alias, Study and Finding are
+all zero.
+
+## Wheel 7 / Wheel 8 / Gate 13 Triple Return
+
+The `PRIMECUBE_W7_W8_G13_TRIPLE_RETURN` demonstrator is the finite product
+state `Z7 x Z8 x Z13`. Its declared operators are `+1 mod 7`, `-1 mod 8`
+and `+1 mod 13`. The two wheels return after `lcm(7,8)=56` steps, while the
+Gate-13 register then reads `4`; this is a partial return only. The first
+simultaneous return is
+
+```text
+lcm(7,8,13) = 728.
+```
+
+The display may then expose `728+1=729=9^3=27^2=3^6` as an external closure
+marker. It is not the operator period. The exact comparator
+`83+137=220=1331-1111` is non-unique: nine prime pairs sum to 220. The
+historical source labels `Wheel 7 (1729-Kreis)`, `Wheel 8 (1836-Kreis)` and
+`Quaternion Gate` remain `SOURCE_LABEL_HOLD`; no quaternion algebra,
+Riemann/Zeta mechanism or physical resonance is inferred. The existing
+`FAM-002` source family and Navigator identities are reused with graph delta
+zero.
+
 ## Critical Line / Root Topology Gate
 
 The `CRITICAL_LINE_ROOT_TOPOLOGY_GATE` is a bounded display for closed loops in
@@ -864,6 +991,23 @@ sequence `INSIDE -> OUTSIDE -> INSIDE_PRIME` over addresses
 interior, and the linguistic token segmentation remains `HOLD`, not a canonical
 operator or graph relation.
 
+The bounded `SCARAB_CARRY_MIRROR_GATE` extends that same fixture without a new
+identity. It keeps four operators separate:
+
+- prime rank: `1031=P173` and `1033=P174`;
+- Euler/carry seam: `phi(1033)=1032`,
+  `10000000111_2 + 1 = 10000001000_2`, `1032 & 7 = 0`;
+- decimal digit reversal: `1031<->1301`, `1032<->2301`,
+  `1033<->3301`;
+- fixed-width bit reversal `REV2_WIDTH_11`: `1031->1793=11*163`,
+  `1032->129=3*43`, `1033->1153=P191`.
+
+Width eleven and leading zeros belong to the bit-reversal operator type. The
+shared fixture does not identify decimal reversal with bit reversal, does not
+turn alignment into a universal loop-exit rule and does not establish one
+Scarab generator, physical mechanism or binary-palindrome theorem. Navigator
+delta remains zero identities and zero relations.
+
 ## Al-Jabr lens / typed dot operators
 
 The `AL-JABR LENS / THE DOT` view makes the declared root mask inspectable as
@@ -882,6 +1026,52 @@ and 6 are additive inverses modulo 11; they are not antipodal vertices because
 a regular 11-gon has no opposite vertex pair. The alpha/beta radius recurrence
 is a declared display operator, not a physical law or the definition of polar
 coordinates. No Navigator identity or relation is added.
+
+The Side `i/k` renderer retains that same completion state as a twenty-position
+rail between the declared Carrier and Shadow layers; changing the view no
+longer hides the current `0..20` completion count. A separate 21-frame display
+sequence runs the exact route `101 OPEN -> 121 CLOSED` and groups it into
+three typed phases: `CENTER_DOT / 102 deg`, `DECIMAL_POINT / 204 deg`, and
+`PRODUCT_DOT / 258 deg`. This is a view choreography only. `alpha`, `beta`,
+axis view and mask mode remain independent controls; no cell count derives the
+polar recurrence and no angle proves an algebraic coupling.
+
+All 21 frames now retain one carrier `C`, one blue body colour and one gold
+active marker. The phases additionally expose the local view registers
+`AM / PM / VM`; these are not time-zone claims and do not add geometry. The
+former `p/b/q/d CUBE SHIFT` is therefore narrowed to a view-plate permutation:
+the four glyph assignments may undergo the declared vertical mirror,
+horizontal mirror or `R180`, while `C` remains fixed.
+
+Two existing Q4 placements are source-bound beside that invariant carrier.
+The Dürer `Q` plate is the planar array
+`[[16,3,2,13],[5,10,11,8],[9,6,7,12],[4,15,14,1]]` with row, column and main
+diagonal sum 34. The Khajuraho `D` plate is the toroidal array
+`[[7,12,1,14],[2,13,8,11],[16,3,10,5],[9,6,15,4]]` whose declared toroidal
+`2 x 2` windows sum to 34. Equal labels and equal sum do not merge the planar
+`R180` and toroidal `T(2,2)` placement operators. No additional body, star,
+Navigator identity or relation is created.
+
+## View-invariance audit / ILAU matrix
+
+The source-bound audit compares eleven named observables across thirteen
+declared Primecube views. Each cell is classified as `RETAINED`, `LOST`,
+`ADDED`, or `UNRESOLVED`; unresolved is not interpreted as false. Carrier
+identity, 121-cell cardinality and source checksum are tested separately from
+plate labels, `Sigma34`, local operator laws, screen assignment, polar angle,
+winding, root metric and the twelve transversal seam edges.
+
+Four destruction controls make the method fail-visible. `PLATE SHUFFLE`
+breaks only the two typed `Sigma34` plate tests. `WRONG OPERATOR` substitutes
+the planar rule for the Khajuraho `T(2,2)` contract. `CHANGED CARRIER` breaks
+carrier identity, cardinality and checksum in all thirteen views. `AXIS HIT`
+makes polar angle and winding undefined at the declared line crossing.
+
+The instrument reuses the comparison method of the closed QAW01 and VST01
+audits, but inherits none of their results. It is a synthetic local
+design-feasibility demonstrator, not a Lab Run, Study activation, Finding or
+Publication. It reuses `MOD:NUMBER_VIEW_SUITE` and
+`ART:A0:MATHEMATICAL_JOINTS`; Navigator delta remains zero.
 
 ## S/Z chirality lab / W invariant / 25-address window
 
@@ -915,10 +1105,10 @@ relations.
 
 ## Contract-to-demonstrator coverage gate
 
-The page exposes a fail-visible `CONTRACT → DEMONSTRATOR` audit. Its 32 rows
+The page exposes a fail-visible `CONTRACT → DEMONSTRATOR` audit. Its 34 rows
 bind every operative module of this owning contract to an inspectable target:
 the eleven workbench views, the coupled-orbit barcode, Splinter Sail, H-Record,
-Mathfield switch, Scarab control lens, direct field, Al-Jabr dot lens, memory trace and
+Mathfield switch, the Transversal Plane Science Return, Scarab control lens, direct field, Al-Jabr dot lens, memory trace and
 fixed-point/band comparator, the Shadow packing ledger and the Critical Line /
 Root Topology Gate, THOTH/AUA Knot Gate and Khipu Generation Ledger, plus the
 S/Z polar/field comparator and its exact `25/13` address window, plus the
@@ -931,6 +1121,48 @@ contract has a reproducible view rather than prose alone.
 contract. In particular, the Uranus spool remains a visible HOLD control until
 its ordered source set, winding function, orientation, period and Return
 predicate are supplied.
+
+## YUGO / JOGI Fusion Frame · 5+2 Return Sequence
+
+The W11/W12/W13 sequence now has two reversible readings on one retained
+canvas. `LATTICE 11–13` isolates the three depth grids, `Σ12` and the twelve
+Root-Ruler edge measures. `FUSION 5+2` returns to a composed screen with five
+local Julia measure windows `P/D/C/PHI/S`, `IN` as the Mandelbrot parameter
+plane and `OUT` as the active Julia/Return view for the selected `c`.
+
+The pink pentagon and its five local windows rotate as one screen carrier. The
+blue machine remains a display backplate. Thirty-six screen-composited
+Schlieren paths, a five-petal Lotus mask and seven step-dependent Whiteout
+weights mix the depth layers; they do not identify parameter space, dynamical
+space, Primecube address space or the local measure labels. The exact controls
+remain `+72°` return, `+80°` drift and `180°` IN/OUT swap. The numbered HTML
+mode attribute is read explicitly so `LATTICE -> FUSION` restores the
+Mandelbrot/Julia frame rather than falling through to the lattice renderer.
+
+The narrow pink centre strip is an active `OM | IJ` Lantern seam with grammar
+`(O|M)+(I|J)+1`. `O|M` and `I|J` remain two typed view pairs; `+1` is the
+existing shared-`c` parameter-transfer display. Its aperture width follows the
+seven sequence states, its glow follows the 28-step display phase and the
+`180°` control reverses its directional arrow. `HC·O` is retained only as an
+unbound Owner mnemonic. The strip does not subtract, merge or identify the
+Mandelbrot and Julia spaces and creates no chemical, physical or new operator
+meaning.
+
+The seam also carries a bounded `PSHYSIC` observer/witness ledger. Its declared
+chain is `physical event -> measurement interaction -> record -> witness ->
+interpretation`. This states an epistemic requirement for physics as scientific
+knowledge; it does not state that physical events require psyche or
+consciousness. `€` remains an unbound Owner candidate and is not epsilon, `¢`
+remains an unbound HOLD glyph, `ε` is the aperture threshold parameter, `Ψ` is
+a view marker rather than an asserted wavefunction, `R90(Ψ)` is a glyph-view
+rotation rather than a new identity, and `¶/⁄` are boundary/cut cartography.
+A visible stroke, declared display axis and mathematical line remain three
+separate types.
+
+This extension reuses `MOD:NUMBER_VIEW_SUITE` and
+`ART:A0:MATHEMATICAL_JOINTS`. New Navigator identity, relation and alias counts
+remain zero. It is a source-bound cartographic demonstrator, not a shared
+fractal/Primecube mechanism, topology result or empirical finding.
 
 ## Reviewer packet / three figures / five-stage receipt
 

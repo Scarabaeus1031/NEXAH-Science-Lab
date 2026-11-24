@@ -24,6 +24,23 @@
 }
 .pc-seam-rail button:hover,
 .pc-seam-rail button:focus-visible { background: #143c34; color: #fff; }
+.pc-seam-rail button[aria-pressed=true] {
+  border-color: #77e7c7;
+  background: #17614f;
+  color: #fff;
+  box-shadow: 0 0 0 1px rgba(119, 231, 199, .16), 0 0 18px rgba(25, 201, 154, .14);
+}
+.pc-seam-rail .pc-deck-label-button {
+  margin-left: 4px;
+  border-color: rgba(79, 141, 247, .52);
+  background: rgba(79, 141, 247, .08);
+  color: #a9c8ff;
+}
+.pc-seam-rail .pc-deck-label-button[aria-pressed=true] {
+  border-color: #7eb0ff;
+  background: rgba(79, 141, 247, .24);
+  color: #edf4ff;
+}
 .pc-seam-rail .pc-seam-shadow-button {
   border-color: rgba(255, 211, 90, .58);
   border-style: dashed;
@@ -46,6 +63,16 @@
   border-bottom: 1px solid var(--pc-line);
   background: rgba(174, 80, 239, .04);
 }
+.pc-plate-rail { display:flex; align-items:center; gap:8px; flex-wrap:wrap; padding:10px 18px; border-bottom:1px solid var(--pc-line); background:linear-gradient(90deg,rgba(25,201,154,.055),rgba(174,80,239,.045),rgba(255,194,26,.035)); }
+.pc-plate-rail[hidden] { display:none; }
+.pc-plate-rail span { color:#9be8d2; font:800 10px/1.4 ui-monospace,monospace; letter-spacing:.1em; text-transform:uppercase; }
+.pc-plate-rail button { border:1px solid rgba(121,209,221,.35); border-radius:999px; background:#0a141b; color:#aeb8cb; padding:6px 10px; font:700 11px ui-monospace,monospace; cursor:pointer; }
+.pc-plate-rail button[aria-pressed=true] { background:linear-gradient(90deg,#17614f,#56307d); color:#fff; border-color:#8be4d3; }
+.pc-plate-rail label { display:flex; align-items:center; gap:7px; color:#7f8da3; font:700 10px ui-monospace,monospace; text-transform:uppercase; }
+.pc-plate-rail input { width:130px; accent-color:#19c99a; }
+.pc-plate-rail output { color:#ffd35a; font:800 11px ui-monospace,monospace; }
+.pc-plate-rail .pc-plate-coupling-label { margin-left:8px; color:#78e7a0; }
+.pc-plate-rail small { margin-left:auto; color:#657587; font:650 10px/1.4 ui-monospace,monospace; }
 .pc-slice-rail[hidden] { display: none; }
 .pc-slice-rail span {
   color: #cf91ff;
@@ -92,6 +119,7 @@
   .pc-notes-six { grid-template-columns: 1fr; }
   .pc-seam-rail small { margin-left: 0; width: 100%; }
   .pc-slice-rail small { margin-left: 0; width: 100%; }
+  .pc-plate-rail small { margin-left: 0; width: 100%; }
   .pc-euler-rail small { margin-left: 0; width: 100%; }
   .pc-measure-rail small { margin-left: 0; width: 100%; }
 }

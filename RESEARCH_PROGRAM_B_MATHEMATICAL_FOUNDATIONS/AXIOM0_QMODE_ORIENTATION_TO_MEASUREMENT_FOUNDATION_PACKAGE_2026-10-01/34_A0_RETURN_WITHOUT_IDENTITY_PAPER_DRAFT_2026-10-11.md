@@ -44,6 +44,28 @@ recovery, operator inversion and history recovery are distinct claims. The
 paper makes no physical-mechanism, historical-intent, worldwide-novelty or
 publication-readiness claim.
 
+### Editorial currentness and paper boundary — 2026-11-23
+
+The November Primecube, Prime Projection / Helix and Riemann-mirror additions
+are synchronized here as examples of one question only: **what exactly
+returns, and what stronger identity does not follow?** They add no sixth
+formal Study and do not modify the five source studies supporting the paper's
+main contribution statement.
+
+- This Paper C owns the distinction between source return, address return,
+  view return, operator return and identity return.
+- [Paper E](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md)
+  owns the `Source -> Operator -> View -> Return` workflow and its falsifiers.
+- [Paper F](36_A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER_DRAFT_2026-10-12.md)
+  owns frame, envelope, shadow-fibre and observer-cut language.
+- Papers A, B and D receive no proposition, evidence or status change from
+  these examples.
+
+Accordingly, the later preparation notes are read as one coordinated current
+methods bundle, not as independent discoveries accumulated by visual
+similarity. External review, novelty review, submission and publication remain
+unauthorized.
+
 ## 1. Research question
 
 The paper asks one bounded synthesis question:
@@ -553,6 +575,177 @@ Controlling records:
 - [typed angle comparator](A0_BOOK/A0_BLUE_PINK_DODECA_CELL_RETURN.html#returnAngleComparator)
 - [PI comparator](A0_BOOK/A0_PLATINUM_IRIDIUM_PI_LENS.html#numbermagickPiComparator)
 
+<a id="emerald-carrier-mediator-return"></a>
+
+### 11.6 Emerald carrier / mediator Return
+
+*Preparation note dated 20 November 2026; method illustration only, not a
+sixth formal Study and not a new Finding.*
+
+The Emerald Still Field supplies a deliberately small Return example. One
+held source carrier is shown through an animated two-well view, a code-native
+still view, a freely orbitable GLB view and a thirteen-position lamella view.
+The declared phase sequence is
+
+```text
+AM -> P -> PM -> P.
+```
+
+`P` is the local mediator and Return address of this display. The sequence
+shows that a view can leave and revisit an address while the source identity
+remains held. It does not establish that the intermediate views are identical,
+that the carrier has returned physically, or that the visible wells encode an
+energy, resonance or equilibrium mechanism.
+
+This supports the existing Paper-C distinction:
+
+```text
+source identity != view state != displayed phase != Return predicate.
+```
+
+The GIF and GLB are provenance-bound sources; the GLB has no native animation,
+so camera motion remains a representation operation. PI and Lamella retain
+their existing contracts and are referenced rather than absorbed.
+
+The neighboring Prime Plate comparator supplies the discrete companion
+boundary. A prime label, its `p mod 9` cell, the mirrored cell `8-cell`, the
+Pascal sum `1024` and the historical sector-ledger endpoint `1024` may agree
+in a displayed address while retaining different types and Return predicates.
+This is an illustration of non-identity, not a sixth carrier Study or a new
+prime theorem.
+
+Controlling records:
+
+- [finding extraction](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#november-a0-emerald-synthesis-return--2026-11-20)
+- [Emerald instrument](A0_BOOK/A0_ARCHITECTURE_OF_DIFFERENCE.html#emerald-still-field)
+- [Prime Plate comparator](A0_BOOK/A0_ARCHITECTURE_OF_DIFFERENCE.html#prime-plate-navigator)
+- [source manifest](A0_BOOK/assets/emerald-still-field/MANIFEST.json)
+- [machine receipt](A0_BOOK/results/a0-november-emerald-paper-routing-2026-11-20.json)
+
+<a id="numbergame-typed-return-synthesis"></a>
+
+### 11.7 Numbergame typed Return synthesis
+
+*Preparation note dated 21 November 2026; not a sixth formal Study, not a new
+Finding and not publication-facing evidence.*
+
+The Numbergame/Fibonacci return supplies four compact instances of the paper's
+central distinction between returning state, returning representation and
+identity.
+
+1. The ordered Fibonacci state `S_n=(F_n,F_(n+1))` returns simultaneously in
+   the declared modulo-7, modulo-11 and modulo-37 registers after
+   `lcm(16,10,76)=1520` steps. Golden-angle and uniform spiral displays do not
+   alter that state.
+2. The modular grid address `x=n mod 111`, `y=floor(n/111)` folds a linear
+   sequence into periodic bands. The visible diagonal is a property of the
+   declared address map, not an identity between the overlay and its carrier.
+3. Decimal reversal, circle reflection and rotation are separate maps:
+   `M_digit`, `M_circle(n)=-n mod 280`, and `R_107(n)=n+107 mod 280`.
+   `M_digit^2=I` and `M_circle^2=I` are local Return contracts; neither implies
+   preservation of primality or source identity.
+4. The 20-sector clock gives `360 degrees / 20 = 18 degrees`, five sectors as
+   `90 degrees`, and ten sectors as `180 degrees = 50 percent`. The displayed
+   junction `ANGLE:90 + VALUE:50 -> ADDRESS:140` is therefore a typed codec,
+   not an equality of angle and percentage.
+
+The retained negative control is equally important: modular divisibility
+sensors do not form a universal primality certificate. A silent sensor, a
+shared number or a similar picture does not establish identity, generator or
+mechanism.
+
+This strengthens the existing Paper-C rule:
+
+```text
+exact Return under one declared predicate
+!= Return under another predicate
+!= preservation of identity.
+```
+
+Controlling records:
+
+- [Science Desk synthesis](A0_BOOK/A0_RESEARCH_DESK.html#numbergame-fibonacci-prime-vendissimal-return-20261121)
+- [formal NumberMagick host](A0_BOOK/A0_NUMBERMAGICK_GRID_RESEARCH.html#prime-address-countershot)
+- [Findings/Paper triage](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#numbergame-fibonacci-scientific-relevance--2026-11-21)
+- [machine receipt](A0_BOOK/results/a0-numbergame-fibonacci-prime-vendissimal-synthesis-2026-11-21.json)
+
+<a id="tm-lim-janus-cube-handoff"></a>
+
+### 11.8 TM/LIM, Janus and the Cube handoff
+
+*Preparation note dated 21 November 2026; not an additional formal Study,
+Finding or publication-facing claim.*
+
+The Numbermagick/Cube handoff supplies a compact example in which projection
+Return, pose Return and record Return must remain distinct. Let the two
+one-sided states at a declared seam be
+
+```text
+x_minus = lim(t -> t0-) x(t)
+x_plus  = lim(t -> t0+) x(t).
+```
+
+A local Transfer/Mirror map may identify their displayed cyclic address while
+retaining their side. Writing the side as `epsilon in {-1,+1}`, the declared
+Janus flip is
+
+```text
+T(a, epsilon) = (a, -epsilon),     T^2 = id.
+```
+
+Thus `AM -> AM' -> AM''` is represented internally as
+`AM_plus(pass=0) -> AM_minus(pass=1) -> AM_plus(pass=2)`. The final address and
+orientation may equal the initial ones while the historical records remain
+different.
+
+The existing Pascal-bracket projection is the necessary negative control. Its
+`+60 degree` and `-60 degree` spatial poses have identical complete 2D point
+data under the declared orthographic XY projection, but different signed depth
+and therefore different spatial states. An exact Cube handoff consequently
+requires a record of the form
+
+```text
+H = (carrier, address, sheet, pass, signed_tilt_or_depth,
+     residual, axis, frame, projection_contract, provenance).
+```
+
+This gives the controlling non-identity:
+
+```text
+same projection != same spatial pose != same historical record.
+```
+
+CARO Green Mirror is retained only as a neighboring view comparator: its
+Open/Green and Closed/Black/Lotus display change, rotated Return glyph and five
+manual day markers do not identify CARO closing with TM, Janus or Cube tilt.
+Two Owner-supplied visual definition plates now bind `CaroThemanu` as the
+source-defined transformation grammar
+
+\[
+\mathcal F = Nu\circ Ma\circ Thé\circ Ro\circ Ca,
+\]
+
+where the declared reading is Cut/Puncture, Rotation/Orientation,
+Resonance/Coherence, Form/Storage and Return/Integration. The companion plate
+places this grammar on the broader carrier sequence
+
+```text
+FIELD -> CUT -> SPACE -> POSITION -> RELATION -> WORLD.
+```
+
+This removes the earlier lexical ambiguity but does not create a canonical or
+scientifically validated operator. The local Janus involution `T` remains a
+sheet change inside the larger typed sequence, not an identity with
+`mathcal F`. The visual definitions are Owner sources for terminology and
+order only; they are not evidence for uniqueness, physical action or truth.
+
+Controlling records:
+
+- [Science Desk return](A0_BOOK/A0_RESEARCH_DESK.html#tm-lim-janus-cube-handoff-return-20261121)
+- [Numbermagick crosswalk](A0_BOOK/A0_NUMBERMAGICK_GRID_RESEARCH.html#tm-lim-janus-cube-handoff-20261121)
+- [existing tilt audit](A0_BOOK/results/a0-pascal-bracket-tilt-projection-2026-10-25.json)
+- [machine-readable preparation receipt](A0_BOOK/results/a0-tm-lim-janus-cube-handoff-2026-11-21.json)
+
 ## 12. External-review gate
 
 Before submission, publication, conference circulation or public academic
@@ -580,3 +773,84 @@ NOVELTY REVIEW: NO
 SUBMISSION AUTHORIZED: NO
 PUBLIC RELEASE AUTHORIZED: NO
 ```
+## Prime Projection address Return
+
+<a id="prime-projection-address-return"></a>
+
+### Preparation note — finite CRT address Return without integer identity
+
+
+<a id="primecube-sz-khipu-return-preparation"></a>
+
+### Preparation note — Primecube S/Z and Khipu Return without identity
+
+The retained Primecube carrier supplies a compact non-identity example for this
+paper. One source record can return through its Base-11 address, a CRT address,
+a Z-slice, a mask-extrusion position or a full-envelope location without those
+representations becoming identical. The signed closure
+`102 degrees * 60 = 17 * 360 degrees` records `W=+17/-17` only after an
+orientation has been declared. At the axis crossing, radius zero is a defined
+state while polar angle is undefined; `null`, numeric zero and an unresolved
+view coordinate therefore remain typed separately.
+
+The Khipu comparison is limited to the representational principle that carrier,
+position, twist and deliberate absence can jointly encode a reading. It does
+not claim historical descent, a shared algorithm or an identity between an
+Andean artefact and the Primecube instrument.
+
+Reviewer figure `PC-RF-C-01` starts from retained source `496`, computes
+Base-11 address `[0,1,4]` and CRT address `(6,1,2)` independently, and returns
+to `496` through the declared codecs. It is an exportable illustration of
+Return across non-identical representations; it adds no formal case or theorem.
+
+[Open figure and five-stage receipt](A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-reviewer-packet)
+
+Status: `INTERNAL PREPARATION NOTE / NO PROPOSITION CHANGE / NO PUBLICATION AUTHORITY`.
+
+#### Existing Prime Projection address-return note
+
+The A0 Prime Projection Test Suite supplies a compact finite example of the
+paper's central distinction. For `n_k=37+100k`, the address
+`(n mod 3,n mod 5,n mod 7)` advances by `(1,0,2)` and returns after 21 steps.
+Thus `37` and `2137` share the address `(1,2,2)` while remaining different
+integers. The exact Return belongs to the quotient address, not to the source
+object. The source number therefore remains the required witness for lossless
+reconstruction.
+
+The paired Helix view adds a visual control: 40 twin-prime pairs and 19 finite
+`Z37` involution orbits can be shown as rungs without equating pair membership,
+orbit membership or screen position. This is manuscript preparation only; it
+adds no theorem, Study, canonical Finding or publication authority.
+
+[Science Desk return](A0_BOOK/A0_RESEARCH_DESK.html#prime-projection-helix-paper-routing-20261121) ·
+[Instrument](A0_BOOK/A0_PRIME_PROJECTION_TEST_SUITE.html) ·
+[Contract](A0_BOOK/A0_PRIME_PROJECTION_TEST_SUITE_CONTRACT_2026-11-21.md)
+
+## Riemann mirror / fixed-set return {#riemann-mirror-fixed-set-return}
+
+The map
+
+\[
+W(s)=1-\overline{s}
+\]
+
+is an affine anti-holomorphic involution of the complex plane. It preserves
+the imaginary coordinate, reflects the real coordinate across
+`Re(s)=1/2`, and satisfies `W(W(s))=s`. Its fixed set is exactly
+`{s in C : Re(s)=1/2}`. This provides a clean Return-without-identity example:
+off the line, source and partner remain distinct although the second
+application returns exactly; on the line, source, mirror and return coincide.
+
+This construction separates set invariance from pointwise fixation. The
+functional equation and complex conjugation preserve the nontrivial zero set
+under the familiar symmetry orbit, but symmetry alone permits distinct
+partners on opposite sides of the line. RH asserts the stronger pointwise
+condition that every nontrivial zero lies in the fixed set. No dynamic or
+spectral no-crossing statement is inferred.
+
+Evidence route: [interactive demonstrator](A0_BOOK/A0_RIEMANN_HALFLINE_THETA_RETURN.html#riemann-mirror-fixed-line),
+[bounded contract](A0_BOOK/A0_RIEMANN_HALFLINE_THETA_RETURN_CONTRACT_2026-11-21.md),
+and [R1 receipt](A0_BOOK/results/a0-riemann-halfline-theta-return-2026-11-21.json).
+
+Claim boundary: exact operator and fixed-set mathematics; no RH proof, zero
+localization or no-crossing theorem.

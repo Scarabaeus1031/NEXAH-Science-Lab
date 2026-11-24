@@ -1,0 +1,72 @@
+{
+  "schema": "a0.touch-the-sky-yugo-working-fixture/0.1",
+  "date": "2026-11-19",
+  "status": "LOCAL_WORKING_CONTRACT / NO_RESEARCH_ACTIVATION / NO_PUBLICATION",
+  "title": "Touch the Sky / YUGO Game — seam, shear, flip and Return",
+  "existing_bindings": {
+    "host_identity": "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "yugo_source": "../a0-yugo-iota-pivot.js",
+    "yugo_intake": "../downloads/A0_THE_ONE_D1_D2_YUGO_INTAKE_2026-10-25/INTAKE.md",
+    "udf_existing_project": ["OP-UDF-01", "BT-045"],
+    "stardust_note": "A0_STARDUST_DOUBLE_CUT_LIVING_FLOW_BRIEFING_2026-11-19.html#touch-the-sky-yugo-contract"
+  },
+  "declared_roles": {
+    "field": "structured play field / pins / declared cut rule",
+    "carrier": "ball, four-digit word or typed record",
+    "plus_one": "one binding event at the white center seam; not arithmetic n+1",
+    "iota": "fixed event or pivot in the existing YUGO source",
+    "yugo": "rotatable normalized local direction in the existing YUGO source",
+    "center_seam": "white event line; not the zipper by itself",
+    "zipper": "paired toothed boundary in the existing YUGO source",
+    "shear": "split full carrier into left hidden, visible middle cut and right hidden",
+    "flip": "A/B orientation exchange",
+    "return": "restore HOME view while preserving the ledger",
+    "restart": "begin a new round from the returned carrier without deleting prior records"
+  },
+  "operator_order": ["PLUS_ONE", "DROP", "SHEAR", "FLIP", "RETURN", "RESTART"],
+  "middle_square_fixture": {
+    "seed": "4243",
+    "rounds": 4,
+    "expected": [
+      {"input": "4243", "square": "18003049", "left": "18", "visible": "0030", "right": "49"},
+      {"input": "0030", "square": "00000900", "left": "00", "visible": "0009", "right": "00"},
+      {"input": "0009", "square": "00000081", "left": "00", "visible": "0000", "right": "81"},
+      {"input": "0000", "square": "00000000", "left": "00", "visible": "0000", "right": "00"}
+    ]
+  },
+  "controls": {
+    "periodic_trap": ["2100", "4100", "8100", "6100", "2100"],
+    "zero_trap": ["4243", "0030", "0009", "0000", "0000"],
+    "word_4774_middle_square": {
+      "square": "22791076",
+      "left": "22",
+      "visible": "7910",
+      "right": "76"
+    },
+    "word_4774_existing_base11_lens": {
+      "statement": "4774_10 = 3650_11 = 11 × 365_11; 365_11 = 360_11 + 5",
+      "source": "../assets/game-of-worlds-play/ioi-world-cube/base11-drift-cube-dock.js",
+      "relation_to_middle_square": "SEPARATE_OPERATOR_AND_ADDRESS_SYSTEM"
+    },
+    "owner_notation_4_2_3_9": "OPEN / TRANSFORMATION_RULE_NOT_DECLARED",
+    "owner_notation_4774_to_0_5_3_minus_7": "OPEN / SIGNED_OR_RELATIONAL_TRANSFORMATION_NOT_DECLARED"
+  },
+  "invariants": [
+    "PLUS_ONE increments the event counter exactly once per round",
+    "left + visible + right reconstruct the eight-digit square",
+    "FLIP swaps A and B and applying the orientation map twice restores the label",
+    "RETURN changes the active view but does not append to or clear the ledger",
+    "RESTART preserves the returned carrier and ledger",
+    "Lissajous may display phase relations but is not the stored state"
+  ],
+  "identity_disposition": {
+    "reuse_existing_a0_identity": true,
+    "new_navigator_identity": false,
+    "new_source_graph_relation": false,
+    "new_operator_identity": false,
+    "new_study": false,
+    "new_finding": false,
+    "publication": false
+  },
+  "claim_boundary": "This fixture formalizes one deterministic local replay and its controls. It does not identify Middle Square, the YUGO ball game, UDF, Scarab, Lissajous, Ulam, Ghostgrid, CRT or QRT as one mechanism."
+}

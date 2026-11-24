@@ -65,6 +65,40 @@ This addendum creates no Study, Finding, theorem, paper lane, publication
 state or Navigator relation. The decisive scientific-state transition remains
 qualified external review; none has yet occurred.
 
+### Currentness addendum · 2026-11-23 · Primecube, Helix and mirror return
+
+The 21–22 November Primecube, Prime Projection / Helix and Riemann-mirror
+returns strengthen the inspectable method architecture but do not change the
+programme's evidence level. Their current classification is:
+
+| Layer | Current bounded result | Scientific ceiling |
+|---|---|---|
+| exact finite arithmetic | Base-11 address return over `1..1111`; `1331=1111+220`; independent Base-11 and CRT codecs; finite winding closure `102 degrees * 60 = 17 * 360 degrees` | exact only under the declared finite carrier and operators |
+| exact operator mathematics | `W(s)=1-conj(s)`, `W^2=id`, `Fix(W)={Re(s)=1/2}` | mirror/fixed-set explanation; no RH proof, zero localization or no-crossing theorem |
+| reproducible instrument | Primecube reviewer packet, coupled orbit barcode, Prime Projection suite, Helix adapter and fixed-line demonstrator | `R1_VERIFY_EXISTING` / internal paper preparation; visual agreement is not evidence of a common generator |
+| conceptual method | source/operator/view/residual/Return; carrier/frame/envelope/observer; typed point/line/gluing/topology sequence | coherent synthesis, not established universal theory or validated Human utility |
+| historical comparison | Khipu carrier, positional value, twist and meaningful absence | bounded analogy only; no genealogy, shared algorithm or identity claim |
+
+The manuscript routing is correspondingly limited: Paper C receives typed
+Return and non-identity examples, Paper E receives the orientation workflow
+and falsifiers, and Paper F receives observer-cut and shadow-envelope examples.
+Papers A, B and D are unchanged. No new canonical Finding, Study, theorem,
+Navigator identity, relation, claim ceiling or publication state is created.
+
+The programme verdict therefore remains:
+
+```text
+FORMAL RESULTS PRESENT
+NOVELTY CANDIDATES PRESENT
+METHOD SYNTHESIS STRONGER AND MORE INSPECTABLE
+EXTERNAL NOVELTY / REPLICATION / HUMAN UTILITY NOT ESTABLISHED
+PUBLICATION NOT AUTHORIZED
+```
+
+The next state-changing scientific action remains qualified external review,
+beginning with the already frozen SCC-003 packet. Additional internal visual
+integration can improve explanation but cannot substitute for that gate.
+
 ## 1. What has actually changed
 
 The earlier Series-I assessment correctly found no admitted theorem. That
@@ -513,3 +547,66 @@ This report:
 The controlling evidence remains in the named Labreports, proof packages,
 reference objects and validators. This report is a scientific position and
 decision aid, not a replacement evidence authority.
+
+## 12. Science module assessment addendum · 2026-11-23
+
+### 12.1 Purpose and comparison rule
+
+This addendum records a science-side comparison of existing NEXAH modules. It
+does **not** introduce a new theory, identity, relation, Study, Finding or
+publication route. It also does not collapse the modules into one mechanism or
+one total score.
+
+The comparison keeps five questions separate:
+
+1. What is the declared scientific object or carrier?
+2. What has been shown exactly, replayed or tested?
+3. What is the module useful for inside the current research programme?
+4. What claim ceiling already governs it?
+5. What next gate would materially change its scientific status?
+
+Different readings may therefore remain visible side by side. The
+Newton–Leibniz–Goethe observer lens, the three-domain transition test and the
+multiple Primecube views are examples of comparison without identity: shared
+placement or a common visual grammar does not create a shared physical,
+historical or mathematical operator.
+
+### 12.2 Current bounded assessment
+
+The evidence and lifecycle labels below are the modules' existing native
+statuses. They are not normalized into a new scale and are not promotions.
+
+| Module / route | Scientific role already established | Current evidence or lifecycle position | Bounded assessment | Existing claim ceiling / next gate |
+| --- | --- | --- | --- | --- |
+| `SCC-003` / Pascal Pentagon | narrow finite mathematical review object | `E3`; proof plus local independent implementation and replay | strongest bounded mathematical novelty candidate in the current package | no worldwide novelty claim; qualified external mathematical review remains the next gate |
+| Return without Identity / Paper C | formal distinction between source, representation, loss, residual and conditional return | source-bound formal synthesis with exact finite examples | strong method and position-paper route | not a universal theory; compare explicitly with provenance, lens and side-information literature |
+| `JARP` | replayable orientation and joint-assessment protocol | `E2`; reproducible bounded formal result | strong internal research instrument | external benefit and human utility remain untested; requires a baseline-controlled evaluation |
+| Primecube / Prime Architecture | finite Base-11 carrier, address system and typed multi-view demonstrator | `R1_VERIFY_EXISTING / INTERNAL PAPER PREPARATION`; local contracts and demonstrations bound | strong method and paper exemplar for address, view and exact return | no new number-theory law, resonance law or carrier identity; paper and review gates remain separate |
+| Helix / RDMH / prime projection | source-bound finite register and view adapter | exact finite checks and internal view return | useful projection and comparison instrument | not a natural prime helix, zeta mechanism or Riemann-Hypothesis result |
+| Critical-line mirror | established involution `W(s)=1-conjugate(s)`, `W^2=id`, fixed line `Re(s)=1/2` | exact established mathematics used as an explanatory comparator | clear demonstration of mirror partner, fixed point and return | not a proof of the Riemann Hypothesis and not a no-crossing theorem |
+| Flow of Light / Newton–Leibniz–Goethe observer lens | typed comparison of established SI/Planck references, observer frames and visual boundary readings | structure-freeze demonstrator; source-bound checks and explicit typed separation | strong example of parallel readings without operator merger | no new physics, calibrated optics or common Newton–Goethe mechanism |
+| GAME 4 LIFE +1 | synchronized finite views and return over an internal carrier | verified internal instrument | useful demonstration of view coordination and exact return | no causal identity between Life, primes or the other displayed families |
+| Three-Domain Transition Test | common `4+1` observation grammar over separately defined Gray–Scott, Conway and spin models | `UNADMITTED_EXPLORATORY_MODEL_BENCHMARK` | useful controlled comparison because objects, semantics and mechanisms remain separate | not empirical chemistry, biology or physics; admission requires a frozen observation model, nulls and metrics |
+| IEEE300 Graph-to-Grid / Critical Orbit | stress test for representation, coarse views and return diagnostics | `A0-BL-054`, `R2`, mixed-negative; independent verifier `PASS` | scientifically valuable negative and failure-mode result | no diagnostic representation advantage, early-warning result or physical-orbit claim follows |
+| NCS Return & Clockwork | exact finite source/operator/view/return route | source-bound method and engineering return | useful finite-method flagship | no universal clock, physical mechanism or cross-domain identity |
+
+### 12.3 Reading the portfolio as a whole
+
+- There is no additive "best-of" score whose sum becomes a truth claim.
+- Exactness and reproducibility do not by themselves establish novelty.
+- Visual comparability does not establish identity or a common mechanism.
+- Negative and mixed results remain part of the scientific record.
+- A module may be a strong demonstrator while remaining below an admitted
+  Finding or an externally reviewed result.
+- The portfolio is therefore a governed set of distinct, bounded instruments
+  and papers, not a truth machine, crystal ball or Theory of Everything.
+
+The existing boundary `TOI != TOE` is retained only in its already documented
+role. This addendum neither renames it nor creates a further theory.
+
+### 12.4 Authority and non-effects
+
+This addendum is an assessment lens over existing evidence authorities. It
+creates `0` new identities, `0` relations, `0` Studies, `0` Findings, `0`
+claim promotions and `0` publications. Module-specific receipts, Lab Register
+entries, proofs, validators and review gates remain controlling.

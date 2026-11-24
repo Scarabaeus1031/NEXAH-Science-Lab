@@ -1,0 +1,21 @@
+.finite-field-addon{border-bottom:1px solid #294b5b;background:linear-gradient(180deg,#061722,#020d15)}
+.finite-field-addon>header{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.72fr);gap:24px;align-items:end;padding:20px 22px 15px}
+.finite-field-addon>header span{color:#e5b340;font:800 .5rem 'SFMono-Regular',Consolas,monospace;letter-spacing:.08em}
+.finite-field-addon>header h3{margin:.35rem 0 0;color:#f4fbff;font:750 clamp(1.2rem,2.2vw,1.8rem)/1.05 Georgia,'Times New Roman',serif}
+.finite-field-addon>header p,.finite-field-addon__boundary{margin:0;color:#91aab4;font:.56rem/1.55 'SFMono-Regular',Consolas,monospace}
+.finite-field-addon__clock{display:grid;grid-template-columns:repeat(4,minmax(110px,.52fr)) minmax(220px,1fr) minmax(220px,1fr);border-top:1px solid #294b5b;border-bottom:1px solid #294b5b}
+.finite-field-addon__clock label,.finite-field-addon__clock article{padding:13px 15px;border-right:1px solid #294b5b;min-width:0}
+.finite-field-addon__clock>*:last-child{border-right:0}
+.finite-field-addon__clock label{color:#91abb6;font:750 .5rem 'SFMono-Regular',Consolas,monospace;text-transform:uppercase}
+.finite-field-addon__clock input{display:block;width:100%;margin-top:7px;background:#020d15;color:#fff;border:1px solid #315a70;padding:8px}
+.finite-field-addon__clock small,.finite-field-addon__clock b,.finite-field-addon__clock span{display:block;font-family:'SFMono-Regular',Consolas,monospace}
+.finite-field-addon__clock small{color:#7f99a4;font-size:.46rem}.finite-field-addon__clock b{margin-top:5px;color:#fff;font-size:.85rem}.finite-field-addon__clock span{margin-top:5px;color:#8bdfff;font-size:.48rem;line-height:1.45}
+.finite-field-addon__pearls{display:flex;gap:3px;align-items:center;min-height:30px;overflow:hidden;margin-top:8px}
+.finite-field-addon__pearls i{flex:1 1 3px;max-width:9px;height:18px;background:#596168;border:1px solid #78838b}.finite-field-addon__pearls i.is-root{background:#f4fbff;border-color:#fff;box-shadow:0 0 7px rgba(255,255,255,.45)}
+.finite-field-addon__registry{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid #294b5b}
+.finite-field-addon__registry article{display:grid;gap:5px;padding:13px 15px;border-right:1px solid #294b5b;background:rgba(2,13,21,.68)}
+.finite-field-addon__registry article:nth-child(3n){border-right:0}.finite-field-addon__registry article.native{box-shadow:inset 3px 0 #63d9aa}.finite-field-addon__registry article.addon{box-shadow:inset 3px 0 #e5b340}
+.finite-field-addon__registry small{color:#63d9aa;font:800 .45rem 'SFMono-Regular',Consolas,monospace}.finite-field-addon__registry .addon small{color:#e5b340}.finite-field-addon__registry b{color:#fff;font:800 .61rem 'SFMono-Regular',Consolas,monospace}.finite-field-addon__registry span,.finite-field-addon__registry code{color:#91aab4;font:.46rem/1.45 'SFMono-Regular',Consolas,monospace;overflow-wrap:anywhere}
+.finite-field-addon__glyphs{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:13px 20px;border-bottom:1px solid #294b5b}.finite-field-addon__glyphs>b{color:#e5b340;font:800 .5rem 'SFMono-Regular',Consolas,monospace}.finite-field-addon__glyphs span{display:grid;place-items:center;min-width:46px;padding:6px;border:1px solid #526c78;color:#f4fbff;font:800 1.15rem Georgia,serif}.finite-field-addon__glyphs small{color:#91aab4;font:700 .38rem 'SFMono-Regular',Consolas,monospace}.finite-field-addon__boundary{padding:13px 20px}.finite-field-addon__boundary strong{color:#ee6ca5}.finite-field-addon__boundary code{color:#d7b9ff}
+@media(max-width:1080px){.finite-field-addon__clock{grid-template-columns:repeat(2,1fr)}.finite-field-addon__clock>*{border-bottom:1px solid #294b5b}.finite-field-addon__registry{grid-template-columns:repeat(2,1fr)}.finite-field-addon__registry article:nth-child(3n){border-right:1px solid #294b5b}.finite-field-addon__registry article:nth-child(2n){border-right:0}}
+@media(max-width:720px){.finite-field-addon>header,.finite-field-addon__clock,.finite-field-addon__registry{grid-template-columns:1fr}.finite-field-addon__clock>*,.finite-field-addon__registry article{border-right:0!important}}

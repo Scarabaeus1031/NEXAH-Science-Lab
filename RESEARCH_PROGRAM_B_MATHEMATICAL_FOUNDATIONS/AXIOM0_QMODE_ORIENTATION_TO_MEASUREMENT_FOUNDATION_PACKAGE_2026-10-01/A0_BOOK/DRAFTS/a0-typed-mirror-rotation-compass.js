@@ -245,6 +245,56 @@
       typeBoundary:'EP_FORMAT != PRIME_SEED != PRIME_INDEX != WHEEL_PHASE'
     };
   }
+  function seam203204Audit(view='source'){
+    if(!['source','rotation','mirror'].includes(view)) throw new TypeError('203/204 seam view must be source, rotation or mirror');
+    const lowerPrime=199,upperPrime=211,gap=upperPrime-lowerPrime;
+    const rows=[203,204].map(value=>({
+      value,
+      primeFactors:factors(value),
+      scaleFactors:value===204?[12,17]:null,
+      leftOffset:value-lowerPrime,
+      rightOffset:upperPrime-value,
+      gapPosition:(value-lowerPrime)/gap,
+      rotation:rotate(value),
+      mirror:circleMirror(value)
+    }));
+    const views={source:[203,204],rotation:rows.map(row=>row.rotation),mirror:rows.map(row=>row.mirror)};
+    const activePair=views[view];
+    return {
+      view,
+      bracket:{lower:lowerPrime,lowerPrimeIndex:primeIndex(lowerPrime),upper:upperPrime,upperPrimeIndex:primeIndex(upperPrime),gap,consecutive:primeIndex(upperPrime)-primeIndex(lowerPrime)===1},
+      rows,
+      activePair,
+      activeDelta:activePair[1]-activePair[0],
+      orientation:view==='mirror'?'REVERSED':'PRESERVED',
+      midpoint:{value:(lowerPrime+upperPrime)/2,primeFactors:factors((lowerPrime+upperPrime)/2)},
+      gateIndexCrosswalk:{factorValue:29,gateIndex:29,gatePrime:109,rolesDistinct:primeIndex(109)===29},
+      numberMagick204:{value:204,scaleFactors:[12,17],square:204**2,status:'EXISTING_NUMBERMAGICK_FOLD_SCALE_CHAIN'},
+      graphDelta:{nodes:0,relations:0,aliases:0},
+      typeBoundary:'INTEGER_VALUE != FACTOR_VALUE != PRIME_INDEX != WHEEL_PHASE != DEGREE_ADDRESS'
+    };
+  }
+  function blockMirror1087Audit(view='full'){
+    if(!['full','blocks','gap'].includes(view)) throw new TypeError('1087 block mirror view must be full, blocks or gap');
+    const digitSum=value=>String(value).split('').reduce((sum,digit)=>sum+Number(digit),0);
+    const source=1087,mirror=7801,sourceBlock=108,mirrorBlock=801,translation=598;
+    const views={
+      full:{left:'1087',operator:'M4',right:'7801'},
+      blocks:{left:'108|7',operator:'REVERSE / HOLD 7',right:'7|801'},
+      gap:{left:'203/204',operator:'+598',right:'801/802'}
+    };
+    return {
+      view,
+      active:views[view],
+      fullWord:{source,mirror,exact:digitMirror(String(source),4)===String(mirror),sourcePrime:isPrime(source),sourcePrimeIndex:primeIndex(source),mirrorPrime:isPrime(mirror),mirrorFactors:factors(mirror),pairSum:source+mirror,pairSumDigitSum:digitSum(source+mirror),sourceDigitSum:digitSum(source),mirrorDigitSum:digitSum(mirror),combinedDigitSum:digitSum(source)+digitSum(mirror)},
+      blocks:{source:sourceBlock,mirror:mirrorBlock,exact:digitMirror(String(sourceBlock),3)===String(mirrorBlock),sourcePrimeFactors:factors(sourceBlock),mirrorPrimeFactors:factors(mirrorBlock),gcd:gcd(sourceBlock,mirrorBlock),sourceScaleFactors:[9,12],mirrorScaleFactors:[9,89],heldDigit:7,seamWord:77},
+      primeGapTranslation:{translation,sourceFrame:[199,203,204,211],targetFrame:[797,801,802,809],exact:[199,203,204,211].every((value,index)=>value+translation===[797,801,802,809][index]),sourcePrimeIndices:[primeIndex(199),primeIndex(211)],targetPrimeIndices:[primeIndex(797),primeIndex(809)],sourcePositions:[1/3,5/12],targetPositions:[1/3,5/12],targetFactors:{801:factors(801),802:factors(802)}},
+      shared29:{left:203,right:7801,gcd:gcd(203,7801),leftFactors:factors(203),rightFactors:factors(7801),gatePrimeAtIndex29:109,rolesDistinct:primeIndex(109)===29},
+      provenance:{status:'KNOWN_CONTROL_RESULT_EXTENDED_BY_LOCAL_VIEW',source:'50_A0_FOUR_NUMBER_PROJECTION_NULL_MODEL_PREREGISTRATION_2026-10-13.md'},
+      graphDelta:{nodes:0,relations:0,aliases:0},
+      typeBoundary:'FULL_WORD != SUFFIX_BLOCK != PRIME_GAP_FRAME != FACTOR_ROLE != PRIME_INDEX_ROLE'
+    };
+  }
   function geometryAudit(){
     const stepAngle=360*STEP/MODULUS;
     const minorAngle=Math.min(stepAngle,360-stepAngle);
@@ -500,6 +550,35 @@
       sourceStatus:'EXISTING_OWNER_AUTHORIZED_ENGINEERING_RESULT'
     };
   }
+  function floorClockCrosswalkAudit(step=0,source='historical'){
+    step=Number(step);
+    if(!Number.isInteger(step)||step<0||step>60) throw new TypeError('Floor clock step must be an integer from 0 through 60');
+    if(source!=='historical'&&source!=='corrected') throw new TypeError('Floor source must be historical or corrected');
+    const floors=(source==='corrected'?EULER_CORRECTED_FLOORS:EULER_HISTORICAL_FLOORS).slice();
+    const pitchClass=step%12;
+    const octaveReturn=step>0&&pitchClass===0;
+    const visibleFloorIndex=octaveReturn?12:pitchClass;
+    const gate=step%20;
+    return {
+      step,
+      source,
+      floors,
+      pitchClass,
+      floorNumber:visibleFloorIndex+1,
+      visibleFloorIndex,
+      floorConstant:floors[visibleFloorIndex],
+      octaveReturn,
+      octaveSeam:octaveReturn?'12_TO_0_VISIBLE_RETURN':'OPEN',
+      gate,
+      gateAngle:gate*18,
+      jointPeriod:60,
+      jointReturn:step===60,
+      fullReturnCompatible:8400%12===0&&8400%20===0,
+      pitchFrequencyStatus:'OPTIONAL_EQUAL_TEMPERED_DISPLAY_REQUIRES_f_j=f_0*2^(j/12)',
+      pentagonPillarStatus:'GEOMETRIC_PROJECTION_ONLY_NOT_IDENTITY_OR_MECHANISM',
+      interpretationBoundary:'TWELVE_PITCH_CLASSES_THIRTEENTH_VISIBLE_OCTAVE_ENDPOINT_DISTINCT_FROM_TWENTY_GATE_CARRIER'
+    };
+  }
   function e8SpokeChoirAudit(){
     const phi=(1+Math.sqrt(5))/2;
     const rings=E8_COXETER_RADII.map((radius,index)=>({ring:index+1,radius}));
@@ -575,6 +654,8 @@
       primeGateGrid:primeGateGridAudit(),
       geometry:geometryAudit(),
       typedStartCrosswalk:typedStartCrosswalkAudit(),
+      seam203204:seam203204Audit(),
+      blockMirror1087:blockMirror1087Audit(),
       primeCorridor:primeCorridorAudit(),
       symmetric567:symmetric567Audit(),
       constructionLedger:constructionLedgerAudit(),
@@ -587,6 +668,7 @@
       eulerRainbow:eulerRainbowAudit(),
       eulerRingBreath:eulerRingBreathAudit(),
       timegear:timegearAudit(),
+      floorClockCrosswalk:floorClockCrosswalkAudit(),
       e8SpokeChoir:e8SpokeChoirAudit(),
       fiveTRllr:fiveTRllrAudit(),
       keystoneNewDay:keystoneNewDayAudit(),
@@ -605,5 +687,5 @@
     next.history.push(operator);return next;
   }
 
-  return {MODULUS,STEP,MIRROR_STEP,HALF_TURN,ALPHA_RESIDUAL,TRAIL_RADIUS,TRAIL_POINT_COUNT,INNER_RING_RADIUS,PRIME_CORRIDOR,PRIME_MILESTONES,EULER_HISTORICAL_FLOORS,EULER_CORRECTED_FLOORS,C_FREE_STAIR_LABELS,E8_COXETER_RADII,E8_PHI_PAIRS,mod,gcd,lcm,rotate,circleMirror,digitMirror,lift,isPrime,factors,primeIndex,orbit,goldenStepAudit,seedFieldAudit,nautilusStairAudit,octagonWobbleAudit,pascalStringTowerAudit,keystoneNewDayAudit,primeGateGridAudit,typedStartCrosswalkAudit,geometryAudit,primeCorridorAudit,symmetric567Audit,constructionLedgerAudit,q840Audit,binary20Audit,primeStairAudit,flyingCarpetAudit,hingeOneAudit,ulamCoordinate,ulamMilestoneAudit,eulerRainbowAudit,eulerRingBreathAudit,timegearAudit,e8SpokeChoirAudit,fiveTRllrAudit,exactAudit,createState,apply};
+  return {MODULUS,STEP,MIRROR_STEP,HALF_TURN,ALPHA_RESIDUAL,TRAIL_RADIUS,TRAIL_POINT_COUNT,INNER_RING_RADIUS,PRIME_CORRIDOR,PRIME_MILESTONES,EULER_HISTORICAL_FLOORS,EULER_CORRECTED_FLOORS,C_FREE_STAIR_LABELS,E8_COXETER_RADII,E8_PHI_PAIRS,mod,gcd,lcm,rotate,circleMirror,digitMirror,lift,isPrime,factors,primeIndex,orbit,goldenStepAudit,seedFieldAudit,nautilusStairAudit,octagonWobbleAudit,pascalStringTowerAudit,keystoneNewDayAudit,primeGateGridAudit,typedStartCrosswalkAudit,seam203204Audit,blockMirror1087Audit,geometryAudit,primeCorridorAudit,symmetric567Audit,constructionLedgerAudit,q840Audit,binary20Audit,primeStairAudit,flyingCarpetAudit,hingeOneAudit,ulamCoordinate,ulamMilestoneAudit,eulerRainbowAudit,eulerRingBreathAudit,timegearAudit,floorClockCrosswalkAudit,e8SpokeChoirAudit,fiveTRllrAudit,exactAudit,createState,apply};
 });

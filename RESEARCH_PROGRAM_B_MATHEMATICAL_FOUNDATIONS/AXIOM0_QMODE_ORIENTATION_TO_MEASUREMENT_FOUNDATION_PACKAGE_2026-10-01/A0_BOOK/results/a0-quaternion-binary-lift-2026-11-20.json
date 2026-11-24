@@ -1,0 +1,55 @@
+{
+  "schema": "a0.quaternion-binary-lift/1.0.0",
+  "date": "2026-11-20",
+  "status": "PASS_EXACT_HAMILTON_BINARY_MAGNITUDE_LIFT",
+  "carrier": 2501,
+  "carrier_factorization": [41, 61],
+  "operator": {
+    "local_name": "q_B",
+    "coefficients": [1, 1, 1, 1],
+    "norm_squared": 4,
+    "magnitude": 2
+  },
+  "powers": [
+    {"n": 0, "coefficients": [1, 0, 0, 0], "magnitude": 1, "carrier_magnitude": 2501},
+    {"n": 1, "coefficients": [1, 1, 1, 1], "magnitude": 2, "carrier_magnitude": 5002},
+    {"n": 2, "coefficients": [-2, 2, 2, 2], "magnitude": 4, "carrier_magnitude": 10004},
+    {"n": 3, "coefficients": [-8, 0, 0, 0], "magnitude": 8, "carrier_magnitude": 20008},
+    {"n": 4, "coefficients": [-8, -8, -8, -8], "magnitude": 16, "carrier_magnitude": 40016},
+    {"n": 5, "coefficients": [16, -16, -16, -16], "magnitude": 32, "carrier_magnitude": 80032},
+    {"n": 6, "coefficients": [64, 0, 0, 0], "magnitude": 64, "carrier_magnitude": 160064}
+  ],
+  "demonstrator": {
+    "host": "A0_NUMBERMAGICK_GRID_RESEARCH.html",
+    "anchor": "#quaternion-binary-lift-demonstrator",
+    "steps": [0, 1, 2, 3, 4, 5, 6],
+    "controls": ["previous", "play_pause", "next", "integer_step_slider"],
+    "readouts": ["four_coordinates", "power", "magnitude", "carrier_magnitude", "norm", "return_class"]
+  },
+  "returns": {
+    "three_step": "Q_(n+3)=-8*Q_n",
+    "six_step": "Q_(n+6)=64*Q_n",
+    "classification": "ORIENTATION_RETURN_NOT_MAGNITUDE_OR_STATE_CLOSURE"
+  },
+  "separations": [
+    "q_B != q=1+i-j",
+    "q_B != u=i-j",
+    "BINARY_QUATERNION_LIFT != DECIMAL_STAMP",
+    "BINARY_QUATERNION_LIFT != REPUNIT_SQUARE",
+    "QUATERNION_COORDINATES != BIOLOGICAL_BRANCHING"
+  ],
+  "identity_reuse": [
+    "SRC:A0OE:A0_RESEARCH_DESK_CHECK58",
+    "A0OE:PASCAL_QUATERNION_TEST"
+  ],
+  "graph_delta": {
+    "identities": 0,
+    "relations": 0,
+    "aliases": 0,
+    "studies": 0,
+    "findings": 0,
+    "claim_promotions": 0,
+    "publications": 0
+  },
+  "claim_boundary": "Exact standard quaternion arithmetic only. The lift supplies coordinates whose Euclidean magnitude follows 2501*2^n; it does not identify quaternion powers with decimal concatenation, repunit squares, biological branching, a physical four-coordinate mechanism or a new A0 operator family."
+}

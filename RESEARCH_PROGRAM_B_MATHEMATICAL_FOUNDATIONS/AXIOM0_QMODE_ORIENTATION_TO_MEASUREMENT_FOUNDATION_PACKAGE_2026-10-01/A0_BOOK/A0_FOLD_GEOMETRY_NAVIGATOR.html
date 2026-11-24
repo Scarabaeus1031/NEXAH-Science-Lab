@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A0 Fold Geometry Navigator</title>
+  <script>if(new URLSearchParams(location.search).get('embed')==='1')document.documentElement.classList.add('embed');</script>
+  <link rel="stylesheet" href="a0-context-navigation.css">
+  <link rel="stylesheet" href="a0-fold-geometry-navigator.css?rev=20261120-r4">
+  <link rel="stylesheet" href="a0-fold-geometry-mirror-edge.css?rev=20261120-r2">
+  <link rel="stylesheet" href="a0-fold-geometry-split-rest.css?rev=20261120-r1">
+  <link rel="stylesheet" href="a0-fold-geometry-pascal-spine.css?rev=20261120-r1">
+</head>
+<body id="top">
+  <header class="topbar">
+    <a href="A0_MATHEMATICAL_JOINTS.html#fold-geometry-navigator">A0 · Mathematical Joints</a>
+    <nav aria-label="Rückwege">
+      <a href="A0_ROOTROOM_CODON_ORIENTATION_RETURN.html">Rootroom × Codon</a>
+      <a href="A0_RESEARCH_DESK.html">Science Desk</a>
+      <a href="../../../SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence">NSNavigator</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="kicker">Source-bound interactive view · 20.11.2026</div>
+      <h1>Fold Geometry Navigator</h1>
+      <p>Cube, Achsen, Falten und Gates werden als getrennte Register lesbar. Die Ansicht verbindet die vorhandenen A0-Joints mit Rootroom und CODON, ohne daraus eine neue Topologie, Physik oder Zahlenrelation abzuleiten.</p>
+      <div class="status-row"><span>EXACT arithmetic</span><span>DECLARED view operators</span><span>NO new Study</span><span>NO graph delta</span></div>
+    </section>
+
+    <section class="navigator" aria-label="Fold Geometry Instrument">
+      <div class="stage-shell">
+        <header class="stage-head">
+          <div><small id="hierarchyCode">LOCAL CUBE · 7-GON ROOT</small><h2 id="hierarchyTitle">Nested cubic field · level 1</h2></div>
+          <output id="eventBadge">θ1 · SEED</output>
+        </header>
+        <svg id="foldStage" viewBox="0 0 840 700" role="img" aria-labelledby="foldTitle foldDesc">
+          <title id="foldTitle">Nested cube with fold axes and center pivot</title>
+          <desc id="foldDesc">Projected nested cubes, four declared axes, a center pivot X, one selectable fold line and a six-event orientation sequence.</desc>
+          <defs>
+            <radialGradient id="fieldGlow"><stop offset="0" stop-color="#ffd96a" stop-opacity=".34"/><stop offset="1" stop-color="#ffd96a" stop-opacity="0"/></radialGradient>
+            <filter id="softGlow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            <marker id="arrowGold" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#ffd055"/></marker>
+          </defs>
+          <circle cx="420" cy="345" r="225" fill="url(#fieldGlow)"/>
+          <g id="cubeHierarchy" class="cubes"></g>
+          <g class="axes" id="axisLayer">
+            <line class="axis axis-x" data-axis="x" x1="105" y1="345" x2="735" y2="345"/><text x="744" y="351">X · drift</text>
+            <line class="axis axis-y" data-axis="y" x1="420" y1="62" x2="420" y2="628"/><text x="430" y="70">Y · harmonic</text>
+            <line class="axis axis-z" data-axis="z" x1="192" y1="570" x2="648" y2="120"/><text x="656" y="119">Z · stability / √5</text>
+            <line class="axis axis-w" data-axis="w" x1="190" y1="115" x2="650" y2="575"/><text x="656" y="582">W · hyperfold</text>
+          </g>
+          <g id="foldLineLayer"><line id="foldLine" x1="168" y1="500" x2="676" y2="190" marker-end="url(#arrowGold)"/><circle id="foldHit" cx="420" cy="345" r="8"/></g>
+          <g id="phaseGlyph" class="phase-glyph"><path id="phaseArc" d="M420 345 C470 270 560 270 604 334"/><circle id="phaseNode" cx="420" cy="345" r="11"/><text id="phaseLabel" x="440" y="325">θ1 · seed</text></g>
+          <g class="pivot" filter="url(#softGlow)"><circle cx="420" cy="345" r="33"/><path d="M401 326L439 364M439 326L401 364"/><text x="420" y="397">PIVOT X · STILL POINT</text></g>
+          <g id="bodyOverlay" class="body-overlay" aria-hidden="true"><circle cx="420" cy="173" r="31"/><path d="M335 260Q420 220 505 260M365 275Q420 315 475 275M380 315Q420 390 460 315M420 203V345"/><text x="515" y="267">θ3–θ4 · shoulder</text><text x="474" y="311">inner orange · rib/manubrium</text><text x="516" y="440">4:30 line · θ2 load</text><line x1="420" y1="345" x2="540" y2="468"/></g>
+        </svg>
+
+        <div class="hierarchy" role="group" aria-label="Cube hierarchy">
+          <button type="button" data-level="0" aria-pressed="true"><b>Local</b><small>7-gon root</small></button>
+          <button type="button" data-level="1" aria-pressed="false"><b>Expanded</b><small>17-gon field</small></button>
+          <button type="button" data-level="2" aria-pressed="false"><b>Hyper</b><small>12³ / 13⁴…</small></button>
+          <button type="button" data-level="3" aria-pressed="false"><b>Nexus</b><small>beyond / open</small></button>
+        </div>
+      </div>
+
+      <aside class="controls">
+        <section>
+          <div class="section-label">θ event sequence</div>
+          <ol id="phaseRail" class="phase-rail">
+            <li aria-current="step"><button type="button" data-phase="0"><b>θ1</b><span>Seed</span></button></li>
+            <li><button type="button" data-phase="1"><b>θ2</b><span>Load</span></button></li>
+            <li><button type="button" data-phase="2"><b>θ3</b><span>Guide</span></button></li>
+            <li><button type="button" data-phase="3"><b>θ4</b><span>D/E Gate · SMACK</span></button></li>
+            <li><button type="button" data-phase="4"><b>θ5</b><span>Pressure</span></button></li>
+            <li><button type="button" data-phase="5"><b>θ5+1</b><span>SNAP · X10 · 0</span></button></li>
+          </ol>
+          <div class="phase-actions"><button id="playPhase" type="button">▶ Folge</button><button id="stepPhase" type="button">Nächster Schritt</button></div>
+          <div class="phase-copy" aria-live="polite"><strong id="phaseTitle">θ1 · Seed</strong><p id="phaseText">Setzt den sichtbaren Anfangszustand am Pivot X.</p></div>
+        </section>
+
+        <section>
+          <div class="section-label">Axis visibility</div>
+          <div class="axis-buttons"><button type="button" data-axis-toggle="x" aria-pressed="true">X drift</button><button type="button" data-axis-toggle="y" aria-pressed="true">Y harmonic</button><button type="button" data-axis-toggle="z" aria-pressed="true">Z stability</button><button type="button" data-axis-toggle="w" aria-pressed="true">W hyperfold</button></div>
+        </section>
+
+        <section>
+          <div class="section-label">Fold incidence test</div>
+          <label for="foldSelect">Deklarierte Linie</label>
+          <select id="foldSelect"><option value="x">X-axis · through center</option><option value="z">Z-axis · through center</option><option value="incident">Incident fold · tolerance hit</option><option value="miss">Residual fold · miss</option></select>
+          <div class="incidence"><span id="incidenceState">CONSTRUCTED</span><code id="incidenceResidual">residual = 0.000</code></div>
+          <p>„Alle Falten passieren X“ ist hier kein Axiom. Die Ansicht unterscheidet konstruiert, innerhalb der Toleranz incident und miss/residual.</p>
+        </section>
+
+        <section>
+          <div class="section-label">View overlays</div>
+          <div class="axis-buttons"><button id="bodyToggle" type="button" aria-pressed="false">Body / Golf lens</button><button id="motionToggle" type="button" aria-pressed="true">Motion on</button></div>
+          <p>Die Körper-/Golflesart verändert Beschriftungen, nicht Geometrie oder Evidenz.</p>
+        </section>
+      </aside>
+    </section>
+
+    <section class="mirror-edge" id="mirror-edge" aria-labelledby="mirrorEdgeTitle">
+      <header class="mirror-head">
+        <div><small>Mirror Edge · exact affine control · 63 retained + 1 crossing</small><h2 id="mirrorEdgeTitle">63/64 ist ein Schrittvertrag — kein automatisch bewiesener Flip.</h2></div>
+        <output id="sliceStatus" data-state="neither">SLICE · NEITHER</output>
+      </header>
+      <div class="mirror-layout">
+        <article class="mirror-rail" aria-label="64-room edge rail">
+          <div id="roomRail" class="room-rail" aria-hidden="true"></div>
+          <div class="mirror-formula"><span>START <b id="startValue">0</b></span><i>63/64 retained</i><b id="crossingNode">P₁ = 1</b><i>1/64 crossing</i><span>END <b id="endValue">64</b></span></div>
+          <p><code>Pₖ = ((64−k)/64)A + (k/64)B = A + k(B−A)/64</code>. Bei <code>k=1</code> ist dies exakt <code>P₁=(63/64)A+(1/64)B</code>.</p>
+        </article>
+        <form class="mirror-controls" onsubmit="return false" aria-label="Mirror Edge controls">
+          <label>A <input id="mirrorA" type="number" step="any" value="0"></label>
+          <label>B <input id="mirrorB" type="number" step="any" value="64"></label>
+          <label>k · edge step <input id="mirrorK" type="range" min="0" max="64" step="1" value="1"><output id="mirrorKValue">1</output></label>
+          <div class="operator-readout"><span><small>Affine point</small><b id="mirrorPoint">P₁ = 1</b></span><span><small>Declared scalar mirror</small><b id="mirrorJ">J(P₁) = 63</b></span><span><small>Involution control</small><b id="mirrorJ2">J²(P₁) = 1</b></span></div>
+          <p><code>J(x)=A+B−x</code> ist hier ausdrücklich ein eindimensionaler Kontrolloperator. <code>J²=id</code> prüft die Rückkehr; daraus folgt noch keine räumliche Reflection oder neue Cube-Lage.</p>
+        </form>
+        <article class="ratio-control">
+          <small>Separate resonance ratio</small><h3>P = R/T</h3>
+          <div><label>R <input id="ratioR" type="number" step="any" value="1"></label><label>T <input id="ratioT" type="number" step="any" value="1"></label></div>
+          <output id="ratioValue">R/T = 1</output><output id="ratioMatch" data-match="true">MATCH · affine P₁</output>
+          <p><code>P=R/T</code> wird nicht mit dem 63/64-Schritt gleichgesetzt. <strong>MATCH</strong> erscheint nur, wenn beide numerischen Werte in der Anzeige übereinstimmen.</p>
+        </article>
+        <article class="slice-control">
+          <small>Finite-view classification · declared, not inferred</small>
+          <div class="slice-buttons" role="group" aria-label="Q and D view status"><button type="button" data-slice="q">Q PASS</button><button type="button" data-slice="d">D PASS</button><button type="button" data-slice="both">BOTH</button><button type="button" data-slice="neither" aria-pressed="true">NEITHER</button></div>
+          <div id="darkSpot" class="dark-spot" data-state="neither"><span></span><b>dark spot · unclassified crossing</b></div>
+          <p><code>Q / D / BOTH / NEITHER</code> ist ein typisierter Status aus der 64-Room-Ansicht. Er wird nicht aus <code>Pₖ</code>, Farbe oder Position errechnet. <code>D-wrap</code> und <code>K-cut</code> bleiben lokale Mnemoniken, bis Operatoren definiert sind.</p>
+        </article>
+        <article class="glyph-ledger">
+          <small>Glyph / word ledger · owner view only</small>
+          <div class="roman-rail"><span>I</span><span>V</span><span>X</span><span>L</span><span>C</span><span>D</span><span>M</span></div>
+          <h3>X × C = M = 1000</h3>
+          <p><code>J</code>, <code>1ij</code>, <code>3×I → J</code>, <code>CODON / CONDAU</code> und <code>AU | ON</code> werden als Glyph-/Wortlesarten notiert. Sie erhalten hier weder einen eigenen Zahlenwert noch biologische Wirksamkeit.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="split-rest" id="split-rest-sequence" aria-labelledby="splitRestTitle">
+      <header class="split-rest-head">
+        <div><small>Sequence map · split / rest · source-bound view</small><h2 id="splitRestTitle">Ein Stamm, zwei Halbräume — und der Rest wechselt mit der Orientierung.</h2></div>
+        <output id="sequenceState">θ1 · POTENTIAL</output>
+      </header>
+      <div class="split-rest-layout">
+        <article class="sequence-field">
+          <svg id="sequenceMap" viewBox="0 0 900 650" role="img" aria-labelledby="sequenceMapTitle sequenceMapDesc">
+            <title id="sequenceMapTitle">Theta-Sequenz zwischen zwei Halbraumansichten</title>
+            <desc id="sequenceMapDesc">Ein gemeinsamer vertikaler Stamm mit G-Mittelachse, ABC- und DEF-Halbraum, sechs anwählbaren Theta-Ereignissen, XX-Pivot und einem rot-weiß-blauen unklassifizierten Riss.</desc>
+            <defs>
+              <marker id="sequenceArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z"/></marker>
+              <linearGradient id="neitherFracture" x1="0" x2="1"><stop offset="0" stop-color="#3f8cff"/><stop offset=".48" stop-color="#f4f5ef"/><stop offset="1" stop-color="#ef5252"/></linearGradient>
+            </defs>
+            <path class="halfspace halfspace-a" d="M450 78H92V548H450Z"/>
+            <path class="halfspace halfspace-b" d="M450 78H808V548H450Z"/>
+            <line class="g-axis" x1="450" y1="55" x2="450" y2="602"/>
+            <text class="axis-cap" x="450" y="40">G · shared stem / middle axis</text>
+            <text class="halfspace-label" x="150" y="113">A · B · C</text>
+            <text class="halfspace-label" x="750" y="113">D · E · F</text>
+            <path class="shell upper-shell" d="M450 255C385 205 310 208 250 265"/>
+            <path class="shell lower-shell" d="M450 255C515 305 590 310 650 252"/>
+            <path class="return-hook" d="M450 255V470C450 515 392 521 378 487C369 463 387 443 412 449"/>
+            <line class="horizon-line" x1="150" y1="255" x2="750" y2="255"/>
+            <path class="sequence-trace" id="sequenceTrace" d="M450 122" marker-end="url(#sequenceArrow)"/>
+            <g class="fracture" id="neitherFracture"><path d="M399 320L431 344L409 372L454 399L428 438"/><path d="M450 310L439 348L466 374L446 405L474 444"/><path d="M497 320L468 345L490 373L457 402L493 438"/></g>
+            <g class="sequence-nodes">
+              <g role="button" tabindex="0" data-sequence-phase="0" aria-label="Theta 1 Potential"><circle cx="450" cy="122" r="18"/><text x="450" y="127">θ1</text></g>
+              <g role="button" tabindex="0" data-sequence-phase="1" aria-label="Theta 2 Relation and load"><circle cx="290" cy="500" r="18"/><text x="290" y="505">θ2</text></g>
+              <g role="button" tabindex="0" data-sequence-phase="2" aria-label="Theta 3 Orientation and guide"><circle cx="285" cy="300" r="18"/><text x="285" y="305">θ3</text></g>
+              <g role="button" tabindex="0" data-sequence-phase="3" aria-label="Theta 4 Alignment and D E gate"><circle cx="410" cy="365" r="18"/><text x="410" y="370">θ4</text></g>
+              <g role="button" tabindex="0" data-sequence-phase="4" aria-label="Theta 5 Motion and pressure"><circle cx="615" cy="300" r="18"/><text x="615" y="305">θ5</text></g>
+              <g role="button" tabindex="0" data-sequence-phase="5" aria-label="Theta 5 plus 1 snap and return"><circle cx="450" cy="470" r="18"/><text x="450" y="475">+1</text></g>
+            </g>
+            <g class="pivot-xx"><circle cx="450" cy="548" r="25"/><text x="450" y="553">XX</text><text x="450" y="590">θ · lower axis / return address</text></g>
+          </svg>
+          <div class="sequence-readout" aria-live="polite"><strong id="sequenceTitle">θ1 · Potential</strong><span id="sequenceRole">Carrier und Möglichkeit werden gesetzt.</span><code id="sequenceAddress">ABC | G | DEF · start</code></div>
+        </article>
+
+        <aside class="split-ledger">
+          <section>
+            <small>Operator spine · same sequence, typed roles</small>
+            <ol class="operator-spine" id="operatorSpine">
+              <li aria-current="step"><b>1 · Potential</b><span>carrier / possibilities</span></li>
+              <li><b>2 · Relation</b><span>θ2 load / coupled links</span></li>
+              <li><b>3 · Orientation</b><span>θ3 guide / directed readout</span></li>
+              <li><b>4 · Alignment</b><span>θ4 D–E gate / hold</span></li>
+              <li><b>5 · Motion</b><span>θ5 pressure / expressed update</span></li>
+              <li><b>Return</b><span>θ5+1 snap / X10 → 0</span></li>
+            </ol>
+          </section>
+          <section class="rest-comparator">
+            <small>Exact oriented rest · width 4</small>
+            <div class="rest-buttons" role="group" aria-label="Split Rest orientation"><button type="button" data-rest-view="below" aria-pressed="true">From below</button><button type="button" data-rest-view="above" aria-pressed="false">From above</button></div>
+            <output id="restEquation">8451 = 4 × 2112 + 3</output>
+            <p id="restText">Vom unteren Bound gelesen liegt der Punkt bei <strong>+3/4</strong> des Intervalls.</p>
+            <p><code>8451=4·2112+3=4·2113−1</code>. <code>+3</code> ist der euklidische Rest; <code>−1</code> ist der gerichtete Defizitwert relativ zum oberen Bound.</p>
+          </section>
+        </aside>
+      </div>
+
+      <div class="keyboard-register" aria-label="13 dargestellte Tastenpositionen mit wiederholtem Oktavendpunkt">
+        <header><div><small>ABC | G | DEF · address / pitch comparator</small><h3>13 sichtbare Positionen = 8 weiße inklusive Oktavendpunkt + 5 schwarze.</h3></div><p>Nicht 13 verschiedene Tonklassen: die letzte weiße Taste wiederholt den Anfang der nächsten Oktave.</p></header>
+        <div class="key-rail" id="keyRail">
+          <span class="white" data-key-index="0">C</span><span class="black" data-key-index="1">C♯</span><span class="white" data-key-index="2">D</span><span class="black" data-key-index="3">D♯</span><span class="white" data-key-index="4">E</span><span class="white" data-key-index="5">F</span><span class="black" data-key-index="6">F♯</span><span class="white g-key" data-key-index="7">G</span><span class="black" data-key-index="8">G♯</span><span class="white" data-key-index="9">A</span><span class="black" data-key-index="10">A♯</span><span class="white" data-key-index="11">B</span><span class="white" data-key-index="12">C′</span>
+        </div>
+      </div>
+
+      <div class="split-rest-links"><a href="A0_MATHEMATICAL_JOINTS.html#portal-ll0-mirror-rail">Resonanzschlauch / shared stem →</a><a href="A0_MATHEMATICAL_JOINTS.html#operators">Operator spine 05 →</a><a href="#mirror-edge">Mirror Edge / NEITHER →</a></div>
+      <p class="split-rest-boundary"><strong>View boundary:</strong> Rot–Weiß–Blau bezeichnet im Zustand <code>NEITHER</code> den sichtbaren unklassifizierten Riss. ABC/DEF, G, θ, XX, Körper-, Golf- und Keyboard-Lesarten sind synchronisierte Adressansichten. Sie definieren weder Kraft, Anatomie, Tonphysik noch eine gemeinsame räumliche Ursache.</p>
+    </section>
+
+    <section class="pascal-spine" id="pascal-t-spine" aria-labelledby="pascalSpineTitle">
+      <header class="pascal-spine-head">
+        <div><small>Pascal face mode · exact recurrence · local SCC-003 crosswalk</small><h2 id="pascalSpineTitle">Pascal T-Spine · 7:8 Shell/Core Threshold</h2></div>
+        <output id="pascalStageBadge">01 · 1:2:1 SEED</output>
+      </header>
+
+      <div class="pascal-spine-layout">
+        <article class="pascal-field" aria-label="Interactive Pascal triangle">
+          <div class="pascal-elevator-labels" aria-hidden="true"><span>LEFT ELEVATOR · 1</span><b>T-SPINE</b><span>RIGHT ELEVATOR · 1</span></div>
+          <div id="pascalTriangle" class="pascal-triangle" data-lens="shell" aria-live="polite"></div>
+          <div class="pascal-floor" aria-hidden="true"><i></i><span>BASE / CURRENT DEPTH</span><i></i></div>
+        </article>
+
+        <aside class="pascal-console">
+          <section>
+            <small>Four-stage reading sequence</small>
+            <div class="pascal-stage-buttons" role="group" aria-label="Pascal sequence stages">
+              <button type="button" data-pascal-stage="0" aria-pressed="true"><b>01</b><span>1:2:1</span></button>
+              <button type="button" data-pascal-stage="1" aria-pressed="false"><b>02</b><span>7:8 threshold</span></button>
+              <button type="button" data-pascal-stage="2" aria-pressed="false"><b>03</b><span>14641</span></button>
+              <button type="button" data-pascal-stage="3" aria-pressed="false"><b>04</b><span>SCC-003 face</span></button>
+            </div>
+            <div class="pascal-actions"><button id="playPascal" type="button">▶ Folge</button><button id="stepPascal" type="button">Nächster Schritt</button></div>
+          </section>
+
+          <section>
+            <small>Display lens · same coefficients</small>
+            <div class="pascal-lens-buttons" role="group" aria-label="Pascal display lens">
+              <button type="button" data-pascal-lens="values">Values</button>
+              <button type="button" data-pascal-lens="shell" aria-pressed="true">Shell / Core</button>
+              <button type="button" data-pascal-lens="prime">Prime mask</button>
+              <button type="button" data-pascal-lens="mod2">mod 2</button>
+            </div>
+            <p>Die Linsen färben dieselben Binomialkoeffizienten. Prime mask und <code>mod 2</code> sind Eigenschaftsansichten, keine neuen Generatoren.</p>
+          </section>
+
+          <section class="pascal-readout" aria-live="polite">
+            <small id="pascalStageCode">DEPTH 2 · LOCAL FACE</small>
+            <h3 id="pascalStageTitle">1:2:1 · lokale Ausgangssignatur</h3>
+            <p id="pascalStageText">Die dritte Reihe zeigt die vorhandene 1:2:1-Lesart. Jede Reihenlast ist exakt 2ⁿ.</p>
+            <dl>
+              <div><dt>row</dt><dd id="pascalRowReadout">1 · 2 · 1</dd></div>
+              <div><dt>row sum</dt><dd id="pascalRowSum">4 = 2²</dd></div>
+              <div><dt>cumulative</dt><dd id="pascalCumulative">7 = 2³ − 1</dd></div>
+              <div><dt>shell / core</dt><dd id="pascalShellCore">5 / 2</dd></div>
+            </dl>
+          </section>
+        </aside>
+      </div>
+
+      <div class="pascal-contracts">
+        <article><small>Threshold at depth 3 · exact</small><h3>15 = 7 shell + 8 core</h3><p><code>shell(d)=2d+1</code> und <code>core(d)=2^(d+1)−2d−2</code>. Bei <code>d=3</code> überholt der Innenraum die Randlast erstmals um <code>+1</code>.</p></article>
+        <article><small>Binary load axis · exact</small><h3>1 → 2 → 4 → 8 → 16 → 32 → 64</h3><p>Für jede Pascal-Reihe gilt <code>Σₖ C(n,k)=2ⁿ</code>. Diese Achse ist nicht automatisch eine zwei- oder dreidimensionale Cube-Teilung.</p></article>
+        <article class="pascal-crosswalk-card"><small>SCC-003 boundary · tested</small><h3>LOCAL FACE PASS · D5 IDENTITY REJECTED</h3><p><code>14641=11⁴</code> und die <code>13/96</code>-Signatur gelten auf einer Tiefe-6-Pascal-Fläche. Das zyklische Gewichtswort besitzt nur <code>C₂</code>; SCC-003 besitzt typisiert <code>D₅</code>.</p><a href="A0_SCC_003_PASCAL_PENTAGON_PAPER.html">SCC-003 paper →</a></article>
+      </div>
+
+      <p class="pascal-boundary"><strong>View boundary:</strong> T-Spine, Elevators, Shell/Core, Prime mask und Base sind Darstellungsrollen einer endlichen Pascal-Fläche. Sie erzeugen keine Kraftachse, Architektur, Würfelteilung, physische Schwelle oder neue SCC-003-Identität. Die Folge lautet ausschließlich: <code>1:2:1 → 7:8 threshold → 14641 → local SCC-003 face crosswalk</code>.</p>
+    </section>
+
+    <section class="logic-grid">
+      <article class="logic-card parity-card">
+        <small>Triple Möbius · orientation parity</small>
+        <h2><output id="parityFormula">(+1) · start</output></h2>
+        <div class="mobius-row"><button type="button" data-flip="1">Flip 1</button><button type="button" data-flip="2">Flip 2</button><button type="button" data-flip="3">Flip 3</button><button id="x10Return" type="button">X10 · Return 0</button></div>
+        <div class="parity-track" aria-live="polite"><span id="parity0" class="active">+1</span><i>× −1</i><span id="parity1">−1</span><i>× −1</i><span id="parity2">+1</span><i>× −1</i><span id="parity3">−1</span><i>→ X10</i><span id="parityReturn">0</span></div>
+        <p><strong>Exakte Parität:</strong> drei deklarierte Halbwendungen ergeben <code>(−1)³=−1</code>. <strong>X10</strong> ist der gesetzte View-Return zur Nulladresse—kein Beweis, dass eine Triple-Möbius-Fläche orientierbar wird.</p>
+      </article>
+
+      <article class="logic-card">
+        <small>D–E–F–G · address / pitch rail</small>
+        <div class="defg"><span><b>D</b>4</span><span class="gate"><b>E</b>5</span><span><b>F</b>6</span><span class="root"><b>G</b>7</span></div>
+        <p><code>θ4 = D/E gate</code> · <code>iota = 5/4</code> · <code>G=7</code> bleibt Root-/Mittelanker. Tonhöhen und Zahlen sind eine Adresslesart, keine akustische Ableitung.</p>
+      </article>
+
+      <article class="logic-card">
+        <small>Iota return chain</small>
+        <div class="chain"><span>Triple Möbius</span><b>→</b><span>X10</span><b>→</b><span>ι · 5/4</span><b>→</b><span>θ5+1</span><b>→</b><span>0</span></div>
+        <p><code>θ5+1</code> ist ein Closure-Event, keine sechste Theta-Station. Das Produkt <code>6 events × 9 declared positions = 54 display states</code> gilt nur für diese explizit enumerierte Ansicht.</p>
+      </article>
+    </section>
+
+    <section class="registers">
+      <article>
+        <small>Consecutive cube trinity · exact</small>
+        <h3>23³ + 24³ + 25³ = 41,616 = 204²</h3>
+        <code>12,167 + 13,824 + 15,625 = 41,616</code>
+        <p>Drei Volumina ergeben hier exakt eine Quadratzahl. Das ist eine arithmetische Identität, nicht automatisch eine geometrische Projektion.</p>
+      </article>
+      <article>
+        <small>Fold cube / mirror edge · exact</small>
+        <h3>12³ = 1,728 · 63 ↔ 64</h3>
+        <code>63 = 3²·7 · 64 = 4³</code>
+        <p>„Operator“, „Spiegelkante“ und „neue Cube-Lage“ bleiben View-Vokabeln, bis eine Abbildung formal definiert ist.</p>
+      </article>
+      <article>
+        <small>Root rooms · separated basis modes</small>
+        <div class="roots"><span>√2<small>diagonal tension</small></span><span>√3<small>tetrahedral coupling</small></span><span>√5<small>golden drift</small></span><span>√7<small>discrete resonance</small></span></div>
+        <p>Vier getrennte Basisanzeigen; kein gemeinsamer physischer Vibrationsraum wird behauptet.</p>
+      </article>
+    </section>
+
+    <section class="chain96">
+      <header><small>96 → 101 · declared cubic chain</small><h2>Grid → Gap → Expansion → Exit</h2></header>
+      <div class="number-chain"><span class="active"><b>96</b>GRID</span><i>→</i><span><b>97</b>GAP</span><i>→</i><span><b>98</b></span><i>→</i><span><b>99</b></span><i>→</i><span><b>100</b></span><i>→</i><span><b>101</b>EXIT</span></div>
+      <p>„Möbius Cubic Chain“ ist eine Arbeitsbezeichnung. Eine Möbius-Klassifikation verlangt eine nachgewiesene orientierungsumkehrende Identifikation; die Zahlenfolge allein liefert sie nicht.</p>
+    </section>
+
+    <section class="boundary">
+      <h2>Claim boundary</h2>
+      <p><strong>Dieses Instrument zeigt:</strong> exakte Ganzzahlarithmetik, deklarierte Achsen, testbare Linieninzidenz, eine endliche Ereignisfolge und Paritätsbuchhaltung. <strong>Es zeigt nicht:</strong> eine kosmologische Cube-Hierarchie, physische Fold-Gates, biologische CODON-Wirkung, eine neue Möbius-/Klein-Flaschen-Topologie, musikalische Naturgesetze oder einen Mechanismus hinter Rootroom, θ, ι, X10 beziehungsweise dem 5–3–7 Ghost Grid.</p>
+      <div class="return-links"><a href="A0_MATHEMATICAL_JOINTS.html#fold-geometry-navigator">Mathematical Joints</a><a href="A0_ROOTROOM_CODON_ORIENTATION_RETURN.html">Rootroom × Codon</a><a href="A0_RESEARCH_DESK.html">Science Desk</a><a href="../../../SCIENCE_LAB/NAVIGATION/APP/index.html#a0-orientation-evidence">Navigator Crosswalk</a></div>
+    </section>
+  </main>
+  <script src="a0-fold-geometry-navigator.js?rev=20261120-r4"></script>
+  <script src="a0-context-navigation.js"></script>
+</body>
+</html>

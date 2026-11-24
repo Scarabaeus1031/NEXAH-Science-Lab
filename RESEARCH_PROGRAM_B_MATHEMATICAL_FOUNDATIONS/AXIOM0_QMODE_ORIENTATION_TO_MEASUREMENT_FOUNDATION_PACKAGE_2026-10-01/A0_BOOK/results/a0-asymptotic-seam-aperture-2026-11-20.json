@@ -1,0 +1,101 @@
+{
+  "schema": "a0.asymptotic-seam-aperture.receipt/1.7.0",
+  "date": "2026-11-20",
+  "status": "PASS_SCIENCE_DESK_RETURN_THREE_DOMAIN_CHART_ATLAS",
+  "host": "A0_BLUE_PINK_DODECA_CELL_RETURN.html#asymptoticSeamApertureBridge",
+  "source": "A0_NUMBERMAGICK_GRID_RESEARCH.html#grey-pink-decay-gap",
+  "carrier": "THREE_SIGNAL_CARRIER",
+  "science_return": "A0_RESEARCH_DESK.html#asymptotic-seam-domain-atlas-return-20261120",
+  "dispersion": "D=(s1-s2)^2+(s2-s3)^2+(s3-s1)^2",
+  "aperture": "rho_b(n)=b^n",
+  "bases": [0.429, 0.439, 0.456],
+  "admission_rule": "D<=rho_b(n)",
+  "exact_rule": "D=0",
+  "fold_coordinate": "F=log10((D+epsilon)/rho_b(n))",
+  "fold_axis": "F=0",
+  "shadow_view": "S=-F",
+  "violet_potential": "U(F)=F^2",
+  "transfer_mirror": {
+    "local_label": "TM · TRANSFER / MIRROR",
+    "map": "TM(F)=-F",
+    "involution": "TM(TM(F))=F",
+    "display_roles": "3 source traces + 3 mirror traces + 1 common Return witness",
+    "non_identity": ["TRADEMARK", "TM-13", "SIX_BODY_SYSTEM"]
+  },
+  "polar_projection": {
+    "angle": "theta=t",
+    "white": "r=R0",
+    "pink": "r=R0+kF",
+    "blue": "r=R0-kF",
+    "violet": "r=R0+kF^2",
+    "local_phase_sectors": 12
+  },
+  "phase_return": {
+    "local_label": "PHASE RETURN · COMPACT",
+    "map": "C_sigma(F,theta)=(2sigma F cos(theta),2sigma F sin(theta),F^2-sigma^2)/(F^2+sigma^2)",
+    "invariant": "||C_sigma||=1",
+    "white_antipode": "F=0",
+    "violet_orientation_pole": "|F|->infinity",
+    "linear_mode": "FREE FALL · LINEAR",
+    "boundary": "exact stereographic display of the existing fold coordinate; raw F and U(F)=F^2 are preserved; no physical sphere or new phase mechanism"
+  },
+  "domain_chart_atlas": {
+    "shared_state": "one (F,theta) state from THREE_SIGNAL_CARRIER",
+    "seam_chart": "q0=F/sigma; valid around F=0",
+    "mirror_phase_chart": "(q0,-q0,theta); two mirror traces on one clock",
+    "pole_chart": "qInfinity=sigma/F; valid away from F=0; qInfinity approaches 0 at the violet orientation pole",
+    "transition": "q0*qInfinity=1 for F!=0",
+    "thoth_boundary": "local mnemonic only; two mirror traces are not two independent carriers"
+  },
+  "family_boundary": "S1-S12 are local display sectors; CF:F1-F7 remain roles; CAND:F8 remains a candidate; F9-F12 are not created",
+  "stacked_overlay": {
+    "local_label": "ST/OP · STACKED TIME / OVERLAY PROJECTION",
+    "map": "theta=t mod 2pi",
+    "fold_normalization": "tanh(F/2)",
+    "display": "bounded phase-density field with source and mirror traces",
+    "memory_orbits": 12,
+    "decay": "exponential fade with opacity cap",
+    "boundary": "density shading and Moire are display occupancy, not stored potential energy, physical resonance, release event or a new carrier"
+  },
+  "axis08_return": {
+    "reused_identity": "MOD:E8_COXETER",
+    "route": "A0_AXIS08_FOLD_RETURN_SEQUENCER.html#rotationGenerationOrder",
+    "role": "separate quotient-residual comparator",
+    "identity_claim": false
+  },
+  "identity_reuse": ["MOD:NUMBER_VIEW_SUITE", "A0_BLUE_PINK_DODECA_CELL_RETURN"],
+  "large_pattern_view": {
+    "display": "local full-viewport overlay",
+    "trace_limits": [300, 1200, 3600],
+    "default_trace_limit": 1200,
+    "controls": ["pause/continue", "clear trace", "escape/close"],
+    "memory_boundary": "bounded rolling sample history; no unbounded accumulation"
+  },
+  "new_canonical_ids": [],
+  "relation_changes": [],
+  "verification": {
+    "bridge_assertions": 136,
+    "parent_assertions": 145,
+    "status": "PASS"
+  },
+  "claim_boundary": {
+    "planck_spectrum": false,
+    "uv_catastrophe_proof": false,
+    "physical_cutoff": false,
+    "new_carrier": false,
+    "two_independent_carriers": false,
+    "new_operator": false,
+    "physical_shadow": false,
+    "physical_moire_resonance": false,
+    "stored_potential_energy": false,
+    "release_event": false,
+    "axis08_identity": false,
+    "riemann_zeta_result": false,
+    "physical_sphere": false,
+    "new_phase_mechanism": false,
+    "new_canonical_families": false,
+    "six_body_solution": false,
+    "trademark_identity": false,
+    "tm13_identity": false
+  }
+}

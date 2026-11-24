@@ -27,8 +27,11 @@
     const ghost=hinges.map((m,i)=>({x:cx+(m.x-cx)*(.48+.08*fold),y:height*.49+(m.y-height*.49)*.28}));
     const sectors=upper.map((u,i)=>{const j=(i+1)%5;return{index:i,channel:CHANNELS[i%3],points:[u,upper[j],lower[j],lower[i]],hinges:[hinges[i],hinges[j]]};});
     const rods=upper.flatMap((u,i)=>[{from:u,to:hinges[i],side:'UPPER',index:i},{from:hinges[i],to:lower[i],side:'LOWER',index:i}]);
-    const apertureRadius=24+18*(.5+.5*breath);
-    return{phase:q,breath,twist,fold,width,height,center:{x:cx,y:height*.49},upper,lower,hinges,ghost,sectors,rods,apertureRadius};
+    const center={x:cx,y:height*.49};
+    const apertureRadius=24+18*(.5+.5*breath),balanceRadius=48;
+    const eyeOrbit=balanceRadius*.42;
+    const eye={x:center.x+Math.cos(TAU*q)*eyeOrbit,y:center.y+Math.sin(TAU*q)*eyeOrbit*.42};
+    return{phase:q,breath,twist,fold,width,height,center,upper,lower,hinges,ghost,sectors,rods,apertureRadius,balanceRadius,eye};
   }
   function auditGeometry(geometry){
     const pairErrors=geometry.upper.map((u,i)=>Math.abs(distance(u,geometry.hinges[i])-distance(geometry.hinges[i],geometry.lower[i])));
@@ -40,10 +43,16 @@
       middleHinges:geometry.hinges.length,
       rods:geometry.rods.length,
       curtainSectors:geometry.sectors.length,
+      criticalPentagonVertices:geometry.hinges.length,
+      balanceRing:true,
+      phaseEye:true,
+      fixedStillpoint:true,
       maxEqualRodPairError:Math.max(...pairErrors),
       returnError,
       seamClosureClaim:false,
-      signalMechanicsClaim:false
+      signalMechanicsClaim:false,
+      physicalBalanceClaim:false,
+      resonanceProofClaim:false
     };
   }
   function svgPoint(p){return`${p.x.toFixed(2)},${p.y.toFixed(2)}`}
@@ -57,7 +66,7 @@
     }).join('');
     const seamMarkup=geometry.rods.map(rod=>`<line x1="${rod.from.x}" y1="${rod.from.y}" x2="${rod.to.x}" y2="${rod.to.y}" class="curtain-rod" data-side="${rod.side}"/>`).join('');
     const hingeMarkup=geometry.hinges.map((p,i)=>`<circle cx="${p.x}" cy="${p.y}" r="5" class="curtain-hinge" data-hinge="${i}"/>`).join('');
-    const upper=path(geometry.upper),lower=path(geometry.lower),ghost=path(geometry.ghost);
+    const upper=path(geometry.upper),lower=path(geometry.lower),ghost=path(geometry.ghost),critical=path(geometry.hinges);
     svg.setAttribute('viewBox',`0 0 ${geometry.width} ${geometry.height}`);
     svg.innerHTML=`
       <defs><filter id="curtainGlow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
@@ -66,10 +75,15 @@
       <g class="curtain-seams">${seamMarkup}</g>
       <polygon points="${upper}" class="curtain-frame upper"/><polygon points="${lower}" class="curtain-frame lower"/>
       <polygon points="${ghost}" class="curtain-ghost"/>
+      <polygon points="${critical}" class="curtain-critical-pentagon"/>
       <g class="curtain-hinges">${hingeMarkup}</g>
+      <circle cx="${geometry.center.x}" cy="${geometry.center.y}" r="${geometry.balanceRadius}" class="curtain-balance-ring"/>
       <circle cx="${geometry.center.x}" cy="${geometry.center.y}" r="${geometry.apertureRadius.toFixed(2)}" class="curtain-aperture"/>
+      <circle cx="${geometry.eye.x.toFixed(2)}" cy="${geometry.eye.y.toFixed(2)}" r="8" class="curtain-eye-halo"/>
+      <circle cx="${geometry.eye.x.toFixed(2)}" cy="${geometry.eye.y.toFixed(2)}" r="4.5" class="curtain-eye"/>
       <circle cx="${geometry.center.x}" cy="${geometry.center.y}" r="4" class="curtain-pin"/>
-      <text x="${geometry.center.x+geometry.apertureRadius+10}" y="${geometry.center.y+4}" class="curtain-label">APERTURE · VIEW</text>
+      <text x="${geometry.center.x+geometry.balanceRadius+11}" y="${geometry.center.y-7}" class="curtain-label">WHITE · REFERENCE RING</text>
+      <text x="${geometry.center.x+geometry.balanceRadius+11}" y="${geometry.center.y+8}" class="curtain-label stillpoint">YELLOW · STILLPOINT</text>
     `;
     return svg;
   }
@@ -83,7 +97,7 @@
       renderSvg(svg,geometry,signals);
       const audit=auditGeometry(geometry);
       phaseOut.textContent=`${(geometry.phase*360).toFixed(0)}°`;
-      readout.textContent=`5 SECTORS · 5 HINGES · 10 RODS · RETURN ε ${audit.returnError.toExponential(1)} · SIGNAL→VIEW ONLY`;
+      readout.textContent=`5-NODE LOOP · WHITE REFERENCE RING · PINK PHASE EYE · YELLOW STILLPOINT · RETURN ε ${audit.returnError.toExponential(1)} · SIGNAL→VIEW ONLY`;
       return{geometry,audit,signals:[...signals]};
     }
     function loop(now){if(!playing)return;const dt=Math.min(80,Math.max(0,now-last));last=now;phase.value=String((Number(phase.value)+dt/6000)%1);render();raf=requestAnimationFrame(loop)}

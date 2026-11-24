@@ -9,6 +9,7 @@
 - Twin carrier: the 40 verified prime pairs `(p,p+2)` with `p+2 ≤ 1111`.
 - Finite-ring carrier: the 19 unique orbits of `r ↦ −r mod 37`, namely `{0}` and 18 two-cycles.
 - Explicit-formula carrier: a frozen finite table of the first 20 positive ordinates `γₙ` of known nontrivial zeta-zero conjugate pairs `ρₙ=1/2±iγₙ`.
+- Prime-residue carrier: the same 168 prime records `p≤1000` used by the Euler Compass view. The 18 primes `1000<p≤1111` remain an explicit tail outside this shared view.
 - Every selected rung retains its original pair and returns to it exactly.
 
 ## Declared view operators
@@ -50,9 +51,17 @@
 - `−1/12 ≡ 11/12 (mod 1)` is an exact phase identity. The seam lens overlays the same point on the circle while retaining the integer lift difference `11/12−(−1/12)=1` as a history witness.
 - A trace kink and a phase seam are view/combinatorial events. Neither is typed as a zeta zero, a Dirichlet-`L` zero, or a new term in the explicit formula.
 
+## Prime residue helix
+
+- The vertical coordinate is the ascending prime index in the frozen 168-record carrier; it is not a physical or intrinsic prime height.
+- `MOD 7` assigns `θ₇(p)=2π(p mod 7)/7`. `MOD 11` assigns `θ₁₁(p)=2π(p mod 11)/11`.
+- `7|11` places the same retained `PC1111:Nxxxx` record on both angle rails at the same height. Its connecting segment is a typed view crosswalk, not an antipodal RDMH rung and not a DNA/RNA bond.
+- Every selection returns exactly to the retained prime integer and source address.
+- This view reuses the finite carrier and residue rules of the Euler Compass. It does not embed, replace or identify itself with the separate 135-edge / 270-step Euler audit.
+
 ## Claim boundary
 
-The adapter asserts only finite arithmetic membership, exact involution pairing, exact antipodal or conjugate-mirror geometry as separately typed, exact phase definitions, derived normalized view quantities and reversible source selection. `RN\A`, `(c)D|⁄|A`, `RDMH`, `F/H`, `TRIAD`, `Θ`, `ι` and `DAO` are view labels or explicitly defined normalized quantities. The displayed `|τ|` is not a measured physical torsion. The ζ lens is not an RH/GRH proof or a complete prime-count reconstruction. `RLLR/LRRL` are not asserted to be Dirichlet characters, and the `±1/12` seam is not a zero or singularity. The adapter does not assert RNA/DNA validation, biological control by primes, physical resonance, a prime generator, a Fibonacci mechanism for prime formation, or an identity between Twin Primes, `ℤ₃₇`, ζ zeros, Fibonacci and biology.
+The adapter asserts only finite arithmetic membership, exact involution pairing, exact antipodal or conjugate-mirror geometry as separately typed, exact phase definitions, derived normalized view quantities and reversible source selection. `RN\A`, `(c)D|⁄|A`, `RDMH`, `F/H`, `TRIAD`, `Θ`, `ι` and `DAO` are view labels or explicitly defined normalized quantities. The displayed `|τ|` is not a measured physical torsion. The ζ lens is not an RH/GRH proof or a complete prime-count reconstruction. `RLLR/LRRL` are not asserted to be Dirichlet characters, and the `±1/12` seam is not a zero or singularity. The Prime Residue Helix is a declared coordinate view, not a natural prime helix, a prime generator or the Euler audit itself. The adapter does not assert RNA/DNA validation, biological control by primes, physical resonance, a Fibonacci mechanism for prime formation, or an identity between Twin Primes, `ℤ₃₇`, ζ zeros, Fibonacci and biology.
 
 ## Acceptance boundary
 
