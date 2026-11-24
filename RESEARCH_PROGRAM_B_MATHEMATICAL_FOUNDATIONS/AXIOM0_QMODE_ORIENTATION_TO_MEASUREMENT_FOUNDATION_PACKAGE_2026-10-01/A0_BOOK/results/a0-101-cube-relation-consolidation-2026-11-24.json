@@ -1,0 +1,95 @@
+{
+  "schema": "nexah.a0.relation-consolidation.v1",
+  "date": "2026-11-24",
+  "title": "A0/101 Cube Relation Consolidation",
+  "status": "R1_VERIFY_EXISTING_SOURCE_BOUND_CONSOLIDATION",
+  "governing_statement": "A0/101 is the reading door; Primecube is the finite carrier/view instrument; adjacent cube-like objects remain typed views, adapters, operators, envelopes or historical labels.",
+  "identity_reuse": [
+    "MOD:NUMBER_VIEW_SUITE",
+    "ART:A0:MATHEMATICAL_JOINTS",
+    "NEXAH:A0_ORIENTATION_EVIDENCE_LINEAGE:V1",
+    "SG:LENS:A0_ORIENTATION_EVIDENCE"
+  ],
+  "local_bindings": [
+    {"from": "A0/101", "to": "Primecube", "type": "READER_ENTRY_TO_INSTRUMENT"},
+    {"from": "Primecube", "to": "Centered plate window", "type": "CARRIER_TO_LOCAL_VIEW"},
+    {"from": "Primecube", "to": "L/Tablet/Line/Shadow", "type": "PLATE_ROLE_BINDING"},
+    {"from": "Primecube", "to": "NumberMagick tilt", "type": "VIEW_ADAPTER_REUSE"},
+    {"from": "Primecube", "to": "Prime Torus thread", "type": "FINITE_THREAD_REUSE"},
+    {"from": "Primecube", "to": "Family Elevator", "type": "ROLE_CROSSWALK"},
+    {"from": "Primecube", "to": "Mathfield Curtain/Scarab Hull/Dragonfly 010", "type": "SOURCE_ROLE_REUSE"},
+    {"from": "Primecube", "to": "CARO bench", "type": "CONTROLLER_CROSSWALK"},
+    {"from": "Primecube", "to": "EXP-J x Tube", "type": "COMPARATOR_VIEW"}
+  ],
+  "exact_register": {
+    "centered_plate_formula": "C(m)=4m^2+1",
+    "centered_plate_values": {"3": 37, "5": 101, "7": 197, "25": 2501},
+    "paired_channel_at_m25": 5002,
+    "prime_thread_total": 167,
+    "prime_thread_selected_transition": 4,
+    "prime_thread_endpoint_witnesses": 2,
+    "root": 7,
+    "target": 11,
+    "raw_delta": [4, -7],
+    "wrapped_delta": [-3, 4]
+    ,"root_ruler": {
+      "square_gap": "sqrt(k+1)-sqrt(k)",
+      "square_asymptotic": "1/(2sqrt(k))",
+      "cube_gap": "cbrt(k+1)-cbrt(k)",
+      "cube_asymptotic": "1/(3*k^(2/3))",
+      "rootroom_anchors": [2, 5, 7],
+      "codon_f1_source_rail": [5, 11, 17],
+      "trident_source_angles_degrees": [90, 210, 330],
+      "numeric_map_declared": false
+    }
+  },
+  "non_identities": [
+    "A0/101 != another cube identity",
+    "Primecube != Shadow Cube",
+    "Primecube != Q/T20 CRT cuboid",
+    "Primecube != EXP-J x Tube comparator",
+    "Primecube != Q4/Kubrik/chirality instruments",
+    "Primecube != Mandelbrot or Julia",
+    "F4 Phase/Drift != F5 Connectivity/Topology",
+    "CARO controller != lantern or carrier",
+    "167 transitions + 2 endpoint witnesses != 169 threads"
+    ,"Rootroom anchors != CODON values != Trident axes"
+  ],
+  "cleanup_lanes": ["CARRIER", "VIEW", "OPERATOR_CONTROLLER", "ENVELOPE_SHADOW"],
+  "routes": {
+    "a0_science": "A0_SCIENCE.html#a0-101-cube-relations-20261124",
+    "science_desk": "A0_RESEARCH_DESK.html#a0-101-cube-relations-20261124",
+    "a0_101_entry": "index.html#matroschka-101-entry",
+    "instrument": "A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-control-plane",
+    "source_note": "A0_101_CUBE_RELATION_CONSOLIDATION_2026-11-24.md",
+    "paper_workspace": "../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#a0101-cube-relation-consolidation--2026-11-24"
+  },
+  "verification": {
+    "consolidation_contract": "13/13 PASS",
+    "primecube_address_plate_regression": "84/84 PASS",
+    "a0_science_same_carrier_return": "22/22 PASS",
+    "science_desk_navigator_contract": "34/34 PASS",
+    "navigator_app_audit": "255/255 PASS",
+    "source_graph_counts": "329/29 base; 332/32 composed",
+    "source_graph_validator": "FAIL_CURRENTNESS_HASH_DRIFT",
+    "source_graph_failures": [
+      "changed A0 Book source hash",
+      "changed Findings/Paper Workspace source hash",
+      "changed Science Desk source hash",
+      "pre-existing Rubik QDC Science Desk/findings hash drift",
+      "pre-existing Red Balloon Science Desk return hash drift"
+    ],
+    "semantic_graph_delta": 0
+  },
+  "authority_effect": {
+    "new_identities": 0,
+    "canonical_relation_delta": 0,
+    "new_aliases": 0,
+    "new_studies": 0,
+    "new_findings": 0,
+    "claim_ceiling_change": false,
+    "publication_authorized": false,
+    "deployment_authorized": false,
+    "graph_delta": 0
+  }
+}

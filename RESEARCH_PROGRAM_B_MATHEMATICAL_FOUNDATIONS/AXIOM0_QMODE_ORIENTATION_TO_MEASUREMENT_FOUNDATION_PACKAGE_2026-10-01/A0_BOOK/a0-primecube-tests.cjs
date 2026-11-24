@@ -8,7 +8,7 @@ function ok(value,label){if(!value)throw new Error(`FAIL ${label}`);passed++;con
 function same(a,b,label){ok(JSON.stringify(a)===JSON.stringify(b),label)}
 
 const data=M.buildDataset();
-ok(data.version==='1.53.0'&&data.schema.endsWith('/1.53.0'),'schema and model version 1.53.0');
+ok(data.version==='1.56.0'&&data.schema.endsWith('/1.56.0'),'schema and model version 1.56.0');
 ok(data.carrier.count===1111,'carrier contains 1111 integers');
 ok(data.counts.primes===186,'186 primes at or below 1111');
 ok(data.counts.twins===40,'40 twin-prime pairs');
@@ -227,6 +227,7 @@ ok(q.decimalConcatenationCrosswalk.uniquePrime.primeRank===38177&&q.decimalConca
 ok(q.screenLasso.count===9&&q.screenLasso.contractibility==='NOT_TESTED'&&/screen path/.test(q.screenLasso.boundary)&&/screen-orientation/.test(q.decimalConcatenationCrosswalk.boundary),'lasso and ISO45 remain bounded projection readings');
 const measure=data.unitRootShear;
 ok(measure.physicalSource.metres===4.78536&&Math.abs(measure.physicalSource.conversions.ft-15.7)<1e-12&&Math.abs(measure.physicalSource.conversions.in-188.4)<1e-12,'15.7 international feet converts exactly by the declared factors');
+for(const unit of ['km','m','dm','cm','mi','yd','ft','in']){const unitView=M.unitRootShearRecord(15.7,unit,.4);ok(unitView.physicalSource.selectedUnit===unit&&unitView.physicalSource.selectedValue===unitView.physicalSource.conversions[unit],`Unit view selects and returns ${unit}`)}
 same(measure.markers.map(item=>item.square),[61.3089,158.76,187.69,246.49],'four Root marker squares are frozen');
 ok(measure.fold.angleDegrees===36&&measure.stair.steps===12&&measure.stair.stepDegrees===3,'40 percent fold produces a twelve-step 36 degree stair');
 ok(Math.abs(measure.fold.cos-Math.cos(Math.PI/5))<1e-15&&Math.abs(measure.fold.sin-Math.sin(Math.PI/5))<1e-15&&Math.abs(measure.fold.residual)<1e-12,'shear components retain the selected Root marker');
@@ -236,6 +237,13 @@ same(measure.qReturn.crtAddress,{sourceNumber:1,residue:1,mod7:1,mod11:1,mod13:1
 same(measure.lowerCrtRail.anchors.map(a=>[a.n,a.address.mod7,a.address.mod11,a.address.mod13,a.orbitStep]),[[97,6,9,6,31],[944,6,9,8,21]],'97 and 944 form the exact lower CRT rail at shared mod-7 and mod-11 coordinates');
 same(measure.lowerCrtRail.candidate696.address,{sourceNumber:696,residue:696,mod7:3,mod11:3,mod13:7},'696 remains a separately addressed Owner candidate');
 ok(measure.mirror.status==='HOLD'&&measure.mirror.operator==='UNDEFINED'&&/Cubit is excluded/.test(measure.unitBoundary),'mirror glyph and cubit remain bounded');
+same(measure.mycelRootSplit.markerNodes.map(item=>[item.value,item.selected]),[[7.83,false],[12.6,false],[13.7,false],[15.7,true]],'four Mycel Root markers expose the selected stair source');
+same(measure.mycelRootSplit.split.branches.map(item=>[item.n,item.mod13,item.role]),[[97,6,'FORWARD_BRANCH'],[944,8,'RETURN_BRANCH']],'Mycel split branches to 97 and 944 only on mod 13');
+ok(measure.mycelRootSplit.split.sharedCoordinates.mod7===6&&measure.mycelRootSplit.split.sharedCoordinates.mod11===9&&/not identified with 97, 944/.test(measure.mycelRootSplit.boundary),'Mycel split retains the shared CRT pair and non-identity boundary');
+same(measure.sourceDock.angle333,{stepDegrees:333,addressStepDegrees:111,modulusDegrees:120,gcd:3,uniqueDirections:40,firstReturnStep:40,visitsPerDirection:3,exactLaw:'333° = 3·111°; gcd(111,120)=3; 120/3=40',source:'results/a0-angle-address-compare-3-111-333-2026-10-25.json',status:'EXACT_NEGATIVE_CONTROL_SEPARATE_FROM_HISTORICAL_33_DEGREE_RAY'},'333 control keeps the exact 40-step three-visit address cycle');
+same(measure.sourceDock.pinkGreyMeeting.registers,['POSITION','COLOR_PINK_SHIFT','ECHO_LAG','SHADOW_FRACTION'],'pink and grey remain four typed return registers');
+ok(measure.sourceDock.plateMirror.status==='VIEW_CHANGE_NOT_SOURCE_CHANGE'&&measure.sourceDock.breath.core==='FIXED'&&measure.sourceDock.breath.bands===3,'Plate Mirror and Breath retain their bounded source roles');
+ok(/do not share an operator/.test(measure.sourceDock.boundary)&&/Dzhanibekov remains an unbound visual analogy/.test(measure.sourceDock.boundary),'source dock forbids operator fusion and physical analogy promotion');
 const r821=M.numberRecord(821,data);
 ok(r821.primeStatus==='PRIME'&&r821.constellations.includes('QUADRUPLET'),'821 quadruplet record');
 ok(r821.return.exact&&r821.return.n===821,'821 exact source return');
@@ -362,6 +370,7 @@ ok(scarabGate.bridge.ordinal==='1031=P173'&&scarabGate.bridge.factor==='REV2_WID
 
 const html=fs.readFileSync('./A0_PRIMECUBE_GAP_FOLD_LAB.html','utf8');
 for(const marker of ['data-primecube','data-pc-view="grid"','data-pc-view="cube"','data-pc-view="fold"','data-pc-view="slice"','data-pc-view="orientation"','data-pc-view="hinge"','data-pc-view="root"','data-pc-view="geometry"','data-pc-view="euler"','data-pc-view="qcube"','data-pc-view="measure"','data-pc-demo-jump','data-pc-orbit-demo','data-pc-orbit-detail','coupled-orbit-demonstrator','CRITICAL ORBIT BARCODE','MZ24(n)','15°','0 / 6 / 12 / 18','data-pc-loki','data-pc-loki-stage','data-pc-loki-detail','data-pc-loki-insert="C"','SPLINTER SAIL GRID','2×3 LADDER','C₆ BOUNDARY','FOUR TRIANGULATED SAILS','LOKI CHASSIS','1105=5·13·17=915₁₁','data-pc-measure-marker="15.7"','data-pc-measure-unit="ft"','data-pc-euler="mod7"','data-pc-euler="mod11"','data-pc-euler="torus"','data-pc-filter="gap"','data-pc-filter="seam"','data-pc-seam="726"','data-pc-seam-shadow','1210 · shadow','data-pc-slice="0"','data-pc-slice="9"','data-pc-hrecord','data-pc-hnode="787"','data-pc-hnode="811"','H‑Record Crosswalk','5 + 6 + 6','7.83','RDMH','29.02.1972','p₁₂₁=661','Zwei Flügel, eine 37er-Achse','Die C‑Reihe wird prüfbar','168 von 186','Quadrate takten den Root Ruler','Ein neuer Q-Cube','60-Prime-Lasso','456151','p₃₈₁₇₇','Unit / Root / Shear','97=(6,9,6)','944=(6,9,8)','2026 | Q²·2³','15.7 ft','a0-prime-torus-thread-demonstrator.js','a0-primecube-model.js','a0-primecube-ui.js','a0-primecube-loki-chassis.js','a0-primecube.css','a0-primecube-orbit-demo.css','a0-primecube-loki-chassis.css','a0-primecube-root.css','a0-primecube-seams.css','a0-primecube-hrecord.css'])ok(html.includes(marker),`HTML marker ${marker}`);
+for(const marker of ['data-pc-fold-play','▶ Faltung','Fold angle controls'])ok(html.includes(marker),`embedded fold control marker ${marker}`);
 ok(/kein Prime Gap/i.test(html),'HTML distinguishes cluster gap from prime gap');
 ok(/keine intrinsische kubische Primzahlgeometrie/i.test(html),'HTML exposes cube claim boundary');
 ok(/keine neue kanonische Prime Family/i.test(html),'HTML rejects family promotion from overlapping pin memberships');
@@ -393,6 +402,8 @@ ok(/drawQCube/.test(ui)&&/Q \/ T₂₀± CRT CUBOID/.test(ui)&&/ordQ\(20\)=60/.t
 ok(/V-PEAK/.test(ui)&&/496 perfect #3/.test(ui)&&/p₁₂=37/.test(ui),'496 perfect-number V peak overlay is present');
 ok(/orange lasso/.test(ui)&&/456\|151 → p₃₈₁₇₇ → 696/.test(ui),'Q cube renders the bounded prime lasso and decimal crosswalk');
 ok(/drawMeasure/.test(ui)&&/UNIT \/ ROOT \/ SHEAR/.test(ui)&&/OWNER SCREEN GRID/.test(ui),'Unit-Root-Shear comparator renderer is present');
+ok(/UNIT VIEW · 15\.7 ft/.test(ui)&&/selectedUnit/.test(ui),'selected Unit view is rendered visibly inside the canvas');
+ok(/toggleFoldMotion/.test(ui)&&/stopFoldMotion/.test(ui)&&/data-pc-fold-play/.test(html),'fold animation is bound to the visual control dock');
 ok(/drawOrbitDemonstrator/.test(ui)&&/COUPLED ORBIT RECORD/.test(ui)&&/SAME SOURCE, THREE READINGS/.test(ui)&&/MZ24/.test(ui),'dedicated coupled-orbit demonstrator and typed MZ24 detail are present');
 ok(/filter\(kind=>kind!==\'SUPERPRIME\'\)/.test(ui),'Superprime detail label is not duplicated');
 const lokiUi=fs.readFileSync('./a0-primecube-loki-chassis.js','utf8');

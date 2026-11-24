@@ -11,6 +11,9 @@
   "verified": {
     "root_gap_identity": "sqrt(k+1)-sqrt(k)=1/(sqrt(k+1)+sqrt(k))",
     "asymptotic": "Delta_k ~ 1/(2sqrt(k))",
+    "cube_root_gap_identity": "cbrt(k+1)-cbrt(k)=1/(cbrt(k+1)^2+cbrt(k+1)cbrt(k)+cbrt(k)^2)",
+    "cube_root_asymptotic": "Delta3_k ~ 1/(3*k^(2/3))",
+    "source_guide": "Trident angles 90/210/330 degrees are a view-only 3-axis guide with no numeric map",
     "threshold": "k >= ((epsilon^-1-epsilon)/2)^2",
     "joint_1729": "1729=1^3+12^3=9^3+10^3=7*13*19",
     "float_boundary": "thresholds above Number.MAX_SAFE_INTEGER are scale-only"
@@ -18,6 +21,7 @@
   "held": [
     "higher prime-tuple counts without frozen offset families",
     "intrinsic root spiral",
+    "physical or arithmetic identification of CODON F1 with the Trident guide",
     "natural root cuboid",
     "physical resonance",
     "whole-system closure"

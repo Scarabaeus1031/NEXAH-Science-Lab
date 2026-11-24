@@ -4328,6 +4328,40 @@ Disposition: `R1_VERIFY_EXISTING / 6 BOUNDED RESULTS / 5 RELATION CANDIDATES /
 TWO AGENT CLASSES / NEW ID 0 / RELATION 0 / ALIAS 0 / STUDY 0 / CANONICAL
 FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0 / GRAPH DELTA 0`.
 
+<a id="a0101-cube-relation-consolidation--2026-11-24"></a>
+
+## A0/101 Cube relation consolidation · 2026-11-24
+
+The expanding cube corpus is now routed by role instead of by visual shape.
+This is a source-bound integration note, not a candidate Finding.
+
+- **A0/101** remains the reader entrance: one source may be nested through
+  several views and returned with its witness.
+- **Primecube** remains the finite address carrier and view instrument under
+  the existing `MOD:NUMBER_VIEW_SUITE` identity.
+- **Plate, Tablet, Line, Shadow, Tilt, Thread, Elevator, CARO and Tube** are
+  typed local bindings. None receives carrier identity merely because it is
+  drawn as a cube, cuboid, leaf or frame.
+- **Exact anchors** remain separate: `C(25)=2501`, the paired channel is
+  `5002`, and the Prime Torus source has `167` transitions plus two endpoint
+  witnesses — not 169 mathematical threads.
+- **Non-identities** are retained explicitly: A0/101, Primecube, Shadow, CRT
+  cuboid, EXP-J × Tube, Q4/Kubrik and Mandelbrot/Julia are not merged.
+
+The proposed cleanup grammar has four lanes: `CARRIER`, `VIEW`,
+`OPERATOR/CONTROLLER`, and `ENVELOPE/SHADOW`. A future deletion or identity
+merge requires a separate Owner decision; this return performs neither.
+
+[A0 Science](A0_BOOK/A0_SCIENCE.html#a0-101-cube-relations-20261124) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html#a0-101-cube-relations-20261124) ·
+[Relation note](A0_BOOK/A0_101_CUBE_RELATION_CONSOLIDATION_2026-11-24.md) ·
+[Primecube](A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-control-plane) ·
+[Receipt](A0_BOOK/results/a0-101-cube-relation-consolidation-2026-11-24.json)
+
+Disposition: `SOURCE-BOUND CONSOLIDATION / EXISTING IDENTITY REUSED / 9 LOCAL
+BINDINGS / 4 CLEANUP LANES / NO DELETE / NO MERGE / NEW ID 0 / CANONICAL
+RELATION 0 / STUDY 0 / FINDING 0 / PUBLICATION 0 / GRAPH DELTA 0`.
+
 <a id="primecube-boundary-series-science-return--2026-11-23"></a>
 
 ## Primecube / Boundary Series — collection return · 2026-11-23

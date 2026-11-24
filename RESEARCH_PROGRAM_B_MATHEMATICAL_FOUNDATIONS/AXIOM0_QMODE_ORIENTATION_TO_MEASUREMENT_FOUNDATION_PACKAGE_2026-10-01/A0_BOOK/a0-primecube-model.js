@@ -5,7 +5,7 @@
 })(typeof window!=='undefined'?window:globalThis,function(){
   'use strict';
 
-  const VERSION='1.53.0';
+  const VERSION='1.56.0';
   const MAX_N=1111;
   const GRID_COLUMNS=37;
   const CUBE_SIZE=11;
@@ -214,6 +214,26 @@
     return Object.freeze({k,exact:`√${k+1} − √${k}`,rationalizedExact:`1 / (√${k+1} + √${k})`,direct,rationalized,residual:direct-rationalized});
   }
 
+  function cubeRootGap(k){
+    if(!Number.isInteger(k)||k<1||k>=MAX_N)throw new RangeError(`k must be 1..${MAX_N-1}`);
+    const a=Math.cbrt(k+1),b=Math.cbrt(k),direct=a-b,rationalized=1/(a*a+a*b+b*b);
+    return Object.freeze({k,exact:`∛${k+1} − ∛${k}`,rationalizedExact:`1 / ((∛${k+1})² + ∛${k+1}·∛${k} + (∛${k})²)`,direct,rationalized,residual:direct-rationalized});
+  }
+
+  function rootRulerRecord(k){
+    if(!Number.isInteger(k)||k<1||k>=MAX_N)throw new RangeError(`k must be 1..${MAX_N-1}`);
+    const square=rootGap(k),cube=cubeRootGap(k),squareAsymptotic=1/(2*Math.sqrt(k)),cubeAsymptotic=1/(3*Math.cbrt(k*k));
+    return Object.freeze({
+      recordId:`ROOT-RULER:PC1111:K${String(k).padStart(4,'0')}`,k,
+      square:Object.freeze({...square,asymptotic:squareAsymptotic,asymptoticRatio:square.direct/squareAsymptotic}),
+      cube:Object.freeze({...cube,asymptotic:cubeAsymptotic,asymptoticRatio:cube.direct/cubeAsymptotic}),
+      anchors:Object.freeze({rootroom:Object.freeze([2,5,7]),codonF1:Object.freeze([5,11,17]),perfectCubes:Object.freeze([8,27,64,125,216,343,512,729,1000])}),
+      sourceOverlay:Object.freeze({tridentAnglesDegrees:Object.freeze([90,210,330]),separationDegrees:120,clockStepDegrees:30,role:'HISTORICAL_THREE_AXIS_READING_GUIDE_NO_NUMERIC_MAP'}),
+      return:Object.freeze({method:'RETAINED_SOURCE_K',k,exact:true}),
+      boundary:'Square-root and cube-root gaps are exact symbolic operators with Float64 display values. Rootroom anchors, CODON F1 values and the Trident three-axis guide remain separate source registers; no resonance, time-field, zeta-zero, quaternion or physical coupling is asserted.'
+    });
+  }
+
   function rootRecord(n){
     if(!Number.isInteger(n)||n<1||n>MAX_N)throw new RangeError(`n must be 1..${MAX_N}`);
     const next=n<MAX_N?rootGap(n):null;
@@ -300,6 +320,39 @@
       qctrl:Object.freeze({role:'DECLARED_VIEW_CONTROLLER',defaultInsert:'C',operators:Object.freeze(['SELECT_INSERT','HIGHLIGHT_SAIL','RETURN_TO_SOURCE'])}),
       return:'RETAINED_ROOT_AND_SOURCE_NUMBER',
       boundary:'LOKI CHASSIS is a local Owner view label and is not the existing LOKI-Q4 identity. The boundary is a non-regular C6 drawn as a triangulated 2x3 ladder; its four sails are screen faces, not a proved 3D body. QCTRL selects a declared display state and does not create a mathematical identity.'
+    });
+  }
+
+  function centeredPlateWindowRecord(){
+    const windowSizes=Object.freeze([3,5,7,25].map(m=>Object.freeze({
+      m,
+      plateArea:m*m,
+      fourPlates:4*m*m,
+      center:1,
+      count:4*m*m+1,
+      pairedCount:2*(4*m*m+1)
+    })));
+    const axisPairs=Object.freeze([[1,7],[2,8],[3,9],[4,10],[5,11],[6,0]].map(pair=>Object.freeze(pair)));
+    return Object.freeze({
+      id:'PRIMECUBE_CENTERED_PLATE_WINDOW_VIEW',
+      role:'BOUNDED_COUNT_AND_MOTION_VIEW',
+      formula:'C(m)=4m^2+1',
+      windowSizes,
+      axisPairs,
+      rounds:2,
+      stepsPerRound:12,
+      inspectionWindow:Object.freeze({side:5,addresses:25,role:'VISIBLE_ADDRESS_WINDOW_NOT_ADDED_TO_COUNT'}),
+      slashCube:Object.freeze({role:'NUMBERMAGICK_TILT_ADAPTER_VIEW',source:'A0_NUMBERMAGICK_GRID_RESEARCH.html#pascal-bracket-tilt-projection',sourceContract:'0deg -> +60deg -> 0deg',localPhase:'theta_s=2*pi*s/12',return:'s=24 -> theta=4*pi -> DISPLAY_RETURN'}),
+      sourceReuse:Object.freeze({
+        mathfield:Object.freeze({route:'A0_MATHEMATICAL_JOINTS.html#ramanujan-pentagon-comparator',roles:Object.freeze(['CIKADA_CURTAIN','SCARAB_HULL','DRAGONFLY_010'])}),
+        familyAtlas:Object.freeze({route:'A0_FAMILY_CONNECTION_ATLAS.html#start',role:'EXISTING_FAMILY_ELEVATOR',plate:'THETA_ORIENTATION_VIEW',phase:'F4_PHASE_DRIFT',topology:'F5_CONNECTIVITY_TOPOLOGY',boundary:'F5_TO_F4_IS_TYPED_NON_IDENTITY'}),
+        caro:Object.freeze({route:'A0_ORIENTATION_CONTROLLER_BENCH.html#caroControlBench',role:'EXISTING_CARO_GREEN_MIRROR_CONTROLLER',plateRoute:'A0_ORIENTATION_CONTROLLER_BENCH.html#plateMirrorBench',boundary:'CARO_CHANNEL_AND_PLATE_VIEW_REMAIN_SEPARATE_SOURCE_ROLES'}),
+        tilt:Object.freeze({route:'A0_NUMBERMAGICK_GRID_RESEARCH.html#pascal-bracket-tilt-projection',role:'EXISTING_TILT_OPERATOR_SOURCE'}),
+        primeThread:Object.freeze({route:'A0_NUMBERMAGICK_GRID_RESEARCH.html#prime-torus-thread-demonstrator',rawTransitions:167,endpointWitnesses:2,reading:'167 RAW TRANSITIONS + ROOT/TARGET',root7:Object.freeze({thread:4,from:Object.freeze({prime:7,r7:0,r11:7}),to:Object.freeze({prime:11,r7:4,r11:0}),rawDelta:Object.freeze([4,-7]),wrappedDelta:Object.freeze([-3,4])})})
+      }),
+      identityReuse:Object.freeze(['MOD:NUMBER_VIEW_SUITE']),
+      navigatorEffect:'NONE',
+      boundary:'C(m) counts four m by m plates plus one shared center address. The visible 5 by 5 inspection window is a view into the selected plate family and is not added again. The paired channel doubles the selected count but does not merge two carriers. The Family Elevator supplies distinct source, orientation and boundary read positions; F4 phase/drift is not F5 topology. CARO/Green Mirror and the plate mirror remain separate existing controller roles. The slash body adapts the existing NumberMagick tilt connector; its 24-step phase is local display sampling, not a new operator. The Prime Thread contributes 167 transitions plus two visible endpoint witnesses, not 169 mathematical threads. No Cube, LOKI or Prime Family identity and no physical mechanism are asserted.'
     });
   }
 
@@ -1198,6 +1251,55 @@
         invariant:'mod 7 = 6 and mod 11 = 9; only the mod-13 coordinate changes from 6 to 8',
         candidate696:Object.freeze({n:696,address:qCubeAddress(696),status:'OWNER_NAMED_CANDIDATE_NOT_IDENTIFIED_WITH_SCREEN_PIN'})
       }),
+      mycelRootSplit:Object.freeze({
+        glyphRail:Object.freeze(['ç','√','∫','~','µ']),
+        markerNodes:Object.freeze(markers.map((item,index)=>Object.freeze({
+          index,value:item.value,exact:item.exact,normalized:item.value/markers.at(-1).value,
+          selected:item.value===marker.value,sourceRole:item.sourceRole
+        }))),
+        selectedMarker:Object.freeze({value:marker.value,exact:marker.exact}),
+        split:Object.freeze({
+          sharedCoordinates:Object.freeze({mod7:6,mod11:9}),
+          branchCoordinate:'mod13',branches:Object.freeze([
+            Object.freeze({n:97,mod13:6,color:'CYAN',role:'FORWARD_BRANCH'}),
+            Object.freeze({n:944,mod13:8,color:'GOLD',role:'RETURN_BRANCH'})
+          ]),
+          exactStatement:'97=(6,9,6); 944=(6,9,8); shared (mod7,mod11)=(6,9); split Δmod13=2'
+        }),
+        source:'A0_SPIN_TO_BLOOM_MEASUREMENT.html#rootRatioMycelium',
+        sourceReceipt:'results/a0-spin-to-bloom-measurement-return-2026-10-29.json',
+        status:'SOURCE_BOUND_VIEW_CROSSWALK_NOT_CANONICAL_RELATION',
+        boundary:'The glyph rail and fibers are display proxies. The selected decimal Root marker controls the stair length; it is not identified with 97, 944, a radicand, a biological mycelium or a physical coupling.'
+      }),
+      sourceDock:Object.freeze({
+        angle333:Object.freeze({
+          stepDegrees:333,addressStepDegrees:111,modulusDegrees:120,gcd:3,
+          uniqueDirections:40,firstReturnStep:40,visitsPerDirection:3,
+          exactLaw:'333° = 3·111°; gcd(111,120)=3; 120/3=40',
+          source:'results/a0-angle-address-compare-3-111-333-2026-10-25.json',
+          status:'EXACT_NEGATIVE_CONTROL_SEPARATE_FROM_HISTORICAL_33_DEGREE_RAY'
+        }),
+        plateMirror:Object.freeze({
+          carrier:'RETAINED_SOURCE_ADDRESS',plateRole:'PRIME_SELECTS_PLATE',mirrorRole:'VIEW_SWITCH',
+          axes:Object.freeze(['y=x','y=-x']),
+          source:'results/a0-plate-mirror-reference-return-2026-10-20.json',
+          status:'VIEW_CHANGE_NOT_SOURCE_CHANGE'
+        }),
+        pinkGreyMeeting:Object.freeze({
+          registers:Object.freeze(['POSITION','COLOR_PINK_SHIFT','ECHO_LAG','SHADOW_FRACTION']),
+          fullReturnCondition:'position=PASS; pink=0; echo=0; visible area=4/4',
+          greyRole:'CONTROL',pinkRole:'DECLARED_DISPLAY_SHIFT',
+          source:'results/a0-grey-pink-typed-source-hof-return-2026-11-21.json',
+          status:'FOUR_TYPED_RECORDS_ONE_RETURN_CHECK'
+        }),
+        breath:Object.freeze({
+          core:'FIXED',bands:3,phaseOffsetsDegrees:Object.freeze([0,120,240]),cycleSeconds:4,amplitude:.06,
+          source:'results/a0-breathing-crystal-bench-return-2026-10-29.json',
+          apertureSource:'results/a0-breathing-crystal-aperture-return-2026-10-29.json',
+          status:'SOURCE_BOUND_DISPLAY_PHASE_NOT_PHYSICAL_BREATH_MODEL'
+        }),
+        boundary:'The four source readings share one comparator dock only. They do not share an operator, carrier identity, clock, physical mechanism or canonical Source Graph relation. Dzhanibekov remains an unbound visual analogy until an inertia tensor and falsifiable operator contract are supplied.'
+      }),
       qReturn:Object.freeze({source:1,crtAddress:qCubeAddress(1),notation:'1 ↔ (1,1,1)',exact:true}),
       mirror:Object.freeze({glyph:'¡',role:'OWNER_COUNTERPOINT_TO_1_RETURN',operator:'UNDEFINED',status:'HOLD'}),
       qrtBoundary:'In ART:ROSETTA:QRT_FIXTURE, R is the declared inverse and address-aligned Return. QRT20 remains a controlled address label and receives no universal letter expansion here.',
@@ -1332,7 +1434,7 @@
     const gapInteriorPrimes=primes.filter(p=>p>661&&p<809);
     const superprimes=nodes.filter(node=>node.isSuperprime).map(node=>node.n);
     return Object.freeze({
-      schema:'nexah.a0.primecube-gap-fold/1.53.0',version:VERSION,identityReuse:Object.freeze(['MOD:NUMBER_VIEW_SUITE','ART:A0:MATHEMATICAL_JOINTS','A0:ROOTROOM_CODON_ORIENTATION_RETURN:V1','ART:ROSETTA:QRT_FIXTURE','FESN:4774','A0OE:PASCAL_PENTAGON_D5_TEST']),
+      schema:'nexah.a0.primecube-gap-fold/1.56.0',version:VERSION,identityReuse:Object.freeze(['MOD:NUMBER_VIEW_SUITE','ART:A0:MATHEMATICAL_JOINTS','A0:ROOTROOM_CODON_ORIENTATION_RETURN:V1','ART:ROSETTA:QRT_FIXTURE','FESN:4774','A0OE:PASCAL_PENTAGON_D5_TEST']),
       carrier:Object.freeze({min:1,max:limit,count:limit,cubeShape:Object.freeze([11,11,10]),gridColumns:GRID_COLUMNS,fill:carrierFillRecord()}),
       nodes:Object.freeze(nodes),primes:Object.freeze(primes),groups,
       counts:Object.freeze({primes:primes.length,twins:groups.twins.length,triplets:groups.triplets.length,quadruplets:groups.quadruplets.length,superprimes:superprimes.length,layerClosures:LAYER_CLOSURES.length,squareLayerClosures:LAYER_CLOSURES.filter(n=>Number.isInteger(Math.sqrt(n))).length}),
@@ -1343,6 +1445,7 @@
       sliceAtlas:sliceAtlasRecord(),
       eulerCompass:eulerCompassRecord(),
       rootGeometry:squareSeamTriangleRecord(),
+      centeredPlateWindow:centeredPlateWindowRecord(),
       lokiChassis:lokiChassisRecord(),
       mathfieldCouplingDeck:mathfieldCouplingDeckRecord(),pentagonCurtainControl:pentagonCurtainControlRecord(),
       transversalPlaneScienceReturn:transversalPlaneScienceReturnRecord(),
@@ -1364,7 +1467,7 @@
       windowSequence111213:windowSequence111213Record(),
       yugoJogiFusion:yugoJogiFusionRecord(),
       gap:Object.freeze({...GAP,interiorPrimeCount:gapInteriorPrimes.length,interiorPrimes:Object.freeze(gapInteriorPrimes)}),
-      roots:Object.freeze({domain:Object.freeze([1,MAX_N-1]),referenceAnchors:Object.freeze([2,5,7]),operator:'Δk = √(k+1) − √k = 1/(√(k+1)+√k)',return:'RETAINED_SOURCE_NUMBER'}),
+      roots:Object.freeze({domain:Object.freeze([1,MAX_N-1]),referenceAnchors:Object.freeze([2,5,7]),codonF1:Object.freeze([5,11,17]),perfectCubeAnchors:Object.freeze([8,27,64,125,216,343,512,729,1000]),operators:Object.freeze({square:'Δ₂(k) = √(k+1) − √k = 1/(√(k+1)+√k)',cube:'Δ₃(k) = ∛(k+1) − ∛k = 1/((∛(k+1))²+∛(k+1)∛k+(∛k)²)'}),asymptotics:Object.freeze({square:'Δ₂(k) ~ 1/(2√k)',cube:'Δ₃(k) ~ 1/(3k^(2/3))'}),tridentSourceOverlay:Object.freeze({anglesDegrees:Object.freeze([90,210,330]),role:'VIEW_ONLY_THREE_AXIS_GUIDE'}),return:'RETAINED_SOURCE_NUMBER'}),
       hSpace:Object.freeze({name:'TYPED_H_RECORD_CROSSWALK',path:orientationPath(),diceSpaces:Object.freeze({h5:'{1,…,6}^5',h6:'{1,…,6}^6'}),frame17:'5+6+6 declared inventory; no natural identity asserted'}),
       boundary:'The cube, distributed gap fold, rigid 661 hinge, dual-grid orientation, Base-11 slice atlas, Euler Compass, root ruler, Square-Seam-Triangle view, Q/T20± CRT cuboid, Unit–Root–Shear comparator and H-record crosswalk are declared views. Prime rank, cube address, 37-column grid, CRT residue address, physical unit, root coordinate, shear component, residue angle, constellation membership, square interval, Theodoros display coordinate, dice state and provenance hash remain non-identical registers. The 3D hinge rotation and T20± modular maps are bijective; only the 2D screen projection may overlap records. They do not assert an intrinsic cubic prime geometry, canonical Prime Family, natural root cuboid, prime generator, physical hinge, resonance mechanism, Euler-Rainbow identity, identity with earlier Q± roles or natural Dice correspondence.'
     });
@@ -1383,5 +1486,5 @@
     });
   }
 
-  return Object.freeze({VERSION,MAX_N,GRID_COLUMNS,CUBE_SIZE,LAYER_AREA,LAYER_CLOSURES,GAP,UNIT_FACTORS_METRES,isPrime,sieve,divisors,primeFactorization,mod,gcd,multiplicativeOrder,modularPower,constellationGroups,cubeAddress,cubeNumber,fullCubeAddress,gridAddress,residueRecord,toBase11,diceAddress,diceNumber,hammingDistance,hRecord,orientationPath,layerClosureRecord,carrierFillRecord,seamShadowRecord,shadowCubeEnvelopeRecord,criticalLineRootTopologyRecord,thothKhipuKnotRecord,szChiralityLabRecord,gapPhase,rootGap,rootRecord,theodorosRecord,rootGeometryRecord,squareSeamTriangleRecord,lokiChassisRecord,splinterBookFoldRecord,mathfieldCouplingDeckRecord,pentagonCurtainControlRecord,transversalPlaneScienceReturnRecord,wheelGate13Record,alphaBetaFixedPointRecord,contractDemoCoverageRecord,fractalDirectFieldRecord,alJabrDotLensRecord,viewInvarianceAuditRecord,returnSeam4774Record,draftDriftHousingRecord,scarabControlLensRecord,foldAddress,hingeAddress,transition661Record,dualGridOrientationRecord,sliceAtlasRecord,eulerCompassRecord,qCubeAddress,mz24CompassRecord,qCubeRecord,unitRootShearRecord,windowSequence111213Record,yugoJogiFusionRecord,buildDataset,numberRecord});
+  return Object.freeze({VERSION,MAX_N,GRID_COLUMNS,CUBE_SIZE,LAYER_AREA,LAYER_CLOSURES,GAP,UNIT_FACTORS_METRES,isPrime,sieve,divisors,primeFactorization,mod,gcd,multiplicativeOrder,modularPower,constellationGroups,cubeAddress,cubeNumber,fullCubeAddress,gridAddress,residueRecord,toBase11,diceAddress,diceNumber,hammingDistance,hRecord,orientationPath,layerClosureRecord,carrierFillRecord,seamShadowRecord,shadowCubeEnvelopeRecord,criticalLineRootTopologyRecord,thothKhipuKnotRecord,szChiralityLabRecord,gapPhase,rootGap,cubeRootGap,rootRulerRecord,rootRecord,theodorosRecord,rootGeometryRecord,squareSeamTriangleRecord,centeredPlateWindowRecord,lokiChassisRecord,splinterBookFoldRecord,mathfieldCouplingDeckRecord,pentagonCurtainControlRecord,transversalPlaneScienceReturnRecord,wheelGate13Record,alphaBetaFixedPointRecord,contractDemoCoverageRecord,fractalDirectFieldRecord,alJabrDotLensRecord,viewInvarianceAuditRecord,returnSeam4774Record,draftDriftHousingRecord,scarabControlLensRecord,foldAddress,hingeAddress,transition661Record,dualGridOrientationRecord,sliceAtlasRecord,eulerCompassRecord,qCubeAddress,mz24CompassRecord,qCubeRecord,unitRootShearRecord,windowSequence111213Record,yugoJogiFusionRecord,buildDataset,numberRecord});
 });

@@ -118,7 +118,7 @@ The zero-sum control `[-1,+2,-1]` preserves both row sums and the total `102`. I
 
 Boundary: the transported numbers are integer display labels. In particular `[0,9,10,32,28,21]` contains no prime anchors. The adapter establishes neither physical motion nor a new Prime carrier, Study, Finding, Navigator identity or typed relation.
 
-## Step 14 — Zirkel split / view / return control
+## Step 14 — Zirkel crawler / split / view / return control
 
 Eight Human Owner visuals are hash-bound as source witnesses. Together they expose a `7+1+3` role field: outer structure addresses `1–7`, pivot `8`, and the three ports `9/10/11`. The activated source visual draws `8→10` and `8→11`; port `9` is visible but unconnected. The Prime Cube comparator adds `8↔9` only as an explicitly declared local polarity control, not as a recovered source edge.
 
@@ -129,6 +129,8 @@ The ports are typed separately:
 - `11`: separate Tao/Wal boundary role; it is not an endpoint of the strip merely because its address is `11`.
 
 The `8→10` strip has midpoint `1/2`, total width `5/6`, and half-width `5/12`. It must not be confused with an offset `δ=1/12` from the critical line: `1/2±1/12` gives `5/12` and `7/12`, not `1/12` and `11/12`.
+
+The UI now exposes this comparator as a 24-step **display crawler**. Pivot `8` remains fixed; the moving marker traces a three-lobed screen path and the arm reports the currently selected field port (`9`, then `10`, then `11`). Step `24` returns to the same screen coordinate and the pivot/return role. Previous, next, play/pause, reset and direct step scrubbing all address the same finite trace. This animation is a view operator only: it does not add a natural clock, cyclic `C11` action, physical field motion, canonical identity or graph relation.
 
 Three separate critical-line offset probes are compared at `x=1000`: `δ=1/11`, `δ=1/12`, and the arbitrary denominator control `δ=1/10`. Every symmetric pair `β±=1/2±δ` has midpoint `1/2`, and the normalized envelopes satisfy `x^δ·x^−δ=1`. This exact mirror law therefore does not distinguish `1/11` from the two controls. The earlier phase seam `−1/12≡11/12 (mod 1)` also remains a separate comparator and is not assigned to port `11`.
 
