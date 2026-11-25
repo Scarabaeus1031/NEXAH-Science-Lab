@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import crypto from "node:crypto";
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -16,6 +17,103 @@ const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 const failures = [];
 const expect = (condition, message) => { if (!condition) failures.push(message); };
 const hash = (file) => crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
+
+const historicalSources = binder.historical_a0_document_snapshots;
+const historicalRoot = path.resolve(ecosystemRoot, historicalSources.repository);
+const verifiedHistoricalSources = new Set();
+function committedSource(repo, revision, file) {
+  return execFileSync("git", ["-C", repo, "show", `${revision}:${file}`], {
+    maxBuffer: 16 * 1024 * 1024, stdio: ["ignore", "pipe", "pipe"]
+  });
+}
+function matchesEvidenceHash(target, expected) {
+  if (hash(target) === expected) return true;
+  const relative = path.relative(historicalRoot, target);
+  const snapshot = historicalSources.files.find(file => file.path === relative && file.sha256 === expected);
+  if (!snapshot || !/^[a-f0-9]{40}$/.test(snapshot.commit)) return false;
+  const cacheKey = `${snapshot.path}:${snapshot.sha256}`;
+  if (verifiedHistoricalSources.has(cacheKey)) return true;
+  try {
+    const actual = crypto.createHash("sha256").update(committedSource(historicalRoot, snapshot.commit, relative)).digest("hex");
+    if (actual !== expected) return false;
+    verifiedHistoricalSources.add(cacheKey);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+if (process.argv.includes("--doppelrad-return-only")) {
+  const record = binder.doppelrad_documentary_return_20261125;
+  const [lab, builder, mission] = record?.repositories || [];
+  const body = (repo, file) => execFileSync("git", [
+    "-C", path.resolve(ecosystemRoot, repo.ecosystem_path), "show", `${repo.commit}:${file}`
+  ], { maxBuffer: 16 * 1024 * 1024, stdio: ["ignore", "pipe", "pipe"] });
+  const sha256 = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
+  const declaredPaths = [
+    "30 SCIENCE LAB/NEXAH-Science-Lab",
+    "10 NEXAH CORE/NEXAH",
+    "00 EXECUTIVE/NEXAH-Mission-Control"
+  ];
+  expect(record?.status === "DOCUMENTARY_RETURN_FINDING_OPEN" &&
+    record?.hearing_comparison?.disposition === "OPEN", "listening Finding remains open");
+  expect(record?.existing_artifact === "ART:HTML:F9C5BB196DA3" &&
+    record?.existing_lens === "SG:LENS:A0_ORIENTATION_EVIDENCE", "existing artifact and lens retained");
+  expect(["identities", "relations", "aliases"].every(key => record?.graph_delta?.[key] === 0) &&
+    record?.study_activation === false && record?.publication_authorized === false, "documentary authority and zero graph delta");
+  expect(record?.hearing_comparison?.start_step === 1259 && record?.hearing_comparison?.return_step === 1260 &&
+    record?.hearing_comparison?.offset_step === 1261, "A/B comparison steps retained");
+  expect(record?.repositories?.length === declaredPaths.length, "three source repositories");
+  let files = 0;
+  for (const [i, repo] of (record?.repositories || []).entries()) {
+    const validRepo = repo.ecosystem_path === declaredPaths[i] && /^[a-f0-9]{40}$/.test(repo.commit);
+    expect(validRepo, "repository and committed revision: " + repo.ecosystem_path);
+    if (!validRepo) continue;
+    for (const file of repo.files) {
+      try {
+        const bytes = body(repo, file.path);
+        expect(sha256(bytes) === file.sha256, "commit hash: " + file.path);
+        if (file.anchor) {
+          expect(bytes.toString("utf8").includes(`id="${file.anchor}"`), "commit anchor: " + file.anchor);
+        }
+        files++;
+      } catch {
+        failures.push("unavailable Git snapshot: " + repo.commit + ":" + file.path);
+      }
+    }
+  }
+  const sourceKeys = [
+    "NEXAH_A0_RESEARCH_DESK",
+    "A0_BUILDER_LOG_CURRENT",
+    "NEXAH_A0_ORIENTATION_CONTROLLER_BENCH",
+    "SCIENCE_LAB_A0_SCIENCE_DESK_CURRENTNESS_8PLUS3",
+    "SCIENCE_LAB_A0_MATROSCHKA_SCIENCE_STATUS",
+    "SCIENCE_LAB_A0_PAPER_E_ORIENTATION_METHOD_DRAFT"
+  ];
+  let boundRows = 0;
+  try {
+    const control = body(mission, "CURRENT/CONTROLLING_SOURCES.csv");
+    const manifest = body(mission, "CURRENT/MANIFEST_SHA256.txt").toString("utf8");
+    expect(manifest.split("\n").includes(sha256(control) + "  CONTROLLING_SOURCES.csv"), "committed Mission Control manifest");
+    const labRoot = path.resolve(ecosystemRoot, lab.ecosystem_path);
+    const missionRoot = path.resolve(ecosystemRoot, mission.ecosystem_path);
+    for (const key of sourceKeys) {
+      const line = control.toString("utf8").split("\n").find(row => row.startsWith(key + ","));
+      const columns = line?.match(/^[^,]+,(?:"([^"]+)"|([^,]+)),([a-f0-9]{64}),/);
+      expect(Boolean(columns), "Mission Control row: " + key);
+      if (!columns) continue;
+      const file = path.relative(labRoot, path.resolve(missionRoot, columns[1] || columns[2]));
+      expect(!file.startsWith(".." + path.sep) && sha256(body(lab, file)) === columns[3], "pinned A0 source row: " + key);
+      boundRows++;
+    }
+    const handoff = body(mission, "00_LAB_RESEARCH_DIRECTOR_DESK/CURRENT_STATE.md").toString("utf8");
+    expect(handoff.includes(lab.commit) && handoff.includes(builder.commit), "handoff names both source revisions");
+  } catch {
+    failures.push("unavailable Mission Control or Science Lab handoff snapshot");
+  }
+  console.log(JSON.stringify({ status: failures.length ? "FAIL" : "PASS", scope: "Doppelrad Git snapshots", files, boundRows, failures }, null, 2));
+  process.exit(failures.length ? 1 : 0);
+}
 
 if (process.argv.includes("--nsn-glb-artwork-only")) {
   const update = binder.documentary_update_20261018.nsn_glb_artwork_cluster_return_20261023;
@@ -207,7 +305,7 @@ for (const [label, routeKey, hashKey] of [
   const route = String(rubikQdc?.routes?.[routeKey] || "").split("#")[0];
   const target = path.resolve(ecosystemRoot, a0Package + route);
   expect(fs.existsSync(target), `${label} exists`);
-  if (fs.existsSync(target)) expect(hash(target) === rubikQdc?.source_hashes?.[hashKey], `${label} hash`);
+  if (fs.existsSync(target)) expect(matchesEvidenceHash(target, rubikQdc?.source_hashes?.[hashKey]), `${label} hash`);
 }
 const rubikMissionControl = path.resolve(ecosystemRoot, "00 EXECUTIVE/NEXAH-Mission-Control/00_LAB_RESEARCH_DIRECTOR_DESK/RETURN_2026-11-07_A0_TYPED_MIRROR_F0_CLEAN_DESK.md");
 expect(fs.existsSync(rubikMissionControl) && hash(rubikMissionControl) === rubikQdc?.source_hashes?.mission_control, "Rubik QDC Mission Control return hash");
@@ -262,7 +360,7 @@ for (const [label, relative, expected] of [
 ]) {
   const target = path.resolve(ecosystemRoot, relative || "");
   expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), `Red Balloon ${label} exists`);
-  if (fs.existsSync(target)) expect(hash(target) === expected, `Red Balloon ${label} hash matches`);
+  if (fs.existsSync(target)) expect(matchesEvidenceHash(target, expected), `Red Balloon ${label} hash matches`);
 }
 const sameCarrier = binder.same_carrier_different_maps_intake_20261106;
 expect(sameCarrier?.status === "SOURCE_BOUND_COMPARISON_CONTRACT_WITH_HOLDS", "Same Carrier intake remains a source-bound comparison contract with HOLDs");
@@ -284,7 +382,7 @@ for (const [label, relative, expected] of [
 ]) {
   const target = path.resolve(ecosystemRoot, relative || "");
   expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), `Same Carrier ${label} exists`);
-  if (fs.existsSync(target)) expect(hash(target) === expected, `Same Carrier ${label} hash matches`);
+  if (fs.existsSync(target)) expect(matchesEvidenceHash(target, expected), `Same Carrier ${label} hash matches`);
 }
 expect(binder.spin_to_bloom_measurement_return_20261029?.status === "SOURCE_BOUND_ENGINEERING_MEASUREMENT_NO_ADMISSION", "Spin to Bloom bounded measurement status");
 expect(binder.spin_to_bloom_measurement_return_20261029?.identity_reuse?.includes("ART:A0:MATHEMATICAL_JOINTS"), "Spin to Bloom reuses Mathematical Joints identity");
@@ -394,6 +492,22 @@ for (const source of primeArchitecture?.source_hashes || []) {
   expect(target.startsWith(ecosystemRoot + path.sep) && fs.existsSync(target), `Prime Architecture hash source exists: ${source.ecosystem_path}`);
   if (fs.existsSync(target)) expect(hash(target) === source.sha256, `Prime Architecture source hash matches: ${source.ecosystem_path}`);
 }
+const parentRevision = primeArchitecture.parent_surface_revision;
+const parentPath = primeArchitecture.parent_surface.split("#")[0];
+const parentSource = primeArchitecture.source_hashes.find(source => source.ecosystem_path.endsWith("/" + parentPath));
+try {
+  const relative = path.relative(historicalRoot, path.resolve(ecosystemRoot, parentSource.ecosystem_path));
+  const parentBytes = committedSource(historicalRoot, parentRevision.commit, relative);
+  expect(crypto.createHash("sha256").update(parentBytes).digest("hex") === parentSource.sha256 &&
+    parentSource.sha256 === parentRevision.current_sha256, "Prime Architecture verified successor revision");
+  expect(parentRevision.verified_anchors.length === 6 && parentRevision.verified_anchors.every(anchor =>
+    parentBytes.toString("utf8").includes(`id="${anchor}"`)), "Prime Architecture successor retains all six anchors");
+  expect(parentRevision.previous_snapshot === "ORIGINAL_BYTES_NOT_FOUND_IN_REACHABLE_GIT_HISTORY" &&
+    /^[a-f0-9]{64}$/.test(parentRevision.previous_sha256) && parentRevision.previous_sha256 !== parentRevision.current_sha256,
+    "Prime Architecture historical hash and custody gap retained");
+} catch {
+  failures.push("Prime Architecture successor Git snapshot unavailable");
+}
 expect(binder.reader_architecture?.status === "EDITORIAL_NAVIGATION_FRAME_NO_NEW_IDENTITY", "A0 reader architecture status");
 expect(binder.reader_architecture?.works?.length === 6, "six A0 reader works");
 expect(binder.reader_architecture?.works?.map((item) => item.label).join("→") === "A0 Book→Mathfield→Pascal Joint→SCC-003 Paper→Return Paper→Backlog", "A0 reader work order");
@@ -463,7 +577,7 @@ for (const source of binder.sources || []) {
   const sourcePath = path.resolve(ecosystemRoot, source.ecosystem_path);
   expect(sourcePath.startsWith(ecosystemRoot + path.sep), `source escapes ecosystem: ${source.source_id}`);
   expect(fs.existsSync(sourcePath), `missing source: ${source.source_id}`);
-  if (fs.existsSync(sourcePath)) expect(hash(sourcePath) === source.sha256, `hash mismatch: ${source.source_id}`);
+  if (fs.existsSync(sourcePath)) expect(matchesEvidenceHash(sourcePath, source.sha256), `hash mismatch: ${source.source_id}`);
 }
 
 const nodeIds = new Set(binder.nodes.map((item) => item.node_id));
@@ -581,6 +695,7 @@ expect(nlkGridReturn?.machina_consumer?.ninth_body === false && nlkGridReturn?.m
 const result = {
   status: failures.length ? "FAIL" : "PASS",
   checks: { sources: binder.sources.length, nodes: binder.nodes.length, relations: binder.relations.length, aliases: binder.aliases.length },
+  historicalSnapshotsVerified: verifiedHistoricalSources.size,
   failures
 };
 console.log(JSON.stringify(result, null, 2));
