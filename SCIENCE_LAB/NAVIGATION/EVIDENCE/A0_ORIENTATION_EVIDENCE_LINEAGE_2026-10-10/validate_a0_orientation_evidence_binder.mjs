@@ -692,10 +692,42 @@ expect(nlkGridReturn?.receipt_sha256 === hash(path.resolve(ecosystemRoot, "30 SC
 expect(nlkGridReturn?.machina_consumer?.classification === "SOURCE_BOUND_LIVE_INTERFACE_CONSUMER" && nlkGridReturn?.machina_consumer?.assembly_route?.join("→") === "viewer→cockpit→parts→bench→relation→return→viewer" && nlkGridReturn?.machina_consumer?.exact_return === true, "Machina Relation Chamber consumes Tri-View through exact typed return");
 expect(nlkGridReturn?.machina_consumer?.ninth_body === false && nlkGridReturn?.machina_consumer?.fifth_glb_cockpit === false && nlkGridReturn?.machina_consumer?.guided_tour_changed === false && nlkGridReturn?.machina_consumer?.new_identity === false && nlkGridReturn?.machina_consumer?.relation_change === false, "Machina consumer does not alter body, cockpit, tour, identity or relation counts");
 
+const methodReturn = binder.helix_paper_e_method_return_20261125;
+expect(methodReturn?.status === "DOCUMENTARY_METHOD_RETURN_FINDING_OPEN" &&
+  methodReturn.existing_lens === "SG:LENS:A0_ORIENTATION_EVIDENCE", "Helix and Paper E documentary return");
+const artifactRegistry = JSON.parse(fs.readFileSync(path.resolve(here, "../../HTML_ARTIFACT_REGISTRY_V1_2026-10-06.json"), "utf8"));
+const artifacts = new Set(artifactRegistry.artifacts.map(item => item.artifact_id));
+expect(methodReturn?.identity_reuse?.length === 3 &&
+  methodReturn.identity_reuse.every(id => artifacts.has(id)), "Helix, Paper E and Riemann Spiegel reuse registered artifacts");
+expect(methodReturn?.comparisons?.length === 2 &&
+  methodReturn.comparisons[0].files.length === 7 && methodReturn.comparisons[1].files.length === 5,
+  "both method snapshots record their complete source sets");
+let methodSnapshotsVerified = 0;
+for (const comparison of methodReturn?.comparisons || []) {
+  const hasValidRevision = /^[a-f0-9]{40}$/.test(comparison.revision);
+  expect(hasValidRevision, "full method Git revision: " + comparison.title);
+  if (!hasValidRevision) continue;
+  for (const file of comparison.files) {
+    try {
+      const bytes = committedSource(historicalRoot, comparison.revision, file.path);
+      const hashMatches = crypto.createHash("sha256").update(bytes).digest("hex") === file.sha256;
+      expect(hashMatches, "method Git SHA-256: " + file.path);
+      if (hashMatches) methodSnapshotsVerified++;
+      const text = bytes.toString("utf8");
+      for (const anchor of file.anchors || []) {
+        expect(text.includes(`id="${anchor}"`), "method Git anchor: " + file.path + "#" + anchor);
+      }
+    } catch {
+      failures.push("unavailable method Git source: " + comparison.revision + ":" + file.path);
+    }
+  }
+}
+
 const result = {
   status: failures.length ? "FAIL" : "PASS",
   checks: { sources: binder.sources.length, nodes: binder.nodes.length, relations: binder.relations.length, aliases: binder.aliases.length },
   historicalSnapshotsVerified: verifiedHistoricalSources.size,
+  methodSnapshotsVerified,
   failures
 };
 console.log(JSON.stringify(result, null, 2));
