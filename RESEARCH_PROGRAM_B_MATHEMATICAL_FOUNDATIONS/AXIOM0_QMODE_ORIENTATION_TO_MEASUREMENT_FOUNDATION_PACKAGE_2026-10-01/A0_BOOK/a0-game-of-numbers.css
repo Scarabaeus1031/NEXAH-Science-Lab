@@ -459,3 +459,98 @@ body[data-number-view=qrt20] canvas{min-height:720px;background:radial-gradient(
   border-color: #ffcc83;
   color: #fff3dc;
 }
+
+#wheelBlindTest {
+  box-sizing: border-box;
+  width: min(36rem, calc(100% - 2rem));
+  max-height: calc(100% - 2rem);
+  padding: 1.25rem;
+  color: #e5f4ff;
+  background: #071823;
+  border: 1px solid #466579;
+  border-radius: 8px;
+}
+#wheelBlindTest::backdrop {
+  background: #071019;
+}
+#wheelBlindTest h2 {
+  margin-top: 0;
+}
+#wheelBlindTest button:disabled {
+  opacity: 0.5;
+}
+#wheelBlindTest form {
+  margin-top: 1rem;
+}
+
+#wheelMixTitle {
+  margin: 0.35em 0;
+  font-size: 1.25em;
+}
+#wheelMix fieldset {
+  margin: 0;
+  border: 1px solid #315365;
+  border-radius: 4px;
+}
+#wheelMixPlay {
+  min-height: 38px;
+  border-color: #ffcc83;
+}
+#wheelMixGrid {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0.35rem 0.5rem 1rem;
+}
+.wheel-mix-scale {
+  display: flex;
+  justify-content: space-between;
+  font-variant-numeric: tabular-nums;
+}
+.wheel-mix-lanes {
+  position: relative;
+  border-right: 1px solid #315365;
+}
+.wheel-mix-track {
+  position: relative;
+  height: 1.4rem;
+  border-bottom: 1px solid #315365;
+  background-image: linear-gradient(to right, #315365 1px, transparent 1px);
+  background-size: calc(100% / 70) 100%;
+}
+.wheel-mix-seven, .wheel-mix-track:first-child {
+  color: #69dceb;
+}
+.wheel-mix-five, .wheel-mix-track:nth-child(2) {
+  color: #ffae69;
+}
+.wheel-mix-downbeat, .wheel-mix-cursor {
+  position: absolute;
+  top: 0;
+  width: 2px;
+}
+.wheel-mix-downbeat {
+  height: 100%;
+  background: currentColor;
+}
+.wheel-mix-downbeat.is-playing {
+  width: 4px;
+  box-shadow: 0 0 7px currentColor;
+}
+.wheel-mix-cursor {
+  bottom: 0;
+  width: 1px;
+  background: #fff5d7;
+  pointer-events: none;
+}
+
+.wheel-tail-results {
+  margin-block: 0.45rem;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+.wheel-tail-results th,
+.wheel-tail-results td {
+  padding: 0.3rem 0.55rem;
+  border-bottom: 1px solid #315365;
+  text-align: start;
+}

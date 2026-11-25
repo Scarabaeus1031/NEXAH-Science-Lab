@@ -46,6 +46,13 @@ const nodes={},listeners={},timers=new Map(),rafs=new Map(),sent=[],paintedText=
 function element(){return{value:'0',hidden:true,textContent:'',style:{},dataset:{},events:{},addEventListener(t,f){this.events[t]=f},setPointerCapture(){},pause(){this.paused=true},getBoundingClientRect:()=>({left:0,top:0,width:900,height:650}),getContext:()=>new Proxy({},{get:(_,key)=>key==='fillText'?(text)=>paintedText.push(text):()=>{}}),click(){},setAttribute(){}}}
 const html=fs.readFileSync(path.join(__dirname,'assets/game-of-worlds-play/numbers/index.html'),'utf8');for(const m of html.matchAll(/id="([^"]+)"/g))nodes[m[1]]=element();
 for(const m of html.matchAll(/(?:href|src)="([^"#]+)"/g))ok(fs.existsSync(path.resolve(__dirname,'assets/game-of-worlds-play/numbers',decodeURIComponent(m[1].split('?')[0]))),'number dependencies exist '+m[1]);
+// Mix controls and rail elements for the Number Lens controller's initial render.
+nodes.wheelMix.querySelectorAll=()=>[element(),element()];
+nodes.wheelMixGrid.querySelectorAll=()=>Array.from({length:2},()=>{
+  const tracks=Array.from({length:2},()=>({...element(),replaceChildren(...children){this.children=children;}}));
+  const cursor=element();
+  return {querySelectorAll:()=>tracks,querySelector:()=>cursor};
+});
 const parent={postMessage:m=>sent.push(m)},document={hidden:false,body:{dataset:{}},getElementById:id=>nodes[id],createElement:element,addEventListener:(t,f)=>listeners['doc:'+t]=f};
 const breathBox={window:{}};vm.runInNewContext(fs.readFileSync(path.resolve(__dirname,'../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_CON_DAO_JANUS_BREATH_SEQUENCER_2026-10-06/breath-model.js'),'utf8'),breathBox);
 const box={A0TrinityLens:require('./a0-trinity-lens.js'),NEXAH_BREATH_MODEL:breathBox.window.NEXAH_BREATH_MODEL,A0ConDaoPhase:require('./a0-con-dao-phase.js'),A0NumberParallel:require('./a0-number-parallel-model.js'),A0NumberParallelView:{mount:()=>({render(){}})},A0LayeredPentagonScene:require('./a0-layered-pentagon-scene.js'),A0GameOfNumbers:M,A0SpatialReaderPrimitives:P,document,parent,devicePixelRatio:1,matchMedia:()=>({matches:false}),addEventListener:(t,f)=>listeners[t]=f,setInterval:fn=>{const id=timerId++;timers.set(id,fn);return id},clearInterval:id=>timers.delete(id),requestAnimationFrame:fn=>{const id=rafId++;rafs.set(id,fn);return id},cancelAnimationFrame:id=>rafs.delete(id),Blob:class{constructor(parts){this.parts=parts}},URL:{createObjectURL:b=>{exported=JSON.parse(b.parts[0]);return'blob:numbers'},revokeObjectURL(){}},setTimeout:fn=>fn()};box.window=box;

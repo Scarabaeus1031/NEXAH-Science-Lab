@@ -28,17 +28,54 @@
   const backloopQrt20 = M.jointQrt20CodecAudit(1836, 1729, 'counter').qrt20;
   const qrt20ReturnEighths = backloopQrt20.moving_residue_return_period;
   const abcGaps = [2, 1, 3];
+  const fiveBeatGaps = [2, 1, 2];
   const sevenBeatGaps = [2, 2, 3];
-  const wheelResonanceTakes = [48, 96].map(frequency => ({
-    button: $('wheelResonanceListen' + frequency),
+  const wheelResonanceTakes = [
+    { bars: 2, suffix: '', delayMs: 0 },
+    { bars: 8, suffix: 'Long', delayMs: 0 },
+    { bars: 8, suffix: 'Delayed', delayMs: 20 },
+  ].flatMap(({ bars, suffix, delayMs }) => [48, 96].map(frequency => ({
+    button: $('wheelResonanceListen' + frequency + suffix),
     gaps: abcGaps,
     frequency,
-    peakOutput: $('wheelResonancePeak' + frequency),
+    bars,
+    delayMs,
+    peakOutput: $('wheelResonancePeak' + frequency + suffix),
+  })));
+  const wheelFeedbackTakes = ['Dry', 'Feedback'].map(suffix => ({
+    button: $('wheelResonanceListen' + suffix),
+    gaps: abcGaps,
+    frequency: 48,
+    bars: 8,
+    delayMs: 20,
+    feedback: suffix === 'Feedback',
+    peakOutput: $('wheelResonancePeak' + suffix),
+    tailOutputs: [1, 3].map(second => ({ second, output: $('wheelResonanceTail' + suffix + second) })),
+  }));
+  const wheelResonanceLadder = [3, 6, 9, 12, 24, 48, 96];
+  const wheelFrequencyTakes = [
+    { suffix: '48Solo', frequencies: [48] },
+    { suffix: '48Plus69', frequencies: [48, 69] },
+    ...wheelResonanceLadder.map((frequency, index) => ({
+      suffix: 'Ladder' + frequency,
+      frequencies: wheelResonanceLadder.slice(0, index + 1),
+    })),
+  ].map(({ suffix, frequencies }) => ({
+    button: $('wheelResonanceListen' + suffix),
+    gaps: abcGaps,
+    frequency: frequencies[0],
+    frequencies,
+    bars: 8,
+    delayMs: 20,
+    reverseMs: 320,
+    peakOutput: $('wheelResonancePeak' + suffix),
   }));
   const wheelAuditionLoops = [
     { button: $('wheelBeatABLoop'), gaps: [2, 2] },
     { button: wheelBeatABCLoop, gaps: abcGaps },
     ...wheelResonanceTakes,
+    ...wheelFeedbackTakes,
+    ...wheelFrequencyTakes,
   ];
   const wheelBeatHat = $('wheelBeatHat');
   const wheelBeatSnare = $('wheelBeatSnare');
@@ -77,7 +114,9 @@
   let wheelAudioGain = null;
   let wheelReturnAuditionGain = null;
   let pendingWheelReturnAudition = null;
-  let wheelAuditionCell = null;
+  let interruptWheelBlindTrial = null;
+  let stopWheelMix = null;
+  const wheelAuditionCells = new Set();
   let wheelNoiseBuffer = null;
   let wheelReverseBuffer = null;
   const wheelBackloopBuffers = new Map();
@@ -94,7 +133,9 @@
   const resonanceImpulse = 0.09;
   const resonanceNumber = new Intl.NumberFormat('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   let wheelResonanceAnalyser = null;
+  let wheelResonanceFeedback = null;
   let wheelResonanceBuffer = null;
+  const wheelMatchedResonanceBuffers = new WeakMap();
   let wheelResonanceSamples = null;
   let wheelResonanceFrame = null;
   let wheelResonanceNext = null;
@@ -231,19 +272,72 @@
     if (wheelResonanceLevel.textContent !== readout) wheelResonanceLevel.textContent = readout;
   }
 
+  function readWheelResonancePeak() {
+    wheelResonanceAnalyser.getFloatTimeDomainData(wheelResonanceSamples);
+    let peak = 0;
+    for (const sample of wheelResonanceSamples) peak = Math.max(peak, Math.abs(sample));
+    return peak / resonanceImpulse;
+  }
+
   function measureWheelResonance() {
     wheelResonanceFrame = null;
     if (!wheelResonanceSources.size) {
       showWheelResonance(0);
       return;
     }
-    wheelResonanceAnalyser.getFloatTimeDomainData(wheelResonanceSamples);
-    let peak = 0;
-    for (const sample of wheelResonanceSamples) peak = Math.max(peak, Math.abs(sample));
-    const level = peak / resonanceImpulse;
+    const level = readWheelResonancePeak();
     if (wheelAuditionLoop?.peakOutput) wheelResonanceTakePeak = Math.max(wheelResonanceTakePeak, level);
     showWheelResonance(level);
     wheelResonanceFrame = requestAnimationFrame(measureWheelResonance);
+  }
+
+  function createWheelResonanceBuffer(frequencies, damping) {
+    const rate = wheelAudio.sampleRate;
+    const length = Math.ceil(7 * rate / damping);
+    const buffer = wheelAudio.createBuffer(1, length, rate);
+    const samples = buffer.getChannelData(0);
+    const phaseSteps = frequencies.map(frequency => 2 * Math.PI * frequency / rate);
+    const decayStep = Math.exp(-damping / rate);
+    let envelope = resonanceImpulse;
+    for (let i = 0; i < length; i += 1) {
+      let wave = 0;
+      for (const phaseStep of phaseSteps) wave += Math.sin(phaseStep * i);
+      samples[i] = envelope * wave;
+      envelope *= decayStep;
+    }
+    return buffer;
+  }
+
+  function wheelTakeDelayMs(take, bar, accent) {
+    return (bar * abcGaps.length + accent) % 2 === 1 ? take.delayMs : 0;
+  }
+
+  function matchWheelResonanceRms(take) {
+    const rate = wheelAudio.sampleRate;
+    const sampleCount = Math.round(take.bars * 5 * wheelBeatMs * rate / 1000);
+    const onsets = [];
+    let pulse = 0;
+    for (let bar = 0; bar < take.bars; bar += 1) {
+      for (const [accent, gap] of fiveBeatGaps.entries()) {
+        const atMs = pulse * wheelBeatMs + wheelTakeDelayMs(take, bar, accent);
+        onsets.push(Math.round(atMs * rate / 1000));
+        pulse += gap;
+      }
+    }
+    function rms(impulse) {
+      const signal = new Float64Array(sampleCount);
+      for (const onset of onsets) {
+        const length = Math.min(impulse.length, sampleCount - onset);
+        for (let i = 0; i < length; i += 1) signal[onset + i] += impulse[i];
+      }
+      return Math.sqrt(signal.reduce((sum, sample) => sum + sample * sample, 0) / signal.length);
+    }
+    const reference = createWheelResonanceBuffer([48], resonanceComparisonDamping);
+    const mix = createWheelResonanceBuffer(take.frequencies, resonanceComparisonDamping);
+    const samples = mix.getChannelData(0);
+    const scale = rms(reference.getChannelData(0)) / rms(samples);
+    for (let i = 0; i < samples.length; i += 1) samples[i] *= scale;
+    return mix;
   }
 
   function exciteWheelResonance(onset) {
@@ -260,23 +354,31 @@
       wheelResonanceAnalyser.fftSize = windowSize;
       wheelResonanceSamples = new Float32Array(windowSize);
     }
-    if (!wheelResonanceBuffer || wheelResonanceBuffer.frequency !== frequency || wheelResonanceBuffer.damping !== damping) {
-      const rate = wheelAudio.sampleRate;
-      const length = Math.ceil(7 * rate / damping);
-      const buffer = wheelAudio.createBuffer(1, length, rate);
-      const samples = buffer.getChannelData(0);
-      const phaseStep = 2 * Math.PI * frequency / rate;
-      const decayStep = Math.exp(-damping / rate);
-      let envelope = resonanceImpulse;
-      for (let i = 0; i < length; i += 1) {
-        samples[i] = envelope * Math.sin(phaseStep * i);
-        envelope *= decayStep;
-      }
-      wheelResonanceBuffer = { frequency, damping, buffer };
-    }
     const tone = wheelAudio.createBufferSource();
-    tone.buffer = wheelResonanceBuffer.buffer;
+    const matched = wheelMatchedResonanceBuffers.get(wheelAuditionLoop);
+    if (matched) {
+      tone.buffer = matched;
+    } else {
+      if (!wheelResonanceBuffer || wheelResonanceBuffer.frequency !== frequency || wheelResonanceBuffer.damping !== damping) {
+        wheelResonanceBuffer = { frequency, damping, buffer: createWheelResonanceBuffer([frequency], damping) };
+      }
+      tone.buffer = wheelResonanceBuffer.buffer;
+    }
     tone.connect(wheelResonanceAnalyser);
+    if (wheelAuditionLoop?.feedback) {
+      if (!wheelResonanceFeedback) {
+        const delay = wheelAudio.createDelay(0.5);
+        const feedback = wheelAudio.createGain();
+        const wet = wheelAudio.createGain();
+        delay.delayTime.value = 0.25;
+        feedback.gain.value = 0.92;
+        wet.gain.value = 0.05;
+        delay.connect(feedback).connect(delay);
+        delay.connect(wet).connect(wheelResonanceAnalyser);
+        wheelResonanceFeedback = { delay, feedback, wet };
+      }
+      tone.connect(wheelResonanceFeedback.delay);
+    }
     wheelResonanceSources.add(tone);
     tone.onended = () => wheelResonanceSources.delete(tone);
     tone.start(onset);
@@ -286,6 +388,10 @@
   function clearWheelResonance() {
     for (const source of wheelResonanceSources) source.stop();
     wheelResonanceSources.clear();
+    if (wheelResonanceFeedback) {
+      for (const node of Object.values(wheelResonanceFeedback)) node.disconnect();
+      wheelResonanceFeedback = null;
+    }
     if (wheelResonanceFrame !== null) cancelAnimationFrame(wheelResonanceFrame);
     wheelResonanceFrame = null;
     showWheelResonance(0);
@@ -510,8 +616,7 @@
     };
   }
 
-  function backloopPassesFilter(tick) {
-    const diagonal = wheelBackloopDiagonal.value;
+  function backloopPassesFilter(tick, diagonal = wheelBackloopDiagonal.value) {
     return diagonal === 'all' || Boolean(backloopFieldAt(tick)?.[diagonal]);
   }
 
@@ -758,46 +863,60 @@
     return frame().state;
   }
 
-  function playWheelReturnAudition(voices, step) {
-    const now = wheelAudio.currentTime;
+  function scheduleWheelReturnVoices(voices, time) {
     for (const voice of voices) {
-      playBassVoice(voice.pitch, voice.level, now, voice.decay, wheelReturnAuditionGain);
+      playBassVoice(voice.pitch, voice.level, time, voice.decay, wheelReturnAuditionGain);
     }
+  }
+
+  function showWheelReturnAudition(voices, step, comparisonLabel = 'Hörprobe') {
     const labels = voices.map(voice => voice.label).join(' + ');
     $('wheelReturnAuditionStatus').textContent = step === undefined
       ? `Hörprobe · ${labels}`
-      : `Hörprobe · Schritt ${step.toLocaleString('de-DE')} · ${labels}`;
+      : `${comparisonLabel} · Schritt ${step.toLocaleString('de-DE')} · ${labels}`;
   }
 
-  function flashWheelReturnAudition() {
+  function clearWheelReturnMarkers() {
+    for (const cell of wheelAuditionCells) cell.dataset.audition = 'false';
+    wheelAuditionCells.clear();
+  }
+
+  function flashWheelReturnAudition(keepPrevious) {
     const cell = activeBackloopCell;
     if (!cell) return;
-    if (wheelAuditionCell) wheelAuditionCell.dataset.audition = 'false';
-    wheelAuditionCell = cell;
+    if (!keepPrevious) clearWheelReturnMarkers();
+    wheelAuditionCells.add(cell);
     cell.dataset.audition = 'flash';
     scheduleWheelAction(175, () => {
-      if (wheelAuditionCell === cell) cell.dataset.audition = 'last';
+      if (wheelAuditionCells.has(cell)) cell.dataset.audition = 'last';
     });
   }
 
-  function scheduleSevenBeatFills(sevenTicks, gapTicks, tickMs, returnComparisonStep = null) {
+  function scheduleSevenBeatFills(sevenTicks, gapTicks, tickMs, comparisonSteps = []) {
+    const paired = comparisonSteps.length === 2;
     for (let offset = 0; offset < gapTicks; offset += ticksPerEighth) {
       const delay = offset * tickMs;
       scheduleWheelFill(wheelBeatHat, delay, now => playWheelHat(now, offset === 0 ? 0.075 : 0.024));
       const tick = sevenTicks + offset;
       const step = tick / ticksPerEighth;
       scheduleWheelAction(delay, () => {
-        const isComparisonHit = step === returnComparisonStep;
+        const isComparisonHit = comparisonSteps.includes(step);
         const audition = isComparisonHit ? wheelReturnAuditions : pendingWheelReturnAudition;
         if (!isComparisonHit) pendingWheelReturnAudition = null;
-        if (audition) playWheelReturnAudition(audition, step);
+        const pairedLabel = paired && isComparisonHit ? (step === allReturnEighths ? 'A' : 'B') : '';
+        if (audition) {
+          if (!pairedLabel) scheduleWheelReturnVoices(audition, wheelAudio.currentTime);
+          showWheelReturnAudition(audition, step, pairedLabel || undefined);
+        }
         const wheel = wheelNumberSyncActive() ? syncWheelNumberStep(step) : null;
         showWheelBackloopTick(tick);
-        if (audition) flashWheelReturnAudition();
+        showWheelTransportStep(step);
+        if (audition) flashWheelReturnAudition(Boolean(pairedLabel));
         if (step === 0 || !wheelAuditionLoop || wheelAudio.state !== 'running') return;
         const now = wheelAudio.currentTime;
         const voices = [];
-        const compareReturn = returnComparisonStep !== null && step === allReturnEighths;
+        if (pairedLabel) return;
+        const compareReturn = comparisonSteps.length > 0 && step === allReturnEighths;
         for (const [enabled, returning, label, pitch, level, decay] of [
           [wheelQrt20ReturnSound.checked, step % qrt20ReturnEighths === 0, 'QRT20', 220, 0.09, 0.10],
           [wheel60ReturnSound.checked, step % 60 === 0, '60er', 82, 0.14, 0.17],
@@ -825,7 +944,7 @@
     }
   }
 
-  function playWheelAudition(index, reverseMs, { scheduled, resonant = false, afterAccent = () => {} } = {}) {
+  function playWheelAudition(index, reverseMs, { scheduled, resonant = false, resonanceDelayMs = 0, visual = true, trackPosition = true, afterAccent = () => {} } = {}) {
     const audioReady = wheelAudio?.state === 'running';
     const reverse = reverseMs > 0 && audioReady;
     const returnRing = beatRings[1];
@@ -837,12 +956,14 @@
         downbeat = playReverseWheelEcho(reverseMs, scheduled === undefined ? undefined : downbeat);
         wheelAudioGain.gain.setValueAtTime(0.45, downbeat);
         playWheelTone(returnRing, returnLevel, downbeat);
-        const showReverse = () => {
-          wheelBeatCue.textContent = `A · 432er Reverse-Echo läuft ein · ${reverseMs} ms`;
-        };
-        const leadWait = (downbeat - wheelAudio.currentTime) * 1000 - reverseMs;
-        if (leadWait > audioScheduleMs) scheduleWheelAction(leadWait, showReverse);
-        else showReverse();
+        if (visual) {
+          const showReverse = () => {
+            wheelBeatCue.textContent = `A · 432er Reverse-Echo läuft ein · ${reverseMs} ms`;
+          };
+          const leadWait = (downbeat - wheelAudio.currentTime) * 1000 - reverseMs;
+          if (leadWait > audioScheduleMs) scheduleWheelAction(leadWait, showReverse);
+          else showReverse();
+        }
       } else if (index === 2) {
         wheelAudioGain.gain.setValueAtTime(0.45, downbeat);
         playWheelTone(impulse123, 0.22, downbeat);
@@ -850,16 +971,23 @@
         hitWheelBass(true, downbeat, auditionBeats[index]);
       }
       if (resonant) {
-        wheelResonanceNext = downbeat;
-        exciteWheelResonance(downbeat);
+        wheelResonanceNext = downbeat + resonanceDelayMs / 1000;
+        exciteWheelResonance(wheelResonanceNext);
       }
     }
+    if (!visual) return;
     const land = () => {
       if (index === 2) {
         wheelBeatCue.textContent = 'C · 123er-Impuls';
       } else {
-        wheelBeat = auditionBeats[index];
-        showWheelBeat();
+        const eventBeat = auditionBeats[index];
+        if (trackPosition) {
+          wheelBeat = eventBeat;
+          showWheelBeat();
+        } else {
+          wheelBeatCue.textContent = beatRings.filter(ring => beatCue(ring, eventBeat))
+            .map(ring => `${ring.modulus} · ${beatCue(ring, eventBeat)}`).join(' | ');
+        }
         if (reverse) wheelBeatCue.textContent = '432 · Reverse-Echo | 408 · Return';
       }
       afterAccent(downbeat);
@@ -899,12 +1027,15 @@
     showWheelABCPattern();
     for (const handle of wheelBeatFills) clearTimeout(handle);
     wheelBeatFills.clear();
+    interruptWheelBlindTrial?.();
+    interruptWheelBlindTrial = null;
+    stopWheelMix?.();
+    stopWheelMix = null;
     if (pendingWheelReturnAudition) {
       pendingWheelReturnAudition = null;
       $('wheelReturnAuditionStatus').textContent = '';
     }
-    if (wheelAuditionCell) wheelAuditionCell.dataset.audition = 'false';
-    wheelAuditionCell = null;
+    clearWheelReturnMarkers();
     for (const source of wheelBassSources) source.stop();
     wheelBassSources.clear();
     wheelResonanceNext = null;
@@ -920,7 +1051,12 @@
     wheelBeatMeters.clear();
   }
 
-  function showWheelBeat() {
+  function showWheelTransportStep(step) {
+    wheelBeat = step === 0 ? 0 : (step - 1) % sharedBeatReturn + 1;
+    showWheelBeat({ updateCue: false });
+  }
+
+  function showWheelBeat({ updateCue = true } = {}) {
     const angles = beatRings.map(ring => {
       const angle = direction => Number(wheelBeatDegrees(ring, direction).toFixed(1)).toLocaleString('de-DE');
       return `${ring.modulus} · + ${angle(1)}° / − ${angle(-1)}°`;
@@ -928,7 +1064,7 @@
     wheelBeatState.textContent = `Schlag ${wheelBeat}/${sharedBeatReturn} · ${angles.join(' | ')}`;
     const cue = wheelBeat === sharedBeatReturn ? 'Gemeinsamer Return · 432 und 408' :
       wheelBeat ? beatRings.filter(ring => beatCue(ring)).map(ring => `${ring.modulus} · ${beatCue(ring)}`).join(' | ') : '';
-    if (wheelBeatCue.textContent !== cue) wheelBeatCue.textContent = cue;
+    if (updateCue && wheelBeatCue.textContent !== cue) wheelBeatCue.textContent = cue;
     requestDraw();
   }
 
@@ -1064,9 +1200,309 @@
     return () => renderCut(270);
   }
 
+  function mountWheelMix() {
+    const toggle = $('wheelMixPlay');
+    const status = $('wheelMixStatus');
+    const offsetControls = [...$('wheelMix').querySelectorAll('input[name="wheelMixOffset"]')];
+    const sixteenthSeconds = wheelBeatMs / 4000;
+    const panelLength = 70;
+    const sevenAccents = [0, 4, 8];
+    const fiveAccents = [0, 8, 12];
+    const sevenLength = eighthsPerSevenBar * 2;
+    const fiveLength = 5 * 4;
+    const cycle = sharedReturnPeriod(sevenLength, fiveLength);
+    const cycleSeconds = cycle * sixteenthSeconds;
+    const panels = [...$('wheelMixGrid').querySelectorAll('.wheel-mix-panel')].map((element, index) => ({
+      start: index * panelLength,
+      tracks: [...element.querySelectorAll('.wheel-mix-track')],
+      cursor: element.querySelector('.wheel-mix-cursor'),
+    }));
+    let offsetSeconds = 0;
+    let markers = [];
+
+    function renderGrid() {
+      const delayInTicks = offsetSeconds / sixteenthSeconds;
+      markers = [];
+      for (const [track, length, delay] of [[0, sevenLength, 0], [1, fiveLength, delayInTicks]]) {
+        for (let tick = delay; tick < cycle; tick += length) {
+          const panel = panels[Math.floor(tick / panelLength)];
+          const marker = document.createElement('span');
+          marker.className = 'wheel-mix-downbeat';
+          marker.style.left = `${100 * (tick - panel.start) / panelLength}%`;
+          marker.title = `Takt-Eins · ${tick.toLocaleString('de-DE')} Sechzehntel ab Start`;
+          markers.push({ tick, marker, panel, track });
+        }
+      }
+      for (const panel of panels) {
+        panel.tracks.forEach((rail, index) => {
+          const downbeats = markers.filter(marker => marker.panel === panel && marker.track === index);
+          rail.replaceChildren(...downbeats.map(({ marker }) => marker));
+          rail.setAttribute('aria-label', `${index === 0 ? '7/8' : '5/4'} · Takt-Einsen ab Start bei Sechzehntel ${downbeats.map(({ tick }) => tick.toLocaleString('de-DE')).join(', ')}`);
+        });
+      }
+    }
+
+    function scheduleCycle(start) {
+      wheelAudioGain.gain.setValueAtTime(0.45, start);
+      for (let tick = 0; tick < cycle; tick += sevenLength) {
+        for (const [index, accent] of sevenAccents.entries()) {
+          playWheelAudition(index, 0, { scheduled: start + (tick + accent) * sixteenthSeconds, visual: false });
+        }
+        for (let pulse = 0; pulse < sevenLength; pulse += 2) {
+          playWheelHat(start + (tick + pulse) * sixteenthSeconds, sevenAccents.includes(pulse) ? 0.07 : 0.025);
+        }
+      }
+      for (let tick = 0; tick < cycle; tick += fiveLength) {
+        const bar = start + offsetSeconds + tick * sixteenthSeconds;
+        for (const [index, accent] of fiveAccents.entries()) {
+          playWheelSnare(bar + accent * sixteenthSeconds, index === 0 ? 0.17 : 0.09);
+        }
+        for (let pulse = 0; pulse < fiveLength; pulse += 4) {
+          playWheelHat(bar + pulse * sixteenthSeconds, pulse === 0 ? 0.05 : 0.022);
+        }
+      }
+      const next = start + cycleSeconds;
+      scheduleWheelAction((next - wheelAudio.currentTime - 0.25) * 1000, () => scheduleCycle(next));
+    }
+
+    async function startMix() {
+      stopWheelBeat();
+      pause();
+      const playback = wheelBeatPlayback;
+      let animation = null;
+      toggle.textContent = 'Mix stoppen';
+      toggle.setAttribute('aria-pressed', 'true');
+      status.textContent = 'Mix startet …';
+      stopWheelMix = () => {
+        cancelAnimationFrame(animation);
+        for (const { cursor } of panels) cursor.hidden = true;
+        for (const { marker } of markers) marker.classList.remove('is-playing');
+        toggle.textContent = 'Mix starten';
+        toggle.setAttribute('aria-pressed', 'false');
+        status.textContent = 'Mix bereit.';
+      };
+      await enableWheelBass();
+      if (playback !== wheelBeatPlayback) return;
+      if (!wheelBeatVisible() || document.hidden || wheelAudio?.state !== 'running') {
+        stopWheelBeat();
+        status.textContent = 'Mix konnte nicht gestartet werden.';
+        return;
+      }
+      const start = wheelAudio.currentTime + 0.12;
+      scheduleCycle(start);
+      status.textContent = 'Mix läuft.';
+      function drawMix() {
+        if (!wheelBeatVisible()) {
+          stopWheelBeat();
+          return;
+        }
+        const elapsed = wheelAudio.currentTime - start;
+        if (elapsed >= 0) {
+          const tick = elapsed % cycleSeconds / sixteenthSeconds;
+          for (const panel of panels) {
+            panel.cursor.hidden = tick < panel.start || tick >= panel.start + panelLength;
+            if (!panel.cursor.hidden) panel.cursor.style.left = `${100 * (tick - panel.start) / panelLength}%`;
+          }
+          for (const { tick: downbeat, marker } of markers) {
+            marker.classList.toggle('is-playing', tick >= downbeat && tick - downbeat < 1);
+          }
+        }
+        animation = requestAnimationFrame(drawMix);
+      }
+      animation = requestAnimationFrame(drawMix);
+    }
+
+    toggle.addEventListener('click', () => {
+      if (stopWheelMix) stopWheelBeat();
+      else startMix();
+    });
+    for (const control of offsetControls) {
+      control.addEventListener('change', () => {
+        offsetSeconds = Number(control.value);
+        renderGrid();
+        if (stopWheelMix) startMix();
+      });
+    }
+    renderGrid();
+  }
+
+  function scheduleWheelBlindTake(firstAccentTime, barStep, offset, settings) {
+    const previousGap = sevenBeatGaps.at(-1);
+    let pulse = -previousGap;
+    for (const index of [2, 0, 1, 2]) {
+      const onset = firstAccentTime + (pulse + previousGap) * settings.eighthSeconds;
+      playWheelAudition(index, index === 0 ? settings.reverseMs : 0, { scheduled: onset, visual: false });
+      const gap = sevenBeatGaps[index];
+      for (let i = 0; i < gap; i += 1) {
+        const tick = (barStep + pulse + i) * ticksPerEighth;
+        const time = onset + i * settings.eighthSeconds;
+        if (settings.hat) playWheelHat(time, i === 0 ? 0.075 : 0.024);
+        const sign = backloopSign(tick);
+        if (settings.backloop && sign && backloopPassesFilter(tick, settings.diagonal)) {
+          playWheelBackloop(time, sign, tick, settings.qrt20Timbre);
+        }
+      }
+      if (settings.glue && gap > ticksPerQuarter / ticksPerEighth) {
+        playBassVoice(39, 0.085, onset + 2 * settings.eighthSeconds, 0.16);
+      }
+      pulse += gap;
+    }
+    const probeTime = firstAccentTime + (previousGap + offset) * settings.eighthSeconds;
+    scheduleWheelReturnVoices(wheelReturnAuditions, probeTime);
+  }
+
+  function mountWheelBlindTest() {
+    const dialog = $('wheelBlindTest');
+    const launch = $('wheelBlindOpen');
+    const listen = $('wheelBlindListen');
+    const picks = [$('wheelBlindPick1'), $('wheelBlindPick2')];
+    const progress = $('wheelBlindProgress');
+    const status = $('wheelBlindStatus');
+    const result = $('wheelBlindResult');
+    const saveForm = $('wheelBlindSaveForm');
+    const conditions = $('wheelBlindConditions');
+    const saveStatus = $('wheelBlindSaveStatus');
+    const trialsPerGroup = 12;
+    const benchmark = 10;
+    const groups = [
+      { label: 'Gemeinsamer Return (1260 / 1261)', step: allReturnEighths },
+      { label: 'Normale Takt-Eins (1267 / 1268)', step: allReturnEighths + eighthsPerSevenBar },
+    ];
+    let trials = [];
+    let settings;
+    let index = 0;
+    let canAnswer = false;
+    let receipt;
+
+    function renderTrial() {
+      const complete = index === trials.length;
+      progress.textContent = complete ? `${index} / ${trials.length} beantwortet` : `Durchgang ${index + 1} / ${trials.length}`;
+      listen.hidden = complete;
+      listen.disabled = false;
+      for (const pick of picks) pick.disabled = true;
+      canAnswer = false;
+      status.textContent = complete ? 'Test beendet.' : 'Hör beide Proben an und wähle den Einsatz, der stärker einrastet.';
+      if (!complete) return;
+      result.hidden = false;
+      const scores = groups.map(group => {
+        const downbeat = trials.filter(trial => trial.group === group && trial.preferredDownbeat).length;
+        const nextEighth = trialsPerGroup - downbeat;
+        const threshold = downbeat >= benchmark ? 'Benchmark auf der Eins erreicht'
+          : nextEighth >= benchmark ? 'Benchmark beim nächsten Achtel erreicht' : 'Benchmark nicht erreicht';
+        return { label: group.label, downbeat, nextEighth, threshold };
+      });
+      receipt = { id: crypto.randomUUID(), completedAt: new Date().toISOString(), settings, scores };
+      result.replaceChildren(...scores.map(({ label, downbeat, nextEighth, threshold }) => {
+        const row = document.createElement('li');
+        row.textContent = `${label} · Eins ${downbeat}/${trialsPerGroup} · nächstes Achtel ${nextEighth}/${trialsPerGroup} · ${threshold}`;
+        return row;
+      }));
+      saveForm.hidden = false;
+    }
+
+    launch.addEventListener('click', () => {
+      stopWheelBeat();
+      pause();
+      settings = {
+        eighthSeconds: sevenTickMs() * ticksPerEighth / 1000,
+        reverseMs: reverseLengthFor(0),
+        hat: wheelBeatHat.checked,
+        backloop: wheelBeatBackloop.checked,
+        glue: wheelBeatGlue.checked,
+        qrt20Timbre: wheelBackloopTimbre.checked,
+        diagonal: wheelBackloopDiagonal.value,
+        diagonalLabel: wheelBackloopDiagonal.selectedOptions[0].textContent.trim(),
+      };
+      trials = groups.flatMap(group => Array.from({ length: trialsPerGroup }, () => ({
+        group,
+        offsets: Math.random() < 0.5 ? [0, 1] : [1, 0],
+      })));
+      for (let i = trials.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [trials[i], trials[j]] = [trials[j], trials[i]];
+      }
+      index = 0;
+      receipt = null;
+      conditions.value = '';
+      saveStatus.textContent = '';
+      saveForm.hidden = true;
+      $('wheelBlindDeskLink').hidden = true;
+      result.hidden = true;
+      result.replaceChildren();
+      renderTrial();
+      dialog.showModal();
+    });
+
+    listen.addEventListener('click', async () => {
+      stopWheelBeat();
+      const playback = wheelBeatPlayback;
+      listen.disabled = true;
+      canAnswer = false;
+      for (const pick of picks) pick.disabled = true;
+      interruptWheelBlindTrial = () => {
+        listen.disabled = false;
+        status.textContent = 'Wiedergabe unterbrochen. Du kannst den Durchgang erneut abspielen.';
+      };
+      await enableWheelBass();
+      if (playback !== wheelBeatPlayback) return;
+      if (!dialog.open || document.hidden || !wheelBeatVisible() || wheelAudio?.state !== 'running') {
+        stopWheelBeat();
+        return;
+      }
+      const trial = trials[index];
+      const takeSeconds = (sevenBeatGaps.at(-1) + eighthsPerSevenBar) * settings.eighthSeconds + 0.4;
+      const start = wheelAudio.currentTime + 0.08;
+      wheelAudioGain.gain.setValueAtTime(0.45, start);
+      trial.offsets.forEach((offset, position) => {
+        const onset = start + position * takeSeconds;
+        scheduleWheelBlindTake(onset, trial.group.step, offset, settings);
+        scheduleWheelAction((onset - wheelAudio.currentTime) * 1000, () => {
+          status.textContent = `Probe ${position + 1} von 2 läuft.`;
+        });
+      });
+      scheduleWheelAction((start + 2 * takeSeconds - wheelAudio.currentTime) * 1000, () => {
+        interruptWheelBlindTrial = null;
+        status.textContent = 'Welcher Einsatz rastet stärker ein?';
+        canAnswer = true;
+        for (const pick of picks) pick.disabled = false;
+        picks[0].focus();
+      });
+    });
+
+    picks.forEach((pick, position) => pick.addEventListener('click', () => {
+      if (!canAnswer) return;
+      const trial = trials[index];
+      trial.preferredDownbeat = trial.offsets[position] === 0;
+      index += 1;
+      renderTrial();
+      (index === trials.length ? conditions : listen).focus();
+    }));
+
+    saveForm.addEventListener('submit', event => {
+      event.preventDefault();
+      if (!receipt || !conditions.value.trim()) {
+        saveStatus.textContent = 'Bitte kurz die Hörbedingungen eintragen.';
+        return;
+      }
+      try {
+        localStorage.setItem(`nexah.doppelrad.blindtest.v1.${receipt.id}`,
+          JSON.stringify({ ...receipt, conditions: conditions.value.trim() }));
+        saveStatus.textContent = 'Im Science Desk dieses Browsers gespeichert.';
+        $('wheelBlindDeskLink').hidden = false;
+      } catch {
+        saveStatus.textContent = 'Speichern fehlgeschlagen. Der Browser gibt den lokalen Speicher nicht frei.';
+      }
+    });
+    dialog.addEventListener('close', () => {
+      if (!dialog.open) stopWheelBeat();
+    });
+  }
+
   if (wheelBeatPlay && wheelBeatBass) {
     mountWheelComposite();
     mountWheelEulerLens();
+    mountWheelBlindTest();
+    mountWheelMix();
     for (const [key, voices] of [
       ...wheelReturnAuditions.map(voice => [voice.key, [voice]]),
       ['Together', wheelReturnAuditions],
@@ -1081,7 +1517,8 @@
         const playback = wheelBeatPlayback;
         if (wheelAudio?.state !== 'running') await enableWheelBass();
         if (playback !== wheelBeatPlayback || !wheelBeatVisible() || document.hidden || wheelAudio?.state !== 'running') return;
-        playWheelReturnAudition(voices);
+        scheduleWheelReturnVoices(voices, wheelAudio.currentTime);
+        showWheelReturnAudition(voices);
       });
     }
     const resetPolarCut = mountWheelPolarComparison();
@@ -1202,8 +1639,9 @@
         }
       });
     }
-    async function toggleWheelLoop(loopMode, returnComparisonStep = null) {
-      const isReturnComparison = returnComparisonStep !== null;
+    async function toggleWheelLoop(loopMode, comparisonSteps = []) {
+      const isReturnComparison = comparisonSteps.length > 0;
+      const paired = comparisonSteps.length === 2;
       const wasPlaying = !isReturnComparison && wheelAuditionLoop === loopMode;
       const armedReturn = loopMode.gaps === abcGaps && !loopMode.peakOutput &&
         wheelBeatABCMeter.value === '7/8' ? armedBackloopReturn : 0;
@@ -1213,7 +1651,9 @@
       if (isReturnComparison) {
         wheelBeatABCMeter.value = '7/8';
         showWheelBackloopTick((previewReturn - 1) * ticksPerEighth);
-        $('wheelReturnAuditionStatus').textContent = `A/B-Hörvergleich · Einsatz bei Schritt ${returnComparisonStep.toLocaleString('de-DE')}`;
+        $('wheelReturnAuditionStatus').textContent = paired
+          ? 'A → B · 1260 auf Tick 0, 1261 auf Tick 96'
+          : `Hörvergleich · Einsatz bei Schritt ${comparisonSteps[0].toLocaleString('de-DE')}`;
       }
       const playback = wheelBeatPlayback;
       wheelAuditionLoop = loopMode;
@@ -1228,6 +1668,7 @@
       if (comparison) {
         wheelResonanceTakePeak = 0;
         loopMode.peakOutput.textContent = '—';
+        for (const { output } of loopMode.tailOutputs ?? []) output.textContent = '—';
         wheelResonanceAnalyser?.disconnect();
         wheelResonanceAnalyser = null;
         selectWheelResonance(loopMode.frequency);
@@ -1239,10 +1680,14 @@
         stopWheelBeat();
         return;
       }
+      if (loopMode.frequencies && (loopMode.frequency !== 48 || loopMode.frequencies.length > 1) && !wheelMatchedResonanceBuffers.has(loopMode)) {
+        wheelMatchedResonanceBuffers.set(loopMode, matchWheelResonanceRms(loopMode));
+      }
       let meter = previewReturn ? '7/8' : '';
       let tickMs = previewReturn ? sevenTickMs() : wheelTickMs;
       let rpm = platterRpm();
       let phrasePulse = 0;
+      let transportPulse = 0;
       let sevenTicks = previewReturn * ticksPerEighth;
       let bars = 0;
       if (!previewReturn && wheelBeatABCMeter.value === '7/8') {
@@ -1254,7 +1699,7 @@
       const playAccent = (index, reverseMs, scheduled) => {
         const previousTickMs = tickMs;
         const previousRpm = rpm;
-        if (index === 0) {
+        if (index === 0 && !(paired && sevenTicks === allReturnEighths * ticksPerEighth)) {
           const nextMeter = comparison ? '5' : loopMode.gaps === abcGaps ? wheelBeatABCMeter.value : '4';
           tickMs = nextMeter === '7/8' ? sevenTickMs() : wheelTickMs;
           rpm = platterRpm();
@@ -1262,6 +1707,7 @@
             meter = nextMeter;
             if (meter !== '7/8') stopWheelPlatter();
             phrasePulse = 0;
+            transportPulse = 0;
             sevenTicks = 0;
             if (meter !== '5') {
               wheelResonanceNext = null;
@@ -1271,14 +1717,23 @@
         }
         const fiveBeat = meter === '5';
         const sevenBeat = meter === '7/8';
-        playWheelAudition(index, reverseMs, { scheduled, resonant: fiveBeat, afterAccent: downbeat => {
-          const gap = sevenBeat ? sevenBeatGaps[index] : fiveBeat && index === 2 ? 2 : loopMode.gaps[index];
+        const liveGroove = loopMode.button === wheelBeatABCLoop;
+        const resonanceDelayMs = comparison ? wheelTakeDelayMs(loopMode, bars, index) : 0;
+        playWheelAudition(index, reverseMs, { scheduled, resonant: fiveBeat, resonanceDelayMs, trackPosition: !liveGroove, afterAccent: downbeat => {
+          const gap = (sevenBeat ? sevenBeatGaps : fiveBeat ? fiveBeatGaps : loopMode.gaps)[index];
           const gapTicks = gap * (sevenBeat ? ticksPerEighth : ticksPerQuarter);
+          if (liveGroove && !sevenBeat) {
+            for (let offset = 0; offset < gap; offset += 1) {
+              const step = transportPulse + offset;
+              scheduleWheelAction(offset * wheelBeatMs, () => showWheelTransportStep(step));
+            }
+            transportPulse += gap;
+          }
           if (sevenBeat) {
             if (!platterClock || previousTickMs !== tickMs || previousRpm !== rpm) {
               alignWheelPlatter(downbeat, tickMs, rpm);
             }
-            scheduleSevenBeatFills(sevenTicks, gapTicks, tickMs, returnComparisonStep);
+            scheduleSevenBeatFills(sevenTicks, gapTicks, tickMs, comparisonSteps);
             sevenTicks += gapTicks;
           } else if (fiveBeat) {
             scheduleFiveBeatPercussion(phrasePulse, gap);
@@ -1290,25 +1745,39 @@
             scheduleWheelFill(wheelBeatGlue, 1.5 * wheelBeatMs, now => playBassVoice(39, 0.085, now, 0.16));
           }
           const nextDownbeat = downbeat + gapTicks * tickMs / 1000;
-          if (comparison && index === 2 && ++bars === 2) {
+          if (comparison && index === 2 && ++bars === loopMode.bars) {
             const wait = Math.max(0, (nextDownbeat - wheelAudio.currentTime) * 1000);
             scheduleWheelAction(wait, () => {
               loopMode.peakOutput.textContent = `${resonanceNumber.format(wheelResonanceTakePeak)}×`;
-              stopWheelBeat();
+              if (!loopMode.tailOutputs) stopWheelBeat();
             });
+            if (loopMode.tailOutputs) {
+              const lastImpulse = downbeat + resonanceDelayMs / 1000;
+              for (const { second, output } of loopMode.tailOutputs) {
+                scheduleWheelAction((lastImpulse + second - wheelAudio.currentTime) * 1000, () => {
+                  output.textContent = `${resonanceNumber.format(readWheelResonancePeak())}×`;
+                });
+              }
+              scheduleWheelAction((lastImpulse + 3.5 - wheelAudio.currentTime) * 1000, stopWheelBeat);
+            }
             return;
           }
           const next = (index + 1) % loopMode.gaps.length;
-          const nextReverseMs = reverseLengthFor(next);
+          const nextReverseMs = next === 0 ? (loopMode.reverseMs ?? reverseLengthFor(0)) : 0;
           playAccent(next, nextReverseMs, nextDownbeat);
         } });
       };
-      const firstReverseMs = reverseLengthFor(0);
+      const firstReverseMs = loopMode.reverseMs ?? reverseLengthFor(0);
       const eighthMs = ticksPerEighth * tickMs;
       const leadMs = previewReturn ? Math.max(eighthMs, firstReverseMs + 40) : firstReverseMs + 40;
       const firstDownbeat = wheelAudio.currentTime + leadMs / 1000;
       if (previewReturn) {
         scheduleWheelAction(leadMs - eighthMs, () => scheduleSevenBeatFills((previewReturn - 1) * ticksPerEighth, ticksPerEighth, tickMs));
+      }
+      if (paired) {
+        for (const step of comparisonSteps) {
+          scheduleWheelReturnVoices(wheelReturnAuditions, firstDownbeat + (step - allReturnEighths) * eighthMs / 1000);
+        }
       }
       playAccent(0, firstReverseMs, firstDownbeat);
     }
@@ -1316,8 +1785,9 @@
       loopMode.button.addEventListener('click', () => toggleWheelLoop(loopMode));
     }
     const sevenBeatLoop = wheelAuditionLoops.find(mode => mode.button === wheelBeatABCLoop);
-    $('wheelReturnCompareA').addEventListener('click', () => toggleWheelLoop(sevenBeatLoop, allReturnEighths));
-    $('wheelReturnCompareB').addEventListener('click', () => toggleWheelLoop(sevenBeatLoop, allReturnEighths + 1));
+    $('wheelReturnCompareA').addEventListener('click', () => toggleWheelLoop(sevenBeatLoop, [allReturnEighths]));
+    $('wheelReturnCompareB').addEventListener('click', () => toggleWheelLoop(sevenBeatLoop, [allReturnEighths + 1]));
+    $('wheelReturnComparePair').addEventListener('click', () => toggleWheelLoop(sevenBeatLoop, [allReturnEighths, allReturnEighths + 1]));
     for (const [id, beat] of [
       ['wheelBeatReset', 0],
       ['wheelBeatHalfPreview', sharedBeatReturn / 2 - 1],
