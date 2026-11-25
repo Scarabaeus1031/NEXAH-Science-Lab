@@ -57,7 +57,7 @@ assert.equal((html.match(/data-journey-tour/g)||[]).length,1);
 assert.equal((html.match(/data-journey-deeper/g)||[]).length,1);
 assert.match(html,/5 → 4 → 3 → 2 → 1/);
 assert.match(html,/a0-observer-journey\.js\?rev=20261119-tour-score-r12/);
-assert.match(html,/a0-observer-journey\.css\?rev=20261119-nbands-r11/);
+assert.match(html,/a0-observer-journey\.css\?rev=20261125-tour-handoff/);
 assert.match(html,/TOUR COMPLETE · JETZT SELBST SCROLLEN UND ENTDECKEN/);
 assert.match(html,/ATEM → 3 FENSTER → EINZELN → RETURN/);
 assert.equal((html.match(/data-journey-transition/g)||[]).length,1);
