@@ -13404,13 +13404,15 @@
       "receipt": "A0_BOOK/results/a0-reciprocal-angle-hinge-return-2026-11-06.json",
       "test": "A0_BOOK/a0-reciprocal-angle-hinge-tests.cjs"
     },
+    "source_revision": "bf2d6d87f1a37c297d84c04645e960168df57aa8",
+    "source_revision_scope": "A0_BOOK routes",
     "source_hashes": {
-      "numbermagick": "e8298ae3e078d1a068ae88340048c6aa3ffc603d023100902b08cfd5baf21d61",
-      "science_desk": "0c8bbd11ff22ea4f6dce5900bdcb047583d99118de631f977bb1a29681017ae2",
-      "runtime": "5116372361f27c7f4f570e7a9e3bd8d02b1760a691411482b549faca565cf1cd",
+      "numbermagick": "01d5e84db59f6181396324a3893c1ce61f21acd3cbd4c2ae7cfdcf50dd5e12f6",
+      "science_desk": "6a2d4fb511d6782b5bfab8969e0a1eed28f2281bde6de523a85f2be513b7a2a9",
+      "runtime": "8fafb2b5b989a22ba02b0ff490d8d30f55968c571f33c8bfdac9440514419dcd",
       "style": "13ae978dff4e3d9e321215f0232f41a1f46e87991c93ad0f243c328a0286e39e",
       "receipt": "96eaf228e01e75f58de8d7be52639189d0204a4957dfb5a13d655787dfad01b2",
-      "test": "7179be457bbcf9e29c4c83378e02f6bcdbd4c3d74711fad73fe82ed6dff0ab49"
+      "test": "49e2d334b97285227c9d1b6608d454f6418e46d6a3cfc97ae3380b526497eaff"
     },
     "formal_core": {
       "ratio": "theta=atan2(p,q) for positive integer rise:run address p:q",
@@ -13419,7 +13421,11 @@
       "fixed_point": "1:1 at 45 degrees",
       "fan": "1:2, 2:3, 1:1, 3:2, 2:1",
       "signed_view": "F(side,p:q)=(-side,q:p) and F squared is identity",
-      "sixty_degree_boundary": "60 degrees requires sqrt(3):1 and is not an exact rational fan preset"
+      "sixty_degree_boundary": "60 degrees requires sqrt(3):1 and is not an exact rational fan preset",
+      "theta_lift": "TAO +90, DAO +90, IOTA -270, YUGO display reset to LOS; right:left quarter-turn record 2:3",
+      "winding_boundary": "-270 degrees and +90 degrees share an endpoint modulo 360 but retain different signed path records",
+      "prime_flashlight": "For finite integer source x, blue I/Platinum displays exact pi(x), yellow J/Iridium displays the smooth logarithmic-integral comparator Li(x), and pink displays Li(x)-pi(x)",
+      "source_404": "404=4*101 and pi(404)=79; the white sector is a display aperture on the same source and carrier"
     },
     "holds": [
       "THETA_ZETA_LAMBDA_SEMANTICS",
@@ -13428,10 +13434,11 @@
       "MUSICAL_INTERVAL_DERIVATION",
       "VOXEL_OR_V_X_IDENTITY",
       "TWO_WHEEL_OR_FOUR_WHEEL_MECHANICS",
-      "HISTORICAL_GENERATOR_RECONSTRUCTION"
+      "HISTORICAL_GENERATOR_RECONSTRUCTION",
+      "RIEMANN_OR_GENERALIZED_RIEMANN_HYPOTHESIS_PROOF"
     ],
     "verification": {
-      "new_assertions": 43,
+      "new_assertions": 68,
       "pascal_thread_regression": 9027,
       "browser_runtime": "PASS_RENDERED_ANCHOR_AND_EXPOSED_CONTROLS",
       "human_visual_acceptance": "OPEN",
@@ -13445,7 +13452,7 @@
     "new_finding": false,
     "publication": false,
     "canonical_count_effect": 0,
-    "claim_boundary": "This bounded reciprocal-ratio and signed-view adapter extends the existing Number View suite. It creates no physical light, shadow, Cube, Disc, music, vehicle, Voxel, historical-generator or universal-operator claim."
+    "claim_boundary": "This bounded reciprocal-ratio, signed-view and finite prime-count display adapter extends the existing Number View suite. Li(x) is only a smooth comparator to exact pi(x); the bright sector is only a display aperture. It creates no RH/GRH proof, physical light, shadow, Cube, Disc, music, vehicle, Voxel, historical-generator or universal-operator claim."
   },
   "a0_101_angle_hinge_dock_return_20261106": {
     "status": "PASS_SOURCE_BOUND_POST_FREEZE_DOCK",
@@ -13466,21 +13473,26 @@
       "receipt": "A0_BOOK/results/a0-101-angle-hinge-dock-return-2026-11-06.json",
       "test": "A0_BOOK/a0-101-angle-hinge-dock-tests.cjs"
     },
+    "source_revision": "bf2d6d87f1a37c297d84c04645e960168df57aa8",
+    "source_revision_scope": "A0_BOOK routes",
     "source_hashes": {
-      "world_cube": "34829958e36773a5a4a9dc6cfc64b28f4ef745b8edcf4347940b6e127c0991a8",
-      "start_surface": "1e33d9c68c3f68e7d5eec17a9e2a3253209f23fabd079fbaa1bd5a0a9fd973d6",
-      "pink_diamond": "600b03e0b4e91ac3de1a25172e391f514f7ec445a57ac2fece0f7f40d9169d65",
-      "science_desk": "0c8bbd11ff22ea4f6dce5900bdcb047583d99118de631f977bb1a29681017ae2",
-      "builder_desk": "24cfd335926e5aa63fd8f46563cdfb8501c9e51da159b09c960bec8f930ad61b",
+      "world_cube": "bfd2b415127de3d1b3e822cbefc60c3a3279afe4d1eaf3625b36c61e8e408b8c",
+      "start_surface": "113fda2b5591e9cf5ca05837e7e9781fee7b76792b002559e5acb0cd2837ffa5",
+      "pink_diamond": "d3e01dee372b0e8d7d9c873c3ae976bda3706113ef343d0e9260d3c4af0447fd",
+      "science_desk": "6a2d4fb511d6782b5bfab8969e0a1eed28f2281bde6de523a85f2be513b7a2a9",
+      "builder_desk": "8297c3226b73825b1f957caeab9b64ea7172382a4574889a94da32d46b1985a1",
       "mission_control_return": "396e73578c595250b3742f983d871b4c33b8569e6e684020667f7616d471c3d3",
       "receipt": "53d1cfe72704e4adf808a3b7ca191bd369a1094760f7d44873300d984671ca2f",
-      "test": "93bd33d5833171e9bc0a2140035dfbcd6d2ced340d0888b91b9381988ec141cc"
+      "test": "fd1d4333b4e9099085dfe781d1b2ad8dc9185e95b4073ece33494b96ac22467f"
+    },
+    "unverified_prior_sha256": {
+      "world_cube": "34829958e36773a5a4a9dc6cfc64b28f4ef745b8edcf4347940b6e127c0991a8"
     },
     "placement": "Optional Window 02 dock between Q-Cut and World Cube",
     "tour_contract": "Frozen World Cube tour remains exactly 12 stops; the dock is not stop 13",
     "verification": {
-      "dedicated": 22,
-      "reciprocal": 43,
+      "dedicated": 39,
+      "reciprocal": 68,
       "pascal_module": 18,
       "browser_runtime": "PASS_RENDERED_AND_MOUNTED"
     },
@@ -13492,7 +13504,7 @@
     "new_finding": false,
     "publication": false,
     "canonical_count_effect": 0,
-    "claim_boundary": "This is a subordinate route and display dock on the existing 101/A0 carrier. It creates no duality, physical light, Disc, Cube, cosmology, music or universal-mechanism claim."
+    "claim_boundary": "This is a subordinate route and display dock on the existing 101/A0 carrier. Prime Flashlight compares exact finite pi(x) with smooth Li(x); it is not an RH/GRH proof. It creates no duality, physical light, Disc, Cube, cosmology, music or universal-mechanism claim."
   },
   "typed_mirror_f0_clean_desk_return_20261107": {
     "status": "PASS_ENGINEERING_NAVIGATION_CLOSEOUT_NO_FINDING_PROMOTION",
