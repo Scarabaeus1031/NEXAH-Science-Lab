@@ -1452,16 +1452,63 @@ Der Zusatznutzen dieser Darstellung ist offen. **Finding offen.**
 [Science-Desk-Protokoll](A0_BOOK/A0_RESEARCH_DESK.html#t-layer-27-stride-check) ·
 [T-Layer-Rad](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#tLayerMultiplier)
 
+<a id="three-return-methods"></a>
+
+## Methodenblatt · Was beim Return erhalten bleibt
+
+### Hauptbeispiel · D im Hof
+
+[Versuch bei D öffnen](A0_BOOK/A0_SCIENCE.html#algo-hof-d-panel).
+Wähle **Memory-Randzoom**, **Im-Auslese** und den Schnitt **s = 0**.
+Vergleiche Frame 46/60 mit Frame 15/60, seinem komplex konjugierten
+Spiegelpunkt. Im Test starten beide Bahnen bei 0. Im Regler
+**Feinregelung bis 0,24** veränderst du nur ε. Rosa markiert
+die gemeinsamen Treffer im Fenster `|Im(zₙ)| ≤ ε`.
+
+| ε | Gemeinsame Treffer bis n=6 | Frame 46 bei n=4 | Frame 15 bei n=4 |
+|---:|---|---|---|
+| 0,2211 | 0, 2, 5, 6 | BEFORE | AFTER · 2/3 |
+| 0,2250 | 0, 2, **3**, 5, 6 | BEFORE | AFTER · 1/3 |
+
+Bei n=3 zeigt die Tabelle in Frame 46 den Imaginärteil −0,221114
+und in Frame 15 +0,221114. Bei ε = 0,2211 liegt Frame 15 oberhalb
+des Strips und n=3 trägt zur AFTER-Serie bei. Bei ε = 0,2250
+setzt der gemeinsame Strip-Treffer bei n=3 diese Serie zurück.
+n=4 zählt deshalb neu bei 1/3. Bei beiden Breiten meldet Frame 15
+bei n=5 RECROSS im Strip und bei n=6 STRIP. Die Spiegelbahnen behalten
+bei jeder Breite dieselben Trefferpositionen. Der Zähler zeigt zusätzlich
+die Reihenfolge der Zonen. `θ4 = n4` bleibt Testannahme.
+
 <a id="alpha-rath-method-example"></a>
 
-### Vorbereitung für Paper E · Alpha–Rath
+### Zwei Gegenproben
 
-Der Punkt bei Rath hält die Ankunft fest. Die zwei Wege in der
-Euler-Bridges-v4-Tafel haben dasselbe Ziel und verschiedene Kantenfolgen.
-Bei der Rückkehr über die andere Route entsteht der Dreiecksweg. Die
-Numbergame-Ansicht führt daher Zieladresse und Wegprotokoll als zwei
-prüfbare Auslesen. Die Zuordnungen AH, TB / TßR und ß gelten im
-Methodenbeispiel als Testlabels. **Finding offen.**
+| Instrument und Eingabe | Eingriff | Erhalten | Beobachteter Unterschied |
+|---|---|---|---|
+| [Matroschka · ρ-Regler](A0_BOOK/A0_MATROSCHKA_CLUSTER_BRIDGE.html#mcb-radius-return). Wähle oben CENTER-NEAR (2,2,2) oder OUTER CORNER (5,5,5). | Hebe bei CENTER-NEAR ρ von 0,6928 auf 0,6929 an. Senke bei OUTER CORNER ρ von 1,3857 auf 1,3856. | Geosphere-Richtung innerhalb jedes Laufs. | Cube-Adresse (2,2,2) → (1,1,1) bzw. (5,5,5) → (4,4,4). Die Schwellen stammen aus der Adressrundung. |
+| [Alpha–Rath · Numbergame](A0_BOOK/A0_NUMBERMAGICK_GRID_RESEARCH.html#alpha-rath-bridge). Starte bei Alpha und lies die Ankunft am Punkt bei Rath. | Wähle AH direkt bzw. TB / TßR über Cathedral. Vergleiche für beide Hinwege dieselbe und die andere Rückroute. | Ziel Rath beim Hinweg und Alpha beim Return. | Der Punkt hält eine bzw. zwei Kanten fest. Dieselbe Rückroute kehrt die Kantenfolge um. Die andere durchläuft alle drei Kanten. AH, TB / TßR und ß sind Testlabels. |
 
-[Science-Desk-Protokoll](A0_BOOK/A0_RESEARCH_DESK.html#alpha-rath-method-return-20261124) ·
-[A0 Science](A0_BOOK/A0_SCIENCE.html#alpha-rath-open-loop)
+Für Alpha–Rath liest du den **Gesamtweg** ab. Beim direkten Hinweg
+kehrt der gleiche Rückweg unmittelbar nach Alpha zurück, der andere
+führt über Cathedral. Beim Hinweg über Cathedral kehrt der gleiche
+Rückweg über Cathedral zurück, der andere direkt über Rath → Alpha.
+
+### Riemann als Spiegelvergleich
+
+Die Koordinatenwahl `w = 1/2 + iz` überträgt die Konjugation auf
+`w ↦ 1 − conj(w)` und die reelle Achse auf `Re(w) = 1/2`.
+Die Bilder von `z = i/4` und `z = −i/4` sind `w = 1/4` und
+`w = 3/4`. Stelle im A0-Instrument die Höhe auf `0` und wähle
+für den Realteil nacheinander `0,25` und `0,75`. Die Anzeige
+meldet jeweils `PAIRED` und gibt nach zweimaligem Spiegeln den
+Ausgangspunkt zurück. Bei `0,50` meldet sie `FIXED`. So kann
+ein Paar spiegelsymmetrisch sein, obwohl beide Punkte neben der
+Fixlinie liegen. Die Riemann-Hypothese betrifft die Lage aller
+nichttrivialen Zeta-Nullstellen auf der Fixlinie. [A0-Spiegelvergleich](A0_BOOK/A0_RIEMANN_HALFLINE_THETA_RETURN.html#riemann-mirror-fixed-line) ·
+[NIST zur Nullstellensymmetrie](https://dlmf.nist.gov/25.10)
+
+**Instrumentenprüfung vom 25. November 2026.** Die Tabellenwerte zu D,
+beide Matroschka-Radiuswechsel, alle vier Alpha–Rath-Wege und die
+Spiegelkontrollen bei 0,25, 0,75 und 0,50 wurden in A0 nachgespielt.
+**Finding offen.** [Prüfprotokoll zu D](A0_BOOK/A0_RESEARCH_DESK.html#clockwork-orange-432-hof-check) ·
+[Prüfprotokoll zu Alpha–Rath](A0_BOOK/A0_RESEARCH_DESK.html#alpha-rath-method-return-20261124)
