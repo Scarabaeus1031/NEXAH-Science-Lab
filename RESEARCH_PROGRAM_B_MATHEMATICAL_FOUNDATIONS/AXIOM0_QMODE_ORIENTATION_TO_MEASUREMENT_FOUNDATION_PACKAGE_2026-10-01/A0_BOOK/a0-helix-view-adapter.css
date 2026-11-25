@@ -29,3 +29,15 @@ button{appearance:none;border:1px solid var(--line);background:#131f30;color:var
 @media(max-width:1100px){.hv-notes{grid-template-columns:repeat(2,1fr)}.hv-torsion-metrics{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:900px){.hv-hero,.hv-stage-grid{grid-template-columns:1fr}.hv-status{min-width:0}.hv-canvas-wrap{border-right:0;border-bottom:1px solid var(--line)}.hv-notes{grid-template-columns:1fr}.hv-return{flex-direction:column}.hv-stage-grid{min-height:0}}
 @media(max-width:560px){.hv-shell{width:min(100% - 16px,1380px)}.hv-hero{padding:20px 16px}.hv-toolbar{align-items:flex-start;flex-direction:column}.hv-segment{width:100%;flex-direction:column}.hv-stage-grid canvas{height:470px}.hv-status{grid-template-columns:1fr}.hv-status div:nth-child(odd){border-right:0}.hv-status div:nth-last-child(2){border-bottom:1px solid var(--line)}.hv-phase-labels{font-size:9px}.hv-pair{font-size:34px}.hv-torsion-metrics{grid-template-columns:1fr}}
+
+.hv-term-comparison{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--line);scroll-margin-top:1rem}
+.hv-term-comparison h3{margin:0 0 .45rem}
+.hv-term-comparison p{margin:.6rem 0}
+.hv-term-controls{display:flex;flex-wrap:wrap;gap:.5rem 1rem}
+.hv-term-controls select{margin-inline-start:.35rem;padding:.35rem;background:#0b1421;color:inherit;border:1px solid var(--line)}
+.hv-term-scroll{overflow-x:auto}
+.hv-term-scroll:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.hv-term-comparison table{width:100%;min-width:60rem;border-collapse:collapse;text-align:right;font-variant-numeric:tabular-nums}
+.hv-term-comparison :is(th,td){padding:.35rem .5rem;border-bottom:1px solid var(--line)}
+.hv-term-comparison thead{background:#0b1421}
+.hv-term-comparison thead tr:first-child{text-align:left}

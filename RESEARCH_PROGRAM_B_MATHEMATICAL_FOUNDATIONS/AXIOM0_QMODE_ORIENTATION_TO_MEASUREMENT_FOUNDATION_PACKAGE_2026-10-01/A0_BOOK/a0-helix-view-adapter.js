@@ -120,6 +120,27 @@
     });
   }
 
+  function comparePrimeRepeat(record,p,r){
+    if(!isPrime(p)||!Number.isInteger(r)||r<1)throw new RangeError('Expected a prime and a positive integer repetition');
+    const logPrime=Math.log(p);
+    const pair=explicitFormulaPair(record,r*logPrime);
+    const helixShift=Math.atan2(pair.gamma,pair.beta);
+    const primeWeight=logPrime/(Math.PI*p**(r/2));
+    const withoutMinus=primeWeight*Math.cos(pair.theta);
+    return {
+      x:p**r,phase:pair.theta,helixShift,helixPhase:pair.theta-helixShift,
+      helixWeight:2*pair.normalizedAmplitude/Math.hypot(pair.beta,pair.gamma),
+      helixTerm:pair.normalizedContribution,primeWeight,primeTerm:-withoutMinus,withoutMinus
+    };
+  }
+
+  function iharaTriangleTerm(phase,r,returnRoute){
+    if(returnRoute==='same')return null;
+    const length=3;
+    const weight=length*.5**(r*length);
+    return {phase,weight,realTerm:weight*Math.cos(phase)};
+  }
+
   function zetaLensMode(value='smooth'){
     if(!ZETA_LENS_MODES.includes(value))throw new RangeError('zeta lens mode must be smooth, trace or seam');
     return value;
@@ -326,5 +347,5 @@
     });
   }
 
-  return Object.freeze({VERSION,LIMIT,TAU,PHI,EULER_STEP,GOLDEN_ANGLE,FIBONACCI_INDICES,STRAND_MODES,REGISTER_MODES,ZETA_ZERO_ORDINATES,ZETA_LENS_MODES,TRACE_WORDS,RESIDUE_ANGLE_MODES,isPrime,twinRungs,primeResidueRecords,primeTailRecords,residueAngleMode,buildPrimeResidueGeometry,z37Orbits,zetaZeroRecords,explicitFormulaPair,zetaLensMode,traceWordData,phaseSeamData,buildZetaGeometry,phaseStep,degrees,strandMode,registerMode,helixMeasures,bundleStrand,fhBundle,triadBundle,z37Frame,registerGeometry,buildGeometry,modeRecords,inspection,audit});
+  return Object.freeze({VERSION,LIMIT,TAU,PHI,EULER_STEP,GOLDEN_ANGLE,FIBONACCI_INDICES,STRAND_MODES,REGISTER_MODES,ZETA_ZERO_ORDINATES,ZETA_LENS_MODES,TRACE_WORDS,RESIDUE_ANGLE_MODES,isPrime,twinRungs,primeResidueRecords,primeTailRecords,residueAngleMode,buildPrimeResidueGeometry,z37Orbits,zetaZeroRecords,explicitFormulaPair,comparePrimeRepeat,iharaTriangleTerm,zetaLensMode,traceWordData,phaseSeamData,buildZetaGeometry,phaseStep,degrees,strandMode,registerMode,helixMeasures,bundleStrand,fhBundle,triadBundle,z37Frame,registerGeometry,buildGeometry,modeRecords,inspection,audit});
 });

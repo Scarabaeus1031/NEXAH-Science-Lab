@@ -34,6 +34,48 @@ const zeros=M.zetaZeroRecords();assert.equal(zeros.length,20);assert.equal(zeros
 const atCritical=M.explicitFormulaPair(zeros[0],Math.log(1000));assert(Math.abs(atCritical.normalizedAmplitude-1)<1e-12);assert(Math.abs(atCritical.rawAmplitude-Math.sqrt(1000))<1e-12);
 const offCritical=M.explicitFormulaPair(zeros[0],Math.log(100),.6);assert(Math.abs(offCritical.normalizedAmplitude-100**.1)<1e-12);
 const expectedContribution=-2*(.5*Math.cos(atCritical.theta)+zeros[0].gamma*Math.sin(atCritical.theta))/(.25+zeros[0].gamma**2);assert(Math.abs(atCritical.normalizedContribution-expectedContribution)<1e-12);
+// Compare the three terms independently and keep the p=2, r=1 documentation example pinned.
+function assertNear(actual,expected,label){
+  assert(Math.abs(actual-expected)<1e-12,`${label}: ${actual} ≠ ${expected}`);
+}
+let termCombinations=0;
+for(const record of zeros){
+  for(const prime of [2,3,5,7]){
+    for(let repeat=1;repeat<=6;repeat++){
+      const x=prime**repeat;
+      const phase=record.gamma*Math.log(x);
+      const absoluteRho=Math.hypot(.5,record.gamma);
+      const helixPhase=phase-Math.atan2(record.gamma,.5);
+      const primeWeight=Math.log(prime)/(Math.PI*Math.sqrt(x));
+      const [realU,imagU]=[.5*Math.cos(record.gamma*Math.log(prime)/3),.5*Math.sin(record.gamma*Math.log(prime)/3)];
+      let real=1,imag=0;
+      for(let edge=0;edge<3*repeat;edge++) [real,imag]=[real*realU-imag*imagU,real*imagU+imag*realU];
+      const terms=M.comparePrimeRepeat(record,prime,repeat);
+      assert.equal(terms.x,x);
+      assertNear(terms.phase,phase,'shared phase');
+      assertNear(terms.helixPhase,helixPhase,'phase after 1/rho');
+      assertNear(terms.helixWeight,2/absoluteRho,'zero-pair weight');
+      assertNear(terms.helixTerm,-2/absoluteRho*Math.cos(helixPhase),'signed zero-pair term');
+      assertNear(terms.primeWeight,primeWeight,'prime weight');
+      assertNear(terms.primeTerm,-primeWeight*Math.cos(phase),'prime term with minus');
+      assertNear(terms.withoutMinus,primeWeight*Math.cos(phase),'prime term without minus');
+      assert.equal(M.iharaTriangleTerm(phase,repeat,'same'),null);
+      const ihara=M.iharaTriangleTerm(phase,repeat,'other');
+      assertNear(ihara.phase,phase,'declared Ihara phase');
+      assertNear(ihara.weight,3*Math.hypot(real,imag),'Ihara repetition weight');
+      assertNear(ihara.realTerm,3*real,'real part of +3u^(3r)');
+      termCombinations++;
+    }
+  }
+}
+assert.equal(termCombinations,480);
+const example=M.comparePrimeRepeat(zeros[0],2,1);
+const triangle=M.iharaTriangleTerm(example.phase,1,'other');
+assert.deepEqual(
+  [example.phase,example.helixPhase,example.helixWeight,example.helixTerm,example.primeWeight,
+    example.primeTerm,example.withoutMinus,triangle.weight,triangle.realTerm].map(value=>value.toFixed(6)),
+  ['9.797445','8.262008','0.141407','0.056110','0.156013','0.145304','-0.145304','0.375000','-0.349260'],
+);
 const zg=M.buildZetaGeometry(zeros,{logX:Math.log(1000),betaOffset:0,strandMode:'double'});assert.equal(zg.kind,'zeta-explicit-formula');assert.equal(zg.measures,null);assert.equal(zg.rungs.length,20);
 for(const pair of zg.rungs){assert(Math.abs(pair.strandA.x-pair.strandB.x)<1e-12);assert(Math.abs(pair.strandA.z+pair.strandB.z)<1e-12);assert.equal(pair.strandA.y,pair.strandB.y);assert.equal(pair.axisIntersection,null)}
 const zi=M.inspection('zeta',0,0,'double',{logX:Math.log(1000),betaOffset:0});assert.equal(zi.sourceBeta,.5);assert.equal(zi.beta,.5);assert.equal(zi.axisIntersection,null);assert.equal(zi.conjugateMirror,true);assert.deepEqual(zi.return.values,[zeros[0].a,zeros[0].b]);
@@ -55,4 +97,4 @@ const audit=M.audit();assert.equal(audit.version,'1.6.0');assert.equal(audit.car
 const desk=fs.readFileSync(require('node:path').join(__dirname,'A0_RESEARCH_DESK.html'),'utf8'),deskReceipt=JSON.parse(fs.readFileSync(require('node:path').join(__dirname,'results/a0-prime-projection-helix-paper-routing-2026-11-21.json'),'utf8'));
 for(const marker of ['RDMH Helix Register Adapter Science Desk Addendum','1+1 · 7+7 · 3×7 · 1+18','Θ=Δθ','ι=Δz/Δθ','DAO=R²+ι²','Explicit-Formula-Linse','θ=γ log x','RDMH trace / seam comparator return','Trace word ≠ Dirichlet character','−1/12 ≡ 11/12 (mod 1)','EXISTING PAPER ROUTES C+E+F','NEW ID 0 / RELATION 0'])assert(desk.includes(marker));
 assert.equal(deskReceipt.schema,'nexah.a0.prime-projection-helix-paper-routing/1.3.0');assert.equal(deskReceipt.exact_checks.helix_register_modes.triad,'3x7');assert.equal(deskReceipt.exact_checks.differential_view_register.dao,'DAO=R^2+iota^2');assert.equal(deskReceipt.exact_checks.explicit_formula_lens.zero_pairs,20);assert.equal(deskReceipt.exact_checks.trace_seam_comparator.kinks_per_word,2);assert.equal(deskReceipt.exact_checks.trace_seam_comparator.dirichlet_character_claim,false);assert(deskReceipt.paper_routes.C.includes('PPS-06')&&deskReceipt.paper_routes.E.includes('PPS-06')&&deskReceipt.paper_routes.F.includes('PPS-06'));
-console.log(JSON.stringify({status:'PASS',schema:'nexah.a0.helix-view-adapter-test/1.6.0',assertions:'all',strandModes:M.STRAND_MODES,registerModes:M.REGISTER_MODES,zetaLensModes:M.ZETA_LENS_MODES,traceWords:M.TRACE_WORDS,residueAngleModes:M.RESIDUE_ANGLE_MODES,twinRungs:twins.length,z37Orbits:orbits.length,zetaZeroPairs:zeros.length,primeResidueCarrier:residueRecords.length,primeResidueTail:primeTail.length,traceSeam:{kinksPerWord:rllr.kinkCount,shadow:seam.shadow,visible:seam.visible,liftDelta:seam.liftDelta},registers:{fh:fh.strandCount,triad:triad.strandCount,z37:`${frame.orbits.filter(x=>x.fixed).length}+${frame.pairs.length}`},explicitFormula:{sourceBeta:.5,firstGamma:zeros[0].gamma,criticalNormalizedAmplitude:atCritical.normalizedAmplitude},eulerMeasures:{theta:measures.theta,iota:measures.iota,dao:measures.dao,turns:measures.turns,pitchPerTurn:measures.pitchPerTurn,curvature:measures.curvature,torsionMagnitude:measures.torsionMagnitude},goldenMeasures:{turns:golden.measures.turns,pitchPerTurn:golden.measures.pitchPerTurn,curvature:golden.measures.curvature,torsionMagnitude:golden.measures.torsionMagnitude},goldenAngleDegrees:M.degrees(M.GOLDEN_ANGLE),lastTwin:[twins.at(-1).a,twins.at(-1).b]},null,2));
+console.log(JSON.stringify({status:'PASS',schema:'nexah.a0.helix-view-adapter-test/1.6.0',assertions:'all',termCombinations,strandModes:M.STRAND_MODES,registerModes:M.REGISTER_MODES,zetaLensModes:M.ZETA_LENS_MODES,traceWords:M.TRACE_WORDS,residueAngleModes:M.RESIDUE_ANGLE_MODES,twinRungs:twins.length,z37Orbits:orbits.length,zetaZeroPairs:zeros.length,primeResidueCarrier:residueRecords.length,primeResidueTail:primeTail.length,traceSeam:{kinksPerWord:rllr.kinkCount,shadow:seam.shadow,visible:seam.visible,liftDelta:seam.liftDelta},registers:{fh:fh.strandCount,triad:triad.strandCount,z37:`${frame.orbits.filter(x=>x.fixed).length}+${frame.pairs.length}`},explicitFormula:{sourceBeta:.5,firstGamma:zeros[0].gamma,criticalNormalizedAmplitude:atCritical.normalizedAmplitude},eulerMeasures:{theta:measures.theta,iota:measures.iota,dao:measures.dao,turns:measures.turns,pitchPerTurn:measures.pitchPerTurn,curvature:measures.curvature,torsionMagnitude:measures.torsionMagnitude},goldenMeasures:{turns:golden.measures.turns,pitchPerTurn:golden.measures.pitchPerTurn,curvature:golden.measures.curvature,torsionMagnitude:golden.measures.torsionMagnitude},goldenAngleDegrees:M.degrees(M.GOLDEN_ANGLE),lastTwin:[twins.at(-1).a,twins.at(-1).b]},null,2));

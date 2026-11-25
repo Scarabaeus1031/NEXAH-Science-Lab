@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>A0 · RDMH Helix Strand Adapter</title>
   <link rel="stylesheet" href="a0-context-navigation.css">
-  <link rel="stylesheet" href="a0-helix-view-adapter.css?rev=20261122-r4">
+  <link rel="stylesheet" href="a0-helix-view-adapter.css?rev=phase-term-r2">
 </head>
 <body>
 <main class="hv-shell" data-helix-adapter>
@@ -93,6 +93,29 @@
         <div><dt>Comparator lens</dt><dd data-hv-zeta-lens-out>SMOOTH</dd></div><div><dt>Witness</dt><dd data-hv-zeta-witness>θ ↔ −θ</dd></div>
       </dl>
       <p class="hv-torsion-note"><code>−(x^ρ/ρ+x^ρ̄/ρ̄)</code> wird gegen <code>√x</code> normiert. <code>RLLR/LRRL</code> sind Pfadwörter mit je zwei Richtungswechseln. <code>−1/12 ≡ 11/12 (mod 1)</code> markiert denselben Kreispunkt mit getrenntem Lift-Witness. Keine dieser beiden Vergleichslinsen definiert einen Dirichlet-Charakter.</p>
+      <section id="helix-phase-term-comparison" class="hv-term-comparison" aria-labelledby="helixTermComparisonTitle">
+        <h3 id="helixTermComparisonTitle">Phasenvergleich · Nullstellen, Primzahlterme und Ihara</h3>
+        <p>Der Vergleich nimmt das gewählte Nullstellenpaar bei <code>β=½</code> und setzt <code>t=γ</code> und <code>x=pʳ</code>. Der Log-x-Regler und der β-Probe gelten für die Helix-Ansicht darüber.</p>
+        <div class="hv-term-controls">
+          <label>Primzahl p <select data-hv-term-prime><option>2</option><option>3</option><option>5</option><option>7</option></select></label>
+          <label>Wiederholungen bis r <select data-hv-term-repeats><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option></select></label>
+          <label>Ihara-Rückweg ab Rath <select data-hv-term-ihara-route><option value="other">Über Cathedral</option><option value="same">Direkt zurück</option></select></label>
+        </div>
+        <p data-hv-term-reference aria-live="polite"></p>
+        <p data-hv-term-ihara-status aria-live="polite"></p>
+        <div class="hv-term-scroll" tabindex="0" role="region" aria-label="Phasenvergleich nach Wiederholung">
+          <table>
+            <colgroup span="3"></colgroup><colgroup span="3"></colgroup><colgroup span="3"></colgroup><colgroup span="3"></colgroup>
+            <thead>
+              <tr><th scope="colgroup" colspan="3">Abgleich</th><th scope="colgroup" colspan="3">Nullstellen → Zahlenseite</th><th scope="colgroup" colspan="3">Primzahl → Nullstellendichte</th><th scope="colgroup" colspan="3">Ihara · Alpha–Cathedral–Rath</th></tr>
+              <tr><th scope="col">r</th><th scope="col">x = pʳ</th><th scope="col">Phase θ (rad)</th><th scope="col">Phase nach 1/ρ (rad)</th><th scope="col">Gewicht</th><th scope="col">Norm. Paarterm</th><th scope="col">Gewicht</th><th scope="col">Mit Minus</th><th scope="col">Ohne Minus</th><th scope="col">Phase (rad)</th><th scope="col">Gewicht</th><th scope="col">Realteil mit Plus</th></tr>
+            </thead>
+            <tbody data-hv-term-rows></tbody>
+          </table>
+        </div>
+        <p class="hv-torsion-note">Ihara zählt hier eine Umlaufrichtung. Der Hinweg geht direkt von Alpha nach Rath. Für den Dreierzyklus setzen wir <code>u=½·exp(iφ)</code> und <code>φ=t log p/3</code>. Dann hat die r-te Wiederholung den Beitrag <code>+3u^(3r)</code> mit gleicher Ausgangsphase und Gewicht <code>3·(½)^(3r)</code>. Das Plus steht vor dem Kosinus. <a href="A0_NUMBERMAGICK_GRID_RESEARCH.html#alpha-rath-bridge">Rath-Wege im Numbergame ↗</a></p>
+        <p class="hv-torsion-note">Beide Helix- und Primzahlterme starten mit <code>θ=γ log x=rt log p</code>. In der Helix verschiebt <code>1/ρ</code> die Phase um <code>−arg(ρ)</code>. Das Gewicht auf der Primzahlseite ist <code>log p / (π pʳ⁄²)</code>. Die Tabelle vergleicht einzelne Beiträge. Finding offen. <a href="https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/06/berry307.pdf">Berry &amp; Keating, Abschnitt 2 ↗</a></p>
+      </section>
     </div>
     <div class="hv-residue-control" data-hv-residue-control hidden>
       <div class="hv-zeta-control__head"><div><b>PRIME RESIDUE HELIX · SHARED FINITE CARRIER</b><span>168 primes p≤1000 · 18-prime tail 1000&lt;p≤1111 remains outside this shared view</span></div><output data-hv-residue-summary>7|11 · two declared angle rails</output></div>
@@ -126,8 +149,8 @@
   <footer class="hv-return"><span>Reuses: MOD:NUMBER_VIEW_SUITE · ART:A0:MATHEMATICAL_JOINTS · no graph delta</span><nav><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html">← Primecube</a> · <a href="A0_PRIME_PROJECTION_TEST_SUITE.html">Prime Projection</a> · <a href="A0_RESEARCH_DESK.html#prime-projection-helix-paper-routing-20261121">Science Desk</a> · <a href="A0_HELIX_VIEW_ADAPTER_CONTRACT_2026-11-21.md">Contract</a> · <a href="results/a0-helix-view-adapter-2026-11-21.json">Receipt</a></nav></footer>
 </main>
 <script src="a0-primecube-model.js?rev=20261121-r5"></script>
-<script src="a0-helix-view-adapter.js?rev=20261122-r7"></script>
-<script src="a0-helix-view-adapter-ui.js?rev=20261122-r7"></script>
+<script src="a0-helix-view-adapter.js?rev=phase-term-r2"></script>
+<script src="a0-helix-view-adapter-ui.js?rev=phase-term-r2"></script>
 <script src="a0-context-navigation.js"></script>
 </body>
 </html>

@@ -1394,6 +1394,44 @@ observation from being promoted into an RH proof.
 Method evidence: [mirror/fixed-line demonstrator](A0_BOOK/A0_RIEMANN_HALFLINE_THETA_RETURN.html#riemann-mirror-fixed-line)
 and [contract](A0_BOOK/A0_RIEMANN_HALFLINE_THETA_RETURN_CONTRACT_2026-11-21.md).
 
+<a id="helix-phase-term-method-example"></a>
+
+### Methodenbeispiel für Paper E · Helix, Primzahlterm und Ihara
+
+Wähle in der Helix das erste Nullstellenpaar, `p=2` und `r=1`.
+Für `ρ=½+iγ` und `γ≈14,134725` ergibt die Wahl `t=γ` und
+`x=pʳ=2` die gemeinsame Ausgangsphase `θ≈9,797445 rad`.
+Die Vergleichswerte sind auf sechs Nachkommastellen gerundet.
+
+| Beitrag | Phase (rad) | Gewicht | Faktor vor dem Kosinus | Wert |
+|---|---:|---:|:---:|---:|
+| Nullstellenpaar auf der Zahlenseite | 8,262008 | 0,141407 | − | +0,056110 |
+| Primzahlterm auf der Nullstellenseite | 9,797445 | 0,156013 | − | +0,145304 |
+| Primzahlterm als Gegenprobe ohne Minus | 9,797445 | 0,156013 | + | −0,145304 |
+| Ihara über Cathedral | 9,797445 | 0,375000 | + | −0,349260 |
+| Ihara direkt zurück | — | — | — | Kein Beitrag |
+
+Auf der Zahlenseite verschiebt `1/ρ` die Phase um `−arg(ρ)`.
+Die Gewichte sind `2/|ρ|` für das normierte Nullstellenpaar
+und `log p/(π·p^(r/2))` für den Primzahlterm. Die Gegenprobe
+ändert dessen Vorzeichen bei gleicher Phase und gleichem Gewicht.
+
+Der direkte Rückweg Alpha → Rath → Alpha kehrt die Kante sofort um.
+Alpha → Rath → Cathedral → Alpha schließt einen primitiven Zyklus ohne
+Kantenumkehr. Für eine Umlaufrichtung liefert die logarithmische
+Ableitung `u·d/du` des Faktors `(1−u³)⁻¹` je Wiederholung den Term
+`+3u^(3r)`. Die Vergleichswahl `u=½·exp(i·t log p/3)` setzt seine
+Phase auf `θ`. Bei `r=1` ist das Gewicht `3/8`. Der negative
+Zahlenwert entsteht aus dem Kosinus bei dieser Phase.
+
+Der Riemann-Spiegel darüber prüft Paar-Symmetrie und Fixlinie.
+Die Helix-Tabelle prüft, welche Unterschiede bei bewusst
+angeglichener Ausgangsphase sichtbar bleiben. **Finding offen.**
+
+[Bedienbarer Helix-Vergleich](A0_BOOK/A0_HELIX_VIEW_ADAPTER.html#helix-phase-term-comparison) ·
+[Science-Desk-Protokoll](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#helix-phase-term-science-return) ·
+[Berry & Keating, Abschnitt 2](https://michaelberryphysics.wordpress.com/wp-content/uploads/2013/06/berry307.pdf) ·
+[Stark & Terras, Graph-Zeta](https://www.sciencedirect.com/science/article/pii/S000187089690050X)
 
 <a id="t-layer-stride-method-example"></a>
 

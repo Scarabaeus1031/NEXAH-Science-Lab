@@ -11,6 +11,13 @@
   const zetaLensButtons=[...root.querySelectorAll('[data-hv-zeta-lens]')],traceWordButtons=[...root.querySelectorAll('[data-hv-trace-word]')],traceSwitch=root.querySelector('[data-hv-trace-switch]');
   const zetaSummary=root.querySelector('[data-hv-zeta-summary]'),betaLabel=root.querySelector('[data-hv-beta-label]'),zetaX=root.querySelector('[data-hv-zeta-x]'),zetaLogX=root.querySelector('[data-hv-zeta-logx]'),zetaRho=root.querySelector('[data-hv-zeta-rho]'),zetaTheta=root.querySelector('[data-hv-zeta-theta]'),zetaEnvelope=root.querySelector('[data-hv-zeta-envelope]'),zetaContribution=root.querySelector('[data-hv-zeta-contribution]'),zetaLensOut=root.querySelector('[data-hv-zeta-lens-out]'),zetaWitness=root.querySelector('[data-hv-zeta-witness]');
   const turnsOut=root.querySelector('[data-hv-turns]'),iotaOut=root.querySelector('[data-hv-iota]'),daoOut=root.querySelector('[data-hv-dao]'),pitchOut=root.querySelector('[data-hv-pitch]'),curvatureOut=root.querySelector('[data-hv-curvature]'),torsionOut=root.querySelector('[data-hv-torsion]');
+  const termPanel=root.querySelector('#helix-phase-term-comparison');
+  const termPrime=termPanel.querySelector('[data-hv-term-prime]');
+  const termRepeats=termPanel.querySelector('[data-hv-term-repeats]');
+  const termReference=termPanel.querySelector('[data-hv-term-reference]');
+  const iharaRoute=termPanel.querySelector('[data-hv-term-ihara-route]');
+  const iharaStatus=termPanel.querySelector('[data-hv-term-ihara-status]');
+  const termRows=termPanel.querySelector('[data-hv-term-rows]');
   const indexInput=root.querySelector('[data-hv-index]'),prev=root.querySelector('[data-hv-prev]'),next=root.querySelector('[data-hv-next]');
   const recordEl=root.querySelector('[data-hv-record]'),pairEl=root.querySelector('[data-hv-pair]'),detailEl=root.querySelector('[data-hv-detail]'),countEl=root.querySelector('[data-hv-count]'),strandReadout=root.querySelector('[data-hv-strand-readout]'),registerReadout=root.querySelector('[data-hv-register-readout]');
   let mode='twins',strandMode='double',registerMode='pair',residueAngle='paired',mix=0,logX=Math.log(1000),betaOffset=0,zetaLens='smooth',traceWord='RLLR',showRail=true,selected=0,rotX=-0.08,rotY=0.42,drag=null,screenRungs=[];
@@ -72,6 +79,38 @@
       if(showRail&&mode!=='zeta'&&mode!=='residue'&&item.r.fibonacci){dot(item.railA,4.4*item.railA.p,colors.rail,colors.text);if(showDouble)dot(item.railB,4.4*item.railB.p,colors.rail,colors.text)}
     }
   }
+  function renderTermComparison(record){
+    const p=Number(termPrime.value);
+    const limit=Number(termRepeats.value);
+    const returnRoute=iharaRoute.value;
+    iharaStatus.textContent=returnRoute==='same'
+      ? 'Alpha → Rath → Alpha · direkte Umkehr in Rath · kein Ihara-Beitrag'
+      : 'Alpha → Rath → Cathedral → Alpha · primitiver Zyklus · 3 Kanten';
+    termReference.textContent=`Nullstellenpaar ${selected+1} · γ = ${decimal(record.gamma,6)} · p = ${p}`;
+    const signed=value=>`${value>0?'+':''}${decimal(value,6)}`;
+    const rows=Array.from({length:limit},(_,i)=>{
+      const r=i+1,v=M.comparePrimeRepeat(record,p,r);
+      const ihara=M.iharaTriangleTerm(v.phase,r,returnRoute);
+      const tr=document.createElement('tr');
+      const heading=document.createElement('th');
+      heading.scope='row';
+      heading.textContent=String(r);
+      tr.append(heading);
+      const values=[String(v.x),decimal(v.phase,6),decimal(v.helixPhase,6),decimal(v.helixWeight,6),signed(v.helixTerm),
+        decimal(v.primeWeight,6),signed(v.primeTerm),signed(v.withoutMinus)];
+      values.push(...(ihara
+        ? [decimal(ihara.phase,6),decimal(ihara.weight,6),signed(ihara.realTerm)]
+        : ['—','—','kein Beitrag']));
+      for(const value of values){
+        const td=document.createElement('td');
+        td.textContent=value;
+        tr.append(td);
+      }
+      return tr;
+    });
+    termRows.replaceChildren(...rows);
+  }
+
   function setSelected(index){
     const list=records();selected=(index+list.length)%list.length;indexInput.max=String(list.length);indexInput.value=String(selected+1);countEl.textContent=mode==='zeta'?`${list.length} zero pairs · ${zetaLens.toUpperCase()} LENS`:mode==='residue'?`${list.length} prime records · ${residueAngle.toUpperCase()}`:`${list.length} ${strandMode==='double'?'rungs':'nodes'} · ${registerLabel()}`;const info=M.inspection(mode,selected,mix,strandMode,{logX,betaOffset,zetaLens,traceWord,residueAngle});
     recordEl.textContent=info.recordId;pairEl.textContent=mode==='residue'?String(info.prime):strandMode==='double'?`${info.pair[0]} ↔ ${info.pair[1]}`:`${info.single[0]}`;
@@ -83,6 +122,7 @@
       registerReadout.innerHTML=zetaLens==='smooth'?'<b>EXPLICIT FORMULA</b> · finite pair term · <code>θ=γ log x</code> · normalized by <code>√x</code>':zetaLens==='trace'?'<b>TRACE WORD</b> · path witness only · not a Dirichlet character':'<b>VIEW CUT</b> · <code>−1/12 ≡ 11/12 (mod 1)</code> · source lift retained';
       zetaSummary.textContent=`x=${formatNumber(info.x,3)} · β=${decimal(info.beta,3)}`;betaLabel.textContent=decimal(betaOffset,3);
       zetaX.textContent=formatNumber(info.x,3);zetaLogX.textContent=decimal(info.logX,6);zetaRho.textContent=`${decimal(info.beta,3)} + ${decimal(info.gamma,6)}i`;zetaTheta.textContent=`${decimal(info.theta,6)} rad`;zetaEnvelope.textContent=decimal(info.normalizedAmplitude,6);zetaContribution.textContent=decimal(info.normalizedContribution,8);
+      renderTermComparison(list[selected]);
       zetaLensOut.textContent=zetaLens.toUpperCase();zetaWitness.textContent=zetaLens==='smooth'?'θ ↔ −θ':zetaLens==='trace'?`${traceWord} · kinks ${trace.kinkPositions.join(',')}`:`${fraction(seam.shadow)} ↔ ${fraction(seam.visible)} · lift +1`;
       draw();return;
     }
@@ -124,6 +164,9 @@
   function fraction(value){return value===-1/12?'−1/12':value===11/12?'11/12':decimal(value,6)}
   function distanceToSegment(p,a,b){const dx=b.x-a.x,dy=b.y-a.y,l2=dx*dx+dy*dy;if(!l2)return Math.hypot(p.x-a.x,p.y-a.y);const t=Math.max(0,Math.min(1,((p.x-a.x)*dx+(p.y-a.y)*dy)/l2));return Math.hypot(p.x-(a.x+t*dx),p.y-(a.y+t*dy))}
   function point(event){const r=canvas.getBoundingClientRect();return{x:event.clientX-r.left,y:event.clientY-r.top}}
+  for(const control of [termPrime,termRepeats,iharaRoute]){
+    control.addEventListener('change',()=>renderTermComparison(records()[selected]));
+  }
   modeButtons.forEach(btn=>btn.addEventListener('click',()=>setMode(btn.dataset.hvMode)));
   strandButtons.forEach(btn=>btn.addEventListener('click',()=>setStrandMode(btn.dataset.hvStrand)));
   registerButtons.forEach(btn=>btn.addEventListener('click',()=>setRegisterMode(btn.dataset.hvRegister)));
@@ -134,5 +177,15 @@
   canvas.addEventListener('pointerdown',event=>{canvas.setPointerCapture(event.pointerId);drag={...point(event),rotX,rotY,moved:false}});
   canvas.addEventListener('pointermove',event=>{if(!drag)return;const p=point(event);if(Math.abs(p.x-drag.x)+Math.abs(p.y-drag.y)>4)drag.moved=true;rotY=drag.rotY+(p.x-drag.x)*.009;rotX=Math.max(-1.2,Math.min(1.2,drag.rotX+(p.y-drag.y)*.007));draw()});
   canvas.addEventListener('pointerup',event=>{const p=point(event);if(drag&&!drag.moved){let best={distance:Infinity,index:0};screenRungs.forEach((r,i)=>{const distance=doubleView()?distanceToSegment(p,r.a,r.b):Math.hypot(p.x-r.a.x,p.y-r.a.y);if(distance<best.distance)best={distance,index:i}});if(best.distance<18)setSelected(best.index)}drag=null});
-  window.addEventListener('resize',resize);new ResizeObserver(resize).observe(canvas);setMix(0);resize();
+  function openTermLink(){
+    if(location.hash!==`#${termPanel.id}`)return false;
+    if(mode!=='zeta')setMode('zeta');
+    termPanel.scrollIntoView();
+    return true;
+  }
+  window.addEventListener('resize',resize);
+  window.addEventListener('hashchange',openTermLink);
+  new ResizeObserver(resize).observe(canvas);
+  if(!openTermLink())setMix(0);
+  resize();
 })();
