@@ -39,6 +39,42 @@
     .portal-ll0-rail{margin:22px 0;border:1px solid #456575;background:linear-gradient(135deg,#071722,#102b3a);padding:20px}.portal-ll0-rail header{display:flex;justify-content:space-between;gap:20px;align-items:end}.portal-ll0-rail h4{margin:.2rem 0;color:white;font:700 1.35rem var(--serif)}.portal-ll0-rail header p{max-width:720px;margin:0;color:#9fb6c2;font-size:.78rem}.portal-ll0-formula{margin:16px 0;padding:11px;border:1px solid #294858;color:var(--gold);font:700 .74rem var(--mono);text-align:center}.portal-ll0-nodes{position:relative;display:grid;grid-template-columns:repeat(9,1fr);gap:8px;margin:18px 0 8px;padding:0;list-style:none}.portal-ll0-nodes:before{content:"";position:absolute;left:4%;right:4%;top:25px;height:2px;background:#607885}.portal-ll0-nodes li{position:relative;z-index:1;text-align:center}.portal-ll0-nodes b{display:grid;place-items:center;width:52px;height:52px;margin:auto;border:2px solid #8ca3af;border-radius:50%;background:#091824;color:white;font:700 .73rem var(--mono)}.portal-ll0-nodes small{display:block;margin-top:7px;color:#90a8b4;font:650 .52rem var(--mono)}.portal-ll0-nodes .root b{border-radius:4px;border-color:#c36ee8;color:#e7b7f7}.portal-ll0-nodes .fixed b{border-color:var(--gold);background:#2b2414;color:var(--gold);box-shadow:0 0 0 5px rgba(229,181,72,.12)}.portal-ll0-nodes .prime b{border-color:#e04c71;color:#ff9bb3}.portal-ll0-boundary{margin-top:14px;border-left:4px solid var(--gold);padding:10px 13px;background:#0a1a27;color:#a9bdc7;font-size:.75rem}.portal-ll0-boundary code{color:#dce8ee}.portal-ll0-crosswalks{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.portal-ll0-crosswalks article{border:1px solid #315364;background:#081a26;padding:14px;min-height:235px}.portal-ll0-crosswalks small{display:block;color:#68d9df;font:700 .58rem var(--mono);letter-spacing:.08em}.portal-ll0-crosswalks h5{margin:.45rem 0;color:#fff;font:700 1rem var(--serif)}.portal-ll0-crosswalks .equation{display:block;margin:9px 0;color:var(--gold);font:700 .68rem/1.65 var(--mono)}.portal-ll0-crosswalks p{margin:.45rem 0;color:#a9bdc7;font-size:.7rem;line-height:1.55}.portal-ll0-crosswalks em{display:block;margin-top:10px;padding-top:8px;border-top:1px solid #294858;color:#7895a4;font:600 .57rem/1.5 var(--mono);font-style:normal}.glyph-horizon{display:block;width:100%;height:auto;margin:10px 0;border:1px solid #294858;background:#06131d}.glyph-horizon .stem{stroke:#e5b548;stroke-width:5}.glyph-horizon .upper{stroke:#68d9df;stroke-width:5}.glyph-horizon .lower{stroke:#c36ee8;stroke-width:5}.glyph-horizon .cut{stroke:#7895a4;stroke-width:1.5;stroke-dasharray:6 5}.glyph-horizon .hook{stroke:#e04c71;stroke-width:4;fill:none}.glyph-horizon text{font:700 11px var(--mono);fill:#a9bdc7}.glyph-horizon .role{font-size:18px;fill:#fff}.portal-ll0-rail .btns{margin-top:14px}@media(max-width:900px){.portal-ll0-nodes{grid-template-columns:repeat(5,1fr)}.portal-ll0-nodes:before{display:none}.portal-ll0-crosswalks{grid-template-columns:1fr}}@media(max-width:650px){.section{padding:54px 5vw}.head,.definition-grid,.reading-grid,.proof-grid,.plate-grid,.experiments,.shell-grid,.source-strip,.viewpoint-grid,.euler-types,.source-links,.grid-source-strip,.channel-contract,.orange-source-return{grid-template-columns:1fr}.orange-source-return:before{top:12%;bottom:12%;left:50%;right:auto;width:3px;height:auto}.world,.representation{padding:14px}.joint{grid-template-columns:1fr}.joint p{grid-column:auto}.read-table{display:block;overflow-x:auto}h1{font-size:3.7rem}.readout{grid-template-columns:1fr}.operator-layout{display:block}.cycle-field,.shell-field{padding:12px}.cycle-stage{width:92px;min-height:62px;padding:6px}.cycle-stage b{font-size:.76rem}.cycle-stage small{font-size:.46rem}.cycle-center{width:86px;height:86px;font-size:1.2rem}.pascal-row span{min-width:26px;height:26px;font-size:.6rem}.instrument-route .route-head{display:block}.instrument-route .route-head p{margin-top:10px}.instrument-route-grid,.application-flow{grid-template-columns:1fr}.portal-ll0-rail header{display:block}.portal-ll0-nodes{grid-template-columns:repeat(3,1fr)}}
   </style>
   <link rel="stylesheet" href="a0-context-navigation.css?rev=flagship-constellation-r1-20261030">
+  <style>
+    .still-point-t-layer { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr)); gap:20px; align-items:start; }
+    .t-layer { min-width:0; scroll-margin-top:6rem; }
+    .t-layer h3 { margin-bottom:.35rem; }
+    .t-layer canvas { display:block; width:min(100%,25rem); height:auto; margin:0 auto 10px; background:#091821; border:1px solid var(--line2); border-radius:12px; }
+    .t-layer fieldset { border:1px solid var(--line2); margin:0 0 10px; padding:8px 12px; }
+    .t-layer legend { padding:0 6px; font-weight:700; }
+    .t-layer-options, .t-layer-actions { display:flex; flex-wrap:wrap; align-items:center; gap:6px 14px; }
+    .t-layer input { accent-color:#68d7e7; }
+    .t-layer input[type=range] { width:100%; }
+    .t-layer .t-layer-actions button { padding:4px 9px; border:1px solid var(--line2); border-radius:5px; background:#142b36; color:#fff; cursor:pointer; }
+    .t-layer #tLayerPlay { min-height:44px; min-width:112px; padding:8px 16px; background:#8be3ee; color:#091821; font-weight:750; }
+    .t-layer .t-layer-actions button:disabled { opacity:.55; cursor:default; }
+    .t-layer output { display:block; margin:.4rem 0; }
+    .t-layer-parallel { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin-top:.7rem; }
+    .t-layer [hidden] { display:none; }
+    .t-layer-track { padding:.5rem; border:1px solid var(--line2); background:#091821; }
+    .t-layer-track output { overflow-wrap:anywhere; }
+    .t-layer-track mark { background:none; color:#ffb475; font-weight:700; }
+    .t-layer-cycles { margin:.4rem 0 .8rem; padding:0; list-style:none; }
+    .t-layer-cycles li { border-left:3px solid var(--cycle-color); padding-left:.55rem; margin:.25rem 0; }
+    #tLayerMultiplier, #tLayerDoubleReadout { scroll-margin-top:6rem; }
+    .t-layer-readout { margin:.6rem 0; padding:.6rem .8rem; border:1px solid var(--line2); }
+    .t-layer-readout p { margin:.3rem 0 0; }
+    .t-layer-readout strong { color:#ffcc83; }
+    .t-layer-comparison { width:100%; table-layout:fixed; border-collapse:collapse; margin-bottom:1rem; }
+    .t-layer-comparison caption { text-align:left; font-weight:750; padding:.5rem 0; }
+    .t-layer-comparison th, .t-layer-comparison td {
+      border:1px solid var(--line2); padding:.45rem; text-align:left; vertical-align:top;
+    }
+    .t-layer-comparison thead { background:#142b36; }
+    .t-layer-comparison button[aria-pressed="true"] { outline:2px solid #8be3ee; outline-offset:2px; }
+    .t-layer-comparison small { display:block; overflow-wrap:anywhere; }
+    .t-layer-cycle-segments { display:flex; gap:3px; margin:.4rem 0 .2rem; }
+    .t-layer-cycle-segments span { flex:1; height:.35rem; background:#c59aff; border-radius:2px; }
+  </style>
 </head>
 <body>
   <header class="top"><a class="brand" href="index.html">NEXAH <span>· A0</span></a><nav aria-label="Seitennavigation"><a href="A0_TOURS.html#fieldbook-mathfield-index">Fieldbook ↔ Mathfield Index</a><a href="#root8-gamma-root7-comparator">Root‑8 / Root‑7</a><a href="#ramanujan-klein-9801-396-comparator">9801 / 396</a><a href="#return-layer-audit">Return / Layer</a><a href="#register-cut-aperture">Quellen-Lesegang</a><a href="#qdef">Q°</a><a href="#grid">111 Grid</a><a href="#boundary-graph-demo">Boundary Graph</a><a href="#pascal-pentagon-demo">Pascal Demo</a><a href="A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html">Pascal Joint</a><a href="A0_SCC_003_PASCAL_PENTAGON_PAPER.html">SCC-003 Paper</a><a href="../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md">Findings & Papers</a><a href="A0_RESEARCH_DESK.html">Research Desk</a><a href="#experiments">Experimente</a><a href="#operators">Operator Spine</a><a href="#joints">Fugen</a><a href="A0_RESEARCH_DESK.html#log">Research Log</a><a href="A0_FIELDS_AND_JOINTS_ATLAS.html">Atlas</a><a href="index.html">A0 Overview</a></nav></header>
@@ -334,6 +370,7 @@
       <div class="boundary"><strong>Wichtig: wiedergefundene Suite ≠ wiedergefundener Bildgenerator.</strong><p>Die exakten Carrier‑ und CRT/QRT‑Resultate tragen die Zahlengelenke. Sie rekonstruieren nicht automatisch die pixelgenauen Erzeugungsregeln der historischen EXP10/11/13/20‑Plots. Deshalb bleiben deren Bildkarten unten mit ihrem eigenen Quellenstatus sichtbar.</p></div>
       <div class="experiments"><article class="experiment"><a href="assets/mathematical-joints/EXPERIMENT_NESTED_GRID_111X111.png"><img src="assets/mathematical-joints/EXPERIMENT_NESTED_GRID_111X111.png" alt="EXP09 111 mal 111 Raster mit Primzahlen und Vielfachen von 11 und 101"></a><h3>EXP09 · Nested Grid</h3><span class="tag pass">Arithmetic reconstruction PASS</span><p>Die modularen Bänder sind exakt und periodisch. Die Prime‑Punkte sind ein Overlay, nicht die Ursache der Bänder.</p></article><article class="experiment"><a href="assets/mathematical-joints/EXPERIMENT_QUASIPERIODIC_BAND_FIELD.png"><img src="assets/mathematical-joints/EXPERIMENT_QUASIPERIODIC_BAND_FIELD.png" alt="EXP13-C quasiperiodisches Bandfeld mit Prime Overlay"></a><h3>EXP13‑C · Band Field</h3><span class="tag missing">Generator missing</span><p>Quasiperiodisches Bildlabel beobachtet; Penrose‑Tiling nicht etabliert. Benötigt periodische und phase‑scrambled Kontrollen.</p></article><article class="experiment"><a href="assets/mathematical-joints/EXPERIMENT_POLAR_DRIFT_MOD11.png"><img src="assets/mathematical-joints/EXPERIMENT_POLAR_DRIFT_MOD11.png" alt="EXP20-A mod 11 Polarprojektion"></a><h3>EXP20‑A · Polar Drift</h3><span class="tag missing">Generator missing</span><p>Winkelklasse mod 11 plus gewählte Radiusfunktion. Die elf Strahlen sind eine Konsequenz der Projektion.</p></article><article class="experiment"><a href="assets/mathematical-joints/EXPERIMENT_MIRROR_BRIDGES_MOD11.png"><img src="assets/mathematical-joints/EXPERIMENT_MIRROR_BRIDGES_MOD11.png" alt="EXP20-B Mirror Bridges auf mod 11 Polarschale"></a><h3>EXP20‑B · Mirror Bridges</h3><span class="tag missing">Generator missing</span><p>Bridge‑Regel und Paarselektion sind nicht rekonstruierbar. Linien zeigen Relationen erst, wenn ihre Map deklariert ist.</p></article><article class="experiment"><a href="assets/mathematical-joints/EXPERIMENT_3D_POLAR_CYLINDER.png"><img src="assets/mathematical-joints/EXPERIMENT_3D_POLAR_CYLINDER.png" alt="EXP20-C 3D Polarzylinder aus mod 11 Winkel und logarithmischer Höhe"></a><h3>EXP20‑C · Polar Cylinder</h3><span class="tag source">NEXAH source bound · image generator unresolved</span><p>Das historische NEXAH‑Bild und seine Herkunft sind gebunden: Restklasse → Winkel, log(p) → Höhe. Nicht wiedergefunden ist der exakte PNG‑Generator; daraus folgt weiterhin weder ein Transportgesetz noch ein Torus.</p></article><article class="experiment"><a href="assets/mathematical-joints/EXPERIMENT_MIRROR_DISTANCE_FIELD.png"><img src="assets/mathematical-joints/EXPERIMENT_MIRROR_DISTANCE_FIELD.png" alt="EXP10 Dezimalspiegelabstand für Primzahlen"></a><h3>EXP10 · Mirror Distance</h3><span class="tag missing">Generator missing</span><p>Dezimalumkehr ist basisabhängig. Prime‑Palindrome und mirror‑prime pairs müssen von geometrischer Spiegelung getrennt bleiben.</p></article><article class="experiment"><a href="assets/mathematical-joints/EXPERIMENT_XO_TRANSITION_MAP.png"><img src="assets/mathematical-joints/EXPERIMENT_XO_TRANSITION_MAP.png" alt="EXP11 Übergangskarte zwischen mod 101 und mod 111"></a><h3>EXP11 · X/O Transition</h3><span class="tag missing">Generator missing</span><p>Die Paaransicht `(p mod 101, p mod 111)` ist definiert. Die benannten X/O‑Klassen benötigen jedoch eine gebundene Klassifikationsregel.</p></article></div>
       <div class="orange-source-return" id="exp20-orange-source-return" aria-label="Offene Orange-Kupfer-Verbindung zwischen Polarzylinder und Clockwork Orange"><article><div class="label">Quellseite · historisches Readout</div><b>EXP20‑C · Polar Cylinder</b><small>NEXAH‑Quelle und Bildintegrität gebunden; exakter PNG‑Generator offen.</small><code>residue → angle · log(p) → height</code></article><article><div class="label">Offener Adapter</div><b>Die Kupferdrähte fehlen hier.</b><small>Eine Map zwischen Polarhöhe/Winkel und Clockwork‑Phase/Kopplung ist nicht deklariert. Deshalb ist dies eine sichtbare Forschungsfuge, keine behauptete Identität.</small><code>EXP20‑C ⇢ ? ⇢ CLOCKWORK ORANGE</code></article><article><div class="label">Reproduzierbare Nachbarquelle</div><b>Clockwork Orange · GLB generator</b><small>Kupfer‑Außenring, Orange‑Phasenzeiger, vier sichtbare Kopplungspunkte und fester Observer‑Frame sind source‑bound erzeugbar.</small><code>M_RING_OUTER_COPPER · ORANGE_PHASE_POINTER</code><div class="btns"><a class="btn gold" href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/NEXAH_READOUT_RECONSTRUCTION_GLB_GATEWAY.html">Open GLB gateway</a><a class="btn" href="../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_DESKTOP_GOLD_CUSTODY_AND_NAVIGATOR_INTAKE_2026-10-07/sources/clockwork/generators/build_clockwork_orange_glb.mjs">Open generator</a></div></article></div>
+      <div class="still-point-t-layer">
       <section class="recovered" id="clockwork-orange-still-point-bands" aria-labelledby="stillPointBandsTitle">
         <div class="label">Clockwork Orange · Quelltafel</div>
         <h3 id="stillPointBandsTitle">Still-Point Bands</h3>
@@ -341,6 +378,146 @@
         <p>Der Vergleich mit D setzt den Schnitt auf 432 und legt das Strip-Fenster bei ε = 0,2250 auf das innere Band [424, 440]. D zeigt für beide Spiegelbahnen die Treffer und die laufende Gate-Serie bis n=6.</p>
         <div class="btns"><a class="btn gold" href="A0_SCIENCE.html#algo-hof-d-panel">D im Hof öffnen ↗</a><a class="btn" href="A0_RESEARCH_DESK.html#clockwork-orange-432-hof-check">432er-Vergleich im Science Desk ↗</a><a class="btn" href="A0_PLATINUM_IRIDIUM_PI_LENS.html#piShadowFaceControlsTitle">PI Lens · 29 ↔ 31 um 30 ↗</a></div>
       </section>
+      <section class="recovered t-layer" id="clockwork-orange-t-layer" aria-labelledby="tLayerTitle">
+        <div class="label">Clockwork Orange · Rastervergleich</div>
+        <h3 id="tLayerTitle">T-Layer-Rad</h3>
+        <p>Schalte die Ringe zu und verschiebe den Beta-Start um einen Feintick (5/24°). Violett markiert die gemeinsamen Richtungen von 36 und 27. Gold markiert gemeinsame Richtungen der gerade sichtbaren Ringe.</p>
+        <fieldset id="tLayerMultiplier">
+          <legend>Multiplikation am Rad</legend>
+          <div class="t-layer-options">
+            <label><input type="radio" name="tLayerMultiplier" value="parallel" checked> ×2 und ×4 parallel</label>
+            <label><input type="radio" name="tLayerMultiplier" value="2"> ×2</label>
+            <label><input type="radio" name="tLayerMultiplier" value="4"> ×4</label>
+            <label><input type="radio" name="tLayerMultiplier" value="mirror"> 1 und 8 spiegeln</label>
+            <label><input type="radio" name="tLayerMultiplier" value="mirror-3"> 3 und 6 spiegeln</label>
+            <label><input type="radio" name="tLayerMultiplier" value="beta27"> 27er-Rad</label>
+          </div>
+        </fieldset>
+        <fieldset id="tLayerWalkControls">
+          <legend>Bahn bis zum ersten Return</legend>
+          <div class="t-layer-options" id="tLayerStartOptions">
+            <span>Startarm</span>
+            <label><input type="radio" name="tLayerStartArm" value="1" checked> 1</label>
+            <label><input type="radio" name="tLayerStartArm" value="2"> 2</label>
+            <label><input type="radio" name="tLayerStartArm" value="3"> 3</label>
+          </div>
+          <div class="t-layer-options" id="tLayerBetaStarts" hidden>
+            <span>Ansicht im 27er-Rad</span>
+            <label><input type="radio" name="tLayerBetaPair" value="1-3" checked> 1 und 3</label>
+            <label><input type="radio" name="tLayerBetaPair" value="1-26"> 1 ↔ 26</label>
+            <label><input type="radio" name="tLayerBetaPair" value="3-24"> 3 ↔ 24</label>
+            <label><input type="radio" name="tLayerBetaPair" value="all"> Alle Bahnen</label>
+          </div>
+          <label id="tLayerBetaOperatorControl" hidden>Multiplikator für alle Bahnen
+            <select id="tLayerBetaOperator">
+              <option value="2">×2</option>
+              <option value="4" selected>×4</option>
+              <option value="8">×8</option>
+              <option value="16">×16</option>
+              <option value="32">×32</option>
+              <option value="64">×64</option>
+              <option value="128">×128</option>
+              <option value="256">×256</option>
+              <option value="512">×512</option>
+              <option value="1024">×1024</option>
+            </select>
+          </label>
+          <div class="t-layer-actions">
+            <button type="button" id="tLayerPlay">▶ Start</button>
+            <button type="button" id="tLayerStep">Nächster Schritt</button>
+            <button type="button" id="tLayerWalkReset">Bahn zurücksetzen</button>
+          </div>
+          <div id="tLayerParallel" class="t-layer-parallel" hidden>
+            <div class="t-layer-track">
+              <strong id="tLayerLeftTitle">×2 · zwei Schritte pro Klick</strong>
+              <output id="tLayerDoubleWalk" aria-labelledby="tLayerLeftTitle"></output>
+            </div>
+            <div class="t-layer-track">
+              <strong id="tLayerRightTitle">×4 · ein Schritt pro Klick</strong>
+              <output id="tLayerQuadrupleWalk" aria-labelledby="tLayerRightTitle"></output>
+            </div>
+          </div>
+          <output id="tLayerWalk" aria-live="polite"></output>
+        </fieldset>
+        <div class="t-layer-readout" id="tLayerDoubleReadout">
+          <label><input type="checkbox" id="tLayerDoubleOverlay" aria-controls="tLayerDoubleLegend"> Von 72 Feinticks bis zum Vollkreis</label>
+          <div id="tLayerDoubleLegend" hidden>
+            <p><strong>12 × 12 = 72 + 72 = 144</strong></p>
+            <div class="t-layer-actions">
+              <button type="button" id="tLayerDoubleStep">×2 · Weiter</button>
+              <button type="button" id="tLayerDoubleReset">Zurück zu 72</button>
+            </div>
+            <output id="tLayerDoubleStatus" aria-live="polite"></output>
+          </div>
+        </div>
+        <canvas width="600" height="600" role="img" aria-label="T-Layer mit 0° oben. Pfeile verbinden die neun Arme. Auf den äußeren Spuren zeigen helle Punkte die Taktpositionen der Ringe 36, 27 und 64." aria-describedby="tLayerWalk tLayerCycles tLayerHits tLayerReturn tLayerDoubleLegend"></canvas>
+        <table id="tLayerBetaStrideComparison" class="t-layer-comparison" hidden>
+          <caption>Fünf, sechs und sieben Verdopplungen pro Klick</caption>
+          <thead><tr>
+            <th scope="col"><div class="t-layer-actions"><button type="button" data-beta-compare="32" aria-label="×32 am Rad anzeigen" aria-pressed="false">×32</button></div></th>
+            <th scope="col"><div class="t-layer-actions"><button type="button" data-beta-compare="64" aria-label="×64 am Rad anzeigen" aria-pressed="false">×64</button></div></th>
+            <th scope="col"><div class="t-layer-actions"><button type="button" data-beta-compare="128" aria-label="×128 am Rad anzeigen" aria-pressed="false">×128</button></div></th>
+          </tr></thead>
+          <tbody>
+            <tr><th colspan="3" scope="rowgroup">Ursprüngliche 6er-Bahn</th></tr>
+            <tr>
+              <td data-beta-six="32"><strong>Rückwärts</strong><small></small></td>
+              <td data-beta-six="64"><strong>Return</strong><small></small></td>
+              <td data-beta-six="128"><strong>Vorwärts</strong><small></small></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr><th colspan="3" scope="rowgroup">Ursprüngliche 18er-Bahn</th></tr>
+            <tr>
+              <td data-beta-eighteen="32"><strong></strong><div class="t-layer-cycle-segments" aria-hidden="true"></div></td>
+              <td data-beta-eighteen="64"><strong></strong><div class="t-layer-cycle-segments" aria-hidden="true"></div></td>
+              <td data-beta-eighteen="128"><strong></strong><div class="t-layer-cycle-segments" aria-hidden="true"></div></td>
+            </tr>
+          </tbody>
+        </table>
+        <table id="tLayerBetaMirrorComparison" class="t-layer-comparison" hidden>
+          <caption>Acht, neun und zehn Verdopplungen pro Klick</caption>
+          <thead><tr>
+            <th scope="col"><div class="t-layer-actions"><button type="button" data-beta-compare="256" aria-label="×256 am Rad anzeigen" aria-pressed="false">×256</button></div></th>
+            <th scope="col"><div class="t-layer-actions"><button type="button" data-beta-compare="512" aria-label="×512 am Rad anzeigen" aria-pressed="false">×512</button></div></th>
+            <th scope="col"><div class="t-layer-actions"><button type="button" data-beta-compare="1024" aria-label="×1024 am Rad anzeigen" aria-pressed="false">×1024</button></div></th>
+          </tr></thead>
+          <tbody><tr>
+            <td data-beta-mirror="256"><strong>Äußere Bahn</strong><small></small></td>
+            <td data-beta-mirror="512"><strong>Spiegel</strong><small></small></td>
+            <td data-beta-mirror="1024"><strong>Gegenrichtung</strong><small></small></td>
+          </tr><tr>
+            <td>Zwei 9er, zwei 3er<br>0, 9 und 18 fest</td>
+            <td>13 Spiegelpaare<br>0 fest</td>
+            <td>Zwei 9er, zwei 3er<br>0, 9 und 18 fest</td>
+          </tr></tbody>
+        </table>
+        <div id="tLayerCycles" aria-live="polite">
+          <p id="tLayerCycleStatus"></p>
+          <p id="tLayerMirror" hidden></p>
+          <ul class="t-layer-cycles"></ul>
+        </div>
+        <fieldset>
+          <legend>Ringe</legend>
+          <div class="t-layer-options">
+            <label><input type="checkbox" data-ring="36" checked> 36 · Sektoren</label>
+            <label><input type="checkbox" data-ring="27" checked> 27 · Beta</label>
+            <label><input type="checkbox" data-ring="64" checked> 64 · Flip</label>
+          </div>
+          <label><input type="checkbox" id="tLayerOffset"> Beta-Start +1 Feintick</label>
+        </fieldset>
+        <output id="tLayerHits" for="tLayerOffset" aria-live="polite"></output>
+        <label for="tLayerTime"><strong>Takt</strong> · je ein eigener Schritt pro Ring</label>
+        <input id="tLayerTime" type="range" min="0" max="1728" value="0" step="1">
+        <div class="t-layer-actions">
+          <button type="button" data-time="0">Takt 0</button>
+          <button type="button" data-time="1727">Takt 1727</button>
+          <button type="button" data-time="1728">Takt 1728</button>
+        </div>
+        <output id="tLayerReturn" for="tLayerTime tLayerOffset" aria-live="polite"></output>
+        <p><a href="A0_SCIENCE.html#algo-hof-d-panel">Referenz verschieben bei D im Hof ↗</a> · <a href="A0_RESEARCH_DESK.html#clockwork-orange-t-layer-check">Vergleich im Science Desk ↗</a></p>
+      </section>
+      </div>
     </div></section>
 
     <section class="section dark" id="operators"><div class="wrap"><header class="head"><div class="num">05</div><div><div class="label">Operator spine · historical plates read as proto-specification</div><h2>Cycles, layers, masks and return.</h2><p class="sub">Vier historische Tafeln werden nicht als Beweis gelesen, sondern als Quellkarten für typisierbare Operatoren. Der mathematische Kern wird vom NEXAH‑Modell, von offenen Hypothesen und von unterdefinierten Claims getrennt.</p></div></header>
@@ -595,6 +772,530 @@
       <div class="boundary"><strong>Disposition:</strong><p><code>PASS_DECLARED_RETURN / 5-FOLD SHADOW + 7-FOLD FRAME + 12 DISPLAY BELTS / δ DISTINCT FROM HISTORICAL 204 DISTINCT FROM 204° DISTINCT FROM AUDIT HORIZON 2048 / 311 SUCCESSOR HITS REUSED / MIRROR INVOLUTION / 2 NEGATIVE CONTROLS / REUSE ART:A0:MATHEMATICAL_JOINTS + A0OE:PASCAL_PENTAGON_D5_TEST + SG:LENS:ROOT7_LOOK / NO SOURCE GRAPH EFFECT / NO STUDY / NO FINDING / NO PUBLICATION</code>.</p></div>
     </div>
   </section>
+
+  <script>
+    (() => {
+      const panel = document.querySelector('#clockwork-orange-t-layer');
+      const canvas = panel.querySelector('canvas');
+      const ctx = canvas.getContext('2d');
+      const offset = panel.querySelector('#tLayerOffset');
+      const time = panel.querySelector('#tLayerTime');
+      const doublingOverlay = panel.querySelector('#tLayerDoubleOverlay');
+      const doublingLegend = panel.querySelector('#tLayerDoubleLegend');
+      const doublingStep = panel.querySelector('#tLayerDoubleStep');
+      const doublingReset = panel.querySelector('#tLayerDoubleReset');
+      const doublingStatus = panel.querySelector('#tLayerDoubleStatus');
+      const hits = panel.querySelector('#tLayerHits');
+      const result = panel.querySelector('#tLayerReturn');
+      const walkResult = panel.querySelector('#tLayerWalk');
+      const parallelTracks = panel.querySelector('#tLayerParallel');
+      const leftTitle = panel.querySelector('#tLayerLeftTitle');
+      const rightTitle = panel.querySelector('#tLayerRightTitle');
+      const startOptions = panel.querySelector('#tLayerStartOptions');
+      const betaStartOptions = panel.querySelector('#tLayerBetaStarts');
+      const betaOperator = panel.querySelector('#tLayerBetaOperator');
+      const betaOperatorControl = panel.querySelector('#tLayerBetaOperatorControl');
+      const betaComparison = panel.querySelector('#tLayerBetaStrideComparison');
+      const betaMirrorComparison = panel.querySelector('#tLayerBetaMirrorComparison');
+      const betaCompareButtons = [...panel.querySelectorAll('[data-beta-compare]')];
+      const doubleWalk = panel.querySelector('#tLayerDoubleWalk');
+      const quadrupleWalk = panel.querySelector('#tLayerQuadrupleWalk');
+      const playButton = panel.querySelector('#tLayerPlay');
+      const stepButton = panel.querySelector('#tLayerStep');
+      const walkReset = panel.querySelector('#tLayerWalkReset');
+      const multiplierControl = panel.querySelector('#tLayerMultiplier');
+      const cycleStatus = panel.querySelector('#tLayerCycleStatus');
+      const mirrorStatus = panel.querySelector('#tLayerMirror');
+      const cycleList = panel.querySelector('.t-layer-cycles');
+      const period = Number(time.max);
+      const center = canvas.width / 2;
+      const doublingTicks = [72, 144, 288, 576, 576 * 3];
+      let doublingIndex = 0;
+      const armTrail = [];
+      let walkTimer = null;
+      const rings = [
+        { count: 36, radius: 218, color: '#e6eff4' },
+        { count: 27, radius: 172, color: '#69dceb' },
+        { count: 64, radius: 128, color: '#aebdce' },
+      ];
+      const shared = (grids) => grids.length < 2 ? [] :
+        [...grids[0]].filter(tick => grids.every(grid => grid.has(tick)));
+
+      function point(tick, radius) {
+        const angle = 2 * Math.PI * tick / period;
+        return [center + radius * Math.sin(angle), center - radius * Math.cos(angle)];
+      }
+
+      function mark(tick, inner, outer, color, width) {
+        ctx.beginPath();
+        ctx.moveTo(...point(tick, inner));
+        ctx.lineTo(...point(tick, outer));
+        ctx.strokeStyle = color;
+        ctx.lineWidth = width;
+        ctx.stroke();
+      }
+
+      function dot(tick, radius, color, size) {
+        ctx.beginPath();
+        ctx.arc(...point(tick, radius), size, 0, 2 * Math.PI);
+        ctx.fillStyle = color;
+        ctx.fill();
+      }
+
+      function readCycles(multiplier, armCount) {
+        const remaining = new Set(Array.from({ length: armCount }, (_, index) => index));
+        const cycles = [];
+        for (const start of remaining) {
+          const cycle = [];
+          let index = start;
+          do {
+            cycle.push(index);
+            remaining.delete(index);
+            index = (index * multiplier) % armCount;
+          } while (index !== start);
+          cycles.push(cycle);
+        }
+        return cycles;
+      }
+
+      function drawCycleEdge(from, to, color) {
+        const [x, y] = point(from, 86);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2.8;
+        ctx.beginPath();
+        if (from === to) {
+          const [loopX, loopY] = point(from, 73);
+          ctx.arc(loopX, loopY, 8, 0, 2 * Math.PI);
+          ctx.stroke();
+          return;
+        }
+        const [endX, endY] = point(to, 86);
+        const angle = Math.atan2(endY - y, endX - x);
+        const bendX = (x + endX) / 2 - 12 * Math.sin(angle);
+        const bendY = (y + endY) / 2 + 12 * Math.cos(angle);
+        ctx.moveTo(x, y);
+        ctx.quadraticCurveTo(bendX, bendY, endX, endY);
+        ctx.stroke();
+
+        const t = .66;
+        const u = 1 - t;
+        const arrowX = u * u * x + 2 * u * t * bendX + t * t * endX;
+        const arrowY = u * u * y + 2 * u * t * bendY + t * t * endY;
+        const direction = Math.atan2(u * (bendY - y) + t * (endY - bendY), u * (bendX - x) + t * (endX - bendX));
+        ctx.beginPath();
+        for (const side of [-.55, .55]) {
+          ctx.moveTo(arrowX - 10 * Math.cos(direction + side), arrowY - 10 * Math.sin(direction + side));
+          ctx.lineTo(arrowX, arrowY);
+        }
+        ctx.stroke();
+      }
+
+      const armLabel = index => index === 0 ? '9' : String(index);
+      const nextArm = (arm, multiplier, modulus = 9) => (multiplier * arm) % modulus;
+      const selectedMode = () => multiplierControl.querySelector(':checked').value;
+      const mirrorStarts = { mirror: 1, 'mirror-3': 3 };
+      const betaSelection = () => betaStartOptions.querySelector(':checked').value;
+      const betaStarts = () => betaSelection() === 'all' ? [] : betaSelection().split('-').map(Number);
+      const multiplierFor = mode => mode === 'beta27' && betaSelection() === 'all' ? Number(betaOperator.value) :
+        mode === '2' ? 2 : 4;
+      const startFor = mode => mode === 'beta27' ? (betaStarts()[0] ?? 1) :
+        mirrorStarts[mode] ?? Number(startOptions.querySelector(':checked').value);
+      const betaCyclesByMultiplier = {
+        2: readCycles(2, 27).sort((a, b) => b.length - a.length),
+        4: readCycles(4, 27).sort((a, b) => b.length - a.length),
+        8: readCycles(8, 27).sort((a, b) => b.length - a.length),
+        16: readCycles(16, 27).sort((a, b) => b.length - a.length),
+        32: readCycles(32, 27).sort((a, b) => b.length - a.length),
+        64: readCycles(64, 27).sort((a, b) => b.length - a.length),
+        128: readCycles(128, 27).sort((a, b) => b.length - a.length),
+        256: readCycles(256, 27).sort((a, b) => b.length - a.length),
+        512: readCycles(512, 27).sort((a, b) => b.length - a.length),
+        1024: readCycles(1024, 27).sort((a, b) => b.length - a.length),
+      };
+
+      const betaUnsplitColors = ['#c59aff', '#69dceb', '#ffb475'];
+      const betaSplitColors = ['#c59aff', '#f28ebf', '#69dceb', '#77aaff'];
+
+      function betaCycleFrom(start) {
+        const cycle = betaCyclesByMultiplier[4].find(candidate => candidate.includes(start));
+        const startIndex = cycle.indexOf(start);
+        return [...cycle.slice(startIndex), ...cycle.slice(0, startIndex)];
+      }
+      const reflectArm = arm => (9 - arm) % 9;
+
+      function showWalkWithMidpoints(output, trail, heading) {
+        output.replaceChildren(`${heading} · ${armLabel(trail[0])}`);
+        trail.slice(1).forEach((arm, index) => {
+          const midpoint = document.createElement('mark');
+          midpoint.textContent = armLabel(nextArm(trail[index], 2));
+          output.append(' → ', midpoint, ` → ${armLabel(arm)}`);
+        });
+      }
+      const cycleColor = cycle => cycle[0] % 3 === 0 ? '#69dceb' : cycle[0] === 1 ? '#c59aff' : '#f28ebf';
+
+      function drawDoublingReadout() {
+        const reached = doublingTicks.slice(0, doublingIndex + 1);
+        const transition = reached.slice(-2);
+        const current = reached.at(-1);
+        const complete = doublingIndex === doublingTicks.length - 1;
+        const degrees = ticks => ticks * 360 / period;
+        const residues = transition.map(ticks => ticks % 27);
+        const description = `Innen (mod 27) · ${residues.join(' → ')}. Außen · ${current} Feinticks · ${degrees(current)}°. Rest mod 333 · ${current % 333}.`;
+        const status = complete ? `${description} 360° liegt auf der 0°-Richtung.` : description;
+        if (doublingStatus.textContent !== status) doublingStatus.textContent = status;
+        doublingStep.textContent = complete ? 'Vollkreis erreicht' : doublingIndex === 3 ? '×3 · Zum Vollkreis' : '×2 · Weiter';
+        doublingStep.disabled = complete;
+        doublingReset.disabled = doublingIndex === 0;
+
+        const betaStart = offset.checked ? 1 : 0;
+        const innerTick = value => betaStart + (value % 27) * (period / 27);
+        const activeColor = '#ffcc83';
+
+        ctx.save();
+        if (transition.length === 2) {
+          drawCycleEdge(innerTick(transition[0]), innerTick(current), activeColor);
+        }
+        ctx.font = '700 18px system-ui';
+        for (const value of transition) {
+          const color = value === current ? activeColor : '#b9ccd6';
+          const armTick = innerTick(value);
+          dot(armTick, 86, color, 7);
+          const [innerX, innerY] = point(armTick, 108);
+          ctx.textAlign = 'center';
+          ctx.fillStyle = '#091821';
+          ctx.fillRect(innerX - 16, innerY - 12, 32, 24);
+          ctx.fillStyle = color;
+          ctx.fillText(String(value % 27), innerX, innerY + 6);
+        }
+
+        for (const value of reached) {
+          const color = value === current ? activeColor : '#b9ccd6';
+          mark(value, 246, 266, color, 3);
+          dot(value, 266, color, 4);
+          const [outerX, outerY] = point(value, 280);
+          const labelOnLeft = value === period || outerX > canvas.width - 126;
+          ctx.textAlign = labelOnLeft ? 'right' : 'left';
+          ctx.fillStyle = color;
+          ctx.fillText(`${value} · ${degrees(value)}°`, outerX + (labelOnLeft ? -8 : 8), outerY + 5);
+        }
+        ctx.restore();
+      }
+
+      function render() {
+        doublingLegend.hidden = !doublingOverlay.checked;
+        const tick = Number(time.value);
+        const mode = selectedMode();
+        const parallel = mode === 'parallel';
+        const mirrorWalk = mode in mirrorStarts;
+        const betaWalk = mode === 'beta27';
+        const betaOverview = betaWalk && betaSelection() === 'all';
+        const multiplier = multiplierFor(mode);
+        betaOperatorControl.hidden = !betaOverview;
+        betaComparison.hidden = !betaOverview;
+        betaMirrorComparison.hidden = !betaOverview;
+        betaCompareButtons.forEach(button => {
+          button.setAttribute('aria-pressed', String(Number(button.dataset.betaCompare) === multiplier));
+        });
+        startOptions.hidden = mirrorWalk || betaWalk;
+        betaStartOptions.hidden = !betaWalk;
+        const visible = rings.filter(ring => panel.querySelector(`[data-ring="${ring.count}"]`).checked)
+          .map(ring => {
+            const step = period / ring.count;
+            const start = ring.count === 27 && offset.checked ? 1 : 0;
+            return { ...ring, step, start,
+              grid: new Set(Array.from({ length: ring.count }, (_, index) => start + index * step)) };
+          });
+        const common = shared(visible.map(ring => ring.grid));
+        const pair = shared(visible.filter(ring => ring.count !== 64).map(ring => ring.grid));
+
+        const pairVisible = visible.some(ring => ring.count === 36) && visible.some(ring => ring.count === 27);
+        const pairSummary = pairVisible && visible.length === 3 ? ` 36/27 allein · ${pair.length} gemeinsame Richtungen.` : '';
+        hits.textContent = visible.length < 2 ? 'Für den 0°-Vergleich mindestens zwei Ringe einschalten.' :
+          `0°-Treffer der sichtbaren Ringe · ${common.includes(0) ? 'ja' : 'nein'}. Gemeinsame Richtungen · ${common.length}.${pairSummary}`;
+        const returned = tick === period ? 'Erster gemeinsamer Return. Jeder Ring steht wieder auf seinem eigenen Start.' :
+          tick === 0 ? 'Startpositionen.' : 'Der erste gemeinsame Return liegt bei 1728.';
+        result.textContent = `Takt ${tick} / ${period} · ${returned}${offset.checked ? ' Beta-Start bleibt Feintick 1.' : ''}`;
+
+        const betaRing = visible.find(ring => ring.count === 27);
+        const arms = betaWalk ? [...(betaRing?.grid ?? [])] : pair;
+        const selectedBetaCycles = betaOverview ? betaCyclesByMultiplier[multiplier] : betaWalk ? betaStarts().map(betaCycleFrom) : [];
+        const cycles = betaWalk ? (arms.length ? selectedBetaCycles : []) :
+          pair.length ? readCycles(multiplier, pair.length) : [];
+        const colorForCycle = cycle => {
+          if (betaOverview) {
+            const loopColors = {
+              2: betaUnsplitColors,
+              4: betaSplitColors,
+              8: ['#c59aff', '#f28ebf', '#ffbf81', '#69dceb', '#77aaff', '#b9ea89', '#f3dc77'],
+              16: betaSplitColors,
+              32: betaUnsplitColors,
+              64: ['#c59aff', '#f28ebf', '#ffbf81', '#69dceb', '#77aaff', '#b9ea89'],
+              128: betaUnsplitColors,
+              256: betaSplitColors,
+              1024: betaSplitColors,
+            }[multiplier];
+            return (multiplier === 512 && cycle.length === 2 ? '#69dceb' : loopColors?.[selectedBetaCycles.indexOf(cycle)]) ?? '#e6eff4';
+          }
+          return betaWalk ? (cycle === selectedBetaCycles[0] ? '#c59aff' : '#69dceb') : cycleColor(cycle);
+        };
+        const labelForArm = betaWalk ? String : armLabel;
+        const mirrorCycle = betaWalk ? null : cycles.find(cycle => cycle.length === 3);
+        const mirrorPairs = mirrorCycle?.map(arm => [arm, reflectArm(arm)]) ?? [];
+        if (mode === 'mirror-3' && mirrorPairs.length) {
+          const arm = mirrorStarts[mode];
+          mirrorPairs.push([arm, reflectArm(arm)]);
+        }
+        const betaMirrorAxis = betaOverview && multiplier === 512 && betaRing;
+        mirrorStatus.hidden = !betaMirrorAxis && mirrorPairs.length === 0;
+        mirrorStatus.textContent = betaMirrorAxis ?
+          'Spiegelachse durch die Beta-Nullrichtung. Jeder Arm trifft sein Gegenüber an der Achse.' :
+          mirrorPairs.length ?
+          `Spiegelpaar an der Achse 0°/180° · ${mirrorPairs.map(([arm, reflected]) => `${arm} ↔ ${reflected}`).join(' · ')}.` : '';
+        cycleStatus.textContent = betaWalk ?
+          `×${multiplier} mod 27 · Die Arme werden ab der Beta-Nullrichtung nummeriert. Finding offen.` :
+          cycles.length ? `${parallel ? 'Pfeile am Rad zeigen ' : ''}×${multiplier} mod 9 · 9 bezeichnet den Rest 0.` :
+          'Die neun gemeinsamen Arme sind bei eingeschaltetem 36er und 27er mit gemeinsamer Nullrichtung sichtbar.';
+        cycleList.replaceChildren(...cycles.map(cycle => {
+          const item = document.createElement('li');
+          item.style.setProperty('--cycle-color', colorForCycle(cycle));
+          item.textContent = cycle.length === 1 ? `${labelForArm(cycle[0])} · Fixpunkt` :
+            `${cycle.length}er-Zyklus · ${[...cycle, cycle[0]].map(labelForArm).join(' → ')}`;
+          return item;
+        }));
+
+        const startArm = startFor(mode);
+        const currentArm = armTrail.at(-1) ?? startArm;
+        const previousArm = armTrail.at(-2);
+        const intermediateArm = !betaWalk && multiplier === 4 && previousArm !== undefined ? nextArm(previousArm, 2) : null;
+        const steps = armTrail.length ? armTrail.length - 1 : 0;
+        const rightBetaCycle = selectedBetaCycles[1];
+        const rightSteps = betaWalk ? Math.min(steps, rightBetaCycle.length) : 0;
+        const rightArm = rightBetaCycle?.[rightSteps % rightBetaCycle.length];
+        const firstReturn = steps > 0 && currentArm === startArm;
+        const canWalk = cycles.length > 0;
+        if (!canWalk || firstReturn) stopPlayback();
+        playButton.disabled = !canWalk;
+        playButton.textContent = walkTimer !== null ? 'Pause' : firstReturn ? '↻ Neustart' : '▶ Start';
+        stepButton.disabled = !canWalk || firstReturn;
+        walkReset.disabled = steps === 0;
+        parallelTracks.hidden = betaOverview || !(parallel || mirrorWalk || betaWalk) || !cycles.length;
+        leftTitle.textContent = mirrorWalk || betaWalk ? `×4 ab Arm ${startArm}` : '×2 · zwei Schritte pro Klick';
+        rightTitle.textContent = betaWalk ? `×4 ab Arm ${rightBetaCycle[0]}` :
+          mirrorWalk ? `×4 ab Arm ${reflectArm(startArm)}` : '×4 · ein Schritt pro Klick';
+        const trail = armTrail.length ? armTrail : [startArm];
+        const trace = trail.map(armLabel).join(' → ');
+        const returnLabel = firstReturn ? ' · Erster Return' : '';
+        const intermediate = intermediateArm === null ? '' : ` Zwischenarm bei ×2: ${armLabel(intermediateArm)} (orange umrandet).`;
+        if (!cycles.length) {
+          walkResult.textContent = betaWalk ? 'Für den 27er-Vergleich Beta einschalten.' :
+            'Für die Bahn 36 und 27 einschalten und den Beta-Versatz ausschalten.';
+        } else if (betaOverview) {
+          const cycleSummary = {
+            2: 'Ein 18er-Zyklus · ein 6er-Zyklus · 9 ↔ 18 · Fixpunkt 0.',
+            4: 'Zwei 9er-Zyklen · zwei 3er-Zyklen · Fixpunkte 0, 9 und 18.',
+            8: 'Drei 6er-Zyklen · drei 2er-Zyklen aus dem 6er · 9 ↔ 18 · Fixpunkt 0.',
+            16: 'Dieselben Zyklen wie bei ×4. Jeder Pfeil fasst zwei ×4-Schritte zusammen. Die 3er-Zyklen laufen rückwärts.',
+            32: 'Dieselben Zyklen wie bei ×2. Jeder Pfeil fasst fünf ×2-Schritte zusammen. 9 ↔ 18 · Fixpunkt 0.',
+            64: 'Sechs 3er-Zyklen aus dem 18er. Alle neun Vielfachen von 3 bleiben fest, einschließlich 0, 9 und 18.',
+            128: 'Dieselben Zyklen wie bei ×32. Jeder Pfeil fasst sieben ×2-Schritte zusammen. 9 ↔ 18 · Fixpunkt 0.',
+            256: 'Zwei 9er- und zwei 3er-Zyklen. ×1024 kehrt jeden Pfeil um.',
+            512: 'Spiegelung mod 27. 13 Zweierzyklen und Fixpunkt 0.',
+            1024: 'Zwei 9er- und zwei 3er-Zyklen. ×256 kehrt jeden Pfeil um.',
+          }[multiplier];
+          walkResult.textContent = `Schritt ${steps} / ${cycles[0].length}${firstReturn ? ' · Alle wieder am Start' : ''}. ${cycleSummary}`;
+        } else if (betaWalk) {
+          const rightReturned = rightSteps === rightBetaCycle.length;
+          const rightTrace = (rightReturned ? [...rightBetaCycle, rightArm] : rightBetaCycle.slice(0, rightSteps + 1)).join(' → ');
+          doubleWalk.textContent = `Schritt ${steps}${returnLabel} · ${trace}`;
+          quadrupleWalk.textContent = `Schritt ${rightSteps}${rightReturned ? ' · Erster Return' : ''} · ${rightTrace}`;
+          walkResult.textContent = `Klick ${steps} · ${firstReturn ? 'Beide Bahnen sind wieder am Start.' :
+            rightReturned ? `Arm ${rightArm} ist zurück. Die Bahn ab Arm ${startArm} läuft weiter.` : 'Beide Bahnen laufen bis zum ersten Return.'}`;
+        } else if (mirrorWalk) {
+          const heading = `Schritt ${steps}${returnLabel}`;
+          showWalkWithMidpoints(doubleWalk, trail, heading);
+          showWalkWithMidpoints(quadrupleWalk, trail.map(reflectArm), heading);
+          const midpointPair = intermediateArm === null ? '' :
+            ` ×2-Zwischenarme in Orange · ${intermediateArm} ↔ ${reflectArm(intermediateArm)}.`;
+          walkResult.textContent = `Klick ${steps} · Arme ${currentArm} ↔ ${reflectArm(currentArm)}.${midpointPair}`;
+        } else if (parallel) {
+          showWalkWithMidpoints(doubleWalk, trail, `Schritt ${2 * steps}${returnLabel}`);
+          quadrupleWalk.textContent = `Schritt ${steps}${returnLabel} · ${trace}`;
+          walkResult.textContent = `Klick ${steps} · Beide auf Arm ${armLabel(currentArm)}.${intermediate}`;
+        } else {
+          walkResult.textContent = `Schritt ${steps} · ${trace}${returnLabel}.${intermediate}`;
+        }
+
+        if (!ctx) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if (mirrorPairs.length || betaMirrorAxis) {
+          const axisTick = betaMirrorAxis ? betaRing.start : 0;
+          ctx.save();
+          ctx.setLineDash([5, 5]);
+          mark(axisTick, 0, 265, '#8ea4b0', 1.5);
+          mark(axisTick + period / 2, 0, 265, '#8ea4b0', 1.5);
+          ctx.setLineDash([2, 5]);
+          ctx.strokeStyle = '#8ea4b0';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          mirrorPairs.forEach(([arm, reflected]) => {
+            ctx.moveTo(...point(pair[arm], 86));
+            ctx.lineTo(...point(pair[reflected], 86));
+          });
+          ctx.stroke();
+          ctx.restore();
+        } else {
+          mark(0, 112, 265, '#556975', 1.5);
+        }
+        ctx.fillStyle = '#e6eff4';
+        ctx.font = '22px system-ui';
+        ctx.textAlign = 'center';
+        ctx.fillText('0°', center, 26);
+        if (mirrorPairs.length || (betaMirrorAxis && !offset.checked)) ctx.fillText('180°', center, canvas.height - 10);
+
+        pair.forEach(spoke => mark(spoke, 113, 140, '#bd91fb', 3));
+        cycles.forEach(cycle => {
+          const color = colorForCycle(cycle);
+          cycle.forEach((index, i) => drawCycleEdge(arms[index], arms[cycle[(i + 1) % cycle.length]], color));
+        });
+        if (!betaOverview && previousArm !== undefined && cycles.length) {
+          drawCycleEdge(arms[previousArm], arms[currentArm], '#fff');
+          if (betaWalk) drawCycleEdge(arms[rightBetaCycle[rightSteps - 1]], arms[rightArm], '#fff');
+          if (mirrorWalk) drawCycleEdge(pair[reflectArm(previousArm)], pair[reflectArm(currentArm)], '#fff');
+        }
+        ctx.font = '700 21px system-ui';
+        cycles.forEach(cycle => {
+          const color = colorForCycle(cycle);
+          cycle.forEach(index => {
+            dot(arms[index], 86, color, 4);
+            const [labelX, labelY] = point(arms[index], 103);
+            ctx.fillText(labelForArm(index), labelX, labelY + 7);
+          });
+        });
+        if (canWalk && betaOverview) {
+          cycles.filter(cycle => cycle.length > 1).forEach(cycle => {
+            const position = Math.min(steps, cycle.length) % cycle.length;
+            const angle = arms[cycle[position]];
+            dot(angle, 86, '#fff', 8);
+            dot(angle, 86, colorForCycle(cycle), 5);
+          });
+        } else if (canWalk) {
+          dot(arms[currentArm], 86, '#fff', 8);
+          if (betaWalk) dot(arms[rightArm], 86, '#fff', 8);
+          if (mirrorWalk) dot(pair[reflectArm(currentArm)], 86, '#fff', 8);
+          if (intermediateArm !== null) {
+            const midpoints = mirrorWalk ? [intermediateArm, reflectArm(intermediateArm)] : [intermediateArm];
+            for (const arm of midpoints) {
+              ctx.beginPath();
+              const atCurrentArm = arm === currentArm || (mirrorWalk && arm === reflectArm(currentArm));
+              ctx.arc(...point(pair[arm], 86), atCurrentArm ? 12 : 9, 0, 2 * Math.PI);
+              ctx.strokeStyle = '#ff9e58';
+              ctx.lineWidth = 3;
+              ctx.stroke();
+            }
+          }
+        }
+        common.forEach(spoke => mark(spoke, 240, 259, '#f7c76a', 5));
+        visible.forEach(ring => {
+          ctx.beginPath();
+          ctx.arc(center, center, ring.radius, 0, 2 * Math.PI);
+          ctx.strokeStyle = '#536b79';
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+
+          ring.grid.forEach(spoke => mark(spoke, ring.radius - 9, ring.radius + 9, ring.color, 2));
+          dot(ring.start, ring.radius, '#556975', 7);
+          dot((ring.start + tick * ring.step) % period, ring.radius, ring.color, 9);
+        });
+        if (doublingOverlay.checked) drawDoublingReadout();
+      }
+
+      function stopPlayback() {
+        clearInterval(walkTimer);
+        walkTimer = null;
+      }
+
+      function advanceWalk() {
+        if (stepButton.disabled) return;
+        const mode = selectedMode();
+        if (!armTrail.length) armTrail.push(startFor(mode));
+        armTrail.push(nextArm(armTrail.at(-1), multiplierFor(mode), mode === 'beta27' ? 27 : 9));
+        render();
+      }
+
+      function resetWalk() {
+        stopPlayback();
+        armTrail.length = 0;
+      }
+
+      const originalLongCycle = new Set(betaCyclesByMultiplier[2][0]);
+      betaComparison.querySelectorAll('[data-beta-compare]').forEach(button => {
+        const multiplier = button.dataset.betaCompare;
+        const cycles = betaCyclesByMultiplier[multiplier];
+        const sixTrack = cycles.find(cycle => cycle.includes(3));
+        const sixReadout = betaComparison.querySelector(`[data-beta-six="${multiplier}"] small`);
+        sixReadout.textContent = sixTrack.length === 1 ? '3 → 3 · alle sechs Arme fest' :
+          [...sixTrack, sixTrack[0]].join(' → ');
+        const longParts = cycles.filter(cycle => originalLongCycle.has(cycle[0]));
+        const longReadout = betaComparison.querySelector(`[data-beta-eighteen="${multiplier}"]`);
+        longReadout.querySelector('strong').textContent = `${longParts.length} × ${longParts[0].length}`;
+        longReadout.querySelector('.t-layer-cycle-segments').replaceChildren(
+          ...longParts.map(() => document.createElement('span'))
+        );
+      });
+      betaMirrorComparison.querySelectorAll('[data-beta-mirror]').forEach(cell => {
+        const multiplier = Number(cell.dataset.betaMirror);
+        const next = nextArm(1, multiplier, 27);
+        cell.querySelector('small').textContent = multiplier === 512 ? `1 ↔ ${next} · 3 ↔ ${nextArm(3, multiplier, 27)}` :
+          `1 → ${next} → ${nextArm(next, multiplier, 27)}`;
+      });
+      betaCompareButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          betaOperator.value = button.dataset.betaCompare;
+          resetWalk();
+          render();
+        });
+      });
+
+      panel.addEventListener('input', event => {
+        if (event.target !== time && event.target !== doublingOverlay) resetWalk();
+        render();
+      });
+      doublingStep.addEventListener('click', () => {
+        doublingIndex += 1;
+        render();
+        if (doublingStep.disabled) doublingReset.focus({ preventScroll: true });
+      });
+      doublingReset.addEventListener('click', () => {
+        doublingIndex = 0;
+        render();
+        doublingStep.focus({ preventScroll: true });
+      });
+      playButton.addEventListener('click', () => {
+        if (walkTimer !== null) {
+          stopPlayback();
+        } else {
+          if (stepButton.disabled) resetWalk();
+          walkTimer = setInterval(advanceWalk, 850);
+        }
+        render();
+      });
+      stepButton.addEventListener('click', () => {
+        stopPlayback();
+        advanceWalk();
+      });
+      walkReset.addEventListener('click', () => {
+        resetWalk();
+        render();
+      });
+      panel.querySelectorAll('[data-time]').forEach(button => {
+        button.addEventListener('click', () => {
+          time.value = button.dataset.time;
+          render();
+        });
+      });
+      render();
+    })();
+  </script>
   <script src="a0-splinter-orbit-return.js?rev=20261115-r1"></script>
   <script src="a0-unimodular-mediant-gap-coupling.js?rev=20261030-r1"></script>
   <script src="a0-context-navigation.js?rev=flagship-constellation-r1-20261030"></script>

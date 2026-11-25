@@ -12,7 +12,1356 @@
   const wheelSessions=new Map(),jointSessions=new Map();let jointModulus=12,jointQrt20View='ab',corridorModulus=9,corridorWitness=null,qrt20QuarterTurn=true,qrt20CouplingWindow=true,qrt20Terrace=true,qrt20Tesa=true,qrt20TesaMode='3x16',qrt20TesaTrace=true,qrt20IotaGateStep=0,qrt20FoldIndex=0,qrt20CoreMotion=true,qrt20BetaExponent=-6,qrt20VpaProfile='FK_TL_RT',qrt20VpaTick=0,qrt20PascalSeamStep=0;let returnWitness=null,returnStatus='Source-Anker noch nicht erfasst';const returnAnchors=new Map();let breathEnabled=false,motion=null;const T=window.A0TrinityLens;let trinity=T?T.settings():null;
   const camera={yaw:.12,pitch:1.05,zoom:1},reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches||false;
   const session=()=>sessions[rule],frame=()=>session().frames[session().cursor];
-  function publish(ready=false){parent.postMessage({type:'worlds-play-state',kind:'numbers',ready,running:timer!==null,loop,orbit,rule,side,navigationView:parallelActive?'parallel':cathedralActive?'cathedral':view,status:parallelActive?(timer!==null?'Playing':'Paused')+' · PARALLEL · Vergleich '+comparison.tick+' / '+PM.LIMIT:(timer!==null?'Playing':'Paused')+' · '+rule+(rule==='sumlift'?' · '+(session().config.direction==='counter'?'Gegenlauf':'Gleichlauf'):'')+' · n '+session().cursor+' / '+M.limit(rule)},'*')}
+  const wheelBeatPlay = $('wheelBeatPlay');
+  const wheelBeatABCLoop = $('wheelBeatABCLoop');
+  const wheelBeatSyncNumbers = $('wheelBeatSyncNumbers');
+  const wheelBeatABCMeter = $('wheelBeatABCMeter');
+  const wheelBeatBackloop = $('wheelBeatBackloop');
+  const wheelBackloopView = $('wheelBackloopView');
+  const wheelBackloopMeter = $('wheelBackloopMeter');
+  const wheelBackloopDiagonal = $('wheelBackloopDiagonal');
+  const wheelBackloopTimbre = $('wheelBackloopTimbre');
+  const wheelPhaseCanvas = $('wheelPhaseCanvas');
+  const wheelCommonReturnStatus = $('wheelCommonReturnStatus');
+  const wheelQrt20JointReturnStatus = $('wheelQrt20JointReturnStatus');
+  const wheelAllReturnStatus = $('wheelAllReturnStatus');
+  const backloopQrt20 = M.jointQrt20CodecAudit(1836, 1729, 'counter').qrt20;
+  const qrt20ReturnEighths = backloopQrt20.moving_residue_return_period;
+  const abcGaps = [2, 1, 3];
+  const sevenBeatGaps = [2, 2, 3];
+  const wheelResonanceTakes = [48, 96].map(frequency => ({
+    button: $('wheelResonanceListen' + frequency),
+    gaps: abcGaps,
+    frequency,
+    peakOutput: $('wheelResonancePeak' + frequency),
+  }));
+  const wheelAuditionLoops = [
+    { button: $('wheelBeatABLoop'), gaps: [2, 2] },
+    { button: wheelBeatABCLoop, gaps: abcGaps },
+    ...wheelResonanceTakes,
+  ];
+  const wheelBeatHat = $('wheelBeatHat');
+  const wheelBeatSnare = $('wheelBeatSnare');
+  const wheelBeatSnareTiming = $('wheelBeatSnareTiming');
+  const wheelBeatGlue = $('wheelBeatGlue');
+  const wheelBeatReverseA = $('wheelBeatReverseA');
+  const wheelBeatReverseLength = $('wheelBeatReverseLength');
+  const wheelBeatReverseValue = $('wheelBeatReverseValue');
+  const wheelBeatBass = $('wheelBeatBass');
+  const wheelBeatState = $('wheelBeatState');
+  const wheelBeatCue = $('wheelBeatCue');
+  const wheelResonanceEnabled = $('wheelResonanceEnabled');
+  const wheelResonanceFrequency = $('wheelResonanceFrequency');
+  const wheelResonanceDamping = $('wheelResonanceDamping');
+  const wheelResonanceMeter = $('wheelResonanceMeter');
+  const wheelResonanceLevel = $('wheelResonanceLevel');
+  const resonanceComparisonDamping = 0.4;
+  const wheelResonancePresets = [3, 6, 9, 12, 24, 48, 49, 96].map(frequency => ({
+    frequency,
+    button: $('wheelResonancePreset' + frequency),
+  }));
+  const wheelBeatStride = 12;
+  const beatRings = [432, 408].map((modulus, index) => ({
+    modulus,
+    start: 1836 % modulus,
+    period: modulus / wheelBeatStride,
+    pitch: [47, 57][index],
+    meter: $('wheelBeatMeter' + modulus),
+  }));
+  const impulse123 = { pitch: 64, meter: $('wheelBeatMeter123') };
+  let sharedBeatReturn = beatRings[0].period;
+  while (sharedBeatReturn % beatRings[1].period !== 0) sharedBeatReturn += beatRings[0].period;
+  let wheelBeat = 0;
+  let wheelBeatTimer = null;
+  let wheelAudio = null;
+  let wheelAudioGain = null;
+  let wheelReturnAuditionGain = null;
+  let pendingWheelReturnAudition = null;
+  let wheelAuditionCell = null;
+  let wheelNoiseBuffer = null;
+  let wheelReverseBuffer = null;
+  const wheelBackloopBuffers = new Map();
+  const backloopTimbres = new Map([
+    [0, { label: 'Grundklang', harmonics: [] }],
+    [1, { label: 'warm', harmonics: [[2, 0.35]] }],
+    [17, { label: 'hell', harmonics: [[3, 0.28], [5, 0.17]] }],
+  ]);
+  let wheelBeatPlayback = 0;
+  let wheelAuditionLoop = null;
+  const wheelBeatFills = new Set();
+  const wheelBassSources = new Set();
+  const wheelResonanceSources = new Set();
+  const resonanceImpulse = 0.09;
+  const resonanceNumber = new Intl.NumberFormat('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  let wheelResonanceAnalyser = null;
+  let wheelResonanceBuffer = null;
+  let wheelResonanceSamples = null;
+  let wheelResonanceFrame = null;
+  let wheelResonanceNext = null;
+  let wheelResonanceTakePeak = 0;
+  const wheelBeatMeters = new Map();
+  const bassDecay = 0.32;
+  const bassAttack = 0.008;
+  const bassPitchGlide = 0.065;
+  const audioScheduleMs = 12;
+  const wheelBeatMs = 500;
+  const ticksPerQuarter = 192;
+  const ticksPerEighth = ticksPerQuarter / 2;
+  const wheelTickMs = wheelBeatMs / ticksPerQuarter;
+  const wheelPlatterRpm = $('wheelPlatterRpm');
+  const wheelSevenTempo = $('wheelSevenTempo');
+  const wheelQrt20ReturnSound = $('wheelQrt20ReturnSound');
+  const wheel60ReturnSound = $('wheel60ReturnSound');
+  const wheelReturnAuditions = [
+    { key: '69', label: '69er', pitch: 69, level: 0.13, decay: 0.22, atReturn: step => step % backloopReturnEighths === 0 },
+    { key: 'Pink', label: 'Pink', pitch: 330, level: 0.08, decay: 0.09, atReturn: (step, wheel) => wheel?.tick1729 === 0 },
+    { key: 'Algo', label: 'Algo', pitch: 148, level: 0.09, decay: 0.12, atReturn: (step, wheel) => wheel?.tick1836 === 0 },
+  ].map(voice => ({ ...voice, toggle: $('wheel' + voice.key + 'ReturnSound') }));
+  const wheelPlatterStatus = $('wheelPlatterStatus');
+  const wheelPlatterNeedle = $('wheelPlatterNeedle');
+  const wheelBarNeedle = $('wheelBarNeedle');
+  let platterFrame = null;
+  let platterClock = null;
+  const sevenTickMs = () => (wheelSevenTempo.value === 'lock' ? 1800 / 7 * 2 : wheelBeatMs) / ticksPerQuarter;
+  const platterRpm = () => wheelPlatterRpm.value === '45' ? 45 : 100 / 3;
+  const eighthsPerSevenBar = sevenBeatGaps.reduce((total, gap) => total + gap, 0);
+  const ticksPerSevenBar = eighthsPerSevenBar * ticksPerEighth;
+  const backloopPeriodTicks = 2 * ticksPerQuarter;
+  let backloopReturnBars = 1;
+  while (backloopReturnBars * ticksPerSevenBar % backloopPeriodTicks !== 0) backloopReturnBars += 1;
+  const backloopReturnTicks = backloopReturnBars * ticksPerSevenBar;
+  const backloopReturnEighths = backloopReturnTicks / ticksPerEighth;
+  const backloopDuration = 0.15;
+  const phaseTracks = [
+    { stride: -20, color: '#69dceb' },
+    { stride: 100, color: '#ffae69' },
+  ];
+  const phaseAngle = (step, stride) => (step * stride % 360 + 360) % 360;
+  let phaseReturnStep = 1;
+  while (phaseTracks.some(track => phaseAngle(phaseReturnStep, track.stride))) phaseReturnStep += 1;
+  function sharedReturnPeriod(first, second) {
+    let step = first;
+    while (step % second !== 0) step += first;
+    return step;
+  }
+  const commonReturnEighths = sharedReturnPeriod(phaseReturnStep, backloopReturnEighths);
+  const qrt20JointReturnEighths = sharedReturnPeriod(qrt20ReturnEighths, backloopReturnEighths);
+  const allReturnEighths = sharedReturnPeriod(commonReturnEighths, qrt20ReturnEighths);
+  const mod19Period = 19;
+  const mod19JointReturnEighths = sharedReturnPeriod(allReturnEighths, mod19Period);
+  const mod19ReturnReady = 'Erster gemeinsamer Return mit der 19er-Spur bei Schritt 23 940';
+  const commonReturnTicks = commonReturnEighths * ticksPerEighth;
+  const commonReturnReady = `Winkelzeiger und 69er · erster gemeinsamer Return bei Schritt ${commonReturnEighths}`;
+  const qrt20JointReturnReady = `QRT20 und 69er · erster gemeinsamer Return bei Schritt ${qrt20JointReturnEighths}`;
+  const allReturnReady = `Alle drei Spuren · erster gemeinsamer Return bei Schritt ${allReturnEighths}`;
+  let armedBackloopReturn = 0;
+  let activeBackloopCell = null;
+  let activeQrt20Cell = null;
+  let activeMod19Cell = null;
+  let backloopStep = 0;
+  let compositeCompareStep = null;
+  const compositeMod19Steps = [
+    ['wheelCompositeCompare1260', allReturnEighths],
+    ['wheelCompositeCompare23940', mod19JointReturnEighths],
+  ];
+  const backloopSign = tick => tick % ticksPerQuarter === ticksPerEighth
+    ? Math.floor(tick / ticksPerQuarter) % 2 === 0 ? 1 : -1
+    : 0;
+  const fiveBeatSnare = [
+    [
+      { pulse: 1.5, level: 0.11 },
+      { pulse: 3.5, level: 0.05, double: true },
+      { pulse: 3.75, level: 0.095, double: true },
+    ],
+    [
+      { pulse: 1, level: 0.10 },
+      { pulse: 4.25, level: 0.045, double: true },
+      { pulse: 4.5, level: 0.085, double: true },
+    ],
+  ];
+  const auditionBeats = [sharedBeatReturn / 2, sharedBeatReturn];
+  const reverseLengthFor = index => index === 0 && wheelBeatReverseA.checked ? Number(wheelBeatReverseLength.value) : 0;
+
+  const wheelBeatVisible = () => !parallelActive && !cathedralActive && rule === 'wheels' && view === 'wheels';
+  const wheelNumberSyncActive = () => wheelBeatVisible() && wheelBeatSyncNumbers.checked &&
+    wheelAuditionLoop?.button === wheelBeatABCLoop && wheelBeatABCMeter.value === '7/8';
+  const beatPhase = (ring, beat = wheelBeat) => beat % ring.period;
+  const wheelBeatDegrees = (ring, direction) =>
+    ((ring.start + direction * wheelBeatStride * beatPhase(ring)) % ring.modulus + ring.modulus) %
+    ring.modulus * 360 / ring.modulus;
+  const beatCue = (ring, beat) => beatPhase(ring, beat) === 0 ? 'Return' : beatPhase(ring, beat) === ring.period / 2 ? 'Echo' : '';
+
+  async function enableWheelBass() {
+    try {
+      if (!wheelAudio) {
+        const Audio = window.AudioContext || window.webkitAudioContext;
+        wheelAudio = new Audio();
+        wheelAudioGain = wheelAudio.createGain();
+        wheelAudioGain.gain.value = 0;
+        wheelAudioGain.connect(wheelAudio.destination);
+        wheelReturnAuditionGain = wheelAudio.createGain();
+        wheelReturnAuditionGain.gain.value = 0.45;
+        wheelReturnAuditionGain.connect(wheelAudio.destination);
+      }
+      await wheelAudio.resume();
+    } catch {
+      wheelBeatBass.checked = false;
+      wheelBeatCue.textContent = '808-Audio ist in diesem Browser gerade nicht verfügbar.';
+    }
+  }
+
+  function hitWheelBass(audition = false, onset, beat = wheelBeat) {
+    if ((!audition && !wheelBeatBass.checked) || wheelAudio?.state !== 'running') return;
+    const now = onset ?? wheelAudio.currentTime;
+    const accents = beatRings.filter(ring => beatCue(ring, beat));
+    wheelAudioGain.gain.setValueAtTime(0.45, now);
+    if (!accents.length) {
+      playWheelTone(beatRings[0], 0.22, now);
+      return;
+    }
+    for (const ring of accents) {
+      const level = beatCue(ring, beat) === 'Echo' ? 0.10 : 0.55;
+      playWheelTone(ring, level / accents.length, now);
+    }
+  }
+
+  function showWheelResonance(level) {
+    wheelResonanceMeter.style.transform = `scaleX(${Math.min(1, level / 4)})`;
+    const readout = `${resonanceNumber.format(level)}×`;
+    if (wheelResonanceLevel.textContent !== readout) wheelResonanceLevel.textContent = readout;
+  }
+
+  function measureWheelResonance() {
+    wheelResonanceFrame = null;
+    if (!wheelResonanceSources.size) {
+      showWheelResonance(0);
+      return;
+    }
+    wheelResonanceAnalyser.getFloatTimeDomainData(wheelResonanceSamples);
+    let peak = 0;
+    for (const sample of wheelResonanceSamples) peak = Math.max(peak, Math.abs(sample));
+    const level = peak / resonanceImpulse;
+    if (wheelAuditionLoop?.peakOutput) wheelResonanceTakePeak = Math.max(wheelResonanceTakePeak, level);
+    showWheelResonance(level);
+    wheelResonanceFrame = requestAnimationFrame(measureWheelResonance);
+  }
+
+  function exciteWheelResonance(onset) {
+    if (!wheelResonanceEnabled.checked) return;
+    if (!wheelResonanceAnalyser) {
+      wheelResonanceAnalyser = wheelAudio.createAnalyser();
+      wheelResonanceAnalyser.connect(wheelAudioGain);
+    }
+    const frequency = Number(wheelResonanceFrequency.value);
+    const damping = Number(wheelResonanceDamping.value);
+    // Extend the measurement window for sub-audible frequencies.
+    const windowSize = Math.min(32768, Math.max(2048, 2 ** Math.ceil(Math.log2(wheelAudio.sampleRate / frequency))));
+    if (wheelResonanceSamples?.length !== windowSize || wheelResonanceAnalyser.fftSize !== windowSize) {
+      wheelResonanceAnalyser.fftSize = windowSize;
+      wheelResonanceSamples = new Float32Array(windowSize);
+    }
+    if (!wheelResonanceBuffer || wheelResonanceBuffer.frequency !== frequency || wheelResonanceBuffer.damping !== damping) {
+      const rate = wheelAudio.sampleRate;
+      const length = Math.ceil(7 * rate / damping);
+      const buffer = wheelAudio.createBuffer(1, length, rate);
+      const samples = buffer.getChannelData(0);
+      const phaseStep = 2 * Math.PI * frequency / rate;
+      const decayStep = Math.exp(-damping / rate);
+      let envelope = resonanceImpulse;
+      for (let i = 0; i < length; i += 1) {
+        samples[i] = envelope * Math.sin(phaseStep * i);
+        envelope *= decayStep;
+      }
+      wheelResonanceBuffer = { frequency, damping, buffer };
+    }
+    const tone = wheelAudio.createBufferSource();
+    tone.buffer = wheelResonanceBuffer.buffer;
+    tone.connect(wheelResonanceAnalyser);
+    wheelResonanceSources.add(tone);
+    tone.onended = () => wheelResonanceSources.delete(tone);
+    tone.start(onset);
+    if (wheelResonanceFrame === null) wheelResonanceFrame = requestAnimationFrame(measureWheelResonance);
+  }
+
+  function clearWheelResonance() {
+    for (const source of wheelResonanceSources) source.stop();
+    wheelResonanceSources.clear();
+    if (wheelResonanceFrame !== null) cancelAnimationFrame(wheelResonanceFrame);
+    wheelResonanceFrame = null;
+    showWheelResonance(0);
+  }
+
+  function updateWheelResonance() {
+    const frequency = Number(wheelResonanceFrequency.value);
+    const damping = Number(wheelResonanceDamping.value);
+    $('wheelResonanceFrequencyValue').textContent = `${frequency.toLocaleString('de-DE')} Hz`;
+    $('wheelResonanceDampingValue').textContent = `${damping.toLocaleString('de-DE')} s⁻¹`;
+    for (const preset of wheelResonancePresets) {
+      preset.button.setAttribute('aria-pressed', String(
+        wheelResonanceEnabled.checked && damping === resonanceComparisonDamping && frequency === preset.frequency
+      ));
+    }
+    clearWheelResonance();
+    if (wheelResonanceNext !== null && wheelResonanceNext > wheelAudio.currentTime) {
+      exciteWheelResonance(wheelResonanceNext);
+    }
+  }
+
+  function selectWheelResonance(frequency) {
+    wheelResonanceEnabled.checked = true;
+    wheelResonanceFrequency.value = String(frequency);
+    wheelResonanceDamping.value = String(resonanceComparisonDamping);
+    updateWheelResonance();
+  }
+
+  function lockWheelResonanceControls(locked) {
+    for (const control of [
+      wheelResonanceEnabled, wheelResonanceFrequency, wheelResonanceDamping,
+      ...wheelResonancePresets.map(preset => preset.button),
+    ]) control.disabled = locked;
+  }
+
+  function playBassVoice(pitch, level, now, decay, output = wheelAudioGain) {
+    const tone = wheelAudio.createOscillator();
+    const envelope = wheelAudio.createGain();
+    tone.frequency.setValueAtTime(3 * pitch, now);
+    tone.frequency.exponentialRampToValueAtTime(pitch, now + bassPitchGlide);
+    envelope.gain.setValueAtTime(0.001, now);
+    envelope.gain.exponentialRampToValueAtTime(level, now + bassAttack);
+    envelope.gain.exponentialRampToValueAtTime(0.001, now + decay);
+    tone.connect(envelope).connect(output);
+    trackWheelBass(tone);
+    tone.start(now);
+    tone.stop(now + decay + 0.01);
+  }
+
+  function playWheelTone(ring, level, now) {
+    playBassVoice(ring.pitch, level, now, bassDecay);
+    animateWheelMeter(ring, level, { onset: now });
+  }
+
+  function trackWheelBass(source) {
+    wheelBassSources.add(source);
+    source.onended = () => wheelBassSources.delete(source);
+  }
+
+  function animateWheelMeter(ring, level, { reverseMs = 0, onset } = {}) {
+    const delay = onset === undefined ? 0 : Math.max(0, (onset - wheelAudio.currentTime) * 1000);
+    if (delay > audioScheduleMs + 1) {
+      scheduleWheelAction(delay - audioScheduleMs, () => animateWheelMeter(ring, level, { reverseMs, onset }));
+      return;
+    }
+    wheelBeatMeters.get(ring)?.cancel();
+    const duration = reverseMs ? reverseMs / 1000 : bassDecay;
+    const decayFrames = [0.15, 0.3, 0.55, 1].map(fraction => ({
+      offset: (bassAttack + (duration - bassAttack) * fraction) / duration,
+      transform: `scaleX(${level * Math.pow(0.001 / level, fraction) / 0.55})`,
+    }));
+    const frames = [
+      { offset: 0, transform: 'scaleX(0)' },
+      { offset: bassAttack / duration, transform: `scaleX(${level / 0.55})` },
+      ...decayFrames,
+    ];
+    if (reverseMs) {
+      frames.reverse();
+      for (const frame of frames) frame.offset = 1 - frame.offset;
+    }
+    const animation = ring.meter?.animate?.(frames, { duration: duration * 1000, delay });
+    if (animation) wheelBeatMeters.set(ring, animation);
+  }
+
+  function playReverseWheelEcho(durationMs, downbeat) {
+    const ring = beatRings[0];
+    const level = 0.10 / beatRings.length;
+    const duration = durationMs / 1000;
+    const rate = wheelAudio.sampleRate;
+    const count = Math.round(rate * duration);
+    if (wheelReverseBuffer?.length !== count) {
+      wheelReverseBuffer = wheelAudio.createBuffer(1, count, rate);
+      const samples = wheelReverseBuffer.getChannelData(0);
+      let phase = 0;
+      for (let i = 0; i < count; i += 1) {
+        const time = i / rate;
+        const gain = time < bassAttack
+          ? 0.001 * Math.pow(level / 0.001, time / bassAttack)
+          : level * Math.pow(0.001 / level, (time - bassAttack) / (duration - bassAttack));
+        samples[count - 1 - i] = Math.sin(phase) * gain;
+        const pitch = ring.pitch * Math.pow(3, 1 - Math.min(1, time / bassPitchGlide));
+        phase += 2 * Math.PI * pitch / rate;
+      }
+    }
+    const source = wheelAudio.createBufferSource();
+    source.buffer = wheelReverseBuffer;
+    source.connect(wheelAudioGain);
+    const start = downbeat === undefined ? wheelAudio.currentTime + audioScheduleMs / 1000 : downbeat - wheelReverseBuffer.duration;
+    const now = Math.max(start, wheelAudio.currentTime);
+    const end = start + wheelReverseBuffer.duration;
+    if (now >= end) return end;
+    trackWheelBass(source);
+    wheelAudioGain.gain.setValueAtTime(0.45, now);
+    source.start(now, now - start);
+    animateWheelMeter(ring, level, { reverseMs: durationMs, onset: start });
+    return end;
+  }
+
+  function playWheelNoise(now, { type, frequency, level, decay }) {
+    if (!wheelNoiseBuffer) {
+      const count = Math.ceil(wheelAudio.sampleRate * 0.11);
+      wheelNoiseBuffer = wheelAudio.createBuffer(1, count, wheelAudio.sampleRate);
+      const samples = wheelNoiseBuffer.getChannelData(0);
+      for (let i = 0; i < count; i += 1) samples[i] = Math.random() * 2 - 1;
+    }
+    const noise = wheelAudio.createBufferSource();
+    const filter = wheelAudio.createBiquadFilter();
+    const envelope = wheelAudio.createGain();
+    noise.buffer = wheelNoiseBuffer;
+    filter.type = type;
+    filter.frequency.value = frequency;
+    envelope.gain.setValueAtTime(level, now);
+    envelope.gain.exponentialRampToValueAtTime(0.001, now + decay);
+    noise.connect(filter).connect(envelope).connect(wheelAudioGain);
+    trackWheelBass(noise);
+    noise.start(now);
+    noise.stop(now + decay);
+  }
+
+  function playWheelHat(now, level = 0.06) {
+    playWheelNoise(now, { type: 'highpass', frequency: 6800, level, decay: 0.06 });
+  }
+
+  function playWheelSnare(now, level) {
+    playWheelNoise(now, { type: 'bandpass', frequency: 1950, level, decay: 0.095 });
+    playBassVoice(145, level * 0.3, now, 0.085);
+  }
+
+  function scheduleWheelAction(offset, action) {
+    const handle = setTimeout(() => {
+      wheelBeatFills.delete(handle);
+      action();
+    }, offset);
+    wheelBeatFills.add(handle);
+  }
+
+  function scheduleWheelFill(toggle, offset, play) {
+    scheduleWheelAction(offset, () => {
+      if (wheelAuditionLoop && toggle.checked && wheelAudio.state === 'running') play(wheelAudio.currentTime);
+    });
+  }
+
+  function scheduleFiveBeatPercussion(phrasePulse, gap) {
+    for (let i = 0; i < gap; i += 1) {
+      const level = (phrasePulse + i) % 2 === 0 ? 0.075 : 0.024;
+      scheduleWheelFill(wheelBeatHat, i * wheelBeatMs, now => playWheelHat(now, level));
+    }
+    const inBar = phrasePulse % 5;
+    const snare = fiveBeatSnare[Math.floor(phrasePulse / 5)];
+    for (const hit of snare) {
+      const pulse = hit.pulse + (hit.double && wheelBeatSnareTiming.value === 'late' ? 1 / 8 : 0);
+      if (pulse >= inBar && pulse < inBar + gap) {
+        scheduleWheelFill(wheelBeatSnare, (pulse - inBar) * wheelBeatMs, now => playWheelSnare(now, hit.level));
+      }
+    }
+  }
+
+  function playWheelBackloop(now, phaseSign, tick, useQrt20 = wheelBackloopTimbre.checked) {
+    const step = tick / ticksPerEighth;
+    const residue = backloopQrt20.moving_residue_path[step % qrt20ReturnEighths];
+    const timbre = (useQrt20 && backloopTimbres.get(residue)) || backloopTimbres.get(0);
+    if (!wheelBackloopBuffers.has(timbre)) {
+      const rate = wheelAudio.sampleRate;
+      const count = Math.round(rate * backloopDuration);
+      const buffer = wheelAudio.createBuffer(1, count, rate);
+      const samples = buffer.getChannelData(0);
+      for (let i = 0; i < count; i += 1) {
+        const shape = Math.sin(Math.PI * i / (count - 1)) ** 2;
+        const phase = 2 * Math.PI * 69 * i / rate;
+        let wave = Math.sin(phase);
+        for (const [multiple, level] of timbre.harmonics) wave += level * Math.sin(multiple * phase);
+        samples[i] = 0.08 * shape * wave;
+      }
+      wheelBackloopBuffers.set(timbre, buffer);
+    }
+    const tone = wheelAudio.createBufferSource();
+    const polarity = wheelAudio.createGain();
+    tone.buffer = wheelBackloopBuffers.get(timbre);
+    polarity.gain.setValueAtTime(phaseSign, now);
+    tone.connect(polarity).connect(wheelAudioGain);
+    trackWheelBass(tone);
+    tone.start(now);
+    if (backloopFieldAt(tick)?.center) {
+      $('wheelBackloopCenterTimbre').textContent = `Letzte Mitte · Schritt ${step} · r${residue} · ${timbre.label}`;
+    }
+    wheelBeatMeters.get(wheelBackloopMeter)?.cancel();
+    const levels = [0, 0.5, 1, 0.5, 0].map(level => ({ transform: `scaleX(${level})` }));
+    const animation = wheelBackloopMeter.animate?.(levels, backloopDuration * 1000);
+    if (animation) wheelBeatMeters.set(wheelBackloopMeter, animation);
+  }
+
+  function backloopFieldAt(absoluteTick) {
+    const tick = absoluteTick % backloopReturnTicks;
+    const row = Math.floor(tick / ticksPerSevenBar) - 1;
+    const column = tick % ticksPerSevenBar / ticksPerEighth - 2;
+    if (row < 0 || row > 2 || column < 0 || column > 2) return null;
+    return {
+      positive: row === column,
+      mixed: row + column === 2,
+      center: row === 1 && column === 1,
+      pole: row !== 1 && column !== 1,
+    };
+  }
+
+  function backloopPassesFilter(tick) {
+    const diagonal = wheelBackloopDiagonal.value;
+    return diagonal === 'all' || Boolean(backloopFieldAt(tick)?.[diagonal]);
+  }
+
+  function renderWheelBackloopGrid() {
+    const slots = Array.from({ length: eighthsPerSevenBar }, (_, index) => index * ticksPerEighth);
+    const headings = slots.map(tick => `<th scope="col">${tick}</th>`).join('');
+    const rows = Array.from({ length: backloopReturnBars }, (_, index) => {
+      const cells = slots.map(tick => {
+        const phraseTick = index * ticksPerSevenBar + tick;
+        const sign = backloopSign(phraseTick);
+        const label = sign > 0 ? '+' : sign < 0 ? '−' : '·';
+        const field = backloopFieldAt(phraseTick);
+        const classes = [];
+        if (field) {
+          classes.push('backloop-field');
+          if (field.positive) classes.push('backloop-diagonal-positive');
+          if (field.mixed) classes.push('backloop-diagonal-mixed');
+          if (field.center) classes.push('backloop-center');
+          if (field.pole) classes.push('backloop-pole');
+        }
+        const classAttr = classes.length ? ` class="${classes.join(' ')}"` : '';
+        return `<td id="wheelBackloopTick${phraseTick}" data-polarity="${sign}"${classAttr}><span>${label}</span></td>`;
+      }).join('');
+      return `<tr><th scope="row">Takt ${index + 1}</th>${cells}</tr>`;
+    }).join('');
+    $('wheelBackloopGrid').innerHTML = `<thead><tr><th scope="col">Tick im Takt</th>${headings}</tr></thead><tbody>${rows}</tbody>`;
+    $('wheelMod19Steps').innerHTML = Array.from({ length: mod19Period }, (_, residue) =>
+      `<li id="wheelMod19Residue${residue}">${residue}</li>`
+    ).join('');
+    $('wheelBackloopQrt20Steps').innerHTML = backloopQrt20.moving_residue_path.map((residue, index) =>
+      `<li id="wheelQrt20Step${index}"${index === qrt20ReturnEighths ? ' class="wheel-qrt20-return"' : ''}>` +
+      `<span>${index}</span><b>r${residue}</b></li>`
+    ).join('');
+  }
+
+  function showWheelBackloopQrt20(step) {
+    const qrtPosition = step % qrt20ReturnEighths;
+    const qrtReturn = step > 0 && qrtPosition === 0;
+    const index = qrtReturn ? qrt20ReturnEighths : qrtPosition;
+    activeQrt20Cell?.setAttribute('aria-current', 'false');
+    activeQrt20Cell = $('wheelQrt20Step' + index);
+    activeQrt20Cell?.setAttribute('aria-current', 'step');
+
+    const qrt = $('wheelBackloopQrt20Status');
+    qrt.dataset.return = String(qrtReturn);
+    qrt.textContent = qrtReturn
+      ? `QRT20 · Return bei ${step} · r${backloopQrt20.moving_residue_path[index]}`
+      : `QRT20 · r${backloopQrt20.moving_residue_path[index]} · Return alle ${qrt20ReturnEighths} Achtel`;
+    const backloop = $('wheelBackloopReturnStatus');
+    const returning = step > 0 && step % backloopReturnEighths === 0;
+    backloop.dataset.return = String(returning);
+    backloop.textContent = returning
+      ? `69er · Return bei ${step} · Tick 0`
+      : `69er · Return alle ${backloopReturnEighths} Achtel`;
+    if (qrtReturn && returning) {
+      wheelQrt20JointReturnStatus.textContent = `Gemeinsamer Return · Schritt ${step} · nach ${step / eighthsPerSevenBar} Takten · r${backloopQrt20.moving_residue_path[index]} · Tick 0`;
+    }
+  }
+
+  function drawWheelPhase(step) {
+    const context = wheelPhaseCanvas.getContext('2d');
+    if (!context) return;
+    const angles = phaseTracks.map(track => phaseAngle(step, track.stride));
+    const returning = step > 0 && angles.every(angle => angle === 0);
+    const meeting = angles[0] === angles[1];
+    const event = step === 0 ? 'Start' : returning ? 'Gemeinsamer Return' : meeting ? 'Treffen' : 'Getrennt';
+    const status = $('wheelPhaseStatus');
+    status.dataset.return = String(returning);
+    status.textContent = `Schritt ${step} · Blau ${angles[0]}° · Orange ${angles[1]}° · ${event}`;
+
+    const left = 42;
+    const bottom = 174;
+    const x = n => left + 345 * n / phaseReturnStep;
+    const y = angle => bottom - 151 * angle / 360;
+    const drawLine = (points, color, width = 1) => {
+      context.beginPath();
+      points.forEach(([px, py], index) => index ? context.lineTo(px, py) : context.moveTo(px, py));
+      context.strokeStyle = color;
+      context.lineWidth = width;
+      context.stroke();
+    };
+    context.clearRect(0, 0, 620, 206);
+    context.font = '13px ui-monospace, monospace';
+    context.fillStyle = '#b9d0d9';
+    for (const angle of [0, 90, 180, 270, 360]) {
+      drawLine([[left, y(angle)], [x(phaseReturnStep), y(angle)]], '#274352');
+      context.fillText(`${angle}°`, 4, y(angle) + 4);
+    }
+    for (const track of phaseTracks) {
+      const samples = Array.from({ length: phaseReturnStep + 1 }, (_, n) => [x(n), y(phaseAngle(n, track.stride))]);
+      drawLine(samples, track.color, 2);
+    }
+    for (let n = 1; n <= phaseReturnStep; n += 1) {
+      const angle = phaseAngle(n, phaseTracks[0].stride);
+      if (angle !== phaseAngle(n, phaseTracks[1].stride)) continue;
+      const px = x(n);
+      const py = y(angle);
+      if (n === phaseReturnStep) {
+        context.strokeStyle = '#ffdf91';
+        context.lineWidth = 2;
+        context.strokeRect(px - 4, py - 4, 8, 8);
+      } else {
+        drawLine([[px, py - 4], [px + 4, py], [px, py + 4], [px - 4, py], [px, py - 4]], '#ffdf91', 2);
+      }
+    }
+    for (const tick of [0, 3, 9, phaseReturnStep]) context.fillText(String(tick), x(tick) - 5, 196);
+    const cursor = x(returning ? phaseReturnStep : step % phaseReturnStep);
+    drawLine([[cursor, y(360)], [cursor, bottom]], '#e4fbff', 1);
+
+    const center = [505, 100];
+    const point = (angle, radius) => {
+      const radians = angle * Math.PI / 180;
+      return [center[0] + radius * Math.sin(radians), center[1] - radius * Math.cos(radians)];
+    };
+    context.beginPath();
+    context.arc(...center, 72, 0, 2 * Math.PI);
+    context.strokeStyle = '#476579';
+    context.stroke();
+    for (const angle of [0, 120, 240]) drawLine([center, point(angle, 72)], '#738c9b');
+    const accents = [0, sevenBeatGaps[0], sevenBeatGaps[0] + sevenBeatGaps[1]];
+    context.setLineDash([4, 3]);
+    for (const accent of accents) drawLine([center, point(accent * 360 / eighthsPerSevenBar, 80)], '#e7d69f');
+    context.setLineDash([]);
+    angles.forEach((angle, index) => {
+      const color = phaseTracks[index].color;
+      const endpoint = point(angle, index === 0 ? 67 : 52);
+      drawLine([center, endpoint], color, 3);
+      context.beginPath();
+      context.arc(...endpoint, 4, 0, 2 * Math.PI);
+      context.fillStyle = color;
+      context.fill();
+    });
+  }
+
+  function renderWheelCompositeRegulator() {
+    const step = compositeCompareStep ?? backloopStep;
+    const residue = step % mod19Period;
+    const regulatorOn = residue === 0;
+    const mode = compositeCompareStep === null ? 'Live' : 'Momentaufnahme';
+    $('wheelComposite').dataset.regulator = String(regulatorOn);
+    $('wheelCompositeMod19').textContent =
+      `${mode} · Schritt ${step.toLocaleString('de-DE')} · Rest ${residue} · Regulator ${regulatorOn ? 'an' : 'aus'}`;
+  }
+
+  function selectWheelCompositeStep(step) {
+    compositeCompareStep = step;
+    for (const [id, comparison] of compositeMod19Steps) {
+      $(id).setAttribute('aria-pressed', String(comparison === step));
+    }
+    $('wheelCompositeLive').setAttribute('aria-pressed', String(step === null));
+    renderWheelCompositeRegulator();
+  }
+
+  function showWheelBackloopTick(absoluteTick) {
+    const phraseTick = absoluteTick % backloopReturnTicks;
+    activeBackloopCell?.setAttribute('aria-current', 'false');
+    activeBackloopCell = $('wheelBackloopTick' + phraseTick);
+    activeBackloopCell?.setAttribute('aria-current', 'step');
+    const bar = 1 + Math.floor(phraseTick / ticksPerSevenBar);
+    const sign = backloopSign(phraseTick);
+    const hit = sign ? ` · 69 Hz ${sign > 0 ? '+' : '−'}` : '';
+    const filtered = sign && !backloopPassesFilter(phraseTick) ? ' · stumm' : '';
+    $('wheelBackloopPosition').textContent = `Takt ${bar}/${backloopReturnBars} · Tick ${phraseTick % ticksPerSevenBar}${hit}${filtered}`;
+    const step = absoluteTick / ticksPerEighth;
+    showWheelBackloopQrt20(step);
+    const residue = step % mod19Period;
+    activeMod19Cell?.setAttribute('aria-current', 'false');
+    activeMod19Cell = $('wheelMod19Residue' + residue);
+    activeMod19Cell?.setAttribute('aria-current', 'step');
+    backloopStep = step;
+    $('wheelMod19Position').textContent = `Schritt ${step.toLocaleString('de-DE')} · Rest ${residue}`;
+    if (compositeCompareStep === null) renderWheelCompositeRegulator();
+    if (step > 0 && step % mod19JointReturnEighths === 0) {
+      const status = $('wheelMod19ReturnStatus');
+      status.dataset.return = 'true';
+      status.textContent = `Gemeinsamer Return · Schritt ${step.toLocaleString('de-DE')} · Rest 0 · r7 · Winkel 0°/0° · 69er bei Tick 0`;
+    }
+    drawWheelPhase(step);
+    if (absoluteTick > 0 && absoluteTick % commonReturnTicks === 0) {
+      wheelCommonReturnStatus.textContent = `Gemeinsamer Return · Schritt ${step} · nach ${step / eighthsPerSevenBar} Takten · Blau 0° · Orange 0° · 69er bei Tick 0`;
+    }
+    if (step > 0 && step % allReturnEighths === 0) {
+      wheelAllReturnStatus.textContent = `Return aller drei Spuren · Schritt ${step} · nach ${step / eighthsPerSevenBar} Takten · r7 · Blau 0° · Orange 0° · 69er bei Tick 0`;
+    }
+  }
+
+  function jumpToMod19Comparison(step) {
+    stopWheelBeat();
+    resetWheelMod19Return();
+    showWheelBackloopTick(step * ticksPerEighth);
+    if (step === allReturnEighths) {
+      $('wheelMod19ReturnStatus').textContent = `Bisherige Spuren am Start · 19er bei Rest ${step % mod19Period}`;
+    }
+  }
+
+  function resetWheelMod19Return() {
+    const status = $('wheelMod19ReturnStatus');
+    status.dataset.return = 'false';
+    status.textContent = mod19ReturnReady;
+  }
+
+  function drawWheelPlatter() {
+    const { origin, barSeconds, rpm } = platterClock;
+    const elapsed = Math.max(0, wheelAudio.currentTime - origin);
+    const platterTurns = elapsed * rpm / 60;
+    const bars = elapsed / barSeconds;
+    wheelPlatterNeedle.style.transform = `rotate(${(platterTurns % 1) * 360}deg)`;
+    wheelBarNeedle.style.transform = `rotate(${(bars % 1) * 360}deg)`;
+    const completedBars = Math.floor(bars);
+    const drift = completedBars * (barSeconds * rpm / 60 - 1) * 360;
+    const phase = Math.abs(drift) < 1e-8 ? '0°' : drift.toLocaleString('de-DE', {
+      maximumFractionDigits: 1, signDisplay: 'always',
+    }) + '°';
+    const status = `Taktwechsel ${completedBars} · Platte ${phase} zum Takt`;
+    if (wheelPlatterStatus.textContent !== status) wheelPlatterStatus.textContent = status;
+    platterFrame = requestAnimationFrame(drawWheelPlatter);
+  }
+
+  function alignWheelPlatter(origin, tickMs, rpm) {
+    platterClock = { origin, barSeconds: ticksPerSevenBar * tickMs / 1000, rpm };
+    if (platterFrame === null) drawWheelPlatter();
+  }
+
+  function stopWheelPlatter() {
+    if (platterFrame !== null) cancelAnimationFrame(platterFrame);
+    platterFrame = null;
+    platterClock = null;
+    wheelPlatterNeedle.style.transform = '';
+    wheelBarNeedle.style.transform = '';
+    wheelPlatterStatus.textContent = 'Wartet auf den 7/8-Beat.';
+  }
+
+  function syncWheelNumberStep(step) {
+    const limit = M.limit('wheels');
+    const target = step === 0 ? 0 : (step - 1) % limit + 1;
+    let current = session();
+    if (target >= current.frames.length) {
+      current = M.at(current, current.frames.length - 1);
+      while (current.cursor < target) current = M.step(current);
+    }
+    if (current.cursor !== target) current = M.at(current, target);
+    sessions.wheels = current;
+    readout();
+    return frame().state;
+  }
+
+  function playWheelReturnAudition(voices, step) {
+    const now = wheelAudio.currentTime;
+    for (const voice of voices) {
+      playBassVoice(voice.pitch, voice.level, now, voice.decay, wheelReturnAuditionGain);
+    }
+    const labels = voices.map(voice => voice.label).join(' + ');
+    $('wheelReturnAuditionStatus').textContent = step === undefined
+      ? `Hörprobe · ${labels}`
+      : `Hörprobe · Schritt ${step.toLocaleString('de-DE')} · ${labels}`;
+  }
+
+  function flashWheelReturnAudition() {
+    const cell = activeBackloopCell;
+    if (!cell) return;
+    if (wheelAuditionCell) wheelAuditionCell.dataset.audition = 'false';
+    wheelAuditionCell = cell;
+    cell.dataset.audition = 'flash';
+    scheduleWheelAction(175, () => {
+      if (wheelAuditionCell === cell) cell.dataset.audition = 'last';
+    });
+  }
+
+  function scheduleSevenBeatFills(sevenTicks, gapTicks, tickMs, returnComparisonStep = null) {
+    for (let offset = 0; offset < gapTicks; offset += ticksPerEighth) {
+      const delay = offset * tickMs;
+      scheduleWheelFill(wheelBeatHat, delay, now => playWheelHat(now, offset === 0 ? 0.075 : 0.024));
+      const tick = sevenTicks + offset;
+      const step = tick / ticksPerEighth;
+      scheduleWheelAction(delay, () => {
+        const isComparisonHit = step === returnComparisonStep;
+        const audition = isComparisonHit ? wheelReturnAuditions : pendingWheelReturnAudition;
+        if (!isComparisonHit) pendingWheelReturnAudition = null;
+        if (audition) playWheelReturnAudition(audition, step);
+        const wheel = wheelNumberSyncActive() ? syncWheelNumberStep(step) : null;
+        showWheelBackloopTick(tick);
+        if (audition) flashWheelReturnAudition();
+        if (step === 0 || !wheelAuditionLoop || wheelAudio.state !== 'running') return;
+        const now = wheelAudio.currentTime;
+        const voices = [];
+        const compareReturn = returnComparisonStep !== null && step === allReturnEighths;
+        for (const [enabled, returning, label, pitch, level, decay] of [
+          [wheelQrt20ReturnSound.checked, step % qrt20ReturnEighths === 0, 'QRT20', 220, 0.09, 0.10],
+          [wheel60ReturnSound.checked, step % 60 === 0, '60er', 82, 0.14, 0.17],
+          ...wheelReturnAuditions.map(voice => [
+            !compareReturn && voice.toggle.checked, voice.atReturn(step, wheel), voice.label, voice.pitch, voice.level, voice.decay,
+          ]),
+        ]) {
+          if (!enabled || !returning) continue;
+          playBassVoice(pitch, level, now, decay, wheelReturnAuditionGain);
+          voices.push(label);
+        }
+        if (voices.length) {
+          $('wheelReturnSoundStatus').textContent = `Letzter Return-Ton · Schritt ${step} · ${voices.join(' + ')}`;
+        }
+      });
+      const phaseSign = backloopSign(tick);
+      if (phaseSign) {
+        scheduleWheelFill(wheelBeatBackloop, delay, now => {
+          if (backloopPassesFilter(tick)) playWheelBackloop(now, phaseSign, tick);
+        });
+      }
+    }
+    if (gapTicks > ticksPerQuarter) {
+      scheduleWheelFill(wheelBeatGlue, ticksPerQuarter * tickMs, now => playBassVoice(39, 0.085, now, 0.16));
+    }
+  }
+
+  function playWheelAudition(index, reverseMs, { scheduled, resonant = false, afterAccent = () => {} } = {}) {
+    const audioReady = wheelAudio?.state === 'running';
+    const reverse = reverseMs > 0 && audioReady;
+    const returnRing = beatRings[1];
+    const returnLevel = 0.55 / beatRings.length;
+    let downbeat;
+    if (audioReady) {
+      downbeat = scheduled === undefined ? wheelAudio.currentTime : Math.max(scheduled, wheelAudio.currentTime + 0.005);
+      if (reverse) {
+        downbeat = playReverseWheelEcho(reverseMs, scheduled === undefined ? undefined : downbeat);
+        wheelAudioGain.gain.setValueAtTime(0.45, downbeat);
+        playWheelTone(returnRing, returnLevel, downbeat);
+        const showReverse = () => {
+          wheelBeatCue.textContent = `A · 432er Reverse-Echo läuft ein · ${reverseMs} ms`;
+        };
+        const leadWait = (downbeat - wheelAudio.currentTime) * 1000 - reverseMs;
+        if (leadWait > audioScheduleMs) scheduleWheelAction(leadWait, showReverse);
+        else showReverse();
+      } else if (index === 2) {
+        wheelAudioGain.gain.setValueAtTime(0.45, downbeat);
+        playWheelTone(impulse123, 0.22, downbeat);
+      } else {
+        hitWheelBass(true, downbeat, auditionBeats[index]);
+      }
+      if (resonant) {
+        wheelResonanceNext = downbeat;
+        exciteWheelResonance(downbeat);
+      }
+    }
+    const land = () => {
+      if (index === 2) {
+        wheelBeatCue.textContent = 'C · 123er-Impuls';
+      } else {
+        wheelBeat = auditionBeats[index];
+        showWheelBeat();
+        if (reverse) wheelBeatCue.textContent = '432 · Reverse-Echo | 408 · Return';
+      }
+      afterAccent(downbeat);
+    };
+    const wait = downbeat === undefined ? 0 : (downbeat - wheelAudio.currentTime) * 1000;
+    if (wait > 0) scheduleWheelAction(wait, land);
+    else land();
+  }
+
+  function showWheelABCPattern() {
+    const seven = wheelBeatABCMeter.value === '7/8' && !wheelAuditionLoop?.peakOutput;
+    wheelBackloopView.hidden = !seven;
+    if (!seven) {
+      armedBackloopReturn = 0;
+      if (pendingWheelReturnAudition) {
+        pendingWheelReturnAudition = null;
+        $('wheelReturnAuditionStatus').textContent = '';
+      }
+    }
+    const meter = wheelBeatABCMeter.value;
+    $('wheelBeatABCPattern').textContent = meter === '7/8'
+      ? '7/8 · A auf 1 · B auf 3 · C auf 5'
+      : `${meter === '5' ? '5/4' : '2–1–3'} · A auf 1 · B auf 3 · C auf 4`;
+  }
+
+  function stopWheelBeat() {
+    const wasSynced = wheelNumberSyncActive();
+    stopWheelPlatter();
+    wheelBeatPlayback += 1;
+    clearInterval(wheelBeatTimer);
+    wheelBeatTimer = null;
+    armedBackloopReturn = 0;
+    wheelAuditionLoop?.button.setAttribute('aria-pressed', 'false');
+    if (wheelAuditionLoop?.peakOutput) lockWheelResonanceControls(false);
+    wheelAuditionLoop = null;
+    if (wasSynced) publish();
+    showWheelABCPattern();
+    for (const handle of wheelBeatFills) clearTimeout(handle);
+    wheelBeatFills.clear();
+    if (pendingWheelReturnAudition) {
+      pendingWheelReturnAudition = null;
+      $('wheelReturnAuditionStatus').textContent = '';
+    }
+    if (wheelAuditionCell) wheelAuditionCell.dataset.audition = 'false';
+    wheelAuditionCell = null;
+    for (const source of wheelBassSources) source.stop();
+    wheelBassSources.clear();
+    wheelResonanceNext = null;
+    clearWheelResonance();
+    wheelBeatPlay.textContent = 'Radtakt starten';
+    wheelBeatABCLoop.textContent = 'Beat starten';
+    if (wheelAudioGain) {
+      const now = wheelAudio.currentTime;
+      wheelAudioGain.gain.cancelScheduledValues(now);
+      wheelAudioGain.gain.setValueAtTime(0, now);
+    }
+    for (const animation of wheelBeatMeters.values()) animation.cancel();
+    wheelBeatMeters.clear();
+  }
+
+  function showWheelBeat() {
+    const angles = beatRings.map(ring => {
+      const angle = direction => Number(wheelBeatDegrees(ring, direction).toFixed(1)).toLocaleString('de-DE');
+      return `${ring.modulus} · + ${angle(1)}° / − ${angle(-1)}°`;
+    });
+    wheelBeatState.textContent = `Schlag ${wheelBeat}/${sharedBeatReturn} · ${angles.join(' | ')}`;
+    const cue = wheelBeat === sharedBeatReturn ? 'Gemeinsamer Return · 432 und 408' :
+      wheelBeat ? beatRings.filter(ring => beatCue(ring)).map(ring => `${ring.modulus} · ${beatCue(ring)}`).join(' | ') : '';
+    if (wheelBeatCue.textContent !== cue) wheelBeatCue.textContent = cue;
+    requestDraw();
+  }
+
+  function mountWheelEulerLens() {
+    const digitCounts = [10, 11, 12];
+    function show(digits) {
+      const prefix = 41n * 10n ** BigInt(digits) / 42n;
+      const binary = prefix.toString(2);
+      const ones = binary.replaceAll('0', '').length;
+      for (const count of digitCounts) {
+        $('wheelEulerDigits' + count).setAttribute('aria-pressed', String(count === digits));
+      }
+      $('wheelEulerDecimal').textContent = '0,' + prefix.toString().padStart(digits, '0');
+      $('wheelEulerBinary').textContent = binary;
+      $('wheelEulerOnes').textContent = `${ones} Einsen · ${binary.length} Bits`;
+      $('wheelEulerComparison').innerHTML = [allReturnEighths, mod19JointReturnEighths].map(step =>
+        `<tr><th scope="row">${step.toLocaleString('de-DE')}</th><td>${step % mod19Period}</td><td>${ones}</td></tr>`
+      ).join('');
+    }
+    for (const digits of digitCounts) {
+      $('wheelEulerDigits' + digits).addEventListener('click', () => show(digits));
+    }
+    show(11);
+  }
+
+  function mountWheelComposite() {
+    const canvas = $('wheelCompositeCanvas');
+    const context = canvas.getContext('2d');
+    if (!context) return;
+    const tracks = [
+      { number: 1729, color: '#ffb9cd', label: 'Ramanujan Bridge', factors: '7 × 13 × 19' },
+      { number: 1836, color: '#aeb4bd', label: 'Mass Ratio Bridge', factors: '2² × 3³ × 17' },
+      { number: 1935, color: '#69baff', label: 'Blauer Strahl', factors: '3² × 5 × 43' },
+    ].map(track => ({
+      ...track,
+      ratio: 1561 / track.number,
+      angle: Math.acos(1561 / track.number),
+    }));
+    const options = ['All', ...tracks.map(track => track.number)];
+    const format = (value, digits) => value.toLocaleString('de-DE', {
+      minimumFractionDigits: digits,
+      maximumFractionDigits: digits,
+    });
+    const center = canvas.width / 2;
+    const radius = center - 12;
+    function ring(fraction, color) {
+      context.beginPath();
+      context.arc(center, center, fraction * radius, 0, 2 * Math.PI);
+      context.strokeStyle = color;
+      context.stroke();
+    }
+    let selected = 'All';
+    function show(selection) {
+      selected = selection;
+      for (const option of options) {
+        $('wheelComposite' + option).setAttribute('aria-pressed', String(option === selection));
+      }
+      const visible = tracks.filter(track => selection === 'All' || track.number === selection);
+      $('wheelCompositeRows').innerHTML = visible.map(track =>
+        `<tr><th scope="row" style="color:${track.color}">${track.number} <small>${track.label}</small></th>` +
+        `<td>${track.factors}${track.number === 1729
+          ? '<small><span class="wheel-regulator-lamp" aria-hidden="true"></span> Regulator Bridge 19</small>' : ''}</td>` +
+        `<td>${format(track.ratio, 3)}</td>` +
+        `<td>${format(track.angle * 180 / Math.PI, 1)}°</td>` +
+        `<td>${format(6561 / track.number, 3)}</td></tr>`
+      ).join('');
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.lineWidth = 1;
+      for (const band of [0.429, 0.456, 0.487]) ring(band, '#3a5467');
+      ring(0.571, '#718c9c');
+      ring(1, '#718c9c');
+      context.beginPath();
+      context.moveTo(center, center);
+      context.lineTo(center + radius, center);
+      context.stroke();
+      for (const track of visible) {
+        context.lineWidth = 1;
+        ring(track.ratio, track.color);
+        context.lineWidth = 2;
+        context.beginPath();
+        for (const side of [-1, 1]) {
+          context.moveTo(center, center);
+          context.lineTo(
+            center + radius * track.ratio * Math.cos(track.angle),
+            center + side * radius * track.ratio * Math.sin(track.angle)
+          );
+        }
+        context.stroke();
+      }
+    }
+    for (const option of options) {
+      $('wheelComposite' + option).addEventListener('click', () => show(option));
+    }
+    for (const [id, step] of compositeMod19Steps) {
+      $(id).addEventListener('click', () => {
+        if (selected !== 'All' && selected !== 1729) show(1729);
+        selectWheelCompositeStep(step);
+        if (!wheelAuditionLoop && wheelBeatTimer === null) jumpToMod19Comparison(step);
+      });
+    }
+    $('wheelCompositeLive').addEventListener('click', () => selectWheelCompositeStep(null));
+    show('All');
+  }
+
+  function mountWheelPolarComparison() {
+    const polar = window.A0PrimeAddressCountershot;
+    if (!polar) return;
+    const spiral = polar.primeSpiralModel('golden');
+    const cuts = new Map([270, 268].map(axis => [
+      axis, polar.polarCutAtlasModel(spiral, polar.polarCutFrame('outer', axis, 316)),
+    ]));
+    let previous = null;
+    const renderCut = axis => {
+      const cut = cuts.get(axis);
+      if (previous === cut) return;
+      const change = previous ? polar.polarCutTransition(previous, cut) : null;
+      for (const value of cuts.keys()) $('wheelPolar' + value).setAttribute('aria-pressed', String(value === axis));
+      $('wheelPolarMetrics').textContent = `${cut.insidePoints.length} IN · ${cut.outsidePoints.length} OUT · ${cut.crossingEdges.length} Randwechsel · Schwerpunktabstand ${cut.centroid.drift.toFixed(5).replace('.', ',')}`;
+      for (const prime of [643, 761]) {
+        const point = cut.points.find(candidate => candidate.prime === prime);
+        const entry = $('wheelPolar' + prime);
+        const moved = change?.entered.includes(prime) ? 'entered' : change?.exited.includes(prime) ? 'exited' : '';
+        entry.dataset.change = moved;
+        entry.textContent = `${prime} · ${moved === 'entered' ? 'rein' : moved === 'exited' ? 'raus' : point.inside ? 'IN' : 'OUT'}`;
+      }
+      $('wheelPolarSwap').textContent = change
+        ? `${previous.frame.centerDegrees}° → ${axis}° · ${change.retained.length} bleiben innen`
+        : 'Golden Angle · S3 · Öffnung 316°';
+      previous = cut;
+    };
+    for (const axis of cuts.keys()) $('wheelPolar' + axis).addEventListener('click', () => renderCut(axis));
+    renderCut(270);
+    return () => renderCut(270);
+  }
+
+  if (wheelBeatPlay && wheelBeatBass) {
+    mountWheelComposite();
+    mountWheelEulerLens();
+    for (const [key, voices] of [
+      ...wheelReturnAuditions.map(voice => [voice.key, [voice]]),
+      ['Together', wheelReturnAuditions],
+    ]) {
+      $('wheelListenReturn' + key).addEventListener('click', async () => {
+        if (wheelAuditionLoop?.button === wheelBeatABCLoop && wheelBeatABCMeter.value === '7/8') {
+          pendingWheelReturnAudition = voices;
+          $('wheelReturnAuditionStatus').textContent =
+            `Nächstes Achtel · ${voices.map(voice => voice.label).join(' + ')}`;
+          return;
+        }
+        const playback = wheelBeatPlayback;
+        if (wheelAudio?.state !== 'running') await enableWheelBass();
+        if (playback !== wheelBeatPlayback || !wheelBeatVisible() || document.hidden || wheelAudio?.state !== 'running') return;
+        playWheelReturnAudition(voices);
+      });
+    }
+    const resetPolarCut = mountWheelPolarComparison();
+    renderWheelBackloopGrid();
+    const presets = [
+      ['Qrt20', '7/8', '7/8-Groove mit Reverse-808, Hi-Hat und 69-Hz-Backloop.'],
+      ['SevenBase', '7/8', 'Gleicher 7/8-Groove mit Reverse-808 und Hi-Hat. Die 69-Hz-Spur ist stumm.'],
+      ['Resonance', '5', 'Beat starten spielt den 5/4-Groove mit 48 Hz. Darunter gibt es zwei kurze Resonanz-Hörproben.'],
+      ['Polar', '7/8', 'S3 · 316° ist geöffnet. Von 270° auf 268° schalten und 643/761 vergleichen.'],
+      ['Basic', '6', 'Beat starten spielt die Grundfolge 2–1–3.'],
+    ];
+    function applyWheelPreset([mode, meter, hint]) {
+      stopWheelBeat();
+      const qrt20 = mode === 'Qrt20';
+      const sevenGroove = qrt20 || mode === 'SevenBase';
+      const resonance = mode === 'Resonance';
+      const polar = mode === 'Polar';
+      wheelBeatABCMeter.value = meter;
+      wheelBeatBass.checked = !polar;
+      wheelBeatBackloop.checked = qrt20;
+      wheelBackloopTimbre.checked = qrt20;
+      wheelBackloopDiagonal.value = 'all';
+      wheelBackloopView.dataset.diagonal = 'all';
+      wheelBeatReverseA.checked = sevenGroove || resonance;
+      wheelBeatHat.checked = sevenGroove || resonance;
+      wheelBeatSnare.checked = resonance;
+      wheelBeatSnareTiming.value = resonance ? 'late' : 'original';
+      wheelBeatGlue.checked = false;
+      if (resonance) {
+        selectWheelResonance(48);
+      } else {
+        wheelResonanceEnabled.checked = false;
+        updateWheelResonance();
+      }
+      $('wheelPolarCompare').open = polar;
+      $('wheelResonance').open = resonance;
+      if (polar) resetPolarCut?.();
+      wheelQrt20JointReturnStatus.textContent = qrt20JointReturnReady;
+      wheelCommonReturnStatus.textContent = commonReturnReady;
+      wheelAllReturnStatus.textContent = allReturnReady;
+      resetWheelMod19Return();
+      selectWheelCompositeStep(null);
+      showWheelBackloopTick(0);
+      showWheelABCPattern();
+      $('wheelPresetHint').textContent = hint;
+    }
+    for (const preset of presets) {
+      $('wheelPreset' + preset[0]).addEventListener('click', () => applyWheelPreset(preset));
+    }
+    applyWheelPreset(presets[0]);
+    wheelBackloopDiagonal.addEventListener('change', () => {
+      wheelBackloopView.dataset.diagonal = wheelBackloopDiagonal.value;
+      if (wheelBackloopDiagonal.value !== 'all') wheelBeatBackloop.checked = true;
+    });
+    const centerStep = 2 * eighthsPerSevenBar + 3;
+    for (const [residue, step] of [[1, centerStep], [17, centerStep + backloopReturnEighths]]) {
+      $('wheelBackloopListenR' + residue).addEventListener('click', async () => {
+        stopWheelBeat();
+        const playback = wheelBeatPlayback;
+        const tick = step * ticksPerEighth;
+        showWheelBackloopTick(tick);
+        await enableWheelBass();
+        if (playback !== wheelBeatPlayback || !wheelBeatVisible() || wheelBackloopView.hidden ||
+          document.hidden || wheelAudio?.state !== 'running') return;
+        const now = wheelAudio.currentTime;
+        wheelAudioGain.gain.setValueAtTime(0.45, now);
+        playWheelBackloop(now, backloopSign(tick), tick, true);
+      });
+    }
+    const refreshNumberSync = () => {
+      if (wheelNumberSyncActive()) pause();
+      else publish();
+    };
+    wheelBeatSyncNumbers.addEventListener('change', refreshNumberSync);
+    wheelBeatABCMeter.addEventListener('change', () => {
+      showWheelABCPattern();
+      refreshNumberSync();
+    });
+    $('wheelMod19CompareJump').addEventListener('click', () => jumpToMod19Comparison(allReturnEighths));
+    $('wheelMod19ReturnJump').addEventListener('click', () => {
+      stopWheelBeat();
+      armedBackloopReturn = mod19JointReturnEighths;
+      const step = mod19JointReturnEighths - 1;
+      showWheelBackloopTick(step * ticksPerEighth);
+      const status = $('wheelMod19ReturnStatus');
+      status.dataset.return = 'false';
+      status.textContent = `Rest ${step % mod19Period} · „Beat starten“ spielt ab einem Achtel vor dem gemeinsamen Return`;
+    });
+    for (const [id, step, status] of [
+      ['wheelQrt20ReturnJump', qrt20JointReturnEighths, wheelQrt20JointReturnStatus],
+      ['wheelCommonReturnJump', commonReturnEighths, wheelCommonReturnStatus],
+      ['wheelAllReturnJump', allReturnEighths, wheelAllReturnStatus],
+    ]) {
+      $(id).addEventListener('click', () => {
+        stopWheelBeat();
+        armedBackloopReturn = step;
+        showWheelBackloopTick((step - 1) * ticksPerEighth);
+        status.textContent = `Schritt ${step - 1} · „Beat starten“ spielt ab einem Achtel vor dem Return`;
+      });
+    }
+    wheelResonanceEnabled.addEventListener('change', updateWheelResonance);
+    for (const input of [wheelResonanceFrequency, wheelResonanceDamping]) {
+      input.addEventListener('input', updateWheelResonance);
+    }
+    for (const { button, frequency } of wheelResonancePresets) {
+      button.addEventListener('click', () => selectWheelResonance(frequency));
+    }
+    wheelBeatReverseLength.addEventListener('input', () => {
+      wheelBeatReverseValue.textContent = `${wheelBeatReverseLength.value} ms`;
+    });
+    for (const [index, id] of ['wheelBeatListenA', 'wheelBeatListenB', 'wheelBeatListenC'].entries()) {
+      $(id).addEventListener('click', async () => {
+        stopWheelBeat();
+        const playback = wheelBeatPlayback;
+        await enableWheelBass();
+        if (playback === wheelBeatPlayback && wheelBeatVisible() && !document.hidden) {
+          playWheelAudition(index, reverseLengthFor(index));
+        }
+      });
+    }
+    async function toggleWheelLoop(loopMode, returnComparisonStep = null) {
+      const isReturnComparison = returnComparisonStep !== null;
+      const wasPlaying = !isReturnComparison && wheelAuditionLoop === loopMode;
+      const armedReturn = loopMode.gaps === abcGaps && !loopMode.peakOutput &&
+        wheelBeatABCMeter.value === '7/8' ? armedBackloopReturn : 0;
+      const previewReturn = isReturnComparison ? allReturnEighths : armedReturn;
+      stopWheelBeat();
+      if (wasPlaying) return;
+      if (isReturnComparison) {
+        wheelBeatABCMeter.value = '7/8';
+        showWheelBackloopTick((previewReturn - 1) * ticksPerEighth);
+        $('wheelReturnAuditionStatus').textContent = `A/B-Hörvergleich · Einsatz bei Schritt ${returnComparisonStep.toLocaleString('de-DE')}`;
+      }
+      const playback = wheelBeatPlayback;
+      wheelAuditionLoop = loopMode;
+      showWheelABCPattern();
+      loopMode.button.setAttribute('aria-pressed', 'true');
+      if (loopMode.button === wheelBeatABCLoop) {
+        wheelBeatABCLoop.textContent = 'Beat stoppen';
+        selectWheelCompositeStep(null);
+        if (wheelNumberSyncActive()) pause();
+      }
+      const comparison = Boolean(loopMode.peakOutput);
+      if (comparison) {
+        wheelResonanceTakePeak = 0;
+        loopMode.peakOutput.textContent = '—';
+        wheelResonanceAnalyser?.disconnect();
+        wheelResonanceAnalyser = null;
+        selectWheelResonance(loopMode.frequency);
+        lockWheelResonanceControls(true);
+      }
+      await enableWheelBass();
+      if (playback !== wheelBeatPlayback) return;
+      if (!wheelBeatVisible() || document.hidden || wheelAudio?.state !== 'running') {
+        stopWheelBeat();
+        return;
+      }
+      let meter = previewReturn ? '7/8' : '';
+      let tickMs = previewReturn ? sevenTickMs() : wheelTickMs;
+      let rpm = platterRpm();
+      let phrasePulse = 0;
+      let sevenTicks = previewReturn * ticksPerEighth;
+      let bars = 0;
+      if (!previewReturn && wheelBeatABCMeter.value === '7/8') {
+        wheelCommonReturnStatus.textContent = commonReturnReady;
+        wheelQrt20JointReturnStatus.textContent = qrt20JointReturnReady;
+        wheelAllReturnStatus.textContent = allReturnReady;
+        resetWheelMod19Return();
+      }
+      const playAccent = (index, reverseMs, scheduled) => {
+        const previousTickMs = tickMs;
+        const previousRpm = rpm;
+        if (index === 0) {
+          const nextMeter = comparison ? '5' : loopMode.gaps === abcGaps ? wheelBeatABCMeter.value : '4';
+          tickMs = nextMeter === '7/8' ? sevenTickMs() : wheelTickMs;
+          rpm = platterRpm();
+          if (meter !== nextMeter) {
+            meter = nextMeter;
+            if (meter !== '7/8') stopWheelPlatter();
+            phrasePulse = 0;
+            sevenTicks = 0;
+            if (meter !== '5') {
+              wheelResonanceNext = null;
+              clearWheelResonance();
+            }
+          }
+        }
+        const fiveBeat = meter === '5';
+        const sevenBeat = meter === '7/8';
+        playWheelAudition(index, reverseMs, { scheduled, resonant: fiveBeat, afterAccent: downbeat => {
+          const gap = sevenBeat ? sevenBeatGaps[index] : fiveBeat && index === 2 ? 2 : loopMode.gaps[index];
+          const gapTicks = gap * (sevenBeat ? ticksPerEighth : ticksPerQuarter);
+          if (sevenBeat) {
+            if (!platterClock || previousTickMs !== tickMs || previousRpm !== rpm) {
+              alignWheelPlatter(downbeat, tickMs, rpm);
+            }
+            scheduleSevenBeatFills(sevenTicks, gapTicks, tickMs, returnComparisonStep);
+            sevenTicks += gapTicks;
+          } else if (fiveBeat) {
+            scheduleFiveBeatPercussion(phrasePulse, gap);
+            phrasePulse = (phrasePulse + gap) % 10;
+          } else if (gap > 1) {
+            scheduleWheelFill(wheelBeatHat, wheelBeatMs, playWheelHat);
+          }
+          if (!sevenBeat && gap > 1) {
+            scheduleWheelFill(wheelBeatGlue, 1.5 * wheelBeatMs, now => playBassVoice(39, 0.085, now, 0.16));
+          }
+          const nextDownbeat = downbeat + gapTicks * tickMs / 1000;
+          if (comparison && index === 2 && ++bars === 2) {
+            const wait = Math.max(0, (nextDownbeat - wheelAudio.currentTime) * 1000);
+            scheduleWheelAction(wait, () => {
+              loopMode.peakOutput.textContent = `${resonanceNumber.format(wheelResonanceTakePeak)}×`;
+              stopWheelBeat();
+            });
+            return;
+          }
+          const next = (index + 1) % loopMode.gaps.length;
+          const nextReverseMs = reverseLengthFor(next);
+          playAccent(next, nextReverseMs, nextDownbeat);
+        } });
+      };
+      const firstReverseMs = reverseLengthFor(0);
+      const eighthMs = ticksPerEighth * tickMs;
+      const leadMs = previewReturn ? Math.max(eighthMs, firstReverseMs + 40) : firstReverseMs + 40;
+      const firstDownbeat = wheelAudio.currentTime + leadMs / 1000;
+      if (previewReturn) {
+        scheduleWheelAction(leadMs - eighthMs, () => scheduleSevenBeatFills((previewReturn - 1) * ticksPerEighth, ticksPerEighth, tickMs));
+      }
+      playAccent(0, firstReverseMs, firstDownbeat);
+    }
+    for (const loopMode of wheelAuditionLoops) {
+      loopMode.button.addEventListener('click', () => toggleWheelLoop(loopMode));
+    }
+    const sevenBeatLoop = wheelAuditionLoops.find(mode => mode.button === wheelBeatABCLoop);
+    $('wheelReturnCompareA').addEventListener('click', () => toggleWheelLoop(sevenBeatLoop, allReturnEighths));
+    $('wheelReturnCompareB').addEventListener('click', () => toggleWheelLoop(sevenBeatLoop, allReturnEighths + 1));
+    for (const [id, beat] of [
+      ['wheelBeatReset', 0],
+      ['wheelBeatHalfPreview', sharedBeatReturn / 2 - 1],
+      ['wheelBeatPreview', sharedBeatReturn - 2],
+    ]) {
+      $(id).addEventListener('click', () => {
+        stopWheelBeat();
+        wheelBeat = beat;
+        showWheelBeat();
+      });
+    }
+    wheelBeatBass.addEventListener('change', () => {
+      if (wheelBeatBass.checked) enableWheelBass();
+      else if (!wheelAuditionLoop) wheelAudioGain?.gain.setValueAtTime(0, wheelAudio.currentTime);
+    });
+    wheelBeatPlay.addEventListener('click', () => {
+      if (wheelBeatTimer !== null) {
+        stopWheelBeat();
+        return;
+      }
+      stopWheelBeat();
+      if (wheelBeatBass.checked) {
+        const playback = wheelBeatPlayback;
+        enableWheelBass().then(() => {
+          if (playback === wheelBeatPlayback && wheelBeatTimer !== null && wheelBeat === 0) hitWheelBass();
+        });
+      }
+      wheelBeatPlay.textContent = 'Radtakt stoppen';
+      wheelBeatTimer = setInterval(() => {
+        if (!wheelBeatVisible()) {
+          stopWheelBeat();
+          return;
+        }
+        wheelBeat = wheelBeat % sharedBeatReturn + 1;
+        showWheelBeat();
+        hitWheelBass();
+      }, wheelBeatMs);
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopWheelBeat();
+    });
+    window.addEventListener('pagehide', stopWheelBeat);
+  }
+  function publish(ready=false){parent.postMessage({type:'worlds-play-state',kind:'numbers',ready,running:timer!==null,beatSync:wheelNumberSyncActive(),loop,orbit,rule,side,navigationView:parallelActive?'parallel':cathedralActive?'cathedral':view,status:parallelActive?(timer!==null?'Playing':'Paused')+' · PARALLEL · Vergleich '+comparison.tick+' / '+PM.LIMIT:(timer!==null?'Playing':'Paused')+' · '+rule+(rule==='sumlift'?' · '+(session().config.direction==='counter'?'Gegenlauf':'Gleichlauf'):'')+' · n '+session().cursor+' / '+M.limit(rule)},'*')}
   const inspection=()=>({side,touch,aperture,jointModulus,...(view==='joint'?{jointQrt20View}:{}),...(view==='corridor'?{corridorModulus,corridorWitness,corridorValue:Number(frame().state.a??frame().state.re)}:{}),...(view==='qrt20'?{qrt20QuarterTurn,qrt20CouplingWindow,qrt20Terrace,qrt20TerraceStep:session().cursor,qrt20Tesa,qrt20TesaMode,qrt20TesaTrace,qrt20IotaGateStep,qrt20FoldIndex,qrt20CoreMotion,qrt20BetaExponent,qrt20VpaProfile,qrt20VpaTick,qrt20PascalSeamStep,qrt20TesaValue:String(frame().state.a??frame().state.re??0)}:{}),...(view==='ftr231'?{ftrValue:String(frame().state.a??frame().state.re??0),ftrTick:session().cursor}:{}),...(returnWitness?{returnWitness}:{}),...(view==='trinity'?{trinity:T.settings(trinity)}:{}),...(breathEnabled&&rule==='elevator'&&view==='elevator'?{conDao:{model_id:'NEXAH:CON_DAO_BREATH:V1',tick:session().cursor,clock:'ONE_DISPLAY_TICK_PER_NUMBER_STEP'}}:{})});
   function pause(){motion=null;if(timer!==null)clearInterval(timer);timer=null;orbit=false;publish();requestDraw()}
   function factorLabel(row){if(row.value==='97 ↔ 78')return'97 prime ↔ 2×3×13';const factors=row.factor_class?.factors||[];return row.factor_class?.classification==='PRIME'?'prime':factors.join('×')||row.factor_class?.classification||'—'}
@@ -23,6 +1372,11 @@
   function advance(){if(parallelActive){if(comparison.tick>=PM.LIMIT){if(loop)comparison=PM.reset(comparison);else pause();}else comparison=PM.step(comparison);readout();return;}returnWitness=null;returnStatus='Vorlauf · Rückweg erneut prüfen';touch=null;$('numberTouchStatus').textContent='';const s=session();if(s.cursor>=M.limit(rule)){if(loop)sessions[rule]=M.at(s,0);else pause();}else {sessions[rule]=M.step(s);if(rule==='elevator'&&view==='elevator'&&timer!==null&&!reduced)motion={from:Number(s.frames[s.cursor].state.lift),to:Number(frame().state.lift),start:null,blend:0};}readout()}
   function play(){if(timer!==null){pause();return}if(document.hidden)return;timer=setInterval(advance,parallelActive?delay:['mixer','wheels'].includes(rule)?Math.max(20,Math.round(delay/17.5)):rule==='returnbridge'?Math.max(60,Math.round(delay/3.5)):rule==='pq'?Math.round(delay*5/7):delay);publish()}
   function command(action,value){
+    if(action==='wheel-meter' && value==='7/8'){
+      wheelBeatABCMeter.value=value;
+      showWheelABCPattern();
+      return;
+    }
     if(action==='qrt20-quarter'){qrt20QuarterTurn=Boolean(value);readout();return;}
     if(action==='qrt20-coupling'){qrt20CouplingWindow=Boolean(value);readout();return;}
     if(action==='qrt20-terrace'){qrt20Terrace=Boolean(value);readout();return;}
@@ -40,6 +1394,7 @@
     if(action==='breath'&&rule==='elevator'&&view==='elevator'){breathEnabled=Boolean(value);readout();return;}
     if(action==='trinity-settings'&&T){try{trinity=T.settings(value)}catch{return;}readout();return;}
     if(action==='hello'){publish(true);return}
+    if (wheelNumberSyncActive() && ['play', 'step', 'reset'].includes(action)) return;
     if(action==='play')play();
     if(action==='pause')pause();
     if(['capture-return','inverse-step','source-return'].includes(action)&&!parallelActive&&['sevenword','sumlift'].includes(rule)){pause();touch=null;returnWitness=null;const s=session(),key=JSON.stringify(s.config);if(action==='capture-return'){returnAnchors.set(key,{cursor:s.cursor,frame:JSON.parse(JSON.stringify(s.frames[s.cursor]))});returnStatus='SOURCE ERFASST · n '+s.cursor+' · '+s.frames[s.cursor].fingerprint;}else{const anchor=returnAnchors.get(key);const target=action==='inverse-step'?s.cursor-1:anchor?.cursor;if(action==='inverse-step'&&s.cursor===0)returnStatus='HOLD · Seed erreicht; kein Vorgänger im deklarierten Lauf';else if(action==='source-return'&&!anchor)returnStatus='HOLD · zuerst Source-Anker erfassen';else if(action==='source-return'&&JSON.stringify(anchor.frame)!==JSON.stringify(s.frames[target]))returnStatus='REJECT · Source-Anker stimmt nicht mehr';else{const result=M.returnTo(s,target);returnStatus=JSON.stringify(result,null,2);if(result.status==='EXACT'){returnWitness=result;sessions[rule]=M.at(s,target);}}}readout();return;}
@@ -251,15 +1606,57 @@
     b=panel(5,'FACTOR / GHOST FIELD','EXACT PAIRS · 11×11 → 1000×1000');{const cx=b.x+b.w/2,cy=b.y+b.h*.59,r=Math.max(24,Math.min(b.w*.27,b.h*.26));ctx.strokeStyle='#193746';ctx.globalAlpha=.55;for(let i=-4;i<=4;i++){line([{x:cx-r,y:cy+i*r/4},{x:cx+r,y:cy+i*r/4}],'#315365',1,.3);line([{x:cx+i*r/4,y:cy-r},{x:cx+i*r/4,y:cy+r}],'#315365',1,.3)}ctx.globalAlpha=1;s.factorPairs.forEach((pair,i)=>{const a=-Math.PI/2+2*Math.PI*i/s.factorPairs.length,q={x:cx+mirror*r*Math.cos(a),y:cy+r*Math.sin(a)};line([{x:cx,y:cy},q],i%2?'#ed72aa':'#54d7ef',1,.6);ctx.fillStyle=i%2?'#ed72aa':'#54d7ef';ctx.beginPath();ctx.arc(q.x,q.y,3,0,Math.PI*2);ctx.fill();ctx.textAlign='center';ctx.font='7px ui-monospace,monospace';ctx.fillText(String(pair),q.x,q.y-6)});ctx.fillStyle='#fff5b0';ctx.beginPath();ctx.arc(cx,cy,5,0,Math.PI*2);ctx.fill();ctx.textAlign='left'}
     if(pulse){ctx.strokeStyle='#65e7a4';ctx.setLineDash([4,5]);ctx.lineWidth=1;ctx.beginPath();boxes.forEach((q,i)=>{const x=q.x+q.w/2,y=q.y+q.h/2;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.stroke();ctx.setLineDash([])}ctx.textAlign='left';ctx.fillStyle='#7895a4';ctx.font='8px ui-monospace,monospace';ctx.fillText('SYNCHRONIZED PROJECTIONS · DISPLAY COUPLING, NOT A PRIME GENERATOR OR PHYSICAL LAW',18,h-10);
   }
+  function drawBeatRing(ring, at, radius) {
+    const track = radius * 0.87;
+    const cue = wheelBeat ? beatCue(ring) : '';
+    const accent = cue === 'Return' ? '#68efbd' : cue === 'Echo' ? '#bd9bff' : '#7895a4';
+    line(Array.from({ length: 73 }, (_, index) => at(track, index * Math.PI / 36)), accent, cue ? 2 : 1, cue ? 1 : 0.66);
+    for (let i = 0; i < ring.period; i += 1) {
+      const angle = i * 2 * Math.PI / ring.period;
+      const isStart = i * wheelBeatStride === ring.start;
+      line([at(track - (isStart ? 9 : 3), angle), at(track + 2, angle)], isStart ? '#f2f7fc' : '#7895a4', isStart ? 3 : 1);
+    }
+    for (const [direction, length, color] of [[1, 1, '#ffcc83'], [-1, 0.84, '#bd9bff']]) {
+      const angle = wheelBeatDegrees(ring, direction) * Math.PI / 180;
+      const endpoint = at(track * length, angle);
+      line([at(track * 0.28, angle), endpoint], color, 3);
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.arc(endpoint.x, endpoint.y, 4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    const title = at(radius * 1.43, Math.PI / 2);
+    ctx.textAlign = 'center';
+    ctx.font = '700 15px ui-monospace,monospace';
+    ctx.fillStyle = '#eefaff';
+    ctx.fillText(ring.modulus + (cue ? ' · ' + cue : ''), title.x, title.y);
+  }
+
   function drawWheels(w,h){
-    const s=rule==='wheels'?frame().state:M.wheelState(0),cx=w/2,cy=175+(h-290)/2,r=Math.max(30,Math.min(w*.33,(h-310)*.42)),mirror=side==='back'?-1:1;
+    const compare = wheelBeatVisible() && wheelBeatPlay;
+    const s = rule === 'wheels' ? frame().state : M.wheelState(0);
+    const cx = w * (compare ? 0.27 : 0.5);
+    const controlsBottom = $('numberWheelControls').getBoundingClientRect().bottom - canvas.getBoundingClientRect().top;
+    const plotTop = Number.isFinite(controlsBottom) ? controlsBottom + 18 : 245;
+    const cy = compare ? Math.max(plotTop + 38, (plotTop + h - 94) / 2) : 175 + (h - 290) / 2;
+    const r = compare
+      ? Math.max(22, Math.min(w * 0.18, (cy - plotTop) / 1.43, (h - 90 - cy) / 1.3))
+      : Math.max(30, Math.min(w * 0.33, (h - 310) * 0.42));
+    const mirror = side === 'back' ? -1 : 1;
     const at=(rad,t)=>({x:cx+mirror*rad*Math.cos(t),y:cy-rad*Math.sin(t)}),circle=(rad,col,alpha)=>line(Array.from({length:145},(_,i)=>at(rad,i*Math.PI/72)),col,1,alpha);
     circle(r*1.18,'#315365',.8);for(let i=0;i<7;i++){const t=Math.PI/2+i*2*Math.PI/7,p=at(r*1.18,t);line([at(r*1.13,t),at(r*1.23,t)],'#9bb3c0',2,.8);ctx.fillStyle='#8daeba';ctx.font='9px ui-monospace,monospace';ctx.textAlign='center';ctx.fillText('7:'+i,p.x,p.y-7)}
     line([{x:cx,y:cy-r*1.28},{x:cx,y:cy+r*1.28}],'#ffca55',1,.65);
     const markers=[];for(const [key,teeth,rad,color,label]of [['tick1836',17,r,'#54d7ef','1836'],['tick1729',29,r*.69,'#ed72aa','1729']]){const theta=2*Math.PI*s[key]/180;circle(rad,color,.6);for(let i=0;i<teeth;i++){const t=theta+2*Math.PI*i/teeth;line([at(rad*.94,t),at(rad*1.04,t)],color,i?1:3,i?.5:1);if(i%2===0){const p=at(rad*1.09,t);ctx.fillStyle=color;ctx.font='8px ui-monospace,monospace';ctx.textAlign='center';ctx.fillText(String(i),p.x,p.y+3)}}const q=at(rad,theta);markers.push(q);line([{x:cx,y:cy},q],color,1.5,.65);ctx.fillStyle=color;ctx.shadowColor=color;ctx.shadowBlur=22;ctx.beginPath();ctx.arc(q.x,q.y,7,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;ctx.fillStyle=color;ctx.font='11px ui-monospace,monospace';ctx.fillText(label,q.x,q.y-16)}
+    if (compare) {
+      drawBeatRing(beatRings[0], at, r);
+      drawBeatRing(beatRings[1], (rad, angle) => ({
+        x: w * 0.75 + mirror * rad * Math.cos(angle),
+        y: cy - rad * Math.sin(angle),
+      }), r);
+    }
     line(markers,'#ffca55',1,s.alignment?.85:.25);ctx.fillStyle='#071823';ctx.beginPath();ctx.arc(cx,cy,25,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#ffca55';ctx.stroke();ctx.fillStyle='#ffca55';ctx.textAlign='center';ctx.font='16px ui-monospace,monospace';ctx.fillText('XIX',cx,cy+5);ctx.textAlign='left';ctx.font='10px ui-monospace,monospace';ctx.fillStyle='#54d7ef';ctx.fillText('1836 · 17 teeth · '+s.turnNumerator1836+'/180 turns',18,h-88);ctx.fillStyle='#ed72aa';ctx.fillText('1729 · 29 teeth · '+s.turnNumerator1729+'/180 turns',18,h-70);ctx.fillStyle='#ffca55';ctx.fillText('φ '+s.phaseDegrees+'° · '+(s.orientationReturn?'JOINT ORIENTATION RETURN':s.alignment?'RELATIVE ALIGNMENT':'COUPLED PHASE'),18,h-51);ctx.fillStyle='#8daeba';ctx.font='9px ui-monospace,monospace';ctx.fillText('29 · 31 · 33 · 45 · 78 — MARKER LABELS, NOT ANGLES',18,h-31);ctx.fillText(rule==='wheels'?'DECLARED PRESET · POSITIVE = CCW · XIX AND OUTER7 FIXED':'REFERENCE · SELECT XIX WHEELS RULE TO RUN',18,h-13);
   }
-  function draw(){if(parallelActive)return;if(view==='trinity'){canvas.hidden=true;$('numberMixer').hidden=true;$('numberMixerControls').hidden=true;$('numberPQ').hidden=true;$('numberWheelControls').hidden=true;const phase=rule==='mixer'?frame().state.phase:360*session().cursor/M.limit(rule),r=T.snapshot(phase,trinity);$('trinityDrawing').innerHTML=T.drawing(r,side);$('trinityStatus').textContent='PHASE '+phase+'° · '+(r.VM?'VM: ÜBERLAGERUNG AKTIV':'VM: AUS')+' · gleicher gespeicherter Quellzustand';for(const [id,key]of [['trinityLeft','left'],['trinityRight','right'],['trinitySwap','swap']])$(id).checked=trinity[key];$('trinityPalette').value=trinity.palette;$('trinityK').value=String(trinity.K);$('trinityMarker').value=trinity.marker;return;}$('numberWheelControls').hidden=rule!=='wheels'||view!=='wheels';$('numberPQ').hidden=view!=='pq';if(view==='pq'){canvas.hidden=true;$('numberMixer').hidden=true;$('numberMixerControls').hidden=true;syncPQ();return}$('numberMixerControls').hidden=!['mixer','rgb','trinity'].includes(view);for(const [id,pick]of [['mixerAll','all'],['mixerA','A'],['mixerB','B']])$(id).setAttribute('aria-pressed',String(aperture===pick));$('numberMixer').hidden=!['mixer','rgb','trinity'].includes(view);canvas.hidden=['mixer','rgb'].includes(view);const rect=canvas.getBoundingClientRect(),w=Math.max(1,rect.width),h=Math.max(1,rect.height),dpr=Math.min(window.devicePixelRatio||1,2);if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr)}ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);const s=session(),f=frame(),history=s.frames.slice(Math.max(0,s.cursor-23),s.cursor+1),first=history[0].generation,project=xyz=>P.project(xyz.map((x,i)=>x*.42*(side==='back'&&i===0?-1:1)),camera,w,h),projectRing=(r,y=0)=>Array.from({length:97},(_,i)=>project([r*Math.cos(i*Math.PI/48),y,r*Math.sin(i*Math.PI/48)]));
+  function draw(){if(parallelActive)return;if(view==='trinity'){canvas.hidden=true;$('numberMixer').hidden=true;$('numberMixerControls').hidden=true;$('numberPQ').hidden=true;$('numberWheelControls').hidden=$('wheelBeatDetails').hidden=true;const phase=rule==='mixer'?frame().state.phase:360*session().cursor/M.limit(rule),r=T.snapshot(phase,trinity);$('trinityDrawing').innerHTML=T.drawing(r,side);$('trinityStatus').textContent='PHASE '+phase+'° · '+(r.VM?'VM: ÜBERLAGERUNG AKTIV':'VM: AUS')+' · gleicher gespeicherter Quellzustand';for(const [id,key]of [['trinityLeft','left'],['trinityRight','right'],['trinitySwap','swap']])$(id).checked=trinity[key];$('trinityPalette').value=trinity.palette;$('trinityK').value=String(trinity.K);$('trinityMarker').value=trinity.marker;return;}$('numberWheelControls').hidden=$('wheelBeatDetails').hidden=!wheelBeatVisible();$('numberPQ').hidden=view!=='pq';if(view==='pq'){canvas.hidden=true;$('numberMixer').hidden=true;$('numberMixerControls').hidden=true;syncPQ();return}$('numberMixerControls').hidden=!['mixer','rgb','trinity'].includes(view);for(const [id,pick]of [['mixerAll','all'],['mixerA','A'],['mixerB','B']])$(id).setAttribute('aria-pressed',String(aperture===pick));$('numberMixer').hidden=!['mixer','rgb','trinity'].includes(view);canvas.hidden=['mixer','rgb'].includes(view);const rect=canvas.getBoundingClientRect(),w=Math.max(1,rect.width),h=Math.max(1,rect.height),dpr=Math.min(window.devicePixelRatio||1,2);if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr)}ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);const s=session(),f=frame(),history=s.frames.slice(Math.max(0,s.cursor-23),s.cursor+1),first=history[0].generation,project=xyz=>P.project(xyz.map((x,i)=>x*.42*(side==='back'&&i===0?-1:1)),camera,w,h),projectRing=(r,y=0)=>Array.from({length:97},(_,i)=>project([r*Math.cos(i*Math.PI/48),y,r*Math.sin(i*Math.PI/48)]));
     // A deterministic star field is only presentation; it never feeds the recurrence.
     ctx.fillStyle='#80d5ef';for(let i=0;i<95;i++){ctx.globalAlpha=.08+(i%5)*.035;ctx.fillRect(((i*197+17)%997)/997*w,((i*367+71)%991)/991*h,1,1)}ctx.globalAlpha=1;
     if(['mixer','rgb'].includes(view)){const S=window.A0LayeredPentagonScene;if(!S){$('numberError').textContent='Mischerquelle fehlt.';return}const phase=rule==='mixer'?f.state.phase:360*s.cursor/M.limit(rule),fold=M.mixerFold(phase),pose=S.snapshot(phase,'counter'),past=rule==='mixer'?history.slice(-8,-1).map(fr=>S.snapshot(fr.state.phase,'counter')):[];$('numberMixer').innerHTML='<svg style="isolation:isolate;background:#000;transform:scaleX('+ (side==='back'?-1:1) +')" viewBox="'+({all:'0 0 780 470',A:'500 20 280 220',B:'500 230 280 220'}[aperture])+'" xmlns="http://www.w3.org/2000/svg">'+mixerDrawing(S,pose,past,view==='rgb',fold)+'</svg>';return}
@@ -284,7 +1681,7 @@
     ctx.globalAlpha=1;ctx.shadowBlur=0;const origin=project([0,0,0]);ctx.strokeStyle='#bceaf0';ctx.lineWidth=1;ctx.beginPath();ctx.arc(origin.x,origin.y,3,0,Math.PI*2);ctx.stroke();ctx.fillStyle='#8daeba';ctx.font='10px ui-monospace,monospace';ctx.fillText('n '+first+' — '+s.cursor+'  /  '+(view==='tower'?'SEQUENCE HEIGHT':'VIEW ONLY'),20,h-20);
   }
   function animate(now){raf=null;if(document.hidden)return;if(motion){motion.start??=now;const u=Math.max(0,Math.min(1,(now-motion.start)/Math.min(600,delay*.85)));motion.blend=u*u*(3-2*u);dirty=true;if(u>=1)motion=null;}if(orbit&&!reduced){camera.yaw+=Math.min(50,Math.max(0,now-last))*.00016;dirty=true}last=now;if(dirty){dirty=false;draw()}if((orbit&&!reduced)||motion)requestDraw()}
-  function requestDraw(){syncQrt20Controls();renderJointQrt20Audit();dirty=true;if(raf===null&&!document.hidden)raf=requestAnimationFrame(animate)}
+  function requestDraw(){if(!wheelBeatVisible()&&(wheelAuditionLoop||wheelBeatTimer!==null||wheelBeatFills.size||wheelBassSources.size||wheelBeatMeters.size))stopWheelBeat();syncQrt20Controls();renderJointQrt20Audit();dirty=true;if(raf===null&&!document.hidden)raf=requestAnimationFrame(animate)}
   canvas.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY,startX:e.clientX,startY:e.clientY,moved:false};canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointermove',e=>{if(!drag)return;camera.yaw+=(e.clientX-drag.x)*.008;camera.pitch=Math.max(-1.25,Math.min(1.25,camera.pitch+(e.clientY-drag.y)*.008));drag={...drag,x:e.clientX,y:e.clientY,moved:drag.moved||Math.hypot(e.clientX-drag.startX,e.clientY-drag.startY)>7};requestDraw()});canvas.addEventListener('pointerup',e=>{if(drag&&!drag.moved&&view==='rails'){const r=canvas.getBoundingClientRect();if(Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2))<34)command('touch')}drag=null});canvas.addEventListener('pointercancel',()=>{drag=null});
   canvas.addEventListener('keydown',e=>{if(e.key==='Enter'&&view==='rails'){e.preventDefault();command('touch');return}if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','+','-','='].includes(e.key))return;e.preventDefault();if(e.key==='ArrowLeft')camera.yaw-=.12;if(e.key==='ArrowRight')camera.yaw+=.12;if(e.key==='ArrowUp')camera.pitch=Math.min(1.25,camera.pitch+.1);if(e.key==='ArrowDown')camera.pitch=Math.max(-1.25,camera.pitch-.1);if(['+','='].includes(e.key))camera.zoom=Math.min(2.5,camera.zoom*1.1);if(e.key==='-')camera.zoom=Math.max(.5,camera.zoom/1.1);requestDraw()});
   $('numberScrub').oninput=()=>{if(parallelActive){pause();comparison=PM.at(comparison,Number($('numberScrub').value));readout();return;}pause();returnWitness=null;returnStatus='Gespeicherter Cursor bewegt · kein inverser Operator';touch=null;$('numberTouchStatus').textContent='';sessions[rule]=M.at(session(),Number($('numberScrub').value));readout()};

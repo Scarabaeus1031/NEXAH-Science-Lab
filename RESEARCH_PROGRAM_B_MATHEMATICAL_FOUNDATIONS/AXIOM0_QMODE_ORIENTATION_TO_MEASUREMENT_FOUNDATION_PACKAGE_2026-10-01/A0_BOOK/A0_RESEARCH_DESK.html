@@ -241,6 +241,7 @@
           <article class="desk-now-card"><small>Science gates</small><strong>Review statt Release</strong><p>SCC‑003 ist review-ready; A0‑BL‑056 bleibt OPEN / nicht aktiv. Wissenschaftliche Publikation und Outreach sind nicht autorisiert.</p></article>
         </div>
         <div class="desk-return-stream" aria-label="Jüngste rückgebundene Science-Desk-Returns">
+          <a class="desk-return-item" href="?desk=returns#doppelrad-return-20261125"><time datetime="2026-11-25">25.11</time><span><strong>XIX-Doppelrad · 7/8</strong>Return-Arithmetik, Hörvergleich 1260/1261 und offene Fragen zur Klangwirkung.</span><b>Methodenreturn →</b></a>
           <a class="desk-return-item" href="?desk=returns#ioi-tessarec3-a0-binding-return-20261105"><time>05.11</time><span><strong>101 / IOI / TESSAREC³</strong>Operatorenmatrix und redaktionelle A0-Rückbindung; source-bound, kein neuer Wissenschaftsclaim.</span><b>Binding return →</b></a>
           <a class="desk-return-item" href="?desk=returns#red-balloon-c20-carrier-ledger-20261104"><time>04.11</time><span><strong>Red Balloon · C20 carrier</strong>Finite Träger- und Sieve-Lesart; Drift- und Parameterdeutung bleiben begrenzt.</span><b>Mathfield return →</b></a>
           <a class="desk-return-item" href="?desk=returns#periodic-carrier-z100-science-return-20261103"><time>03.11</time><span><strong>Z100 · Stoffregister</strong>Science-Fall, Carrier stabil, Views getrennt, OLS später.</span><b>Science return →</b></a>
@@ -2278,6 +2279,51 @@
       <p><strong>Paper E.</strong> Als Methodenbeispiel zur Koordinatenwahl und zum Unterschied zwischen Strip-Treffer und Gate-Verlauf vorgemerkt. <code>θ4=n4</code> bleibt Testannahme. Finding offen.</p>
       <p><a href="A0_MATHEMATICAL_JOINTS.html#clockwork-orange-still-point-bands">Still-Point Bands ↗</a> · <a href="A0_SCIENCE.html#algo-hof-d-panel">D im Hof ↗</a></p>
     </section>
+    <section id="clockwork-orange-t-layer-check">
+      <h3>T-Layer · gemeinsame Richtung und gemeinsamer Return</h3>
+      <p>Quellvorlage ist die mitgelieferte Legende zum T-Layer auf dem 36er-Rad. Der A0-Vergleich verwendet die drei Winkelraster 36, 27 und 64. Auf ihrem kleinsten gemeinsamen Feinraster mit <code>kgV(36,27,64) = 1728 = 12³</code> entsprechen ihre eigenen Schritte 48, 64 und 27 Feinticks. Ein Feintick misst 5/24°.</p>
+      <p><strong>Gegenprobe.</strong> Bei gemeinsamem Start teilen 36 und 27 neun Richtungen im Abstand von 40°. Mit 64 ist nur 0° gemeinsam. Versetzt man Beta um einen Feintick, haben 36 und 27 keinen gemeinsamen Treffer mehr. Für den Taktlauf gilt in beiden Situationen dieselbe Regel <code>Adresse = (Start + Takt × Schrittweite) mod 1728</code>. Bei einem eigenen Schritt je Takt kehren alle drei zuerst bei Takt 1728 zu ihrem jeweiligen Start zurück. Nach der Verschiebung liegt Betas Return auf Feintick 1.</p>
+      <p><strong>Neun Arme.</strong> Für die ausgerichteten Ringe 36 und 27 bezeichnet Arm <code>x</code> den Feintick <code>192x</code> mit <code>x mod 9</code>. Die Anzeige beschriftet Rest 0 als 9. Bei <code>x ↦ 2x mod 9</code> entstehen die Zyklen (1, 2, 4, 8, 7, 5), (3, 6) und der Fixpunkt 9. Zwei Schritte derselben Regel ergeben <code>x ↦ 4x mod 9</code>. Die Zyklen sind dann (1, 4, 7), (2, 8, 5) sowie die Fixpunkte 3, 6 und 9. Der Multiplikator wirkt auf die Armadressen. Der 1728er-Taktlauf verwendet weiterhin die drei additiven Schrittweiten.</p>
+      <section id="t-layer-27-stride-check" aria-labelledby="tLayerStrideCheckTitle">
+        <h4 id="tLayerStrideCheckTitle">27er-Rad · Zusammensetzung, Länge und Reihenfolge</h4>
+        <p>Fester Träger ist <code>ℤ/27ℤ</code>. Die Verdopplung <code>T(x) = 2x mod 27</code> hat die Zykluslängen <code>18, 6, 2, 1</code>. Für einen Zyklus der Länge <code>L</code> erzeugt <code>Tᵏ</code> genau <code>d = ggT(L,k)</code> Zyklen der Länge <code>L/d</code>. Die Rechnung folgt aus dem ersten positiven <code>m</code> mit <code>km ≡ 0 mod L</code>.</p>
+        <p><strong>Teilung bei ×8.</strong> Für <code>k=3</code> wird der 18er zu drei 6ern und der ursprüngliche 6er zu drei 2ern. <strong>Andere Reihenfolge bei ×32.</strong> Für <code>k=5</code> bleiben die vier Armmengen und Zykluslängen von ×2 erhalten. Die ersten Pfeile ab 1 und 3 lauten bei ×2 <code>1 → 2</code> und <code>3 → 6</code>, bei ×32 <code>1 → 5</code> und <code>3 → 15</code>. Die Zweierbahn <code>9 ↔ 18</code> und der Fixpunkt 0 sind in allen drei Fällen gleich.</p>
+        <p><strong>Paper E.</strong> Als nachprüfbares Methodenbeispiel für den Vergleich zweier Schrittregeln vorgemerkt. Das Beispiel verwendet bekannte Zyklusarithmetik. Die Frage nach dem Zusatznutzen der Darstellung bleibt offen. Finding offen.</p>
+        <p><a href="A0_SCIENCE.html#t-layer-27-stride-comparison">Vergleich in A0 Science ↗</a> · <a href="A0_MATHEMATICAL_JOINTS.html#tLayerMultiplier">T-Layer-Rad ↗</a> · <a href="../35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#t-layer-stride-method-example">Vormerkung in Paper E ↗</a></p>
+      </section>
+      <p><strong>Methodenbezug.</strong> Bei D verschiebt <code>s</code> die Referenz für die Strip-Auslese. Beim Rad verschiebt der Beta-Versatz die Referenz für den Winkelvergleich. Finding offen.</p>
+      <p><a href="A0_MATHEMATICAL_JOINTS.html#clockwork-orange-t-layer">T-Layer-Rad ↗</a> · <a href="A0_SCIENCE.html#algo-hof-d-panel">D im Hof ↗</a></p>
+      <details>
+        <summary>Quellstand und Navigator</summary>
+        <p>Interner A0-Arbeitsstand im NEXAH Science Lab · <code>codex/five-h-binding</code>, Basis <code>bf2d6d87</code> mit lokalen Änderungen · Owner-Abnahme offen. Kanonische A0-Quelle ist Mathematical Joints. Der Vergleich erweitert die bestehende Clockwork-Orange-Ansicht. Navigator-Delta 0/0/0. A0 Science verweist auf die bestehende Ansicht. Die Pfeile und Zyklen werden in Mathematical Joints berechnet.</p>
+      </details>
+    </section>
+</section>
+<section class="spread night" id="doppelrad-return-20261125" aria-labelledby="doppelradDeskTitle">
+  <header class="head"><div class="no">7/8 · 1260</div><div><div class="label">Science Desk · Methoden- und Engineering-Return · 25. November 2026</div><h2 id="doppelradDeskTitle">Doppelrad · Rückkehr im gleichen Groove vergleichen</h2></div></header>
+  <p class="sub"><strong>Arbeitsstand zur Wiederaufnahme · Finding offen.</strong> Das XIX-Doppelrad koppelt die Zahlenspur an den 7/8-Groove. Pro Achtel liest es einen gespeicherten Zahlenschritt. Der Groove gruppiert <code>2+2+3</code> mit A, B und C auf 1, 3 und 5. Der 432er-Echoeinsatz zieht bei A rückwärts zum 408er-Return. Die alten Takte 2–1–3 und 5/4, die Resonanz-Hörproben und der separate Radtakt bleiben als Vergleich verfügbar.</p>
+  <h3>Was die Rechenregeln ergeben</h3>
+  <ul>
+    <li><strong>Radtakt.</strong> Mit ±12 Ticks pro Schlag haben 432 und 408 Perioden von 36 und 34 Schlägen. Bei 306 liegt das 432er-Echo auf der halben Runde und der 408er auf Return. Bei 612 kehren beide gleichzeitig zurück. Der A/B/C-Groove liest diese Ereignisse als Einsätze auf dem musikalischen Raster.</li>
+    <li><strong>7/8-Raster.</strong> Bei 192 Ticks pro Viertel hat ein Achtel 96 und der Takt 672 Ticks. Der 69er kehrt nach 28 Achteln zurück, QRT20 läuft ab r7 mit +2 mod 20 und hat Periode 10, die Winkelzeiger haben gemeinsam Periode 18. Daraus folgen die ersten gemeinsamen Returns bei 140 für QRT20 und 69er, 252 für Winkel und 69er sowie <code>kgV(28, 10, 18) = 1260</code> für alle drei.</li>
+    <li><strong>19er-Spur und Composite.</strong> Mit +1 mod 19 steht die violette Spur bei 1260 auf Rest 6. Erst bei <code>kgV(1260, 19) = 23 940</code> kehren alle vier Spuren zusammen zurück. Der rote Regulator bei <code>1729 = 7 × 13 × 19</code> leuchtet bei Rest 0. Im Composite lassen sich beide Stände bei laufendem Beat festhalten. Mit Live folgt die Anzeige wieder dem Raster. Die Quotienten 1561/n und 6561/n für 1729, 1836 und 1935 bleiben als eigene Leselinse daneben.</li>
+    <li><strong>Plattenteller.</strong> Bei 120 Vierteln pro Minute dauert ein 7/8-Takt 1,75 s, eine Umdrehung bei 33⅓ RPM 1,80 s. Das ergibt −10° pro Takt. Bei exakt 116⅔ Vierteln pro Minute ergeben beide 1,80 s. Nach gemeinsamer Ausrichtung auf A hält die Anzeige 0° Drift. 45 RPM liefert eine zweite, schneller laufende Platte.</li>
+  </ul>
+  <h3>So lässt sich der Stand nachtesten</h3>
+  <ol>
+    <li>Doppelrad öffnen und <strong>7/8 · QRT20</strong> wählen. <strong>Beat starten</strong> lässt Raster und Zahlenlauf gemeinsam laufen. <strong>7/8 · Grundspur</strong> hält Takt, Reverse und Hi-Hat gleich und schaltet die 69-Hz-Spur stumm. Im goldenen Feld bei Takt 3, Tick 288 lassen sich r1 (Schritt 17) und r17 (Schritt 45) als Einzelklänge vergleichen.</li>
+    <li>Unter <strong>Plattenteller und 7/8-Takt</strong> nacheinander <strong>A · bei 1260</strong> und <strong>B · bei 1261</strong> wählen. Beide Anläufe beginnen bei 1259. Dieselben drei Klänge (69er, Pink/1729 und Algo/1836) setzen bei gleichem Pegel auf Tick 0 bzw. 96 ein. Der Loop läuft nach dem Einsatz weiter. Die Einzelhörproben lassen sich zusätzlich auf dem nächsten Achtel einspielen.</li>
+    <li>QRT20 und 60er unter <strong>Automatische Return-Töne</strong> aktivieren. Im Browser wurde die Auslösung für QRT20 bei 1260, 1270 und 1320, für den 60er bei 1260 und 1320 beobachtet. Die Auslöseanzeige dokumentiert den Tonstart. Die Klangwirkung wird im Hörvergleich geprüft.</li>
+    <li>Im <strong>Polar Cut Atlas</strong> bei S3 und Öffnung 316° von 270° auf 268° schalten. Die Innenzahl bleibt 69, während 643 eintritt und 761 austritt. In der <strong>Euler-Linse</strong> zu 41/42 die ersten 10, 11 und 12 Nachkommastellen als ganze Zahl binär lesen. Die Einsenzahlen sind 18, 19 und 23 bei unveränderten Modulo-19-Resten 6 und 0 an den beiden Vergleichsschritten.</li>
+  </ol>
+  <h3>Offen für die Wiederaufnahme</h3>
+  <p>Der erste Hörtest vergleicht A und B mit denselben Einstellungen und hält fest, ob und unter welchen Hörbedingungen sich der Return stärker anfühlt. Die Wahl der Return-Klangfarben und ihre Hörbarkeit im laufenden Mix bleiben offen. Die 19 Einsen bei elf Nachkommastellen und die Innenzahl 69 im Polar Cut sind getrennte Vergleichswerte. Ein Zusammenhang mit den musikalischen Returns ist offen.</p>
+  <p><a href="A0_GAME_OF_WORLDS_PLAY.html?world=numbers&amp;rule=wheels&amp;view=wheels&amp;rev=return-comparison#numbers">Doppelrad mit A/B-Hörvergleich öffnen ↗</a> · <a href="A0_SCIENCE.html#doppelrad-methodenvergleich">A0 Science ↗</a> · <a href="#clockwork-orange-t-layer-check">T-Layer-Methodenbezug ↗</a> · <a href="#numbergame-fibonacci-prime-vendissimal-return-20261121">Numbergame und QRT20 ↗</a> · <a href="A0_BUILDER_LOG.html#doppelrad-builder-return-20261125">Builder-Prüfung ↗</a></p>
+  <details>
+    <summary>Quellstand und Navigator</summary>
+    <p>Interner A0-Arbeitsstand im NEXAH Science Lab auf <code>codex/five-h-binding</code>, Basis <code>bf2d6d87</code> mit lokalen Änderungen. Die Number Lens im bestehenden Game of Worlds bleibt die Quelle. Die PLAY-Ansicht ist als <code>ART:HTML:F9C5BB196DA3</code> registriert. Owner-Abnahme und Veröffentlichung stehen offen. Navigator-Delta für Identitäten, Relationen und Aliasse beträgt 0/0/0. Die Source-Graph-Prüfung meldete bereits vor dieser Rückbindung Hash-Abweichungen in der A0-Evidence-Lineage.</p>
+    <p><a href="a0-game-of-numbers.js">Controller und Klangplanung ↗</a> · <a href="assets/game-of-worlds-play/numbers/index.html">Quellansicht der Number Lens ↗</a></p>
+  </details>
 </section>
 <section class="spread night" id="alpha-rath-method-return-20261124" aria-labelledby="alphaRathMethodTitle">
   <header class="head"><div class="no">α · ß · .</div><div><div class="label">Science Desk · Methodenbeispiel · 24. November 2026</div><h2 id="alphaRathMethodTitle">Gleiches Ziel, unterscheidbare Wege.</h2></div></header>

@@ -1395,6 +1395,25 @@ Method evidence: [mirror/fixed-line demonstrator](A0_BOOK/A0_RIEMANN_HALFLINE_TH
 and [contract](A0_BOOK/A0_RIEMANN_HALFLINE_THETA_RETURN_CONTRACT_2026-11-21.md).
 
 
+<a id="t-layer-stride-method-example"></a>
+
+### Vormerkung für Paper E · Schrittregeln auf dem 27er-Rad
+
+Öffne das T-Layer-Rad und wähle **27er-Rad → Alle Bahnen**. Halte
+die Armnummern fest und schalte **×2 → ×8 → ×32**. Vergleiche für
+jede Regel die Armmengen der Zyklen, deren Längen und die gerichtete
+Schrittfolge. Unter ×8 (drei Verdopplungen) teilt sich der 18er in drei
+6er und der ursprüngliche 6er in drei 2er. Unter ×32 (fünf
+Verdopplungen) stimmen Armmengen und Längen mit ×2 überein. Die
+Pfeile ab 1 und 3 zeigen den Unterschied in der Reihenfolge. Die
+Bahn 9 ↔ 18 und der Fixpunkt 0 dienen als Kontrollen. Die erwarteten
+Längen folgen aus der Zyklusregel mit dem größten gemeinsamen Teiler.
+Der Zusatznutzen dieser Darstellung ist offen. **Finding offen.**
+
+[A0 Science](A0_BOOK/A0_SCIENCE.html#t-layer-27-stride-comparison) ·
+[Science-Desk-Protokoll](A0_BOOK/A0_RESEARCH_DESK.html#t-layer-27-stride-check) ·
+[T-Layer-Rad](A0_BOOK/A0_MATHEMATICAL_JOINTS.html#tLayerMultiplier)
+
 <a id="alpha-rath-method-example"></a>
 
 ### Vorbereitung für Paper E · Alpha–Rath
