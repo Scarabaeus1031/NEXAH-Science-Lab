@@ -9,6 +9,12 @@
   .machina-split h2,.machina-split h3,.machina-split p{margin:0 0 10px}
   .machina-split-controls{display:flex;flex-wrap:wrap;gap:12px 22px;margin:14px 0}
   .machina-split-controls label{display:grid;gap:5px;font-weight:650}
+  .machina-split-presets{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+  .machina-split-presets button{padding:5px 10px;border:1px solid #55708f;border-radius:6px;background:#152338;color:#ebf2fb;cursor:pointer}
+  .machina-split-presets button[aria-pressed="true"]{border-color:#efc176;background:#43341d;color:#ffe4ae}
+  .machina-split-reference{flex:1 1 220px;max-width:310px;margin-left:auto;padding:10px 13px;border:1px solid #344961;border-radius:8px}
+  .machina-split-reference h3{font-size:1rem}
+  .machina-split-reference a{color:#9fd5ff}
   .machina-split output{color:#f2cc88;font-variant-numeric:tabular-nums}
   .machina-split-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
   .machina-split-results article{padding:14px;border:1px solid #344961;border-radius:10px;background:#131f30}
@@ -94,10 +100,29 @@
   <h2 id="machinaSplitTitle">Split-Test · Was ändert die Kopplung?</h2>
   <p>Vier Teilungen erzeugen 16 Werte. Beide Läufe starten mit demselben Wert. Im zweiten Lauf wird nur der linke Wert nach der ersten Teilung leicht verändert.</p>
   <div class="machina-split-controls">
-    <label>Änderung beim ersten Split <output for="machinaSplitDelta" data-split-delta-label></output>
-      <input id="machinaSplitDelta" type="range" min="0.01" max="0.12" step="0.01" value="0.06"></label>
-    <label>Schritte nach dem letzten Split <output for="machinaSplitSteps" data-split-step-label></output>
-      <input id="machinaSplitSteps" type="range" min="0" max="120" step="1" value="120"></label>
+    <div>
+      <label>Änderung beim ersten Split <output for="machinaSplitDelta" data-split-delta-label></output>
+        <input id="machinaSplitDelta" type="range" min="0.01" max="0.12" step="0.01" value="0.06"></label>
+      <div class="machina-split-presets" role="group" aria-label="Startwert-Presets">
+        <button type="button" data-split-control="machinaSplitDelta" data-split-preset="0.02" aria-pressed="false">+0,02</button>
+        <button type="button" data-split-control="machinaSplitDelta" data-split-preset="0.10" aria-pressed="false">+0,10</button>
+      </div>
+    </div>
+    <div>
+      <label>Schritte nach dem letzten Split <output for="machinaSplitSteps" data-split-step-label></output>
+        <input id="machinaSplitSteps" type="range" min="0" max="120" step="1" value="120"></label>
+      <div class="machina-split-presets" role="group" aria-label="Schrittmarken">
+        <button type="button" data-split-control="machinaSplitSteps" data-split-preset="90" aria-label="Schritt 90" aria-pressed="false">90</button>
+        <button type="button" data-split-control="machinaSplitSteps" data-split-preset="101" aria-label="Schritt 101" aria-pressed="false">101</button>
+        <button type="button" data-split-control="machinaSplitSteps" data-split-preset="111" aria-label="Schritt 111" aria-pressed="false">111</button>
+      </div>
+    </div>
+    <aside class="machina-split-reference" aria-labelledby="machinaSplitChordTitle">
+      <h3 id="machinaSplitChordTitle">A0 · Splinter-Geometrie</h3>
+      <p>Einheitskreis mit halber Sehne <code>q = 0,2</code> und Sehnenlänge <code>2q = 0,4</code>.</p>
+      <p>Segmenthöhe <code>δ = 1 − √(1 − q²) ≈ 0,020204</code>. Die quadratische Näherung <code>q²/2</code> ergibt <code>0,02</code>.</p>
+      <a href="#splinterChordBay">Zum Sehnen-Knob</a>
+    </aside>
   </div>
   <div class="machina-split-results">
     <article data-split-coupling="off"><h3>Ohne Kopplung · Ausgangslauf</h3><div class="machina-split-bars" aria-hidden="true"></div><output></output></article>
@@ -313,6 +338,12 @@
     const stepLabel = panel.querySelector("[data-split-step-label]");
     const summary = panel.querySelector("[data-split-summary]");
     const format = new Intl.NumberFormat("de-DE", { maximumFractionDigits: 4 });
+    const formatDelta = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const presets = Array.from(panel.querySelectorAll("[data-split-preset]"), button => ({
+      button,
+      input: panel.querySelector("#" + button.dataset.splitControl),
+      value: button.dataset.splitPreset,
+    }));
     const threshold = 0.01;
     const results = Array.from(panel.querySelectorAll("[data-split-coupling]"), card => ({
       coupled: card.dataset.splitCoupling === "on",
@@ -342,8 +373,11 @@
     function render() {
       const delta = Number(deltaInput.value);
       const steps = Number(stepInput.value);
-      deltaLabel.value = "+" + format.format(delta);
+      deltaLabel.value = "+" + formatDelta.format(delta);
       stepLabel.value = String(steps);
+      presets.forEach(({ button, input, value }) => {
+        button.setAttribute("aria-pressed", String(Number(input.value) === Number(value)));
+      });
       const spreads = results.map(({ coupled, perturbed, bars, readout }) => {
         const start = split(perturbed ? delta : 0);
         const values = coupled ? couple(start, steps) : start;
@@ -365,6 +399,10 @@
 
     deltaInput.addEventListener("input", render);
     stepInput.addEventListener("input", render);
+    presets.forEach(({ button, input, value }) => button.addEventListener("click", () => {
+      input.value = value;
+      render();
+    }));
     render();
   })();
 </script>
