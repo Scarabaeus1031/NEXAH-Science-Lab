@@ -3,7 +3,7 @@
   const src = document.currentScript?.src;
   if (!src || window.self !== window.top) return;
   const map = document.createElement('script');
-  map.src = new URL('a0-orientation-map.js?v=20261029-a0-navigator-family-map-r2', src).href;
+  map.src = new URL('a0-orientation-map.js?v=a0-editorial-directory', src).href;
   document.head.append(map);
 })();
 (() => {
@@ -654,6 +654,9 @@
         "pages": [
           "A0_TOURS.html",
           "A0_NEXAH_APERTURE_JOURNEY.html",
+          "A0_FIELD_NOTE_I_OBSERVATION.html",
+          "A0_FIELD_NOTE_II_DIFFERENCE.html",
+          "A0_FIELD_NOTE_III_TIME_AFTER_TIME.html",
           "A0_LOOK_AGAIN_PLAY.html",
           "A0_RAINBOW_PURPLE_RAIN.html",
           "A0_NEWTON_GOETHE_OBSERVER_LENS.html",
@@ -679,6 +682,7 @@
           "A0_FIELD_NOTES.html",
           "A0_THEORY_STORYBOARD.html",
           "A0_FAMILY_CONNECTION_ATLAS.html",
+          "A0_SCARAB_ORIGIN_MOBIUS_RAMANUJAN.html",
           "A0_NEXAH_RESEARCH_METHOD.html",
           "A0_METHOD.html"
         ]
@@ -715,6 +719,8 @@
           "A0_JOINT_APPLICATION_DEMONSTRATOR.html",
           "A0_JARP_CROSS_LENS_EXTENSION.html",
           "A0_IHARA_HASHIMOTO_CYCLE_BRIDGE.html",
+          "A0_RIEMANN_HALFLINE_THETA_RETURN.html",
+          "A0_NBAND_QUADRATURE_BOUNDARY_LAB.html",
           "A0_PLATINUM_IRIDIUM_PI_LENS.html",
           "A0_THREE_MATRIX_HOLONOMY_WORKBENCH.html"
         ]
@@ -723,6 +729,11 @@
         "title": "Grids · Adressen und Projektionen",
         "pages": [
           "A0_NUMBERMAGICK_GRID_RESEARCH.html",
+          "A0_PRIMECUBE_GAP_FOLD_LAB.html",
+          "A0_PRIME_PROJECTION_TEST_SUITE.html",
+          "A0_HARMONIC_PRIME_CODEX_GRID37.html",
+          "A0_MIRROR_NODES_PRIME_CUBE.html",
+          "A0_CRT_ROOT_BOUNDARY_AUDIT.html",
           "A0_PRIMEFIELD.html",
           "A0_PINK_DIAMOND_GRID_ATLAS.html"
         ]
@@ -734,6 +745,9 @@
           "A0_PENTAGON_BODY_EXHIBITION.html",
           "A0_PENTAGON_BODY_RETURN_GUIDED.html",
           "A0_TESSAREC_BLUE_BODY_LAB.html",
+          "A0_HELIX_VIEW_ADAPTER.html",
+          "A0_FOLD_GEOMETRY_NAVIGATOR.html",
+          "A0_ROOT_SHRINKING_1729_RETURN.html",
           "A0_BLUE_BODY_DODECA_COUNTERSHOT.html",
           "A0_AXIS08_FOLD_RETURN_SEQUENCER.html",
           "A0_MATROSCHKA_CLUSTER_BRIDGE.html",
@@ -806,6 +820,8 @@
           "A0_RESEARCH_DESK.html",
           "A0_F_A0_26_REVIEW_PROBE.html",
           "A0_RESEARCH_BACKLOG.html",
+          "A0_ORIENTATION_DESK_RECOVERED.html",
+          "A0_NEXAHEDRON_LIVING_WORKSPACE_SNAPSHOT.html",
           "A0_BUILDER_LOG.html",
           "A0_LABORATORY.html"
         ]

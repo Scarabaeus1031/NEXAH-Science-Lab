@@ -40,6 +40,25 @@ pages.push(
  {file:'NEXAH_SCIENCE.html',title:'NEXAH Science · A0 Source Surface'},
  {file:'a0-public-arkade-index.html',title:'NEXAH ARKADE · A0 Tool'}
 );
+pages.push(
+  {"file": "A0_CRT_ROOT_BOUNDARY_AUDIT.html", "title": "A0 · CRT–Root Boundary Audit"},
+  {"file": "A0_FIELD_NOTE_III_TIME_AFTER_TIME.html", "title": "A0 Field Note III · Time After Time"},
+  {"file": "A0_FIELD_NOTE_II_DIFFERENCE.html", "title": "A0 Field Note II · Architecture of Difference"},
+  {"file": "A0_FIELD_NOTE_I_OBSERVATION.html", "title": "A0 Field Note I · Architecture of Observation"},
+  {"file": "A0_FOLD_GEOMETRY_NAVIGATOR.html", "title": "A0 Fold Geometry Navigator"},
+  {"file": "A0_HARMONIC_PRIME_CODEX_GRID37.html", "title": "A0 · Harmonic Prime Codex · Spiral · Lilith · Grid 37"},
+  {"file": "A0_HELIX_VIEW_ADAPTER.html", "title": "A0 · Helix lesen und vergleichen"},
+  {"file": "A0_MIRROR_NODES_PRIME_CUBE.html", "title": "A0 · Mirror Nodes Prime Cube"},
+  {"file": "A0_NBAND_QUADRATURE_BOUNDARY_LAB.html", "title": "N-Band Quadrature Boundary Lab · A0"},
+  {"file": "A0_NEXAHEDRON_LIVING_WORKSPACE_SNAPSHOT.html", "title": "NEXAHEDRON · Living Workspace · Local Historical Snapshot"},
+  {"file": "A0_ORIENTATION_DESK_RECOVERED.html", "title": "THE ORIENTATION DESK · Recovered Living Workspace"},
+  {"file": "A0_PRIMECUBE_GAP_FOLD_LAB.html", "title": "A0 Primecube · 1111 Address & Gap Fold"},
+  {"file": "A0_PRIMEFIELD.html", "title": "A0 Primefield · Orientierung im endlichen Zahlenraum"},
+  {"file": "A0_PRIME_PROJECTION_TEST_SUITE.html", "title": "A0 · Prime Projection Test Suite"},
+  {"file": "A0_RIEMANN_HALFLINE_THETA_RETURN.html", "title": "A0 · Half-Line / Theta / Prime Residual Return"},
+  {"file": "A0_ROOT_SHRINKING_1729_RETURN.html", "title": "A0 Root Shrinking · 1729 Return"},
+  {"file": "A0_SCARAB_ORIGIN_MOBIUS_RAMANUJAN.html", "title": "A0 · Scarab Origin · Möbius · Ramanujan · Observer"}
+);
 pages.sort((a,b)=>a.file.localeCompare(b.file));
 pages.splice(pages.findIndex(page=>page.file==='A0_ORIENTATION_CONTROLLER_BENCH.html'),0,{file:'A0_NUMBERMAGICK_GRID_RESEARCH.html',title:'A0 Numbermagick · Grids & Orientierung'});
 const kinds={link:{label:'Verlinkt',color:'#8098ad'},read:{label:'Lesend',color:'#53d5ed'},control:{label:'Steuernd · lokal geprüft',color:'#65e0ac'},return:{label:'Quell-Return · lokal geprüft',color:'#ffd06a'},open:{label:'Offen',color:'#f177b8'}};

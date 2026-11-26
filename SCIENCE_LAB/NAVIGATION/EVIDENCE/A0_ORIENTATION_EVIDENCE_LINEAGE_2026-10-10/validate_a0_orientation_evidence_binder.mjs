@@ -307,6 +307,25 @@ for (const [label, routeKey, hashKey] of [
   expect(fs.existsSync(target), `${label} exists`);
   if (fs.existsSync(target)) expect(matchesEvidenceHash(target, rubikQdc?.source_hashes?.[hashKey]), `${label} hash`);
 }
+// The full World Cube is a dated snapshot. The current QDC section can be
+// checked independently of new controls elsewhere on the A0 page.
+const qdcDockPath = path.resolve(ecosystemRoot, a0Package + rubikQdc.routes.dock.split("#")[0]);
+const qdcDockRelative = path.relative(historicalRoot, qdcDockPath);
+const qdcDockSnapshot = historicalSources.files.find(file =>
+  file.path === qdcDockRelative && file.sha256 === rubikQdc.source_hashes.dock
+);
+const qdcSection = /^  <section\b[^\n]*\bid="rubikQdcCrossSectionDock"[\s\S]*?^  <\/section>/m;
+expect(Boolean(qdcDockSnapshot), "Rubik QDC dock has a pinned Git snapshot");
+if (qdcDockSnapshot && fs.existsSync(qdcDockPath)) {
+  try {
+    const referenceDock = committedSource(historicalRoot, qdcDockSnapshot.commit, qdcDockRelative).toString("utf8");
+    const referenceSection = referenceDock.match(qdcSection)?.[0];
+    const currentSection = fs.readFileSync(qdcDockPath, "utf8").match(qdcSection)?.[0];
+    expect(Boolean(referenceSection) && currentSection === referenceSection, "Rubik QDC dock section matches Git snapshot");
+  } catch {
+    expect(false, "Rubik QDC dock Git snapshot readable");
+  }
+}
 const rubikMissionControl = path.resolve(ecosystemRoot, "00 EXECUTIVE/NEXAH-Mission-Control/00_LAB_RESEARCH_DIRECTOR_DESK/RETURN_2026-11-07_A0_TYPED_MIRROR_F0_CLEAN_DESK.md");
 expect(fs.existsSync(rubikMissionControl) && hash(rubikMissionControl) === rubikQdc?.source_hashes?.mission_control, "Rubik QDC Mission Control return hash");
 const redBalloon = binder.red_balloon_mathfield_intake_20261103;
