@@ -165,6 +165,36 @@ enthält **10 Aufwärts- und 9 Abwärtswechsel**.
 [Prüfprotokoll des Phasentests](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/phase-sweep/protocol.json>).
 
 
+
+#### Beispielphase +137 h · August- und Septemberwechsel
+
+Bei der gemeinsamen Startphase **+137 h** im Fenster 2023 erfasst das
+Primzahlraster mit **+24 h 228 Wechsel** über die zwölf Startpaare. D,
++12 h und +36 h erfassen jeweils **226**. Das gleichmäßige Raster
+erfasst bei allen vier Startvarianten **228**. Der Gewinn von +24 h
+beträgt damit **zwei Treffer insgesamt** beziehungsweise **1/6 Treffer
+pro Startpaar**.
+
+Die Startlagen und Abtastintervalle sind Stundenindizes ab Beginn des
+JPL-Fensters. Die Datums- und Uhrzeitangaben sind TDB. Die beiden
+Intervalle in der letzten Spalte stehen in der Reihenfolge der Wechsel.
+
+| Vergleich | Startpaar und Startlagen (h) | Referenzwechsel | Gemeinsames Intervall im Vergleichsraster (h) | Getrennte Intervalle bei +24 h (h) |
+|---|---|---|---|---|
+| +24 h gegenüber +12 h | Paar 4 · Basis 2555 · D 2788 · +12 h 2800 · E 2812 | 09.08. 00:00 ↑ (5280) und 09.08. 21:00 ↓ (5301) | 5277–5303 | 5279–5285 und 5289–5315 |
+| +24 h gegenüber +36 h | Paar 1 · Basis 365 · D 598 · +36 h 634 · E 622 | 07.09. 11:00 ↓ (5987) und 08.09. 10:00 ↑ (6010) | 5985–6015 | 5973–6003 und 6009–6015 |
+| +24 h gegenüber D | Paar 8 · Basis 5475 · D 5708 · E 5732 | 09.08. 00:00 ↑ (5280) und 09.08. 21:00 ↓ (5301) | 5277–5301 | 5269–5283 und 5289–5301 |
+
+Die jeweils verglichene Startvariante im Primzahlraster verpasst
+beide Wechsel, weil sie im selben Abtastintervall liegen. Bei +24 h
+liegen sie in getrennten Intervallen und werden beide erfasst. Das
+August-Wechselpaar erscheint bei zwei verschiedenen Startpaaren.
+Das Beispiel zeigt, wie die Lage der Abtastmarken den Treffergewinn
+in dieser Phase erzeugt.
+
+[Helix-Demonstrator](A0_HELIX_VIEW_ADAPTER.html?jupiter=365#helix-iota-jpl) ·
+[SLog mit Wechselrichtungen](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/phase-sweep/slog.csv.gz>).
+
 ### Zahlengleichheit mit dem IOTA-V-Gap · Einheiten und Gegenprobe 2025
 
 Der strenge Phasentest 2023 liefert `36/730 = 18/365`. Die 730
