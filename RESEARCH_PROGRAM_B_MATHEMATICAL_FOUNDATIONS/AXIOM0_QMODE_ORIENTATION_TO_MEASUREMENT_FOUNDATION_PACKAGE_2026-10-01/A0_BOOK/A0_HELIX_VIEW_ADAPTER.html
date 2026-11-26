@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>A0 · Helix lesen und vergleichen</title>
   <link rel="stylesheet" href="a0-context-navigation.css">
-  <link rel="stylesheet" href="a0-helix-view-adapter.css?rev=mod7-fourier">
-  <link rel="stylesheet" href="a0-kuramoto-compare.css?rev=3">
+  <link rel="stylesheet" href="a0-helix-view-adapter.css?rev=shared-angle-sequence">
+  <link rel="stylesheet" href="a0-kuramoto-compare.css?rev=phasenwerkstatt">
   <style>
     #helix-jupiter-phases { scroll-margin-top:2rem; padding:clamp(.8rem,2vw,1.3rem); margin:1rem 0 1.6rem; border:1px solid #345369; background:#0c1c29; border-radius:.55rem; }
     #helix-jupiter-phases h4 { font-size:1.35rem; margin:0 0 .4rem; }
@@ -40,8 +40,11 @@
       <div class="hv-hero-actions">
         <button type="button" data-hv-tour-start aria-controls="helix-tour">Geführte Tour starten</button>
         <a href="#helix-workbench">Helix frei erkunden ↓</a>
+        <a href="#helix-strand-directions">RDMH und ζ · Drehrichtung ↓</a>
+        <a href="#helix-wheel-decks">57/19 · Polarraster ↓</a>
+        <a href="#helix-jila">JILA · Höhenvergleich ↓</a>
         <a href="#helix-rossler-lift">Rössler ↓</a>
-        <a href="#kuramoto-phasenvergleich">Kuramoto ↓</a>
+        <a href="#kuramoto-phasenvergleich">Phasenwerkstatt ↓</a>
       </div>
       <details class="hv-guide-terms">
         <summary>Was bedeuten Sprosse, Rail und Schnitt?</summary>
@@ -275,6 +278,191 @@
     </div>
   </section>
 
+  <section class="hv-wheel-decks hv-strand-directions" id="helix-strand-directions" aria-labelledby="helixStrandDirectionsTitle">
+    <header>
+      <h2 id="helixStrandDirectionsTitle">Eine Sprossenhöhe, zwei Winkelregeln</h2>
+      <p>Beide Ansichten zeigen dieselbe Sprossennummer. RDMH verwendet die ersten 20 Primzahlzwillinge, ζ die 20 konjugierten Nullstellenpaare des Smooth-Modus.</p>
+    </header>
+    <div class="hw-controls" role="group" aria-label="Gemeinsame Sprossenwahl">
+      <button type="button" data-direction-back disabled>← Zurück</button>
+      <output aria-live="polite" data-direction-level>Sprosse 1 / 20</output>
+      <button type="button" data-direction-next>Vor →</button>
+      <button type="button" data-direction-play>▶ Play</button>
+      <button type="button" data-direction-flip aria-pressed="false">↶ U-Turn · Richtung wechseln</button>
+      <span data-direction-sense aria-live="polite">Vorwärts</span>
+    </div>
+    <section id="helix-angle-sequence" class="hv-angle-sequence" data-angle-sequence aria-labelledby="helixAngleSequenceTitle">
+      <div>
+        <h3 id="helixAngleSequenceTitle">Winkelfolge · Rad und Sprosse</h3>
+        <p>+90° → +90° → −270° · Die farbige Sprosse im RDMH‑Bild dreht um dieselbe Achse auf der gewählten Höhe.</p>
+        <div class="hw-controls">
+          <button type="button" data-angle-play>▶ Winkelfolge abspielen</button>
+          <output data-angle-status aria-live="polite">Start bei 0°</output>
+        </div>
+        <div class="hv-angle-values"><span>Rad <b data-angle-phase>0°</b></span><span>Lift <b data-angle-lift>0°</b></span></div>
+        <p><a href="A0_GAME_OF_WORLDS_PLAY.html?world=numbers&amp;view=wheels&amp;rule=wheels#numbers">Im Numbergame öffnen ↗</a></p>
+      </div>
+      <svg viewBox="0 0 220 220" data-angle-wheel role="img" aria-label="Rad der gemeinsamen Winkelfolge">
+        <circle cx="110" cy="110" r="72" class="hv-direction-axis"/>
+        <path d="M110 38v144 M38 110h144" class="hv-direction-axis"/>
+        <g class="hv-angle-dial-labels">
+          <text x="110" y="29">0°</text><text x="198" y="114">90°</text>
+          <text x="110" y="202">180°</text><text x="21" y="114">270°</text>
+        </g>
+      </svg>
+    </section>
+    <div class="hw-main">
+      <figure data-direction-view>
+        <figcaption>RDMH-Doppelstrang · θ und θ + 180°</figcaption>
+        <svg viewBox="0 0 420 254" role="img" aria-label="RDMH-Helix und Winkelkreis der gemeinsamen Sprosse">
+          <g data-direction-art></g>
+          <g class="hv-angle-rung" data-angle-rung visibility="hidden">
+            <line/><circle r="4"/><circle r="4"/>
+          </g>
+        </svg>
+        <p>36° je Sprosse. Beide Stränge drehen gleichsinnig und bleiben einander gegenüber.</p>
+        <div data-direction-readout></div>
+      </figure>
+      <figure data-direction-view>
+        <figcaption>ζ-Spiegel · +θ und −θ</figcaption>
+        <svg viewBox="0 0 420 254" role="group" aria-label="ζ-Spiegelhelix mit Ghost Snake, fünf anwählbaren Kontakten und Winkelkreis">
+          <g data-direction-art aria-hidden="true"></g>
+          <g data-direction-contact-picks role="group" aria-label="Kontakte auf der Risslinie"></g>
+        </svg>
+        <p>θ = γ·log x mit festem log x = 0,25. Die Stränge drehen gegensinnig.</p>
+        <div data-direction-readout></div>
+        <p class="hv-contact-key"><b>Grey / Pink</b> · Wähle einen Kontakt auf der Risslinie. In der Draufsicht leuchtet der gemeinsame Winkelpunkt.</p>
+        <p class="hv-contact-steps" data-direction-contacts></p>
+        <p><a href="A0_GAME_OF_WORLDS_PLAY.html?world=numbers&amp;view=wheels&amp;rule=wheels#numbers">Kontaktrad im Numbergame ↗</a></p>
+        <p class="hv-contact-status" data-direction-contact-status role="status">Vorwärts-Play hält am ersten Kontakt eine Sekunde an.</p>
+      </figure>
+    </div>
+    <p>Die Winkelkreise zeigen die Draufsicht. Blasse Zeiger zeigen den Ausgangswinkel. Δ zeigt, wie weit jeder Zeiger seitdem gedreht hat. Pause hält auch zwischen zwei Sprossen an. U-Turn wechselt die Abspielrichtung an derselben Position. Der U-Turn gehört zum Strangvergleich in A0. Das JILA-Modell zeigt den Phasenvorsprung bei fester Höhe.</p>
+  </section>
+
+  <section class="hv-wheel-decks" id="helix-wheel-decks" aria-labelledby="helixWheelDeckTitle">
+    <header>
+      <div class="hv-eyebrow">CLOCK ADDRESS · 57 = 3 × 19</div>
+      <h2 id="helixWheelDeckTitle">Eine Zahl, zwei Winkel, eine Sprosse</h2>
+      <p>Geh von 56 auf 57. Die Räder gehen auf null, Deck 3 wechselt zu Deck 1 und die Sprosse steigt eine Ebene weiter.</p>
+    </header>
+    <div class="hw-controls">
+      <button type="button" data-wheel-previous>← Zurück</button>
+      <label for="helixWheelStep">Schritt <input id="helixWheelStep" type="number" min="0" max="9007199254740991" step="1" value="56"></label>
+      <button type="button" data-wheel-next>Vor →</button>
+      <button type="button" data-wheel-reset>Zu 56</button>
+    </div>
+    <output class="hw-address" aria-live="polite" for="helixWheelStep" data-wheel-address></output>
+    <div class="hw-main">
+      <figure>
+        <figcaption>+1 · Gemeinsames Polarraster</figcaption>
+        <svg data-wheel-polar viewBox="0 0 256 244" role="group" aria-label="Gemeinsames Polarraster mit 57er- und 19er-Rad"></svg>
+        <div class="hw-legend"><span>57er · Rest <b data-wheel-rest57></b></span><span>19er · Rest <b data-wheel-rest19></b></span></div>
+      </figure>
+      <figure>
+        <figcaption>Helix · Sprosse des gewählten Schritts</figcaption>
+        <svg data-wheel-helix viewBox="0 0 324 244" role="img" aria-label="Beide Radspuren und ausgewählte Sprosse in der Helix"></svg>
+      </figure>
+    </div>
+    <div class="hw-decks" aria-label="Drei Decks mit je 19 Positionen">
+      <figure data-wheel-deck><figcaption>Deck 1 · 0–18</figcaption><svg viewBox="0 0 104 104" role="group" aria-label="Positionen in Deck 1"></svg><output></output></figure>
+      <figure data-wheel-deck><figcaption>Deck 2 · 19–37</figcaption><svg viewBox="0 0 104 104" role="group" aria-label="Positionen in Deck 2"></svg><output></output></figure>
+      <figure data-wheel-deck><figcaption>Deck 3 · 38–56</figcaption><svg viewBox="0 0 104 104" role="group" aria-label="Positionen in Deck 3"></svg><output></output></figure>
+    </div>
+    <p>Die Höhe folgt der Schrittzahl. Beide Winkel folgen ihren Radresten. Klick auf einen Strich am 57er-Rad oder in einem Deck springt zum nächstgelegenen passenden Schritt. Die vollständige Zahl bleibt im Quotienten und im 57er-Rest ablesbar.</p>
+    <section class="hw-jila" id="helix-jila" aria-labelledby="helixJilaTitle">
+      <h3 id="helixJilaTitle">Zwei Sprossen · ein Höhenunterschied</h3>
+      <div class="hw-controls" role="group" aria-label="Gemeinsamer JILA-Phasenlauf">
+        <button type="button" data-jila-play>▶ Play</button>
+        <button type="button" data-jila-reset>Auf null</button>
+        <span>Modellzeit <span data-jila-time>0,0 s</span></span>
+      </div>
+      <figure class="hw-jila-comparison">
+        <figcaption>Phasenvorsprung bei 0, 1 und 2 mm</figcaption>
+        <dl class="hw-jila-cases">
+          <div class="hw-jila-neutral">
+            <dt>0 mm</dt>
+            <dd data-jila-compare-value="0">0,000°</dd>
+            <dd>0,0000 °/s</dd>
+          </div>
+          <div class="hw-jila-upper">
+            <dt>1 mm</dt>
+            <dd data-jila-compare-value="1">0,000°</dd>
+            <dd>0,0151 °/s</dd>
+          </div>
+          <div class="hw-jila-double">
+            <dt>2 mm</dt>
+            <dd data-jila-compare-value="2">0,000°</dd>
+            <dd>0,0303 °/s</dd>
+          </div>
+        </dl>
+        <svg viewBox="0 0 460 183" role="group" aria-labelledby="helixJilaChart">
+          <title id="helixJilaChart">Phasenvorsprung über Modellzeit auf gemeinsamer Skala. 0 mm bleibt bei null, 2 mm steigt doppelt so steil wie 1 mm.</title>
+          <text x="54" y="16">Phasenvorsprung (°)</text>
+          <path class="hw-jila-guides" d="M54 30H438M54 87H438M54 144H438M54 30V144M246 30V144M438 30V144"/>
+          <text x="47" y="34" text-anchor="end" data-jila-phase-max>0,8</text>
+          <text x="47" y="91" text-anchor="end" data-jila-phase-mid>0,4</text>
+          <text x="47" y="148" text-anchor="end">0</text>
+          <text x="54" y="161" text-anchor="middle">0</text>
+          <text x="246" y="161" text-anchor="middle" data-jila-time-mid>10</text>
+          <text x="438" y="161" text-anchor="middle" data-jila-time-max>20</text>
+          <text x="246" y="179" text-anchor="middle">Modellzeit (s)</text>
+          <line class="hw-jila-neutral hw-jila-guide-curve" x1="54" y1="144" x2="438" y2="144" data-jila-guide-curve="0"/>
+          <line class="hw-jila-upper hw-jila-guide-curve" x1="54" y1="144" x2="438" y2="144" data-jila-guide-curve="1"/>
+          <line class="hw-jila-double hw-jila-guide-curve" x1="54" y1="144" x2="438" y2="144" data-jila-guide-curve="2"/>
+          <line class="hw-jila-neutral" x1="54" y1="144" x2="54" y2="144" data-jila-compare-line="0"/>
+          <line class="hw-jila-upper" x1="54" y1="144" x2="54" y2="144" data-jila-compare-line="1"/>
+          <line class="hw-jila-double" x1="54" y1="144" x2="54" y2="144" data-jila-compare-line="2"/>
+          <line class="hw-jila-cursor" x1="54" x2="54" y1="30" y2="144" data-jila-cursor aria-hidden="true"/>
+          <circle class="hw-jila-compare-point" cx="54" cy="144" r="5" data-jila-compare-point data-gap="1" aria-hidden="true"/>
+          <rect class="hw-jila-seek" x="54" y="30" width="384" height="136" data-jila-seek tabindex="0"
+                role="slider" aria-label="Modellzeit im Diagramm" aria-valuemin="0" aria-valuemax="20"
+                aria-valuenow="0" aria-valuetext="0,0 s"/>
+        </svg>
+        <p>Ein Klick ins Diagramm hält alle drei Kurven bei dieser Zeit an. Kurven und Höhenschieber sind gekoppelt. Bei 0, 1 oder 2 mm markiert ein Punkt den aktuellen Zeitpunkt auf der gewählten Kurve.</p>
+      </figure>
+      <div class="hw-jila-grid">
+        <figure>
+          <svg viewBox="0 0 350 230" role="img" aria-labelledby="helixJilaGraphic">
+            <title id="helixJilaGraphic">Zwei Ebenen mit je einem rotierenden Zeiger und einstellbarem vertikalem Abstand</title>
+            <path class="hw-jila-guides" data-jila-guides d="M44 110v65m152-65v65m49-65h14v65h-14"/>
+            <text x="270" y="147" data-jila-height-label>1 mm</text>
+            <g class="hw-jila-lower" transform="translate(120 175)">
+              <g transform="scale(1 .36)">
+                <circle r="76"/><line x2="66" data-jila-lower/>
+              </g>
+              <circle class="hw-jila-hub" r="3"/>
+            </g>
+            <text class="hw-jila-lower" x="16" y="218">Unten</text>
+            <g class="hw-jila-upper" data-jila-upper-plane transform="translate(120 110)">
+              <g transform="scale(1 .36)">
+                <circle r="76"/><line x2="66" data-jila-upper/>
+              </g>
+              <circle class="hw-jila-hub" r="3"/>
+            </g>
+            <text class="hw-jila-upper" x="16" y="20">Oben</text>
+          </svg>
+          <div class="hw-jila-height">
+            <label for="helixJilaHeight">Höhenunterschied</label>
+            <output for="helixJilaHeight" data-jila-height-value>1 mm</output>
+            <input id="helixJilaHeight" type="range" min="0" max="2" step="0.1" value="1" aria-valuetext="1 mm">
+          </div>
+          <div class="hw-jila-readout">
+            <span>Phasenvorsprung <span data-jila-phase>0,000°</span></span>
+            <span>Modell-Frequenzdifferenz <span data-jila-rate>42,1 µHz</span></span>
+          </div>
+        </figure>
+        <div>
+          <h4>JILA-Messwert bei 1 mm</h4>
+          <p class="hw-jila-value">+(9,8 ± 2,3) × 10<sup>−20</sup></p>
+          <p>Relative Frequenzdifferenz (oben minus unten), aus dem gemessenen Höhengradienten. Bei der Strontium-87-Uhrfrequenz von etwa 429 THz entspricht der Zentralwert rund <strong>42 µHz</strong>.</p>
+          <p>Der Schieber berechnet den Phasenvorsprung für den gewählten Abstand seit Modellstart. Bei 0 mm laufen beide Zeiger gleich. Bei 2 mm wächst der Vorsprung im linearen Modell doppelt so schnell wie bei 1 mm. Der gemeinsame Umlauf ist schematisch. Die Zeiger zeigen den Phasenabstand 500-fach vergrößert, der Zahlenwert darunter zeigt ihn ohne Vergrößerung und zählt über volle Umläufe weiter.</p>
+          <p><a href="https://doi.org/10.1038/s41586-021-04349-7">Bothwell et al., Nature (2022), Abb. 3</a> · <a href="https://www.bipm.org/documents/20126/288515313/87Sr_429THz_2025/bbd827f7-3e1e-5fbe-6bd8-0eadd9b5b674">BIPM · Strontium-87</a></p>
+        </div>
+      </div>
+    </section>
+  </section>
+
   <section class="hv-rossler" id="helix-rossler-lift" aria-labelledby="helixRosslerTitle">
     <header>
       <h2 id="helixRosslerTitle">Rössler-Lift</h2>
@@ -372,24 +560,26 @@
     <article><div class="hv-eyebrow">Euler compass → helix view</div><h2>Ein Träger, zwei Residuenwinkel</h2><p>Die 168 Primzahlen bis 1000 bleiben dieselben adressierten Records. Nur ihre Winkelregel wechselt zwischen <code>mod 7</code>, <code>mod 11</code> und der gekoppelten <code>7|11</code>-Ansicht; die Höhe bewahrt die Primindex-Reihenfolge.</p></article>
   </section>
 
-  <p class="hv-editorial-note"><strong>Kuramoto.</strong> Jeder Punkt ist ein Oszillator. Der Phasenkreis zeigt seinen aktuellen Winkel, der Strip zeigt den Verlauf. Der Ordnungsparameter R beschreibt, wie eng die Gruppe beieinanderliegt. Die Spuren von 5 und 19 zeigen, wie sich einzelne Oszillatoren dazu verhalten.</p>
   <section class="kuramoto-compare" id="kuramoto-phasenvergleich" aria-labelledby="kuramotoCompareTitle" data-kuramoto-compare>
-    <h3 id="kuramotoCompareTitle">Kuramoto · K=0, K=1 und K=2</h3>
+    <h2 id="kuramotoCompareTitle">A0 · Phasenwerkstatt</h2>
   </section>
   <section id="helix-jupiter-phases" hidden aria-labelledby="jupiterPhaseTitle">
     <h4 id="jupiterPhaseTitle">Io, Europa und Ganymed · JPL Horizons</h4>
-    <p>Ein Regler zeigt denselben relativen Fortschritt in der Kuramoto-Modellzeit und im JPL-Fenster. Die JPL-Ansicht springt zum nächsten Stundenwert.</p>
+    <p>Der gemeinsame Zeitregler zeigt den relativen Fortschritt in der Kuramoto-Modellzeit und im JPL-Fenster. Eine Marke an der 180°-Linie öffnet den ersten Stundenwert nach dem Übergang in allen drei Jupiter-Ansichten.</p>
     <div class="kuramoto-controls">
       <label for="jupiterWindow">JPL-Zeitfenster</label>
       <select id="jupiterWindow" data-jupiter-window><option value="40">40 Tage</option><option value="365">Ein Jahr · 2025</option></select>
       <span data-jupiter-window-range></span>
+      <label for="jupiterCrossing">180°-Übergang</label>
+      <select id="jupiterCrossing" data-jupiter-crossing-select disabled><option>Keine Übergänge</option></select>
     </div>
     <p class="jupiter-readout"><output data-jupiter-time></output><strong>Laplace-Winkel <output data-jupiter-angle></output></strong></p>
     <div class="jupiter-panels">
       <figure><canvas width="250" height="190" role="img" aria-label="Die Bahnlängen der drei Monde als Zeiger auf einem Phasenkreis" data-jupiter-circle></canvas><figcaption>Phasenkreis · Io Cyan · Europa Gold · Ganymed Pink</figcaption></figure>
-      <figure><canvas width="500" height="190" role="img" aria-label="Laplace-Winkel im ausgewählten Fenster mit einer Referenzlinie bei 180 Grad" data-jupiter-strip></canvas><figcaption>Strip · Laplace-Winkel auf gleicher Skala, goldene Punkte bei Linienwechseln</figcaption></figure>
-      <figure><canvas width="1600" height="216" role="img" aria-label="Bahnlänge je Mond und Zeitpunkt, von null bis 360 Grad als Farbzyklus" data-jupiter-grid></canvas><figcaption>Grid · 0°<span class="jupiter-phase-key" aria-hidden="true"></span>360°</figcaption></figure>
+      <figure><canvas width="500" height="190" role="img" aria-label="Laplace-Winkel im ausgewählten Fenster mit einer Referenzlinie bei 180 Grad" data-jupiter-strip></canvas><figcaption>Laplace-Winkel · Gold ↑ über 180° · Pink ↓ unter 180°</figcaption></figure>
+      <figure><canvas width="1600" height="264" role="img" aria-label="Bahnlängen der Monde. Klick wählt die Stunde. Goldene Übergänge am oberen Rand, pinke am unteren Rand." data-jupiter-grid></canvas><figcaption>Grid · Klick wählt die Stunde · Gold oben, Pink unten · 0°<span class="jupiter-phase-key" aria-hidden="true"></span>360°</figcaption></figure>
     </div>
+    <p role="status" data-jupiter-crossing-status></p>
     <p data-jupiter-longitudes></p>
     <p><strong>Dieses Fenster:</strong> <span data-jupiter-range></span> über <span data-jupiter-count></span> Stundenwerte. <span data-jupiter-crossings></span></p>
     <section class="jupiter-sampling" data-jupiter-sampling hidden aria-labelledby="jupiterSamplingTitle">
@@ -407,17 +597,20 @@
       </div>
       <p>Seitenwechsel zählen benachbarte Werte in der jeweiligen Stichprobe. Bei Lücken können mehrere Wechsel zwischen zwei ausgewählten Stunden liegen. Vergleich für dieses Jahr und diesen Startindex. Finding offen.</p>
     </section>
-    <p>Laplace-Winkel = λ<sub>Io</sub> − 3λ<sub>Europa</sub> + 2λ<sub>Ganymed</sub> modulo 360°. λ = Ω + ω + M aus oskulierenden Bahnelementen im Jupiter-Bezugssystem. <a href="https://ssd.jpl.nasa.gov/sats/ephem/">JPL · JUP365 ↗</a> · <a href="https://doi.org/10.1051/0004-6361/202141311">Laplace-Resonanz ↗</a> · Finding offen.</p>
+    <p>Laplace-Winkel = λ<sub>Io</sub> − 3λ<sub>Europa</sub> + 2λ<sub>Ganymed</sub> modulo 360°. λ = Ω + ω + M aus oskulierenden Bahnelementen im Jupiter-Bezugssystem. <a href="https://ssd.jpl.nasa.gov/sats/ephem/">JPL · JUP365 ↗</a> · <a href="https://doi.org/10.1051/0004-6361/202141311">Laplace-Resonanz ↗</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#jpl-laplace-science-return">Science Desk · Rückbindung ↗</a> · Finding offen.</p>
   </section>
   <p class="hv-boundary"><b>CLAIM BOUNDARY:</b> <code>RN\A</code>, <code>(c)D|⁄|A</code>, <code>RDMH</code>, <code>F/H</code> und <code>TRIAD</code> sind deklarierte typografische und geometrische View-Bezeichner. <code>Θ</code>, <code>ι</code> und <code>DAO</code> sind hier ausschließlich die explizit definierten normierten Größen <code>Δθ</code>, <code>Δz/Δθ</code> und <code>R²+ι²</code>. Der Backslash wird nicht ohne getrennt definierte Mengen als bewiesene Mengendifferenz gelesen. Die daraus abgeleitete Torsionsgröße <code>|τ|</code> ist keine physikalische Messung. Die ζ-Linse verwendet nur eine endliche Tabelle der ersten 20 positiven nichttrivialen Nullstellenordinaten und den einzelnen konjugierten Paarterm der expliziten Formel; sie berechnet weder die vollständige Formel noch neue Nullstellen und beweist weder RH noch GRH. <code>RLLR/LRRL</code> sind Trace-Wörter, keine Dirichlet-Charaktere; Periodizität modulo <code>q</code>, vollständige Multiplikativität und Nullwerte auf Nicht-Einheiten werden nicht behauptet. <code>−1/12</code> und <code>11/12</code> sind modulo 1 derselbe Phasenpunkt, aber getrennte Lift-/Pfadzeugen. Die Prime-Residue-Helix ordnet einen endlichen bekannten Primzahlträger nach Index und weist deklarierte Modulo-Winkel zu; sie ist weder eine natürliche Primzahlhelix noch identisch mit dem separaten Euler-7×11-Kantenaudit. Einzelstrang, Doppelhelix, Phasenüberblendung, Register-Layer und φ-Rail behaupten keine RNA-/DNA-Validierung, biologische Primzahlsteuerung, physikalische Resonanz, keinen Primzahlgenerator und keine natürliche Identität zwischen Twin Primes, ℤ₃₇, ζ-Nullstellen oder Fibonacci.</p>
   <footer class="hv-return"><span>Reuses: MOD:NUMBER_VIEW_SUITE · ART:A0:MATHEMATICAL_JOINTS · no graph delta</span><nav><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html">← Primecube</a> · <a href="A0_PRIME_PROJECTION_TEST_SUITE.html">Prime Projection</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#helix-mod7-method-return-20261126">Science Desk · Helix‑Return</a> · <a href="A0_RESEARCH_DESK.html#prime-projection-helix-paper-routing-20261121">Riemann / Ihara</a> · <a href="A0_HELIX_VIEW_ADAPTER_CONTRACT_2026-11-21.md">Contract</a> · <a href="results/a0-helix-view-adapter-2026-11-21.json">Receipt</a></nav></footer>
 </main>
 <script src="a0-primecube-model.js?rev=20261121-r5"></script>
-<script src="a0-helix-view-adapter.js?rev=mod7-fourier"></script>
-<script src="a0-helix-view-adapter-ui.js?rev=mod7-fourier"></script>
+<script src="a0-helix-view-adapter.js?rev=zeta-contact-wheel"></script>
+<script src="a0-helix-view-adapter-ui.js?rev=shared-angle-sequence"></script>
+<script src="a0-angle-sequence.js?v=1"></script>
 <script src="a0-context-navigation.js"></script>
-<script defer src="a0-science-kuramoto.js?rev=4"></script>
+<script src="a0-loki-tessarec-pipe.js" defer></script>
+<script src="a0-helix-wheel-decks.js?v=20261126-jila-curve-return" defer></script>
+<script defer src="a0-science-kuramoto.js?rev=phasenwerkstatt"></script>
 <script defer src="assets/a0-jupiter-horizons-2025.js?rev=annual"></script>
-<script defer src="a0-helix-jupiter-phases.js?rev=prime-sampling"></script>
+<script defer src="a0-helix-jupiter-phases.js?rev=grid-return"></script>
 </body>
 </html>

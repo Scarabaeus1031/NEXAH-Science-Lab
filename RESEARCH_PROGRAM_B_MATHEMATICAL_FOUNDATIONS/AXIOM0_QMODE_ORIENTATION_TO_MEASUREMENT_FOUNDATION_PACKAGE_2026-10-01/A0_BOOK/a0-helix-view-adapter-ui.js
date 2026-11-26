@@ -1227,3 +1227,285 @@
   setupTour();
   resize();
 })();
+
+(() => {
+  'use strict';
+
+  const panel = document.getElementById('helix-strand-directions');
+  const model = window.A0HelixViewAdapter;
+  if (!panel || !model) return;
+
+  const zetaRecords = model.zetaZeroRecords();
+  const twins = model.twinRungs().slice(0, zetaRecords.length);
+  const geometries = [
+    model.buildGeometry(twins, { mix: 0 }),
+    model.buildZetaGeometry(zetaRecords, { logX: model.ZETA_CONTACT_LOG_X, zetaLens: 'smooth' })
+  ];
+  const views = [...panel.querySelectorAll('[data-direction-view]')];
+  const back = panel.querySelector('[data-direction-back]');
+  const next = panel.querySelector('[data-direction-next]');
+  const level = panel.querySelector('[data-direction-level]');
+  const play = panel.querySelector('[data-direction-play]');
+  const flip = panel.querySelector('[data-direction-flip]');
+  const sense = panel.querySelector('[data-direction-sense]');
+  const angleFormat = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 1 });
+  const deltaFormat = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 1, signDisplay: 'exceptZero' });
+  const strands = ['strandA', 'strandB'];
+  const lastIndex = zetaRecords.length - 1;
+  const transitionMs = 1400;
+  const holdMs = 1000;
+  const contactStatus = panel.querySelector('[data-direction-contact-status]');
+  const contactSteps = panel.querySelector('[data-direction-contacts]');
+  const contactPicks = panel.querySelector('[data-direction-contact-picks]');
+  const sequence = panel.querySelector('[data-angle-sequence]');
+  const sequenceRung = panel.querySelector('[data-angle-rung]');
+  const sequenceLine = sequenceRung.querySelector('line');
+  const sequenceEnds = [...sequenceRung.querySelectorAll('circle')];
+  let sequencePose = null;
+  let position = 0;
+  let origin = 0;
+  let direction = 1;
+  let holdRemaining = 0;
+  let lastFrame = null;
+  let frame = null;
+
+  function project({ x, y, z }) {
+    return [123 + 115 * x, 128 - 81 * y - 29 * z];
+  }
+
+  function heading([x, y], [endX, endY], className) {
+    return `<line class="${className}" x1="${x}" y1="${y}" x2="${endX}" y2="${endY}"/>`;
+  }
+
+  function nextPosition(delta) {
+    return delta > 0 ? Math.min(lastIndex, Math.floor(position) + 1) : Math.max(0, Math.ceil(position) - 1);
+  }
+
+  function sample(rungs, at) {
+    const from = rungs[Math.floor(at)];
+    const to = rungs[Math.ceil(at)];
+    const fraction = at % 1;
+    const interpolate = (a, b) => a + (b - a) * fraction;
+    return {
+      height: interpolate(from.strandA.y, to.strandA.y),
+      angles: [
+        interpolate(from.angle, to.angle),
+        interpolate(from.companionAngle ?? (from.angle + Math.PI), to.companionAngle ?? (to.angle + Math.PI))
+      ],
+      radii: strands.map(strand => interpolate(Math.hypot(from[strand].x, from[strand].z), Math.hypot(to[strand].x, to[strand].z)))
+    };
+  }
+
+  const zetaRungs = geometries[1].rungs;
+  const contacts = model.zetaMirrorContacts().map(contact => {
+    const { height, radii } = sample(zetaRungs, contact.at);
+    const point = project({ x: Math.cos(contact.radians) * radii[0], y: height, z: 0 });
+    return { ...contact, point };
+  });
+  const firstContact = contacts[0];
+  contactPicks.innerHTML = contacts.map(({ from, to, point: [x, y] }, index) =>
+    `<circle class="hv-contact-pick" cx="${x}" cy="${y}" r="12" data-contact-pick="${index}"
+      role="button" tabindex="0" aria-label="Grey/Pink-Kontakt ${from}→${to}" aria-pressed="false"></circle>`
+  ).join('');
+  const contactTargets = [...contactPicks.querySelectorAll('[data-contact-pick]')];
+  contactSteps.textContent = contacts.map(({ from, to }) => `${from}→${to}`).join(' · ');
+  const rift = `<polyline class="hv-contact-rift" points="${contacts.map(({ point }) => point.join(',')).join(' ')}"/>`;
+  const ghostSnake = contacts.map(({ at }) => strands.map((strand, side) => {
+    const points = Array.from({ length: 13 }, (_, index) => {
+      const { height, angles, radii } = sample(zetaRungs, Math.max(0, Math.min(lastIndex, at + (index - 6) * .04)));
+      return project({ x: radii[side] * Math.cos(angles[side]), y: height, z: radii[side] * Math.sin(angles[side]) }).join(',');
+    });
+    return `<polyline class="hv-contact-ghost hv-direction-${side}" points="${points.join(' ')}"/>`;
+  }).join('')).join('');
+
+  function drawSequenceRung() {
+    if (!sequencePose) return;
+    const { angle, reverse, active } = sequencePose;
+    sequenceRung.setAttribute('visibility', active ? 'visible' : 'hidden');
+    sequenceRung.classList.toggle('hv-angle-reverse', reverse);
+    const { height, radii } = sample(geometries[0].rungs, position);
+    const radians = angle * Math.PI / 180;
+    const points = radii.map((radius, side) => {
+      const phase = radians + side * Math.PI;
+      return project({ x: radius * Math.sin(phase), y: height, z: radius * Math.cos(phase) });
+    });
+    points.forEach(([x, y], side) => {
+      sequenceLine.setAttribute(`x${side + 1}`, x);
+      sequenceLine.setAttribute(`y${side + 1}`, y);
+      sequenceEnds[side].setAttribute('cx', x);
+      sequenceEnds[side].setAttribute('cy', y);
+    });
+  }
+
+  sequence.addEventListener('a0-angle-sequence-pose', event => {
+    sequencePose = event.detail;
+    drawSequenceRung();
+  });
+
+  function draw() {
+    const between = !Number.isInteger(position);
+    const target = nextPosition(direction);
+    const departure = nextPosition(-direction);
+    const title = between ? `Sprosse ${departure + 1} → ${target + 1}` : `Sprosse ${position + 1} / ${zetaRecords.length}`;
+    if (level.textContent !== title) level.textContent = title;
+    const activeContact = contacts.find(contact => contact.at === position);
+    const status = activeContact
+      ? `Grey/Pink-Kontakt ${activeContact.from}→${activeContact.to} · θ = ${activeContact.angle}°`
+      : 'Vorwärts-Play hält am ersten Kontakt eine Sekunde an.';
+    if (contactStatus.textContent !== status) contactStatus.textContent = status;
+    contactTargets.forEach((target, index) => {
+      const pressed = String(contacts[index] === activeContact);
+      if (target.getAttribute('aria-pressed') !== pressed) target.setAttribute('aria-pressed', pressed);
+    });
+    back.disabled = position === 0;
+    next.disabled = position === lastIndex;
+    views.forEach((view, viewIndex) => {
+      const { rungs } = geometries[viewIndex];
+      const { height, angles: currentAngles, radii } = sample(rungs, position);
+      const oldAngles = sample(rungs, origin).angles;
+      const y = project({ x: 0, y: height, z: 0 })[1];
+      const points = radii.map((radius, side) => {
+        const angle = currentAngles[side];
+        return project({ x: radius * Math.cos(angle), y: height, z: radius * Math.sin(angle) });
+      });
+      const center = [319, 126];
+      const anglePoint = angle => [center[0] + 60 * Math.cos(angle), center[1] - 60 * Math.sin(angle)];
+      const rails = strands.map((strand, side) =>
+        `<polyline class="hv-direction-rail hv-direction-${side}" points="${rungs.map(rung => project(rung[strand]).join(',')).join(' ')}"/>`
+      );
+      const markers = viewIndex === 1 ? contacts.map((contact, order) => {
+        const [x, y] = contact.point;
+        const active = contact === activeContact;
+        return `<circle class="hv-contact-marker${active ? ' hv-contact-active' : ''}" data-contact="${contact.from}-${contact.to}" cx="${x}" cy="${y}" r="${active ? 7 : 4}">
+          <title>Kontakt ${order + 1} · Sprosse ${contact.from}→${contact.to} · θ = ${contact.angle}°</title></circle>
+          ${active ? `<circle class="hv-contact-core" cx="${x}" cy="${y}" r="3"/>` : ''}`;
+      }).join('') : '';
+      const currentRung = heading(points[0], points[1], 'hv-direction-rung');
+      const endpoints = points.map(([x, y], side) => {
+        return `<circle class="hv-direction-end hv-direction-${side}" cx="${x}" cy="${y}" r="4"/>`;
+      });
+      const ghosts = origin === position ? [] : oldAngles.map((angle, side) => heading(center, anglePoint(angle), `hv-direction-ghost hv-direction-${side}`));
+      const hands = currentAngles.map((angle, side) => heading(center, anglePoint(angle), `hv-direction-hand hv-direction-${side}`));
+      let wheelContact = '';
+      if (viewIndex === 1 && activeContact) {
+        const [cx, cy] = anglePoint(currentAngles[0]);
+        wheelContact = `<circle class="hv-contact-wheel" cx="${cx}" cy="${cy}" r="7"/>
+          <circle class="hv-contact-core" cx="${cx}" cy="${cy}" r="3"/>`;
+      }
+      const art = view.querySelector('[data-direction-art]') ?? view.querySelector('svg');
+      art.innerHTML = `
+        <ellipse class="hv-direction-plane" cx="123" cy="${y}" rx="72" ry="18"/>
+        ${heading([123, 27], [123, 229], 'hv-direction-axis')}
+        ${rails.join('')}${viewIndex === 1 ? rift + ghostSnake : ''}${currentRung}${endpoints.join('')}${markers}
+        <circle class="hv-direction-axis" cx="319" cy="126" r="60"/>
+        <path class="hv-direction-axis" d="M259 126h120m-60-60v120"/>
+        <text x="386" y="130">0°</text>
+        ${ghosts.join('')}${hands.join('')}${wheelContact}`;
+      const selected = rungs[position];
+      const source = between ? '' : viewIndex === 0
+        ? `${selected.a} ↔ ${selected.b}` : `γ = ${angleFormat.format(selected.gamma)}`;
+      const angles = currentAngles.map((angle, side) => {
+        const degrees = model.degrees(angle);
+        const change = model.degrees(angle - oldAngles[side]);
+        const label = viewIndex === 0 ? ['A', 'B'][side] : ['+θ', '−θ'][side];
+        return `<span class="hv-direction-${side}">${label} ${angleFormat.format(degrees)}° · Δ ${deltaFormat.format(change)}°</span>`;
+      });
+      view.querySelector('[data-direction-readout]').innerHTML = `<b>${source}</b> ${angles.join(' ')}`;
+    });
+    drawSequenceRung();
+  }
+
+  function updatePlayLabel() {
+    const atEnd = nextPosition(direction) === position;
+    play.textContent = frame !== null ? '⏸ Pause'
+      : atEnd ? `↻ Ab Sprosse ${direction > 0 ? 1 : lastIndex + 1}` : '▶ Play';
+  }
+
+  function pause() {
+    cancelAnimationFrame(frame);
+    frame = null;
+    lastFrame = null;
+    updatePlayLabel();
+  }
+
+  function tick(now) {
+    const elapsed = lastFrame === null ? 0 : now - lastFrame;
+    lastFrame = now;
+    if (holdRemaining > 0) {
+      holdRemaining = Math.max(0, holdRemaining - elapsed);
+    } else if (elapsed > 0) {
+      if (Number.isInteger(position)) origin = position;
+      const destination = nextPosition(direction);
+      const distance = Math.min(Math.abs(destination - position), elapsed / transitionMs);
+      const advanced = distance === Math.abs(destination - position) ? destination : position + direction * distance;
+      if (direction > 0 && position < firstContact.at && advanced >= firstContact.at) {
+        position = firstContact.at;
+        holdRemaining = holdMs;
+      } else {
+        position = advanced;
+      }
+      draw();
+    }
+    if (nextPosition(direction) === position) {
+      pause();
+      return;
+    }
+    frame = requestAnimationFrame(tick);
+  }
+
+  function move(delta) {
+    holdRemaining = 0;
+    origin = position;
+    position = nextPosition(delta);
+    pause();
+    draw();
+  }
+
+  function pickContact(event) {
+    const target = event.target.closest('[data-contact-pick]');
+    if (!target) return;
+    holdRemaining = 0;
+    origin = position;
+    position = contacts[Number(target.dataset.contactPick)].at;
+    pause();
+    draw();
+  }
+
+  contactPicks.addEventListener('click', pickContact);
+  contactPicks.addEventListener('keydown', event => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    pickContact(event);
+  });
+
+  back.addEventListener('click', () => move(-1));
+  next.addEventListener('click', () => move(1));
+  flip.addEventListener('click', () => {
+    direction *= -1;
+    holdRemaining = 0;
+    origin = position;
+    lastFrame = null;
+    flip.setAttribute('aria-pressed', String(direction < 0));
+    sense.textContent = direction < 0 ? 'Rückwärts' : 'Vorwärts';
+    if (frame !== null && nextPosition(direction) === position) pause();
+    updatePlayLabel();
+    draw();
+  });
+  play.addEventListener('click', () => {
+    if (frame !== null) {
+      pause();
+      return;
+    }
+    if (nextPosition(direction) === position) {
+      position = direction > 0 ? 0 : lastIndex;
+      origin = position;
+      draw();
+    }
+    frame = requestAnimationFrame(tick);
+    updatePlayLabel();
+  });
+  const linkedContact = new URLSearchParams(window.location.search).get('zeta-contact');
+  const initialContact = contacts.find(contact => contact.id === linkedContact);
+  if (initialContact) position = origin = initialContact.at;
+  draw();
+})();

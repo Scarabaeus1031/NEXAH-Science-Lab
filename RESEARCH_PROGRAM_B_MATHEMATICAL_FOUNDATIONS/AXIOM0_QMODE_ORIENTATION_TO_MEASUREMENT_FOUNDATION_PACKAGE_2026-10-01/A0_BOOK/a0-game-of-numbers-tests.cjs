@@ -46,6 +46,13 @@ const nodes={},listeners={},timers=new Map(),rafs=new Map(),sent=[],paintedText=
 function element(){return{value:'0',hidden:true,textContent:'',style:{},dataset:{},events:{},addEventListener(t,f){this.events[t]=f},setPointerCapture(){},pause(){this.paused=true},getBoundingClientRect:()=>({left:0,top:0,width:900,height:650}),getContext:()=>new Proxy({},{get:(_,key)=>key==='fillText'?(text)=>paintedText.push(text):()=>{}}),click(){},setAttribute(){}}}
 const html=fs.readFileSync(path.join(__dirname,'assets/game-of-worlds-play/numbers/index.html'),'utf8');for(const m of html.matchAll(/id="([^"]+)"/g))nodes[m[1]]=element();
 for(const m of html.matchAll(/(?:href|src)="([^"#]+)"/g))ok(fs.existsSync(path.resolve(__dirname,'assets/game-of-worlds-play/numbers',decodeURIComponent(m[1].split('?')[0]))),'number dependencies exist '+m[1]);
+const clockCenter = element();
+const clockRings = new Map([24, 408, 432, 360, 57].map(modulus => {
+  const marker = element();
+  return [`[data-clock-mod="${modulus}"]`, {...element(), querySelector: () => marker}];
+}));
+nodes.wheelClockAddressRings.querySelector = selector => clockRings.get(selector) ?? clockCenter;
+nodes.wheelClockAddressSource.value = 'step';
 // Mix controls and rail elements for the Number Lens controller's initial render.
 nodes.wheelMix.querySelectorAll=()=>[element(),element()];
 nodes.wheelMixGrid.querySelectorAll=()=>Array.from({length:2},()=>{
@@ -57,6 +64,23 @@ const parent={postMessage:m=>sent.push(m)},document={hidden:false,body:{dataset:
 const breathBox={window:{}};vm.runInNewContext(fs.readFileSync(path.resolve(__dirname,'../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_CON_DAO_JANUS_BREATH_SEQUENCER_2026-10-06/breath-model.js'),'utf8'),breathBox);
 const box={A0TrinityLens:require('./a0-trinity-lens.js'),NEXAH_BREATH_MODEL:breathBox.window.NEXAH_BREATH_MODEL,A0ConDaoPhase:require('./a0-con-dao-phase.js'),A0NumberParallel:require('./a0-number-parallel-model.js'),A0NumberParallelView:{mount:()=>({render(){}})},A0LayeredPentagonScene:require('./a0-layered-pentagon-scene.js'),A0GameOfNumbers:M,A0SpatialReaderPrimitives:P,document,parent,devicePixelRatio:1,matchMedia:()=>({matches:false}),addEventListener:(t,f)=>listeners[t]=f,setInterval:fn=>{const id=timerId++;timers.set(id,fn);return id},clearInterval:id=>timers.delete(id),requestAnimationFrame:fn=>{const id=rafId++;rafs.set(id,fn);return id},cancelAnimationFrame:id=>rafs.delete(id),Blob:class{constructor(parts){this.parts=parts}},URL:{createObjectURL:b=>{exported=JSON.parse(b.parts[0]);return'blob:numbers'},revokeObjectURL(){}},setTimeout:fn=>fn()};box.window=box;
 vm.runInNewContext(fs.readFileSync(path.join(__dirname,'a0-game-of-numbers.js'),'utf8'),box);
+const clockRests = () => [...clockRings.values()].map(ring => ring.dataset.clockRest).join(',');
+ok(clockCenter.textContent === 0 && clockRests() === '0,0,0,0,0', 'Clock Address starts on the current step');
+nodes.wheelClockAddressSource.value = '1836';
+nodes.wheelClockAddressSource.events.change();
+ok(clockCenter.textContent === 1836 && clockRests() === '12,204,108,36,12', 'Fixed Clock Address restores all five residues');
+for (const [address, rest57, rest19] of [['3656', 8, 8], ['3565', 31, 12]]) {
+  nodes.wheelClockAddressSource.value = address;
+  nodes.wheelClockAddressSource.events.change();
+  ok(clockCenter.textContent === Number(address) &&
+    clockRings.get('[data-clock-mod="57"]').dataset.clockRest === String(rest57) &&
+    nodes.wheelClockAddressComparison.textContent.endsWith(`Rest ${rest57} → ${rest19}`),
+  'Clock Address shows the exact Mod 57 to Mod 19 comparison for ' + address);
+}
+nodes.wheelClockAddressSource.value = 'step';
+nodes.wheelClockAddressSource.events.change();
+ok(clockCenter.textContent === 0 && clockRests() === '0,0,0,0,0' &&
+  nodes.wheelClockAddressComparison.hidden, 'Returning to step mode restores the current step');
 const ui=box.GameOfNumbersView;function command(action,value,from=parent){listeners.message({source:from,data:{type:'worlds-play-command',action,value}})}function tick(){[...timers.values()].forEach(fn=>fn())}function draw(){const callbacks=[...rafs.values()];rafs.clear();callbacks.forEach(fn=>fn(100))}
 ok(ui.snapshot().config.world==='euler'&&timers.size===0,'Euler ready without autoplay');draw();
 command('play');for(let i=0;i<6;i++)tick();ok(ui.snapshot().cursor===6&&timers.size===1,'Euler runs beyond mission; interval id zero supported');

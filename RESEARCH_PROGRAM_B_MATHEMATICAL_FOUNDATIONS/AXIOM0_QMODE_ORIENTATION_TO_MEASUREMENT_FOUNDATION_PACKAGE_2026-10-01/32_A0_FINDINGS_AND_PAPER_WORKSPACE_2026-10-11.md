@@ -4791,3 +4791,21 @@ Rössler und Kuramoto behalten ihre eigenen Gegenproben im Science Desk.
 [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#helix-primecube-resume-20261126) ·
 [Paper E](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#helix-primecube-168-method-example) ·
 [419 im Primecube](A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html?helix=PC1111%3AN0419#shadow-cube-slice-overlay)
+
+<a id="jpl-prime-hour-offset-check"></a>
+
+## JPL-Jahresfenster · offene Gegenprobe zur Abtastung · 26.11.2026
+
+Die vollständige Stundenreihe umfasst 8.761 Werte und zählt 21 Wechsel
+an der 180°-Linie. Beide Stichproben aus dem bestehenden A0-Vergleich
+umfassen je 1.092 Werte und zählen je 19 Wechsel zwischen ihren
+benachbarten Werten. Die gleichmäßige Stichprobe liegt bei Mittelwert und
+Anteil unter 180° näher an der vollständigen Reihe.
+
+**Wiedereinstieg.** Im selben Jahresfenster die Primzahl-Stundenmarken
+mit vorab festgelegten Verschiebungen erneut prüfen. Die gleichmäßige
+Abtastung dient als feste Referenz. Mittelwert, Anteil unter 180° und
+Seitenwechsel wieder auf derselben Basis vergleichen. Finding offen.
+
+[A0 · JPL-Quellrücklauf](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#jpl-laplace-science-return) ·
+[Paper E · Stundenindex als Rückweg](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#jupiter-grid-return-method-example)

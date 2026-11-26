@@ -554,3 +554,95 @@ body[data-number-view=qrt20] canvas{min-height:720px;background:radial-gradient(
   border-bottom: 1px solid #315365;
   text-align: start;
 }
+
+.wheel-clock-comparison {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: 12px;
+  margin: 10px 0;
+}
+#wheelLokiTessarec, #wheelClockAddress {
+  padding: 12px;
+  border: 1px solid #315362;
+  border-radius: 8px;
+  background: #092230;
+  color: #e3f0f4;
+}
+#wheelLokiTessarec h3, #wheelClockAddress h3 { margin: 0 0 6px; }
+#wheelLokiTessarec p { margin: 6px 0; }
+#wheelLokiTessarec a { color: #a8ebff; }
+#wheelLokiControls:not([hidden]) { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+#wheelLokiControls button[aria-disabled="true"] { opacity: .5; cursor: default; }
+#wheelLokiStep, #wheelLokiReturn { font-variant-numeric: tabular-nums; }
+#wheelLokiReturn { color: #ffda80; font-weight: 700; }
+#wheelLokiTessarec[data-return="true"] { border-color: #ffd35a; background: #243e39; }
+#wheelLokiPipe { width: 100%; height: auto; }
+#wheelLokiPipe .lp-axis { stroke: #2c5265; }
+#wheelLokiPipe .lp-axis.active { stroke: #73d4ef; stroke-width: 2; }
+#wheelLokiPipe .lp-node { fill: #628b9b; }
+#wheelLokiPipe .lp-node.active { fill: #ffda80; stroke: #fff4c9; stroke-width: 2; }
+#wheelLokiPipe .lp-route { fill: none; stroke: #7badd0; opacity: .28; }
+#wheelLokiPipe .lp-stick { stroke: #507789; opacity: .7; }
+#wheelLokiPipe .lp-caption { display: none; }
+.wheel-loki-visuals {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  align-items: center;
+  gap: 10px;
+}
+.wheel-loki-visuals figure { margin: 0; text-align: center; }
+#wheelLoki19, #wheelClockAddressRings { display: block; width: 100%; height: auto; margin: auto; }
+#wheelLoki19 { max-width: 180px; }
+#wheelClockAddressRings { max-width: 220px; }
+#wheelLoki19Step { font-variant-numeric: tabular-nums; }
+#wheelLoki19Witness { color: #ffda80; font-weight: 700; }
+#wheelLoki19Witness:empty { display: none; }
+.wheel-dial-ring { fill: none; stroke: #ae955e; }
+.wheel-dial-number, .wheel-dial-center { text-anchor: middle; dominant-baseline: middle; }
+.wheel-dial-number { fill: #e3f0f4; font-size: 9px; }
+.wheel-dial-center { fill: #ffda80; font-size: 22px; font-weight: 700; paint-order: stroke; stroke: #092230; stroke-width: 5px; }
+.wheel-mod19-needle { stroke: #78e4ff; stroke-width: 3px; stroke-linecap: round; }
+#wheelLoki19[data-rest="0"] .wheel-mod19-needle { stroke: #ffda80; }
+#wheelClockAddress { border-color: #685a3d; }
+.wheel-clock-source { display: flex; align-items: center; gap: 8px; }
+#wheelClockAddressTransition, #wheelClockAddressComparison { margin: 8px 0 0; color: #ffda80; }
+[data-clock-mod="57"] .wheel-dial-ring, [data-clock-mod="57"] .wheel-clock-tick { stroke: #ffda80; }
+#wheelClockAddressValues [data-clock-row="57"] { background: #283327; }
+.wheel-clock-tick { stroke: #ae955e; stroke-width: .75; }
+.wheel-clock-zero { fill: #f297c2; }
+.wheel-clock-rest { fill: #78e4ff; }
+#wheelClockAddressValues { list-style: none; margin: 6px 0 0; padding: 0; font-variant-numeric: tabular-nums; }
+#wheelClockAddressValues li { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 10px; padding: 3px 0; border-top: 1px solid #315362; }
+#wheelClockAddressValues b { color: #ffda80; min-width: 64px; }
+#wheelClockAddressValues small { color: #a8ebff; }
+@media (max-width: 760px) {
+  .wheel-clock-comparison { grid-template-columns: minmax(0, 1fr); }
+}
+
+#wheelZetaContacts { border-top: 1px solid #315362; margin-top: 12px; padding-top: 12px; }
+#wheelZetaContacts h4, #wheelZetaContacts p { margin: 0 0 6px; }
+#wheelZetaDial { display: block; width: 100%; max-width: 250px; margin: 4px auto; }
+#wheelZetaDial .wheel-dial-ring { opacity: .5; pointer-events: none; }
+.wheel-zeta-axis { fill: none; stroke: #6f8796; stroke-dasharray: 3 4; }
+.wheel-zeta-axis-label { fill: #a9becb; font-size: 11px; }
+.wheel-zeta-contact { cursor: pointer; }
+.wheel-zeta-contact rect { fill: transparent; }
+.wheel-zeta-contact circle { fill: #aab5c2; stroke: #ff8cc9; stroke-width: 1.5px; }
+.wheel-zeta-contact text { fill: #e3f0f4; font-size: 13px; }
+.wheel-zeta-contact[aria-pressed="true"] rect, .wheel-zeta-contact:hover rect, .wheel-zeta-contact:focus-visible rect { fill: #743453; }
+.wheel-zeta-contact:focus-visible { outline: none; }
+.wheel-zeta-contact:focus-visible rect { stroke: #ffd3ee; }
+#wheelZetaReadout, #wheelZetaReturn { display: block; margin: 6px 0; }
+#wheelZetaReadout { color: #ffd1ea; font-weight: 700; }
+#wheelZetaReturn { color: #a8ebff; }
+.wheel-zeta-sequence { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 8px 0; border-bottom: 1px solid #315362; }
+.wheel-zeta-sequence > span, #wheelZetaSequenceStatus { color: #c5dae4; font-size: .85rem; }
+.wheel-zeta-angle-values { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 8px; font-variant-numeric: tabular-nums; }
+.wheel-zeta-angle-values span { border: 1px solid #416476; padding: 4px 8px; border-radius: 4px; }
+.wheel-zeta-angle-values b { color: #ffd1ea; }
+.wheel-zeta-motion { pointer-events: none; color: #66e1dc; }
+.wheel-zeta-motion.wheel-zeta-reverse { color: #ff8cc9; }
+.wheel-zeta-motion-ring { fill: none; stroke: currentColor; opacity: .24; }
+.wheel-zeta-motion-arc, .wheel-zeta-motion-needle { fill: none; stroke: currentColor; stroke-width: 2.5px; stroke-linecap: round; }
+.wheel-zeta-motion-tip { fill: currentColor; }

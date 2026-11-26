@@ -1431,6 +1431,15 @@
         lane: "science"
       });
       mountSiteProjection({
+        href: "A0_BUILDER_LOG.html#a0-b0-instrument-return-20261126",
+        label: "A0 / B0 · GEMEINSAMER RÜCKLAUF",
+        title: "Gemeinsamer A0/B0-Rücklauf",
+        triggers: [],
+        route: "builder-return",
+        lane: "builder",
+        suppressInnerShell: true
+      });
+      mountSiteProjection({
         href: builderShowcaseHref,
         label: "WHAT CAN WE BUILD NOW? · BUILDER SHOWCASE",
         title: "What can we build now? · langer Builder Showcase",

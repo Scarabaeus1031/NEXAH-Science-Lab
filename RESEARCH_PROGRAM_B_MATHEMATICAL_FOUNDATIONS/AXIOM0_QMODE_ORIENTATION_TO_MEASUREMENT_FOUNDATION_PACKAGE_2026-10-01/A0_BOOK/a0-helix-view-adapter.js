@@ -21,6 +21,7 @@
     59.34704400260235,60.83177852460981,65.11254404808161,67.07981052949417,
     69.54640171117398,72.06715767448191,75.70469069908393,77.1448400688748
   ]);
+  const ZETA_CONTACT_LOG_X=0.25;
   const ZETA_LENS_MODES=Object.freeze(['smooth','trace','seam']);
   const TRACE_WORDS=Object.freeze(['RLLR','LRRL']);
   const RESIDUE_ANGLE_MODES=Object.freeze(['mod7','mod11','paired']);
@@ -254,6 +255,20 @@
 
   function clamp01(value){return Math.max(0,Math.min(1,Number(value)||0))}
   function phaseStep(mix=0){return EULER_STEP+(GOLDEN_ANGLE-EULER_STEP)*clamp01(mix)}
+  function zetaMirrorContacts(){
+    const phases=ZETA_ZERO_ORDINATES.map(gamma=>gamma*ZETA_CONTACT_LOG_X);
+    const contacts=[];
+    for(let index=0;index<phases.length-1;index++){
+      const start=phases[index],end=phases[index+1];
+      for(let multiple=Math.floor(start/Math.PI)+1;multiple*Math.PI<=end;multiple++){
+        const radians=multiple*Math.PI;
+        const from=index+1,to=index+2,angle=180*multiple;
+        contacts.push(Object.freeze({id:`${from}-${to}`,from,to,at:index+(radians-start)/(end-start),radians,angle,phase:angle%360}));
+      }
+    }
+    return Object.freeze(contacts);
+  }
+
   function degrees(radians){return radians*180/Math.PI}
 
   function strandMode(value='double'){
@@ -597,5 +612,5 @@
     });
   }
 
-  return Object.freeze({VERSION,LIMIT,TAU,PHI,EULER_STEP,GOLDEN_ANGLE,FIBONACCI_INDICES,STRAND_MODES,REGISTER_MODES,ZETA_ZERO_ORDINATES,ZETA_LENS_MODES,TRACE_WORDS,RESIDUE_ANGLE_MODES,isPrime,twinRungs,primeResidueRecords,sliceSpectrum,mod7FourierComparison,primeTailRecords,residueAngleMode,buildPrimeResidueGeometry,z37Orbits,zetaZeroRecords,explicitFormulaPair,comparePrimeRepeat,iharaTriangleTerm,zetaLensMode,traceWordData,phaseSeamData,buildZetaGeometry,phaseStep,degrees,strandMode,registerMode,helixMeasures,bundleStrand,fhBundle,triadBundle,z37Frame,registerGeometry,buildGeometry,modeRecords,inspection,rosslerLiftCycles,rosslerJanusOverlap,rosslerClusterComparison,matchSampleClusters,audit});
+  return Object.freeze({VERSION,LIMIT,TAU,PHI,EULER_STEP,GOLDEN_ANGLE,FIBONACCI_INDICES,STRAND_MODES,REGISTER_MODES,ZETA_ZERO_ORDINATES,ZETA_LENS_MODES,TRACE_WORDS,RESIDUE_ANGLE_MODES,isPrime,twinRungs,primeResidueRecords,sliceSpectrum,mod7FourierComparison,primeTailRecords,residueAngleMode,buildPrimeResidueGeometry,z37Orbits,zetaZeroRecords,ZETA_CONTACT_LOG_X,zetaMirrorContacts,explicitFormulaPair,comparePrimeRepeat,iharaTriangleTerm,zetaLensMode,traceWordData,phaseSeamData,buildZetaGeometry,phaseStep,degrees,strandMode,registerMode,helixMeasures,bundleStrand,fhBundle,triadBundle,z37Frame,registerGeometry,buildGeometry,modeRecords,inspection,rosslerLiftCycles,rosslerJanusOverlap,rosslerClusterComparison,matchSampleClusters,audit});
 });

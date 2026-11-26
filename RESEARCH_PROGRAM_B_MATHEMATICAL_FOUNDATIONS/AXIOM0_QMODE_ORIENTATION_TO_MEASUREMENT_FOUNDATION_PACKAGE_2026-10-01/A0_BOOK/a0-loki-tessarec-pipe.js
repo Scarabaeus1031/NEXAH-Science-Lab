@@ -7,6 +7,31 @@
   const STATIONS=7,ORIENTATIONS=8,RETURN=STATIONS*ORIENTATIONS;
   const mod=(n,m)=>((n%m)+m)%m;
   function state(step,twist=true){const station=mod(step,STATIONS),orientation=twist?mod(step,ORIENTATIONS):0;return Object.freeze({step,station,orientation,bits:orientation.toString(2).padStart(3,'0')});}
+  function clockAddress(number) {
+    return {active: state(number), rest57: mod(number, 57), rest19: mod(number, 19)};
+  }
+  const sourceCenter = (STATIONS - 1) / 2;
+  const isActiveSourceCell = (row, column, active) => row === sourceCenter && column === active.station;
+  function sourceFourierPhase(step) {
+    const active = state(step);
+    const bins = [];
+    for (let ky = sourceCenter; ky >= -sourceCenter; ky--) {
+      for (let kx = -sourceCenter; kx <= sourceCenter; kx++) {
+        let real = 0;
+        let imaginary = 0;
+        for (let row = 0; row < STATIONS; row++) {
+          for (let column = 0; column < STATIONS; column++) {
+            if (!isActiveSourceCell(row, column, active)) continue;
+            const angle = -2 * Math.PI * (kx * column + ky * row) / STATIONS;
+            real += Math.cos(angle);
+            imaginary += Math.sin(angle);
+          }
+        }
+        bins.push({kx, ky, phase: Math.atan2(imaginary, real), magnitude: Math.hypot(real, imaginary)});
+      }
+    }
+    return {active, bins};
+  }
   function orbit(twist=true){return Object.freeze(Array.from({length:twist?RETURN:STATIONS},(_,step)=>state(step,twist)));}
   function band28(){return Object.freeze(Array.from({length:28},(_,i)=>Object.freeze({station:i%7,left:(i>>0)&1,right:(i>>1)&1,address:i+1})));}
   function lift56(){return Object.freeze(band28().flatMap(cell=>[0,1].map(cube=>Object.freeze({...cell,cube,liftedAddress:(cell.address-1)*2+cube+1}))));}
@@ -95,7 +120,52 @@
     return Object.freeze({status:'PASS',checks,orbitLength:56,negativeControlLength:7,band:28,lift:56,identityReuse:['NEXAH_AX0_QMODE_FOUNDATION_PACKAGE / A0_WERKBANK','MOD:TESSAREC','ART:A0:MATHEMATICAL_JOINTS'],newCanonicalIds:[],relationChanges:[],claimCeiling:'BOUNDED_DISPLAY_TEST'});
   }
   const svg=(tag,attrs={})=>{const n=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const[k,v]of Object.entries(attrs))n.setAttribute(k,String(v));return n;};
-  function renderSheet(stage,active){stage.replaceChildren();for(let r=0;r<7;r++)for(let c=0;c<7;c++){const held=r===3,g=svg('g',{transform:`translate(${34+c*42} ${22+r*34})`,class:`lp-cell ${held?'held':''} ${held&&c===active.station?'active':''}`});const rect=svg('rect',{width:32,height:25,rx:4}),t=svg('text',{x:16,y:17,'text-anchor':'middle'});t.textContent=held?c+1:'·';g.append(rect,t);stage.append(g);}const label=svg('text',{x:18,y:278,class:'lp-caption'});label.textContent='7×7 SOURCE SHEET · CENTER ROW HELD AS SUGAR-STICK AXIS';stage.append(label);}
+  function renderSheet(stage,active){stage.replaceChildren();for(let r=0;r<STATIONS;r++)for(let c=0;c<STATIONS;c++){const held=r===sourceCenter,g=svg('g',{transform:`translate(${34+c*42} ${22+r*34})`,class:`lp-cell ${held?'held':''} ${isActiveSourceCell(r,c,active)?'active':''}`});const rect=svg('rect',{width:32,height:25,rx:4}),t=svg('text',{x:16,y:17,'text-anchor':'middle'});t.textContent=held?c+1:'·';g.append(rect,t);stage.append(g);}const label=svg('text',{x:18,y:278,class:'lp-caption'});label.textContent='7×7 SOURCE SHEET · CENTER ROW HELD AS SUGAR-STICK AXIS';stage.append(label);}
+  function sourceFourierPhaseDifference(before, after) {
+    return after.map(({kx, ky, phase}, index) => {
+      const difference = phase - before[index].phase;
+      return {kx, ky, phase: Math.atan2(Math.sin(difference), Math.cos(difference))};
+    });
+  }
+  function renderPhaseMap(map, bins) {
+    map.replaceChildren();
+    const label = (x, y, value) => {
+      const text = svg('text', {x, y, 'text-anchor': 'middle'});
+      text.textContent = value;
+      map.append(text);
+    };
+    for (let i = -sourceCenter; i <= sourceCenter; i++) {
+      label(65 + 30 * (i + sourceCenter), 235, i);
+      label(36, 24 + 30 * (sourceCenter - i), i);
+    }
+    label(155, 256, 'kₓ');
+    label(13, 114, 'kᵧ');
+
+    for (const {kx, ky, phase} of bins) {
+      const cell = svg('rect', {
+        x: 50 + 30 * (kx + sourceCenter), y: 6 + 30 * (sourceCenter - ky), width: 28, height: 28,
+        fill: `hsl(${180 * (1 + phase / Math.PI)} 72% 54%)`,
+        class: kx === 1 && ky === 0 ? 'lp-phase-reference' : ''
+      });
+      const title = svg('title');
+      title.textContent = `kₓ=${kx}, kᵧ=${ky} · ${phase.toFixed(3)} rad`;
+      cell.append(title);
+      map.append(cell);
+    }
+  }
+  function renderSourcePhaseComparison(root) {
+    const spectra = new Map();
+    for (const card of root.querySelectorAll('[data-lp-phase-step]')) {
+      const step = Number(card.dataset.lpPhaseStep);
+      const {active, bins} = sourceFourierPhase(step);
+      spectra.set(step, bins);
+      renderSheet(card.querySelector('[data-lp-phase-source]'), active);
+      renderPhaseMap(card.querySelector('[data-lp-phase-map]'), bins);
+    }
+    const difference = root.querySelector('[data-lp-phase-difference]');
+    if (difference) renderPhaseMap(difference,
+      sourceFourierPhaseDifference(spectra.get(RETURN), spectra.get(RETURN + 1)));
+  }
   function renderBand(stage,active){stage.replaceChildren();band28().forEach((cell,i)=>{const x=22+cell.station*40,y=22+(cell.left*2+cell.right)*42,g=svg('g',{transform:`translate(${x} ${y})`,class:`lp-cell ${cell.station===active.station?'active':''}`}),rect=svg('rect',{width:31,height:31,rx:4}),t=svg('text',{x:15.5,y:20,'text-anchor':'middle'});t.textContent=`${cell.left}${cell.right}`;g.append(rect,t);stage.append(g);});const label=svg('text',{x:18,y:208,class:'lp-caption'});label.textContent='2×7×2 = 28 · TWO HINGE BITS AROUND SEVEN STATIONS';stage.append(label);}
   function renderPipe(stage,active){stage.replaceChildren();const cy=130;for(let s=0;s<7;s++){const x=34+s*45;stage.append(svg('line',{x1:x,y1:28,x2:x,y2:232,class:s===active.station?'lp-axis active':'lp-axis'}));for(let o=0;o<8;o++){const a=2*Math.PI*o/8,yy=cy+78*Math.sin(a),r=(s===active.station&&o===active.orientation)?7:3;stage.append(svg('circle',{cx:x,cy:yy,r,class:(s===active.station&&o===active.orientation)?'lp-node active':'lp-node'}));}}const route=`${orbit(true).map((p,i)=>{const x=34+p.station*45,y=cy+78*Math.sin(2*Math.PI*p.orientation/8);return`${i?'L':'M'}${x} ${y}`;}).join(' ')} Z`;stage.insertBefore(svg('path',{d:route,class:'lp-route'}),stage.firstChild);const axis=svg('line',{x1:18,y1:cy,x2:322,y2:cy,class:'lp-stick'}),label=svg('text',{x:18,y:258,class:'lp-caption'});label.textContent='LOKI LOCAL TWIST · ONE COPRIME ORBIT · RETURN AFTER 56';stage.append(axis,label);}
   function renderM37(stage,active=3){stage.replaceChildren();const probe=m37Probe(),max=259;probe.rungs.forEach((r,i)=>{const x=88+i*190,w=112,h=190*r.scaled/max,y=238-h,g=svg('g',{class:`m37-rung ${active===r.index?'active':''}`}),bar=svg('rect',{x,y,width:w,height:h,rx:8}),p=svg('text',{x:x+w/2,y:y-34,'text-anchor':'middle',class:'prime'}),v=svg('text',{x:x+w/2,y:y-12,'text-anchor':'middle',class:'value'}),formula=svg('text',{x:x+w/2,y:264,'text-anchor':'middle',class:'formula'});p.textContent=`P${r.index} = ${r.prime}`;v.textContent=String(r.scaled);formula.textContent=`${r.prime} × 37`;g.append(bar,p,v,formula);stage.append(g);});stage.append(svg('line',{x1:250,y1:98,x2:250,y2:236,class:'m37-middle'}));const delta1=svg('text',{x:217,y:290,'text-anchor':'middle',class:'delta'}),delta2=svg('text',{x:407,y:290,'text-anchor':'middle',class:'delta'});delta1.textContent='Δ74';delta2.textContent='Δ74';stage.append(delta1,delta2);}
@@ -127,16 +197,36 @@
     }
   }
   function mount(scope=document){const root=scope.querySelector?.('#lokiTessarecPipeTest');if(!root)return null;const sheet=root.querySelector('[data-lp-sheet]'),band=root.querySelector('[data-lp-band]'),pipe=root.querySelector('[data-lp-pipe]'),out=root.querySelector('[data-lp-output]');let step=0,timer=null;
-    const paint=()=>{const s=state(step);renderSheet(sheet,s);renderBand(band,s);renderPipe(pipe,s);root.querySelector('[data-lp-step]').textContent=String(step).padStart(2,'0');root.querySelector('[data-lp-station]').textContent=String(s.station+1);root.querySelector('[data-lp-orientation]').textContent=`${s.orientation} · ${s.bits}`;root.querySelector('[data-lp-progress]').style.width=`${100*step/56}%`;out.textContent=step===56?'EXACT RETURN · (0,0) AFTER 56 STEPS':`STATE ${step}/56 · S${s.station+1} · O${s.orientation} (${s.bits}) · ${56-step} TO RETURN`;return s;};
+    const address = root.querySelector('[data-lp-address]');
+    const addressOut = root.querySelector('[data-lp-address-output]');
+    const paint = () => {
+      const number = address && address.value !== 'step' ? Number(address.value) : step;
+      const {active, rest57, rest19} = clockAddress(number);
+      const orbitStep = number === RETURN ? RETURN : mod(number, RETURN);
+      renderSheet(sheet, active);
+      renderBand(band, active);
+      renderPipe(pipe, active);
+      root.querySelector('[data-lp-step]').textContent = String(number).padStart(2, '0');
+      root.querySelector('[data-lp-station]').textContent = String(active.station + 1);
+      root.querySelector('[data-lp-orientation]').textContent = `${active.orientation} · ${active.bits}`;
+      root.querySelector('[data-lp-progress]').style.width = `${100 * orbitStep / RETURN}%`;
+      out.textContent = number === RETURN ? 'EXACT RETURN · (0,0) AFTER 56 STEPS'
+        : `ORBIT ${orbitStep}/${RETURN} · S${active.station + 1} · O${active.orientation} (${active.bits})`;
+      if (addressOut) addressOut.textContent = `${number} = ${Math.floor(number / 57)} × 57 + ${rest57} · Mod 57: ${rest57} → Mod 19: ${rest19}`;
+      return active;
+    };
     const stop=()=>{if(timer){clearInterval(timer);timer=null;}root.querySelector('[data-lp-play]').textContent='PLAY 56';};
-    root.querySelector('[data-lp-next]').addEventListener('click',()=>{stop();step=(step+1)%57;paint();});
-    root.querySelector('[data-lp-return]').addEventListener('click',()=>{stop();step=56;paint();});
-    root.querySelector('[data-lp-reset]').addEventListener('click',()=>{stop();step=0;paint();});
-    root.querySelector('[data-lp-play]').addEventListener('click',e=>{if(timer){stop();return;}step=0;e.currentTarget.textContent='PAUSE';paint();timer=setInterval(()=>{step++;paint();if(step===56)stop();},90);});
+    const showStep = next => { if (address) address.value = 'step'; step = next; paint(); };
+    root.querySelector('[data-lp-next]').addEventListener('click',()=>{stop();showStep((step+1)%(RETURN+1));});
+    root.querySelector('[data-lp-return]').addEventListener('click',()=>{stop();showStep(RETURN);});
+    root.querySelector('[data-lp-reset]').addEventListener('click',()=>{stop();showStep(0);});
+    root.querySelector('[data-lp-play]').addEventListener('click',e=>{if(timer){stop();return;}e.currentTarget.textContent='PAUSE';showStep(0);timer=setInterval(()=>{step++;paint();if(step===RETURN)stop();},90);});
+    address?.addEventListener('change', () => { stop(); paint(); });
+    renderSourcePhaseComparison(root);
     const m37=root.querySelector('[data-m37-grid]'),m37Out=root.querySelector('[data-m37-output]');if(m37){let rung=3;const paintM37=()=>{renderM37(m37,rung);const p=m37Probe(),r=p.rungs.find(x=>x.index===rung);m37Out.textContent=rung===2?'SOURCE PASS · P2=3 · 3×37=111 · 111²=12321':rung===3?'MIDDLE PASS · P3=5 · 5×37=185 · Δ74 / Δ74':`COMPARATOR PASS · P4=7 · 7×37=259 · GHOSTGRID SOURCE BINDING OPEN`;root.querySelectorAll('[data-m37-rung]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.m37Rung===rung)));};root.querySelectorAll('[data-m37-rung]').forEach(b=>b.addEventListener('click',()=>{rung=+b.dataset.m37Rung;paintM37();}));paintM37();}
     const m11=root.querySelector('[data-m11-stage]'),m11Out=root.querySelector('[data-m11-output]');if(m11){let mode='GLYPH';const messages={GLYPH:'MIRROR PASS · TWO I-PILLARS · CENTER V-FOLD · AXIS x=0',PRIME:'PRIME PASS · V=5 · p₅=11 · XI=11',ROMAN:'ROMAN PASS · I V X L C D M · ALTERNATING ×5 / ×2',ANGLE:'TYPE PASS · L=50 · ∠L=90° · XC=90 · D=500',BREATH:'P-BREATH PASS · THREAD 110101 · HOLD@3,5 · COUNTER@4 · 11→13→31 · SEHNE/TAN HOLD'};const paintM11=()=>{renderM11(m11,mode);m11Out.textContent=messages[mode];root.querySelectorAll('[data-m11-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.m11View===mode)));};root.querySelectorAll('[data-m11-view]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m11View;paintM11();}));paintM11();}
     paint();return{paint,verify,verifyM37,verifyM11PrimeFold};
   }
   if(typeof document!=='undefined')document.addEventListener('DOMContentLoaded',()=>mount(document));
-  return Object.freeze({STATIONS,ORIENTATIONS,RETURN,state,orbit,band28,lift56,isPrime,nthPrime,romanDecode,pBreathProbe,verifyPBreath,m37Probe,verifyM37,m11PrimeFoldProbe,verifyM11PrimeFold,verify,mount});
+  return Object.freeze({STATIONS,ORIENTATIONS,RETURN,state,clockAddress,sourceFourierPhase,sourceFourierPhaseDifference,orbit,band28,lift56,renderPipe,isPrime,nthPrime,romanDecode,pBreathProbe,verifyPBreath,m37Probe,verifyM37,m11PrimeFoldProbe,verifyM11PrimeFold,verify,mount});
 });

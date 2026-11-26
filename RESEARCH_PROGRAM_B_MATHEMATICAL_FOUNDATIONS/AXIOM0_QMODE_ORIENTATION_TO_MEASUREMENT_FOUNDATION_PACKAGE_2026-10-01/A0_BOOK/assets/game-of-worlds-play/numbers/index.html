@@ -1,4 +1,4 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Game of Numbers</title><link rel="stylesheet" href="../../../a0-game-of-numbers.css?v=20261125-1836-resonance-ladder"><link rel="stylesheet" href="../../../a0-cathedral-world.css"><link rel="stylesheet" href="../../../a0-number-parallel.css"><link rel="stylesheet" href="../../../a0-trinity-lens.css"></head><body>
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Game of Numbers</title><link rel="stylesheet" href="../../../a0-game-of-numbers.css?v=zeta-angle-sequence"><link rel="stylesheet" href="../../../a0-cathedral-world.css"><link rel="stylesheet" href="../../../a0-number-parallel.css"><link rel="stylesheet" href="../../../a0-trinity-lens.css"></head><body>
 <main id="numberWorld"><section id="numberParallel" aria-label="Gruppierte Vergleichsläufe, getrennte Regeln und Zustände"></section><section id="numberTrinity" hidden aria-label="Trinity: zwei Linsen und ihre Überlagerung"><div class="trinity-controls"><label><input id="trinityLeft" type="checkbox" checked> Linke Linse A</label><label><input id="trinityRight" type="checkbox" checked> Rechte Linse B</label><label><input id="trinitySwap" type="checkbox"> AM / PM Anordnung tauschen</label><label>Farbansicht <select id="trinityPalette"><option value="roles">Rollenfarben</option><option value="rgb">RGB · screen</option><option value="cmyk">CMYK / YMCK · Display</option></select></label><label>K · Schwarz <input id="trinityK" type="range" min="0" max="1" step="0.05" value="0"></label><label>Lesemarke <select id="trinityMarker"><option value="dawn">Dawn</option><option value="day">Day</option><option value="demizel">Demizel</option><option value="dusk">Dusk</option><option value="night">Night</option></select></label></div><output id="trinityStatus" aria-live="polite"></output><div id="trinityDrawing"></div><p class="trinity-provenance">Begriffliche Herkunft: NEXAH Codex; A0 ist Darstellungs- und Prüffläche. Q°: historisches Beobachterlabel. CA / Consciousness-Achse, Sunset Boulevard und T1/T2/T3 werden nicht als A0-Operatoren oder bewiesene Zuordnung ausgegeben. Die Lesemarke ist manuell, keine gemessene Tageszeit. Prismaflächen- und Bench-Übergabe bleiben getrennt offen.</p></section><section id="numberPQ" hidden aria-label="P/Q Conjugate Orbit: gebundenes Clockwork-3D-Modell"><model-viewer id="numberPQViewer" camera-controls interaction-prompt="auto" animation-name="OIL_RIS_ORBITAL_CLOSURE_48S" exposure="1.1" alt="Vorhandenes P/Q-Conjugate-Orbit-v7-Modell mit Gegenbahn und Schattenknoten"></model-viewer><output id="numberPQStatus" aria-live="polite">Modell lädt erst beim Öffnen der P/Q-Ansicht.</output></section><nav id="numberWheelControls" hidden aria-label="Deklarierte Räderkopplung"><label>1836 : 1729 <select id="wheelRatio"><option value="3:2">3 : 2</option><option value="2:3">2 : 3</option></select></label><label>Richtung <select id="wheelDirection"><option value="counter">Gegenlauf ↺ ↻</option><option value="co">Gleichlauf ↺ ↺</option></select></label>
 <div id="wheelBeatControls" role="group" aria-label="1836 · 432 und 408 im gemeinsamen 808-Takt">
   <div class="wheel-beat-row" role="group" aria-label="Beat abspielen">
@@ -18,6 +18,64 @@
     <button id="wheelPresetBasic" type="button">2–1–3 · Basis</button>
   </div>
   <small id="wheelPresetHint" role="status">7/8-Groove mit Reverse-808, Hi-Hat und 69-Hz-Backloop.</small>
+  <div class="wheel-clock-comparison">
+  <section id="wheelLokiTessarec" aria-labelledby="wheelLokiTitle">
+    <div>
+      <h3 id="wheelLokiTitle">Loki im Tessarec</h3>
+      <p>Ab dem ersten Einsatz schaltet jedes Achtel Station und Orientierung einen Schritt weiter.</p>
+      <output id="wheelLokiStep" aria-live="off">Schritt 0 · Station S1 · Orientierung O0</output>
+      <p id="wheelLokiReturn" role="status">Start · S1 / O0 · erster Return bei 56</p>
+      <div id="wheelLokiControls" role="group" aria-label="Schrittvergleich" hidden>
+        <button id="wheelLokiBack" type="button" hidden>Zurück</button>
+        <button id="wheelLokiContinue" type="button">Weiter</button>
+        <button id="wheelLokiResume" type="button" hidden>Takt fortsetzen</button>
+      </div>
+      <a href="../../../A0_WERKBANK.html#lokiTessarecPipeTest" target="_parent">Tessarec-Pipe in der Werkbank →</a>
+    </div>
+    <div class="wheel-loki-visuals">
+      <svg id="wheelLokiPipe" viewBox="0 20 340 217" role="img" aria-label="Tessarec-Pipe mit sieben Stationen und acht Orientierungen" aria-describedby="wheelLokiStep"></svg>
+      <figure>
+        <figcaption id="wheelLoki19Caption">19er-Rad · +1 je Achtel</figcaption>
+        <svg id="wheelLoki19" viewBox="0 0 180 180" role="img" aria-label="19er-Rad mit Resten 0 bis 18" aria-describedby="wheelLoki19Step"></svg>
+        <output id="wheelLoki19Step">Schritt 0 · Rest 0</output>
+      </figure>
+    </div>
+    <p id="wheelLoki19Witness" role="status"></p>
+  </section>
+  <section id="wheelClockAddress" aria-labelledby="wheelClockAddressTitle">
+    <h3 id="wheelClockAddressTitle">Clock Address</h3>
+    <div class="wheel-clock-source">
+      <label for="wheelClockAddressSource">Adresse</label>
+      <select id="wheelClockAddressSource">
+        <option value="step" selected>Aktueller Schritt</option>
+        <option value="1836">1836 · feste Adresse</option>
+        <option value="3656">3656 · Mod 57 und 19 vergleichen</option>
+        <option value="3565">3565 · Mod 57 und 19 vergleichen</option>
+      </select>
+    </div>
+    <svg id="wheelClockAddressRings" viewBox="0 0 220 220" role="img" aria-label="Fünf Uhren mit gemeinsamer Null oben. Der 57er-Ring liegt außen." aria-describedby="wheelClockAddressValues"></svg>
+    <ul id="wheelClockAddressValues"></ul>
+    <p id="wheelClockAddressComparison" role="status" hidden></p>
+    <p id="wheelClockAddressTransition" hidden>56 → 57 · Mod 24: 8 → 9 · Mod 408, 432 und 360: 56 → 57 · Mod 57: 56 → 0</p>
+    <section id="wheelZetaContacts" data-angle-sequence aria-labelledby="wheelZetaTitle" hidden>
+      <h4 id="wheelZetaTitle">Grey/Pink · ζ‑Kontaktrad</h4>
+      <p>Wähle einen Kontakt. Der Winkel steht am Rad, der Rückweg führt zur Sprossenhöhe.</p>
+      <svg id="wheelZetaDial" data-angle-wheel="91" viewBox="0 0 220 220" role="group" aria-label="Fünf anwählbare ζ‑Kontakte"></svg>
+      <div class="wheel-zeta-sequence">
+        <button id="wheelZetaSequencePlay" data-angle-play type="button">▶ Winkelfolge abspielen</button>
+        <span>+90° → +90° → −270°</span>
+        <output id="wheelZetaSequenceStatus" data-angle-status aria-live="polite">Start bei 0°</output>
+        <div class="wheel-zeta-angle-values" aria-label="Winkel der Winkelfolge">
+          <span>Rad <b id="wheelZetaSequencePhase" data-angle-phase>0°</b></span>
+          <span>Lift <b id="wheelZetaSequenceLift" data-angle-lift>0°</b></span>
+        </div>
+      </div>
+      <a class="wheel-zeta-helix-link" href="../../../A0_HELIX_VIEW_ADAPTER.html#helix-angle-sequence" target="_top">Winkelfolge an der A0‑Sprosse ↗</a>
+      <output id="wheelZetaReadout" aria-live="polite"></output>
+      <a id="wheelZetaReturn" target="_top">Kontakt in der A0‑Helix öffnen ↗</a>
+    </section>
+  </section>
+  </div>
   <div class="wheel-beat-meters" role="group" aria-label="808-Hüllkurven für 432, 408 und C">
     <span aria-hidden="true">432</span><span class="wheel-beat-meter" aria-hidden="true"><span id="wheelBeatMeter432"></span></span>
     <span aria-hidden="true">408</span><span class="wheel-beat-meter" aria-hidden="true"><span id="wheelBeatMeter408"></span></span>
@@ -398,5 +456,5 @@
   </form>
   <form method="dialog"><button id="wheelBlindClose">Schließen</button></form>
 </dialog></main>
-<script src="../../../../../../../../10%20NEXAH%20CORE/NEXAH/APPLICATIONS/game4life_plus1/cylinder-engine.js"></script><script src="../../../../../../../../10%20NEXAH%20CORE/NEXAH/APPLICATIONS/game4life_plus1/three-domain-transition-test/domain-engine.js"></script><script src="../../../a0-numbermagick-number-lens.js"></script><script src="../../../a0-family-spatial-navigation.js"></script><script src="../../../a0-game-of-worlds-model.js"></script><script src="../../../a0-trinity-lens.js"></script><script src="../../../a0-game-of-numbers-model.js?v=20261101-carrier-1031-r1"></script><script src="../../../assets/a0-blue-body-dodeca-countershot-v1.js"></script><script src="../../../a0-layered-pentagon-scene.js"></script><script src="../../../assets/vendor/a0-model-viewer-classic.js"></script><script src="../../../a0-cathedral-parts.js"></script><script src="../../../a0-cathedral-world-projection.js"></script><script src="../../../a0-cathedral-world-view.js"></script><script src="../../../a0-number-parallel-model.js?v=20261031-qrt20-r1"></script><script src="../../../a0-number-parallel-view.js"></script><script src="../../../../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_CON_DAO_JANUS_BREATH_SEQUENCER_2026-10-06/breath-model.js"></script><script src="../../../a0-con-dao-phase.js"></script><script src="../../../a0-prime-address-countershot.js"></script><script src="../../../a0-game-of-numbers.js?v=20261125-1836-resonance-ladder"></script>
+<script src="../../../../../../../../10%20NEXAH%20CORE/NEXAH/APPLICATIONS/game4life_plus1/cylinder-engine.js"></script><script src="../../../../../../../../10%20NEXAH%20CORE/NEXAH/APPLICATIONS/game4life_plus1/three-domain-transition-test/domain-engine.js"></script><script src="../../../a0-numbermagick-number-lens.js"></script><script src="../../../a0-family-spatial-navigation.js"></script><script src="../../../a0-game-of-worlds-model.js"></script><script src="../../../a0-trinity-lens.js"></script><script src="../../../a0-game-of-numbers-model.js?v=20261101-carrier-1031-r1"></script><script src="../../../assets/a0-blue-body-dodeca-countershot-v1.js"></script><script src="../../../a0-layered-pentagon-scene.js"></script><script src="../../../assets/vendor/a0-model-viewer-classic.js"></script><script src="../../../a0-cathedral-parts.js"></script><script src="../../../a0-cathedral-world-projection.js"></script><script src="../../../a0-cathedral-world-view.js"></script><script src="../../../a0-number-parallel-model.js?v=20261031-qrt20-r1"></script><script src="../../../a0-number-parallel-view.js"></script><script src="../../../../../../SCIENCE_LAB/CASE_STUDIES/NEXAH_CON_DAO_JANUS_BREATH_SEQUENCER_2026-10-06/breath-model.js"></script><script src="../../../a0-con-dao-phase.js"></script><script src="../../../a0-prime-address-countershot.js"></script><script src="../../../a0-loki-tessarec-pipe.js?v=20261126-clock-57"></script><script src="../../../a0-helix-view-adapter.js?rev=zeta-contact-wheel"></script><script src="../../../a0-game-of-numbers.js?v=shared-angle-sequence"></script><script src="../../../a0-angle-sequence.js?v=1"></script>
 </body></html>

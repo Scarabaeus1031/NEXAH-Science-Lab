@@ -51,6 +51,38 @@
   <link rel="stylesheet" href="a0-blue-body-spoon-lens.css?rev=20261023-hua-hue-r9">
   <link rel="stylesheet" href="a0-blue-body-tl-lasso.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-blue-body-fold-notation.css?rev=20261023-r1">
+  <style>
+    .a0-fourier-archive { scroll-margin-top: 90px; }
+    .a0-fourier-archive-grid { display:grid; grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); gap:16px; align-items:start; }
+    .a0-fourier-archive-grid article { min-width:0; padding:16px; background:#081823; color:#dcedf3; border:1px solid #315262; }
+    .a0-fourier-archive-grid h3 { margin:0 0 12px; font-size:1.1rem; }
+    .a0-fourier-archive-grid p { margin:12px 0 0; line-height:1.45; font-size:.88rem; color:#b8cfdb; }
+    .a0-fourier-archive-grid iframe { display:block; width:100%; height:clamp(360px,46vw,490px); border:1px solid #244554; background:#000; }
+    .a0-fourier-archive-grid [hidden] { display:none; }
+    .a0-archive-geometry canvas { display:block; width:100%; border:1px solid #244554; background:#030d17; }
+    .a0-archive-geometry label { display:flex; align-items:center; gap:10px; margin-top:8px; }
+    .a0-archive-geometry input { flex:1; min-width:0; accent-color:#ffcf65; }
+    .a0-fourier-archive-grid article a { color:#a6e8fb; }
+    .a0-fourier-archive-grid img { display:block; width:100%; max-height:423px; height:auto; object-fit:contain; }
+    .a0-julia-controls { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:8px; margin-top:12px; }
+    .a0-julia-controls input { grid-column:1/-1; width:100%; accent-color:#ffcf65; }
+    #juliaRadius { --julia-thumb:16px; appearance:none; -webkit-appearance:none; height:24px; margin:0; padding:0; border:0; background:linear-gradient(#476278,#476278) center/100% 4px no-repeat; touch-action:pan-y; cursor:pointer; }
+    #juliaRadius::-webkit-slider-thumb { -webkit-appearance:none; width:var(--julia-thumb); height:var(--julia-thumb); border:1px solid #fff3bd; border-radius:50%; background:#ffcf65; }
+    #juliaRadius::-moz-range-thumb { width:var(--julia-thumb); height:var(--julia-thumb); box-sizing:border-box; border:1px solid #fff3bd; border-radius:50%; background:#ffcf65; }
+    .a0-julia-controls output { justify-self:end; color:#ffde92; }
+    .a0-julia-controls button { background:#112e40; color:#dcedf3; border:1px solid #416475; padding:8px; cursor:pointer; }
+    .a0-julia-controls button:disabled { opacity:.5; cursor:default; }
+    .a0-julia-tessarec { margin:12px 0 0; border:1px solid #315262; background:#04141f; }
+    .a0-julia-tessarec canvas { display:block; width:100%; height:auto; }
+    .a0-julia-tessarec figcaption { padding:6px 10px; color:#ffde92; font-size:.8rem; }
+    [data-julia-radius] { scroll-margin-top:90px; }
+    #blueCanvas:focus-visible, #juliaHelixPreview:focus-visible { outline:2px solid #ffcf65; outline-offset:-3px; }
+    #juliaHelixRadiusTooltip { position:fixed; z-index:1000; pointer-events:none; width:148px; max-width:calc(100vw - 16px); box-sizing:border-box; padding:7px; border:1px solid #d7aa58; border-radius:6px; background:#122332; color:#fff3bd; font:700 .8rem system-ui,sans-serif; }
+    #juliaHelixRadiusTooltip img { display:block; width:100%; height:auto; aspect-ratio:407/423; object-fit:contain; margin-top:5px; background:#081823; }
+    #bluePhiHelix[aria-pressed="true"] { color:#ffde92; border-color:#c99e45; }
+    .a0-fourier-returns { display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:14px; }
+    @media (max-width:750px) { .a0-fourier-archive-grid { grid-template-columns:1fr; } }
+  </style>
 </head>
 <body class="guided-mode" id="module-entry">
   <header class="top" id="bench-page-top"><a class="brand" href="A0_RESEARCH_DESK.html#tests">NEXAH · Science Desk</a><nav><a href="#guided-test">Geführter Test</a><a href="#blue-body-spoon-lens-stack">Schnitt</a><a href="#lab">Carrier / Host</a><a href="#pentagon-body-player">48er Player</a><a href="#return">Return</a><a href="A0_THEORY_STORYBOARD.html#architecture">Theorie · 3+1-Karte</a><a class="nav-expert" href="#expert-index" id="expertNavLink">Expertenflächen</a><a href="A0_LIVING_BLUEPRINT.html#tube">Gesamtarchitektur</a></nav></header>
@@ -76,8 +108,44 @@
     <nav class="spoon-return-links" aria-label="Vierfugen-Vertrag zurückbinden"><span><b>READ-ONLY RETURN</b> · Die Anwendung bleibt hier; nachgelagerte Linsen lesen nur denselben verifizierten Record.</span><a href="A0_BLUE_PINK_DODECA_CELL_RETURN.html?rev=20261023-coupled-channel-r1#coupledChannelBoundaryLens">Volle Kopplung · Coupled Channel 1–8 ↗</a><a href="A0_MATHEMATICAL_JOINTS.html#zipper-four-seam-application">Mathematical Joints · Zipper Application ↗</a><a href="A0_RESEARCH_DESK.html#blue-body-four-seam-return-20261023">Science Desk · Vierfugen-Return ↗</a></nav>
     <div class="spoon-fold-notation" role="note" aria-label="Down-up-Falte und Pink-Diamond-Kontakt"><strong>√ <span aria-hidden="true">→</span> ° <span aria-hidden="true">→</span> ^</strong><span><b>√</b> = Down-Falte / Löffelaufnahme · <b>°</b> = lokaler Pivot mit sichtbarem Funken · <b>^</b> = Up-Gegenlage. Danach liest <b class="fold-pink">Pink Strip → Zipper → Pink-Diamond-Linse</b> denselben Ausschnitt. Das ist die Kipp- und Kontaktfolge des Schnitts, keine Wurzelrechnung und kein neuer kanonischer Operator.</span></div>
     <section class="section" id="lab"><div class="head"><div class="no">01</div><div><div class="label">Interactive host-embedding prototype</div><h2>Ein Carrier. Ein Host. Zwei verschiedene Kantensysteme.</h2><p class="sub">Die Mapping-Wahl vergleicht den natürlichen Gray-Ring mit zwei deterministischen 120k-Kandidaten. Der layer-erhaltende Lauf bewahrt 3×16; der freie Lauf darf diese Ordnung aufgeben. Der State-Regler verfolgt dabei dieselben 48 Carrier-States und ihre kürzesten Routen auf der Hülle. Die neue Host-Flächenlinse zeigt die andere Seite derselben Projektion: 16 Pentagone, 8 Hexagone und 2 Oktagone bleiben als Hüllflächen auswählbar, ohne zu Carrier-Transitionen zu werden.</p></div></div>
-      <div class="lab"><div class="lab-head"><strong>O₂–P₁₆–H₈ · 6×8 shell host</strong><span id="runStatus">Natural Gray-ring · canonical · 48/48 retained</span></div><div class="blue-body-camera-controls" data-body-camera-controls role="group" aria-label="Körper drehen und anhalten"><button type="button" id="blueRotationToggle" aria-pressed="true">Ⅱ Drehung anhalten</button><button type="button" data-camera-nudge="-0.261799,0" aria-label="Körper 15 Grad nach links drehen">← Links</button><button type="button" data-camera-nudge="0.261799,0" aria-label="Körper 15 Grad nach rechts drehen">Rechts →</button><button type="button" data-camera-nudge="0,-0.174533" aria-label="Körper nach oben kippen">↑ Kippen</button><button type="button" data-camera-nudge="0,0.174533" aria-label="Körper nach unten kippen">↓ Kippen</button><button type="button" id="blueCameraReset">Startansicht</button><output id="blueRotationNote" aria-live="polite">Ziehen übernimmt die Drehung.</output></div><div class="stage" id="blueStage"><canvas id="blueCanvas" aria-label="Rotierbare blaue O2-P16-H8-Polyederhülle mit auswählbaren Host-Flächen, orthogonaler Sonnenblumen-Draufsicht, Tessarec-State-Zuordnung und gerouteten Carrier-Nachbarschaften"></canvas><div class="stage-note" id="blueStageNote">orbit · drag = rotate · click = select face · cyan = host lens · gold = state · pink = carrier route</div></div><div class="controls"><label>Mapping view<select id="mappingSelect"><option value="natural">Natural Gray-ring · 3×16 → 6×8</option><option value="layered">Layer-preserving · seed 4802168</option><option value="free">Unconstrained · seed 7</option></select></label><label>Carrier state <span id="stateLabel">P₀ · 0000</span><input id="stateRange" type="range" min="0" max="47" value="0"></label><button id="searchButton" type="button" disabled>Natural · no search</button></div><div class="face-lens" aria-label="Host-Flächenlinse"><div class="face-lens-intro"><b>Host face lens</b><span>Cyan = auswählbare Hülle. Gold und Pink bleiben Carrier-Layer.</span></div><div><label>Host view</label><div class="host-view-switch" role="group" aria-label="Host-Ansicht"><button type="button" data-host-view="orbit" class="active">Orbit · Körper</button><button type="button" data-host-view="top">Top · Sonnenblume</button></div></div><label>Face family<select id="faceTypeSelect" aria-label="Host-Flächenfamilie"><option value="ALL">Alle · 26</option><option value="P" selected>Pentagone · 16</option><option value="H">Hexagone · 8</option><option value="O">Oktagone · 2</option></select></label><label>Selected host face<select id="hostFaceSelect" aria-label="Ausgewählte Host-Fläche"></select></label><button type="button" id="routeToggle" class="active" aria-pressed="true">Carrier routes · on</button></div><div class="face-readout" id="hostFaceReadout" aria-live="polite"></div><div class="readout" id="blueReadout" aria-live="polite"></div><div class="metrics"><div class="metric"><b id="mWire">280</b><span>Wirelength</span></div><div class="metric"><b id="mMean">2.1875</b><span>Mean dilation</span></div><div class="metric"><b id="mMax">6</b><span>Max dilation</span></div><div class="metric"><b id="mCong">6</b><span>Max congestion</span></div><div class="metric"><b id="mLayer">48/48</b><span>Layer retained</span></div><div class="metric"><b id="mDirect">40/128</b><span>Direct carrier edges</span></div></div></div>
+      <div class="lab"><div class="lab-head"><strong>O₂–P₁₆–H₈ · 6×8 shell host</strong><span id="runStatus">Natural Gray-ring · canonical · 48/48 retained</span></div><div class="blue-body-camera-controls" data-body-camera-controls role="group" aria-label="Körper drehen und anhalten"><button type="button" id="blueRotationToggle" aria-pressed="true">Ⅱ Drehung anhalten</button><button type="button" data-camera-nudge="-0.261799,0" aria-label="Körper 15 Grad nach links drehen">← Links</button><button type="button" data-camera-nudge="0.261799,0" aria-label="Körper 15 Grad nach rechts drehen">Rechts →</button><button type="button" data-camera-nudge="0,-0.174533" aria-label="Körper nach oben kippen">↑ Kippen</button><button type="button" data-camera-nudge="0,0.174533" aria-label="Körper nach unten kippen">↓ Kippen</button><button type="button" id="blueCameraReset">Startansicht</button><button type="button" id="bluePhiHelix" aria-controls="blueCanvas" aria-pressed="true">Φ-Helix</button><a href="#juliaRadius">Julia-Schnitt wählen ↓</a><output id="blueJuliaSlice" aria-live="polite"></output><output id="blueRotationNote" aria-live="polite">Ziehen übernimmt die Drehung.</output></div><div class="stage" id="blueStage"><canvas id="blueCanvas" tabindex="0" aria-label="Φ-Helix auswählen mit Klick oder Pfeiltasten. Rotierbare blaue O2-P16-H8-Polyederhülle mit auswählbaren Host-Flächen, orthogonaler Sonnenblumen-Draufsicht, Tessarec-State-Zuordnung und gerouteten Carrier-Nachbarschaften"></canvas><div class="stage-note" id="blueStageNote">orbit · drag = rotate · click = select face · cyan = host lens · gold = state · pink = carrier route</div></div><div class="controls"><label>Mapping view<select id="mappingSelect"><option value="natural">Natural Gray-ring · 3×16 → 6×8</option><option value="layered">Layer-preserving · seed 4802168</option><option value="free">Unconstrained · seed 7</option></select></label><label>Carrier state <span id="stateLabel">P₀ · 0000</span><input id="stateRange" type="range" min="0" max="47" value="0"></label><button id="searchButton" type="button" disabled>Natural · no search</button></div><div class="face-lens" aria-label="Host-Flächenlinse"><div class="face-lens-intro"><b>Host face lens</b><span>Cyan = auswählbare Hülle. Gold und Pink bleiben Carrier-Layer.</span></div><div><label>Host view</label><div class="host-view-switch" role="group" aria-label="Host-Ansicht"><button type="button" data-host-view="orbit" class="active">Orbit · Körper</button><button type="button" data-host-view="top">Top · Sonnenblume</button></div></div><label>Face family<select id="faceTypeSelect" aria-label="Host-Flächenfamilie"><option value="ALL">Alle · 26</option><option value="P" selected>Pentagone · 16</option><option value="H">Hexagone · 8</option><option value="O">Oktagone · 2</option></select></label><label>Selected host face<select id="hostFaceSelect" aria-label="Ausgewählte Host-Fläche"></select></label><button type="button" id="routeToggle" class="active" aria-pressed="true">Carrier routes · on</button></div><div class="face-readout" id="hostFaceReadout" aria-live="polite"></div><div class="readout" id="blueReadout" aria-live="polite"></div><div class="metrics"><div class="metric"><b id="mWire">280</b><span>Wirelength</span></div><div class="metric"><b id="mMean">2.1875</b><span>Mean dilation</span></div><div class="metric"><b id="mMax">6</b><span>Max dilation</span></div><div class="metric"><b id="mCong">6</b><span>Max congestion</span></div><div class="metric"><b id="mLayer">48/48</b><span>Layer retained</span></div><div class="metric"><b id="mDirect">40/128</b><span>Direct carrier edges</span></div></div></div>
       <div class="finding"><strong>Erster Engineering-Return:</strong> Die natürliche Gray-Ring-Abbildung erreicht Wirelength 280. Der eingefrorene freie Kandidat erreicht denselben Wert und dieselbe maximale Dilatation/Congestion, bewahrt aber nur 14/48 Layeradressen statt 48/48. Das ist ein starker Designkandidat — noch kein Optimalitätsbeweis.</div>
+    </section>
+    <section class="section a0-fourier-archive" id="au-na-he-ti-ii" aria-labelledby="fourierArchiveTitle">
+      <h2 id="fourierArchiveTitle">AU-NA-HE-TI II und Julia</h2>
+      <p class="sub">Zwei Ansichten zum Durchgehen von Schnitten. Oben im Tessarec liegt die Φ-Helix in der Hülle. Sie übernimmt den Winkelverlauf der Archivspirale und legt ihn mit festem Radius um die Körperachse.</p>
+      <div class="a0-fourier-archive-grid">
+        <article>
+          <h3>Sattelfläche, Φ-Spirale und Fourier-Spur</h3>
+          <iframe data-archive-plot="assets/au-na-he-ti-ii/saddle-phi-fourier.html" title="AU-NA-HE-TI II · rekonstruierte interaktive Plotly-Ansicht" loading="lazy" sandbox="allow-scripts" hidden></iframe>
+          <div class="a0-archive-geometry" data-archive-geometry hidden>
+            <canvas width="640" height="470" role="img" aria-label="Drehbare Darstellung mit Sattelfläche, goldener Φ-Spirale und pinker Fourier-Spur"></canvas>
+            <label>AU-NA-HE-TI II drehen <input type="range" min="-180" max="180" value="-14"></label>
+          </div>
+          <p>Rekonstruiert aus dem Plotly-Code vom 7. Mai 2025. Die Fourier-Spur gehört zur Sinusfolge im Archivcode. <a href="assets/au-na-he-ti-ii/saddle-phi-fourier.html">Plotly-Datei mit WebGL öffnen</a></p>
+        </article>
+        <article data-julia-radius>
+          <h3>Julia · Fourier-Slices</h3>
+          <img src="assets/au-na-he-ti-ii/julia/frame_00.png" width="407" height="423" alt="Archivierter Julia-Fourier-Slice bei Radius 5">
+          <div class="a0-julia-controls">
+            <label for="juliaRadius">Radius</label>
+            <output for="juliaRadius" data-julia-value>5 · Schnitt 1 von 30</output>
+            <input id="juliaRadius" type="range" min="0" max="29" value="0" step="1" aria-valuetext="Radius 5, Schnitt 1 von 30">
+            <button type="button" data-julia-back disabled>← Zurück</button>
+            <button type="button" data-julia-next>Vor →</button>
+          </div>
+          <figure class="a0-julia-tessarec">
+            <canvas id="juliaHelixPreview" width="420" height="240" tabindex="0" aria-label="Tessarec-Vorschau. Helix anklicken oder mit den Pfeiltasten durch die Julia-Schnitte gehen."></canvas>
+            <figcaption>Φ-Helix · <output data-julia-helix-caption>Radius 5 · Schnitt 1 von 30</output></figcaption>
+          </figure>
+          <p>Der Regler und die Φ-Helix wählen aus denselben 30 Archiv-Schnitten. Du kannst die goldene Spur auch in der Vorschau anklicken.</p>
+        </article>
+      </div>
+      <nav class="a0-fourier-returns" aria-label="Verwandte Ansichten">
+        <a href="#lab">↑ Zur Φ-Helix im Tessarec</a>
+        <a href="A0_GAME_OF_WORLDS_PLAY.html?world=numbers&amp;rule=wheels&amp;view=wheels&amp;meter=7%2F8#numbers">Loki im Tessarec am Achteltakt →</a>
+        <a href="A0_PRIMECUBE_GAP_FOLD_LAB.html#shadow-cube-3d">Zum Cube mit Union J / Flag →</a>
+      </nav>
     </section>
     <section class="section" id="blue-body-interior-crt16"><div class="head"><div class="no">01b</div><div><div class="label">Typed interior adapter · 16 channels × 3 layers</div><h2>Die Pentagonfliese bekommt ein prüfbares Innenleben.</h2><p class="sub">Jeder der 16 CRT-Kanäle wird über seine <em>Ordnung</em> auf genau eine Q4-Gray-Ring-Adresse gelegt und in den drei P3-Layern wiederholt. So entstehen 48 kollisionsfreie Adressen. Die Primmoduli 17…79 bleiben Labels; Aperture, Phase und Ansicht verändern nur die Darstellung. Die mittlere Lage rotiert dabei als Gegenspur zu den beiden Außenlagen. Front, Top, Side und Isometric lesen immer denselben Source Key.</p></div></div>
       <p><a class="btn" href="A0_BLUE_PINK_DODECA_CELL_RETURN.html#cellReturnPerformance">Play cell Return · CRT16 + Körperzellen + One Flow gemeinsam bespielen →</a> Die gemeinsame Partitur lebt im Cell-Return-Instrument. Dieser lokale 48er-Spieler bleibt separat; keine Fernsteuerung anderer Tabs.</p>
@@ -172,6 +240,81 @@
     <section class="section" id="coupled-views"><div class="head"><div class="no">08</div><div><div class="label">Coupled HTML views · one carrier / distinct responsibilities</div><h2>Die ganze Route ist jetzt begehbar.</h2><p class="sub">Sechs bestehende Flächen lesen denselben gebundenen Operatorpfad aus verschiedenen Verantwortungen. Jeder Knoten öffnet direkt die passende Stelle; der Rückweg führt wieder zum interaktiven Vergleich.</p></div></div><div class="view-constellation"><div class="view-orbit"><a class="view-node" href="A0_RESEARCH_DESK.html#tests"><b>01 · Control</b><strong>Research Desk</strong><span>Status, Lücken, Claim Ceiling und nächstes zulässiges Gate.</span></a><a class="view-node" href="A0_FAMILY_CONNECTION_ATLAS.html#tessarec"><b>02 · State / observer</b><strong>Family Connection Atlas</strong><span>Q4×P3, Phase, Hülle, Blick, Record und Big-Blue-Komparator.</span></a><a class="view-node" href="A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER.html#hypotheses"><b>03 · Formalize</b><strong>Paper F</strong><span>Frame, intrinsische Hülle, beobachtete Hülle und G6-Hypothese.</span></a><a class="view-node" href="A0_MATHEMATICAL_JOINTS.html"><b>04 · Number / operator</b><strong>Mathematical Joints</strong><span>Adressen, Operatoren und getrennte Number-View-Kontexte.</span></a><a class="view-node current" href="#fibonacci-ring-operator"><b>05 · Operate · current</b><strong>Blue Body Comparator</strong><span>Schedule wählen, N verändern, Ringpfad beobachten und Frozen R1 zurücksetzen.</span></a><a class="view-node frozen" href="results/a0-fibonacci-ring-operator-comparator-r1-figure-2026-10-14.svg"><b>06 · Freeze / verify</b><strong>Result Figure</strong><span>N=48-Ausgabe; maschinenlesbares Resultat und Validator bleiben die Evidenzquelle.</span></a></div><div class="view-route"><span>Desk</span><i>→</i><span>Atlas</span><i>→</i><span>Paper</span><i>→</i><span>Number view</span><i>→</i><span>Operate</span><i>→</i><span>Freeze</span><i>→</i><span>Return</span></div><div class="view-boundary"><strong>Coupling boundary:</strong> Die Links synchronisieren Lesepositionen und Rückwege. Sie erzeugen weder eine neue Navigator-Relation noch Carrier-, Operator- oder Evidenzidentität zwischen den HTMLs.</div></div><div class="links"><a href="assets/a0-tessarec-fibonacci-view-constellation-v1.json">Machine-readable constellation →</a><a href="A0_RESEARCH_DESK.html#tests">Return to Desk →</a></div></section>
     <section class="section"><div class="head"><div class="no">09</div><div><div class="label">Claim boundary</div><h2>Ein messbarer Körper — keine neue Identität.</h2></div></div><div class="boundary"><strong>Boundary:</strong> Die Seite etabliert weder eine Gleichheit von Tessarec und Hülle noch einen physikalischen Mechanismus. Checks 59–66, 87–88 und 102 dokumentieren Host-Embedding, Double-Body-Kandidat, Same-Address-Fiber, exakte Pentagon-Verhältnisse, eine negative A7-Robustheitsprüfung, einen numerischen Graphspektral-Pass, einen schematischen Falt-/Kontaktoperator, einen source-bound E8/AXIS08-Komparator, ein 8×6-Anzeigegitter mit CON–DAO-Split-Linse, einen deterministischen synthetischen Sampling-Komparator sowie den ordinalen CRT16×P3-Innenraumadapter. Die Primmoduli 17…79 bleiben reine Kanal-Labels; sie definieren weder Q4-Topologie noch eine intrinsische 3D-Geometrie. „Ramanujan“ bezeichnet ausschließlich die übliche Spektralschranke; E8 ist eine Referenzgeometrie und AXIS08 ein deklarierter Quotient. Das Grid erzeugt Anzeigeadressen, keine neuen Eigenwertkoordinaten; CON–DAO moduliert nur die Darstellung von q7 innen, +3-Split und p8 außen. A7, Root7, E8 sowie die Zerlegungen 3+2+3, 5+3 und 2³ bleiben getrennte Namespaces. Der Fibonacci-Ring belegt keine natürliche Fibonacci-Gesetzmäßigkeit, privilegierte Konstante oder physische Resonanz. Geometrische Realisierung, Materialstärke, Kollisionen, verbundenes Carrier-Routing, LIFE-Zeitabschluss, E8-Spezifität, G6, globale Optimalität, Einzigartigkeit und externe Neuheit bleiben offen.</div><div class="links"><a href="../59_A0_TESSAREC_BLUE_BODY_HOST_EMBEDDING_PROTOTYPE_2026-10-13.md">Check 59 →</a><a href="../60_A0_TESSAREC_DOUBLE_BODY_HEPTAGON_BRIDGE_2026-10-13.md">Check 60 →</a><a href="../61_A0_TESSAREC_1111_FIBER_PENTAGON_GAUSS_HANDLE_2026-10-13.md">Check 61 →</a><a href="../62_A0_TESSAREC_A7_GAUSS_RAMANUJAN_IHARA_AUDIT_2026-10-13.md">Check 62 →</a><a href="../63_A0_TESSAREC_PENTAGON_FOLD_CONTACT_AND_A7_ROOT7_GUARD_2026-10-13.md">Check 63 →</a><a href="../64_A0_TESSAREC_SPECTRUM_E8_AXIS08_CROSS_LENS_2026-10-13.md">Check 64 →</a><a href="../65_A0_TESSAREC_SPECTRAL_GRID_CON_DAO_SPLIT_2026-10-13.md">Check 65 →</a><a href="../66_A0_TESSAREC_ANTIPODE_RETURN_BRIDGE_2026-10-13.md">Check 66 →</a><a href="../87_A0_FIBONACCI_RING_OPERATOR_COMPARATOR_PROTOCOL_2026-10-14.md">Check 87 →</a><a href="../88_A0_FIBONACCI_RING_OPERATOR_COMPARATOR_RESULT_2026-10-14.md">Check 88 →</a><a href="../102_A0_BLUE_BODY_CRT16_INTERIOR_ADAPTER_ENGINEERING_RESULT_2026-10-15.md">Check 102 →</a><a href="assets/a0-tessarec-fold-contact-v1.json">Fold record →</a><a href="A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER.html#fold-contact">Paper-F-Rückbindung →</a></div></section>
   </main>
+  <div id="juliaHelixRadiusTooltip" hidden aria-hidden="true">
+    <span></span>
+    <img width="407" height="423" alt="">
+  </div>
+  <script>
+    const juliaArchiveRadii = [5,31,58,85,112,138,165,192,219,245,272,299,326,352,379,406,433,459,486,513,540,566,593,620,647,673,700,727,754,781];
+    const juliaFramePath = index => `assets/au-na-he-ti-ii/julia/frame_${String(index).padStart(2, '0')}.png`;
+    (() => {
+      const root = document.querySelector('[data-julia-radius]');
+      const radii = juliaArchiveRadii;
+      const slider = root.querySelector('input');
+      const frame = root.querySelector('img');
+      const value = root.querySelector('[data-julia-value]');
+      const back = root.querySelector('[data-julia-back]');
+      const next = root.querySelector('[data-julia-next]');
+      let pointerId = null;
+      let previewIndex = null;
+      slider.max = String(radii.length - 1);
+      function preview(index) {
+        if (previewIndex === index) return;
+        previewIndex = index;
+        slider.dispatchEvent(new CustomEvent('julia-slice-preview', {detail:index}));
+      }
+      function indexAt(clientX) {
+        const {left,width} = slider.getBoundingClientRect();
+        const thumb = parseFloat(getComputedStyle(slider).getPropertyValue('--julia-thumb'));
+        const fraction = (clientX - left - thumb / 2) / Math.max(1, width - thumb);
+        return Math.round(Math.min(1, Math.max(0, fraction)) * (radii.length - 1));
+      }
+      function show(index) {
+        preview(null);
+        slider.value = index;
+        const radius = radii[index];
+        const position = `Schnitt ${index + 1} von ${radii.length}`;
+        slider.setAttribute('aria-valuetext', `Radius ${radius}, ${position}`);
+        frame.src = juliaFramePath(index);
+        frame.alt = `Archivierter Julia-Fourier-Slice bei Radius ${radius}`;
+        value.textContent = `${radius} · ${position}`;
+        slider.dataset.radius = radius;
+        back.disabled = index === 0;
+        next.disabled = index === radii.length - 1;
+        slider.dispatchEvent(new Event('julia-slice-change'));
+      }
+      slider.addEventListener('pointermove', event => {
+        if (pointerId === event.pointerId || (pointerId === null && event.pointerType !== 'touch')) preview(indexAt(event.clientX));
+      });
+      slider.addEventListener('pointerleave', () => preview(null));
+      slider.addEventListener('pointerdown', event => {
+        if (!event.isPrimary || event.button !== 0) return;
+        event.preventDefault();
+        pointerId = event.pointerId;
+        slider.focus({preventScroll:true});
+        slider.setPointerCapture(pointerId);
+        preview(indexAt(event.clientX));
+      });
+      slider.addEventListener('pointerup', event => {
+        if (pointerId !== event.pointerId) return;
+        pointerId = null;
+        const bounds = slider.getBoundingClientRect();
+        if (event.clientX >= bounds.left && event.clientX <= bounds.right &&
+            event.clientY >= bounds.top && event.clientY <= bounds.bottom) show(indexAt(event.clientX));
+        else preview(null);
+      });
+      slider.addEventListener('lostpointercapture', () => {
+        pointerId = null;
+        preview(null);
+      });
+      slider.addEventListener('blur', () => preview(null));
+      slider.addEventListener('input', () => show(slider.valueAsNumber));
+      back.addEventListener('click', () => show(slider.valueAsNumber - 1));
+      next.addEventListener('click', () => show(slider.valueAsNumber + 1));
+      show(slider.valueAsNumber);
+    })();
+  </script>
+  <script src="assets/a0-au-na-he-ti-archive-view.js"></script>
   <footer class="foot"><div class="wrap"><span><strong>TESSAREC BLUE BODY LAB</strong><br>Host embedding · residual audit · source-bound</span><span>Internal · no Study activation · not public</span></div></footer>
   <script src="a0-context-navigation.js?rev=flagship-constellation-r1-20261030"></script>
   <script src="a0-body-domain-suite.js?rev=20261023-live-router-r1"></script>
@@ -230,7 +373,242 @@
     syncRotation();
     const rotate=p=>{const cy=Math.cos(ry),sy=Math.sin(ry),cx=Math.cos(rx),sx=Math.sin(rx);const x=p.x*cy-p.z*sy,z1=p.x*sy+p.z*cy;return{x,y:p.y*cx-z1*sx,z:p.y*sx+z1*cx}};
     function resize(){const d=Math.min(devicePixelRatio||1,2),w=stage.clientWidth,h=stage.clientHeight;canvas.width=w*d;canvas.height=h*d;ctx.setTransform(d,0,0,d,0,0);draw()}
-    function projected(){const w=stage.clientWidth,h=stage.clientHeight,scale=Math.min(w/6.3,h/6.1);const out={};for(const [id,p] of Object.entries(points)){const q=rotate(p),pers=viewMode==='top'?1:5.8/(5.8+q.z);out[id]={x:w/2+q.x*scale*pers,y:h/2-q.y*scale*pers,z:q.z,pers}}return out}
+    function projectHost(p,w,h){
+      const scale=Math.min(w/6.3,h/6.1);
+      const q=rotate(p),pers=viewMode==='top'?1:5.8/(5.8+q.z);
+      return {x:w/2+q.x*scale*pers,y:h/2-q.y*scale*pers,z:q.z,pers};
+    }
+    function projected(){
+      const w=stage.clientWidth,h=stage.clientHeight;
+      return Object.fromEntries(Object.entries(points).map(([id,p])=>[id,projectHost(p,w,h)]));
+    }
+    const phiHelixToggle=document.getElementById('bluePhiHelix');
+    const juliaSlider=document.getElementById('juliaRadius');
+    const juliaPreview=document.getElementById('juliaHelixPreview');
+    const juliaPreviewContext=juliaPreview.getContext('2d');
+    const juliaCaption=document.querySelector('[data-julia-helix-caption]');
+    const juliaReadout=document.getElementById('blueJuliaSlice');
+    const juliaPanel=juliaSlider.closest('[data-julia-radius]');
+    const radiusTooltip=document.getElementById('juliaHelixRadiusTooltip');
+    const tooltipLabel=radiusTooltip.querySelector('span');
+    const tooltipImage=radiusTooltip.querySelector('img');
+    tooltipImage.addEventListener('load',()=>{
+      tooltipImage.style.visibility='visible';
+    });
+    const phi=(1+Math.sqrt(5))/2;
+    function helixPoint(t){
+      const angle=phi*2*Math.PI*(.1+1.9*t);
+      return {x:.76*Math.cos(angle),y:-1.92+3.84*t,z:.76*Math.sin(angle)};
+    }
+    const phiHelix=Array.from({length:180},(_,i)=>helixPoint(i/179));
+    const helixSlices=juliaArchiveRadii.map((_,i)=>helixPoint(i/(juliaArchiveRadii.length-1)));
+    let juliaHelixPoint;
+    let projectedHelix=[];
+    let projectedSlices=[];
+    let previewPlacement;
+    let helixHover;
+    let juliaPreviewIndex=null;
+    function syncJuliaSlice(){
+      const index=juliaSlider.valueAsNumber;
+      const end=Number(juliaSlider.max);
+      juliaHelixPoint=helixSlices[index];
+      const text=`Radius ${juliaSlider.dataset.radius} · Schnitt ${index+1} von ${end+1}`;
+      juliaReadout.textContent=text;
+      juliaCaption.textContent=text;
+    }
+    syncJuliaSlice();
+    juliaSlider.addEventListener('julia-slice-preview',event=>{
+      juliaPreviewIndex=event.detail;
+      draw();
+    });
+    juliaSlider.addEventListener('julia-slice-change',()=>{
+      syncJuliaSlice();
+      phiHelixToggle.setAttribute('aria-pressed','true');
+      draw();
+    });
+    phiHelixToggle.addEventListener('click',()=>{
+      const visible=phiHelixToggle.getAttribute('aria-pressed')!=='true';
+      phiHelixToggle.setAttribute('aria-pressed',String(visible));
+      draw();
+    });
+    function drawPhiHelix(w,h){
+      projectedHelix=[];
+      if(phiHelixToggle.getAttribute('aria-pressed')!=='true'&&juliaPreviewIndex===null)return;
+      projectedHelix=phiHelix.map(point=>projectHost(point,w,h));
+      ctx.save();
+      ctx.beginPath();
+      projectedHelix.forEach((p,index)=>{
+        if(index===0)ctx.moveTo(p.x,p.y);
+        else ctx.lineTo(p.x,p.y);
+      });
+      ctx.lineCap='round';
+      ctx.lineJoin='round';
+      ctx.strokeStyle='#142432';
+      ctx.lineWidth=5;
+      ctx.stroke();
+      ctx.strokeStyle='#ffcf65';
+      ctx.lineWidth=2;
+      ctx.stroke();
+      ctx.restore();
+    }
+    function drawJuliaSlice(w,h){
+      projectedSlices=[];
+      if(projectedHelix.length){
+        projectedSlices=helixSlices.map(point=>projectHost(point,w,h));
+        const {x,y}=projectedSlices[juliaSlider.valueAsNumber];
+        ctx.save();
+        ctx.beginPath();
+        for(let i=0;i<=64;i++){
+          const angle=i*Math.PI/32;
+          const p=projectHost({x:1.04*Math.cos(angle),y:juliaHelixPoint.y,z:1.04*Math.sin(angle)},w,h);
+          if(i===0)ctx.moveTo(p.x,p.y);
+          else ctx.lineTo(p.x,p.y);
+        }
+        ctx.closePath();
+        ctx.fillStyle='rgba(255,207,101,.15)';
+        ctx.fill();
+        ctx.strokeStyle='#ffda8c';
+        ctx.lineWidth=2;
+        ctx.stroke();
+        ctx.beginPath();
+        for(const point of projectedSlices){
+          ctx.moveTo(point.x+3.1,point.y);
+          ctx.arc(point.x,point.y,3.1,0,Math.PI*2);
+        }
+        ctx.fillStyle='#ffcf65';
+        ctx.fill();
+        ctx.lineWidth=1;
+        ctx.strokeStyle='#192737';
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(x,y,8,0,Math.PI*2);
+        ctx.strokeStyle='#fff3bd';
+        ctx.lineWidth=2.5;
+        ctx.shadowColor='#ffb84a';
+        ctx.shadowBlur=16;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(x,y,4.5,0,Math.PI*2);
+        ctx.fillStyle='#fff3bd';
+        ctx.fill();
+        if(juliaPreviewIndex!==null){
+          const point=projectedSlices[juliaPreviewIndex];
+          ctx.beginPath();
+          ctx.arc(point.x,point.y,11,0,Math.PI*2);
+          ctx.strokeStyle='#86f1ff';
+          ctx.shadowColor='#4acde9';
+          ctx.shadowBlur=13;
+          ctx.lineWidth=2.5;
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
+      const {width,height}=juliaPreview;
+      const scale=Math.min(width/w,height/h);
+      if(!Number.isFinite(scale)||w===0||h===0)return;
+      const left=(width-w*scale)/2,top=(height-h*scale)/2;
+      previewPlacement={left,top,scale};
+      juliaPreviewContext.clearRect(0,0,width,height);
+      juliaPreviewContext.drawImage(canvas,left,top,w*scale,h*scale);
+      if(helixHover)showHelixRadius();
+    }
+    function selectJuliaIndex(index){
+      juliaSlider.value=String(index);
+      juliaSlider.dispatchEvent(new Event('input'));
+    }
+    function helixPointer(clientX,clientY,target){
+      const rect=target.getBoundingClientRect();
+      let x=clientX-rect.left,y=clientY-rect.top;
+      let tolerance=9;
+      if(target===juliaPreview){
+        if(!previewPlacement)return null;
+        const {left,top,scale}=previewPlacement;
+        const pixelRatio=rect.width/target.width;
+        x=(x/pixelRatio-left)/scale;
+        y=(y/(rect.height/target.height)-top)/scale;
+        tolerance/=pixelRatio*scale;
+      }
+      return {x,y,tolerance};
+    }
+    function nearestHelixSlice({x,y,tolerance}){
+      let closest=tolerance**2,index=-1;
+      projectedSlices.forEach((point,i)=>{
+        const distance=(x-point.x)**2+(y-point.y)**2;
+        if(distance<closest){
+          closest=distance;
+          index=i;
+        }
+      });
+      return index;
+    }
+    function showHelixRadius(){
+      const {clientX,clientY,target}=helixHover;
+      const pointer=helixPointer(clientX,clientY,target);
+      const index=pointer?nearestHelixSlice(pointer):-1;
+      radiusTooltip.hidden=index<0;
+      if(index<0)return;
+      const source=juliaFramePath(index);
+      if(tooltipImage.getAttribute('src')!==source){
+        tooltipLabel.textContent=`Radius ${juliaArchiveRadii[index]}`;
+        tooltipImage.style.visibility='hidden';
+        tooltipImage.src=source;
+        if(tooltipImage.complete&&tooltipImage.naturalWidth)tooltipImage.style.visibility='visible';
+      }
+      const {offsetWidth:width,offsetHeight:height}=radiusTooltip;
+      const gap=12,edge=8;
+      const side=clientX+gap+width<=window.innerWidth-edge?clientX+gap:clientX-gap-width;
+      const left=Math.max(edge,side);
+      const top=Math.max(edge,Math.min(clientY-20,window.innerHeight-height-edge));
+      radiusTooltip.style.left=`${left}px`;
+      radiusTooltip.style.top=`${top}px`;
+    }
+    function clearHelixRadius(){
+      helixHover=null;
+      radiusTooltip.hidden=true;
+    }
+    function selectHelix(clientX,clientY,target){
+      const pointer=helixPointer(clientX,clientY,target);
+      if(!pointer)return false;
+      const index=nearestHelixSlice(pointer);
+      if(index>=0){
+        selectJuliaIndex(index);
+        return true;
+      }
+      const {x,y,tolerance}=pointer;
+      let closest=tolerance**2,position;
+      for(let i=1;i<projectedHelix.length;i++){
+        const a=projectedHelix[i-1],b=projectedHelix[i];
+        const dx=b.x-a.x,dy=b.y-a.y;
+        const length=dx*dx+dy*dy;
+        if(!length)continue;
+        const t=Math.min(1,Math.max(0,((x-a.x)*dx+(y-a.y)*dy)/length));
+        const distance=(x-a.x-t*dx)**2+(y-a.y-t*dy)**2;
+        if(distance<closest){
+          closest=distance;
+          position=(i-1+t)/(projectedHelix.length-1);
+        }
+      }
+      if(position===undefined)return false;
+      selectJuliaIndex(Math.round(position*Number(juliaSlider.max)));
+      return true;
+    }
+    juliaPreview.addEventListener('click',event=>selectHelix(event.clientX,event.clientY,juliaPreview));
+    window.addEventListener('scroll',clearHelixRadius,{passive:true});
+    for(const surface of [canvas,juliaPreview]){
+      surface.addEventListener('pointermove',event=>{
+        if(drag||event.pointerType==='touch')return;
+        helixHover={clientX:event.clientX,clientY:event.clientY,target:surface};
+        showHelixRadius();
+      });
+      surface.addEventListener('pointerleave',clearHelixRadius);
+      surface.addEventListener('pointerdown',clearHelixRadius);
+      surface.addEventListener('keydown',event=>{
+        const step={ArrowLeft:-1,ArrowDown:-1,ArrowRight:1,ArrowUp:1}[event.key];
+        if(!step)return;
+        event.preventDefault();
+        selectJuliaIndex(Math.min(Number(juliaSlider.max),Math.max(0,juliaSlider.valueAsNumber+step)));
+      });
+    }
     const facePath=(face,p)=>{ctx.beginPath();face.vertices.forEach((id,i)=>i?ctx.lineTo(p[id].x,p[id].y):ctx.moveTo(p[id].x,p[id].y));ctx.closePath()};
     const edgeKey=(a,b)=>a<b?`${a}|${b}`:`${b}|${a}`;
     function selectedFace(){return shell.faces.find(face=>face.id===selectedFaceId)||shell.faces[0]}
@@ -240,12 +618,14 @@
     function setView(mode){viewMode=mode;if(mode==='top'){rx=Math.PI/2;ry=0;stageNote.textContent='top · orthographic sunflower map · click = select face · cyan = host lens · gold/pink = carrier'}else{rx=-.16;ry=.46;stageNote.textContent='orbit · drag = rotate · click = select face · cyan = host lens · gold = state · pink = carrier route'}viewButtons.forEach(control=>control.classList.toggle('active',control.dataset.hostView===mode));syncRotation();draw()}
     function drawTopGuide(p,w,h){if(viewMode!=='top')return;ctx.save();ctx.strokeStyle='rgba(41,199,239,.13)';ctx.lineWidth=1;ctx.setLineDash([4,7]);for(const ring of Object.keys(ringSpec)){const radius=Array.from({length:8},(_,i)=>Math.hypot(p[ring+i].x-w/2,p[ring+i].y-h/2)).reduce((a,b)=>a+b,0)/8;ctx.beginPath();ctx.arc(w/2,h/2,radius,0,Math.PI*2);ctx.stroke()}ctx.setLineDash([]);for(let i=0;i<8;i++){const a=i*Math.PI/4;ctx.beginPath();ctx.moveTo(w/2,h/2);ctx.lineTo(w/2+Math.cos(a)*Math.min(w,h)*.43,h/2+Math.sin(a)*Math.min(w,h)*.43);ctx.stroke()}ctx.fillStyle='rgba(184,239,252,.72)';ctx.font='700 11px SFMono-Regular,Consolas,monospace';ctx.textAlign='right';ctx.fillText('TOP · SUNFLOWER HOST MAP',w-18,25);ctx.restore()}
     function draw(){const p=projected(),w=stage.clientWidth,h=stage.clientHeight;ctx.clearRect(0,0,w,h);drawTopGuide(p,w,h);const faces=shell.faces.map(face=>({...face,z:face.vertices.reduce((s,id)=>s+p[id].z,0)/face.vertices.length,polygon:face.vertices.map(id=>p[id])})).sort((a,b)=>a.z-b.z);lastFaceGeometry=faces;for(const face of faces){const matches=faceMode==='ALL'||face.type===faceMode,alpha=matches?(face.type==='O'?.36:face.type==='P'?.24:.3):.035;facePath(face,p);ctx.fillStyle=`rgba(41,199,239,${alpha})`;ctx.fill();ctx.strokeStyle=matches?'rgba(117,233,255,.72)':'rgba(185,239,252,.12)';ctx.lineWidth=matches?1.35:.7;ctx.stroke()}
+      drawPhiHelix(w,h);
       const chosen=selectedFace();facePath(chosen,p);ctx.fillStyle='rgba(41,199,239,.46)';ctx.fill();ctx.strokeStyle='#75e9ff';ctx.lineWidth=4;ctx.setLineDash([]);ctx.stroke();
       const state=carrier.states[Number(range.value)],host=active[state];const incident=metric.routed.filter(e=>e.left===state||e.right===state);ctx.lineCap='round';if(showRoutes)for(const edge of incident){ctx.beginPath();edge.path.forEach((id,i)=>i?ctx.lineTo(p[id].x,p[id].y):ctx.moveTo(p[id].x,p[id].y));ctx.strokeStyle=edge.kind==='P'?'rgba(238,108,165,.95)':'rgba(229,179,64,.9)';ctx.lineWidth=edge.kind==='P'?5:3;ctx.stroke()}
       const chosenVertices=new Set(chosen.vertices);for(const [id,q] of Object.entries(p)){const onFace=chosenVertices.has(id);ctx.beginPath();ctx.arc(q.x,q.y,id===host?7:onFace?4.5:2.4,0,Math.PI*2);ctx.fillStyle=id===host?'#ffd96c':onFace?'#29c7ef':'rgba(225,247,252,.72)';ctx.fill();if(id===host||onFace){ctx.strokeStyle='#fff';ctx.lineWidth=id===host?2:1.2;ctx.stroke()}}
       const cx=chosen.vertices.reduce((sum,id)=>sum+p[id].x,0)/chosen.vertices.length,cy=chosen.vertices.reduce((sum,id)=>sum+p[id].y,0)/chosen.vertices.length;ctx.fillStyle='#fff7d2';ctx.font='700 12px SFMono-Regular,Consolas,monospace';ctx.textAlign='center';ctx.fillText(chosen.id,cx,cy+4);
       const neighbors=incident.map(e=>{const other=e.left===state?e.right:e.left;return `${e.kind}:${other.split(':')[1]}→${active[other]}[${e.path.length-1}]`});label.textContent=`P${state[1]} · ${state.split(':')[1]}`;readout.innerHTML=`<strong>${state} → ${host}</strong> · carrier degree ${incident.length} · host degree 3 · <span class="route-key">${showRoutes?neighbors.join(' · '):'carrier routes hidden'}</span>`;
       const adjacent=faceNeighbors(chosen),viewLabel=viewMode==='top'?'Top/Sonnenblume · orthographische Host-Karte':'Orbit/Körper · perspektivische Hülle';faceReadout.innerHTML=`<b>${chosen.id}</b><span><strong>${viewLabel}</strong> · ${faceNames[chosen.type]} · ${chosen.vertices.length} Randkanten · vertices ${chosen.vertices.join(' · ')} · <span class="face-boundary">Nachbarflächen ${adjacent.join(' · ')}</span></span>`;
+      drawJuliaSlice(w,h);
     }
     function updateMetrics(){metric=api.metrics(active,shell,carrier,shortest);document.getElementById('mWire').textContent=metric.wirelength;document.getElementById('mMean').textContent=metric.meanDilation.toFixed(4);document.getElementById('mMax').textContent=metric.maxDilation;document.getElementById('mCong').textContent=metric.maxCongestion;document.getElementById('mLayer').textContent=`${metric.layerRetained}/48`;document.getElementById('mDirect').textContent=`${metric.directEdges}/${carrier.edges.length}`;draw()}
     function syncButton(mode){button.disabled=mode==='natural';button.textContent=mode==='natural'?'Natural · no search':'Replay selected · 120k'}
@@ -256,7 +636,10 @@
     function pickFace(event){const rect=canvas.getBoundingClientRect(),x=event.clientX-rect.left,y=event.clientY-rect.top,candidates=lastFaceGeometry.filter(face=>(faceMode==='ALL'||face.type===faceMode)&&pointInPolygon(x,y,face.polygon));if(!candidates.length)return;selectedFaceId=candidates[candidates.length-1].id;syncFaceControls();draw()}
     range.addEventListener('input',draw);select.addEventListener('change',()=>computeMapping(select.value));button.addEventListener('click',()=>computeMapping(activeMode,{force:true}));
     faceTypeSelect.addEventListener('change',()=>{faceMode=faceTypeSelect.value;syncFaceControls();draw()});faceSelect.addEventListener('change',()=>{selectedFaceId=faceSelect.value;draw()});viewButtons.forEach(control=>control.addEventListener('click',()=>setView(control.dataset.hostView)));routeToggle.addEventListener('click',()=>{showRoutes=!showRoutes;routeToggle.classList.toggle('active',showRoutes);routeToggle.setAttribute('aria-pressed',String(showRoutes));routeToggle.textContent=`Carrier routes · ${showRoutes?'on':'off'}`;draw()});
-    stage.addEventListener('pointerdown',e=>{setRotation(false);drag=true;dragDistance=0;lastX=e.clientX;lastY=e.clientY;stage.setPointerCapture(e.pointerId)});stage.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-lastX,dy=e.clientY-lastY;dragDistance+=Math.hypot(dx,dy);if(viewMode==='orbit'){ry+=dx*.008;rx+=dy*.008;draw()}lastX=e.clientX;lastY=e.clientY});stage.addEventListener('pointerup',e=>{drag=false;resumeAt=performance.now()+2200;if(dragDistance<6)pickFace(e);if(stage.hasPointerCapture(e.pointerId))stage.releasePointerCapture(e.pointerId)});stage.addEventListener('pointercancel',()=>{drag=false;resumeAt=performance.now()+2200});syncFaceControls();window.A0TessarecBlueBodyView={setRotation,nudgeCamera,get camera(){return{yaw:ry,pitch:rx,rotating:rotationEnabled&&viewMode==='orbit'}},selectMapping:mode=>mappingSpecs[mode]&&computeMapping(mode),selectView:mode=>['orbit','top'].includes(mode)&&setView(mode),selectFace:id=>{if(shell.faces.some(face=>face.id===id)){selectedFaceId=id;faceMode='ALL';syncFaceControls();draw()}},selectFaceType:type=>{if(['ALL','P','H','O'].includes(type)){faceMode=type;syncFaceControls();draw()}},get mapping(){return activeMode},get view(){return viewMode},get selectedFace(){return selectedFaceId},get autoRotate(){return rotationEnabled&&!reducedMotion}};new ResizeObserver(resize).observe(stage);resize();updateMetrics();requestAnimationFrame(spin);
+    stage.addEventListener('pointerdown',e=>{setRotation(false);drag=true;dragDistance=0;lastX=e.clientX;lastY=e.clientY;stage.setPointerCapture(e.pointerId)});stage.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-lastX,dy=e.clientY-lastY;dragDistance+=Math.hypot(dx,dy);if(viewMode==='orbit'){ry+=dx*.008;rx+=dy*.008;draw()}lastX=e.clientX;lastY=e.clientY});stage.addEventListener('pointerup',e=>{drag=false;resumeAt=performance.now()+2200;if(dragDistance<6){
+      if(selectHelix(e.clientX,e.clientY,canvas))juliaPanel.scrollIntoView({block:"start"});
+      else pickFace(e);
+    }if(stage.hasPointerCapture(e.pointerId))stage.releasePointerCapture(e.pointerId)});stage.addEventListener('pointercancel',()=>{drag=false;resumeAt=performance.now()+2200});syncFaceControls();window.A0TessarecBlueBodyView={setRotation,nudgeCamera,get camera(){return{yaw:ry,pitch:rx,rotating:rotationEnabled&&viewMode==='orbit'}},selectMapping:mode=>mappingSpecs[mode]&&computeMapping(mode),selectView:mode=>['orbit','top'].includes(mode)&&setView(mode),selectFace:id=>{if(shell.faces.some(face=>face.id===id)){selectedFaceId=id;faceMode='ALL';syncFaceControls();draw()}},selectFaceType:type=>{if(['ALL','P','H','O'].includes(type)){faceMode=type;syncFaceControls();draw()}},get mapping(){return activeMode},get view(){return viewMode},get selectedFace(){return selectedFaceId},get autoRotate(){return rotationEnabled&&!reducedMotion}};new ResizeObserver(resize).observe(stage);resize();updateMetrics();requestAnimationFrame(spin);
   })();
   (()=>{const api=window.A0TessarecFiberGeometry,buttons=[...document.querySelectorAll('[data-fiber-address]')],rail=document.getElementById('fiberRail'),profile=document.getElementById('fiberProfile'),grid=document.getElementById('onesGrid'),range=document.getElementById('cutRange'),cutValue=document.getElementById('cutValue'),readout=document.getElementById('geometryReadout'),hex=document.getElementById('hexRemainder'),tri=document.getElementById('cutTriangle');function showFiber(address){const f=api.fiber(address);buttons.forEach(button=>button.classList.toggle('active',button.dataset.fiberAddress===address));profile.textContent=`Q4 value ${f.binaryInteger} · decimal label ${f.decimalLabel} · φ(n)=${f.totient} · gap=${f.totientGap} · multiplicity ${f.multiplicity}`;rail.innerHTML=f.layers.map((x,i)=>`${i?'<div class="fiber-arrow"></div>':''}<div class="fiber-node"><b>${x.layer}<br>F${x.frame}</b><strong>${address} → ${x.host}</strong><span>gap ${f.totientGap}</span></div>`).join('');grid.innerHTML=Array.from({length:9},()=>`<i>${address==='1111'?'1':'·'}</i>`).join('')}function showCut(){const t=Number(range.value),v0=[210,35],v1=[343,132],v2=[292,288],v3=[128,288],v4=[77,132],lerp=(a,b)=>[a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])],left=lerp(v0,v4),right=lerp(v0,v1),fmt=p=>p.map(n=>n.toFixed(2)).join(',');tri.setAttribute('points',[v0,left,right].map(fmt).join(' '));hex.setAttribute('points',[left,v4,v3,v2,v1,right].map(fmt).join(' '));const c=api.truncateApex(t),p=api.pentagon();cutValue.textContent=Math.abs(t-1/api.PHI)<.006?'t≈1/φ':`t=${t.toFixed(2)}`;readout.textContent=`cut edge ${(c.cutEdge).toFixed(4)}·s · triangle ${(100*c.triangleShare).toFixed(2)}% · six-sided remainder ${(100*c.hexagonShare).toFixed(2)}% · diagonal cut remainder/triangle = φ² = ${p.remainderToTriangle.toFixed(6)}`}buttons.forEach(button=>button.addEventListener('click',()=>showFiber(button.dataset.fiberAddress)));range.addEventListener('input',showCut);showFiber('1111');showCut()})();
   (()=>{const api=window.A0TessarecSpectralAudit,shell=window.A0TessarecBlueBody.buildShell(),r=api.run(shell,{controlCount:24}),svg=document.getElementById('spectrumSvg'),ns='http://www.w3.org/2000/svg',x=(value)=>55+(value+3.15)/6.3*610,y=(i)=>54+i%8*42+(Math.floor(i/8)%2)*10,add=(tag,attrs,text)=>{const el=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v));if(text!==undefined)el.textContent=text;svg.appendChild(el);return el};add('line',{x1:55,y1:350,x2:665,y2:350,class:'spec-axis'});for(const value of [-3,-2,-1,0,1,2,3]){add('line',{x1:x(value),y1:42,x2:x(value),y2:358,class:value===0?'spec-zero':'spec-axis'});add('text',{x:x(value),y:380,'text-anchor':'middle',class:'spec-copy'},String(value))}for(const value of [-r.spectral.ramanujanBound,r.spectral.ramanujanBound]){add('line',{x1:x(value),y1:35,x2:x(value),y2:350,class:'spec-bound'});add('text',{x:x(value),y:25,'text-anchor':'middle',class:'spec-copy'},value<0?'−2√2':'2√2')}r.spectral.eigenvalues.forEach((value,i)=>add('circle',{cx:x(value),cy:y(i),r:i===0?7:4,class:i===0?'spec-trivial':'spec-dot','data-spectrum-index':i,'data-spectrum-lane':i%8}));add('text',{x:360,y:414,'text-anchor':'middle',class:'spec-strong'},'48 adjacency eigenvalues · gold lines = Ramanujan bound');const robust=r.a7;document.getElementById('seedGrid').innerHTML=api.A7_ENSEMBLE_120K.map(s=>`<div class="seed ${s.middle==='A7'?'a7':''} ${s.wirelength===robust.bestWirelength?'best':''}"><b>${s.middle}</b>s${s.seed} · ${s.wirelength}</div>`).join('');document.getElementById('a7Rate').textContent=`${robust.a7Count} / ${robust.runs}`;document.getElementById('lambda2').textContent=r.spectral.maxNontrivial.toFixed(6);document.getElementById('ramBound').textContent=r.spectral.ramanujanBound.toFixed(6);document.getElementById('ramMargin').textContent=r.spectral.margin.toFixed(6);document.getElementById('controlRate').textContent=`${r.controls.passCount}/${r.controls.count}`;document.getElementById('iharaRadius').textContent=`|u| = ${r.ihara.targetRadius.toFixed(6)}`;document.getElementById('curvatureStrip').innerHTML=Object.values(r.curvature.grouped).map(g=>`<div><b>${g.count} × ${g.sides}-gon</b><span>unit charge ${g.unitCharge>=0?'+':''}${g.unitCharge} · total ${g.totalCharge>=0?'+':''}${g.totalCharge}</span></div>`).join('');window.A0TessarecSpectralView={result:r,x,y}})();

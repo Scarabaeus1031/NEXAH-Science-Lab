@@ -495,6 +495,72 @@
     overlay.querySelector('[data-pc-helix-stage]').addEventListener('click',fullCube);
     update();
   }
+  function returnCube(shape,coords,n){
+    const [xMax,yMax,zMax]=shape.map(size=>size-1);
+    const camera=({x,y,z})=>({x:130+(x-y)*8,y:143+(x+y)*3-z*9});
+    let edges='';
+    for(const x of [0,xMax])for(const y of [0,yMax]){
+      edges+=line({x,y,z:0},{x,y,z:zMax},'pc-q-edge',camera);
+    }
+    for(const z of [0,zMax]){
+      for(const x of [0,xMax])edges+=line({x,y:0,z},{x,y:yMax,z},'pc-q-edge',camera);
+      for(const y of [0,yMax])edges+=line({x:0,y,z},{x:xMax,y,z},'pc-q-edge',camera);
+    }
+    const [x,y,z]=coords,address={x,y,z};
+    const guides=line({x,y,z:0},address,'pc-q-guide',camera)
+      +line({x,y:0,z:0},{x,y,z:0},'pc-q-guide',camera)
+      +line({x:0,y:0,z:0},{x,y:0,z:0},'pc-q-guide',camera);
+    const p=camera(address);
+    return `<svg viewBox="25 24 210 185" role="img" aria-label="${n} bei (${coords.join(', ')})">${edges}${guides}${point({address},'pc-q-pin',5,camera)}<text class="pc-q-label" x="${p.x+9}" y="${p.y-7}">${n}</text></svg><output>${n} · (${coords.join(', ')})</output>`;
+  }
+  function bindGreyQ(root){
+    const panel=root.querySelector('[data-pc-q-return]');
+    if(!panel)return;
+    const open=root.querySelector('[data-pc-q-open]');
+    const close=panel.querySelector('[data-pc-q-close]');
+    const prime=panel.querySelector('[data-pc-q-prime]');
+    const crt=panel.querySelector('[data-pc-q-crt]');
+    const next=panel.querySelector('[data-pc-q-next]');
+    const back=panel.querySelector('[data-pc-q-back]');
+    const step=panel.querySelector('[data-pc-q-step]');
+    const title=panel.querySelector('h3');
+    const q=M.qCubeRecord();
+    const start=496;
+    let current=start;
+    function drawQ(){
+      const {x,y,z}=M.cubeAddress(current);
+      const {mod7,mod11,mod13}=M.qCubeAddress(current);
+      prime.innerHTML=returnCube([M.CUBE_SIZE,M.CUBE_SIZE,M.CUBE_SIZE],[x,y,z],current);
+      crt.innerHTML=returnCube(q.shape,[mod7,mod11,mod13],current);
+      back.disabled=current===start;
+      next.disabled=current!==start;
+    }
+    function applyQ(operator){
+      const previous=current;
+      current=M.mod(current*operator.multiplier,q.modulus);
+      step.textContent=`${previous} × ${operator.multiplier} mod ${q.modulus} = ${current}`;
+      drawQ();
+      (next.disabled?back:next).focus({preventScroll:true});
+    }
+    function showQ(){
+      panel.hidden=false;
+      open.setAttribute('aria-expanded','true');
+      drawQ();
+    }
+    open.addEventListener('click',()=>{
+      showQ();
+      title.focus({preventScroll:true});
+      panel.scrollIntoView({block:'start'});
+    });
+    close.addEventListener('click',()=>{
+      panel.hidden=true;
+      open.setAttribute('aria-expanded','false');
+      open.focus();
+    });
+    next.addEventListener('click',()=>applyQ(q.forward));
+    back.addEventListener('click',()=>applyQ(q.inverse));
+    if(location.hash==='#grey-q-return')showQ();
+  }
   function boot(){
     const root=document.querySelector('[data-pc-shadow-envelope]');if(!root||!M)return;
     const main=root.closest('[data-primecube]');
@@ -506,6 +572,7 @@
     const lokiRecords=[397,419].map(n=>xZeroRecords.find(record=>record.n===n));
     const state={mode:'envelope',packing:'full-envelope',reach:220,tensionToggle,face:'front',camera:project,dx:6,dy:0,sharedPrimes,xZeroRecords,helixReturn,lokiRecords,lokiCompare:false,yaw:0},slider=root.querySelector('[data-pc-shadow-reach]');
     bindSlices(root,state);
+    bindGreyQ(root);
     const faces=root.querySelectorAll('[data-pc-shadow-face]');
     const lokiToggle=root.querySelector('[data-pc-loki-3d-toggle]');
     const lokiControls=root.querySelector('[data-pc-loki-3d-controls]');

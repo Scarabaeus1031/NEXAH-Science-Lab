@@ -206,7 +206,11 @@ ok(tessarecBindingReceipt.routes.a0_host.endsWith('A0_GAME_OF_WORLDS_PLAY.html?w
 ok(tessarecBindingReceipt.navigator.new_identities === 0 && tessarecBindingReceipt.navigator.new_relations === 0 && tessarecBindingReceipt.authority.new_study === false && tessarecBindingReceipt.authority.new_finding === false, 'binding receipt preserves zero identity, relation, Study and Finding effects');
 const scienceHighlightsStart = contextNavigation.indexOf('const scienceHighlights');
 const scienceHighlights = contextNavigation.slice(scienceHighlightsStart, contextNavigation.indexOf('const laneNav', scienceHighlightsStart));
-ok(scienceHighlights.includes('RED BALLOON') && scienceHighlights.includes('101 / A0 OPEN BOOK') && contextNavigation.includes('ioiOpenBookFlagshipHref = "DRAFTS/A0_IOI_LEAF_FOLD_OPEN_BOOK_START_2026-11-02.html#tessarec3OperatorMatrix"'), 'Science highlights expose Red Balloon and the 101/A0 Open Book flagship');
+const openBookRoute = contextNavigation.match(/const ioiOpenBookFlagshipHref = "(DRAFTS\/[^"#]+)#([^"]+)";/);
+ok(scienceHighlights.includes('RED BALLOON') && scienceHighlights.includes('[ioiOpenBookFlagshipHref, "101 / A0 OPEN BOOK"') &&
+  openBookRoute?.[2] === 'a0-101-orientation-coupler' &&
+  fs.readFileSync(path.join(base, openBookRoute[1]), 'utf8').includes(`id="${openBookRoute[2]}"`),
+  'Science highlights expose Red Balloon and the current 101/A0 Open Book entry');
 ok(!scienceHighlights.includes('"A0 Science Desk"') && scienceHighlights.includes('CURRENT STATE · SCIENCE'), 'Science highlight cards drop the duplicate Desk card while retaining the current-state lens');
 
 console.log(JSON.stringify({ status: 'PASS', checks, nodes: doc.nodes.length, meshes: doc.meshes.length, animations: doc.animations.length, sha256: manifest.sha256 }));

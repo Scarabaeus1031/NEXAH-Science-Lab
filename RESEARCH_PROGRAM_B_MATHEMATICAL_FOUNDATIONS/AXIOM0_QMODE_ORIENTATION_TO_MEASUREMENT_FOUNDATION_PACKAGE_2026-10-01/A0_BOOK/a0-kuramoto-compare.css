@@ -28,3 +28,67 @@
 .kuramoto-pair-traces figure { min-width:0; }
 .kuramoto-osc-key { color:var(--osc-color); }
 @media(max-width:660px){.kuramoto-pair-traces { grid-template-columns:1fr; }}
+
+.kuramoto-stability { margin: 1rem 0; padding: .85rem; background: #081722; border: 1px solid #2a4859; border-radius: 5px; scroll-margin-top: 1.25rem; }
+.kuramoto-stability h4 { margin: 0; }
+.kuramoto-stability p { max-width: 78ch; }
+.kuramoto-stability .kuramoto-drift { margin-bottom: .6rem; }
+.kuramoto-stability-values { width: min(100%, 720px); border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.kuramoto-stability-values th, .kuramoto-stability-values td { padding: .35rem .5rem; border-bottom: 1px solid #2a4859; text-align: left; }
+
+.kuramoto-stability-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr); gap: .75rem; align-items: start; }
+.kuramoto-stability-grid figure { min-width: 0; margin-top: 0; }
+.kuramoto-stability-grid [data-kuramoto-stability-plot] { cursor: crosshair; }
+.kuramoto-stability-circle .kuramoto-controls { margin: 0 0 .4rem; }
+.kuramoto-stability-circle canvas { max-width: 300px; margin-inline: auto; }
+.kuramoto-stability-circle ol { margin: .4rem 0 0; padding-left: 1.4rem; font-size: .8rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 760px) { .kuramoto-stability-grid { grid-template-columns: 1fr; } }
+
+.kuramoto-stability-charts { min-width: 0; }
+.kuramoto-stability-circle canvas { cursor: crosshair; }
+.kuramoto-stability-circle ol button { padding: 0 .2rem; min-height: 1.6rem; font: inherit; font-weight: 700; border: 1px solid transparent; background: none; cursor: pointer; }
+.kuramoto-stability-circle ol button:hover, .kuramoto-stability-circle ol button[aria-pressed=true] { border-color: currentColor; }
+[data-kuramoto-oscillator-title] { font-weight: 700; }
+[data-kuramoto-oscillator-readout] { font-size: .85rem; font-variant-numeric: tabular-nums; }
+
+.kuramoto-beat-layout { display: grid; grid-template-columns: minmax(180px, .7fr) minmax(0, 2fr); gap: 1rem; }
+.kuramoto-beat-layout figure { min-width: 0; margin: 0; }
+.kuramoto-beat-layout svg { display: block; width: min(100%, 240px); }
+.kuramoto-beat-layout svg circle:not(.kuramoto-beat-marker), .kuramoto-beat-layout svg path { fill: none; stroke: #476474; }
+.kuramoto-beat-layout svg line { stroke: currentColor; stroke-width: 3; stroke-linecap: round; }
+.kuramoto-beat-a { color: #7ee7f0; }
+.kuramoto-beat-b { color: #ff83ba; }
+.kuramoto-beat-layout dl { margin: .65rem 0; font-variant-numeric: tabular-nums; font-size: .88rem; }
+.kuramoto-beat-layout dl div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem; padding: .2rem 0; border-bottom: 1px solid #2a4859; }
+.kuramoto-beat-layout dd { margin: 0; }
+.kuramoto-beat-layout figcaption { font-size: .8rem; }
+.kuramoto-beat-plots { display: grid; gap: .75rem; }
+.kuramoto-beat-plots canvas { display: block; width: 100%; height: auto; background: #0a1d2a; }
+@media (max-width: 660px) { .kuramoto-beat-layout { grid-template-columns: 1fr; } }
+
+.kuramoto-beat-lift { position: relative; }
+.kuramoto-beat-lift svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.kuramoto-beat-lift .kuramoto-beat-marker { pointer-events: all; cursor: pointer; stroke: #071522; stroke-width: 1.5; }
+.kuramoto-beat-lift .kuramoto-beat-marker:is(:hover, :focus-visible, [aria-pressed=true]) { stroke: #fff; stroke-width: 2; outline: none; }
+.kuramoto-beat-events { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .45rem; }
+.kuramoto-beat-events button { font-size: .8rem; min-height: 2rem; }
+.kuramoto-beat-events button[aria-pressed=true] { border-color: #c4fb81; color: #c4fb81; }
+
+.kuramoto-workshop-head { display: flex; flex-wrap: wrap; gap: .6rem 1rem; align-items: baseline; justify-content: space-between; margin-bottom: 1rem; }
+.kuramoto-workshop-head h2 { margin: 0; font-size: clamp(1.65rem, 4vw, 2.55rem); }
+.kuramoto-workshop-head nav { display: flex; flex-wrap: wrap; gap: .5rem .9rem; }
+.kuramoto-workshop-head a { color: #9bdfec; }
+.kuramoto-beat { padding: clamp(.8rem, 2vw, 1.35rem); margin: 0 0 1.6rem; background: #0a1723; border: 1px solid #345369; scroll-margin-top: 1.25rem; }
+.kuramoto-beat h4 { margin: 0 0 .45rem; }
+.kuramoto-beat-layout { grid-template-columns: minmax(220px, 1fr) minmax(0, 2fr); margin: .85rem 0 1rem; }
+.kuramoto-beat-console, .kuramoto-beat-plots figure { min-width: 0; padding: .75rem; border: 1px solid #2a4859; background: #071522; }
+.kuramoto-beat-console .kuramoto-controls { margin: .35rem 0 .65rem; gap: .35rem; align-items: stretch; }
+.kuramoto-beat-console svg { margin-inline: auto; }
+.kuramoto-beat-console [data-beat-status] { margin: .5rem 0 0; font-size: .85rem; }
+.kuramoto-beat-plots figcaption { margin-top: .3rem; color: #b9cbd8; }
+.kuramoto-beat-events { padding: .5rem; background: #071522; border: 1px solid #2a4859; }
+.kuramoto-beat-events button { flex: 1 1 8rem; text-align: left; }
+.kuramoto-beat-events [data-beat-event="couple"]:not(:disabled) { border-left-color: #7ee7f0; }
+.kuramoto-beat-events [data-beat-event="kick"]:not(:disabled) { border-left-color: #ffcd76; }
+.kuramoto-beat-events [data-beat-event="return"]:not(:disabled) { border-left-color: #c4fb81; }
+@media (max-width: 760px) { .kuramoto-beat-layout { grid-template-columns: 1fr; } }

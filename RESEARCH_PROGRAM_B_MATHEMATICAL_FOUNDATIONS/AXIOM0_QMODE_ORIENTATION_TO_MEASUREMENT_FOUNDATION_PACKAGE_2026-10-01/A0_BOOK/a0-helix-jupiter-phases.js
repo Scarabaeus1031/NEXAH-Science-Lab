@@ -12,8 +12,15 @@
   const { satellites, stepHours, calendarStart } = data;
   const fullCount = satellites[0].longitudes.length;
   const windowSelector = query("[data-jupiter-window]");
+  const crossingSelector = query("[data-jupiter-crossing-select]");
+  const crossingStatus = query("[data-jupiter-crossing-status]");
   if (new URLSearchParams(window.location.search).get("jupiter") === "365") windowSelector.value = "365";
   let count = 0;
+  let crossings = [];
+  let selectedCrossing = null;
+  let pickedSample = null;
+  let pickedSliderValue = null;
+  let movingSliderForPick = false;
   const colors = ["#8de5ef", "#ffd08a", "#f49ad4"];
   const wrap = (degrees) => ((degrees % 360) + 360) % 360;
   const laplace = Array.from({ length:fullCount }, (_, sample) => {
@@ -27,6 +34,9 @@
     timeZone:"UTC"
   });
   const start = Date.parse(calendarStart + "Z");
+  const sampleTime = (sample) => calendar.format(start + sample * stepHours * 3600000) + " TDB";
+  const crossingDirection = ({ rising }) => rising ? "↑ über 180°" : "↓ unter 180°";
+  const crossingLabel = (crossing) => crossingDirection(crossing) + " · " + sampleTime(crossing.sample);
   function line(ctx, x0, y0, x1, y1, color) {
     ctx.strokeStyle = color;
     ctx.beginPath();
@@ -84,12 +94,17 @@
   const yAt = (phi) => (bottom + top) / 2 - (phi - 180) * (bottom - top) / (2 * halfSpan);
   const gridLeft = 200;
   const gridWidth = grid.width - gridLeft - 16;
+  const gridTop = 28;
   const rowHeight = 68;
   const gridX = (sample) => gridLeft + (gridWidth - 1) * sample / (count - 1);
   let stripBackground;
   let gridBackground;
 
-  function prepareStrip(values, crossings) {
+  const crossingColor = ({ rising }) => rising ? "#ffd08a" : "#f49ad4";
+  const gridMarkY = ({ rising }) => rising ? 12 : grid.height - 12;
+  const crossingX = ({ sample, part }) => xAt(sample - 1 + part);
+
+  function prepareStrip(values) {
     stripCtx.clearRect(0, 0, strip.width, strip.height);
     stripCtx.lineWidth = 1;
     stripCtx.font = "14px system-ui";
@@ -113,9 +128,8 @@
     stripCtx.strokeStyle = "#8de5ef";
     stripCtx.lineWidth = 1.5;
     stripCtx.stroke();
-    for (const { sample, part } of crossings) {
-      // The dots locate the linear crossing between two sampled endpoints.
-      dot(stripCtx, xAt(sample - 1 + part), yAt(180), 2.4, "#ffd08a");
+    for (const crossing of crossings) {
+      dot(stripCtx, crossingX(crossing), yAt(180), 2.4, crossingColor(crossing));
     }
     stripCtx.lineWidth = 1;
     return stripCtx.getImageData(0, 0, strip.width, strip.height);
@@ -124,7 +138,7 @@
   function prepareGrid() {
     gridCtx.clearRect(0, 0, grid.width, grid.height);
     satellites.forEach(({ name, longitudes }, row) => {
-      const y = 11 + row * rowHeight;
+      const y = gridTop + row * rowHeight;
       gridCtx.fillStyle = colors[row];
       gridCtx.font = "33px system-ui";
       gridCtx.fillText(name, 2, y + 41);
@@ -134,6 +148,9 @@
         gridCtx.fillRect(gridLeft + x, y, 1, rowHeight - 6);
       }
     });
+    for (const crossing of crossings) {
+      dot(gridCtx, gridX(crossing.sample), gridMarkY(crossing), 6, crossingColor(crossing));
+    }
     return gridCtx.getImageData(0, 0, grid.width, grid.height);
   }
 
@@ -178,11 +195,12 @@
 
   let previousSample = -1;
   function render() {
-    const sample = Math.round(Number(slider.value) * (count - 1) / Number(slider.max));
+    if (pickedSample !== null && slider.value !== pickedSliderValue) clearPick();
+    const sample = pickedSample ??
+      Math.round(Number(slider.value) * (count - 1) / Number(slider.max));
     if (sample === previousSample) return;
     previousSample = sample;
-    const time = calendar.format(start + sample * stepHours * 3600000);
-    query("[data-jupiter-time]").textContent = time + " TDB";
+    query("[data-jupiter-time]").textContent = sampleTime(sample);
     query("[data-jupiter-angle]").textContent = angle.format(laplace[sample]) + "°";
     query("[data-jupiter-longitudes]").textContent = satellites.map(({ name, longitudes }) =>
       name + " " + angle.format(longitudes[sample]) + "°").join(" · ");
@@ -190,8 +208,18 @@
     stripCtx.putImageData(stripBackground, 0, 0);
     line(stripCtx, xAt(sample), top, xAt(sample), bottom, "#f5efe3");
     dot(stripCtx, xAt(sample), yAt(laplace[sample]), 4, "#ffd08a");
+    if (selectedCrossing) {
+      stripCtx.beginPath();
+      stripCtx.arc(crossingX(selectedCrossing), yAt(180), 7, 0, 2 * Math.PI);
+      stripCtx.strokeStyle = "#fff5cf";
+      stripCtx.stroke();
+    }
     gridCtx.putImageData(gridBackground, 0, 0);
     line(gridCtx, gridX(sample), 3, gridX(sample), grid.height - 4, "#fff");
+    if (selectedCrossing) {
+      dot(gridCtx, gridX(sample), gridMarkY(selectedCrossing), 11, "#fff5cf");
+      dot(gridCtx, gridX(sample), gridMarkY(selectedCrossing), 7, crossingColor(selectedCrossing));
+    }
     if (!samplingPanel.hidden) {
       samplingCtx.putImageData(samplingBackground, 0, 0);
       line(samplingCtx, sampleX(sample), 3, sampleX(sample), samplingCanvas.height - 4, "#fff");
@@ -201,7 +229,82 @@
     }
   }
 
+  function clearPick() {
+    if (pickedSample === null) return;
+    pickedSample = null;
+    selectedCrossing = null;
+    crossingSelector.value = "";
+    crossingStatus.textContent = "";
+    previousSample = -1;
+  }
+
+  function selectCrossing(crossing) {
+    if (!crossing) return;
+    selectSample(crossing.sample, crossing);
+  }
+
+  function selectSample(sample, crossing) {
+    pickedSample = sample;
+    selectedCrossing = crossing;
+    crossingSelector.value = crossing ? String(sample) : "";
+    crossingStatus.textContent = crossing
+      ? `${crossingDirection(crossing)} · zwischen ${sampleTime(sample - 1)} und ${sampleTime(sample)} · der zweite Stundenwert ist ausgewählt.`
+      : "";
+    // The model slider has fewer steps than the annual series. Keep the exact Jupiter sample.
+    slider.value = String(Math.round(sample * Number(slider.max) / (count - 1)));
+    pickedSliderValue = slider.value;
+    previousSample = -1;
+    movingSliderForPick = true;
+    slider.dispatchEvent(new Event("input", { bubbles:true }));
+    movingSliderForPick = false;
+    render();
+  }
+
+  function crossingAt(event) {
+    const bounds = strip.getBoundingClientRect();
+    const y = bounds.top + yAt(180) * bounds.height / strip.height;
+    let nearest = null;
+    let distance = 12;
+    for (const crossing of crossings) {
+      const x = bounds.left + crossingX(crossing) * bounds.width / strip.width;
+      const delta = Math.hypot(event.clientX - x, event.clientY - y);
+      if (delta < distance) {
+        nearest = crossing;
+        distance = delta;
+      }
+    }
+    return nearest;
+  }
+
+  function gridTarget(event) {
+    const bounds = grid.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) * grid.width / bounds.width;
+    const y = (event.clientY - bounds.top) * grid.height / bounds.height;
+    const position = (x - gridLeft) / (gridWidth - 1);
+    if (position < 0 || position > 1) return null;
+
+    // Put the two directions on opposite edges so adjacent crossings stay selectable.
+    const rising = y < gridTop;
+    const inMarkerLane = rising || y >= gridTop + 3 * rowHeight;
+    let crossing = null;
+    let distance = 8;
+    if (inMarkerLane) {
+      for (const mark of crossings) {
+        if (mark.rising !== rising) continue;
+        const delta = Math.abs(x - gridX(mark.sample)) * bounds.width / grid.width;
+        if (delta < distance) {
+          crossing = mark;
+          distance = delta;
+        }
+      }
+    }
+    const sample = crossing?.sample ?? Math.round(position * (count - 1));
+    return { sample, crossing:crossing ?? crossings.find(mark => mark.sample === sample) ?? null };
+  }
+
   function selectWindow() {
+    clearPick();
+    grid.title = "";
     const days = Number(windowSelector.value);
     count = Math.min(fullCount, Math.round(days * 24 / stepHours) + 1);
     samplingPanel.hidden = count !== fullCount;
@@ -209,11 +312,11 @@
     const minimum = Math.min(...values);
     const maximum = Math.max(...values);
     const mean = values.reduce((sum, value) => sum + value, 0) / count;
-    const crossings = [];
+    crossings = [];
     for (let sample = 1; sample < count; sample++) {
       const before = values[sample - 1] - 180;
       const after = values[sample] - 180;
-      if (before * after < 0) crossings.push({ sample, part:before / (before - after) });
+      if (before * after < 0) crossings.push({ sample, part:before / (before - after), rising:after > 0 });
     }
     const stop = start + (count - 1) * stepHours * 3600000;
     query("[data-jupiter-window-range]").textContent = calendar.format(start) + " bis " + calendar.format(stop) + " TDB";
@@ -221,9 +324,17 @@
       `${angle.format(minimum)}° bis ${angle.format(maximum)}° · Mittelwert ${angle.format(mean)}°`;
     query("[data-jupiter-count]").textContent = count.toLocaleString("de-DE");
     query("[data-jupiter-crossings]").textContent = crossings.length
-      ? crossings.length + " Wechsel über 180° zwischen aufeinanderfolgenden Stundenwerten."
-      : "Kein Wechsel über 180° zwischen den Stundenwerten.";
-    stripBackground = prepareStrip(values, crossings);
+      ? `${crossings.length} Wechsel an der 180°-Linie zwischen aufeinanderfolgenden Stundenwerten.`
+      : "Kein Wechsel an der 180°-Linie zwischen den Stundenwerten.";
+    crossingSelector.replaceChildren(new Option(crossings.length ? "Marke auswählen" : "Keine Übergänge", ""));
+    crossingSelector.options[0].disabled = true;
+    for (const crossing of crossings) {
+      crossingSelector.add(new Option(crossingLabel(crossing), String(crossing.sample)));
+    }
+    crossingSelector.disabled = !crossings.length;
+    strip.title = "";
+    strip.style.cursor = "";
+    stripBackground = prepareStrip(values);
     gridBackground = prepareGrid();
     previousSample = -1;
     render();
@@ -231,7 +342,28 @@
 
   // The Kuramoto view also renders after an internal chart click changes the slider's value.
   new MutationObserver(render).observe(timeLabel, { childList:true });
-  slider.addEventListener("input", render);
+  slider.addEventListener("input", () => {
+    if (!movingSliderForPick) clearPick();
+    render();
+  });
+  crossingSelector.addEventListener("change", () => {
+    selectCrossing(crossings.find(({ sample }) => sample === Number(crossingSelector.value)));
+  });
+  strip.addEventListener("click", event => selectCrossing(crossingAt(event)));
+  strip.addEventListener("pointermove", event => {
+    const crossing = crossingAt(event);
+    strip.style.cursor = crossing ? "pointer" : "";
+    strip.title = crossing ? crossingLabel(crossing) : "";
+  });
+  grid.addEventListener("click", event => {
+    const target = gridTarget(event);
+    if (target) selectSample(target.sample, target.crossing);
+  });
+  grid.addEventListener("pointermove", event => {
+    const target = gridTarget(event);
+    grid.style.cursor = target ? "pointer" : "";
+    grid.title = target?.crossing ? crossingLabel(target.crossing) : target ? sampleTime(target.sample) : "";
+  });
   windowSelector.addEventListener("change", selectWindow);
   slider.closest(".kuramoto-controls").after(panel);
   panel.hidden = false;

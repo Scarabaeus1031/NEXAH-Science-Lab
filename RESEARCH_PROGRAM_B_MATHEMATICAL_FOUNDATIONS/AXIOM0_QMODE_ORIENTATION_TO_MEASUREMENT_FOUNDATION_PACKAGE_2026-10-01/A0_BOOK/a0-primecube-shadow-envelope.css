@@ -166,6 +166,25 @@
 .pc-slice-plane { fill: #8fe7ce; fill-opacity: .085; stroke: #a3f0d7; stroke-width: 2; }
 .pc-slice-point { fill: #a3f0d7; stroke: #163b35; stroke-width: .8; }
 
+.pc-grey-q { scroll-margin-top: 90px; margin: 1rem 0; padding: 16px; border: 1px solid #53657a; border-radius: 10px; background: #101a26; color: #edf4fa; }
+.pc-grey-q header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; }
+.pc-grey-q h3 { margin: 0; }
+.pc-grey-q p { margin: .65rem 0; color: #bac9d9; }
+.pc-grey-q button { padding: 6px 10px; border: 1px solid #40546b; border-radius: 6px; background: #172637; color: #edf4fa; cursor: pointer; }
+.pc-grey-q button:disabled { opacity: .45; cursor: default; }
+.pc-grey-q-views { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+.pc-grey-q figure { margin: 0; padding: 8px 4px; border: 1px solid #38536b; border-radius: 6px; text-align: center; background: #0a1824; }
+.pc-grey-q figure:nth-child(2) { background: #202a35; border-color: #596673; }
+.pc-shadow-stage .pc-grey-q svg { min-height: 0; max-height: 215px; }
+.pc-grey-q figcaption { font-size: .84rem; }
+.pc-grey-q .pc-q-edge { fill: none; stroke: #7390a8; stroke-width: 1.3; }
+.pc-grey-q .pc-q-guide { fill: none; stroke: #ffd35a; stroke-width: 1.2; stroke-dasharray: 3 3; }
+.pc-grey-q .pc-q-pin { fill: #ffd35a; stroke: #fff3bd; stroke-width: 1.5; }
+.pc-grey-q .pc-q-label { fill: #fff3bd; font: 700 13px ui-monospace,monospace; paint-order: stroke; stroke: #101a26; stroke-width: 3; }
+.pc-grey-q output { color: #ffde92; font: 700 .82rem ui-monospace,monospace; }
+.pc-grey-q-controls { display: flex; align-items: center; gap: 8px 12px; flex-wrap: wrap; margin-top: 12px; }
+.pc-grey-q a { color: #a3e7ff; }
+
 .pc-shadow-envelope [data-pc-helix-return][hidden] { display:none; }
 .pc-shadow-overlay-readout p:has(> [data-pc-helix-back][hidden]) { display: none; }
 .pc-shadow-helix-face { pointer-events:none; fill:#55d9f216; stroke:#55d9f280; stroke-dasharray:4 3; stroke-width:1.5; }

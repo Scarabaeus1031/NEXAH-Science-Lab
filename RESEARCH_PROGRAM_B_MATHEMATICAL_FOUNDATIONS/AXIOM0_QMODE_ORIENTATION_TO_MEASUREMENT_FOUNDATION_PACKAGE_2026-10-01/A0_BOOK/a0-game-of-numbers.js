@@ -14,6 +14,211 @@
   const session=()=>sessions[rule],frame=()=>session().frames[session().cursor];
   const wheelBeatPlay = $('wheelBeatPlay');
   const wheelBeatABCLoop = $('wheelBeatABCLoop');
+  const lokiPipe = window.A0LokiTessarecPipe;
+  const lokiBeatPanel = $('wheelLokiTessarec');
+  const lokiContinue = $('wheelLokiContinue');
+  const lokiBack = $('wheelLokiBack');
+  const lokiResume = $('wheelLokiResume');
+  const lokiControls = $('wheelLokiControls');
+  const clockAddressSource = $('wheelClockAddressSource');
+  const clockAddressModuli = [24, 408, 432, 360, 57];
+  const clockAddressExamples = new Set(['3656', '3565']);
+  let lokiBeatStep = null;
+  let lokiHold = null;
+  function dialPoint(center, radius, phase) {
+    const angle = 2 * Math.PI * phase - Math.PI / 2;
+    return [center + radius * Math.cos(angle), center + radius * Math.sin(angle)];
+  }
+  function clockRingRadius(index) {
+    return 32 + index * 17;
+  }
+  function initClockAddress() {
+    const dial = $('wheelClockAddressRings');
+    if (!dial) return;
+    dial.innerHTML = clockAddressModuli.map((modulus, i) => {
+      const radius = clockRingRadius(i);
+      const divisions = modulus === 57 ? 57 : 24;
+      const majorEvery = modulus === 57 ? 19 : 6;
+      const ticks = Array.from({length: divisions}, (_, i) => {
+        const [x1, y1] = dialPoint(110, radius, i / divisions);
+        const [x2, y2] = dialPoint(110, radius - (i % majorEvery === 0 ? 5 : 2), i / divisions);
+        return `<line class="wheel-clock-tick" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`;
+      }).join('');
+      return `<g data-clock-mod="${modulus}"><circle class="wheel-dial-ring" cx="110" cy="110" r="${radius}"/>${ticks}<circle class="wheel-clock-zero" cx="110" cy="${110 - radius}" r="2.5"/><circle class="wheel-clock-rest" r="4"/></g>`;
+    }).join('') + '<text class="wheel-dial-center" x="110" y="110"></text>';
+    clockAddressSource.addEventListener('change', () => {
+      const step = lokiHold?.displayStep ?? lokiBeatStep ?? 0;
+      paintClockAddress(step);
+      if (lokiPipe) paintLoki19(step);
+    });
+    paintClockAddress(0);
+  }
+  function paintClockAddress(step) {
+    if (!clockAddressSource) return;
+    const followsStep = clockAddressSource.value === 'step';
+    const number = followsStep ? step : Number(clockAddressSource.value);
+    const dial = $('wheelClockAddressRings');
+    dial.querySelector('.wheel-dial-center').textContent = number;
+    $('wheelClockAddressValues').innerHTML = clockAddressModuli.map((modulus, i) => {
+      const remainder = number % modulus;
+      const [x, y] = dialPoint(110, clockRingRadius(i), remainder / modulus);
+      const ring = dial.querySelector(`[data-clock-mod="${modulus}"]`);
+      const marker = ring.querySelector('.wheel-clock-rest');
+      ring.dataset.clockRest = String(remainder);
+      marker.setAttribute('cx', x);
+      marker.setAttribute('cy', y);
+      let a = modulus, b = remainder;
+      while (b) [a, b] = [b, a % b];
+      const phase = remainder === 0 ? '0' : `${remainder / a}/${modulus / a}`;
+      return `<li data-clock-row="${modulus}"><b>Mod ${modulus}</b> <span>${number} = ${Math.floor(number / modulus)} × ${modulus} + ${remainder}</span> <small>Phase ${phase}</small></li>`;
+    }).join('');
+    const comparing = clockAddressExamples.has(clockAddressSource.value);
+    const comparison = $('wheelClockAddressComparison');
+    comparison.hidden = !comparing;
+    if (comparing) {
+      const rest57 = number % 57;
+      comparison.textContent = `Mod 57 → Mod 19 · Rest ${rest57} → ${rest57 % mod19Period}`;
+    }
+    $('wheelClockAddressTransition').hidden = !followsStep || !lokiPipe || (lokiBeatStep ?? 0) <= lokiPipe.RETURN;
+  }
+  function initZetaContactWheel() {
+    const panel = $('wheelZetaContacts');
+    const model = window.A0HelixViewAdapter;
+    if (!panel || !model) return;
+    const contacts = model.zetaMirrorContacts();
+    const dial = $('wheelZetaDial');
+    const readout = $('wheelZetaReadout');
+    const link = $('wheelZetaReturn');
+    dial.innerHTML = '<path class="wheel-zeta-axis" d="M91 16v188 M10 110h162"/>' +
+      '<text class="wheel-zeta-axis-label" x="13" y="22">0°</text><text class="wheel-zeta-axis-label" x="13" y="207">180°</text>' +
+      contacts.map((contact, index) => {
+        const radius = 88 - index * 15;
+        const [, y] = dialPoint(110, radius, contact.phase / 360);
+        return `<circle class="wheel-dial-ring" cx="91" cy="110" r="${radius}"/>
+          <g class="wheel-zeta-contact" role="button" tabindex="0" aria-label="Kontakt ${contact.from}→${contact.to}"
+             aria-pressed="false" data-zeta-contact="${contact.id}">
+            <rect x="78" y="${y - 11}" width="87" height="22" rx="5"/>
+            <circle cx="91" cy="${y}" r="5"/>
+            <text x="104" y="${y + 4}">${contact.from}→${contact.to}</text>
+          </g>`;
+      }).join('');
+    const targets = [...dial.querySelectorAll('[data-zeta-contact]')];
+
+    function select(contact) {
+      targets.forEach(target => target.setAttribute('aria-pressed', String(target.dataset.zetaContact === contact.id)));
+      readout.textContent = `${contact.from}→${contact.to} · Rad ${contact.phase}° · Grey +${contact.angle}° / Pink −${contact.angle}°`;
+      link.href = `../../../A0_HELIX_VIEW_ADAPTER.html?zeta-contact=${contact.id}#helix-strand-directions`;
+    }
+
+    function pick(event) {
+      const target = event.target.closest('[data-zeta-contact]');
+      if (target) select(contacts.find(contact => contact.id === target.dataset.zetaContact));
+    }
+
+    dial.addEventListener('click', pick);
+    dial.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      pick(event);
+    });
+    select(contacts[0]);
+    panel.hidden = false;
+  }
+  function paintLoki19(step) {
+    const dial = $('wheelLoki19');
+    if (!dial) return;
+    if (step === 0) {
+      dial.innerHTML = '<circle class="wheel-dial-ring" cx="90" cy="90" r="66"/>' +
+        Array.from({length: mod19Period}, (_, i) => {
+          const [x, y] = dialPoint(90, 76, i / mod19Period);
+          return `<text class="wheel-dial-number" x="${x}" y="${y}">${i}</text>`;
+        }).join('') +
+        '<line class="wheel-mod19-needle" x1="90" y1="90" x2="90" y2="33"/><text class="wheel-dial-center" x="90" y="90"></text>';
+      $('wheelLoki19Witness').textContent = '';
+    }
+    const comparing = clockAddressExamples.has(clockAddressSource?.value);
+    const number = comparing ? Number(clockAddressSource.value) : step;
+    const rest = number % mod19Period;
+    const [x, y] = dialPoint(90, 57, rest / mod19Period);
+    const needle = dial.querySelector('.wheel-mod19-needle');
+    needle.setAttribute('x2', x);
+    needle.setAttribute('y2', y);
+    dial.querySelector('.wheel-dial-center').textContent = rest;
+    dial.dataset.rest = String(rest);
+    $('wheelLoki19Caption').textContent = comparing ? '19er-Rad · gewählte Adresse' : '19er-Rad · +1 je Achtel';
+    $('wheelLoki19Step').textContent = `${comparing ? 'Adresse' : 'Schritt'} ${number} · Rest ${rest}`;
+    const witness = $('wheelLoki19Witness');
+    witness.hidden = comparing;
+    if (step === lokiPipe.RETURN + 1) {
+      witness.textContent = `56 → 57 · Rest 18 → 0 · 57 = 3 × ${mod19Period}`;
+    }
+  }
+  function paintLokiBeat(step) {
+    if (!lokiPipe || !lokiBeatPanel) return;
+    const active = lokiPipe.state(step);
+    const returning = step > 0 && active.station === 0 && active.orientation === 0;
+    const stamp = `Station S${active.station + 1} · Orientierung O${active.orientation}`;
+    $('wheelLokiStep').textContent = `Schritt ${step} · ${stamp}`;
+    lokiBeatPanel.dataset.return = String(returning);
+    lokiPipe.renderPipe($('wheelLokiPipe'), active);
+    paintLoki19(step);
+    if (clockAddressSource?.value === 'step') paintClockAddress(step);
+    if (step === 0) $('wheelLokiReturn').textContent = 'Start · S1 / O0 · erster Return bei 56';
+    if (step === lokiPipe.RETURN) $('wheelLokiReturn').textContent = `Erster Return bei Schritt ${step} · S1 / O0 · beide am Start`;
+    if (step === lokiPipe.RETURN + 1) $('wheelLokiReturn').textContent = 'Schritt 57 · ein Achtel nach dem ersten Return';
+  }
+  function advanceLokiBeat() {
+    if (wheelAuditionLoop?.button !== wheelBeatABCLoop) return;
+    lokiBeatStep = (lokiBeatStep ?? -1) + 1;
+    paintLokiBeat(lokiBeatStep);
+    if (lokiPipe && (lokiBeatStep === lokiPipe.RETURN || lokiBeatStep === lokiPipe.RETURN + 1)) holdLokiBeat();
+  }
+  function holdLokiBeat() {
+    const now = performance.now();
+    const pending = [];
+    for (const [handle, {due, action}] of wheelBeatFills) {
+      clearTimeout(handle);
+      pending.push({delay: Math.max(0, due - now), action});
+    }
+    wheelBeatFills.clear();
+    lokiHold = {pending, suspended: wheelAudio.suspend(), displayStep: lokiBeatStep};
+    paintLokiHoldControls();
+    wheelBeatABCLoop.textContent = lokiBeatStep === lokiPipe.RETURN ? 'Weiter' : 'Takt fortsetzen';
+  }
+  function paintLokiHoldControls() {
+    if (!lokiControls) return;
+    const comparing = Boolean(lokiHold && lokiBeatStep === lokiPipe.RETURN + 1);
+    lokiControls.hidden = !lokiHold;
+    lokiBack.hidden = lokiResume.hidden = !comparing;
+    const atFirst = comparing && lokiHold.displayStep === lokiPipe.RETURN;
+    lokiBack.setAttribute('aria-disabled', String(!comparing || atFirst));
+    lokiContinue.setAttribute('aria-disabled', String(comparing && !atFirst));
+  }
+  function compareLokiSteps(step) {
+    if (!lokiHold || lokiHold.resuming || lokiBeatStep !== lokiPipe.RETURN + 1 || lokiHold.displayStep === step) return;
+    lokiHold.displayStep = step;
+    paintLokiBeat(step);
+    paintLokiHoldControls();
+  }
+  async function continueLokiBeat() {
+    const hold = lokiHold;
+    if (!hold || hold.resuming) return;
+    hold.resuming = true;
+    await hold.suspended;
+    if (lokiHold !== hold) return;
+    await enableWheelBass();
+    if (lokiHold !== hold) return;
+    if (wheelAudio?.state !== 'running') {
+      hold.resuming = false;
+      return;
+    }
+    lokiHold = null;
+    if (hold.displayStep !== lokiBeatStep) paintLokiBeat(lokiBeatStep);
+    wheelBeatABCLoop.textContent = 'Beat stoppen';
+    if (lokiControls.contains(document.activeElement)) wheelBeatABCLoop.focus({preventScroll:true});
+    paintLokiHoldControls();
+    for (const {delay, action} of hold.pending) scheduleWheelAction(delay, action);
+  }
   const wheelBeatSyncNumbers = $('wheelBeatSyncNumbers');
   const wheelBeatABCMeter = $('wheelBeatABCMeter');
   const wheelBeatBackloop = $('wheelBeatBackloop');
@@ -127,7 +332,7 @@
   ]);
   let wheelBeatPlayback = 0;
   let wheelAuditionLoop = null;
-  const wheelBeatFills = new Set();
+  const wheelBeatFills = new Map();
   const wheelBassSources = new Set();
   const wheelResonanceSources = new Set();
   const resonanceImpulse = 0.09;
@@ -541,11 +746,16 @@
   }
 
   function scheduleWheelAction(offset, action) {
+    const delay = Math.max(0, offset);
+    if (lokiHold) {
+      lokiHold.pending.push({delay, action});
+      return;
+    }
     const handle = setTimeout(() => {
       wheelBeatFills.delete(handle);
       action();
-    }, offset);
-    wheelBeatFills.add(handle);
+    }, delay);
+    wheelBeatFills.set(handle, {due:performance.now() + delay, action});
   }
 
   function scheduleWheelFill(toggle, offset, play) {
@@ -900,6 +1110,7 @@
       const tick = sevenTicks + offset;
       const step = tick / ticksPerEighth;
       scheduleWheelAction(delay, () => {
+        if (!comparisonSteps.length) advanceLokiBeat();
         const isComparisonHit = comparisonSteps.includes(step);
         const audition = isComparisonHit ? wheelReturnAuditions : pendingWheelReturnAudition;
         if (!isComparisonHit) pendingWheelReturnAudition = null;
@@ -1025,8 +1236,11 @@
     wheelAuditionLoop = null;
     if (wasSynced) publish();
     showWheelABCPattern();
-    for (const handle of wheelBeatFills) clearTimeout(handle);
+    for (const handle of wheelBeatFills.keys()) clearTimeout(handle);
     wheelBeatFills.clear();
+    if (lokiHold && lokiHold.displayStep !== lokiBeatStep) paintLokiBeat(lokiBeatStep);
+    lokiHold = null;
+    paintLokiHoldControls();
     interruptWheelBlindTrial?.();
     interruptWheelBlindTrial = null;
     stopWheelMix?.();
@@ -1660,6 +1874,8 @@
       showWheelABCPattern();
       loopMode.button.setAttribute('aria-pressed', 'true');
       if (loopMode.button === wheelBeatABCLoop) {
+        lokiBeatStep = null;
+        paintLokiBeat(0);
         wheelBeatABCLoop.textContent = 'Beat stoppen';
         selectWheelCompositeStep(null);
         if (wheelNumberSyncActive()) pause();
@@ -1723,6 +1939,9 @@
           const gap = (sevenBeat ? sevenBeatGaps : fiveBeat ? fiveBeatGaps : loopMode.gaps)[index];
           const gapTicks = gap * (sevenBeat ? ticksPerEighth : ticksPerQuarter);
           if (liveGroove && !sevenBeat) {
+            for (let offset = 0; offset < gapTicks; offset += ticksPerEighth) {
+              scheduleWheelAction(offset * tickMs, advanceLokiBeat);
+            }
             for (let offset = 0; offset < gap; offset += 1) {
               const step = transportPulse + offset;
               scheduleWheelAction(offset * wheelBeatMs, () => showWheelTransportStep(step));
@@ -1782,8 +2001,18 @@
       playAccent(0, firstReverseMs, firstDownbeat);
     }
     for (const loopMode of wheelAuditionLoops) {
-      loopMode.button.addEventListener('click', () => toggleWheelLoop(loopMode));
+      loopMode.button.addEventListener('click', () => {
+        if (loopMode.button === wheelBeatABCLoop && lokiHold) continueLokiBeat();
+        else toggleWheelLoop(loopMode);
+      });
     }
+    lokiContinue?.addEventListener('click', () => {
+      if (!lokiHold) return;
+      if (lokiBeatStep === lokiPipe.RETURN) continueLokiBeat();
+      else compareLokiSteps(lokiPipe.RETURN + 1);
+    });
+    lokiBack?.addEventListener('click', () => compareLokiSteps(lokiPipe.RETURN));
+    lokiResume?.addEventListener('click', continueLokiBeat);
     const sevenBeatLoop = wheelAuditionLoops.find(mode => mode.button === wheelBeatABCLoop);
     $('wheelReturnCompareA').addEventListener('click', () => toggleWheelLoop(sevenBeatLoop, [allReturnEighths]));
     $('wheelReturnCompareB').addEventListener('click', () => toggleWheelLoop(sevenBeatLoop, [allReturnEighths + 1]));
@@ -2183,5 +2412,8 @@
   $('numberVerify').onclick=()=>{pause();if(parallelActive){$('numberReceipt').textContent=JSON.stringify(PM.verify(comparison));return;}$('numberReceipt').textContent=JSON.stringify(M.replay(M.record(session(),view,inspection())))};
   $('numberExport').onclick=()=>{pause();if(parallelActive){const check=PM.verify(comparison);if(check.status!=='PASS'){$('numberReceipt').textContent='HOLD · '+check.status;return;}const url=URL.createObjectURL(new Blob([JSON.stringify(PM.record(comparison),null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='number-parallel-t'+comparison.tick+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),0);$('numberReceipt').textContent='Parallel Replay PASS · JSON exportiert.';return;}const r=M.record(session(),view,inspection()),check=M.replay(r);if(check.status!=='PASS'){$('numberReceipt').textContent='HOLD · '+check.status;return}const url=URL.createObjectURL(new Blob([JSON.stringify(r,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='game-of-numbers-'+rule+'-n'+session().cursor+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),0);$('numberReceipt').textContent='Replay PASS · JSON exportiert.'};
   window.addEventListener('resize',requestDraw);document.addEventListener('visibilitychange',()=>{if(document.hidden){pause();if(raf!==null)cancelAnimationFrame(raf);raf=null}else requestDraw()});
+  initClockAddress();
+  initZetaContactWheel();
+  paintLokiBeat(0);
   readout();publish(true);window.GameOfNumbersView={snapshot:()=>JSON.parse(JSON.stringify(session())),parallelSnapshot:()=>comparison?JSON.parse(JSON.stringify(comparison)):null,command,contract:()=>parallelActive?{kind:'PARALLEL_NATIVE_RECURRENCES',tick:comparison.tick,grouping:'presentation only; not canonical F1-F7',clock:'one native step per comparison tick; independent horizons'}:M.contract(rule,view,inspection(),session().config)};
 })();

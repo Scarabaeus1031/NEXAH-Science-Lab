@@ -54,14 +54,20 @@
   button.addEventListener('click',render);
 
   function rootMaskSvg(){
-    const size=308,pad=25,cell=23,lines=[],cells=[];
+    const size=308,pad=25,cell=23,cells=[];
+    const quadrants=['#40564d','#50625b','#4b5f56','#5a6961'];
     for(let y=0;y<11;y++)for(let x=0;x<11;x++){
-      const center=x===5&&y===5,cross=x===5||y===5,selected=!cross||center;
-      const fill=center?'#f3a51c':selected?'#203a66':'#111c2c';
-      cells.push(`<rect data-pc-root-cell="${selected?'included':'excluded'}"${center?' data-pc-root-center':''} x="${pad+x*cell}" y="${pad+y*cell}" width="${cell-2}" height="${cell-2}" rx="2" fill="${fill}" stroke="#43536a"/>`);
+      const center=x===5&&y===5,cross=x===5||y===5;
+      const quadrant=(y>5?2:0)+(x>5?1:0);
+      const included=center||!cross;
+      const fill=center?'#f3a51c':included?quadrants[quadrant]:'#111c2c';
+      const tile=`<rect data-pc-root-cell="${included?'included':'excluded'}"${center?' data-pc-root-center':''} x="${pad+x*cell}" y="${pad+y*cell}" width="${cell-2}" height="${cell-2}" rx="2" fill="${fill}" stroke="#43536a"/>`;
+      cells.push(center?`<a class="pc-root-center-return" href="assets/game-of-worlds-play/ioi-world-cube/index.html?focus=euler-center#worldModel" tabindex="0" aria-label="Mittelzelle · Euler-Stein im 101-Cube zeigen">${tile}</a>`:tile);
     }
-    lines.push(`<path d="M${pad},${pad} L${pad+11*cell},${pad+11*cell} M${pad+11*cell},${pad} L${pad},${pad+11*cell}" stroke="#f3a51c" stroke-dasharray="5 5" opacity=".8"/>`);
-    return `<svg viewBox="0 0 ${size} ${size}" role="img" aria-label="101-cell selection in an 11 by 11 grid">${cells.join('')}${lines.join('')}<text x="${pad+5.5*cell}" y="${pad+5.5*cell+5}" fill="white" font-size="15" text-anchor="middle">×</text><text x="154" y="298" fill="#8291a6" font-size="9" text-anchor="middle">100 QUADRANT CELLS + 1 CENTER · 20 CROSS-ARM CELLS EXCLUDED</text></svg>`;
+    const first=pad+(cell-2)/2,last=first+10*cell,mid=(first+last)/2;
+    const corners=[[first,first],[last,last],[last,first],[first,last]];
+    const anchors=corners.map(([x,y])=>`<circle class="pc-root-mask-anchor" cx="${x}" cy="${y}" r="4"/>`).join('');
+    return `<svg viewBox="0 0 ${size} ${size}" role="group" aria-label="Root Mask mit vier 5-mal-5-Feldern, einem Zentrum und zwei Diagonalen">${cells.join('')}<path class="pc-root-mask-diagonals" pointer-events="none" d="M${first},${first} L${last},${last} M${last},${first} L${first},${last}"/>${anchors}<text x="${mid}" y="${mid+5}" fill="#17202a" font-size="15" text-anchor="middle" pointer-events="none">×</text><text x="154" y="298" fill="#a0aebf" font-size="9" text-anchor="middle">100 FELDER + 1 ZENTRUM · 20 FELDER IN DEN MITTELARMEN</text></svg>`;
   }
   function modRailSvg(){
     const cx=160,cy=155,r=105,nodes=[],labels=[],positions=[];
@@ -70,7 +76,18 @@
     const arrows=[];for(let i=0;i<orbit.length-1;i++){const [x1,y1]=positions[orbit[i]],[x2,y2]=positions[orbit[i+1]];arrows.push(`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#d9e5f7" stroke-width="1.25" opacity=".74" marker-end="url(#arrow)"/>`)}
     return `<svg viewBox="0 0 320 310" role="img" aria-label="Complete multiplication by two orbit modulo 11"><defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#d9e5f7"/></marker></defs><circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#334760" stroke-dasharray="2 4"/>${arrows.join('')}${nodes.join('')}${labels.join('')}<text x="160" y="148" fill="#dce8f7" font-size="12" text-anchor="middle">r ↦ 2r mod 11</text><text x="160" y="166" fill="#8ee7f7" font-size="10" text-anchor="middle">period 10 · all nonzero residues</text><text x="160" y="184" fill="#aeb7c8" font-size="9" text-anchor="middle">101₁₀ ≡ 2 · HANDLE</text></svg>`;
   }
-  root.querySelector('[data-pc-root-mask]').innerHTML=rootMaskSvg();
+  const rootMask=root.querySelector('[data-pc-root-mask]');
+  const diagonalToggle=root.querySelector('[data-pc-root-mask-tension]');
+  rootMask.innerHTML=rootMaskSvg();
+  if(new URLSearchParams(window.location.search).get('focus')==='euler-center'){
+    rootMask.classList.add('is-euler-center');
+    root.querySelector('[data-pc-root-center-status]').hidden=false;
+  }
+  diagonalToggle.addEventListener('click',()=>{
+    const tensioned=diagonalToggle.getAttribute('aria-pressed')!=='true';
+    diagonalToggle.setAttribute('aria-pressed',String(tensioned));
+    rootMask.classList.toggle('is-tensioned',tensioned);
+  });
   root.querySelector('[data-pc-mod11-rail]').innerHTML=modRailSvg();
   render();
 })();

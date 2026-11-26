@@ -1535,6 +1535,20 @@ Orientierungsnutzen für neue Aufgaben bleibt zu prüfen.
 [A0 Science](A0_BOOK/A0_SCIENCE.html#helix-mod7-methodenvergleich) ·
 [Findings-Workspace](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#helix-primecube-168-open-finding)
 
+<a id="jupiter-grid-return-method-example"></a>
+
+### Jupiter · Rückweg über den Stundenindex
+
+Im JPL-Jahresfenster 2025 verbindet der Stundenindex 4870 die erste
+goldene Grid-Marke mit dem Übergang im Laplace-Strip und den drei
+Mondzeigern. Die Browserprobe wählt den 22. Juli 2025 um 22:00 TDB.
+Der dargestellte Stundenwert des Laplace-Winkels beträgt 180,001°.
+Der interpolierte Schnittpunkt im Strip liegt zwischen den Stundenwerten
+um 21:00 und 22:00 TDB. Finding offen.
+
+[A0 · Datenquelle, Browserprobe und Stichprobenvergleich](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#jpl-laplace-science-return) ·
+[Findings-Workspace · Wiedereinstieg](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#jpl-prime-hour-offset-check)
+
 <a id="mod7-fourier-countercheck"></a>
 
 ## MOD‑7‑Fourier · Vergleich mit permutierten Treffern
