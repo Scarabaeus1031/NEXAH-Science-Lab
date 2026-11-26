@@ -27,6 +27,8 @@
     .jupiter-table-scroll { overflow-x:auto; }
     .jupiter-table-scroll table { width:100%; border-collapse:collapse; font-size:.85rem; font-variant-numeric:tabular-nums; }
     .jupiter-table-scroll :is(th,td) { text-align:left; border-bottom:1px solid #345369; padding:.4rem .55rem; white-space:nowrap; }
+    .jupiter-table-scroll tr[aria-current="true"] { background:#183d4c; }
+    .jupiter-table-scroll tr[aria-current="true"] th { color:#a9f1fa; }
     @media (max-width:760px) { .jupiter-panels { grid-template-columns:1fr; } }
   </style>
 </head>
@@ -584,10 +586,21 @@
     <p><strong>Dieses Fenster:</strong> <span data-jupiter-range></span> über <span data-jupiter-count></span> Stundenwerte. <span data-jupiter-crossings></span></p>
     <section class="jupiter-sampling" data-jupiter-sampling hidden aria-labelledby="jupiterSamplingTitle">
       <h5 id="jupiterSamplingTitle">Primzahlstunden gegen gleichmäßige Abtastung</h5>
-      <p>Stundenindex 0 ist der 1. Januar 2025, 00:00 TDB. Die gleichmäßige Stichprobe verteilt genauso viele Punkte über das ganze Jahr, einschließlich beider Enden, und rundet auf die nächste Stunde.</p>
+      <p>Stundenindex 0 ist der 1. Januar 2025, 00:00 TDB. Beim Verschieben wandern dieselben 1.092 Marken am Jahresende wieder an den Jahresanfang (Modulo 8.760 Stunden). Die gleichmäßige Stichprobe behält ihre 1.092 Stundenwerte einschließlich beider Endpunkte der JPL-Reihe.</p>
+      <div class="kuramoto-controls">
+        <label for="jupiterPrimeOffset">Primzahlmarken verschieben</label>
+        <select id="jupiterPrimeOffset" data-jupiter-prime-offset>
+          <option value="0">0 h · Referenz</option>
+          <option value="1">+1 h</option>
+          <option value="24">+24 h</option>
+          <option value="168">+168 h</option>
+          <option value="720">+720 h</option>
+          <option value="2160">+2.160 h</option>
+        </select>
+      </div>
       <figure>
-        <canvas width="1600" height="65" role="img" aria-label="Über das Jahr markierte Stunden: oben Primzahlindizes, unten die gleichmäßige Stichprobe. Der weiße Cursor zeigt den gemeinsamen Zeitregler." data-jupiter-sample-strip></canvas>
-        <figcaption><span class="jupiter-prime-key">Oben: Primzahlindex</span><span class="jupiter-uniform-key">Unten: gleichmäßig</span><span data-jupiter-sample-cursor></span></figcaption>
+        <canvas width="1600" height="65" role="img" aria-label="Über das Jahr markierte Stunden: oben Primzahlmarken mit gewähltem Versatz, unten die gleichmäßige Stichprobe. Der weiße Cursor zeigt den gemeinsamen Zeitregler." data-jupiter-sample-strip></canvas>
+        <figcaption><span class="jupiter-prime-key" data-jupiter-prime-key>Oben: Primzahlindex</span><span class="jupiter-uniform-key">Unten: gleichmäßig</span><span data-jupiter-sample-cursor></span></figcaption>
       </figure>
       <div class="jupiter-table-scroll" role="region" tabindex="0" aria-label="Laplace-Winkel nach Abtastung">
         <table>
@@ -595,7 +608,7 @@
           <tbody data-jupiter-sample-summary></tbody>
         </table>
       </div>
-      <p>Seitenwechsel zählen benachbarte Werte in der jeweiligen Stichprobe. Bei Lücken können mehrere Wechsel zwischen zwei ausgewählten Stunden liegen. Vergleich für dieses Jahr und diesen Startindex. Finding offen.</p>
+      <p>Seitenwechsel zählen zwischen zeitlich benachbarten Werten jeder Stichprobe, innerhalb des Jahres. Bei Lücken können mehrere Wechsel zwischen zwei Stundenwerten liegen. Finding offen.</p>
     </section>
     <p>Laplace-Winkel = λ<sub>Io</sub> − 3λ<sub>Europa</sub> + 2λ<sub>Ganymed</sub> modulo 360°. λ = Ω + ω + M aus oskulierenden Bahnelementen im Jupiter-Bezugssystem. <a href="https://ssd.jpl.nasa.gov/sats/ephem/">JPL · JUP365 ↗</a> · <a href="https://doi.org/10.1051/0004-6361/202141311">Laplace-Resonanz ↗</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#jpl-laplace-science-return">Science Desk · Rückbindung ↗</a> · Finding offen.</p>
   </section>
@@ -611,6 +624,6 @@
 <script src="a0-helix-wheel-decks.js?v=20261126-jila-curve-return" defer></script>
 <script defer src="a0-science-kuramoto.js?rev=phasenwerkstatt"></script>
 <script defer src="assets/a0-jupiter-horizons-2025.js?rev=annual"></script>
-<script defer src="a0-helix-jupiter-phases.js?rev=grid-return"></script>
+<script defer src="a0-helix-jupiter-phases.js?rev=prime-offsets"></script>
 </body>
 </html>

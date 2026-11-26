@@ -160,7 +160,10 @@
   const sampleX = index => 10 + (samplingCanvas.width - 20) * index / (fullCount - 1);
   const primeHours = model.sieve(fullCount - 1);
   const uniformHours = primeHours.map((_, i) => Math.round(i * (fullCount - 1) / (primeHours.length - 1)));
-  const primeSet = new Set(primeHours);
+  const offsetSelector = query("[data-jupiter-prime-offset]");
+  const primeKey = query("[data-jupiter-prime-key]");
+  let activeSampling;
+  let samplingBackground;
   const uniformSet = new Set(uniformHours);
   const formatCount = number => number.toLocaleString("de-DE");
   const formatPercent = new Intl.NumberFormat("de-DE", {
@@ -183,15 +186,34 @@
       formatPercent.format(below / values.length),
       formatCount(changes)
     ]) row.insertCell().textContent = value;
+    return row;
   }
   summarizeSampling("Alle Stunden", laplace);
-  summarizeSampling("Primzahlindex", primeHours.map(i => laplace[i]));
   summarizeSampling("Gleichmäßig", uniformHours.map(i => laplace[i]));
-  for (const [hours, color, y] of [[primeHours, "#8de5ef", 10], [uniformHours, "#f49ad4", 38]]) {
-    samplingCtx.fillStyle = color;
-    for (const index of hours) samplingCtx.fillRect(Math.round(sampleX(index)), y, 1, 17);
+  const offsetCases = [...offsetSelector.options].map(option => {
+    const offset = Number(option.value);
+    const yearHours = fullCount - 1; // The last sample is the right endpoint at 1 January 2026.
+    const hours = primeHours.map(index => (index + offset) % yearHours).sort((a, b) => a - b);
+    const label = "Primzahlmarken " + (offset ? "+" : "") + formatCount(offset) + " h";
+    const row = summarizeSampling(label, hours.map(index => laplace[index]));
+    return { offset, label, hours, row, membership:new Set(hours) };
+  });
+
+  function selectSampling() {
+    activeSampling = offsetCases[offsetSelector.selectedIndex];
+    for (const entry of offsetCases) {
+      if (entry === activeSampling) entry.row.setAttribute("aria-current", "true");
+      else entry.row.removeAttribute("aria-current");
+    }
+    primeKey.textContent = "Oben: " + activeSampling.label;
+    samplingCtx.clearRect(0, 0, samplingCanvas.width, samplingCanvas.height);
+    for (const [hours, color, y] of [[activeSampling.hours, "#8de5ef", 10], [uniformHours, "#f49ad4", 38]]) {
+      samplingCtx.fillStyle = color;
+      for (const index of hours) samplingCtx.fillRect(Math.round(sampleX(index)), y, 1, 17);
+    }
+    samplingBackground = samplingCtx.getImageData(0, 0, samplingCanvas.width, samplingCanvas.height);
+    previousSample = -1;
   }
-  const samplingBackground = samplingCtx.getImageData(0, 0, samplingCanvas.width, samplingCanvas.height);
 
   let previousSample = -1;
   function render() {
@@ -223,7 +245,8 @@
     if (!samplingPanel.hidden) {
       samplingCtx.putImageData(samplingBackground, 0, 0);
       line(samplingCtx, sampleX(sample), 3, sampleX(sample), samplingCanvas.height - 4, "#fff");
-      const membership = [primeSet.has(sample) ? "Primzahlindex" : "", uniformSet.has(sample) ? "gleichmäßig" : ""].filter(Boolean);
+      const primeLabel = activeSampling.offset ? "verschobene Primzahlmarke" : "Primzahlindex";
+      const membership = [activeSampling.membership.has(sample) ? primeLabel : "", uniformSet.has(sample) ? "gleichmäßig" : ""].filter(Boolean);
       query("[data-jupiter-sample-cursor]").textContent =
         "Stunde " + formatCount(sample) + " · " + (membership.join(" und ") || "außerhalb beider Stichproben");
     }
@@ -365,8 +388,13 @@
     grid.title = target?.crossing ? crossingLabel(target.crossing) : target ? sampleTime(target.sample) : "";
   });
   windowSelector.addEventListener("change", selectWindow);
+  offsetSelector.addEventListener("change", () => {
+    selectSampling();
+    render();
+  });
   slider.closest(".kuramoto-controls").after(panel);
   panel.hidden = false;
+  selectSampling();
   selectWindow();
   if (window.location.hash === "#helix-jupiter-phases") panel.scrollIntoView();
 })();
