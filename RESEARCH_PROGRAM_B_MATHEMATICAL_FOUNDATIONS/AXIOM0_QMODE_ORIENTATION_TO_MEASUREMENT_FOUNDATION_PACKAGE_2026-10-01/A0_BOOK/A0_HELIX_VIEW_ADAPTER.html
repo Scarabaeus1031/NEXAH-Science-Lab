@@ -7,6 +7,18 @@
   <link rel="stylesheet" href="a0-context-navigation.css">
   <link rel="stylesheet" href="a0-helix-view-adapter.css?rev=mod7-fourier">
   <link rel="stylesheet" href="a0-kuramoto-compare.css?rev=3">
+  <style>
+    #helix-jupiter-phases { scroll-margin-top:2rem; padding:clamp(.8rem,2vw,1.3rem); margin:1rem 0 1.6rem; border:1px solid #345369; background:#0c1c29; border-radius:.55rem; }
+    #helix-jupiter-phases h4 { font-size:1.35rem; margin:0 0 .4rem; }
+    .jupiter-readout { display:flex; flex-wrap:wrap; gap:.3rem 1rem; align-items:baseline; padding:.55rem .75rem; background:#132936; font-variant-numeric:tabular-nums; }
+    .jupiter-readout strong { color:#ffd08a; }
+    .jupiter-panels { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,2fr) minmax(0,1.6fr); gap:.6rem; }
+    .jupiter-panels figure { min-width:0; margin:0; border:1px solid #304b5f; border-radius:.4rem; padding:.55rem; background:#071723; }
+    .jupiter-panels canvas { display:block; width:100%; height:auto; }
+    .jupiter-panels figcaption { font-size:.82rem; }
+    .jupiter-phase-key { display:inline-block; vertical-align:middle; width:5rem; height:.45rem; border-radius:.2rem; background:linear-gradient(to right,red,#ff0,#0f0,#0ff,#00f,#f0f,red); margin:0 .25rem; }
+    @media (max-width:760px) { .jupiter-panels { grid-template-columns:1fr; } }
+  </style>
 </head>
 <body>
 <main class="hv-shell" data-helix-adapter>
@@ -354,6 +366,24 @@
   <section class="kuramoto-compare" id="kuramoto-phasenvergleich" aria-labelledby="kuramotoCompareTitle" data-kuramoto-compare>
     <h3 id="kuramotoCompareTitle">Kuramoto · K=0, K=1 und K=2</h3>
   </section>
+  <section id="helix-jupiter-phases" hidden aria-labelledby="jupiterPhaseTitle">
+    <h4 id="jupiterPhaseTitle">Io, Europa und Ganymed · JPL Horizons</h4>
+    <p>Ein Regler zeigt denselben relativen Fortschritt in der Kuramoto-Modellzeit und im JPL-Fenster. Die JPL-Ansicht springt zum nächsten Stundenwert.</p>
+    <div class="kuramoto-controls">
+      <label for="jupiterWindow">JPL-Zeitfenster</label>
+      <select id="jupiterWindow" data-jupiter-window><option value="40">40 Tage</option><option value="365">Ein Jahr · 2025</option></select>
+      <span data-jupiter-window-range></span>
+    </div>
+    <p class="jupiter-readout"><output data-jupiter-time></output><strong>Laplace-Winkel <output data-jupiter-angle></output></strong></p>
+    <div class="jupiter-panels">
+      <figure><canvas width="250" height="190" role="img" aria-label="Die Bahnlängen der drei Monde als Zeiger auf einem Phasenkreis" data-jupiter-circle></canvas><figcaption>Phasenkreis · Io Cyan · Europa Gold · Ganymed Pink</figcaption></figure>
+      <figure><canvas width="500" height="190" role="img" aria-label="Laplace-Winkel im ausgewählten Fenster mit einer Referenzlinie bei 180 Grad" data-jupiter-strip></canvas><figcaption>Strip · Laplace-Winkel auf gleicher Skala, goldene Punkte bei Linienwechseln</figcaption></figure>
+      <figure><canvas width="1600" height="216" role="img" aria-label="Bahnlänge je Mond und Zeitpunkt, von null bis 360 Grad als Farbzyklus" data-jupiter-grid></canvas><figcaption>Grid · 0°<span class="jupiter-phase-key" aria-hidden="true"></span>360°</figcaption></figure>
+    </div>
+    <p data-jupiter-longitudes></p>
+    <p><strong>Dieses Fenster:</strong> <span data-jupiter-range></span> über <span data-jupiter-count></span> Stundenwerte. <span data-jupiter-crossings></span></p>
+    <p>Laplace-Winkel = λ<sub>Io</sub> − 3λ<sub>Europa</sub> + 2λ<sub>Ganymed</sub> modulo 360°. λ = Ω + ω + M aus oskulierenden Bahnelementen im Jupiter-Bezugssystem. <a href="https://ssd.jpl.nasa.gov/sats/ephem/">JPL · JUP365 ↗</a> · <a href="https://doi.org/10.1051/0004-6361/202141311">Laplace-Resonanz ↗</a> · Finding offen.</p>
+  </section>
   <p class="hv-boundary"><b>CLAIM BOUNDARY:</b> <code>RN\A</code>, <code>(c)D|⁄|A</code>, <code>RDMH</code>, <code>F/H</code> und <code>TRIAD</code> sind deklarierte typografische und geometrische View-Bezeichner. <code>Θ</code>, <code>ι</code> und <code>DAO</code> sind hier ausschließlich die explizit definierten normierten Größen <code>Δθ</code>, <code>Δz/Δθ</code> und <code>R²+ι²</code>. Der Backslash wird nicht ohne getrennt definierte Mengen als bewiesene Mengendifferenz gelesen. Die daraus abgeleitete Torsionsgröße <code>|τ|</code> ist keine physikalische Messung. Die ζ-Linse verwendet nur eine endliche Tabelle der ersten 20 positiven nichttrivialen Nullstellenordinaten und den einzelnen konjugierten Paarterm der expliziten Formel; sie berechnet weder die vollständige Formel noch neue Nullstellen und beweist weder RH noch GRH. <code>RLLR/LRRL</code> sind Trace-Wörter, keine Dirichlet-Charaktere; Periodizität modulo <code>q</code>, vollständige Multiplikativität und Nullwerte auf Nicht-Einheiten werden nicht behauptet. <code>−1/12</code> und <code>11/12</code> sind modulo 1 derselbe Phasenpunkt, aber getrennte Lift-/Pfadzeugen. Die Prime-Residue-Helix ordnet einen endlichen bekannten Primzahlträger nach Index und weist deklarierte Modulo-Winkel zu; sie ist weder eine natürliche Primzahlhelix noch identisch mit dem separaten Euler-7×11-Kantenaudit. Einzelstrang, Doppelhelix, Phasenüberblendung, Register-Layer und φ-Rail behaupten keine RNA-/DNA-Validierung, biologische Primzahlsteuerung, physikalische Resonanz, keinen Primzahlgenerator und keine natürliche Identität zwischen Twin Primes, ℤ₃₇, ζ-Nullstellen oder Fibonacci.</p>
   <footer class="hv-return"><span>Reuses: MOD:NUMBER_VIEW_SUITE · ART:A0:MATHEMATICAL_JOINTS · no graph delta</span><nav><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html">← Primecube</a> · <a href="A0_PRIME_PROJECTION_TEST_SUITE.html">Prime Projection</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#helix-mod7-method-return-20261126">Science Desk · Helix‑Return</a> · <a href="A0_RESEARCH_DESK.html#prime-projection-helix-paper-routing-20261121">Riemann / Ihara</a> · <a href="A0_HELIX_VIEW_ADAPTER_CONTRACT_2026-11-21.md">Contract</a> · <a href="results/a0-helix-view-adapter-2026-11-21.json">Receipt</a></nav></footer>
 </main>
@@ -362,5 +392,7 @@
 <script src="a0-helix-view-adapter-ui.js?rev=mod7-fourier"></script>
 <script src="a0-context-navigation.js"></script>
 <script defer src="a0-science-kuramoto.js?rev=4"></script>
+<script defer src="assets/a0-jupiter-horizons-2025.js?rev=annual"></script>
+<script defer src="a0-helix-jupiter-phases.js?rev=annual"></script>
 </body>
 </html>
