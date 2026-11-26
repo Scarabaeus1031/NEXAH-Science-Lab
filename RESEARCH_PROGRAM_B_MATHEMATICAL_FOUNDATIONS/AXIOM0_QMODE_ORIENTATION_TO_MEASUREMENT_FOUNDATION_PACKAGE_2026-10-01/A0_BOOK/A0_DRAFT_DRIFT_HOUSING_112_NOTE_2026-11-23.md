@@ -28,7 +28,7 @@ The instrument extends the existing `MOD:NUMBER_VIEW_SUITE` / `ART:A0:MATHEMATIC
 
 ## IOTA 4/5 im JPL-Raster · Hypothesendraft vom 26.11.2026
 
-**Status** `DRAFT / JPL 2023 LOKAL GEPRÜFT / KEIN 24-H-SPEZIFISCHER VORTEIL`
+**Status** `DRAFT / JPL 2023 LOKAL GEPRÜFT / PHASENTEST DOKUMENTIERT`
 
 ### Adresszuordnung
 
@@ -125,8 +125,8 @@ D-, E- und Kontrollstarts sämtliche 19 Wechsel.
 
 **Einordnung.** Der gerichtete E–D-Vergleich fällt für das Primzahlraster
 positiv aus. Die +12-h-Kontrolle erzielt jedoch denselben Gewinn bei
-denselben Wechseln. Damit gibt es **in diesem Fenster keinen besonderen
-IOTA-Vorteil des 24-Stunden-Versatzes**. Der Befund bleibt auf dieses
+denselben Wechseln. Damit zeigt sich **in der ursprünglichen Startphase
+kein besonderer IOTA-Vorteil des 24-Stunden-Versatzes**. Der Befund bleibt auf dieses
 Fenster und die vorab festgelegten Versätze begrenzt. Der Status der
 Hypothese und die Zulassung eines Findings ändern sich dadurch nicht.
 
@@ -134,6 +134,35 @@ Lokale Nachweise:
 [Prüfprotokoll](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/protocol.json>) ·
 [Ergebnisse je Startpaar](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/result.json>) ·
 [Quellabrufe](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/sources.json>).
+
+
+### Gemeinsamer Phasentest · JPL 2023
+
+Alle zwölf Startlagen wurden gemeinsam in Ein-Stunden-Schritten modulo
+8.760 verschoben. Ihre gegenseitigen Abstände blieben erhalten. Nach
+730 Stunden wiederholt sich dieselbe Menge von Startlagen. Im ganzen
+Jahr gibt es daher **730 unterschiedliche Phasen**.
+
+Für jeden Versatz zählt der mittlere Treffergewinn gegenüber D im
+Primzahlraster abzüglich des mittleren Gewinns im gleichmäßigen Raster.
+**+24 h schlägt +12 h und +36 h nach diesem Maß in 113/730 Phasen
+(15,48 %).** In **36/730 Phasen (4,93 %)** erfüllt +24 h zusätzlich
+die ursprüngliche Bedingung. Das Primzahlraster erfasst dort gegenüber
+D mehr Wechsel und gewinnt mehr als das gleichmäßige Raster.
+Gleichstände zählen in beiden Fällen nicht als Sieg. In der ursprünglichen
+Phase 0 erfassen +12 h und +24 h dieselben Wechsel.
+
+Die Häufigkeiten gelten bei gleichverteilter Wahl der gemeinsamen Phase
+in der festen Stundenreihe von 2023. Alle Phasen greifen auf dieselbe
+Reihe zurück. Der Phasentest liefert damit eine beschreibende Häufigkeit
+für dieses Fenster.
+
+Der **SLog** hält für jeden Referenzwechsel die Richtung um die 180°-Linie,
+die benachbarten Abtastmarken und den Trefferstatus fest. Die Referenz
+enthält **10 Aufwärts- und 9 Abwärtswechsel**.
+[SLog mit Wechselrichtungen (CSV, gzip)](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/phase-sweep/slog.csv.gz>) ·
+[Phasenergebnisse](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/phase-sweep/phases.csv>) ·
+[Prüfprotokoll des Phasentests](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/phase-sweep/protocol.json>).
 
 ## Verification
 
