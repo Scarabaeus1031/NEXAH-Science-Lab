@@ -3,24 +3,59 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>A0 · RDMH Helix Strand Adapter</title>
+  <title>A0 · Helix lesen und vergleichen</title>
   <link rel="stylesheet" href="a0-context-navigation.css">
-  <link rel="stylesheet" href="a0-helix-view-adapter.css?rev=phase-term-r2">
+  <link rel="stylesheet" href="a0-helix-view-adapter.css?rev=helix-tour-r1">
+  <link rel="stylesheet" href="a0-kuramoto-compare.css?rev=3">
 </head>
 <body>
 <main class="hv-shell" data-helix-adapter>
   <header class="hv-hero">
     <div>
-      <div class="hv-kicker">A0 · source-bound engineering view · visual encoding only</div>
-      <h1>RDMH HELIX<br>STRAND ADAPTER</h1>
-      <p><code>RN\A</code> zeigt den gerichteten Einzelstrang A. <code>(c)D|⁄|A</code> ergänzt den antipodalen Gegenstrang, Sprossen und ihre exakten Mittelachsen-Schnittpunkte. Beide bleiben deklarierte View-Modi.</p>
+      <div class="hv-kicker">A0 · RDMH Helix</div>
+      <h1>Helix lesen<br>und vergleichen</h1>
+      <p>Zieh an der Helix, um sie zu drehen. Wähle eine Sprosse, um ihre Zahlen und Koordinaten zu sehen. Die Tour beginnt bei Primzahlen und führt über Zeta zur Frage, welche Information in der Projektion einer Bahn verloren gehen kann.</p>
+      <div class="hv-hero-actions">
+        <button type="button" data-hv-tour-start aria-controls="helix-tour">Geführte Tour starten</button>
+        <a href="#helix-workbench">Helix frei erkunden ↓</a>
+        <a href="#helix-rossler-lift">Rössler ↓</a>
+        <a href="#kuramoto-phasenvergleich">Kuramoto ↓</a>
+      </div>
+      <details class="hv-guide-terms">
+        <summary>Was bedeuten Sprosse, Rail und Schnitt?</summary>
+        <dl>
+          <div><dt>Sprosse</dt><dd>Die Verbindung zweier Punkte auf derselben Ebene. In der Primzahlansicht kann sie auch zwei Winkel derselben Zahl verbinden.</dd></div>
+          <div><dt>Rail</dt><dd>Eine Spur, auf der eine Regel die Winkel der Punkte bestimmt.</dd></div>
+          <div><dt>Schnitt</dt><dd>Eine Ebene, die du einzeln betrachtest. Bei Rössler markiert der gerichtete Schnitt zusätzlich Beginn und Ende eines Umlaufs.</dd></div>
+        </dl>
+      </details>
     </div>
     <dl class="hv-status">
-      <div><dt>Channel</dt><dd>INTERNAL A0</dd></div><div><dt>Model</dt><dd>RDMH · 1.6.0</dd></div><div><dt>Acceptance</dt><dd>NOT RECORDED</dd></div><div><dt>Deployment</dt><dd>NONE</dd></div>
+      <div><dt>Kanal</dt><dd>A0 intern</dd></div><div><dt>Modell</dt><dd>RDMH · 1.6.0</dd></div><div><dt>Abnahme</dt><dd>Offen</dd></div><div><dt>Auslieferung</dt><dd>Lokaler Arbeitsstand</dd></div>
     </dl>
   </header>
 
-  <section class="hv-workbench" aria-label="Interaktiver Helix View Adapter">
+  <section id="helix-tour" class="hv-tour" aria-labelledby="helixTourTitle" hidden>
+    <div class="hv-tour-controls">
+      <div class="hv-tour-position">
+        <label for="helixTourStop">Station</label>
+        <select id="helixTourStop" data-hv-tour-stop></select>
+        <span data-hv-tour-count></span>
+      </div>
+      <div class="hv-tour-buttons">
+        <button type="button" data-hv-tour-back>Zurück</button>
+        <button type="button" data-hv-tour-next>Weiter</button>
+        <button type="button" data-hv-tour-exit>Tour verlassen</button>
+      </div>
+    </div>
+    <div class="hv-tour-copy" aria-live="polite" aria-atomic="true">
+      <h2 id="helixTourTitle" tabindex="-1"></h2>
+      <p data-hv-tour-reading></p>
+      <p data-hv-tour-action></p>
+    </div>
+  </section>
+
+  <section class="hv-workbench" id="helix-workbench" aria-label="Interaktiver Helix View Adapter">
     <div class="hv-toolbar">
       <div class="hv-segment" role="group" aria-label="Strangprojektion">
         <button type="button" data-hv-strand="double" aria-pressed="true">(c)D|⁄|A · 2-Strang</button>
@@ -42,9 +77,12 @@
     </div>
 
     <div class="hv-stage-grid">
-      <div class="hv-canvas-wrap">
+      <div class="hv-canvas-wrap" id="helix-stack-5-1">
+        <span id="helix-mod7-axes" class="hv-canvas-anchor" aria-hidden="true"></span>
+        <span id="helix-mod7-slices" class="hv-canvas-anchor" aria-hidden="true"></span>
+        <span id="helix-zeta-kinks" class="hv-canvas-anchor" aria-hidden="true"></span>
         <canvas data-hv-canvas aria-label="Drehbarer RDMH Helix-Strang-Adapter aus endlichen Zahlenträgern">Interaktiver Helix-Strang-Adapter.</canvas>
-        <div class="hv-canvas-note"><span>drag · rotate</span><span data-hv-count>40 rungs</span></div>
+        <div class="hv-canvas-note"><span data-hv-camera-note>drag · rotate</span><span data-hv-count>40 rungs</span></div>
       </div>
       <aside class="hv-inspector" aria-live="polite">
         <div class="hv-eyebrow" data-hv-record>HELIX:TWIN:01</div>
@@ -52,9 +90,63 @@
         <p class="hv-mode-readout" data-hv-strand-readout><b>(c)D|⁄|A</b> · antipodaler Doppelstrang · <code>Lₖ(1/2)=(0,zₖ,0)</code></p>
         <p class="hv-mode-readout hv-register-readout" data-hv-register-readout><b>PAIR · 1+1</b> · geprüfter Quellträger ohne zusätzlichen Phasen-Layer</p>
         <dl data-hv-detail></dl>
-        <div class="hv-nav"><button type="button" data-hv-prev aria-label="Vorherige Sprosse">←</button><label>Sprosse <input data-hv-index type="range" min="1" max="40" value="1"></label><button type="button" data-hv-next aria-label="Nächste Sprosse">→</button></div>
+        <div class="hv-nav"><button type="button" data-hv-prev aria-label="Vorherige Sprosse">←</button><label><span data-hv-index-label>Sprosse</span> <input data-hv-index type="range" min="1" max="40" value="1"></label><button type="button" data-hv-next aria-label="Nächste Sprosse">→</button></div>
+        <section class="hv-kink-tracker" data-hv-kink-tracker hidden aria-live="off" aria-labelledby="helixKinkTitle">
+          <h2 id="helixKinkTitle">Knicke in der Zeta‑Drehung</h2>
+          <p data-hv-kink-word></p>
+          <button type="button" data-hv-kink-play>Drehung abspielen</button>
+          <label for="helixKinkAngle">Drehwinkel <output for="helixKinkAngle" data-hv-kink-angle-out>0°</output></label>
+          <input id="helixKinkAngle" data-hv-kink-angle type="range" min="0" max="90" step="0.1" value="0">
+          <dl>
+            <div><dt class="hv-kink-first">K1</dt><dd data-hv-kink-position></dd></div>
+            <div><dt class="hv-kink-second">K2</dt><dd data-hv-kink-position></dd></div>
+          </dl>
+          <p>Position (x; y; z) nach der Drehung in der x–y‑Ebene, vor der Kameraprojektion.</p>
+        </section>
+        <section class="hv-slice-panel" data-hv-slice-panel hidden aria-labelledby="helixSliceTitle">
+          <h2 id="helixSliceTitle">MOD‑7‑Slicing</h2>
+          <p data-hv-slice-status></p>
+          <div class="hv-slice-strip" data-hv-slice-strip aria-hidden="true"></div>
+          <p class="hv-torsion-note" data-hv-slice-counts></p>
+          <figure class="hv-slice-plan">
+            <figcaption><b>Draufsicht auf die aktive Ebene</b> <span>0° oben · im Uhrzeigersinn</span></figcaption>
+            <svg viewBox="-112 -96 224 184" role="img" aria-labelledby="helixSlicePlanTitle">
+              <title id="helixSlicePlanTitle">I/J-Oktagone mit 22,5° Versatz, Union-J-Kreuz und Diagonalen</title>
+              <circle class="hv-slice-plan-circle" r="68"/>
+              <polygon class="hv-slice-plan-inner" data-hv-slice-inner/>
+              <polygon class="hv-slice-plan-outer" data-hv-slice-outer/>
+              <g class="hv-slice-plan-flag">
+                <path d="M0 -68V68 M-68 0H68"/>
+                <path class="hv-slice-plan-diagonals" d="M-48.083 -48.083L48.083 48.083 M48.083 -48.083L-48.083 48.083"/>
+              </g>
+              <g class="hv-slice-plan-targets" data-hv-slice-targets visibility="hidden" aria-hidden="true">
+                <line class="hv-slice-plan-u" data-hv-slice-target="union" y1="-68" y2="68"/>
+                <path class="hv-slice-plan-arc hv-slice-plan-i" data-hv-slice-arc="i"/>
+                <path class="hv-slice-plan-arc hv-slice-plan-j" data-hv-slice-arc="j"/>
+                <text class="hv-slice-plan-arc-value hv-slice-plan-i" data-hv-slice-arc-value="i" text-anchor="middle" dominant-baseline="central"></text>
+                <text class="hv-slice-plan-arc-value hv-slice-plan-j" data-hv-slice-arc-value="j" text-anchor="middle" dominant-baseline="central"></text>
+                <circle class="hv-slice-plan-i" data-hv-slice-target="i" cy="-68" r="4"/>
+                <circle class="hv-slice-plan-j" data-hv-slice-target="j" r="4"/>
+              </g>
+              <text x="0" y="-81" text-anchor="middle">0°</text>
+              <g data-hv-slice-marker visibility="hidden"><circle cy="-68" r="5.5"/></g>
+            </svg>
+            <dl class="hv-slice-plan-key" aria-label="Winkelabstand zur nächsten Ecke oder Achse">
+              <div class="hv-slice-plan-i"><dt>I‑Ecke</dt><dd data-hv-slice-distance="i"></dd></div>
+              <div class="hv-slice-plan-j"><dt>J‑Ecke</dt><dd data-hv-slice-distance="j"></dd></div>
+              <div class="hv-slice-plan-u"><dt>Union‑J‑Achse</dt><dd data-hv-slice-distance="union"></dd></div>
+            </dl>
+          </figure>
+        </section>
       </aside>
     </div>
+
+    <section class="hv-fourier-panel" data-hv-fourier-panel hidden aria-labelledby="helixFourierTitle">
+      <h2 id="helixFourierTitle">MOD‑7‑Fourier · 168 Ebenen</h2>
+      <p>Pro Spur zählt ein Treffer als 1, jede andere Ebene als 0. Die Balken zeigen die Amplitude auf derselben Skala. <i>k</i> zählt Wellen über alle 168 Primzahl-Ebenen.</p>
+      <div class="hv-fourier-charts" data-hv-fourier-charts></div>
+      <p class="hv-fourier-links"><a href="DRAFTS/A0_TYPED_MIRROR_ROTATION_COMPASS_DRAFT_2026-11-07.html#octagon-wobble">I/J-Oktagone im Rotation Compass</a><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html#shadow-cube-3d">Union J / Flag am Cube</a></p>
+    </section>
 
     <div class="hv-phase-control">
       <div><label for="helixPhase"><b>THETA Θ · Twist / Phasenverdrehung Δθ pro Schritt</b></label><output id="helixPhaseOut" for="helixPhase">36,000000° · 10er-Takt</output></div>
@@ -124,6 +216,22 @@
         <button type="button" data-hv-residue-angle="mod11" aria-pressed="false">MOD 11 · eine Rail</button>
         <button type="button" data-hv-residue-angle="paired" aria-pressed="true">7|11 · gekoppelte Rails</button>
       </div>
+      <div class="hv-stack" data-hv-mod7-panel hidden>
+        <div class="hv-stack-head">
+          <label class="hv-check"><input type="checkbox" data-hv-mod7-toggle checked> Nur Treffer für 2 und 6 mod 7</label>
+          <label class="hv-check"><input type="checkbox" data-hv-slice-toggle> Slicing · feste Ansicht</label>
+          <span class="hv-stack-key"><span data-stack-color="green">2 mod 7</span><span data-stack-color="pink">6 mod 7</span></span>
+        </div>
+        <p class="hv-torsion-note" data-hv-mod7-help>Ziehe waagerecht im Plot, um die Punktachsen bei fester Blickhöhe zu drehen.</p>
+      </div>
+      <div class="hv-stack" data-hv-stack-panel>
+        <div class="hv-stack-head">
+          <label class="hv-check"><input type="checkbox" data-hv-stack-toggle checked> Stack (5,1)</label>
+          <span class="hv-stack-key"><span data-stack-color="violet">5 mod 7</span><span data-stack-color="gold">1 mod 11</span></span>
+        </div>
+        <div class="hv-segment" data-hv-stack-snapshots role="group" aria-label="Snapshots des Stacks"></div>
+        <p class="hv-torsion-note">89, 397 und 859 liegen auf verschiedenen Höhen und haben dieselben Reste, 5 bei Division durch 7 und 1 bei Division durch 11. Die Achsen verbinden je Rail dieselbe Winkelposition auf drei Höhen. Die drei Sprossen führen zum selben Record im Primecube und in seinen Loki-Schnitt.</p>
+      </div>
       <dl class="hv-torsion-metrics" aria-label="Prime-Residue-Helix-Vertrag">
         <div><dt>Carrier</dt><dd>168 primes · p≤1000</dd></div><div><dt>Vertical order</dt><dd>prime index ↑</dd></div>
         <div><dt>Angle A</dt><dd>2π(p mod 7)/7</dd></div><div><dt>Angle B</dt><dd>2π(p mod 11)/11</dd></div>
@@ -131,6 +239,91 @@
       </dl>
       <p class="hv-torsion-note">Die Höhe ordnet den Primzahlindex; die beiden Winkelregeln setzen denselben Record auf zwei getrennte Rails. Die Verbindung ist ein View-Crosswalk, keine antipodale Sprosse, keine natürliche Primzahlhelix und nicht der separate 270-Schritt-Euler-Audit.</p>
     </div>
+  </section>
+
+  <section class="hv-rossler" id="helix-rossler-lift" aria-labelledby="helixRosslerTitle">
+    <header>
+      <h2 id="helixRosslerTitle">Rössler-Lift</h2>
+      <p>Die flache Ansicht zeigt den Grundriss der Bahn. Mit z wird die Höhe sichtbar. Der Schnitt dient als gemeinsame Messmarke für den Vergleich zweier Umläufe.</p>
+      <p>Der gerichtete Schnitt liegt bei <code>x = 0</code>, <code>y &lt; 0</code> und <code>ẋ &gt; 0</code>.</p>
+    </header>
+    <div class="hv-segment hv-rossler-modes" role="group" aria-label="Rössler-Ansicht">
+      <button type="button" data-rossler-mode="compare" aria-pressed="true">Umlauf 1 ↔ 5</button>
+      <button type="button" data-rossler-mode="single" aria-pressed="false">Einzelumlauf · flach ↔ z</button>
+      <button type="button" id="helix-rossler-janus" data-rossler-mode="janus" aria-pressed="false">JANUS-Overlap</button>
+      <button type="button" id="helix-rossler-clusters" data-rossler-mode="clusters" aria-pressed="false">XY ↔ XYZ · Cluster</button>
+    </div>
+    <p class="hv-rossler-scale" data-rossler-scale>Gleiche z-Skala · kürzerer Umlauf hält am Schnitt</p>
+    <div class="hv-rossler-janus" data-rossler-janus hidden>
+      <div class="hv-rossler-janus-head">
+        <p><strong>Overlap-Kandidaten</strong> · untere 8 % JANUS und obere 8 % Krümmung, gepoolt über fünf Umläufe.</p>
+        <div class="hv-segment hv-rossler-candidates" data-rossler-candidates role="group" aria-label="JANUS-Overlap-Kandidaten"></div>
+      </div>
+      <dl class="hv-rossler-metrics hv-rossler-selection" aria-live="polite">
+        <div><dt>Sample</dt><dd data-rossler-janus-sample>–</dd></div>
+        <div><dt>JANUS</dt><dd data-rossler-janus-value>–</dd></div>
+        <div><dt>Diskrete Krümmung</dt><dd data-rossler-janus-curvature>–</dd></div>
+      </dl>
+      <p class="hv-torsion-note">Sample 0 ist der Startschnitt. Beide Messwerte gehören zum mittleren Punkt desselben Dreierfensters der Wiedergabe. Die Schnitt-Endpunkte bleiben bei der Kandidatensuche außen vor.</p>
+    </div>
+    <div class="hv-rossler-views">
+      <figure>
+        <figcaption>Links · Projektion auf x–y</figcaption>
+        <canvas data-rossler-view="flat" aria-label="Flache Rössler-Bahn mit markiertem Schnitt">Rössler-Bahn in der Ebene.</canvas>
+        <dl class="hv-rossler-metrics hv-rossler-side" data-rossler-side>
+          <div><dt>Schritt</dt><dd data-rossler-progress>–</dd></div>
+          <div><dt>z-Spitze</dt><dd data-rossler-side-peak>–</dd></div>
+          <div><dt>Return-Radius</dt><dd data-rossler-side-radius>–</dd></div>
+        </dl>
+      </figure>
+      <figure>
+        <figcaption>Rechts · Dieselbe Bahn mit z</figcaption>
+        <canvas data-rossler-view="lift" aria-label="Dieselbe Rössler-Bahn mit z-Höhe über der x–y-Ebene">Rössler-Bahn mit Höhe.</canvas>
+        <dl class="hv-rossler-metrics hv-rossler-side" data-rossler-side>
+          <div><dt>Schritt</dt><dd data-rossler-progress>–</dd></div>
+          <div><dt>z-Spitze</dt><dd data-rossler-side-peak>–</dd></div>
+          <div><dt>Return-Radius</dt><dd data-rossler-side-radius>–</dd></div>
+        </dl>
+      </figure>
+    </div>
+    <dl class="hv-rossler-metrics" data-rossler-single hidden>
+      <div><dt>Umlauf</dt><dd data-rossler-cycle>1 / 5</dd></div>
+      <div><dt>z-Spitze bisher</dt><dd data-rossler-peak>–</dd></div>
+      <div><dt>Return-Radius</dt><dd data-rossler-radius>–</dd></div>
+    </dl>
+    <div class="hv-rossler-controls" data-rossler-playback>
+      <button type="button" data-rossler-step>Nächster Schritt</button>
+      <button type="button" data-rossler-reset disabled>Zurücksetzen</button>
+      <button type="button" data-rossler-next disabled hidden>Nächster Umlauf</button>
+      <output data-rossler-status aria-live="polite">Start am gerichteten Schnitt.</output>
+    </div>
+    <section class="hv-rossler-clusters" data-rossler-clusters hidden aria-labelledby="helixRosslerClustersTitle">
+      <h3 id="helixRosslerClustersTitle">Clusterwechsel beim Hinzufügen von z</h3>
+      <ul class="hv-rossler-cluster-legend" data-rossler-cluster-legend aria-label="Clusterfarben"></ul>
+      <div class="hv-rossler-cluster-readout">
+        <label for="rosslerClusterSample">Abweichendes Sample</label>
+        <select id="rosslerClusterSample" data-rossler-cluster-sample></select>
+        <p data-rossler-cluster-point aria-live="polite"></p>
+      </div>
+      <div class="hv-rossler-transition" data-rossler-transition hidden>
+        <p data-rossler-transition-summary role="status"></p>
+        <label for="rosslerTransitionStep">Aus 1→1 herausgefallener Schritt</label>
+        <select id="rosslerTransitionStep" data-rossler-transition-step></select>
+        <p data-rossler-transition-point aria-live="polite"></p>
+        <button type="button" data-rossler-transition-clear>Schrittauswahl schließen</button>
+      </div>
+      <p data-rossler-cluster-matches></p>
+      <p>Wähle eine Zelle in XY oder im zugeordneten XYZ, um die Schritte zu sehen, die in XYZ aus dieser Zelle herausfallen.</p>
+      <div class="hv-rossler-matrices" data-rossler-matrices></div>
+      <p data-rossler-cluster-delta></p>
+      <details>
+        <summary>Methode und Vergleichsgrenze</summary>
+        <p>Fünf Umläufe derselben Bahn in Zeitreihenfolge. Ein gemeinsamer Schnittpunkt zählt einmal. Die IDs bestehen aus Umlauf und Sampleindex der Lift-Ansicht. K-Means mit sechs Clustern, Rohkoordinaten und denselben sechs deterministischen Initialisierungen in beiden Räumen. Pro Raum zählt der Lauf mit der kleinsten quadratischen Distanzsumme.</p>
+        <p>Die Zuordnung maximiert die Zahl gemeinsamer Sample-IDs unter allen 720 eindeutigen Paarungen. Die Matrizen zählen auch Selbstübergänge. Jede Zeile zeigt die Anteile der direkt folgenden Samples. Die Farbskala läuft in allen Matrizen von 0 bis 100 %. Der mittlere Abstand ist der mittlere absolute Unterschied aller 36 Zellen in Prozentpunkten zur XY-Referenz. Die markierte Zelle zeigt den größten Unterschied nach Zuordnung.</p>
+        <p>Die Unterschiede gelten für diese Bahn, ihre Abtastung und diese Clusterregel. <strong>Finding offen.</strong> <a href="https://github.com/Scarabaeus1031/NEXAH/blob/main/RESEARCH/VALIDATION/lorenz/run_rossler_validation_suite.py#L139">Rössler-Vergleich im Core-Repo ↗</a></p>
+      </details>
+    </section>
+    <p class="hv-torsion-note">Rössler mit a = b = 0,2 und c = 5,7. Fünf Umläufe nach t ≥ 40. RK4 mit Δt = 0,005 und linear interpoliertem Schnitt. Finding offen.</p>
   </section>
 
   <section class="hv-notes">
@@ -145,12 +338,17 @@
     <article><div class="hv-eyebrow">Euler compass → helix view</div><h2>Ein Träger, zwei Residuenwinkel</h2><p>Die 168 Primzahlen bis 1000 bleiben dieselben adressierten Records. Nur ihre Winkelregel wechselt zwischen <code>mod 7</code>, <code>mod 11</code> und der gekoppelten <code>7|11</code>-Ansicht; die Höhe bewahrt die Primindex-Reihenfolge.</p></article>
   </section>
 
+  <p class="hv-editorial-note"><strong>Kuramoto.</strong> Jeder Punkt ist ein Oszillator. Der Phasenkreis zeigt seinen aktuellen Winkel, der Strip zeigt den Verlauf. Der Ordnungsparameter R beschreibt, wie eng die Gruppe beieinanderliegt. Die Spuren von 5 und 19 zeigen, wie sich einzelne Oszillatoren dazu verhalten.</p>
+  <section class="kuramoto-compare" id="kuramoto-phasenvergleich" aria-labelledby="kuramotoCompareTitle" data-kuramoto-compare>
+    <h3 id="kuramotoCompareTitle">Kuramoto · K=0, K=1 und K=2</h3>
+  </section>
   <p class="hv-boundary"><b>CLAIM BOUNDARY:</b> <code>RN\A</code>, <code>(c)D|⁄|A</code>, <code>RDMH</code>, <code>F/H</code> und <code>TRIAD</code> sind deklarierte typografische und geometrische View-Bezeichner. <code>Θ</code>, <code>ι</code> und <code>DAO</code> sind hier ausschließlich die explizit definierten normierten Größen <code>Δθ</code>, <code>Δz/Δθ</code> und <code>R²+ι²</code>. Der Backslash wird nicht ohne getrennt definierte Mengen als bewiesene Mengendifferenz gelesen. Die daraus abgeleitete Torsionsgröße <code>|τ|</code> ist keine physikalische Messung. Die ζ-Linse verwendet nur eine endliche Tabelle der ersten 20 positiven nichttrivialen Nullstellenordinaten und den einzelnen konjugierten Paarterm der expliziten Formel; sie berechnet weder die vollständige Formel noch neue Nullstellen und beweist weder RH noch GRH. <code>RLLR/LRRL</code> sind Trace-Wörter, keine Dirichlet-Charaktere; Periodizität modulo <code>q</code>, vollständige Multiplikativität und Nullwerte auf Nicht-Einheiten werden nicht behauptet. <code>−1/12</code> und <code>11/12</code> sind modulo 1 derselbe Phasenpunkt, aber getrennte Lift-/Pfadzeugen. Die Prime-Residue-Helix ordnet einen endlichen bekannten Primzahlträger nach Index und weist deklarierte Modulo-Winkel zu; sie ist weder eine natürliche Primzahlhelix noch identisch mit dem separaten Euler-7×11-Kantenaudit. Einzelstrang, Doppelhelix, Phasenüberblendung, Register-Layer und φ-Rail behaupten keine RNA-/DNA-Validierung, biologische Primzahlsteuerung, physikalische Resonanz, keinen Primzahlgenerator und keine natürliche Identität zwischen Twin Primes, ℤ₃₇, ζ-Nullstellen oder Fibonacci.</p>
-  <footer class="hv-return"><span>Reuses: MOD:NUMBER_VIEW_SUITE · ART:A0:MATHEMATICAL_JOINTS · no graph delta</span><nav><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html">← Primecube</a> · <a href="A0_PRIME_PROJECTION_TEST_SUITE.html">Prime Projection</a> · <a href="A0_RESEARCH_DESK.html#prime-projection-helix-paper-routing-20261121">Science Desk</a> · <a href="A0_HELIX_VIEW_ADAPTER_CONTRACT_2026-11-21.md">Contract</a> · <a href="results/a0-helix-view-adapter-2026-11-21.json">Receipt</a></nav></footer>
+  <footer class="hv-return"><span>Reuses: MOD:NUMBER_VIEW_SUITE · ART:A0:MATHEMATICAL_JOINTS · no graph delta</span><nav><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html">← Primecube</a> · <a href="A0_PRIME_PROJECTION_TEST_SUITE.html">Prime Projection</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#helix-mod7-method-return-20261126">Science Desk · Helix‑Return</a> · <a href="A0_RESEARCH_DESK.html#prime-projection-helix-paper-routing-20261121">Riemann / Ihara</a> · <a href="A0_HELIX_VIEW_ADAPTER_CONTRACT_2026-11-21.md">Contract</a> · <a href="results/a0-helix-view-adapter-2026-11-21.json">Receipt</a></nav></footer>
 </main>
 <script src="a0-primecube-model.js?rev=20261121-r5"></script>
-<script src="a0-helix-view-adapter.js?rev=phase-term-r2"></script>
-<script src="a0-helix-view-adapter-ui.js?rev=phase-term-r2"></script>
+<script src="a0-helix-view-adapter.js?rev=rossler-clusters-r1"></script>
+<script src="a0-helix-view-adapter-ui.js?rev=helix-tour-r2"></script>
 <script src="a0-context-navigation.js"></script>
+<script defer src="a0-science-kuramoto.js?rev=4"></script>
 </body>
 </html>

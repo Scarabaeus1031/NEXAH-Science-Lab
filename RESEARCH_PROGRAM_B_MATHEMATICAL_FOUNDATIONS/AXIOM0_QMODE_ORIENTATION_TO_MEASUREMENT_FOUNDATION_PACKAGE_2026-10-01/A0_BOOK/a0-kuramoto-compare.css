@@ -1,0 +1,30 @@
+.kuramoto-compare { margin:2.5rem 0 0; padding-top:1.4rem; border-top:1px solid #557285; scroll-margin-top:7rem; }
+.kuramoto-compare h3 { margin:0 0 .5rem; }
+.kuramoto-controls { display:flex; flex-wrap:wrap; align-items:center; gap:.6rem 1rem; margin:1rem 0; }
+.kuramoto-controls input { flex:1; min-width:160px; accent-color:#7ee7f0; }
+.kuramoto-controls output { min-width:5.8em; font-variant-numeric:tabular-nums; }
+.kuramoto-runs,.kuramoto-views { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; }
+.kuramoto-runs { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.kuramoto-run { min-width:0; padding:.85rem; background:#0a1d2a; border:1px solid #2a4859; border-radius:5px; }
+.kuramoto-run h4 { margin:0; }
+.kuramoto-run dl { display:flex; flex-wrap:wrap; gap:.7rem 1.2rem; margin:.45rem 0 .85rem; font-variant-numeric:tabular-nums; }
+.kuramoto-run dl div { display:flex; gap:.4rem; }
+.kuramoto-run dd { margin:0; }
+.kuramoto-run figure { margin:0; min-width:0; }
+.kuramoto-run figcaption { margin-top:.35rem; font-size:.8rem; }
+.kuramoto-run canvas { display:block; width:100%; height:auto; background:#071522; border:1px solid #2a4859; }
+.kuramoto-grid-figure { grid-column:1/-1; }
+.kuramoto-phase-scale { display:inline-block; vertical-align:middle; width:6rem; height:.55rem; margin:0 .35rem; background:linear-gradient(90deg,#2a77be,#f6e6a2,#cb397f); }
+@media(max-width:980px){.kuramoto-runs { grid-template-columns:1fr; }}
+.kuramoto-controls select,.kuramoto-controls button { padding:.4rem .55rem; border:1px solid #557285; border-radius:4px; background:#102735; color:#fff; font:inherit; }
+.kuramoto-grid-figure canvas { cursor:crosshair; }
+.kuramoto-drift { margin:1rem 0; padding:.8rem; border:1px solid #2a4859; background:#0a1d2a; }
+.kuramoto-drift canvas { display:block; width:min(100%,720px); height:auto; }
+.kuramoto-drift figcaption,.kuramoto-drift p { margin:.45rem 0 0; font-size:.85rem; }
+.kuramoto-compare canvas { touch-action:pan-y; }
+.kuramoto-compare [hidden] { display:none; }
+.kuramoto-controls button[aria-pressed=true] { color:#071522; background:#c4fb81; border-color:#c4fb81; }
+.kuramoto-pair-traces { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; }
+.kuramoto-pair-traces figure { min-width:0; }
+.kuramoto-osc-key { color:var(--osc-color); }
+@media(max-width:660px){.kuramoto-pair-traces { grid-template-columns:1fr; }}

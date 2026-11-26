@@ -4268,6 +4268,19 @@ Disposition: `KEEP AS INTERNAL PAPER PREPARATION / EXISTING A0 + NUMBER VIEW SUI
 [Paper F](36_A0_TESSAREC_FRAME_ENVELOPE_OBSERVER_PAPER_DRAFT_2026-10-12.md#prime-projection-observer-cuts) ·
 [Receipt](A0_BOOK/results/a0-prime-projection-helix-paper-routing-2026-11-21.json)
 
+### Helix und Primecube · Methodenstand vom 26. November 2026
+
+Der Science Desk bündelt den exakten PC1111-Rückweg, den MOD-7- und
+räumlichen Fourier-Vergleich, den Zeta-Knicktracker, Riemann/Ihara, den
+Rössler-Lift samt Sample-Zuordnung und Kuramotos Einzelspuren.
+Im Rössler-Lauf fallen 19 von 25 XY-Schritten aus 1→1 heraus.
+14 davon bleiben Selbstübergänge in anderen Clustern. Dieser Lauf
+liefert einen konkreten Vergleich für weitere Starts, Fenster und
+eine Persistenz-Gegenprobe. Finding offen.
+
+[Science-Desk-Resümee](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#helix-primecube-resume-20261126) ·
+[Geführte Tour](A0_BOOK/A0_HELIX_VIEW_ADAPTER.html?rev=helix-tour-r2#helix-tour)
+
 ## Primecube coupled orbit barcode · 2026-11-22
 
 The existing `T20+` orbit of `1 mod 1001` now has a selectable 60-column

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>NEXAH · A0 Science · Owner Staging</title>
   <link rel="stylesheet" href="a0-primecube-algo.css?rev=6">
+  <link rel="stylesheet" href="a0-kuramoto-compare.css?rev=3">
   <meta name="description" content="Interne, source-bound A0-Science-Lesefassung: aktueller Forschungsstand, Evidenzgrenzen, Review-Gates und zulässige Exits.">
   <style>
     :root{--paper:#f3efe6;--white:#fffdf8;--ink:#101922;--muted:#5d6871;--line:#cec5b6;--night:#06131e;--night2:#0a1d2a;--night3:#102735;--nightline:#2a4859;--gold:#e9b541;--cyan:#39cee9;--mint:#59dfa5;--pink:#f1698c;--violet:#a77dff;--serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
@@ -40,10 +41,44 @@
       padding:.55rem .65rem; text-align:left; vertical-align:top; border-bottom:1px solid var(--line);
     }
     .t-layer-result-table td:last-child { white-space:nowrap; }
+    .attractor-fourier-figure { margin:1.5rem 0; }
+    .attractor-fourier-figure img { display:block; width:min(100%,860px); height:auto; }
+    .attractor-fourier-figure figcaption { margin-top:.55rem; font-size:.9rem; }
+    .attractor-controls,.attractor-legend { display:flex; gap:.8rem 1rem; flex-wrap:wrap; align-items:center; }
+    .attractor-controls { margin:1rem 0; }
+    .attractor-controls label { display:grid; gap:.25rem; font-weight:650; }
+    .attractor-controls select { background:#102735; color:#fff; padding:.45rem .6rem; border:1px solid #557285; border-radius:4px; font:inherit; }
+    .attractor-color-scale { width:150px; height:.7em; background:linear-gradient(90deg,#0d0827,#3a0f5e,#771c6d,#bb3754,#ef7136,#fbbf50,#fcfea4); }
+    .attractor-legend,.attractor-help { font-size:.85rem; }
+    .attractor-cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+    .attractor-card { border:1px solid #2a4859; background:#0a1d2a; border-radius:5px; padding:10px; min-width:0; }
+    .attractor-card h3 { margin:0; font-size:1rem; }
+    .attractor-card p { margin:.25rem 0 .55rem; font-size:.8rem; }
+    .attractor-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+    .attractor-pair.is-triple { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .attractor-cards.is-triple { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .attractor-pane h4 { margin:.35rem 0 .15rem; font-size:.8rem; }
+    .attractor-pane .attractor-start { font-variant-numeric:tabular-nums; }
+    .attractor-deltas { display:grid; gap:.25rem; margin:.65rem 0 0; padding-top:.55rem; border-top:1px solid #2a4859; font-size:.8rem; }
+    .attractor-delta-row { display:flex; flex-wrap:wrap; align-items:baseline; gap:.25rem .6rem; }
+    .attractor-delta-band { color:var(--band-color); }
+    .attractor-delta-max { font-weight:750; background:#25384a; border:1px solid var(--band-color); border-radius:3px; padding:0 .3rem; }
+    .attractor-delta-max small { font-weight:400; }
+    @media(max-width:980px){.attractor-cards.is-triple { grid-template-columns:1fr; }}
+    .attractor-card canvas { display:block; width:100%; max-width:330px; height:auto; margin:auto; }
+    .attractor-band { margin:.6rem 0 0; font-size:.78rem; color:#dceaf0; }
+    .attractor-band strong { color:var(--band-color); }
+    .attractor-band small { display:block; }
+    .attractor-meter { position:relative; height:.36rem; background:#20394a; margin:.3rem 0; }
+    .attractor-meter span { display:block; height:100%; background:var(--band-color); }
+    .attractor-meter i { position:absolute; top:-2px; bottom:-2px; width:2px; background:#fff; }
+    .attractor-overview { margin-top:1.2rem; }
+    @media(max-width:1000px){.attractor-cards { grid-template-columns:repeat(2,minmax(0,1fr)); }}
+    @media(max-width:660px){.attractor-cards { grid-template-columns:1fr; }}
   </style>
 </head>
 <body class="a0-staging">
-  <header class="top"><a class="brand" href="A0_NEXAH_APERTURE_JOURNEY.html#human-view">NEXAH <span>· A0 Science</span></a><nav><a href="#overview">Überblick</a><a href="#field-notes">Field Notes</a><a href="#science-status-plate">Stand</a><a href="#same-carrier-different-cuts-20261124">Current Return</a><a href="#toi-oriented-interfaces">TOI</a><a href="#method">Methode</a><a href="#understand">Zusammenhänge</a><a href="#contributions">Beiträge</a><a href="A0_RESEARCH_DESK.html#science-portfolio-control">Science Desk</a></nav></header>
+  <header class="top"><a class="brand" href="A0_NEXAH_APERTURE_JOURNEY.html#human-view">NEXAH <span>· A0 Science</span></a><nav><a href="#overview">Überblick</a><a href="#field-notes">Field Notes</a><a href="A0_HELIX_VIEW_ADAPTER.html?rev=helix-tour-r2#helix-tour">Helix‑Tour</a><a href="#science-status-plate">Stand</a><a href="#same-carrier-different-cuts-20261124">Current Return</a><a href="#toi-oriented-interfaces">TOI</a><a href="#method">Methode</a><a href="#understand">Zusammenhänge</a><a href="#contributions">Beiträge</a><a href="A0_RESEARCH_DESK.html#science-portfolio-control">Science Desk</a></nav></header>
   <aside class="stage-strip" aria-label="Status dieser A0-Science-Fläche"><span class="stage-wordmark"><strong>A0 Science</strong> · Owner Staging / Reader</span><span>Source-bound · local · not public</span></aside>
   <main>
     <span id="status" class="route-anchor" aria-hidden="true"></span>
@@ -215,6 +250,73 @@
     <p><a href="A0_GAME_OF_WORLDS_PLAY.html?world=numbers&amp;rule=wheels&amp;view=wheels&amp;rev=resonance-ladder#numbers">Doppelrad mit den Hörproben öffnen ↗</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#doppelrad-klang-abschluss-20261125">Abschluss im Science Desk ↗</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#a0-klang-und-musik">A0-Klangsammlung ↗</a> · <a href="#t-layer-nine-arm-comparison">Tesla / T-Layer ↗</a></p>
   </section>
 
+  <section class="spread" id="helix-mod7-methodenvergleich" aria-labelledby="helixMod7ScienceTitle">
+    <header class="head"><div class="no">168 · MOD 7</div><div><div class="label">A0 Science · Methodenvergleich an der Helix</div><h2 id="helixMod7ScienceTitle">Gleich viele Treffer, unterschiedliche Fourier-Spitzen</h2></div></header>
+    <p><strong><a href="A0_HELIX_VIEW_ADAPTER.html?rev=helix-tour-r2#helix-tour">Geführte Helix‑Tour starten ↗</a></strong> · Acht Stationen von der Primzahl-Sprosse über die animierten Zeta-Knicke und Ihara bis zu Rössler und Kuramoto. Jede Station öffnet die passende Ansicht und zeigt einen Vergleich zum Ausprobieren.</p>
+    <p>Grün und Pink treffen je 27 von 168 Primzahl-Ebenen. Unter der festen Draufsicht zeigen die Bögen, welche I‑ oder J‑Ecke jeweils näher liegt. Über die ganze Folge liegt die stärkste Fourier-Komponente für Grün bei <code>k=64</code> und für Pink bei <code>k=71</code>. Ob dieses Muster in anderen Fenstern wiederkehrt, bleibt offen.</p>
+    <p>Im Rössler‑Lift lässt sich derselbe ausgewählte Bahnpunkt zugleich in der Ebene und mit z‑Höhe verfolgen. Umlauf 1 und 5 benutzen dieselbe z‑Skala und dieselbe Schnittregel.</p>
+    <p><a href="A0_HELIX_VIEW_ADAPTER.html#helix-mod7-slices">Draufsicht und Spektren öffnen ↗</a> · <a href="A0_HELIX_VIEW_ADAPTER.html#helix-rossler-lift">Rössler‑Lift öffnen ↗</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#helix-mod7-method-return-20261126">Messwerte und offene Fragen im Science Desk ↗</a></p>
+    <p>Der Primecube macht den exakten Adressrückweg sichtbar. 397 und 419 projizieren in zwei Loki-Schnitten auf denselben Punkt (0, 3). Im 3D-Würfel liegen zwei Rastereinheiten entlang y dazwischen. Der Science Desk hält fest, wie sich diese Adressprobe und die endlichen Fourier-, JANUS- und Kuramoto-Vergleiche weiter prüfen lassen.</p>
+    <p>Bei Rössler lässt sich außerdem jeder Übergang über dieselben Sample-IDs in XY und XYZ verfolgen. Von 25 XY-Schritten in 1→1 bleiben 6 auch mit Höhe in dieser Zelle. 19 wechseln die Zelle, 2 kommen hinzu. Im Lift markiert ein Klick die herausgefallenen Schritte in beiden Bahnen.</p>
+    <p><a href="A0_HELIX_VIEW_ADAPTER.html#helix-rossler-clusters">Übergänge mit und ohne z öffnen ↗</a> · <a href="A0_HELIX_VIEW_ADAPTER.html#helix-zeta-kinks">Zeta-Knicke drehen ↗</a></p>
+    <p><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-loki-3d">Adressabstand im 3D-Würfel ↗</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#helix-primecube-resume-20261126">Resümee und offene Findings ↗</a></p>
+  </section>
+
+  <section class="spread" id="attraktoren-fourier-projektionen" aria-labelledby="attractorFourierTitle">
+    <header class="head"><div class="no">XY · XZ · YZ</div><div><div class="label">A0 Science · Fourier-Vergleich</div><h2 id="attractorFourierTitle">Welche Achsen halten beim Projektionswechsel?</h2></div></header>
+    <p>Halvorsen behält eine diagonale Vorzugsrichtung in allen drei Projektionen. Bei Lorenz hält die Achse in XY. Bei Rössler liegen die stabilen Achsen in XZ und YZ nahe <var>k</var><sub>z</sub>. <a href="#kuramoto-phasenvergleich">Zum Kuramoto‑Vergleich ↓</a></p>
+    <div data-attractor-viewer hidden>
+      <div class="attractor-controls" role="group" aria-label="Parameter für alle neun Fourier-Karten">
+        <label>Vergleichsstarts (x · y · z) <select data-attractor-start>
+          <option value="both" selected>Beide Vergleichsstarts</option>
+          <option value="1">Start 1 · (2 · 1 · 0,5)</option>
+          <option value="2">Start 2 · (0,7 · −0,2 · 0,15)</option>
+          <option value="0">Nur Referenzstart</option>
+        </select></label>
+        <label>Zeitfenster <select data-attractor-window>
+          <option value="40-160">40–160 · gesamt</option><option value="40-80">40–80</option>
+          <option value="80-120">80–120</option><option value="120-160">120–160</option>
+        </select></label>
+        <label>Raster <select data-attractor-grid>
+          <option value="64">64 × 64</option><option value="128" selected>128 × 128</option><option value="256">256 × 256</option>
+        </select></label>
+        <label>Karte <select data-attractor-layer>
+          <option value="original">Original mit Achsen</option><option value="control">Winkelkontrolle · Beispiel 1</option>
+        </select></label>
+      </div>
+      <div class="attractor-legend"><span>−50 dB</span><span class="attractor-color-scale" aria-hidden="true"></span><span>0 dB</span><span>Leistung relativ zu DC · DC grau · Frequenzbins −16 bis 16</span></div>
+      <p class="attractor-help">Gestrichelte Achse = unter oder auf der Kontrollschwelle. Achsenwinkel und Δ beziehen sich auf die Originalkarten. Δ ist der kürzeste Winkel zur Referenz (modulo 180°). Je Band ist das größte Δ hervorgehoben. Die weiße Marke am Balken zeigt das 95. Perzentil der 199 Winkelkontrollen. „Stabil“ gilt über alle 36 Einstellungen.</p>
+      <div class="attractor-cards" data-attractor-cards></div>
+    </div>
+    <figure class="attractor-fourier-figure" data-attractor-static>
+      <a href="assets/attraktoren-fourier-projektionen.png"><img src="assets/attraktoren-fourier-projektionen.png" width="1150" height="1195" loading="lazy" alt="Neun räumliche Fourier-Spektren. Zeilen: Rössler, Halvorsen und Lorenz. Spalten: XY, XZ und YZ. Die folgende Tabelle gibt die markierten Winkelbereiche an."></a>
+      <figcaption>Die Karten zeigen den Referenzstart im Gesamtfenster auf dem 128²‑Raster. Die eingezeichneten Achsen erfüllen das Kriterium über alle geprüften Varianten.</figcaption>
+    </figure>
+    <details class="attractor-overview"><summary>Über alle Einstellungen</summary>
+    <table class="t-layer-result-table" aria-label="Stabile Fourier-Achsen je Projektion und Frequenzband">
+      <thead><tr><th scope="col">System und Ebene</th><th scope="col">2 ≤ |k| &lt; 8</th><th scope="col">8 ≤ |k| &lt; 16</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Rössler · XY</th><td>—</td><td>—</td></tr>
+        <tr><th scope="row">Rössler · XZ</th><td>91–94°</td><td>91–93°</td></tr>
+        <tr><th scope="row">Rössler · YZ</th><td>90–93°</td><td>90–92°</td></tr>
+        <tr><th scope="row">Halvorsen · XY</th><td>35–59°</td><td>36–58°</td></tr>
+        <tr><th scope="row">Halvorsen · XZ</th><td>42–54°</td><td>33–52°</td></tr>
+        <tr><th scope="row">Halvorsen · YZ</th><td>33–55°</td><td>34–52°</td></tr>
+        <tr><th scope="row">Lorenz · XY</th><td>137–140°</td><td>143–149°</td></tr>
+        <tr><th scope="row">Lorenz · XZ</th><td>—</td><td>—</td></tr>
+        <tr><th scope="row">Lorenz · YZ</th><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+    </details>
+    <p>Je Band wurden drei Startpunkte, die Fenster [40, 80), [80, 120), [120, 160) und [40, 160) sowie Raster mit 64², 128² und 256² Zellen kombiniert. Pro Kombination wurden in 199 Kontrollen die Winkel zufällig neu verteilt und die Radien erhalten. Eine Achse steht in der Übersicht „Über alle Einstellungen“, wenn alle 36 Richtungsstärken über dem jeweiligen 95. Perzentil liegen und die Winkel in einen gemeinsamen 25°‑Bogen passen. Gemessen wird modulo 180° im Fourier‑Raum.</p>
+    <p>Bei Rössler in XY lag das untere Band in allen Varianten über der Kontrolle, streute aber von 47° bis 75°. Bei Lorenz lagen auch in XZ und YZ alle Werte im unteren Band über der Kontrolle, bei wechselndem Achsenwinkel. <strong>Finding offen.</strong></p>
+    <p><a href="results/attraktoren-fourier-projektionen.json">Messwerte und Prüfparameter ↗</a> · <a href="A0_HELIX_VIEW_ADAPTER.html#helix-rossler-lift">Rössler‑Lift ↗</a></p>
+    <section class="kuramoto-compare" id="kuramoto-phasenvergleich" aria-labelledby="kuramotoCompareTitle" data-kuramoto-compare>
+      <h3 id="kuramotoCompareTitle">Kuramoto · K=0, K=1 und K=2</h3>
+    </section>
+    <p><a href="A0_HELIX_VIEW_ADAPTER.html#kuramoto-phasenvergleich">Kuramoto in der Helix öffnen ↗</a></p>
+  </section>
+
   <section class="night" id="alpha-rath-open-loop" aria-labelledby="alphaRathScienceTitle">
     <div class="spread">
       <header class="head"><div class="no">α · ß · .</div><div><div class="label">Methodenbeispiel · Numbergame</div><h2 id="alphaRathScienceTitle">Ein Return mit offenem Anschluss</h2></div></header>
@@ -233,5 +335,8 @@
   <script src="a0-primecube-model.js?rev=20261124-r45"></script>
   <script src="a0-deris-pink-strip.js?rev=20261023-r1"></script>
   <script src="a0-primecube-algo.js?rev=14"></script>
+  <script defer src="assets/a0-attractor-fourier-data.js?rev=1"></script>
+  <script defer src="a0-science-attractor-fourier.js?rev=3"></script>
+  <script defer src="a0-science-kuramoto.js?rev=4"></script>
 </body>
 </html>

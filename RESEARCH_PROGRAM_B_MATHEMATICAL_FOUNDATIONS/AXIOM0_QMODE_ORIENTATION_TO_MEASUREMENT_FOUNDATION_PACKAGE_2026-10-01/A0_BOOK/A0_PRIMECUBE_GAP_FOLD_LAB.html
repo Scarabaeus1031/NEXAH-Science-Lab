@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="a0-primecube-draft-drift-housing.css?rev=20261123-r1">
   <link rel="stylesheet" href="a0-scarab-pillar-projection.css?rev=20261023-r3">
   <link rel="stylesheet" href="a0-primecube-scarab-control.css?rev=20261122-r1">
-  <link rel="stylesheet" href="a0-primecube-shadow-envelope.css?rev=20261122-r1">
+  <link rel="stylesheet" href="a0-primecube-shadow-envelope.css?rev=20261126-loki-3d-r2">
   <link rel="stylesheet" href="a0-primecube-root-topology.css?rev=20261122-r1">
   <link rel="stylesheet" href="a0-primecube-khipu-knot.css?rev=20261122-r1">
   <link rel="stylesheet" href="a0-primecube-sz-chirality.css?rev=20261124-r2">
@@ -150,9 +150,111 @@
       <div class="pc-shadow-packing" role="group" aria-label="Equivalent packing views"><button type="button" data-pc-shadow-packing="z-slices" aria-pressed="false">Z-SLICES</button><button type="button" data-pc-shadow-packing="mask-extrusion" aria-pressed="false">101/20 MASK EXTRUSION</button><button type="button" data-pc-shadow-packing="full-envelope" aria-pressed="true">FULL ENVELOPE</button></div>
     </div>
     <div class="pc-shadow-grid">
-      <div class="pc-shadow-stage" data-pc-shadow-stage></div>
-      <aside class="pc-shadow-detail" data-pc-shadow-detail aria-live="polite"></aside>
+      <div class="pc-shadow-stage" id="shadow-cube-3d">
+        <div class="pc-shadow-face-switch" role="group" aria-label="Cube-Seite">
+          <button type="button" data-pc-shadow-face="front" aria-pressed="true">Vorne · Union J</button>
+          <button type="button" data-pc-shadow-face="back" aria-pressed="false">Hinten · Pla</button>
+        </div>
+        <div class="pc-shadow-loki-3d" id="primecube-loki-3d">
+          <button type="button" data-pc-loki-3d-toggle aria-pressed="false">397 und 419 gemeinsam markieren</button>
+          <div data-pc-loki-3d-controls hidden>
+            <label for="primecubeLokiYaw">Würfel drehen <output for="primecubeLokiYaw" data-pc-loki-yaw-out>0°</output></label>
+            <input id="primecubeLokiYaw" data-pc-loki-yaw type="range" min="0" max="360" step="5" value="0">
+            <p><strong data-pc-yz-residue="5">397 · (0, 3, 3)</strong> ↔ <strong data-pc-yz-residue="6">419 · (0, 5, 3)</strong> · Δy = 2 Rastereinheiten</p>
+            <a href="#primecube-loki-slice-compare">↓ Beide Loki-Schnitte</a>
+          </div>
+        </div>
+        <div data-pc-shadow-stage></div>
+        <p class="pc-shadow-pair-return"><a href="#shadow-cube-slice-overlay">↓ Zur Schnittüberlagerung</a><a href="#loki-root-mask">↓ Diagonalen in der Root Mask spannen</a></p>
+      </div>
+      <aside class="pc-shadow-side">
+        <section class="pc-shadow-slices" data-pc-slices aria-labelledby="shadowSlicesTitle">
+          <h3 id="shadowSlicesTitle">Slices &amp; Fourier</h3>
+          <div class="pc-slice-options">
+            <label>Achse <select data-pc-slice-axis><option>x</option><option>y</option><option selected>z</option></select></label>
+            <label>Markierte Zellen <select data-pc-slice-mask><option value="shadow">Erreichter Schatten</option><option value="carrier">Prime Cube</option><option value="both">Prime Cube + erreichter Schatten</option></select></label>
+          </div>
+          <div class="pc-slice-steps" role="group" aria-label="Slice wechseln">
+            <button type="button" data-pc-slice-prev>← Zurück</button>
+            <button type="button" data-pc-slice-next>Vor →</button>
+          </div>
+          <output data-pc-slice-current aria-live="polite"></output>
+          <h4>Zellzahl je Slice</h4>
+          <ol class="pc-slice-counts" data-pc-slice-counts aria-label="Zellzahlen in Achsenreihenfolge"></ol>
+          <p>Über einen Balken fahren zeigt den Schnitt in Gold. Ein Klick übernimmt ihn.</p>
+          <h4>Fourier-Spektrum</h4>
+          <p data-pc-slice-mean></p>
+          <ul class="pc-slice-spectrum" data-pc-slice-spectrum aria-label="Fourier-Amplituden in Zellen"></ul>
+          <p data-pc-slice-result></p>
+          <p class="pc-slice-note">Gemessen werden 11 gleichmäßig verteilte Slices. Bei der Fourier-Analyse schließt die Folge am Ende wieder an ihren Anfang an. Auch ein Sprung kann daher mehrere Frequenzen erzeugen.</p>
+        </section>
+        <div class="pc-shadow-detail" data-pc-shadow-detail aria-live="polite"></div>
+      </aside>
     </div>
+    <section class="pc-shadow-overlay" id="shadow-cube-slice-overlay" data-pc-shadow-overlay aria-labelledby="shadowOverlayTitle">
+      <header>
+        <h3 id="shadowOverlayTitle">Prime Cube und Shadow Cube übereinanderlegen</h3>
+        <p>Verschiebe den Shadow-Schnitt mit Loki-L erst entlang x, dann entlang y. Wähle ein gemeinsames Feld, um seine beiden Adressen zu sehen. Ein Klick auf einen markierten Punkt im Cube oder an der Seitenwand führt ins Raster zurück.</p>
+      </header>
+      <div class="pc-shadow-overlay-grid">
+        <section class="pc-shadow-yz" id="primecube-x0-yz-overview" aria-labelledby="shadowYzTitle">
+          <h4 id="shadowYzTitle">y–z-Übersicht bei x=0</h4>
+          <p>Wähle einen Record, um seinen Loki-Schnitt bei festem y zu öffnen.</p>
+          <div class="pc-shadow-yz-grid" data-pc-yz-grid role="group" aria-label="Neun Primrecords auf der y–z-Ebene"></div>
+          <ul class="pc-shadow-overlay-legend pc-shadow-yz-legend">
+            <li data-pc-yz-residue="5"><span aria-hidden="true"></span>Lila · Rest 5</li>
+            <li data-pc-yz-residue="2"><span aria-hidden="true"></span>Grün · Rest 2</li>
+            <li data-pc-yz-residue="6"><span aria-hidden="true"></span>Pink · Rest 6</li>
+          </ul>
+          <p>Reste mod 7 · Primzahlen bis 1000</p>
+          <p class="pc-shadow-yz-links">
+            <a href="#primecube-loki-slice-compare">↓ 397 und 419 nebeneinander</a>
+            <a href="#primecube-algo">↓ Mandelbrot, Julia und Shadow öffnen</a>
+          </p>
+        </section>
+        <div class="pc-shadow-overlay-readout">
+          <figure class="pc-shadow-loki-side" aria-labelledby="shadowLokiTitle">
+            <figcaption id="shadowLokiTitle"><strong>Loki-Seitenwand</strong> <span data-pc-loki-side-row>x–z · y=5</span></figcaption>
+            <div data-pc-loki-side-stage></div>
+          </figure>
+          <div data-pc-helix-return hidden>
+            <p data-pc-helix-record role="status"></p>
+            <p><a href="#shadow-cube-3d" data-pc-helix-stage>↑ Record im 3D-Würfel ansehen</a></p><p><a data-pc-helix-back>Zurück zur 7|11-Sprosse ↗</a></p>
+          </div>
+          <p data-pc-overlay-count role="status">17 Spalten insgesamt · 5 gemeinsam</p>
+          <p><strong>Prime Cube</strong> · Ebene z=8 · Records 969–1089<br><strong>Shadow Cube</strong> · Ebene z=10 · Adressen 1211–1331</p>
+          <p data-pc-overlay-pair role="status">Ausgewählt · Prime Cube 1032 [8,5,8] und Shadow 1268 [2,5,10].</p>
+          <a href="#shadow-cube-3d" data-pc-overlay-jump>↑ Beide Punkte im 3D-Würfel ansehen</a>
+        </div>
+        <div class="pc-shadow-overlay-plot">
+          <label for="shadowOverlayShift">Loki-L · x nach rechts <output data-pc-overlay-shift-value for="shadowOverlayShift">+6</output></label>
+          <input id="shadowOverlayShift" data-pc-overlay-shift type="range" min="0" max="11" value="6" step="1">
+          <label for="shadowOverlayShiftY">Loki-L · y nach unten <output data-pc-overlay-shift-y-value for="shadowOverlayShiftY">0</output></label>
+          <input id="shadowOverlayShiftY" data-pc-overlay-shift-y type="range" min="0" max="11" value="0" step="1">
+          <div data-pc-overlay-stage></div>
+          <ul class="pc-shadow-overlay-legend">
+            <li><span class="carrier" aria-hidden="true"></span>Prime Cube</li>
+            <li><span class="both" aria-hidden="true"></span>Gemeinsam</li>
+            <li><span class="shadow" aria-hidden="true"></span>Shadow Cube</li>
+          </ul>
+        </div>
+      </div>
+      <section class="pc-shadow-loki-compare" id="primecube-loki-slice-compare" aria-labelledby="shadowLokiCompareTitle">
+        <h4 id="shadowLokiCompareTitle">Loki-Schnitte · 397 und 419</h4>
+        <p>Beide Marker liegen bei <strong>(x, z) = (0, 3)</strong>. Links ist die Ebene y=3, rechts y=5. <a href="#primecube-loki-3d">Beide im 3D-Würfel markieren ↑</a></p>
+        <div class="pc-shadow-loki-compare-grid">
+          <figure class="pc-shadow-loki-side" data-pc-loki-compare="397" data-pc-yz-residue="5">
+            <figcaption><strong>397</strong> · y=3 · Lila</figcaption>
+            <div data-pc-loki-compare-stage></div>
+          </figure>
+          <figure class="pc-shadow-loki-side" data-pc-loki-compare="419" data-pc-yz-residue="6">
+            <figcaption><strong>419</strong> · y=5 · Pink</figcaption>
+            <div data-pc-loki-compare-stage></div>
+          </figure>
+        </div>
+        <p><a href="A0_RESEARCH_DESK.html?desk=returns#helix-primecube-resume-20261126">Resümee und offene Findings im Science Desk ↗</a></p>
+      </section>
+    </section>
     <p class="pc-shadow-boundary"><b>CLAIM BOUNDARY:</b> <code>ADDRESS EXISTS · RECORD ABSENT</code>. Die Adressen <code>1112…1331</code> gehören zur vollständigen Base‑11-Hülle, nicht zum Primecube-Carrier. Sie erhalten keine Primzahl-, Konstellations-, Mess-, Family- oder Evidenzeigenschaft. Die wachsende „Schlange“ ist eine geordnete Adressspur. <code>INSIDE→OUTSIDE→INSIDE′</code> bezeichnet Carrier, Envelope und Projektionsreturn — keine biologische, physische oder topologische Identität. Navigator-Delta: <code>0 IDs · 0 Relationen</code>.</p>
   </section>
 
@@ -642,7 +744,7 @@
 <script src="a0-loki-tessarec-pipe.js?rev=20261123-r1"></script>
 <script src="a0-primecube-ui.js?rev=20261124-r24"></script>
 <script src="a0-primecube-navigation.js?rev=20261124-r3"></script>
-<script src="a0-primecube-shadow-envelope.js?rev=20261122-r2"></script>
+<script src="a0-primecube-shadow-envelope.js?rev=20261126-loki-3d-r2"></script>
 <script src="a0-primecube-root-topology.js?rev=20261122-r1"></script>
 <script src="a0-primecube-khipu-knot.js?rev=20261122-r2"></script>
 <script src="a0-primecube-sz-chirality.js?rev=20261124-r2"></script>

@@ -54,6 +54,23 @@
     return Object.freeze(records);
   }
 
+  function sliceSpectrum(samples){
+    const size=samples.length;
+    const mean=samples.reduce((sum,value)=>sum+value,0)/size;
+    const bins=Array.from({length:Math.floor(size/2)},(_,index)=>{
+      const bin=index+1;
+      let real=0,imag=0;
+      samples.forEach((value,offset)=>{
+        const angle=TAU*bin*offset/size;
+        real+=(value-mean)*Math.cos(angle);
+        imag-=(value-mean)*Math.sin(angle);
+      });
+      const factor=2*bin===size?1:2;
+      return {bin,amplitude:factor*Math.hypot(real,imag)/size};
+    });
+    return {mean,bins};
+  }
+
   function primeTailRecords(lower=1000,upper=LIMIT){
     const records=[];
     for(let prime=lower+1;prime<=upper;prime++)if(isPrime(prime))records.push(prime);
@@ -80,7 +97,8 @@
       const midpoint=Object.freeze({x:(strandA.x+strandB.x)/2,y,z:(strandA.z+strandB.z)/2});
       return Object.freeze({...record,angle7,angle11,angleMode,angleDegrees7:degrees(angle7),angleDegrees11:degrees(angle11),point7,point11,codon:false,fibonacci:false,kink:false,strandA,strandB,midpoint,rail:strandA,railA:strandA,railB:strandB,axisIntersection:null});
     });
-    return Object.freeze({kind:'prime-residue-helix',angleMode,strandMode:angleMode==='paired'?'double':'single',step:null,stepDegrees:null,innerRadius,railRadius:null,railRatio:null,height,measures:null,rungs:Object.freeze(rungs),tail:primeTailRecords()});
+    const stack51=Object.freeze(rungs.filter(rung=>rung.residue7===5&&rung.residue11===1));
+    return Object.freeze({kind:'prime-residue-helix',angleMode,strandMode:angleMode==='paired'?'double':'single',step:null,stepDegrees:null,innerRadius,railRadius:null,railRatio:null,height,measures:null,rungs:Object.freeze(rungs),stack51,tail:primeTailRecords()});
   }
 
   function z37Orbits(){
@@ -329,6 +347,187 @@
     });
   }
 
+  function rosslerDerivative({x,y,z}){
+    return {x:-y-z,y:x+0.2*y,z:0.2+z*(x-5.7)};
+  }
+
+  function rosslerRk4(state,h){
+    const advance=(point,rate,dt)=>({x:point.x+dt*rate.x,y:point.y+dt*rate.y,z:point.z+dt*rate.z});
+    const a=rosslerDerivative(state);
+    const b=rosslerDerivative(advance(state,a,h/2));
+    const c=rosslerDerivative(advance(state,b,h/2));
+    const d=rosslerDerivative(advance(state,c,h));
+    return {
+      x:state.x+h*(a.x+2*b.x+2*c.x+d.x)/6,
+      y:state.y+h*(a.y+2*b.y+2*c.y+d.y)/6,
+      z:state.z+h*(a.z+2*b.z+2*c.z+d.z)/6
+    };
+  }
+
+  function rosslerLiftCycles({step=0.005}={}){
+    if(!Number.isFinite(step)||step<0.001||step>0.01)throw new RangeError('Rössler integration step outside replay range');
+    const cycles=[];
+    let state={x:1,y:0,z:0},samples=null,peakZ=0,nextSampleTime=0;
+    for(let i=0;i*step<100&&cycles.length<5;i++){
+      const next=rosslerRk4(state,step);
+      const time=(i+1)*step;
+      // Count the positive crossing of the negative y half-axis only.
+      if(state.x<0&&next.x>=0){
+        const fraction=-state.x/(next.x-state.x);
+        const y=state.y+fraction*(next.y-state.y);
+        const z=state.z+fraction*(next.z-state.z);
+        const t=(i+fraction)*step;
+        if(y<0&&-y-z>0&&t>=40){
+          const crossing={x:0,y,z,t};
+          if(samples){
+            samples.push({...crossing,peakZ:Math.max(peakZ,z)});
+            cycles.push({samples,returnRadius:Math.hypot(crossing.x,crossing.y)});
+          }
+          samples=[{...crossing,peakZ:z}];
+          peakZ=z;
+          nextSampleTime=t+0.15;
+        }
+      }
+      if(samples){
+        peakZ=Math.max(peakZ,next.z);
+        if(time+1e-9>=nextSampleTime){
+          samples.push({...next,t:time,peakZ});
+          nextSampleTime+=0.15;
+        }
+      }
+      state=next;
+    }
+    return cycles;
+  }
+
+  function rosslerJanusOverlap(cycles){
+    const epsilon=1e-8;
+    const difference=(a,b)=>[a.x-b.x,a.y-b.y,a.z-b.z];
+    // JANUS and curvature share the middle point of each playback triple.
+    const records=cycles.map(({samples})=>samples.map((point,index)=>{
+      if(index===0||index===samples.length-1)return null;
+      const previous=samples[index-1],next=samples[index+1];
+      const incoming=difference(point,previous),outgoing=difference(next,point);
+      const backward=incoming.map(value=>value/(point.t-previous.t));
+      const forward=outgoing.map(value=>value/(next.t-point.t));
+      const overlap=forward.map((value,axis)=>value*backward[axis]);
+      const [ax,ay,az]=incoming,[bx,by,bz]=outgoing;
+      const cross=Math.hypot(ay*bz-az*by,az*bx-ax*bz,ax*by-ay*bx);
+      return {
+        point,index,
+        janus:Math.hypot(...overlap)/(Math.hypot(...forward)*Math.hypot(...backward)+epsilon),
+        curvature:cross/(Math.hypot(...incoming)**3+epsilon)
+      };
+    }));
+    const interior=records.flat().filter(Boolean);
+    function quantile(key,fraction){
+      const values=interior.map(record=>record[key]).sort((a,b)=>a-b);
+      const position=(values.length-1)*fraction;
+      const low=Math.floor(position);
+      return values[low]+(values[Math.ceil(position)]-values[low])*(position-low);
+    }
+    const lowJanus=quantile('janus',0.08),highCurvature=quantile('curvature',0.92);
+    return records.map((entries,cycleIndex)=>entries.map(record=>record&&{
+      ...record,cycleIndex,overlap:record.janus<=lowJanus&&record.curvature>=highCurvature
+    }));
+  }
+
+  function matchSampleClusters(xy,xyz,clusterCount){
+    const overlap=Array.from({length:clusterCount},()=>Array(clusterCount).fill(0));
+    xyz.forEach((label,i)=>overlap[label][xy[i]]++);
+    let mapping=[],matched=-1;
+    // Six clusters allow an exact one-to-one assignment across all 720 permutations.
+    function assign(candidate,available,score){
+      if(available.length===0){
+        if(score>matched){matched=score;mapping=candidate;}
+        return;
+      }
+      for(const label of available){
+        assign([...candidate,label],available.filter(other=>other!==label),score+overlap[candidate.length][label]);
+      }
+    }
+    assign([],Array.from({length:clusterCount},(_,index)=>index),0);
+    return {mapping,matched};
+  }
+
+  function rosslerClusterComparison(cycles){
+    const clusterCount=6;
+    // A shared crossing belongs to the start of the following cycle.
+    const samples=cycles.flatMap(({samples},cycle)=>samples
+      .slice(0,cycle===cycles.length-1?samples.length:-1)
+      .map((point,index)=>({point,cycle:cycle+1,index})));
+    const points=samples.map(({point})=>[point.x,point.y,point.z]);
+    const distance=(a,b,dimensions)=>{
+      let total=0;
+      for(let axis=0;axis<dimensions;axis++)total+=(a[axis]-b[axis])**2;
+      return total;
+    };
+    // Offer the same deterministic initializations in both coordinate spaces.
+    const starts=Array.from({length:clusterCount},(_,index)=>Math.floor(index*points.length/clusterCount));
+    const seedsByStart=starts.map(start=>{
+      const seeds=[start];
+      while(seeds.length<clusterCount){
+        let best=-1,bestDistance=-1;
+        for(let i=0;i<points.length;i++){
+          const nearest=Math.min(...seeds.map(index=>distance(points[i],points[index],2)));
+          if(nearest>bestDistance){best=i;bestDistance=nearest;}
+        }
+        seeds.push(best);
+      }
+      return seeds;
+    });
+    function fit(dimensions,seeds){
+      let centers=seeds.map(index=>points[index].slice(0,dimensions));
+      let previous=[];
+      for(let iteration=0;iteration<200;iteration++){
+        const labels=points.map(point=>{
+          let closest=0;
+          for(let index=1;index<clusterCount;index++){
+            if(distance(point,centers[index],dimensions)<distance(point,centers[closest],dimensions))closest=index;
+          }
+          return closest;
+        });
+        if(labels.every((label,i)=>label===previous[i])){
+          const error=labels.reduce((sum,label,i)=>sum+distance(points[i],centers[label],dimensions),0);
+          return {labels,error};
+        }
+        const sums=centers.map(()=>Array(dimensions).fill(0)),counts=centers.map(()=>0);
+        labels.forEach((label,i)=>{
+          counts[label]++;
+          for(let axis=0;axis<dimensions;axis++)sums[label][axis]+=points[i][axis];
+        });
+        centers=sums.map((row,label)=>counts[label]?row.map(sum=>sum/counts[label]):centers[label]);
+        previous=labels;
+      }
+      throw new Error('Rössler clustering did not converge');
+    }
+    const bestFit=dimensions=>seedsByStart.map(seeds=>fit(dimensions,seeds))
+      .reduce((best,candidate)=>candidate.error<best.error?candidate:best).labels;
+    const xy=bestFit(2),xyz=bestFit(3);
+    const matrix=()=>Array.from({length:clusterCount},()=>Array(clusterCount).fill(0));
+    const {mapping,matched}=matchSampleClusters(xy,xyz,clusterCount);
+    const aligned=xyz.map(label=>mapping[label]);
+    function transitions(labels){
+      const counts=matrix();
+      for(let i=1;i<labels.length;i++)counts[labels[i-1]][labels[i]]++;
+      const probabilities=counts.map(row=>{
+        const size=row.reduce((sum,count)=>sum+count,0);
+        return row.map(count=>size?count/size:0);
+      });
+      return {counts,probabilities};
+    }
+    const reference=transitions(xy),before=transitions(xyz),after=transitions(aligned);
+    const meanDifference=other=>reference.probabilities.reduce((sum,row,from)=>sum+
+      row.reduce((subtotal,value,to)=>subtotal+Math.abs(value-other.probabilities[from][to]),0),0)/clusterCount**2;
+    let largest={from:0,to:0,delta:0};
+    after.probabilities.forEach((row,from)=>row.forEach((value,to)=>{
+      const delta=value-reference.probabilities[from][to];
+      if(Math.abs(delta)>Math.abs(largest.delta))largest={from,to,delta};
+    }));
+    return {samples,xy,xyz,aligned,mapping,matched,reference,before,after,
+      meanBefore:meanDifference(before),meanAfter:meanDifference(after),largest};
+  }
+
   function audit(){
     const twins=twinRungs(),orbits=z37Orbits(),residuePrimes=primeResidueRecords(),tail=primeTailRecords();
     return Object.freeze({
@@ -347,5 +546,5 @@
     });
   }
 
-  return Object.freeze({VERSION,LIMIT,TAU,PHI,EULER_STEP,GOLDEN_ANGLE,FIBONACCI_INDICES,STRAND_MODES,REGISTER_MODES,ZETA_ZERO_ORDINATES,ZETA_LENS_MODES,TRACE_WORDS,RESIDUE_ANGLE_MODES,isPrime,twinRungs,primeResidueRecords,primeTailRecords,residueAngleMode,buildPrimeResidueGeometry,z37Orbits,zetaZeroRecords,explicitFormulaPair,comparePrimeRepeat,iharaTriangleTerm,zetaLensMode,traceWordData,phaseSeamData,buildZetaGeometry,phaseStep,degrees,strandMode,registerMode,helixMeasures,bundleStrand,fhBundle,triadBundle,z37Frame,registerGeometry,buildGeometry,modeRecords,inspection,audit});
+  return Object.freeze({VERSION,LIMIT,TAU,PHI,EULER_STEP,GOLDEN_ANGLE,FIBONACCI_INDICES,STRAND_MODES,REGISTER_MODES,ZETA_ZERO_ORDINATES,ZETA_LENS_MODES,TRACE_WORDS,RESIDUE_ANGLE_MODES,isPrime,twinRungs,primeResidueRecords,sliceSpectrum,primeTailRecords,residueAngleMode,buildPrimeResidueGeometry,z37Orbits,zetaZeroRecords,explicitFormulaPair,comparePrimeRepeat,iharaTriangleTerm,zetaLensMode,traceWordData,phaseSeamData,buildZetaGeometry,phaseStep,degrees,strandMode,registerMode,helixMeasures,bundleStrand,fhBundle,triadBundle,z37Frame,registerGeometry,buildGeometry,modeRecords,inspection,rosslerLiftCycles,rosslerJanusOverlap,rosslerClusterComparison,matchSampleClusters,audit});
 });
