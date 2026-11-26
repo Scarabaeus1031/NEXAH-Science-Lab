@@ -1512,3 +1512,25 @@ beide Matroschka-Radiuswechsel, alle vier Alpha–Rath-Wege und die
 Spiegelkontrollen bei 0,25, 0,75 und 0,50 wurden in A0 nachgespielt.
 **Finding offen.** [Prüfprotokoll zu D](A0_BOOK/A0_RESEARCH_DESK.html#clockwork-orange-432-hof-check) ·
 [Prüfprotokoll zu Alpha–Rath](A0_BOOK/A0_RESEARCH_DESK.html#alpha-rath-method-return-20261124)
+
+<a id="helix-primecube-168-method-example"></a>
+
+## Helix–Primecube · endlicher Adressrückweg · 26.11.2026
+
+Die 168 Primzahlen bis 1000 bilden den gemeinsamen Träger. Die Helix
+ordnet nach Primzahlrang. Der Primecube setzt `n−1=x+11y+121z` mit
+`0≤x,y,z≤10` und zeigt im Loki-Schnitt bei festem `y` den Punkt `(x,z)`.
+Beim Ansichtswechsel bleibt die PC1111-ID erhalten. Der Regressionstest
+zu [`bdd69af5`](https://github.com/Scarabaeus1031/NEXAH-Science-Lab/commit/bdd69af5) prüft die Rückrechnung über alle 168 Adressen.
+
+- `PC1111:N0419` → Rang 81 → Würfeladresse `(0,5,3)` → `PC1111:N0419`.
+- `PC1111:N0397` → Rang 78 → Würfeladresse `(0,3,3)`.
+  Der x–z-Punkt stimmt mit 419 überein. Schnitt, Primzahlrang und ID unterscheiden sich.
+
+**Finding offen.** Die Adressprobe liefert einen reproduzierbaren Test für
+den Ansichtswechsel. Die Stabilität der beobachteten Fourier-Maxima und
+der Orientierungsnutzen für neue Aufgaben bleiben zu prüfen.
+
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#helix-primecube-resume-20261126) ·
+[A0 Science](A0_BOOK/A0_SCIENCE.html#helix-mod7-methodenvergleich) ·
+[Findings-Workspace](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#helix-primecube-168-open-finding)

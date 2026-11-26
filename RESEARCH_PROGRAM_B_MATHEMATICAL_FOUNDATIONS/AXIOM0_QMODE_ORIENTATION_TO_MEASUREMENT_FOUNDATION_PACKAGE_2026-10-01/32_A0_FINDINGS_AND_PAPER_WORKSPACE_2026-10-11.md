@@ -4766,3 +4766,23 @@ carrier, at zero-based address `1104=914_11` and cube `[4,1,9]`. `15625`,
 label only and is explicitly not identified with the existing LOKI-Q4 object.
 
 Disposition: `KEEP AS INTERNAL PAPER PREPARATION / EXISTING PRIME ARCHITECTURE / NEW ID 0 / RELATION 0 / STUDY 0 / CANONICAL FINDING 0 / CLAIM CHANGE 0 / PUBLICATION 0`.
+
+<a id="helix-primecube-168-open-finding"></a>
+
+## Helix ↔ Primecube · Adressrückweg und offene Gegenprobe · 26.11.2026
+
+**Status · Finding offen.** Der bidirektionale Rückweg ist für die 168
+gemeinsamen Primzahlen bis 1000 geprüft. Der Testfall
+`PC1111:N0419` verbindet Helix-Ebene 81 mit Loki `y=5` bei
+`(x,z)=(0,3)`. Die Gegenprobe 397 hat dieselben projizierten Koordinaten
+und liegt auf `y=3`. Der Methodenbeleg verwendet die bestehenden PC1111-IDs.
+
+**Wiedereinstieg.** 419 in beiden Richtungen verfolgen und mit 397 die
+Schnittwahl kontrollieren. Danach die MOD‑7-Fourier-Maxima an vorab
+gewählten Primzahlfenstern und umgeordneten Folgen mit gleichen
+Trefferzahlen prüfen. Rössler und Kuramoto behalten ihre eigenen
+Gegenproben im Science Desk.
+
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#helix-primecube-resume-20261126) ·
+[Paper E](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#helix-primecube-168-method-example) ·
+[419 im Primecube](A0_BOOK/A0_PRIMECUBE_GAP_FOLD_LAB.html?helix=PC1111%3AN0419#shadow-cube-slice-overlay)
