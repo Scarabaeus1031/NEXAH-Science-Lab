@@ -4,10 +4,12 @@
     const M=window.A0PrimecubeModel,stage=root.querySelector('[data-pc-rs-stage]'),detail=root.querySelector('[data-pc-rs-detail]'),stepButton=root.querySelector('[data-pc-rs-step]');
     if(!M||!stage||!detail)return;
     const turingView='TURING';
-    const turingAnchor='#return-seam-4774-turing';
+    const primusView='PRIMUS_ONE';
+    const linkedViews=new Map([['#return-seam-4774-turing',turingView],['#return-seam-4774-primus-one',primusView]]);
     const source=document.querySelector('[data-turing-record]');
     let view='WHOLE_W',step=0;
     let turingWord,turingSwaps=0;
+    let primusRank=9,driftSteps=0;
     let wobble=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const polar=(cx,cy,r,a)=>[cx+r*Math.cos(a),cy+r*Math.sin(a)];
     function sectorPath(cx,cy,r,a0,a1){const p0=polar(cx,cy,r,a0),p1=polar(cx,cy,r,a1);return `M${cx},${cy}L${p0[0]},${p0[1]}A${r},${r} 0 0 1 ${p1[0]},${p1[1]}Z`}
@@ -45,7 +47,7 @@
           <dt>Blockfolge</dt><dd><code data-rs-turing-word></code></dd>
           <dt>Rücklauf</dt><dd data-rs-turing-status aria-live="polite"></dd>
         </dl>
-        <div class="pc-rs-turing-controls" role="group" aria-label="Zebra-Wobble und Blocktausch">
+        <div class="pc-rs-mode-controls" role="group" aria-label="Zebra-Wobble und Blocktausch">
           <button type="button" data-rs-turing-wobble aria-pressed="false">Wobble</button>
           <button type="button" data-rs-turing-swap>Blöcke tauschen</button>
         </div>
@@ -88,11 +90,104 @@
       updateWobble();
       updateSwap();
     }
+    function renderPrimus(){
+      const ringSlots=71;
+      const primes=M.sieve(61);
+      const markers=[{rank:9,color:'#ff7979'},{rank:18,color:'#74b9ff'}];
+      const thetaForSlot=slot=>-2*Math.PI*slot/ringSlots;
+      const ringTicks=Array.from({length:ringSlots},(_,slot)=>{
+        const angle=thetaForSlot(slot);
+        const inner=polar(330,255,218,angle);
+        const outer=polar(330,255,224,angle);
+        return `<path d="M${inner.join(' ')}L${outer.join(' ')}"/>`;
+      }).join('');
+      const ringMarkers=markers.map(({rank,color})=>{
+        const [x,y]=polar(330,255,221,thetaForSlot(rank-1));
+        const label=rank===18 ? [x-22,y-3,'end'] : [x+15,y-5,'start'];
+        return `<g data-rs-primus-marker="${rank}" fill="${color}">
+          <circle class="pc-rs-primus-halo" cx="${x}" cy="${y}" r="13"/>
+          <circle cx="${x}" cy="${y}" r="6" stroke="#0a111c" stroke-width="2"/>
+          <text x="${label[0]}" y="${label[1]}" text-anchor="${label[2]}" font-size="19" font-weight="700">P${rank} = ${primes[rank-1]}</text>
+        </g>`;
+      }).join('');
+      stage.innerHTML=`<svg viewBox="0 0 660 510" role="img" aria-label="Zebrarad mit goldener θ₀-Referenz und Primus-One-Markern auf dem 71-Slot-Ring">
+        <g data-rs-primus-stripes>${zebraSectors(false)}</g>
+        <circle cx="330" cy="255" r="221" fill="none" stroke="#334055"/>
+        <g fill="none" stroke="#7d8ca2">${ringTicks}</g>
+        <path d="M105 255H555" stroke="#080c15" stroke-width="8"/>
+        <path d="M105 255H555" stroke="#ffd153" stroke-width="2" opacity=".8"/>
+        <path d="M330 255V53" stroke="#ffd153" stroke-width="2" data-rs-primus-reference/>
+        <g data-rs-primus-pointer>
+          <path d="M330 255V55" stroke="#57ddf7" stroke-width="2" stroke-dasharray="5 7"/>
+          <circle cx="330" cy="55" r="4" fill="#57ddf7"/>
+        </g>
+        ${ringMarkers}
+        <circle cx="330" cy="255" r="10" fill="#ffd153" stroke="#0a111c" stroke-width="3"/>
+        <text x="330" y="22" text-anchor="middle" fill="#ffd153" font-size="20">θ₀</text>
+      </svg>`;
+      detail.innerHTML=`<h3>Primus One</h3>
+        <div class="pc-rs-mode-controls pc-rs-primus-markers" role="group" aria-label="Primus-One-Marker">
+          ${markers.map(({rank,color})=>`<button type="button" style="--marker-color:${color}" data-rs-primus-select="${rank}" aria-pressed="false">P${rank} = ${primes[rank-1]}</button>`).join('')}
+        </div>
+        <h4>Hexatych-Drift</h4>
+        <dl>
+          <dt>Marker</dt><dd data-rs-primus-readout></dd>
+          <dt>Offset</dt><dd data-rs-primus-offset></dd>
+          <dt>Orientierung</dt><dd data-rs-primus-status aria-live="polite"></dd>
+        </dl>
+        <div class="pc-rs-mode-controls" role="group" aria-label="Hexatych-Drift in Zehntelgrad">
+          <button type="button" data-rs-primus-drift="-1">−0,1°</button>
+          <button type="button" data-rs-primus-drift="1">+0,1°</button>
+          <button type="button" data-rs-primus-return>Zurück zu θ₀</button>
+        </div>
+        <p class="pc-rs-primus-note">Die Marker liegen auf dem inneren 71-Slot-Band der Base-213-Vorlage. Der Offset dreht die Zebra-Ansicht relativ zu θ₀. Die gewählte Primzahl behält ihre Ringadresse.</p>`;
+
+      const markerButtons=[...detail.querySelectorAll('[data-rs-primus-select]')];
+      const ringMarkersInView=[...stage.querySelectorAll('[data-rs-primus-marker]')];
+      const stripes=stage.querySelector('[data-rs-primus-stripes]');
+      const pointer=stage.querySelector('[data-rs-primus-pointer]');
+      const readout=detail.querySelector('[data-rs-primus-readout]');
+      const offset=detail.querySelector('[data-rs-primus-offset]');
+      const status=detail.querySelector('[data-rs-primus-status]');
+      const angleFormat=new Intl.NumberFormat('de-DE',{signDisplay:'exceptZero',minimumFractionDigits:1,maximumFractionDigits:1});
+      function updateMarker(){
+        markerButtons.forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.rsPrimusSelect)===primusRank)));
+        ringMarkersInView.forEach(marker=>marker.classList.toggle('is-selected',Number(marker.dataset.rsPrimusMarker)===primusRank));
+        readout.textContent=`P${primusRank} = ${primes[primusRank-1]} · Slot ${primusRank} von ${ringSlots}`;
+      }
+      function updateDrift(returned=false){
+        const angle=driftSteps/10;
+        const transform=`rotate(${angle} 330 255)`;
+        stripes.setAttribute('transform',transform);
+        pointer.setAttribute('transform',transform);
+        offset.textContent=`Δθ = ${angleFormat.format(angle)}°`;
+        status.textContent=driftSteps ? 'Versetzt gegenüber θ₀'
+          : returned ? 'θ₀ erreicht · Marker erhalten' : 'θ₀ · Referenz';
+      }
+      markerButtons.forEach(button=>button.addEventListener('click',()=>{
+        primusRank=Number(button.dataset.rsPrimusSelect);
+        updateMarker();
+      }));
+      detail.querySelectorAll('[data-rs-primus-drift]').forEach(button=>button.addEventListener('click',()=>{
+        driftSteps+=Number(button.dataset.rsPrimusDrift);
+        updateDrift();
+      }));
+      detail.querySelector('[data-rs-primus-return]').addEventListener('click',()=>{
+        driftSteps=0;
+        updateDrift(true);
+      });
+      updateMarker();
+      updateDrift();
+    }
     function render(){
-      const isTuring=view===turingView;
-      const record=M.returnSeam4774Record(step,isTuring?'WHOLE_W':view),slice=view==='MEMORY_M';
-      stepButton.hidden=isTuring;
+      const isTuring=view===turingView,isPrimus=view===primusView;
+      stepButton.hidden=isTuring||isPrimus;
       root.querySelectorAll('[data-pc-rs-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.pcRsView===view)));
+      if(isPrimus){
+        renderPrimus();
+        return;
+      }
+      const record=M.returnSeam4774Record(step,isTuring?'WHOLE_W':view),slice=view==='MEMORY_M';
       if(isTuring){
         renderTuring(record.blockSwap);
         return;
@@ -115,17 +210,18 @@
     }
     root.querySelectorAll('[data-pc-rs-view]').forEach(button=>button.addEventListener('click',()=>{view=button.dataset.pcRsView;render()}));
     stepButton.addEventListener('click',()=>{step=(step+1)%4;render()});
-    function selectTuringAnchor(){
-      if(window.location.hash===turingAnchor && view!==turingView){
-        view=turingView;
+    function selectLinkedView(anchor){
+      const nextView=linkedViews.get(anchor);
+      if(nextView && view!==nextView){
+        view=nextView;
         render();
       }
     }
-    window.addEventListener('hashchange',selectTuringAnchor);
-    document.querySelectorAll(`a[href="${turingAnchor}"]`).forEach(link=>link.addEventListener('click',()=>{
-      if(view!==turingView){view=turingView;render()}
-    }));
-    if(window.location.hash===turingAnchor)view=turingView;
+    window.addEventListener('hashchange',()=>selectLinkedView(window.location.hash));
+    for(const anchor of linkedViews.keys()){
+      document.querySelectorAll(`a[href="${anchor}"]`).forEach(link=>link.addEventListener('click',()=>selectLinkedView(anchor)));
+    }
+    view=linkedViews.get(window.location.hash) ?? view;
     render();
   }
   document.querySelectorAll('[data-pc-return-seam]').forEach(boot);
