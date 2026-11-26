@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="a0-iota-tumble-t-lens.css?rev=20261103-r1">
   <link rel="stylesheet" href="a0-folded-axis-lrrl-window.css?rev=20261103-pbdq-r3">
   <link rel="stylesheet" href="a0-module-window.css?rev=20261026-r1">
-  <link rel="stylesheet" href="a0-tesseract-face-coupler.css?rev=20261031-moving-windows-r1">
+  <link rel="stylesheet" href="a0-tesseract-face-coupler.css?rev=20261126-cube-helix">
   <link rel="stylesheet" href="a0-bridge-address-acoustic-dock.css?rev=20261030-r1">
   <link rel="stylesheet" href="a0-nlk-iota-bridge-dock.css?rev=20261031-r1">
   <link rel="stylesheet" href="a0-iota-guided-demonstration.css?rev=20261103-iota-tour-r2">
@@ -79,6 +79,10 @@
       </aside>
     </div>
     <section class="tfc-pipeline" aria-labelledby="gridBridgePipelineTitle">
+      <nav class="tfc-links tfc-cube-helix-entry" id="gridBridgeCubeHelix" aria-label="PrimeCube-Tour · Cube–Helix">
+        <button type="button" data-tfc-cube-helix>Sample 18 anzeigen</button>
+        <a href="A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-tour-cube-helix">← Zur Cube–Helix-Station im PrimeCube</a>
+      </nav>
       <header><div><small>ONE BRIDGE · FIVE DECLARED PORTS</small><h3 id="gridBridgePipelineTitle">Q4 / 24 → G8³ / 512 → Tile 16+1 → Zither 4×7 → Rank48</h3></div><div class="tfc-time-controls"><label>k / 48 <output data-tfc-step-out>00</output><input type="range" min="0" max="47" step="1" value="0" data-tfc-step></label><button type="button" data-tfc-play aria-pressed="false">PLAY 48</button><button type="button" data-tfc-rotate>ROTATE G8³ · 0°</button></div></header>
       <div class="tfc-pipeline-grid">
         <article><small>01 · SOURCE / Q4</small><h4>O → split → X</h4><svg data-tfc-antipode viewBox="0 0 320 260" role="img" aria-label="Selected Q4 face, exact antipode, and two bit-flip routes"></svg><dl><div><dt>ORIGIN O</dt><dd data-tfc-origin>O · F:xy|zw=00</dd></div><div><dt>ANTIPODE X</dt><dd data-tfc-target>X · F:xy|zw=11</dd></div><div><dt>SPLIT ROUTES</dt><dd data-tfc-routes>Y 10 · P 01 · A²=id</dd></div></dl></article>
@@ -134,7 +138,7 @@
 <script src="a0-iota-2-3-bridge-probe.js?rev=20261026-seam-drift-r1"></script>
 <script src="a0-iota-tumble-t-lens.js?rev=20261103-r1"></script>
 <script src="a0-folded-axis-lrrl-window.js?rev=20261103-pbdq-r3"></script>
-<script src="a0-tesseract-face-coupler.js?rev=20261031-moving-windows-r1"></script>
+<script src="a0-tesseract-face-coupler.js?rev=20261126-cube-helix"></script>
 <script src="a0-bridge-view-rack.js?rev=20261030-r1"></script>
 <script src="a0-acoustic-source-projection.js?rev=20261030-source-projection-r1"></script>
 <script src="a0-bridge-address-acoustic-dock.js?rev=20261030-r1"></script>
@@ -144,7 +148,9 @@
 <script>window.A0Iota23BridgeController=window.A0Iota23BridgeProbe.mount(document,window);</script>
 <script>window.A0IotaTumbleTLensController=window.A0IotaTumbleTLens.mount(document,window);</script>
 <script>window.A0FoldedAxisLrrlController=window.A0FoldedAxisLrrlWindow.mount(document,window);</script>
-<script>window.A0GridBridgeFlagshipController=window.A0TesseractFaceCoupler.mount(document);</script>
+<script>window.A0GridBridgeFlagshipController=window.A0TesseractFaceCoupler.mount(document,{
+  cubeHelix:new URLSearchParams(location.search).get('view')==='cube-helix'
+});</script>
 <script>window.A0GridBridgeViewRackController=window.A0BridgeViewRack.mount(document);</script>
 <script>window.A0BridgeAddressAcousticDockController=window.A0BridgeAddressAcousticDock.mount(document);</script>
 <script>window.A0NlkIotaHandoffController=window.A0NlkIotaBridgeDock.mountIota(document,window);</script>

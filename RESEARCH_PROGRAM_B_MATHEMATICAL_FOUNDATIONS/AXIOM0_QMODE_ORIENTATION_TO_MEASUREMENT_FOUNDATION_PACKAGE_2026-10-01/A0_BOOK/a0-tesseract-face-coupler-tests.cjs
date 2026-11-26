@@ -59,6 +59,15 @@ test('scan windows move with the 48-step schedule',()=>{const states=Array.from(
 test('scan windows close exactly after 48 steps',()=>assert.deepEqual(C.scanWindows(7,48),C.scanWindows(7,0)));
 test('clock window follows signed Euler direction',()=>assert.notDeepEqual(C.scanWindows(0,7,C.WINDING_MODE.INTERLEAVED_4J,1).clock,C.scanWindows(0,7,C.WINDING_MODE.INTERLEAVED_4J,-1).clock));
 test('pipeline sample stays on selected face',()=>C.faces.forEach(face=>{for(let k=0;k<48;k+=1){const p=C.pipelineState(face,k);assert(p.projection.selected.some(x=>x.linear===p.sample.linear));assert.equal(p.zither.address,p.sample.zitherIndex+1)}}));
+test('PrimeCube Cube–Helix station resolves its complete sample trace',()=>{
+  const {sample,tile,windingAddress,reconstruction}=C.pipelineState(
+    0,31,C.WINDING_MODE.INTERLEAVED_4J,C.EULER_DIRECTION.FORWARD
+  );
+  assert.deepEqual([sample.linear,sample.x,sample.y,sample.z,sample.q4Address],[18,2,2,0,'0000']);
+  assert.deepEqual([tile.plate,tile.window,tile.localCell],[0,1,3]);
+  assert.deepEqual([windingAddress.residue,windingAddress.plate,windingAddress.phaseDegrees,windingAddress.slot],[18,2,180,19]);
+  assert.equal(reconstruction.pass,true);
+});
 test('existing Tessarec identity reused',()=>assert.equal(C.receipt.carrier,'MOD:TESSAREC'));
 test('Tower receives five typed receipts without steering',()=>assert.deepEqual([C.receipt.towerIntake.receipts,C.receipt.towerIntake.commonCarrier,C.receipt.towerIntake.steering],[5,false,false]));
 test('HTML mounts coupler',()=>assert(html.includes('data-tfc')&&html.includes('a0-tesseract-face-coupler.js')));
