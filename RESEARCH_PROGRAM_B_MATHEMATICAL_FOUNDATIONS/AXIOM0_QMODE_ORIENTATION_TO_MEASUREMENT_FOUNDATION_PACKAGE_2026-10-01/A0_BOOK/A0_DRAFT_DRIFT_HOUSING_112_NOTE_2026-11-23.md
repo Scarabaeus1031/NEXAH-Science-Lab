@@ -28,7 +28,7 @@ The instrument extends the existing `MOD:NUMBER_VIEW_SUITE` / `ART:A0:MATHEMATIC
 
 ## IOTA 4/5 im JPL-Raster · Hypothesendraft vom 26.11.2026
 
-**Status** `DRAFT / VORHERSAGE UNGEPRÜFT`
+**Status** `DRAFT / JPL 2023 LOKAL GEPRÜFT / KEIN 24-H-SPEZIFISCHER VORTEIL`
 
 ### Adresszuordnung
 
@@ -98,9 +98,42 @@ Wechsel bleibt die Probe uninformativ.
 
 2025 liefert den Ausgangsvergleich. Die damaligen drei erfolgreichen
 Versätze bestimmen weder die Paarbildung noch die erwartete Richtung.
-Die Regel wäre vor der Sichtung eines weiteren, bisher ungesichteten
-365-Tage-Fensters festzulegen. Diese Notiz hält nur den Prüfvorschlag
-fest. Es wurde kein neues Fenster ausgewertet und kein Finding abgeleitet.
+Die Regel und die Kontrollversätze wurden vor dem Abruf des zusätzlichen
+Fensters festgelegt.
+
+### Lokaler Befund · JPL-Jahresfenster 2023
+
+Geprüft wurde das zuvor ungesichtete Fenster vom **1. Januar 2023 bis
+zum 1. Januar 2024** (TDB). JPL Horizons lieferte für Io, Europa und
+Ganymed je 8.761 Stundenwerte einschließlich des rechten Endpunkts
+(`jup365_merged`, Jupiter-Körperäquator). Die stündliche Referenz
+enthält **19 Wechsel**. Die alternativen Versätze von **+12 h** und
+**+36 h** ab D waren vor dem Abruf festgelegt.
+
+| Versatz ab D | Primzahlraster, Treffer über zwölf Paare | Gleichmäßiges Raster, Treffer über zwölf Paare | Mittlerer Gewinn im Primzahlraster |
+|---:|---:|---:|---:|
+| +12 h | 226 → 228 | 228 → 228 | +1/6 |
+| +24 h (IOTA E) | 226 → 228 | 228 → 228 | +1/6 |
+| +36 h | 226 → 226 | 228 → 228 | 0 |
+
+Bei +24 h gewinnt ein Paar zwei Treffer, elf Paare bleiben gleich.
+Beim Startpaar **5571 → 5595 h** steigt das Primzahlraster von **17 auf
+19 Treffer**. Es erfasst die beiden Wechsel an den Referenzstunden
+5280 und 5301. **+12 h erfasst in allen zwölf Paaren exakt dieselben
+Wechsel wie +24 h.** Das gleichmäßige Raster erfasst bei allen geprüften
+D-, E- und Kontrollstarts sämtliche 19 Wechsel.
+
+**Einordnung.** Der gerichtete E–D-Vergleich fällt für das Primzahlraster
+positiv aus. Die +12-h-Kontrolle erzielt jedoch denselben Gewinn bei
+denselben Wechseln. Damit gibt es **in diesem Fenster keinen besonderen
+IOTA-Vorteil des 24-Stunden-Versatzes**. Der Befund bleibt auf dieses
+Fenster und die vorab festgelegten Versätze begrenzt. Der Status der
+Hypothese und die Zulassung eines Findings ändern sich dadurch nicht.
+
+Lokale Nachweise:
+[Prüfprotokoll](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/protocol.json>) ·
+[Ergebnisse je Startpaar](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/result.json>) ·
+[Quellabrufe](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/sources.json>).
 
 ## Verification
 
