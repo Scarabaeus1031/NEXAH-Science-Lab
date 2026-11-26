@@ -87,3 +87,17 @@
 .pc-cube-helix-inset p{margin:0 0 8px;font-size:.9rem}
 .pc-cube-helix-inset p:last-child{margin-bottom:0}
 .pc-cube-helix-inset a{color:#72dff0}
+
+.pc-turing-inset{border-inline-start-color:#ffa64e}
+.pc-turing-inset h5{margin:14px 0 6px;font-size:1rem}
+.pc-turing-plots,.pc-turing-values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.pc-turing-plots figure,.pc-turing-values div{margin:0;padding:12px;border:1px solid var(--pc-line);border-radius:8px;background:#0a111c}
+.pc-turing-plots h5{margin-top:0}
+.pc-turing-plots canvas{display:block;width:100%;height:auto}
+.pc-turing-plots figcaption,.pc-turing-values dt{color:#b4c5d5;font-size:.86rem}
+.pc-turing-record{display:block;padding:10px 12px;border:1px solid var(--pc-line);border-radius:8px;color:#ffd194;background:#0a111c;overflow-wrap:anywhere}
+.pc-turing-values dd{margin:3px 0 0;color:#ffd194}
+.pc-turing-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.pc-turing-actions button{cursor:pointer}
+.pc-turing-actions output{color:#e0eaf4;font-size:.9rem}
+@media(max-width:760px){.pc-turing-plots,.pc-turing-values{grid-template-columns:1fr}}
