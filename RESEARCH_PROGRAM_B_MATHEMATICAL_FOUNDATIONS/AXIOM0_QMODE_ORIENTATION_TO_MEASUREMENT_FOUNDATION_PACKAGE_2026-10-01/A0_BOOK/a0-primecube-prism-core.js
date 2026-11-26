@@ -72,8 +72,29 @@
   const axisCrossings = pairs.map(([left, right]) =>
     interpolate(left.point, right.point, -left.point[1] / (right.point[1] - left.point[1])));
   const centerMark = interpolate(...axisCrossings, 0.5);
+  const roof = [nodes[4].point, nodes[0].point, nodes[1].point];
+  const [hingeLeft, hingeRight] = nodes[0].faceIds.map(id => faces[id - 1]);
+  const hingeEdge = hingeLeft.corners.filter(point => hingeRight.corners.includes(point))
+    .sort((a, b) => a[2] - b[2]);
+  const hingeVector = hingeEdge[1].map((value, i) => value - hingeEdge[0][i]);
+  const hingeLength = Math.hypot(...hingeVector);
+  const hingeAxis = hingeVector.map(value => value / hingeLength);
 
-  function renderSvg(yaw, pitch, showPentagon = false) {
+  function foldRoof(angle) {
+    const pivot = roof[1];
+    const c = Math.cos(angle * radians);
+    const s = Math.sin(angle * radians);
+    const [ax, ay, az] = hingeAxis;
+    return roof.map(point => {
+      const relative = point.map((value, i) => value - pivot[i]);
+      const [x, y, z] = relative;
+      const cross = [ay * z - az * y, az * x - ax * z, ax * y - ay * x];
+      const axial = dot(relative, hingeAxis);
+      return relative.map((value, i) => pivot[i] + value * c + cross[i] * s + hingeAxis[i] * axial * (1 - c));
+    });
+  }
+
+  function renderSvg(yaw, pitch, showPentagon = false, roofAngle = 0) {
     const a = yaw * radians;
     const b = pitch * radians;
     function project([x, y, z]) {
@@ -95,6 +116,13 @@
     }).sort((a, b) => a.depth - b.depth);
     const section = `<polygon points="${polygon(mirrorCorners)}" fill="#e96cb9" fill-opacity=".13" stroke="#f5a1d4" stroke-opacity=".75" stroke-width="1.5" stroke-dasharray="5 4"/>`;
     const traces = pairs.map(([left, right]) => `<polyline points="${polygon([left.point, right.point])}" fill="none" stroke="${colors[left.group]}" stroke-width="2" stroke-dasharray="5 4"/>`).join('');
+    const foldedRoof = foldRoof(roofAngle);
+    const roofPoints = polygon(foldedRoof);
+    const hinge = `<polyline data-prism-hinge points="${polygon(hingeEdge)}" fill="none" stroke="#67e9a1" stroke-width="3.5" stroke-linecap="round"/>`;
+    const roofMarkup = `<g data-prism-roof>
+      <polygon points="${roofPoints}" fill="#ffc25f" fill-opacity=".14"/>
+      <polyline data-prism-roof-line points="${roofPoints}" fill="none" stroke="#ffd474" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>`;
     let overlay = '';
     if (showPentagon) {
       const ticks = pairs.map(([left, right]) => {
@@ -124,7 +152,7 @@
       return `<g data-prism-node="${node.id}"><circle cx="${x}" cy="${y}" r="7" fill="${color}" stroke="#111522" stroke-width="2"/><text x="${x + 12}" y="${y - 10}" fill="${color}" stroke="#101320" stroke-width="3" paint-order="stroke" font-size="16" font-weight="800">${node.id}</text></g>`;
     }).join('');
     return layers.filter(layer => layer.depth <= 0).map(layer => layer.svg).join('') + section
-      + layers.filter(layer => layer.depth > 0).map(layer => layer.svg).join('') + traces + overlay + markers;
+      + layers.filter(layer => layer.depth > 0).map(layer => layer.svg).join('') + traces + overlay + hinge + roofMarkup + markers;
   }
 
   function mount(root) {
@@ -132,6 +160,8 @@
     const yaw = root.querySelector('[data-prism-yaw]');
     const pitch = root.querySelector('[data-prism-pitch]');
     const pentagonToggle = root.querySelector('[data-prism-pentagon-toggle]');
+    const roofFold = root.querySelector('[data-prism-roof-fold]');
+    const roofReadout = root.querySelector('[data-prism-roof-readout]');
     const readout = root.querySelector('[data-prism-readout]');
     const slots = root.querySelectorAll('[data-prism-slot]');
     slots.forEach(slot => {
@@ -142,12 +172,15 @@
     function render() {
       const azimuth = Number(yaw.value);
       const elevation = Number(pitch.value);
-      svg.innerHTML = renderSvg(azimuth, elevation, pentagonToggle.checked);
+      const foldAngle = Number(roofFold.value);
+      svg.innerHTML = renderSvg(azimuth, elevation, pentagonToggle.checked, foldAngle);
       readout.textContent = `Azimut ${azimuth}° · Neigung ${elevation}°`;
+      roofReadout.textContent = `${foldAngle}°`;
     }
     yaw.addEventListener('input', render);
     pitch.addEventListener('input', render);
     pentagonToggle.addEventListener('change', render);
+    roofFold.addEventListener('input', render);
     root.querySelectorAll('[data-prism-preset]').forEach(button => {
       button.addEventListener('click', () => {
         [yaw.value, pitch.value] = button.dataset.prismPreset.split(',');
@@ -159,7 +192,7 @@
   }
 
   if (typeof module === 'object' && module.exports) {
-    module.exports = { faces, nodes, mirrorCorners, renderSvg };
+    module.exports = { faces, nodes, mirrorCorners, hingeEdge, foldRoof, renderSvg };
   } else {
     const root = document.querySelector('[data-prism-core]');
     if (root) mount(root);
