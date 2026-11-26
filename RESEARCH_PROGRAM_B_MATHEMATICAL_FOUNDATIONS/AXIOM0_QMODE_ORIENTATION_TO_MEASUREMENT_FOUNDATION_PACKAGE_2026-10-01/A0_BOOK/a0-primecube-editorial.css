@@ -73,3 +73,10 @@
 .pc-tour-khipu-stations span{color:#b4c5d5;font-size:.8rem;line-height:1.4}
 @media(max-width:980px){.pc-tour-khipu-stations{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:640px){.pc-tour-khipu-stations{grid-template-columns:1fr}}
+
+.pc-tour-progress{margin:0 0 6px;color:#72dff0;font:700 .75rem/1.4 ui-monospace,monospace}
+.pc-tour-direction{display:inline-flex;align-items:center;padding:8px 12px;border:1px solid #447882;border-radius:8px;background:#0d2631;color:#bdeff6;font-weight:700;text-decoration:none}
+.pc-tour-direction:hover,.pc-tour-direction:focus-visible{border-color:#72dff0;text-decoration:underline}
+.pc-guided-tour-nav{align-items:center}
+.pc-tour-overview-links{display:flex;flex-wrap:wrap;gap:6px 14px}
+@media(max-width:650px){.pc-guided-tour-nav .pc-tour-overview-links{flex-basis:100%}}
