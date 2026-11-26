@@ -4778,10 +4778,15 @@ gemeinsamen Primzahlen bis 1000 geprüft. Der Testfall
 und liegt auf `y=3`. Der Methodenbeleg verwendet die bestehenden PC1111-IDs.
 
 **Wiedereinstieg.** 419 in beiden Richtungen verfolgen und mit 397 die
-Schnittwahl kontrollieren. Danach die MOD‑7-Fourier-Maxima an vorab
-gewählten Primzahlfenstern und umgeordneten Folgen mit gleichen
-Trefferzahlen prüfen. Rössler und Kuramoto behalten ihre eigenen
-Gegenproben im Science Desk.
+Schnittwahl kontrollieren. Die erste MOD‑7-Fourier-Gegenprobe über vier
+nicht überlappende 168er-Fenster liegt vor: k=64 und k=71 halten in den
+drei Folgefenstern nicht. Bei Pink überschreiten k=51 und k=65 in zwei
+unterschiedlichen Fenstern die jeweilige Mischschwelle für das Maximum.
+Weitere Fenster und eine gemeinsame Bewertungsregel vorab festlegen.
+Rössler und Kuramoto behalten ihre eigenen Gegenproben im Science Desk.
+
+[MOD‑7-Gegenprobe](A0_BOOK/A0_HELIX_VIEW_ADAPTER.html#helix-mod7-fourier) ·
+[Paper E · Vier-Fenster-Protokoll](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#mod7-fourier-countercheck)
 
 [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#helix-primecube-resume-20261126) ·
 [Paper E](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#helix-primecube-168-method-example) ·

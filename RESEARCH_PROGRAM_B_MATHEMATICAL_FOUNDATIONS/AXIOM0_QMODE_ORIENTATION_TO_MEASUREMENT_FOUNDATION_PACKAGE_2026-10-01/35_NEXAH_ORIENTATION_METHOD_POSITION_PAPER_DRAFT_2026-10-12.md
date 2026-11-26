@@ -1528,9 +1528,39 @@ zu [`bdd69af5`](https://github.com/Scarabaeus1031/NEXAH-Science-Lab/commit/bdd69
   Der x–z-Punkt stimmt mit 419 überein. Schnitt, Primzahlrang und ID unterscheiden sich.
 
 **Finding offen.** Die Adressprobe liefert einen reproduzierbaren Test für
-den Ansichtswechsel. Die Stabilität der beobachteten Fourier-Maxima und
-der Orientierungsnutzen für neue Aufgaben bleiben zu prüfen.
+den Ansichtswechsel. Die erste Fourier-Gegenprobe steht im folgenden Abschnitt. Der
+Orientierungsnutzen für neue Aufgaben bleibt zu prüfen.
 
 [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#helix-primecube-resume-20261126) ·
 [A0 Science](A0_BOOK/A0_SCIENCE.html#helix-mod7-methodenvergleich) ·
 [Findings-Workspace](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#helix-primecube-168-open-finding)
+
+<a id="mod7-fourier-countercheck"></a>
+
+## MOD‑7‑Fourier · Vergleich mit permutierten Treffern
+
+Vier aufeinanderfolgende, nicht überlappende Fenster zu je 168 Primzahlen
+in Primzahlreihenfolge. Die Spuren sind die Indikatoren der Reste 2 und 6
+modulo 7. Die DFT vergleicht die einseitigen Amplituden bei k=1 bis 84
+ohne Gleichanteil, am Nyquist-Bin ohne Verdopplung. Pro Fenster werden
+die Residuenlabels 999-mal gemeinsam permutiert (Seed 20261126), sodass
+Trefferzahlen und Ausschluss gleichzeitiger Treffer erhalten bleiben.
+
+| Ränge (Primzahlen) | Treffer Grün/Pink | Grün k=64 | Pink k=71 | Maximum Grün (k · Amp.) | Maximum Pink (k · Amp.) | Misch-P95 der Maxima Grün/Pink |
+|---|---:|---:|---:|---:|---:|---:|
+| 1–168 (2–997) | 27/27 | 0,132 | 0,145 | 64 · 0,132 | 71 · 0,145 | 0,153/0,151 |
+| 169–336 (1009–2267) | 29/31 | 0,048 | 0,048 | 38 · 0,116 | 51 · 0,162 | 0,158/0,160 |
+| 337–504 (2269–3607) | 28/26 | 0,031 | 0,057 | 35 · 0,110 | 65 · 0,156 | 0,153/0,152 |
+| 505–672 (3613–5011) | 25/31 | 0,028 | 0,072 | 82 · 0,110 | 16 · 0,135 | 0,146/0,159 |
+
+Die 95. Perzentile für das Spektralmaximum entstammen pro Spur und
+Fenster den höchsten Amplituden jeder Mischung über alle 84 Frequenzen.
+Die Referenzfrequenzen 64 und 71 waren aus dem ersten Fenster abgelesen.
+In allen Folgefenstern liegen ihre Amplituden unter dem jeweiligen
+Einzelbin-Perzentil. Die Peaks 51 und 65 bei Pink sind explorativ. Die
+Schwellen berücksichtigen die Auswahl über Frequenzen innerhalb einer
+Spur und eines Fensters. Die gemeinsame Bewertung über Spuren und Fenster
+steht aus. **Finding offen.**
+
+[Instrument](A0_BOOK/A0_HELIX_VIEW_ADAPTER.html#helix-mod7-fourier) ·
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#helix-mod7-fourier-return)

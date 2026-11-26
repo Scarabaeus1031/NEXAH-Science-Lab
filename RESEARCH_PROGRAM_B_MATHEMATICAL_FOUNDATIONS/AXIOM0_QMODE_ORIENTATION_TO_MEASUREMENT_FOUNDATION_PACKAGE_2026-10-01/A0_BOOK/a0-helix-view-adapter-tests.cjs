@@ -115,6 +115,25 @@ for(const [residue,peakBin,amplitude] of [[2,64,0.13167346804130486],[6,71,0.144
   assert.ok(Math.abs(peak.amplitude-amplitude)<1e-12);
 }
 
+const fourierWindows=M.mod7FourierComparison();
+assert.deepEqual(fourierWindows.map(({start,end,first,last})=>[start,end,first,last]),[
+  [1,168,2,997],[169,336,1009,2267],[337,504,2269,3607],[505,672,3613,5011]
+]);
+assert.deepEqual(fourierWindows.map(({tracks})=>tracks.map(({hits,peak})=>[hits,peak.bin])),[
+  [[27,64],[27,71]],[[29,38],[31,51]],[[28,35],[26,65]],[[25,82],[31,16]]
+]);
+for(const {start,trials,tracks} of fourierWindows){
+  assert.equal(trials,999);
+  for(const {reference,bins,mixed95,max95} of tracks){
+    assert.equal(bins.length,84);
+    assert.equal(mixed95.length,84);
+    assert.ok(max95>=Math.max(...mixed95));
+    assert.equal(bins[reference-1].amplitude>mixed95[reference-1],start===1);
+  }
+}
+assert.ok(Math.abs(fourierWindows[0].tracks[0].max95-.15320045591817863)<1e-9);
+assert.ok(Math.abs(fourierWindows[3].tracks[1].mixed95[70]-.10614455717752176)<1e-9);
+
 assert.deepEqual(M.RESIDUE_ANGLE_MODES,['mod7','mod11','paired']);assert.equal(M.residueAngleMode('paired'),'paired');assert.throws(()=>M.residueAngleMode('rainbow'),RangeError);
 const residuePaired=M.buildPrimeResidueGeometry(residueRecords,{residueAngle:'paired'}),residue7=M.buildPrimeResidueGeometry(residueRecords,{residueAngle:'mod7'}),residue11=M.buildPrimeResidueGeometry(residueRecords,{residueAngle:'mod11'});
 assert.equal(residuePaired.kind,'prime-residue-helix');assert.equal(residuePaired.rungs.length,168);assert.equal(residuePaired.strandMode,'double');assert.equal(residue7.strandMode,'single');assert.equal(residue11.strandMode,'single');assert.equal(residuePaired.tail.length,18);

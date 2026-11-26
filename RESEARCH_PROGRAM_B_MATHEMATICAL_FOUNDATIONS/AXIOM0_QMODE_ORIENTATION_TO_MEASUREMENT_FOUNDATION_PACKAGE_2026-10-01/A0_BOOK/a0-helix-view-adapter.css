@@ -117,7 +117,17 @@ canvas[data-slicing]{touch-action:pan-y}
 .hv-fourier-plot{display:grid;grid-template-columns:repeat(84,minmax(0,1fr));gap:1px;height:70px;border-bottom:1px solid #59708a}
 .hv-fourier-plot span{position:relative}
 .hv-fourier-plot span::after{content:"";position:absolute;inset:auto 0 0;height:var(--fill);background:var(--spectrum-color)}
+.hv-fourier-plot span::before{content:"";position:absolute;z-index:1;inset:auto 0 var(--mixed);height:1px;background:#a3adba}
 .hv-fourier-axis{display:flex;justify-content:space-between;padding-top:4px}
+.hv-fourier-window{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem}
+.hv-fourier-window select{background:#102033;color:inherit;border:1px solid var(--line);border-radius:4px;padding:.35rem .5rem;font:inherit}
+.hv-fourier-table{overflow-x:auto;margin-top:1rem}
+.hv-fourier-table table{width:100%;border-collapse:collapse;font-size:.82rem}
+.hv-fourier-table caption{text-align:left;font-weight:700;margin-bottom:.4rem}
+.hv-fourier-table :is(th,td){padding:.45rem .55rem;border-bottom:1px solid var(--line);text-align:left}
+.hv-fourier-table tbody td{font-variant-numeric:tabular-nums;white-space:nowrap}
+.hv-fourier-table [data-hit=green] td:first-of-type{color:hsl(125 82% 68%)}
+.hv-fourier-table [data-hit=pink] td:first-of-type{color:hsl(325 82% 72%)}
 .hv-fourier-panel .hv-fourier-links{display:flex;flex-wrap:wrap;gap:.4rem 1.25rem;margin:1rem 0 0}
 
 .hv-slice-plan{margin:12px 0 0;border-top:1px solid var(--line);padding-top:10px}

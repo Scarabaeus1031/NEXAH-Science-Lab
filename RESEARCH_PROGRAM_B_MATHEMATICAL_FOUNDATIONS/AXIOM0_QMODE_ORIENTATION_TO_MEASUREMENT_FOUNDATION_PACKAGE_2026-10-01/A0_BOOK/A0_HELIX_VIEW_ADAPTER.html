@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>A0 · Helix lesen und vergleichen</title>
   <link rel="stylesheet" href="a0-context-navigation.css">
-  <link rel="stylesheet" href="a0-helix-view-adapter.css?rev=helix-tour-r1">
+  <link rel="stylesheet" href="a0-helix-view-adapter.css?rev=mod7-fourier">
   <link rel="stylesheet" href="a0-kuramoto-compare.css?rev=3">
 </head>
 <body>
@@ -143,10 +143,20 @@
       </aside>
     </div>
 
-    <section class="hv-fourier-panel" data-hv-fourier-panel hidden aria-labelledby="helixFourierTitle">
-      <h2 id="helixFourierTitle">MOD‑7‑Fourier · 168 Ebenen</h2>
-      <p>Pro Spur zählt ein Treffer als 1, jede andere Ebene als 0. Die Balken zeigen die Amplitude auf derselben Skala. <i>k</i> zählt Wellen über alle 168 Primzahl-Ebenen.</p>
-      <div class="hv-fourier-charts" data-hv-fourier-charts></div>
+    <section class="hv-fourier-panel" id="helix-mod7-fourier" data-hv-fourier-panel hidden aria-labelledby="helixFourierTitle">
+      <h2 id="helixFourierTitle">MOD‑7‑Fourier · Vier Fenster à 168 Primzahlen</h2>
+      <p>Pro Spur zählt ein Treffer als 1, jede andere Ebene als 0. <i>k</i> zählt Wellen pro Fenster. Für die Gegenprobe werden die Ebenenlabels gemeinsam umgeordnet. So bleiben die Trefferzahlen für Grün und Pink und die Lücken erhalten.</p>
+      <label class="hv-fourier-window" for="helixFourierWindow">Spektrum für <select id="helixFourierWindow" data-hv-fourier-window></select></label>
+      <p><strong>Farbbalken</strong> · beobachtete Amplitude. <strong>Graue Striche</strong> · 95. Perzentil der Mischungen je <i>k</i>. Alle Spektren nutzen dieselbe Amplitudenskala.</p>
+      <div class="hv-fourier-charts" data-hv-fourier-charts aria-live="polite"></div>
+      <div class="hv-fourier-table" tabindex="0" role="region" aria-label="Fourier-Gegenprobe je Fenster">
+        <table>
+          <caption>Beobachtete Peaks und Mischkontrolle</caption>
+          <thead><tr><th scope="col">Primzahlrang</th><th scope="col">Spur</th><th scope="col">Treffer</th><th scope="col">Maximum (<i>k</i> · Amp.)</th><th scope="col">Referenz (<i>k</i> · Amp.)</th><th scope="col">Misch-95 %<br>bei Referenz-<i>k</i></th><th scope="col">Misch-95 %<br>der Maxima</th></tr></thead>
+          <tbody data-hv-fourier-rows></tbody>
+        </table>
+      </div>
+      <p>Je Fenster 999 reproduzierbare Mischungen (Seed 20261126). Für die letzte Spalte zählt pro Mischung der höchste Wert über alle 84 Frequenzen. Finding offen.</p>
       <p class="hv-fourier-links"><a href="DRAFTS/A0_TYPED_MIRROR_ROTATION_COMPASS_DRAFT_2026-11-07.html#octagon-wobble">I/J-Oktagone im Rotation Compass</a><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html#shadow-cube-3d">Union J / Flag am Cube</a></p>
     </section>
 
@@ -348,8 +358,8 @@
   <footer class="hv-return"><span>Reuses: MOD:NUMBER_VIEW_SUITE · ART:A0:MATHEMATICAL_JOINTS · no graph delta</span><nav><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html">← Primecube</a> · <a href="A0_PRIME_PROJECTION_TEST_SUITE.html">Prime Projection</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#helix-mod7-method-return-20261126">Science Desk · Helix‑Return</a> · <a href="A0_RESEARCH_DESK.html#prime-projection-helix-paper-routing-20261121">Riemann / Ihara</a> · <a href="A0_HELIX_VIEW_ADAPTER_CONTRACT_2026-11-21.md">Contract</a> · <a href="results/a0-helix-view-adapter-2026-11-21.json">Receipt</a></nav></footer>
 </main>
 <script src="a0-primecube-model.js?rev=20261121-r5"></script>
-<script src="a0-helix-view-adapter.js?rev=rossler-clusters-r1"></script>
-<script src="a0-helix-view-adapter-ui.js?rev=pc1111-roundtrip"></script>
+<script src="a0-helix-view-adapter.js?rev=mod7-fourier"></script>
+<script src="a0-helix-view-adapter-ui.js?rev=mod7-fourier"></script>
 <script src="a0-context-navigation.js"></script>
 <script defer src="a0-science-kuramoto.js?rev=4"></script>
 </body>

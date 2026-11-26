@@ -54,21 +54,72 @@
     return Object.freeze(records);
   }
 
-  function sliceSpectrum(samples){
-    const size=samples.length;
-    const mean=samples.reduce((sum,value)=>sum+value,0)/size;
-    const bins=Array.from({length:Math.floor(size/2)},(_,index)=>{
+  function sliceFourierBasis(size){
+    return Array.from({length:Math.floor(size/2)},(_,index)=>{
       const bin=index+1;
+      const angles=Array.from({length:size},(_,offset)=>TAU*bin*offset/size);
+      return {bin,cosines:angles.map(Math.cos),sines:angles.map(Math.sin),scale:(2*bin===size?1:2)/size};
+    });
+  }
+
+  function sliceSpectrum(samples,basis=sliceFourierBasis(samples.length)){
+    const mean=samples.reduce((sum,value)=>sum+value,0)/samples.length;
+    // Subtracting any constant changes only bin zero. Use a baseline that keeps the 0/1 inputs sparse.
+    const baseline=samples.includes(0)?0:samples[0];
+    const weights=samples.flatMap((value,offset)=>value===baseline?[]:[{offset,value:value-baseline}]);
+    const bins=basis.map(({bin,cosines,sines,scale})=>{
       let real=0,imag=0;
-      samples.forEach((value,offset)=>{
-        const angle=TAU*bin*offset/size;
-        real+=(value-mean)*Math.cos(angle);
-        imag-=(value-mean)*Math.sin(angle);
-      });
-      const factor=2*bin===size?1:2;
-      return {bin,amplitude:factor*Math.hypot(real,imag)/size};
+      for(const {offset,value} of weights){
+        real+=value*cosines[offset];
+        imag-=value*sines[offset];
+      }
+      return {bin,amplitude:scale*Math.hypot(real,imag)};
     });
     return {mean,bins};
+  }
+
+  function mod7FourierComparison(){
+    const size=168,windowCount=4,seed=20261126,trials=999;
+    const primes=primecube?.sieve?.(6000)??primeResidueRecords(6000).map(record=>record.prime);
+    const basis=sliceFourierBasis(size);
+    const definitions=[{hit:'green',residue:2,reference:64},{hit:'pink',residue:6,reference:71}];
+    // Fixed seed so re-opening the same comparison gives the same controls.
+    let state=seed;
+    const random=()=>{
+      state^=state<<13;
+      state^=state>>>17;
+      state^=state<<5;
+      return (state>>>0)/4294967296;
+    };
+    const percentile95=values=>values.sort((a,b)=>a-b)[Math.ceil(.95*values.length)-1];
+    const getBins=(labels,residue)=>sliceSpectrum(labels.map(label=>Number(label===residue)),basis).bins;
+    return Array.from({length:windowCount},(_,index)=>{
+      const start=index*size;
+      const window=primes.slice(start,start+size);
+      const labels=window.map(prime=>prime%7);
+      const tracks=definitions.map(track=>{
+        const bins=getBins(labels,track.residue);
+        const peak=bins.reduce((best,bin)=>bin.amplitude>best.amplitude?bin:best);
+        return {...track,bins,peak,hits:labels.filter(label=>label===track.residue).length,
+          mixedBins:bins.map(()=>[]),mixedMaxima:[]};
+      });
+      for(let trial=0;trial<trials;trial++){
+        const mixed=labels.slice();
+        for(let i=mixed.length-1;i>0;i--){
+          const j=Math.floor(random()*(i+1));
+          [mixed[i],mixed[j]]=[mixed[j],mixed[i]];
+        }
+        for(const track of tracks){
+          const bins=getBins(mixed,track.residue);
+          bins.forEach(({amplitude},index)=>track.mixedBins[index].push(amplitude));
+          track.mixedMaxima.push(Math.max(...bins.map(bin=>bin.amplitude)));
+        }
+      }
+      return {start:start+1,end:start+size,first:window[0],last:window.at(-1),trials,seed,
+        tracks:tracks.map(({mixedBins,mixedMaxima,...track})=>({
+          ...track,mixed95:mixedBins.map(percentile95),max95:percentile95(mixedMaxima)
+        }))};
+    });
   }
 
   function primeTailRecords(lower=1000,upper=LIMIT){
@@ -546,5 +597,5 @@
     });
   }
 
-  return Object.freeze({VERSION,LIMIT,TAU,PHI,EULER_STEP,GOLDEN_ANGLE,FIBONACCI_INDICES,STRAND_MODES,REGISTER_MODES,ZETA_ZERO_ORDINATES,ZETA_LENS_MODES,TRACE_WORDS,RESIDUE_ANGLE_MODES,isPrime,twinRungs,primeResidueRecords,sliceSpectrum,primeTailRecords,residueAngleMode,buildPrimeResidueGeometry,z37Orbits,zetaZeroRecords,explicitFormulaPair,comparePrimeRepeat,iharaTriangleTerm,zetaLensMode,traceWordData,phaseSeamData,buildZetaGeometry,phaseStep,degrees,strandMode,registerMode,helixMeasures,bundleStrand,fhBundle,triadBundle,z37Frame,registerGeometry,buildGeometry,modeRecords,inspection,rosslerLiftCycles,rosslerJanusOverlap,rosslerClusterComparison,matchSampleClusters,audit});
+  return Object.freeze({VERSION,LIMIT,TAU,PHI,EULER_STEP,GOLDEN_ANGLE,FIBONACCI_INDICES,STRAND_MODES,REGISTER_MODES,ZETA_ZERO_ORDINATES,ZETA_LENS_MODES,TRACE_WORDS,RESIDUE_ANGLE_MODES,isPrime,twinRungs,primeResidueRecords,sliceSpectrum,mod7FourierComparison,primeTailRecords,residueAngleMode,buildPrimeResidueGeometry,z37Orbits,zetaZeroRecords,explicitFormulaPair,comparePrimeRepeat,iharaTriangleTerm,zetaLensMode,traceWordData,phaseSeamData,buildZetaGeometry,phaseStep,degrees,strandMode,registerMode,helixMeasures,bundleStrand,fhBundle,triadBundle,z37Frame,registerGeometry,buildGeometry,modeRecords,inspection,rosslerLiftCycles,rosslerJanusOverlap,rosslerClusterComparison,matchSampleClusters,audit});
 });

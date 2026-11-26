@@ -15,6 +15,10 @@
   const slicePanel=root.querySelector('[data-hv-slice-panel]');
   const fourierPanel=root.querySelector('[data-hv-fourier-panel]');
   const fourierCharts=fourierPanel.querySelector('[data-hv-fourier-charts]');
+  const fourierWindow=fourierPanel.querySelector('[data-hv-fourier-window]');
+  const fourierRows=fourierPanel.querySelector('[data-hv-fourier-rows]');
+  const fourierFormat=new Intl.NumberFormat('de-DE',{minimumFractionDigits:3,maximumFractionDigits:3});
+  let fourierComparison;
   const sliceStatus=root.querySelector('[data-hv-slice-status]');
   const sliceStrip=root.querySelector('[data-hv-slice-strip]');
   const sliceCounts=root.querySelector('[data-hv-slice-counts]');
@@ -70,30 +74,52 @@
   sliceStrip.append(...sliceCells);
   const countHits=hit=>sliceCells.filter(cell=>cell.dataset.hit===hit).length;
   sliceCounts.textContent=countHits('green')+' Grün · '+countHits('pink')+' Pink · '+countHits('gap')+' Lücken';
+  function setupSliceSpectra(){
+    const windows=M.mod7FourierComparison();
+    const scale=Math.max(...windows.flatMap(({tracks})=>tracks.flatMap(track=>[track.peak.amplitude,...track.mixed95])));
+    fourierComparison={windows,scale};
+    windows.forEach(({start,end,first,last,tracks},index)=>{
+      fourierWindow.add(new Option(`Rang ${start}–${end} · ${first}–${last}`,String(index)));
+      for(const track of tracks){
+        const {hit,hits,reference,peak,bins,mixed95,max95}=track;
+        const row=fourierRows.insertRow();
+        row.dataset.hit=hit;
+        const heading=document.createElement('th');
+        heading.scope='row';
+        heading.textContent=`${start}–${end}`;
+        row.append(heading);
+        const values=[hit==='green'?'Grün':'Pink',hits,
+          `${peak.bin} · ${fourierFormat.format(peak.amplitude)}`,
+          `${reference} · ${fourierFormat.format(bins[reference-1].amplitude)}`,
+          fourierFormat.format(mixed95[reference-1]),fourierFormat.format(max95)];
+        for(const value of values)row.insertCell().textContent=value;
+      }
+    });
+    renderSliceSpectra();
+  }
+
   function renderSliceSpectra(){
-    const format=new Intl.NumberFormat('de-DE',{minimumFractionDigits:3,maximumFractionDigits:3});
-    const tracks=[['green','Grün · p mod 7 = 2'],['pink','Pink · p mod 7 = 6']].map(([hit,label])=>({
-      hit,label,...M.sliceSpectrum(sliceCells.map(cell=>Number(cell.dataset.hit===hit)))
-    }));
-    const scale=Math.max(...tracks.flatMap(track=>track.bins.map(term=>term.amplitude)));
-    for(const {hit,label,mean,bins} of tracks){
-      const strongest=[...bins].sort((a,b)=>b.amplitude-a.amplitude).slice(0,3);
-      const peak=strongest[0];
+    const {windows,scale}=fourierComparison;
+    const {tracks}=windows[Number(fourierWindow.value)];
+    const format=value=>fourierFormat.format(value);
+    const charts=tracks.map(({hit,residue,hits,reference,peak,bins,mixed95})=>{
       const figure=document.createElement('figure');
       figure.dataset.hit=hit;
       const caption=document.createElement('figcaption');
       const title=document.createElement('strong');
-      title.textContent=label;
+      title.textContent=(hit==='green'?'Grün':'Pink')+' · p mod 7 = '+residue;
       const summary=document.createElement('span');
-      summary.textContent='Mittelwert '+format.format(mean)+' · Spitze k='+peak.bin+' · '+format.format(peak.amplitude);
+      summary.textContent=`${hits} Treffer · Maximum k=${peak.bin} (${format(peak.amplitude)})`;
       caption.append(title,summary);
       const plot=document.createElement('div');
       plot.className='hv-fourier-plot';
       plot.setAttribute('aria-hidden','true');
       for(const {bin,amplitude} of bins){
+        const threshold=mixed95[bin-1];
         const bar=document.createElement('span');
         bar.style.setProperty('--fill',(100*amplitude/scale)+'%');
-        bar.title='k='+bin+' · Amplitude '+format.format(amplitude);
+        bar.style.setProperty('--mixed',(100*threshold/scale)+'%');
+        bar.title=`k=${bin} · Amplitude ${format(amplitude)} · Misch-95 % ${format(threshold)}`;
         plot.append(bar);
       }
       const axis=document.createElement('div');
@@ -104,11 +130,13 @@
         axis.append(tick);
       }
       const readout=document.createElement('p');
-      readout.textContent='Stärkste Anteile · '+strongest.map(({bin,amplitude})=>'k='+bin+' ('+format.format(amplitude)+')').join(' · ');
+      readout.textContent=`Referenz k=${reference} · ${format(bins[reference-1].amplitude)} · Misch-95 % ${format(mixed95[reference-1])}`;
       figure.append(caption,plot,axis,readout);
-      fourierCharts.append(figure);
-    }
+      return figure;
+    });
+    fourierCharts.replaceChildren(...charts);
   }
+  fourierWindow.addEventListener('change',renderSliceSpectra);
 
   let highlightedSlice=null;
   const stackPanel=root.querySelector('[data-hv-stack-panel]');
@@ -327,7 +355,7 @@
     const slicing=mod7Slicing();
     slicePanel.hidden=!slicing;
     fourierPanel.hidden=!slicing;
-    if(slicing&&!fourierCharts.childElementCount)renderSliceSpectra();
+    if(slicing&&!fourierComparison)setupSliceSpectra();
     mod7Toggle.disabled=slicing;
     mod7Help.textContent=slicing
       ? 'Vor und Zurück verschieben den Schnitt um eine Primzahl-Ebene. Die Kamera bleibt fest.'
@@ -1049,6 +1077,11 @@
     }
     if(location.hash==='#helix-stack-5-1'){
       showResidueStack(new URLSearchParams(location.search).get('helix'));
+      return true;
+    }
+    if(location.hash==='#helix-mod7-fourier'){
+      showMod7(true);
+      fourierPanel.scrollIntoView();
       return true;
     }
     if(location.hash==='#helix-mod7-slices'||location.hash==='#helix-mod7-axes'){
