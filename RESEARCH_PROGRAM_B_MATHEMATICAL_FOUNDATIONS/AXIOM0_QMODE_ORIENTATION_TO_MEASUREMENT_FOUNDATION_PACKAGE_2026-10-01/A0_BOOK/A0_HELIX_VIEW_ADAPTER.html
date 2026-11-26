@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="a0-context-navigation.css">
   <link rel="stylesheet" href="a0-helix-view-adapter.css?rev=shared-angle-sequence">
   <link rel="stylesheet" href="a0-kuramoto-compare.css?rev=phasenwerkstatt">
+  <link rel="stylesheet" href="a0-helix-iota-jpl.css">
   <style>
     #helix-jupiter-phases { scroll-margin-top:2rem; padding:clamp(.8rem,2vw,1.3rem); margin:1rem 0 1.6rem; border:1px solid #345369; background:#0c1c29; border-radius:.55rem; }
     #helix-jupiter-phases h4 { font-size:1.35rem; margin:0 0 .4rem; }
@@ -622,6 +623,48 @@
       </div>
       <p>Seitenwechsel zählen zwischen zeitlich benachbarten Werten jeder Stichprobe, innerhalb des Jahres. Bei Lücken können mehrere Wechsel zwischen zwei Stundenwerten liegen. Finding offen.</p>
     </section>
+    <section class="iota-jpl" id="helix-iota-jpl" aria-labelledby="iotaJplTitle">
+      <header>
+        <h5 id="iotaJplTitle">IOTA im JPL-Raster</h5>
+        <p>Verschiebe alle zwölf Startlagen gemeinsam. Vergleiche, wie viele 180°-Wechsel die beiden Raster bei +12 h, +24 h und +36 h ab D erfassen.</p>
+      </header>
+      <div class="iota-jpl-controls">
+        <label>Vergleichsjahr <select data-iota-year><option value="2023">2023</option><option value="2025">2025</option></select></label>
+        <label>Gemeinsame Startphase <input type="range" min="0" max="729" value="0" data-iota-phase> <output data-iota-phase-label>0 h</output></label>
+        <button type="button" data-iota-reset>Phase 0</button>
+      </div>
+      <p class="iota-jpl-summary" data-iota-summary aria-live="polite"></p>
+      <div class="jupiter-table-scroll" role="region" tabindex="0" aria-label="Treffer über zwölf Startlagen">
+        <table>
+          <thead><tr><th scope="col">Versatz ab D</th><th scope="col">Primzahlraster</th><th scope="col">Gleichmäßiges Raster</th><th scope="col">Vorsprung pro Paar</th></tr></thead>
+          <tbody data-iota-comparison></tbody>
+        </table>
+      </div>
+      <p class="iota-jpl-note">Die Treffer sind über zwölf Startpaare summiert. Der Vorsprung ist der mittlere Gewinn gegenüber D im Primzahlraster abzüglich des mittleren Gewinns im gleichmäßigen Raster.</p>
+      <details class="iota-jpl-details">
+        <summary>SLog · einen Wechsel im Detail prüfen</summary>
+        <div class="iota-jpl-controls">
+          <label>Startpaar <select data-iota-base></select></label>
+          <label>Referenzwechsel <select data-iota-crossing></select></label>
+        </div>
+        <p data-iota-event></p>
+        <div class="jupiter-table-scroll" role="region" tabindex="0" aria-label="Abtastmarken und Trefferstatus des gewählten Wechsels">
+          <table>
+            <thead><tr><th scope="col">Versatz</th><th scope="col">Startlage</th><th scope="col">Primzahlraster</th><th scope="col">Gleichmäßiges Raster</th></tr></thead>
+            <tbody data-iota-slog></tbody>
+          </table>
+        </div>
+      </details>
+      <div class="iota-jpl-scale" aria-labelledby="iotaJplScaleTitle">
+        <h6 id="iotaJplScaleTitle">Erfolgsanteil und V-Gap auf einer Skala</h6>
+        <p data-iota-original-values></p>
+        <p data-iota-scale-values></p>
+        <label>Anzeige <select data-iota-unit><option value="percent">Anteil in Prozent</option><option value="degrees">Auf 360° umgerechneter Anteil</option></select></label>
+        <div class="iota-jpl-bars" aria-hidden="true"><span data-iota-success-bar></span><span data-iota-gap-bar></span></div>
+        <p class="iota-jpl-note">Die Erfolgsphasen stammen aus dem jeweiligen JPL-Jahr. Der V-Gap umfasst fünf Adressen auf dem Z365-Raster. Die Umrechnung zeigt beide Anteile auf derselben Skala.</p>
+      </div>
+      <p class="iota-jpl-links"><a href="A0_MACHINA_COCKPIT.html#trianglePhiLens">V-Gap in Machina ↗</a> <a href="A0_PRIMECUBE_GAP_FOLD_LAB.html#draft-drift-housing-112">Draft, Drift &amp; Housing im Primecube ↗</a> <a href="A0_DRAFT_DRIFT_HOUSING_112_NOTE_2026-11-23.md#gemeinsamer-phasentest--jpl-2023">Prüfnotiz ↗</a></p>
+    </section>
     <p>Laplace-Winkel = λ<sub>Io</sub> − 3λ<sub>Europa</sub> + 2λ<sub>Ganymed</sub> modulo 360°. λ = Ω + ω + M aus oskulierenden Bahnelementen im Jupiter-Bezugssystem. <a href="https://ssd.jpl.nasa.gov/sats/ephem/">JPL · JUP365 ↗</a> · <a href="https://doi.org/10.1051/0004-6361/202141311">Laplace-Resonanz ↗</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#jpl-laplace-science-return">Science Desk · Rückbindung ↗</a> · Finding offen.</p>
   </section>
   <p class="hv-boundary"><b>CLAIM BOUNDARY:</b> <code>RN\A</code>, <code>(c)D|⁄|A</code>, <code>RDMH</code>, <code>F/H</code> und <code>TRIAD</code> sind deklarierte typografische und geometrische View-Bezeichner. <code>Θ</code>, <code>ι</code> und <code>DAO</code> sind hier ausschließlich die explizit definierten normierten Größen <code>Δθ</code>, <code>Δz/Δθ</code> und <code>R²+ι²</code>. Der Backslash wird nicht ohne getrennt definierte Mengen als bewiesene Mengendifferenz gelesen. Die daraus abgeleitete Torsionsgröße <code>|τ|</code> ist keine physikalische Messung. Die ζ-Linse verwendet nur eine endliche Tabelle der ersten 20 positiven nichttrivialen Nullstellenordinaten und den einzelnen konjugierten Paarterm der expliziten Formel; sie berechnet weder die vollständige Formel noch neue Nullstellen und beweist weder RH noch GRH. <code>RLLR/LRRL</code> sind Trace-Wörter, keine Dirichlet-Charaktere; Periodizität modulo <code>q</code>, vollständige Multiplikativität und Nullwerte auf Nicht-Einheiten werden nicht behauptet. <code>−1/12</code> und <code>11/12</code> sind modulo 1 derselbe Phasenpunkt, aber getrennte Lift-/Pfadzeugen. Die Prime-Residue-Helix ordnet einen endlichen bekannten Primzahlträger nach Index und weist deklarierte Modulo-Winkel zu; sie ist weder eine natürliche Primzahlhelix noch identisch mit dem separaten Euler-7×11-Kantenaudit. Einzelstrang, Doppelhelix, Phasenüberblendung, Register-Layer und φ-Rail behaupten keine RNA-/DNA-Validierung, biologische Primzahlsteuerung, physikalische Resonanz, keinen Primzahlgenerator und keine natürliche Identität zwischen Twin Primes, ℤ₃₇, ζ-Nullstellen oder Fibonacci.</p>
@@ -637,5 +680,7 @@
 <script defer src="a0-science-kuramoto.js?rev=phasenwerkstatt"></script>
 <script defer src="assets/a0-jupiter-horizons-2025.js?rev=annual"></script>
 <script defer src="a0-helix-jupiter-phases.js?rev=crossing-pairs"></script>
+<script defer src="assets/a0-iota-jpl-2023.js"></script>
+<script defer src="a0-helix-iota-jpl.js"></script>
 </body>
 </html>
