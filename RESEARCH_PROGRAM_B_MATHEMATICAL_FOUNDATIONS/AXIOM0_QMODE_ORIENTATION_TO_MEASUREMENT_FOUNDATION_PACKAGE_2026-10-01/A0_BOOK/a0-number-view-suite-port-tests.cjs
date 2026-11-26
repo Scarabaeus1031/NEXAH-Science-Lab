@@ -2,6 +2,8 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const api = require("./a0-number-view-suite-port.js");
+const cube = require("./a0-primecube-model.js");
+const helix = require("./a0-helix-view-adapter.js");
 let checks = 0;
 function ok(value, message) { assert.ok(value, message); checks += 1; }
 function eq(a, b, message) { assert.deepEqual(a, b, message); checks += 1; }
@@ -20,6 +22,19 @@ eq(api.primeAddress(1), { n:1,x:0,y:0,z:0,address:"[0,0,0]",returnId:"PC1111:N00
 eq(api.primeAddress(661), { n:661,x:0,y:5,z:5,address:"[0,5,5]",returnId:"PC1111:N0661" });
 eq(api.primeAddress(809), { n:809,x:5,y:7,z:6,address:"[5,7,6]",returnId:"PC1111:N0809" });
 eq(api.primeAddress(1111), { n:1111,x:10,y:1,z:9,address:"[10,1,9]",returnId:"PC1111:N1111" });
+const helixRecords = helix.primeResidueRecords();
+const recordsByPrime = new Map(helixRecords.map(record => [record.prime, record]));
+eq(api.compareHelix(api.primeAddress(661), recordsByPrime.get(661), cube), {
+  cubeReturn: 661,
+  helix: { residue7:3, residue11:1, residue77:45, band:8, helixReturn:661, exact:true }
+});
+eq(api.compareHelix(api.primeAddress(353), recordsByPrime.get(353), cube).helix, {
+  residue7:3, residue11:1, residue77:45, band:4, helixReturn:353, exact:true
+});
+eq(api.compareHelix(api.primeAddress(661), recordsByPrime.get(353), cube).helix.exact, false);
+eq(api.compareHelix(api.primeAddress(1009), recordsByPrime.get(1009), cube), { cubeReturn:1009, helix:null });
+ok(helixRecords.every(record => api.compareHelix(api.primeAddress(record.prime), record, cube).helix.exact),
+  "all shared records return through both views");
 assert.throws(() => api.primeAddress(0), RangeError); checks += 1;
 assert.throws(() => api.primeAddress(1112), RangeError); checks += 1;
 eq(Object.keys(api.ROLES).length, 5);

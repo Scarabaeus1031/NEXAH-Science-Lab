@@ -1,12 +1,12 @@
 (function (root, factory) {
-  const api = factory();
+  const api = factory(root);
   if (typeof module === "object" && module.exports) module.exports = api;
   root.A0NumberViewSuitePort = api;
   if (typeof document !== "undefined") {
     const boot = () => document.querySelectorAll("[data-number-view-suite-port]").forEach(api.mount);
     document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", boot) : boot();
   }
-})(typeof globalThis !== "undefined" ? globalThis : this, function () {
+})(typeof globalThis !== "undefined" ? globalThis : this, function (root) {
   "use strict";
 
   const IDENTITY = "MOD:NUMBER_VIEW_SUITE";
@@ -64,6 +64,21 @@
     const stage = Math.max(0, Math.min(STAGES.length - 1, Number(stageIndex) || 0));
     const address = primeAddress(n == null ? 661 : n);
     return { identity: IDENTITY, roleKey: key, role: ROLES[key], stageIndex: stage, stage: STAGES[stage], action: STAGE_ACTIONS[stage], address, intrinsicTopology: false, graphDelta: 0 };
+  }
+
+  function compareHelix(address, helixRecord, cubeModel) {
+    const cubeReturn = cubeModel.cubeNumber(address);
+    if (!helixRecord) return { cubeReturn, helix: null };
+
+    const { residue7, residue11 } = helixRecord;
+    const period = 7 * 11;
+    // 22 = 1 mod 7 and 0 mod 11. 56 has the opposite residues.
+    const residue77 = cubeModel.mod(22 * residue7 + 56 * residue11, period);
+    const band = Math.floor(address.n / period);
+    const helixReturn = residue77 + period * band;
+    const exact = cubeReturn === address.n && helixReturn === address.n
+      && helixRecord.sourceIds[0] === address.returnId;
+    return { cubeReturn, helix: { residue7, residue11, residue77, band, helixReturn, exact } };
   }
 
   function traceIndices(stageIndex) {
@@ -127,6 +142,12 @@
     let tickCount = 0;
     let completedCycles = 0;
     const playButton = host.querySelector("[data-nvp-play]");
+    const helixLink = host.querySelector("[data-nvp-helix-link]");
+    const cubeModel = root.A0PrimecubeModel;
+    const helixModel = root.A0HelixViewAdapter;
+    const helixRecords = helixLink && cubeModel && helixModel
+      ? new Map(helixModel.primeResidueRecords().map(record => [record.prime, record]))
+      : null;
     const stopPlayback = (finished) => {
       if (playTimer) clearInterval(playTimer);
       playTimer = null;
@@ -144,6 +165,19 @@
       const set = (name, value) => { const el = host.querySelector(`[data-nvp-${name}]`); if (el) el.textContent = value; };
       set("identity", state.identity); set("source", state.role.source); set("operator", state.role.operator);
       set("view", state.role.view); set("return", `${state.address.returnId} · ${state.address.address}`); set("boundary", state.role.boundary);
+      if (helixRecords) {
+        const { cubeReturn, helix } = compareHelix(state.address, helixRecords.get(n), cubeModel);
+        set("cube-address", `(x, y, z) = ${state.address.address}`);
+        set("cube-return", String(cubeReturn));
+        set("helix-residues", helix
+          ? `${helix.residue7} mod 7 · ${helix.residue11} mod 11`
+          : "Außerhalb des gemeinsamen Primzahlträgers bis 1000");
+        set("helix-return", helix
+          ? `${helix.residue77} + 77 × ${helix.band} = ${helix.helixReturn} · ${helix.exact ? "EXAKT" : "ABWEICHUNG"}`
+          : "—");
+        helixLink.hidden = !helix;
+        if (helix) helixLink.href = `A0_HELIX_VIEW_ADAPTER.html?helix=${encodeURIComponent(state.address.returnId)}#helix-prime-record`;
+      }
       set("status", `${state.stageIndex + 1}/7 · ${state.stage} · TRACE ${visited.size}/7`);
       set("cycle", `PHASE ${state.stageIndex + 1}/7 · t=${tickCount} · CYCLE ${completedCycles}`);
       set("trace", `SPUR ${[...visited].sort((a, b) => a - b).map(i => i + 1).join("→")} · ${state.action}`);
@@ -174,5 +208,5 @@
     render();
   }
 
-  return { IDENTITY, STAGES, STAGE_ACTIONS, ROLES, MOTION, primeAddress, inspect, traceIndices, motionForStage, diagram, mount };
+  return { IDENTITY, STAGES, STAGE_ACTIONS, ROLES, MOTION, primeAddress, inspect, compareHelix, traceIndices, motionForStage, diagram, mount };
 });

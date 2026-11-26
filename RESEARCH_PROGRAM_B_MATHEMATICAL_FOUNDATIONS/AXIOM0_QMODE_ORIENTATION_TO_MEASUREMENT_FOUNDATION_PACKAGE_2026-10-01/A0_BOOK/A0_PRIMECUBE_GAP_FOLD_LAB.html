@@ -44,6 +44,9 @@
     .pc-union-jack figure{margin:16px 0 0;max-width:920px}
     .pc-union-jack img{display:block;width:100%;height:auto;border-radius:8px}
     .pc-union-jack figcaption{margin-top:10px;color:var(--pc-muted)}
+    #primecube-helix-return{margin-top:22px;padding-top:16px;border-top:1px solid var(--pc-line);scroll-margin-top:24px}
+    #primecube-helix-return p{color:var(--pc-muted);font-size:.875rem}
+    #primecube-helix-return a[hidden]{display:none}
   </style>
 </head>
 <body>
@@ -147,7 +150,19 @@
   <section class="nvp-shell" id="number-view-suite-port" data-number-view-suite-port data-default-role="PRIME_CORE" data-default-n="661" aria-labelledby="numberViewSuitePortTitle">
     <header class="nvp-head"><div><small>MOD:NUMBER_VIEW_SUITE · OPERATIONAL TYPED PORT · GRAPH Δ0</small><h2 id="numberViewSuitePortTitle">POINT → LINE → SLICE → GLUE → VIEW TOPOLOGY → RETURN</h2><p><b>Record 661 bleibt stehen.</b> Der View-Körper wandert durch sieben Konstruktionsphasen, während jede erreichte Form als Spur sichtbar bleibt. So wird Bewegung gezeigt, ohne die Quellzahl auszutauschen.</p></div><div class="nvp-head-status"><output class="nvp-status" data-nvp-status>READY</output><output class="nvp-cycle" data-nvp-cycle>PHASE 1/7 · t=0</output><small>SOURCE 661 · LOCKED</small></div></header>
     <div class="nvp-controls"><div class="nvp-role-row" role="group" aria-label="Typed roles"><button type="button" data-nvp-role="PRIME_CORE" aria-pressed="true">PRIME CORE</button><button type="button" data-nvp-role="VIEW_ADAPTER">VIEW ADAPTER</button><button type="button" data-nvp-role="TYPE_BOUNDARY">TYPE BOUNDARY</button><button type="button" data-nvp-role="ROOT_METRIC">ROOT METRIC</button><button type="button" data-nvp-role="TOPOLOGY_ADAPTER">TOPOLOGY ADAPTER</button><label>RECORD n <input data-nvp-number type="number" min="1" max="1111" value="661"></label></div><div class="nvp-play-row"><button type="button" data-nvp-play aria-pressed="false">▶ PLAY SEQUENCE</button><button type="button" data-nvp-clear>SPUR LÖSCHEN</button><output data-nvp-trace aria-live="polite">SPUR 1 · SOURCE RETAINED</output></div><div class="nvp-stage-row" role="group" aria-label="Return stages"><button type="button" data-nvp-stage="0" aria-pressed="true">1 CARRIER</button><button type="button" data-nvp-stage="1">2 POINT</button><button type="button" data-nvp-stage="2">3 LINE</button><button type="button" data-nvp-stage="3">4 SLICE</button><button type="button" data-nvp-stage="4">5 GLUE</button><button type="button" data-nvp-stage="5">6 TOPOLOGY</button><button type="button" data-nvp-stage="6">7 RETURN</button></div></div>
-    <div class="nvp-main"><figure class="nvp-stage" data-nvp-diagram></figure><aside class="nvp-ledger"><div class="nvp-kicker">SOURCE · OPERATOR · VIEW · RETURN · BOUNDARY</div><h3 data-nvp-identity>MOD:NUMBER_VIEW_SUITE</h3><dl><dt>SOURCE</dt><dd data-nvp-source></dd><dt>OPERATOR</dt><dd data-nvp-operator></dd><dt>VIEW</dt><dd data-nvp-view></dd><dt>RETURN</dt><dd data-nvp-return></dd><dt>BOUNDARY</dt><dd data-nvp-boundary></dd></dl><a data-nvp-link href="A0_PRIMECUBE_GAP_FOLD_LAB.html">Prime Core öffnen →</a></aside></div>
+    <div class="nvp-main"><figure class="nvp-stage" data-nvp-diagram></figure><aside class="nvp-ledger"><div class="nvp-kicker">SOURCE · OPERATOR · VIEW · RETURN · BOUNDARY</div><h3 data-nvp-identity>MOD:NUMBER_VIEW_SUITE</h3><dl><dt>SOURCE</dt><dd data-nvp-source></dd><dt>OPERATOR</dt><dd data-nvp-operator></dd><dt>VIEW</dt><dd data-nvp-view></dd><dt>RETURN</dt><dd data-nvp-return></dd><dt>BOUNDARY</dt><dd data-nvp-boundary></dd></dl><a data-nvp-link href="A0_PRIMECUBE_GAP_FOLD_LAB.html">Prime Core öffnen →</a>
+      <section id="primecube-helix-return" aria-labelledby="primecubeHelixReturnTitle">
+        <h3 id="primecubeHelixReturnTitle">PrimeCube ↔ Helix</h3>
+        <dl aria-live="polite">
+          <dt>PRIMECUBE-ADRESSE</dt><dd data-nvp-cube-address>—</dd>
+          <dt>PRIMECUBE-RÜCKWEG</dt><dd data-nvp-cube-return>—</dd>
+          <dt>HELIX-RESTE</dt><dd data-nvp-helix-residues>—</dd>
+          <dt>HELIX-RÜCKWEG MIT BAND</dt><dd data-nvp-helix-return>—</dd>
+        </dl>
+        <p>Die beiden Reste bestimmen die Restklasse modulo 77. Für die eindeutige Rückkehr hält der Quellrecord zusätzlich das Band <code>k = ⌊n/77⌋</code> fest.</p>
+        <a data-nvp-helix-link hidden>Record in der Helix öffnen →</a>
+      </section>
+    </aside></div>
     <p class="nvp-boundary"><strong>PORT CLOSED / CUSTODY HOLD OPEN:</strong> Der frühere Status <code>DOMAIN_PORT_PENDING</code> ist durch diesen Demonstrator geschlossen. Drei referenzierte Owner-Bilder fehlen weiterhin; die finite Adressprüfung bleibt gültig, der vollständige Source Receipt bleibt auf HOLD. View-Topologie ist keine intrinsische Integer- oder Primzahl-Topologie.</p>
   </section>
 
@@ -797,7 +812,8 @@
 <script src="a0-primecube-khipu-knot.js?rev=20261122-r2"></script>
 <script src="a0-primecube-sz-chirality.js?rev=20261124-r2"></script>
 <script src="a0-primecube-reviewer-packet.js?rev=20261122-r1"></script>
-<script src="a0-number-view-suite-port.js?rev=20261124-r3"></script>
+<script src="a0-helix-view-adapter.js?rev=zeta-contact-wheel"></script>
+<script src="a0-number-view-suite-port.js?rev=helix-return"></script>
 <script src="a0-primecube-expj-tube-cube.js?rev=20261124-r1"></script>
 <script src="a0-primecube-loki-chassis.js?rev=20261122-r1"></script>
 <script src="assets/a0-flame-mandelbrot-formation-v1.js?rev=1"></script>
