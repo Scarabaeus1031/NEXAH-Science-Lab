@@ -4802,10 +4802,51 @@ umfassen je 1.092 Werte und zählen je 19 Wechsel zwischen ihren
 benachbarten Werten. Die gleichmäßige Stichprobe liegt bei Mittelwert und
 Anteil unter 180° näher an der vollständigen Reihe.
 
-**Wiedereinstieg.** Im selben Jahresfenster die Primzahl-Stundenmarken
-mit vorab festgelegten Verschiebungen erneut prüfen. Die gleichmäßige
-Abtastung dient als feste Referenz. Mittelwert, Anteil unter 180° und
-Seitenwechsel wieder auf derselben Basis vergleichen. Finding offen.
+**Versatzprobe.** Die Helix verschiebt dieselben 1.092 Primzahlmarken
+zyklisch innerhalb des Jahres 2025. Bei den getesteten Versätzen liegt
+der mittlere Laplace-Winkel zwischen 180,079° und 180,085°. Bei +168 h
+zählt die Stichprobe 17 Seitenwechsel, die feste gleichmäßige Stichprobe 19.
 
-[A0 · JPL-Quellrücklauf](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#jpl-laplace-science-return) ·
+**Abgleich der einzelnen Wechsel bei +168 h.** Jeder stündliche Wechsel
+wird dem Intervall zwischen den benachbarten Marken der jeweiligen Stichprobe
+zugeordnet. Ein Intervall mit genau einem Wechsel und gegenüberliegenden
+Endwerten erfasst ihn. In dieser Reihe liegen die übrigen Wechsel paarweise
+in Intervallen, deren Endwerte auf derselben Seite von 180° liegen. Die
+angegebene Uhrzeit ist der erste Stundenwert nach dem Wechsel in TDB.
+Stunde 0 ist der 1. Januar 2025, 00:00 TDB.
+
+| Nr. | Datum und Uhrzeit (TDB) | Stunde | Richtung | Primzahlmarken +168 h | Gleichmäßig |
+| ---: | --- | ---: | :---: | --- | --- |
+| 1 | 22.07. 15:00 | 4863 | ↓ | Verpasst | Erfasst |
+| 2 | 22.07. 22:00 | 4870 | ↑ | Verpasst | Erfasst |
+| 3 | 29.07. 11:00 | 5027 | ↓ | Erfasst | Erfasst |
+| 4 | 30.07. 18:00 | 5058 | ↑ | Erfasst | Erfasst |
+| 5 | 05.08. 11:00 | 5195 | ↓ | Erfasst | Erfasst |
+| 6 | 06.08. 23:00 | 5231 | ↑ | Erfasst | Erfasst |
+| 7 | 09.08. 03:00 | 5283 | ↓ | Erfasst | Erfasst |
+| 8 | 10.08. 14:00 | 5318 | ↑ | Erfasst | Erfasst |
+| 9 | 12.08. 09:00 | 5361 | ↓ | Erfasst | Erfasst |
+| 10 | 14.08. 06:00 | 5406 | ↑ | Erfasst | Erfasst |
+| 11 | 16.08. 03:00 | 5451 | ↓ | Erfasst | Erfasst |
+| 12 | 17.08. 20:00 | 5492 | ↑ | Erfasst | Erfasst |
+| 13 | 19.08. 09:00 | 5529 | ↓ | Erfasst | Erfasst |
+| 14 | 21.08. 14:00 | 5582 | ↑ | Erfasst | Erfasst |
+| 15 | 23.08. 01:00 | 5617 | ↓ | Erfasst | Erfasst |
+| 16 | 28.08. 18:00 | 5754 | ↑ | Erfasst | Erfasst |
+| 17 | 30.08. 02:00 | 5786 | ↓ | Erfasst | Erfasst |
+| 18 | 05.09. 11:00 | 5939 | ↑ | Erfasst | Erfasst |
+| 19 | 05.09. 22:00 | 5950 | ↓ | Erfasst | Erfasst |
+| 20 | 12.09. 16:00 | 6112 | ↑ | Verpasst | Verpasst |
+| 21 | 12.09. 21:00 | 6117 | ↓ | Verpasst | Verpasst |
+
+Am 22. Juli liegen beide Wechsel zwischen den verschobenen Marken 4859
+und 4871. Die gleichmäßige Stichprobe hat bei 4866 einen Wert dazwischen
+und erfasst beide Richtungen. Am 12. September liegen beide Wechsel zwischen
+den verschobenen Marken 6107 und 6121 sowie zwischen den gleichmäßigen
+Marken 6110 und 6118. Beide Stichproben verpassen diese kurze Passage.
+Damit sind die 17 und 19 beobachteten Wechsel auf konkrete Intervalle
+derselben Stundenreihe zurückgeführt. **Finding offen.**
+
+[Helix · JPL-Jahresfenster](A0_BOOK/A0_HELIX_VIEW_ADAPTER.html?jupiter=365#helix-jupiter-phases) ·
+[A0 · JPL-Quellrücklauf](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#jpl-prime-hours-science-return) ·
 [Paper E · Stundenindex als Rückweg](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#jupiter-grid-return-method-example)
