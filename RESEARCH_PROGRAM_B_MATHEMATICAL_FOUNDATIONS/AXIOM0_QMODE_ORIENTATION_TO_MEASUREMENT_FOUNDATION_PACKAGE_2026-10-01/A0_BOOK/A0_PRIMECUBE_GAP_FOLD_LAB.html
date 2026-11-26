@@ -47,6 +47,15 @@
     #primecube-helix-return{margin-top:22px;padding-top:16px;border-top:1px solid var(--pc-line);scroll-margin-top:24px}
     #primecube-helix-return p{color:var(--pc-muted);font-size:.875rem}
     #primecube-helix-return a[hidden]{display:none}
+    .pc-helix-pair{padding:22px 26px;border-top:1px solid var(--pc-line);scroll-margin-top:24px}
+    .pc-helix-pair h3{margin:0 0 12px}
+    .pc-helix-pair-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:20px}
+    .pc-helix-pair-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;margin-bottom:10px}
+    .pc-helix-pair-table :is(th,td){border:1px solid var(--pc-line);padding:6px;text-align:center}
+    .pc-helix-pair-table th[scope=row]{text-align:left}
+    .pc-helix-pair-table td[data-record]{background:#244e68;color:#eef9ff;font-weight:700}
+    .pc-helix-pair-table caption{text-align:left;color:var(--pc-muted);margin-bottom:7px}
+    @media(max-width:900px){.pc-helix-pair-layout{grid-template-columns:1fr}.pc-helix-pair{padding:18px 12px}.pc-helix-pair-table :is(th,td){padding:3px}}
   </style>
 </head>
 <body>
@@ -161,8 +170,28 @@
         </dl>
         <p>Die beiden Reste bestimmen die Restklasse modulo 77. Für die eindeutige Rückkehr hält der Quellrecord zusätzlich das Band <code>k = ⌊n/77⌋</code> fest.</p>
         <a data-nvp-helix-link hidden>Record in der Helix öffnen →</a>
+        <a href="#primecube-helix-pair">419 und 661 vergleichen ↓</a>
       </section>
     </aside></div>
+    <section class="pc-helix-pair" id="primecube-helix-pair" aria-labelledby="primecubeHelixPairTitle" data-nvp-helix-pair>
+      <h3 id="primecubeHelixPairTitle">419 und 661 im Vergleich</h3>
+      <div class="pc-helix-pair-layout">
+        <table class="pc-helix-pair-table">
+          <caption>Record-Adressen</caption>
+          <thead><tr><th scope="col">Merkmal</th><th scope="col">419</th><th scope="col">661</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Cube-Adresse (x, y, z)</th><td data-pair-address></td><td data-pair-address></td></tr>
+            <tr><th scope="row">Helix-Rang</th><td data-pair-rank></td><td data-pair-rank></td></tr>
+            <tr><th scope="row">Reste (mod 7, mod 11)</th><td data-pair-residue></td><td data-pair-residue></td></tr>
+          </tbody>
+        </table>
+        <table class="pc-helix-pair-table">
+          <caption>7×11-Restraster · Zeile mod 7, Spalte mod 11</caption>
+          <thead data-pair-grid-head></thead>
+          <tbody data-pair-grid-body></tbody>
+        </table>
+      </div>
+    </section>
     <p class="nvp-boundary"><strong>PORT CLOSED / CUSTODY HOLD OPEN:</strong> Der frühere Status <code>DOMAIN_PORT_PENDING</code> ist durch diesen Demonstrator geschlossen. Drei referenzierte Owner-Bilder fehlen weiterhin; die finite Adressprüfung bleibt gültig, der vollständige Source Receipt bleibt auf HOLD. View-Topologie ist keine intrinsische Integer- oder Primzahl-Topologie.</p>
   </section>
 
@@ -813,7 +842,7 @@
 <script src="a0-primecube-sz-chirality.js?rev=20261124-r2"></script>
 <script src="a0-primecube-reviewer-packet.js?rev=20261122-r1"></script>
 <script src="a0-helix-view-adapter.js?rev=zeta-contact-wheel"></script>
-<script src="a0-number-view-suite-port.js?rev=helix-record-return"></script>
+<script src="a0-number-view-suite-port.js?rev=helix-pair-comparison"></script>
 <script src="a0-primecube-expj-tube-cube.js?rev=20261124-r1"></script>
 <script src="a0-primecube-loki-chassis.js?rev=20261122-r1"></script>
 <script src="assets/a0-flame-mandelbrot-formation-v1.js?rev=1"></script>

@@ -133,6 +133,42 @@
     return `<svg viewBox="0 0 680 310" role="img" aria-label="Typed Number View Suite return path with retained stage trace and moving view body"><defs><filter id="nvpGlow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path class="nvp-route" d="M72 72H607"/>${route}${nodes}<polyline class="nvp-motion-trace" points="${motionTrace}"/><circle class="nvp-origin-halo" cx="${px}" cy="${py}" r="16"/><circle class="nvp-origin" cx="${px}" cy="${py}" r="5"/><text class="nvp-origin-label" x="${px + 13}" y="${py - 15}">SOURCE ${address.n} · LOCKED</text><g class="nvp-cube nvp-cube-moving" transform="${motionTransform}"><path d="M80 178h180v86H80zM126 142h180v86h-46M80 178l46-36m134 36 46-36m-46 122 46-36"/><circle class="nvp-source-point" cx="${px}" cy="${py}" r="7"/>${artifacts}</g><g class="nvp-readout"><text x="360" y="168">SOURCE n=${address.n} · ${address.address}</text><text x="360" y="194">VIEW BODY Δ(${motion.x},${motion.y}) · ${motion.angle}°</text><text x="360" y="220">${state.stage}: ${state.action}</text><text x="360" y="246">RETURN ${address.returnId}</text></g><g class="nvp-trace-rail"><path d="M55 282H607"/>${trace}</g></svg>`;
   }
 
+  function renderHelixPair(panel, records) {
+    const addresses = panel.querySelectorAll("[data-pair-address]");
+    const ranks = panel.querySelectorAll("[data-pair-rank]");
+    const residues = panel.querySelectorAll("[data-pair-residue]");
+    const occupied = new Map();
+    records.forEach(({ prime, index, residue7, residue11 }, column) => {
+      addresses[column].textContent = primeAddress(prime).address;
+      ranks[column].textContent = `${index} / 168`;
+      residues[column].textContent = `(${residue7}, ${residue11})`;
+      occupied.set(`${residue7},${residue11}`, prime);
+    });
+
+    const head = panel.querySelector("[data-pair-grid-head]").insertRow();
+    const body = panel.querySelector("[data-pair-grid-body]");
+    const addHeading = (row, label, scope) => {
+      const cell = panel.ownerDocument.createElement("th");
+      cell.scope = scope;
+      cell.textContent = label;
+      row.append(cell);
+    };
+    addHeading(head, "mod 7 ↓ / mod 11 →", "col");
+    for (let col = 0; col < 11; col++) addHeading(head, String(col), "col");
+    for (let row = 0; row < 7; row++) {
+      const line = body.insertRow();
+      addHeading(line, String(row), "row");
+      for (let col = 0; col < 11; col++) {
+        const cell = line.insertCell();
+        const prime = occupied.get(`${row},${col}`);
+        if (prime) {
+          cell.dataset.record = prime;
+          cell.textContent = prime;
+        }
+      }
+    }
+  }
+
   function mount(host) {
     let roleKey = host.dataset.defaultRole || "PRIME_CORE";
     let stageIndex = 0;
@@ -148,6 +184,10 @@
     const helixRecords = helixLink && cubeModel && helixModel
       ? new Map(helixModel.primeResidueRecords().map(record => [record.prime, record]))
       : null;
+    const pairPanel = host.querySelector("[data-nvp-helix-pair]");
+    if (pairPanel && helixRecords) {
+      renderHelixPair(pairPanel, [helixRecords.get(419), helixRecords.get(661)]);
+    }
     if (helixRecords && root.location?.hash === "#primecube-helix-return") {
       const sourceId = new URLSearchParams(root.location.search).get("helix");
       const linkedRecord = [...helixRecords.values()].find(record => record.sourceIds[0] === sourceId);
