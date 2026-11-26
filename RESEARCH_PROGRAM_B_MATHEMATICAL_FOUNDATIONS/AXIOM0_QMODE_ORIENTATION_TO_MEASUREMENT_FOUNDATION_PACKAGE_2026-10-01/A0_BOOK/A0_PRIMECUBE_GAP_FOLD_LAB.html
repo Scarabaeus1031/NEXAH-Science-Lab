@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="a0-primecube-4774-return-seam.css?rev=20261123-r2">
   <link rel="stylesheet" href="a0-primecube-draft-drift-housing.css?rev=20261123-r1">
   <link rel="stylesheet" href="a0-scarab-pillar-projection.css?rev=20261023-r3">
-  <link rel="stylesheet" href="a0-primecube-scarab-control.css?rev=20261126-khipu-chapter">
+  <link rel="stylesheet" href="a0-primecube-scarab-control.css?rev=20261126-tour-navigation-top">
   <link rel="stylesheet" href="a0-primecube-shadow-envelope.css?rev=20261126-loki-3d-r2">
   <link rel="stylesheet" href="a0-primecube-root-topology.css?rev=20261122-r1">
   <link rel="stylesheet" href="a0-primecube-khipu-knot.css?rev=20261122-r1">
@@ -89,6 +89,10 @@
     <article id="primecube-tour-cube-helix" aria-labelledby="primecubeTourCubeHelixTitle">
       <div class="pc-tour-progress">Station 1 von 6</div>
       <h3 id="primecubeTourCubeHelixTitle">Cube–Helix · Grid Bridge</h3>
+      <nav class="pc-guided-tour-nav" aria-label="Cube–Helix · Rundgang">
+        <a class="pc-tour-direction" href="#primecube-tour">← Zurück · Tourübersicht</a>
+        <a class="pc-tour-direction" href="#scarab-khipu-overlay">Weiter · Crown-Overlay →</a>
+      </nav>
       <p>Verfolge Sample 18 vom Punktgitter über die Übergangsfliese bis auf die Zither-Plattform. Die Spur startet in der Grid Bridge bei Schritt <code>k = 31</code> mit der Wicklung <code>4j</code>.</p>
       <ol class="pc-cube-helix-trace" aria-label="Weg von Sample 18">
         <li><span>Cube · G8³</span><strong>Sample 18 · (2, 2, 0)</strong><small>Cube-Koordinate mit z = 0 · Q4-Adresse 0000</small></li>
@@ -98,7 +102,6 @@
       <nav class="pc-cube-helix-links" aria-label="Cube–Helix-Station">
         <a class="pc-scarab-link" href="A0_IOTA_BRIDGE_DEMONSTRATOR.html?view=cube-helix#gridBridgeCubeHelix">Sample 18 in der Grid Bridge verfolgen →</a>
         <a class="pc-scarab-link" href="A0_IOTA_BRIDGE_DEMONSTRATOR.html?view=cube-helix#gridBridgeFlagship">J-Grid mit Punktierung ansehen →</a>
-        <a class="pc-tour-direction" href="#scarab-khipu-overlay">Weiter · Crown-Overlay →</a>
       </nav>
       <aside class="pc-cube-helix-inset" id="primecube-cube-helix-seam" aria-labelledby="primecubeCubeHelixSeamTitle">
         <h4 id="primecubeCubeHelixSeamTitle">Einschub · DNA-Helix und Quark-Split</h4>
@@ -684,6 +687,14 @@
     <section class="pc-panel pc-scarab-khipu" id="scarab-khipu-overlay" aria-labelledby="scarabKhipuTitle">
       <div class="pc-tour-progress">Station 2 von 6</div>
       <h3 id="scarabKhipuTitle">Khipu über der Scarab Möbius Crown</h3>
+      <nav class="pc-guided-tour-nav" aria-label="Crown-Overlay · Rundgang">
+        <a class="pc-tour-direction" href="#primecube-tour-cube-helix">← Zurück · Cube–Helix</a>
+        <a class="pc-tour-direction" href="#scarab-prism-core">Weiter · 3D-Prism-Core →</a>
+        <span class="pc-tour-overview-links">
+          <a href="#primecube-tour-khipu">↑ Zur PrimeCube-Tour</a>
+          <a href="#primecube-khipu">↑ Khipu-Übersicht</a>
+        </span>
+      </nav>
       <p>Star Node 1 liegt auf dem Spiegelmeridian bei <strong>8,614° Ost</strong>. Die beiden Linien verbinden Knoten gleicher Breite aus dem Earth Khipu Stargrid Codex.</p>
       <div class="pc-scarab-khipu-plots">
         <figure>
@@ -731,19 +742,19 @@
         <div><dt>Knoten 4 · <code>y ≈ −0,121</code></dt><dd><code>cos(28,215°) × sin(−7,871°) ≈ −0,120672</code> auf der Einheitskugel, gerundet auf drei Nachkommastellen.</dd></div>
       </dl>
       <p class="pc-scarab-khipu-source">Quellen sind die beigefügten Grafiken „Earth Khipu Stargrid Codex“ (THOOTH Protocol v1.0) und <a href="assets/scarab-moebius-crown-source.jpeg">„Scarab Möbius Crown with Platonic &amp; Iridium Harmonics“</a>. Die Crown ist anhand ihrer gezeichneten Gradskalen näherungsweise ausgerichtet.</p>
-      <nav class="pc-khipu-module-links pc-guided-tour-nav" aria-label="Crown-Overlay · Rundgang">
-        <a class="pc-tour-direction" href="#primecube-tour-cube-helix">← Zurück · Cube–Helix</a>
-        <span class="pc-tour-overview-links">
-          <a href="#primecube-tour-khipu">↑ Zur PrimeCube-Tour</a>
-          <a href="#primecube-khipu">↑ Khipu-Übersicht</a>
-        </span>
-        <a class="pc-tour-direction" href="#scarab-prism-core">Weiter · 3D-Prism-Core →</a>
-      </nav>
     </section>
 
     <section class="pc-panel pc-prism-core" id="scarab-prism-core" aria-labelledby="scarabPrismTitle" data-prism-core>
       <div class="pc-tour-progress">Station 3 von 6</div>
       <h3 id="scarabPrismTitle">Prism Core · Khipu auf der Crown in 3D</h3>
+      <nav class="pc-guided-tour-nav" aria-label="Prism Core in 3D · Rundgang">
+        <a class="pc-tour-direction" href="#scarab-khipu-overlay">← Zurück · Crown-Overlay</a>
+        <a class="pc-tour-direction" href="#scarab-crown-tetrahedron">Weiter · Tetraeder-Vergleich →</a>
+        <span class="pc-tour-overview-links">
+          <a href="#primecube-tour-khipu">↑ Zur PrimeCube-Tour</a>
+          <a href="#primecube-khipu">↑ Khipu-Übersicht</a>
+        </span>
+      </nav>
       <p>Jede Khipu-Koordinate gibt eine Richtung vor. Ein Strahl vom Zentrum trifft auf die Oberfläche des regelmäßigen Dodekaeders. Die pinke Schnittebene <code>y′ = 0</code> entspricht dem Meridian <strong>8,614° Ost</strong>.</p>
       <p><a class="pc-scarab-link" href="A0_ORIENTATION_CONTROLLER_BENCH.html#machinaPrimeReturn">← Zum pinken Prismenkern in THE MACHINA</a></p>
       <div class="pc-prism-controls">
@@ -774,19 +785,19 @@
       <p class="pc-scarab-khipu-source" id="prismRoofLegend">Das goldene Dach 5–1–2 klappt um die grüne Kante F04 ∩ F10. Die Khipu-Punkte bleiben als Referenz sichtbar.</p>
       <p class="pc-scarab-khipu-source">Scarab-Ast <strong>1033 ↔ 3301</strong> · Scarabgon-Summe <code>17 399 = 127 × 137</code></p>
       <p class="pc-scarab-khipu-source">Das Dodekaeder ist die gewählte 3D-Geometrie zur Crown-Grafik. Die Flächen-IDs gelten für dieses Modell. Die 2D-Angabe <code>y ≈ −0,121</code> bleibt die Komponente von Knoten 4 im ursprünglichen Einheitskugel-System.</p>
-      <nav class="pc-khipu-module-links pc-guided-tour-nav" aria-label="Prism Core in 3D · Rundgang">
-        <a class="pc-tour-direction" href="#scarab-khipu-overlay">← Zurück · Crown-Overlay</a>
-        <span class="pc-tour-overview-links">
-          <a href="#primecube-tour-khipu">↑ Zur PrimeCube-Tour</a>
-          <a href="#primecube-khipu">↑ Khipu-Übersicht</a>
-        </span>
-        <a class="pc-tour-direction" href="#scarab-crown-tetrahedron">Weiter · Tetraeder-Vergleich →</a>
-      </nav>
     </section>
 
     <section class="pc-panel pc-prism-crown-source" id="scarab-crown-tetrahedron" aria-labelledby="scarabCrownSourceTitle">
       <div class="pc-tour-progress">Station 4 von 6</div>
       <h3 id="scarabCrownSourceTitle">Scarab Crown Tetrahedron · Ast 1033 ↔ 3301</h3>
+      <nav class="pc-guided-tour-nav" aria-label="Tetraeder-Vergleich · Rundgang">
+        <a class="pc-tour-direction" href="#scarab-prism-core">← Zurück · 3D-Prism-Core</a>
+        <a class="pc-tour-direction" href="#thoth-aua-khipu-ledger">Weiter · Ledger →</a>
+        <span class="pc-tour-overview-links">
+          <a href="#primecube-tour-khipu">↑ Zur PrimeCube-Tour</a>
+          <a href="#primecube-khipu">↑ Khipu-Übersicht</a>
+        </span>
+      </nav>
       <div class="pc-scarab-khipu-plots pc-prism-crown-plots">
         <figure>
           <svg viewBox="115 110 850 726" role="img" aria-label="Beschriftete Tetraeder-Draufsicht mit dem grün hervorgehobenen Ast von 1033 zu 3301">
@@ -805,19 +816,24 @@
       <p><strong>Scarabgon-Summe</strong><br><code>1031 + 1032 + 1033 + 3301 + 7801 + 3201 = 17 399 = 127 × 137</code>. <a class="pc-scarab-link" href="A0_NUMBERMAGICK_GRID_RESEARCH.html#primeIntegrationExact">Zur Rechnung in A0 →</a></p>
       <p><strong>Helix-Vergleich</strong><br>1033 und 3301 haben beide den Rest 4 modulo 7. Modulo 11 hat 1033 den Rest 10 und 3301 den Rest 1. Auf den beiden Restkreisen ergibt das denselben 7er-Sektor und zwei gespiegelte 11er-Sektoren. Der gemeinsame Primzahlträger der Helix reicht bis 1000. <a class="pc-scarab-link" href="A0_HELIX_VIEW_ADAPTER.html#helix-mod7-axes">Zu den 7er-Achsen der Resthelix →</a></p>
       <p class="pc-scarab-khipu-source"><a href="assets/scarab_crown_tetrahedron_topview.png">Original-Draufsicht</a> · <a href="assets/scarab_crown_tetrahedron.ply">Beschriftete PLY</a> · <a href="assets/nexah_tetra_1033.glb">GLB-Datei</a></p>
-      <nav class="pc-khipu-module-links pc-guided-tour-nav" aria-label="Tetraeder-Vergleich · Rundgang">
-        <a class="pc-tour-direction" href="#scarab-prism-core">← Zurück · 3D-Prism-Core</a>
-        <span class="pc-tour-overview-links">
-          <a href="#primecube-tour-khipu">↑ Zur PrimeCube-Tour</a>
-          <a href="#primecube-khipu">↑ Khipu-Übersicht</a>
-        </span>
-        <a class="pc-tour-direction" href="#thoth-aua-khipu-ledger">Weiter · Ledger →</a>
-      </nav>
     </section>
 
     <section class="pc-panel pc-khipu" id="thoth-aua-khipu-ledger" data-pc-khipu-knot aria-labelledby="khipuKnotTitle">
       <header class="pc-khipu-head">
-        <div><div class="pc-eyebrow">Axis hit · local over/under lift · synthetic generation ledger</div><div class="pc-tour-progress">Station 5 von 6</div><h3 id="khipuKnotTitle">THOTH / AUA KNOT · KHIPU GENERATION LEDGER</h3><p>Der Achsentreffer wird nicht mit Null „zugedeckt“: <code>ρ=0</code> ist ein exakter Wert, während <code>φ</code> an diesem Punkt undefiniert bleibt. Eine deklarierte Über-/Unterhebung löst nur die lokale Kreuzung. Daneben zeichnet ein Khipu-inspiriertes Ledger vier ausgewählte Generationen mit dezimaler Stellenlage, Knotentypen und sichtbaren Null-Lücken auf.</p></div>
+        <div>
+          <div class="pc-eyebrow">Axis hit · local over/under lift · synthetic generation ledger</div>
+          <div class="pc-tour-progress">Station 5 von 6</div>
+          <h3 id="khipuKnotTitle">THOTH / AUA KNOT · KHIPU GENERATION LEDGER</h3>
+          <nav class="pc-guided-tour-nav" aria-label="Khipu-Ledger · Rundgang">
+            <a class="pc-tour-direction" href="#scarab-crown-tetrahedron">← Zurück · Tetraeder-Vergleich</a>
+            <a class="pc-tour-direction" href="#sz-chirality-invariant-lab">Weiter · S/Z-Lab →</a>
+            <span class="pc-tour-overview-links">
+              <a href="#primecube-tour-khipu">↑ Zur PrimeCube-Tour</a>
+              <a href="#primecube-khipu">↑ Khipu-Übersicht</a>
+            </span>
+          </nav>
+          <p>Der Achsentreffer wird nicht mit Null „zugedeckt“: <code>ρ=0</code> ist ein exakter Wert, während <code>φ</code> an diesem Punkt undefiniert bleibt. Eine deklarierte Über-/Unterhebung löst nur die lokale Kreuzung. Daneben zeichnet ein Khipu-inspiriertes Ledger vier ausgewählte Generationen mit dezimaler Stellenlage, Knotentypen und sichtbaren Null-Lücken auf.</p>
+        </div>
         <div class="pc-khipu-equations"><code>ZERO ≠ NULL</code><code>in: 90° · out: 270°</code><code>10³ · 10² · 10¹ · 10⁰</code></div>
       </header>
       <div class="pc-khipu-controls">
@@ -828,19 +844,24 @@
       <div class="pc-khipu-grid"><div class="pc-khipu-stage" data-pc-khipu-stage></div><aside class="pc-khipu-detail" data-pc-khipu-detail aria-live="polite"></aside></div>
       <div class="pc-khipu-sources"><b>HISTORICAL SOURCE LANE</b><a href="https://www.si.edu/collections/snapshot/quipu">Smithsonian · Quipu</a><a href="https://resources.metmuseum.org/resources/metpublications/pdf/Weaving_Abstraction.pdf">The Met · Weaving Abstraction</a><a href="https://www.britishmuseum.org/sites/default/files/2021-11/Peru_a_journey_in_time_large_print_guide.pdf">British Museum · Peru</a><a href="https://gsas.harvard.edu/news/colloquy-podcast-knots-bind">Harvard · Knots that Bind</a></div>
       <p class="pc-khipu-boundary"><b>CLAIM BOUNDARY:</b> Die Werte <code>1031 · 1032 · 1033 · 1111</code> sind synthetische NEXAH-Demodatensätze — keine Lesung eines historischen Khipu. Khipu und Primecube werden als räumliche Aufzeichnungssysteme verglichen, nicht historisch oder mathematisch identifiziert. Farbe, S/Z-Drehung und Recto/Verso-Befestigung sind kontextabhängige textile Register, kein universelles Wörterbuch. <code>THOTH</code>, <code>AUA</code> und <code>IV O MA RI? MI ZE LI C</code> bleiben Owner-Mnemonik auf HOLD. Navigator-Delta: <code>0 IDs · 0 Relationen</code>.</p>
-      <nav class="pc-khipu-module-links pc-guided-tour-nav" aria-label="Khipu-Ledger · Rundgang">
-        <a class="pc-tour-direction" href="#scarab-crown-tetrahedron">← Zurück · Tetraeder-Vergleich</a>
-        <span class="pc-tour-overview-links">
-          <a href="#primecube-tour-khipu">↑ Zur PrimeCube-Tour</a>
-          <a href="#primecube-khipu">↑ Khipu-Übersicht</a>
-        </span>
-        <a class="pc-tour-direction" href="#sz-chirality-invariant-lab">Weiter · S/Z-Lab →</a>
-      </nav>
     </section>
 
     <section class="pc-panel pc-sz" id="sz-chirality-invariant-lab" data-pc-sz-chirality aria-labelledby="szChiralityTitle">
       <header class="pc-sz-head">
-        <div><div class="pc-eyebrow">Signed twist · finite recurrence · exact angular return</div><div class="pc-tour-progress">Station 6 von 6</div><h3 id="szChiralityTitle">S/Z CHIRALITY LAB · W INVARIANT</h3><p>Zwei gegenläufige Display-Stränge teilen denselben Anker. <b>S</b> läuft mit <code>+φ</code>, <b>Z</b> mit <code>−φ ≡ 360°−φ</code>. Die pinke <code>βχ</code>-Bridge markiert ihre tatsächlichen Halbebenenwechsel als begrenzte View-Spur — nicht als dritte Chiralität. Der Feldmodus vergleicht konstantes <code>β</code> mit <code>χ(z)|β|</code>; das 5×5-Fenster hält Zentrum <code>13</code> fest.</p><div class="pc-sz-legend"><span><i style="--c:#55d9f2"></i>S · +φ</span><span><i style="--c:#e3b341"></i>Z · −φ</span><span><i style="--c:#ff4fc3"></i>βχ · memory bridge</span><span><i style="--c:#5de0a9"></i>screen proximity</span></div></div>
+        <div>
+          <div class="pc-eyebrow">Signed twist · finite recurrence · exact angular return</div>
+          <div class="pc-tour-progress">Station 6 von 6</div>
+          <h3 id="szChiralityTitle">S/Z CHIRALITY LAB · W INVARIANT</h3>
+          <nav class="pc-guided-tour-nav" aria-label="S/Z-Lab · Rundgang">
+            <a class="pc-tour-direction" href="#thoth-aua-khipu-ledger">← Zurück · Ledger</a>
+            <a class="pc-tour-direction" href="#primecube-tour">Tour abschließen ↑</a>
+            <span class="pc-tour-overview-links">
+              <a href="#primecube-tour-khipu">↑ Zur PrimeCube-Tour</a>
+              <a href="#primecube-khipu">↑ Khipu-Übersicht</a>
+            </span>
+          </nav>
+          <p>Zwei gegenläufige Display-Stränge teilen denselben Anker. <b>S</b> läuft mit <code>+φ</code>, <b>Z</b> mit <code>−φ ≡ 360°−φ</code>. Die pinke <code>βχ</code>-Bridge markiert ihre tatsächlichen Halbebenenwechsel als begrenzte View-Spur — nicht als dritte Chiralität. Der Feldmodus vergleicht konstantes <code>β</code> mit <code>χ(z)|β|</code>; das 5×5-Fenster hält Zentrum <code>13</code> fest.</p><div class="pc-sz-legend"><span><i style="--c:#55d9f2"></i>S · +φ</span><span><i style="--c:#e3b341"></i>Z · −φ</span><span><i style="--c:#ff4fc3"></i>βχ · memory bridge</span><span><i style="--c:#5de0a9"></i>screen proximity</span></div>
+        </div>
         <div class="pc-sz-equations"><code>rₙ₊₁=αrₙ+β(rₙ−rₙ₋₁)</code><code>zₙ₊₁=zₙ²+c+αzₙ+χ(zₙ)|β|(zₙ−zₙ₋₁)</code><code>102°·60 = 17·360°</code></div>
       </header>
       <div class="pc-sz-controls">
@@ -852,14 +873,6 @@
       </div>
       <div class="pc-sz-grid"><div class="pc-sz-stage" data-pc-sz-stage></div><aside class="pc-sz-detail" data-pc-sz-detail aria-live="polite"></aside></div>
       <p class="pc-sz-boundary"><b>CLAIM BOUNDARY:</b> S/Z ist hier ein deklarierter Vorzeichen- und Drehsinnschalter, keine universale Entschlüsselung historischer Khipus. Die pinke <code>βχ</code>-Bridge verbindet abgetastete Halbebenenwechsel als View-/Comparator-Spur; sie ist weder dritte Chiralität noch eigener Zustandsorbit. Der Player kehrt nur durch die sichtbare Eventliste zurück — nicht durch einen bewiesenen Operatorabschluss. <code>P=α+β</code> und <code>Pχ=α+|β|</code> sind Parameterkoordinaten, keine erhaltene Energie, Stabilitätsgarantie oder Orbitinvariante. Grüne Treffer sind Bildschirmnähen, keine Resonanz. <code>BIG BIRD · CON DAO · THUNDER BIRD</code> bleiben Owner-Bezeichnungen auf HOLD. Navigator-Delta: <code>0 IDs · 0 Relationen</code>.</p>
-      <nav class="pc-khipu-module-links pc-guided-tour-nav" aria-label="S/Z-Lab · Rundgang">
-        <a class="pc-tour-direction" href="#thoth-aua-khipu-ledger">← Zurück · Ledger</a>
-        <span class="pc-tour-overview-links">
-          <a href="#primecube-tour-khipu">↑ Zur PrimeCube-Tour</a>
-          <a href="#primecube-khipu">↑ Khipu-Übersicht</a>
-        </span>
-        <a class="pc-tour-direction" href="#primecube-tour">Tour abschließen ↑</a>
-      </nav>
     </section>
   </section>
 

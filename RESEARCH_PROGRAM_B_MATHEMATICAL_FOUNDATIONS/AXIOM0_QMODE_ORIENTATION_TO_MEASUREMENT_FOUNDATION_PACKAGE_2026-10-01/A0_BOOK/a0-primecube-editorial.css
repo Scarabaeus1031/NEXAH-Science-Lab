@@ -77,9 +77,10 @@
 .pc-tour-progress{margin:0 0 6px;color:#72dff0;font:700 .75rem/1.4 ui-monospace,monospace}
 .pc-tour-direction{display:inline-flex;align-items:center;padding:8px 12px;border:1px solid #447882;border-radius:8px;background:#0d2631;color:#bdeff6;font-weight:700;text-decoration:none}
 .pc-tour-direction:hover,.pc-tour-direction:focus-visible{border-color:#72dff0;text-decoration:underline}
-.pc-guided-tour-nav{align-items:center}
-.pc-tour-overview-links{display:flex;flex-wrap:wrap;gap:6px 14px}
-@media(max-width:650px){.pc-guided-tour-nav .pc-tour-overview-links{flex-basis:100%}}
+.pc-guided-tour-nav{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:10px 0 14px}
+.pc-tour-overview-links{display:flex;flex-wrap:wrap;gap:6px 14px;margin-inline-start:auto;font-size:.88rem}
+.pc-tour-overview-links a{color:#72dff0}
+@media(max-width:650px){.pc-tour-overview-links{flex-basis:100%;margin-inline-start:0}}
 
 .pc-cube-helix-inset{margin:18px 0 0;padding:14px 16px;border-inline-start:2px solid #72dff0;background:#0a1823;scroll-margin-top:92px}
 .pc-cube-helix-inset h4{margin:0 0 8px}
