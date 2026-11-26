@@ -177,6 +177,15 @@
   const termRows=termPanel.querySelector('[data-hv-term-rows]');
   const indexInput=root.querySelector('[data-hv-index]'),prev=root.querySelector('[data-hv-prev]'),next=root.querySelector('[data-hv-next]');
   const recordEl=root.querySelector('[data-hv-record]'),pairEl=root.querySelector('[data-hv-pair]'),detailEl=root.querySelector('[data-hv-detail]'),countEl=root.querySelector('[data-hv-count]'),strandReadout=root.querySelector('[data-hv-strand-readout]'),registerReadout=root.querySelector('[data-hv-register-readout]');
+  const fibonacciPanel=root.querySelector('[data-hv-fibonacci-returns]');
+  const fibonacciButtons=[...fibonacciPanel.querySelectorAll('[data-hv-fibonacci]')];
+  const fibonacciReadout=fibonacciPanel.querySelector('[data-hv-fibonacci-readout]');
+  const fibonacciSteps=fibonacciButtons.map(button=>Number(button.dataset.hvFibonacci));
+  const fibonacciPlay=fibonacciPanel.querySelector('[data-hv-fibonacci-play]');
+  const fibonacciDirectionButtons=[...fibonacciPanel.querySelectorAll('[data-hv-fibonacci-direction]')];
+  const fibonacciScale=fibonacciPanel.querySelector('[data-hv-fibonacci-scale]');
+  const fibonacciBar=fibonacciPanel.querySelector('[data-hv-fibonacci-bar]');
+  let fibonacciTimer=null,fibonacciPaused=false,fibonacciDirection=1;
   let mode='twins',strandMode='double',registerMode='pair',residueAngle='paired',mix=0,logX=Math.log(1000),betaOffset=0,zetaLens='smooth',traceWord='RLLR',showRail=true,selected=0,rotX=-0.08,rotY=0.42,drag=null,screenRungs=[];
 
   function css(name){return getComputedStyle(document.documentElement).getPropertyValue(name).trim()}
@@ -262,6 +271,70 @@
     }
   }
 
+  function showFibonacciTargets(){
+    return mode==='twins'&&mix===1&&showRail;
+  }
+
+  function fibonacciResidual(g){
+    // The stored first rung has angle zero. Measure from the preceding virtual rung.
+    const angle=g.rungs[selected].angle+g.step;
+    const turns=Math.round(angle/M.TAU);
+    const radians=angle-turns*M.TAU;
+    return {turns,radians,degrees:M.degrees(radians),color:radians<0?'--orange':'--cyan'};
+  }
+
+  function stopFibonacciPlayback(paused=false){
+    clearTimeout(fibonacciTimer);
+    fibonacciTimer=null;
+    fibonacciPaused=paused;
+    fibonacciPlay.textContent=paused?'▶ Weiter':'▶ Play';
+  }
+
+  function chooseFibonacciRung(rung,fromPlayback=false){
+    selected=rung-1;
+    showRail=true;
+    railToggle.checked=true;
+    mixInput.value=mixInput.max;
+    setMix(1,fromPlayback);
+  }
+
+  function nextFibonacciRung(){
+    const stepIndex=fibonacciSteps.indexOf(selected+1);
+    return stepIndex===-1?undefined:fibonacciSteps[stepIndex+fibonacciDirection];
+  }
+
+  function scheduleFibonacciStep(){
+    const nextRung=nextFibonacciRung();
+    if(nextRung===undefined){
+      stopFibonacciPlayback();
+      return;
+    }
+    fibonacciTimer=setTimeout(()=>{
+      chooseFibonacciRung(nextRung,true);
+      scheduleFibonacciStep();
+    },2200);
+  }
+
+  function renderFibonacciReadout(){
+    fibonacciPanel.hidden=mode!=='twins';
+    const rungIndex=selected+1;
+    const active=mode==='twins'&&mix===1&&fibonacciSteps.includes(rungIndex);
+    fibonacciScale.toggleAttribute('hidden',!active);
+    for(const button of fibonacciButtons){
+      button.setAttribute('aria-pressed',String(active&&Number(button.dataset.hvFibonacci)===rungIndex));
+    }
+    if(!active){
+      fibonacciReadout.textContent=mix===1?'Wähle Sprosse 13, 21 oder 34.':'Wähle eine Sprosse, um zum goldenen Winkel zu wechseln.';
+      return;
+    }
+    const {turns,degrees:remainder,color}=fibonacciResidual(geometry());
+    fibonacciBar.setAttribute('x2',String(120+remainder*100/15));
+    fibonacciBar.setAttribute('stroke',`var(${color})`);
+    const sign=remainder<0?'−':'+';
+    const direction=remainder<0?'fehlen':'darüber';
+    fibonacciReadout.textContent=`Sprosse ${rungIndex} · ${turns} volle Umdrehungen · ${sign}${decimal(Math.abs(remainder),2)}° (${direction})`;
+  }
+
   function draw(){
     const rect=canvas.getBoundingClientRect(),w=rect.width,h=rect.height,g=geometry();ctx.clearRect(0,0,w,h);
     const colors={a:css('--cyan'),b:css('--orange'),rail:css('--gold'),line:css('--line'),text:css('--text'),blue:css('--blue')},showDouble=doubleView();
@@ -303,6 +376,37 @@
       if(mode==='zeta'&&item.r.kink){dot(item.a,6.2*item.a.p,colors.blue,active?colors.text:colors.rail);if(showDouble)dot(item.b,6.2*item.b.p,colors.blue,active?colors.text:colors.rail)}
       if(mode==='zeta'&&zetaLens==='seam'&&active){dot(item.b,8.5*item.b.p,colors.b,colors.text);dot(item.a,4.5*item.a.p,colors.a,colors.text)}
       if(showRail&&mode!=='zeta'&&mode!=='residue'&&item.r.fibonacci){dot(item.railA,4.4*item.railA.p,colors.rail,colors.text);if(showDouble)dot(item.railB,4.4*item.railB.p,colors.rail,colors.text)}
+    }
+    if(showFibonacciTargets()){
+      const current=projected[selected];
+      if(fibonacciSteps.includes(current.r.index)){
+        const {radians,color}=fibonacciResidual(g);
+        const pointAt=angle=>project({
+          x:g.railRadius*Math.cos(angle),
+          y:current.r.railA.y,
+          z:g.railRadius*Math.sin(angle)
+        },w,h);
+        const arc=Array.from({length:13},(_,i)=>pointAt(-g.step+radians*i/12));
+        path([current.mid,current.railA],css(color),2.2,.9);
+        path(arc,css(color),3);
+        const origin=arc[0];
+        ctx.save();
+        ctx.setLineDash([4,4]);
+        path([current.mid,origin],colors.text,1.5,.8);
+        ctx.restore();
+      }
+      for(const index of fibonacciSteps){
+        const {railA,railB}=projected[index-1];
+        const active=index-1===selected;
+        dot(railA,active?8:5.5,colors.rail,active?colors.text:null);
+        if(showDouble)dot(railB,active?8:5.5,colors.rail,active?colors.text:null);
+        ctx.font='700 12px ui-monospace, monospace';
+        ctx.lineWidth=3;
+        ctx.strokeStyle='#08121e';
+        ctx.fillStyle=active?colors.text:colors.rail;
+        ctx.strokeText(String(index),railA.x+9,railA.y-7);
+        ctx.fillText(String(index),railA.x+9,railA.y-7);
+      }
     }
     if(mode==='zeta'&&zetaLens==='trace'){
       activeTraceKinks(g).forEach((record,index)=>{
@@ -415,8 +519,10 @@
     }
   }
 
-  function setSelected(index){
+  function setSelected(index,fromFibonacciPlayback=false){
+    if(!fromFibonacciPlayback&&(fibonacciTimer!==null||fibonacciPaused))stopFibonacciPlayback();
     const list=records();selected=mod7Slicing()?Math.max(0,Math.min(index,list.length-1)):(index+list.length)%list.length;renderSliceControls(list);indexInput.max=String(list.length);indexInput.value=String(selected+1);countEl.textContent=mode==='zeta'?`${list.length} zero pairs · ${zetaLens.toUpperCase()} LENS`:mode==='residue'?`${list.length} prime records · ${residueAngle.toUpperCase()}`:`${list.length} ${strandMode==='double'?'rungs':'nodes'} · ${registerLabel()}`;const info=M.inspection(mode,selected,mix,strandMode,{logX,betaOffset,zetaLens,traceWord,residueAngle});
+    renderFibonacciReadout();
     recordEl.textContent=info.recordId;pairEl.textContent=mode==='residue'?String(info.prime):strandMode==='double'?`${info.pair[0]} ↔ ${info.pair[1]}`:`${info.single[0]}`;
     primeCubeLink.hidden=mode!=='residue';
     if(mode==='residue')primeCubeLink.href=cubeReturnUrl(list[selected]);
@@ -513,7 +619,7 @@
   function registerLabel(){return({pair:'PAIR 1+1',fh14:'F/H 7+7',triad21:'TRIAD 3×7',z37frame:'ℤ₃₇ 1+18'})[registerMode]}
   function registerDescription(){return({pair:'<b>PAIR · 1+1</b> · geprüfter Quellträger ohne zusätzlichen Phasen-Layer',fh14:'<b>F/H · 7+7</b> · F1…F7 plus antipodale H1…H7 auf demselben z-Register',triad21:'<b>TRIAD · 3×7</b> · 21 eindeutige Phasenlagen aus drei 7er-Familien',z37frame:'<b>ℤ₃₇ · 1+18</b> · Fixpunkt 0, 18 Inversionspaare, Achse 0 ↔ Naht 18|19'})[registerMode]}
   function setRegisterMode(nextMode){registerMode=M.registerMode(nextMode);registerButtons.forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.hvRegister===registerMode)));setSelected(selected)}
-  function setMix(value){mix=Math.max(0,Math.min(1,value));const deg=M.degrees(M.phaseStep(mix));phaseOut.textContent=`${deg.toFixed(6).replace('.',',')}° · ${mix===0?'10er-Takt':mix===1?'Goldener Winkel':'deklarierter Mix'}`;setSelected(selected)}
+  function setMix(value,fromFibonacciPlayback=false){mix=Math.max(0,Math.min(1,value));const deg=M.degrees(M.phaseStep(mix));phaseOut.textContent=`${deg.toFixed(6).replace('.',',')}° · ${mix===0?'10er-Takt':mix===1?'Goldener Winkel':'deklarierter Mix'}`;setSelected(selected,fromFibonacciPlayback)}
   function setLogX(value){logX=Math.max(Math.log(2),Math.min(Math.log(1000000),value));setSelected(selected)}
   function setBetaOffset(value){betaOffset=Math.max(-.08,Math.min(.08,value));setSelected(selected)}
   function setZetaLens(value){stopKinkRotation();zetaLens=M.zetaLensMode(value);zetaLensButtons.forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.hvZetaLens===zetaLens)));traceSwitch.hidden=zetaLens!=='trace';setSelected(selected)}
@@ -532,6 +638,33 @@
   zetaLensButtons.forEach(btn=>btn.addEventListener('click',()=>setZetaLens(btn.dataset.hvZetaLens)));
   traceWordButtons.forEach(btn=>btn.addEventListener('click',()=>setTraceWord(btn.dataset.hvTraceWord)));
   residueAngleButtons.forEach(btn=>btn.addEventListener('click',()=>setResidueAngle(btn.dataset.hvResidueAngle)));
+  for(const button of fibonacciButtons){
+    button.addEventListener('click',()=>chooseFibonacciRung(Number(button.dataset.hvFibonacci)));
+  }
+  for(const button of fibonacciDirectionButtons){
+    button.addEventListener('click',()=>{
+      const direction=Number(button.dataset.hvFibonacciDirection);
+      if(direction===fibonacciDirection)return;
+      fibonacciDirection=direction;
+      for(const control of fibonacciDirectionButtons){
+        control.setAttribute('aria-pressed',String(control===button));
+      }
+      stopFibonacciPlayback(showFibonacciTargets()&&nextFibonacciRung()!==undefined);
+    });
+  }
+  fibonacciPlay.addEventListener('click',()=>{
+    if(fibonacciTimer!==null){
+      stopFibonacciPlayback(true);
+      return;
+    }
+    if(!fibonacciPaused){
+      const firstRung=fibonacciDirection===1?fibonacciSteps[0]:fibonacciSteps.at(-1);
+      chooseFibonacciRung(firstRung,true);
+    }
+    fibonacciPaused=false;
+    fibonacciPlay.textContent='⏸ Pause';
+    scheduleFibonacciStep();
+  });
   stackToggle.addEventListener('change',draw);
   mod7Toggle.addEventListener('change',draw);
   sliceToggle.addEventListener('change',()=>{
@@ -539,7 +672,11 @@
     setSelected(selected);
     if(mod7Slicing())indexInput.focus();
   });
-  railToggle.addEventListener('change',()=>{showRail=railToggle.checked;draw()});mixInput.addEventListener('input',()=>setMix(Number(mixInput.value)/1000));logXInput.addEventListener('input',()=>setLogX(Number(logXInput.value)));betaOffsetInput.addEventListener('input',()=>setBetaOffset(Number(betaOffsetInput.value)));indexInput.addEventListener('input',()=>setSelected(Number(indexInput.value)-1));prev.addEventListener('click',()=>setSelected(selected-1));next.addEventListener('click',()=>setSelected(selected+1));
+  railToggle.addEventListener('change',()=>{
+    showRail=railToggle.checked;
+    if(!showRail&&(fibonacciTimer!==null||fibonacciPaused))stopFibonacciPlayback();
+    draw();
+  });mixInput.addEventListener('input',()=>setMix(Number(mixInput.value)/1000));logXInput.addEventListener('input',()=>setLogX(Number(logXInput.value)));betaOffsetInput.addEventListener('input',()=>setBetaOffset(Number(betaOffsetInput.value)));indexInput.addEventListener('input',()=>setSelected(Number(indexInput.value)-1));prev.addEventListener('click',()=>setSelected(selected-1));next.addEventListener('click',()=>setSelected(selected+1));
   function updateRotation(event){
     const p=point(event);
     const dx=p.x-drag.x,dy=p.y-drag.y;
@@ -570,6 +707,22 @@
       const p=point(event);
       const stackVisible=mode==='residue'&&residueAngle==='paired'&&stackToggle.checked;
       let closest=null,best=18;
+      if(showFibonacciTargets()){
+        for(const index of fibonacciSteps){
+          const {railA,railB}=screenRungs[index-1];
+          const distanceA=Math.hypot(p.x-railA.x,p.y-railA.y);
+          const distance=doubleView()?Math.min(distanceA,Math.hypot(p.x-railB.x,p.y-railB.y)):distanceA;
+          if(distance<Math.min(10,best)){
+            closest=index-1;
+            best=distance;
+          }
+        }
+        if(closest!==null){
+          drag=null;
+          setSelected(closest);
+          return;
+        }
+      }
       if(stackVisible){
         for(const {r,a,b} of screenRungs){
           if(!stackSnapshots.some(record=>record.index===r.index))continue;

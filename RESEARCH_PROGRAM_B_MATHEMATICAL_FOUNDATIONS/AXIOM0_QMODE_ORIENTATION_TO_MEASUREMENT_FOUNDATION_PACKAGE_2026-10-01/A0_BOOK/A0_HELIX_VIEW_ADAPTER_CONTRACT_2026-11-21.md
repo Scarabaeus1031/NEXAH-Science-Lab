@@ -23,7 +23,7 @@
 - For the continuous reference helix `γ(t)=(R cos t, bt+y₀,R sin t)`, the adapter derives `b=Δz/Δθ`, curvature `κ=R/(R²+b²)` and torsion magnitude `|τ|=|b|/(R²+b²)` in normalized view units.
 - `Δθ` is the discrete twist per carrier step. `|τ|` is not another name for that slider value: with fixed radius and total height, increasing `Δθ` increases the number of turns while decreasing `b` and therefore may decrease `|τ|`.
 - Opposed strand points differ by `π` at a shared height.
-- The outer rail has radius ratio `φ:1`; Fibonacci indices `1,2,3,5,8,13,21,34` are display markers only.
+- The outer rail has radius ratio `φ:1`; Fibonacci indices `1,2,3,5,8,13,21,34` are display markers only. In the Twin-Prime view, markers 13, 21 and 34 also select a golden-angle readout. Its reference is a virtual rung one step before rung 1. For marker `n`, it reads the signed residual `nθ₂ − 2π·round(nθ₂/2π)` to the nearest whole number of turns. This readout uses the existing rung and source addresses.
 - The 3-slot register is `c(k)=floor(k/3)+1` with slot `(k mod 3)+1`. “Codon” remains an interface label; no biological equivalence is asserted.
 
 ## Register overlays

@@ -87,6 +87,16 @@ button{appearance:none;border:1px solid var(--line);background:#131f30;color:var
 .hv-stack-key [data-stack-color=violet]{color:#cc93ff}
 .hv-stack-key [data-stack-color=gold]{color:#ffdf72}
 @media(max-width:560px){.hv-stack .hv-segment{flex-direction:row}}
+.hv-fibonacci-returns{margin-top:20px;padding-top:14px;border-top:1px solid var(--line)}
+.hv-fibonacci-returns h2{margin:0 0 8px;color:var(--gold);font-size:15px}
+.hv-fibonacci-returns p{margin:8px 0 0;color:var(--muted);font-size:12px;line-height:1.45}
+.hv-fibonacci-playback{margin-top:8px}
+.hv-fibonacci-returns [data-hv-fibonacci-readout]{color:var(--text)}
+.hv-fibonacci-scale{display:block;width:100%;margin-top:8px}
+.hv-fibonacci-scale text{fill:var(--muted);font-size:11px;text-anchor:middle}
+.hv-fibonacci-axis{stroke:var(--line)}
+.hv-fibonacci-zero{stroke:var(--text);stroke-dasharray:3 2}
+.hv-fibonacci-scale line{stroke-width:5;stroke-linecap:round}
 .hv-canvas-anchor{position:absolute;top:0;left:0}
 .hv-stack-key [data-stack-color=green]{color:hsl(125 82% 62%)}
 .hv-stack-key [data-stack-color=pink]{color:hsl(325 82% 62%)}

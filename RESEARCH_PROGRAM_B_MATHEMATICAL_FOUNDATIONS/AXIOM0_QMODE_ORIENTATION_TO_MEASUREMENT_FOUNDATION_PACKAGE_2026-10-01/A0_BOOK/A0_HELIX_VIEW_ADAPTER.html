@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>A0 · Helix lesen und vergleichen</title>
   <link rel="stylesheet" href="a0-context-navigation.css">
-  <link rel="stylesheet" href="a0-helix-view-adapter.css?rev=shared-angle-sequence">
+  <link rel="stylesheet" href="a0-helix-view-adapter.css?rev=fibonacci-direction">
   <link rel="stylesheet" href="a0-kuramoto-compare.css?rev=phasenwerkstatt">
   <style>
     #helix-jupiter-phases { scroll-margin-top:2rem; padding:clamp(.8rem,2vw,1.3rem); margin:1rem 0 1.6rem; border:1px solid #345369; background:#0c1c29; border-radius:.55rem; }
@@ -123,6 +123,27 @@
         <p class="hv-mode-readout hv-register-readout" data-hv-register-readout><b>PAIR · 1+1</b> · geprüfter Quellträger ohne zusätzlichen Phasen-Layer</p>
         <dl data-hv-detail></dl>
         <div class="hv-nav"><button type="button" data-hv-prev aria-label="Vorherige Sprosse">←</button><label><span data-hv-index-label>Sprosse</span> <input data-hv-index type="range" min="1" max="40" value="1"></label><button type="button" data-hv-next aria-label="Nächste Sprosse">→</button></div>
+        <section class="hv-fibonacci-returns" id="helix-fibonacci-returns" data-hv-fibonacci-returns aria-labelledby="helixFibonacciTitle">
+          <h2 id="helixFibonacciTitle">Fibonacci-Sprossen</h2>
+          <div class="hv-segment" role="group" aria-label="Sprossen beim goldenen Winkel">
+            <button type="button" data-hv-fibonacci="13" aria-pressed="false">13</button>
+            <button type="button" data-hv-fibonacci="21" aria-pressed="false">21</button>
+            <button type="button" data-hv-fibonacci="34" aria-pressed="false">34</button>
+          </div>
+          <div class="hv-segment hv-fibonacci-playback" role="group" aria-label="Fibonacci-Wiedergabe">
+            <button type="button" data-hv-fibonacci-direction="1" aria-pressed="true">Vorwärts</button>
+            <button type="button" data-hv-fibonacci-direction="-1" aria-pressed="false">Rückwärts</button>
+            <button type="button" data-hv-fibonacci-play>▶ Play</button>
+          </div>
+          <p data-hv-fibonacci-readout>Wähle eine Sprosse, um zum goldenen Winkel zu wechseln.</p>
+          <svg class="hv-fibonacci-scale" data-hv-fibonacci-scale viewBox="0 0 240 40" aria-hidden="true" hidden>
+            <path d="M20 12H220" class="hv-fibonacci-axis"/>
+            <line data-hv-fibonacci-bar x1="120" y1="12" x2="120" y2="12"/>
+            <path d="M120 2V22" class="hv-fibonacci-zero"/>
+            <text x="20" y="35">−15°</text><text x="120" y="35">0°</text><text x="220" y="35">+15°</text>
+          </svg>
+          <p>Die gestrichelte Linie zeigt die Nullrichtung der gedachten Sprosse 0, einen Schritt vor Sprosse 1.</p>
+        </section>
         <a class="hv-stack-snapshot" data-hv-primecube-return hidden>Im Primecube und Loki-Schnitt öffnen ↗</a>
         <section class="hv-kink-tracker" data-hv-kink-tracker hidden aria-live="off" aria-labelledby="helixKinkTitle">
           <h2 id="helixKinkTitle">Knicke in der Zeta‑Drehung</h2>
@@ -625,11 +646,11 @@
     <p>Laplace-Winkel = λ<sub>Io</sub> − 3λ<sub>Europa</sub> + 2λ<sub>Ganymed</sub> modulo 360°. λ = Ω + ω + M aus oskulierenden Bahnelementen im Jupiter-Bezugssystem. <a href="https://ssd.jpl.nasa.gov/sats/ephem/">JPL · JUP365 ↗</a> · <a href="https://doi.org/10.1051/0004-6361/202141311">Laplace-Resonanz ↗</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#jpl-laplace-science-return">Science Desk · Rückbindung ↗</a> · Finding offen.</p>
   </section>
   <p class="hv-boundary"><b>CLAIM BOUNDARY:</b> <code>RN\A</code>, <code>(c)D|⁄|A</code>, <code>RDMH</code>, <code>F/H</code> und <code>TRIAD</code> sind deklarierte typografische und geometrische View-Bezeichner. <code>Θ</code>, <code>ι</code> und <code>DAO</code> sind hier ausschließlich die explizit definierten normierten Größen <code>Δθ</code>, <code>Δz/Δθ</code> und <code>R²+ι²</code>. Der Backslash wird nicht ohne getrennt definierte Mengen als bewiesene Mengendifferenz gelesen. Die daraus abgeleitete Torsionsgröße <code>|τ|</code> ist keine physikalische Messung. Die ζ-Linse verwendet nur eine endliche Tabelle der ersten 20 positiven nichttrivialen Nullstellenordinaten und den einzelnen konjugierten Paarterm der expliziten Formel; sie berechnet weder die vollständige Formel noch neue Nullstellen und beweist weder RH noch GRH. <code>RLLR/LRRL</code> sind Trace-Wörter, keine Dirichlet-Charaktere; Periodizität modulo <code>q</code>, vollständige Multiplikativität und Nullwerte auf Nicht-Einheiten werden nicht behauptet. <code>−1/12</code> und <code>11/12</code> sind modulo 1 derselbe Phasenpunkt, aber getrennte Lift-/Pfadzeugen. Die Prime-Residue-Helix ordnet einen endlichen bekannten Primzahlträger nach Index und weist deklarierte Modulo-Winkel zu; sie ist weder eine natürliche Primzahlhelix noch identisch mit dem separaten Euler-7×11-Kantenaudit. Einzelstrang, Doppelhelix, Phasenüberblendung, Register-Layer und φ-Rail behaupten keine RNA-/DNA-Validierung, biologische Primzahlsteuerung, physikalische Resonanz, keinen Primzahlgenerator und keine natürliche Identität zwischen Twin Primes, ℤ₃₇, ζ-Nullstellen oder Fibonacci.</p>
-  <footer class="hv-return"><span>Reuses: MOD:NUMBER_VIEW_SUITE · ART:A0:MATHEMATICAL_JOINTS · no graph delta</span><nav><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html">← Primecube</a> · <a href="A0_PRIME_PROJECTION_TEST_SUITE.html">Prime Projection</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#helix-mod7-method-return-20261126">Science Desk · Helix‑Return</a> · <a href="A0_RESEARCH_DESK.html#prime-projection-helix-paper-routing-20261121">Riemann / Ihara</a> · <a href="A0_HELIX_VIEW_ADAPTER_CONTRACT_2026-11-21.md">Contract</a> · <a href="results/a0-helix-view-adapter-2026-11-21.json">Receipt</a></nav></footer>
+  <footer class="hv-return"><span>Reuses: MOD:NUMBER_VIEW_SUITE · ART:A0:MATHEMATICAL_JOINTS · no graph delta</span><nav><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html">← Primecube</a> · <a href="A0_PRIME_PROJECTION_TEST_SUITE.html">Prime Projection</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#helix-fibonacci-ruecklauf">Science Desk · Fibonacci-Rücklauf</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#helix-mod7-method-return-20261126">Science Desk · Helix‑Return</a> · <a href="A0_RESEARCH_DESK.html#prime-projection-helix-paper-routing-20261121">Riemann / Ihara</a> · <a href="A0_HELIX_VIEW_ADAPTER_CONTRACT_2026-11-21.md">Contract</a> · <a href="results/a0-helix-view-adapter-2026-11-21.json">Receipt</a></nav></footer>
 </main>
 <script src="a0-primecube-model.js?rev=20261121-r5"></script>
 <script src="a0-helix-view-adapter.js?rev=zeta-contact-wheel"></script>
-<script src="a0-helix-view-adapter-ui.js?rev=shared-angle-sequence"></script>
+<script src="a0-helix-view-adapter-ui.js?rev=fibonacci-direction"></script>
 <script src="a0-angle-sequence.js?v=1"></script>
 <script src="a0-context-navigation.js"></script>
 <script src="a0-loki-tessarec-pipe.js" defer></script>
