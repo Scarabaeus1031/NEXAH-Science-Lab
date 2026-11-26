@@ -56,3 +56,9 @@
 .pc-prism-values > div:nth-child(2) dt{color:#65deef}
 .pc-prism-values > div:nth-child(3) dt{color:#f7a5dc}
 @media(max-width:760px){.pc-prism-layout{grid-template-columns:1fr}}
+.pc-prism-crown-source{margin:22px 0 10px;padding:clamp(12px,2vw,22px);border:1px solid #4f3c59;border-radius:12px;background:#151321;scroll-margin-top:92px}
+.pc-prism-crown-plots{margin-top:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.pc-prism-crown-plots figure{justify-content:flex-start}
+.pc-prism-crown-plots figure>svg,.pc-prism-crown-plots figure>img{display:block;width:100%;height:auto;aspect-ratio:850/726;background:#0b0f18}
+.pc-prism-crown-source code{overflow-wrap:anywhere}
+@media(max-width:760px){.pc-prism-crown-plots{grid-template-columns:1fr}}
