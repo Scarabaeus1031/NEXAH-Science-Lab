@@ -164,6 +164,38 @@ enthält **10 Aufwärts- und 9 Abwärtswechsel**.
 [Phasenergebnisse](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/phase-sweep/phases.csv>) ·
 [Prüfprotokoll des Phasentests](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/phase-sweep/protocol.json>).
 
+
+### Zahlengleichheit mit dem IOTA-V-Gap · Einheiten und Gegenprobe 2025
+
+Der strenge Phasentest 2023 liefert `36/730 = 18/365`. Die 730
+unterschiedlichen Phasen ergeben sich aus `8.760/12 = 2 × 365`.
+Beim IOTA-V-Gap entsprechen fünf Adressen auf dem Z365-Raster
+`5/365` eines Vollkreises.
+
+| Größe | Exakte Rechnung | Wert mit Einheit |
+|---|---|---:|
+| Erfolgsanteil im strengen Phasentest 2023 | `100 × 36/730 = 360/73` | 4,931506849… % |
+| IOTA-V-Gap von fünf Adressen | `360 × 5/365 = 360/73` | 4,931506849…° |
+
+**Die Zahlenwerte stimmen exakt überein.** Auf derselben Skala ist
+der Unterschied sichtbar. Der V-Gap entspricht `100 × 5/365` und
+damit rund **1,369863 % eines Vollkreises**. Der Erfolgsanteil von `36/730`
+entspräche als Anteil eines Vollkreises rund **17,753425°**.
+Der gemeinsame Nenner stammt aus der Rasterwahl. Die 36 erfolgreichen
+Phasen ergeben sich aus den gezählten Wechseln und der Auswertungsregel.
+
+**Gegenprobe 2025.** Dieselbe Auswertung der bereits bekannten
+[stündlichen JPL-Reihe von 2025](assets/a0-jupiter-horizons-2025.js)
+mit denselben zwölf Startlagen, +12 h und +36 h als Kontrollen sowie
+derselben strengen Bedingung ergibt **161/730 Phasen (22,05 %)**.
+Die 365er-Rasterung gilt für beide Jahresfenster. Der unterschiedliche
+Trefferzähler zeigt, dass sie die 36 erfolgreichen Phasen von 2023
+nicht vorgibt. Die Zahlengleichheit allein liefert keinen Beleg dafür,
+dass der V-Gap die erfolgreichen Phasen bestimmt.
+
+[IOTA-Rechenregel](a0-machina-triangle-phi-lens.js) ·
+[Zusammenfassung Phasentest 2023](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/phase-sweep/summary.json>).
+
 ## Verification
 
 Primecube model `1.36.0`: `638/638 PASS`. All `52` source records resolve and match SHA-256; `28` owner visuals are pinned. Navigator App audit: `255/255 PASS`. Mission Control projection: `PASS`, `21` components. The Source Graph validator retains only the pre-existing `Red Balloon canonical source hash matches` failure; this extension adds no validator failure. Graph delta remains zero.
