@@ -77,7 +77,7 @@
   <link rel="stylesheet" href="a0-bench-body-route.css?rev=20261019-r1">
   <link rel="stylesheet" href="a0-pentagon-body-exhibition-bench.css?rev=20261025-r1">
   <link rel="stylesheet" href="a0-assembly-atlas-bench.css?rev=20261025-r1">
-  <link rel="stylesheet" href="a0-mask-observer.css?rev=20261019-r1">
+  <link rel="stylesheet" href="a0-mask-observer.css?rev=20261126-countdown">
   <link rel="stylesheet" href="a0-caro-bench.css?rev=20261019-r1">
   <link rel="stylesheet" href="a0-bench-perspective-deck.css?rev=20261020-r1">
   <link rel="stylesheet" href="a0-caro-orientation-modes.css?rev=20261020-r1">
@@ -620,7 +620,57 @@
     <p><b>Offene Zuordnung:</b> 7↔9 und 8↔10 sind eine vom Owner vorgeschlagene reversible Adresslesart, keine implementierte Kalenderumrechnung. AM/PM ist nicht belegt. Die drei Verhältnisse sind unabhängig wählbare Vergleichsskizzen und noch keinem Spiegelpaar oder Flügel zugeordnet. JJ / Juni–Juli bleibt ein Bildmotiv. Weder Datumswerte noch diese Skizze steuern die lila Faltung; an Pose 29 wird keine neue Wende behauptet. Capture/Return stellt nur diese Auswahl wieder her.</p>
     <p><a href="#tripleS3Extension">Vorhandenes TripleSix-Register</a> · <a href="#maskCompassTitle">Teller und Original-5B-Referenz</a> · <a href="assets/a0-code-calendar-lens-v1.json">Quellen und Prüfvertrag</a></p>
     <details><summary>Aktueller Vergleichsrecord · offene Bindungen ausdrücklich null</summary><pre id="codeCalendarRecord"></pre></details>
+    <p><a href="#countdown2040">Countdown bis 25.12.2040 ↓</a></p>
   </section>
+  <section id="countdown2040" class="mask-observer-bench" aria-labelledby="countdown2040Title">
+    <h2 id="countdown2040Title">Countdown bis <time id="countdown2040Target" datetime="2040-12-25">25.12.2040</time></h2>
+    <div class="countdown-2040-comparison">
+      <article>
+        <h3>Alter Dienstag-Loop</h3>
+        <p><time datetime="2025-09-16">16.09.2025</time> · Dienstag → Dienstag</p>
+        <p class="countdown-2040-result"><strong>797 Wochen</strong></p>
+        <p>5.579 Tage · 0 Resttage</p>
+      </article>
+      <article>
+        <h3>Stand vom <time datetime="2026-10-16">16.10.2026</time></h3>
+        <p>Freitag → Dienstag</p>
+        <p class="countdown-2040-result"><strong>740 Wochen + 4 Tage</strong></p>
+        <p>5.184 Tage</p>
+      </article>
+    </div>
+    <output id="countdown2040Today" hidden></output>
+    <p class="countdown-2040-note">Kalendertage vom Startdatum bis zum Zieldatum. Eine Woche hat sieben Tage. Die 797 Wochen im älteren Bild gehören zum Start am 16.09.2025.</p>
+  </section>
+  <script>
+    (() => {
+      const target = Date.parse(document.getElementById('countdown2040Target').dateTime);
+      const output = document.getElementById('countdown2040Today');
+      const berlinDate = new Intl.DateTimeFormat('de-DE', {
+        timeZone: 'Europe/Berlin', year: 'numeric', month: '2-digit', day: '2-digit'
+      });
+      const number = new Intl.NumberFormat('de-DE');
+      function updateCountdown() {
+        const today = new Date();
+        const parts = Object.fromEntries(berlinDate.formatToParts(today).map(part => [part.type, part.value]));
+        const days = (target - Date.UTC(parts.year, parts.month - 1, parts.day)) / 86400000;
+        const label = 'Heute in Berlin · ' + berlinDate.format(today);
+        let message = label + ' · Zieldatum erreicht';
+        if (days > 0) {
+          const weeks = Math.floor(days / 7);
+          const rest = days % 7;
+          message = label + ' · ' + number.format(days) + (days === 1 ? ' Tag' : ' Tage')
+            + ' bis zum Ziel (' + number.format(weeks) + (weeks === 1 ? ' Woche' : ' Wochen')
+            + (rest ? ' + ' + rest + (rest === 1 ? ' Tag' : ' Tage') : '') + ')';
+        } else if (days < 0) {
+          message = label + ' · Zieldatum liegt in der Vergangenheit';
+        }
+        if (output.textContent !== message) output.textContent = message;
+        output.hidden = false;
+      }
+      updateCountdown();
+      window.setInterval(updateCountdown, 60_000);
+    })();
+  </script>
   <section id="augustSourceTrail" class="august-source-trail" aria-labelledby="augustSourceTitle">
     <details>
       <summary id="augustSourceTitle">August-Serie · acht Original-HTMLs · Grey Space / CARO / Faltung öffnen</summary>

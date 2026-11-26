@@ -6,3 +6,13 @@
 .mask-assembly-svg{display:block;width:100%;height:auto;background:#03111b;border:1px solid #5c4b77;font:13px system-ui,sans-serif}
 .mask-observer-bench output{display:block;margin:10px 0;color:#b9e1e8;font:13px/1.7 ui-monospace,monospace;overflow-wrap:anywhere}.mask-observer-bench pre{max-height:350px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere}
 @media(max-width:850px){.mask-observer-views{grid-template-columns:1fr}}
+.countdown-2040-comparison{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:12px}
+.countdown-2040-comparison article{padding:16px;border:1px solid #436478;border-top:3px solid #f88aca;border-radius:10px;background:#102534}
+.countdown-2040-comparison article+article{border-top-color:#73dce8}
+.countdown-2040-comparison h3,.countdown-2040-comparison p{margin:0}
+.countdown-2040-comparison p+p{margin-top:5px}
+.countdown-2040-result{color:#ffc4ed;font-size:clamp(1.15rem,2.5vw,1.65rem)}
+.countdown-2040-comparison article+article .countdown-2040-result{color:#a3eef3}
+#countdown2040Today{color:#f2d990}
+#countdown2040Today[hidden]{display:none}
+.countdown-2040-note{color:#adc5d3;font-size:.86rem}
