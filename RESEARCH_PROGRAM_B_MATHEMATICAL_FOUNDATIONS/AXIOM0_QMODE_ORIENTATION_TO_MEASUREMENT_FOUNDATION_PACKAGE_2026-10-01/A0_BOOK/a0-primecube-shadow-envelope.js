@@ -216,15 +216,15 @@
     root.querySelectorAll('[data-pc-shadow-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.pcShadowMode===state.mode)));
     root.querySelectorAll('[data-pc-shadow-packing]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.pcShadowPacking===state.packing)));
   }
-  function xZeroPrimeRecords(){
-    const records=[];
-    for(let n=1;n<=1000;n+=M.CUBE_SIZE){
-      const residue=n%7;
-      if([5,2,6].includes(residue)&&M.isPrime(n)){
-        records.push({id:'PC1111:N'+String(n).padStart(4,'0'),n,residue,address:M.cubeAddress(n)});
-      }
-    }
-    return records;
+  function sharedPrimeRecords(){
+    return M.sieve(1000).map((n,i)=>({
+      id:'PC1111:N'+String(n).padStart(4,'0'),
+      n,index:i+1,residue:n%7,address:M.cubeAddress(n)
+    }));
+  }
+  function setHelixBackLink(link,record){
+    link.href='A0_HELIX_VIEW_ADAPTER.html?'+new URLSearchParams({helix:record.id})+'#helix-prime-record';
+    link.textContent='Zur Helix-Ebene '+record.index+' ↗';
   }
   function renderYzGrid(grid,records,size){
     const at=new Map(records.map(record=>[record.address.y+','+record.address.z,record]));
@@ -247,7 +247,7 @@
     }).join(' ');
     return `<polygon class="pc-shadow-helix-face" points="${side}"/>`;
   }
-  function renderXZeroMarker(record,camera,label=record.id,direction=1){
+  function renderSharedPrimeMarker(record,camera,label=record.id,direction=1){
     const p=camera(record.address);
     const anchor=direction>0?'start':'end';
     return `<g class="pc-shadow-pair-marker prime" data-pc-yz-residue="${record.residue}" data-pc-helix-cube-number="${record.n}">${point(record,'halo',10,camera)}${point(record,'pin',4,camera)}<text x="${p.x+12*direction}" y="${p.y-9}" text-anchor="${anchor}">${label}</text></g>`;
@@ -262,14 +262,16 @@
       const left=camera(lila.address).x<=camera(pink.address).x;
       const segment=line(lila.address,pink.address,'pc-shadow-loki-segment',camera);
       markers.innerHTML=xZeroFace(camera)+segment
-        +renderXZeroMarker(lila,camera,lila.n,left?-1:1)+renderXZeroMarker(pink,camera,pink.n,left?1:-1);
+        +renderSharedPrimeMarker(lila,camera,lila.n,left?-1:1)+renderSharedPrimeMarker(pink,camera,pink.n,left?1:-1);
       stage.setAttribute('aria-label','3D-Würfel · '+faceName+' · 397 und 419 · Strecke entlang y von 3 bis 5 bei x=0, z=3');
       return;
     }
     if(state.helixReturn){
       const record=state.helixReturn;
-      markers.innerHTML=mode==='shadow'?'':xZeroFace(camera)+renderXZeroMarker(record,camera);
-      stage.setAttribute('aria-label','3D-Würfel · '+faceName+(mode==='shadow'?'':' · Markiert: '+record.id+' · Würfelseite x=0'));
+      const {x,y,z}=record.address;
+      const face=x===0?xZeroFace(camera):'';
+      markers.innerHTML=mode==='shadow'?'':face+renderSharedPrimeMarker(record,camera);
+      stage.setAttribute('aria-label','3D-Würfel · '+faceName+(mode==='shadow'?'':' · '+record.id+' · Adresse ('+x+', '+y+', '+z+')'));
       return;
     }
     if(!pair){
@@ -307,6 +309,10 @@
     const sideRow=overlay.querySelector('[data-pc-loki-side-row]');
     const helixReadout=overlay.querySelector('[data-pc-helix-return]');
     const helixBack=overlay.querySelector('[data-pc-helix-back]');
+    const helixSelect=overlay.querySelector('[data-pc-helix-select]');
+    for(const record of state.sharedPrimes){
+      helixSelect.add(new Option(record.n+' · Ebene '+record.index,record.id));
+    }
     const returnMarkers='[data-pc-side-number], [data-pc-pair-number]';
     const size=M.CUBE_SIZE, center=Math.floor(size/2), cell=20;
     const shadow=M.shadowCubeEnvelopeRecord().shadow.filter(item=>item.address.z===10);
@@ -330,10 +336,10 @@
         const direction=x<=center?1:-1;
         const textX=cx+13*direction, textY=cy+4;
         const hitX=cx-(direction===1?12:51);
-        const isXZeroRecord=item.residue!==undefined;
-        const attribute=isXZeroRecord?'data-pc-helix-side-number':'data-pc-side-number';
-        const control=isXZeroRecord?'':`role="button" tabindex="0" aria-label="${name} ${item.n} · Gemeinsames Rasterfeld markieren"`;
-        const color=isXZeroRecord?`data-pc-yz-residue="${item.residue}"`:'';
+        const isSharedPrime=item.id!==undefined;
+        const attribute=isSharedPrime?'data-pc-helix-side-number':'data-pc-side-number';
+        const control=isSharedPrime?'':`role="button" tabindex="0" aria-label="${name} ${item.n} · Gemeinsames Rasterfeld markieren"`;
+        const color=isSharedPrime?`data-pc-yz-residue="${item.residue}"`:'';
         return `<g class="pc-shadow-pair-marker ${kind}" ${color} ${attribute}="${item.n}" ${control}><rect class="marker-hit" x="${hitX}" y="${cy-12}" width="63" height="24"/><circle class="halo" cx="${cx}" cy="${cy}" r="8"/><circle class="pin" cx="${cx}" cy="${cy}" r="3.5"/><text x="${textX}" y="${textY}" text-anchor="${direction===1?'start':'end'}">${item.n}</text></g>`;
       };
       const description=shadow?`Prime Cube ${prime.n} und Shadow Cube ${shadow.n}`:prime?.id??'kein gemeinsames Feld';
@@ -343,10 +349,14 @@
     overlay.querySelectorAll('[data-pc-loki-compare]').forEach(panel=>{
       const record=state.xZeroRecords.find(item=>item.n===Number(panel.dataset.pcLokiCompare));
       panel.querySelector('[data-pc-loki-compare-stage]').innerHTML=lokiSlice(record.address.y,record);
+      const link=document.createElement('a');
+      setHelixBackLink(link,record);
+      panel.append(link);
     });
 
     function renderSide(){
       const helix=state.helixReturn;
+      helixSelect.value=helix?.id??'';
       yzButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.pcYzRecord===String(helix?.n))));
       const y=helix?helix.address.y:selected.y;
       const selectedPair=state.pair;
@@ -359,9 +369,8 @@
       jump.hidden=Boolean(helix)||!state.pair;
       if(helix){
         const {x,y,z}=helix.address;
-        helixReadout.querySelector('[data-pc-helix-record]').textContent=helix.id+' · Würfelseite x=0 · Adresse ('+x+', '+y+', '+z+')';
-        helixBack.hidden=helix.residue!==5;
-        if(!helixBack.hidden)helixBack.href='A0_HELIX_VIEW_ADAPTER.html?'+new URLSearchParams({helix:helix.id})+'#helix-stack-5-1';
+        helixReadout.querySelector('[data-pc-helix-record]').textContent=helix.id+' · Adresse ('+x+', '+y+', '+z+')';
+        setHelixBackLink(helixBack,helix);
       }
     }
     function addresses(x,y){
@@ -374,14 +383,19 @@
       render(root,state);
       return true;
     }
-    yzGrid.addEventListener('click',event=>{
-      const button=event.target.closest('[data-pc-yz-record]');
-      if(!button)return;
-      state.helixReturn=state.xZeroRecords.find(record=>record.n===Number(button.dataset.pcYzRecord));
-      stage.querySelector('[data-cell-x][aria-pressed="true"]')?.setAttribute('aria-pressed','false');
+    function selectSharedPrime(record){
+      state.helixReturn=record??null;
+      stage.querySelector('[data-cell-x][tabindex="0"]')?.setAttribute('aria-pressed',String(!record));
       renderSide();
       const leftCompare=stopLokiCompare();
       if(!fullCube()&&!leftCompare)renderOverlayPair(root,state);
+    }
+    yzGrid.addEventListener('click',event=>{
+      const button=event.target.closest('[data-pc-yz-record]');
+      if(button)selectSharedPrime(state.xZeroRecords.find(record=>record.n===Number(button.dataset.pcYzRecord)));
+    });
+    helixSelect.addEventListener('change',()=>{
+      selectSharedPrime(state.sharedPrimes.find(record=>record.id===helixSelect.value));
     });
     function select(x,y,focus=false){
       if(focus)state.helixReturn=null;
@@ -485,11 +499,12 @@
     const root=document.querySelector('[data-pc-shadow-envelope]');if(!root||!M)return;
     const main=root.closest('[data-primecube]');
     const tensionToggle=main?.querySelector('[data-pc-root-mask-tension]');
-    const xZeroRecords=xZeroPrimeRecords();
+    const sharedPrimes=sharedPrimeRecords();
+    const xZeroRecords=sharedPrimes.filter(record=>record.address.x===0&&[5,2,6].includes(record.residue));
     const linkedId=new URLSearchParams(location.search).get('helix');
-    const helixReturn=xZeroRecords.find(record=>record.id===linkedId)??null;
+    const helixReturn=sharedPrimes.find(record=>record.id===linkedId)??null;
     const lokiRecords=[397,419].map(n=>xZeroRecords.find(record=>record.n===n));
-    const state={mode:'envelope',packing:'full-envelope',reach:220,tensionToggle,face:'front',camera:project,dx:6,dy:0,xZeroRecords,helixReturn,lokiRecords,lokiCompare:false,yaw:0},slider=root.querySelector('[data-pc-shadow-reach]');
+    const state={mode:'envelope',packing:'full-envelope',reach:220,tensionToggle,face:'front',camera:project,dx:6,dy:0,sharedPrimes,xZeroRecords,helixReturn,lokiRecords,lokiCompare:false,yaw:0},slider=root.querySelector('[data-pc-shadow-reach]');
     bindSlices(root,state);
     const faces=root.querySelectorAll('[data-pc-shadow-face]');
     const lokiToggle=root.querySelector('[data-pc-loki-3d-toggle]');

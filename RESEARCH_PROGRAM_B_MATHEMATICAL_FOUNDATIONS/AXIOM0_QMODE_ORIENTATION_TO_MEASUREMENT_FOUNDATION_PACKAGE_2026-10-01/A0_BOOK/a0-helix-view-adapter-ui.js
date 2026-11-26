@@ -114,6 +114,7 @@
   const stackPanel=root.querySelector('[data-hv-stack-panel]');
   const stackToggle=root.querySelector('[data-hv-stack-toggle]');
   const stackLinks=root.querySelector('[data-hv-stack-snapshots]');
+  const primeCubeLink=root.querySelector('[data-hv-primecube-return]');
   const stackSnapshots=M.buildPrimeResidueGeometry(M.primeResidueRecords()).stack51;
   function cubeReturnUrl(record){
     const query=new URLSearchParams({helix:record.sourceIds[0]});
@@ -389,6 +390,8 @@
   function setSelected(index){
     const list=records();selected=mod7Slicing()?Math.max(0,Math.min(index,list.length-1)):(index+list.length)%list.length;renderSliceControls(list);indexInput.max=String(list.length);indexInput.value=String(selected+1);countEl.textContent=mode==='zeta'?`${list.length} zero pairs · ${zetaLens.toUpperCase()} LENS`:mode==='residue'?`${list.length} prime records · ${residueAngle.toUpperCase()}`:`${list.length} ${strandMode==='double'?'rungs':'nodes'} · ${registerLabel()}`;const info=M.inspection(mode,selected,mix,strandMode,{logX,betaOffset,zetaLens,traceWord,residueAngle});
     recordEl.textContent=info.recordId;pairEl.textContent=mode==='residue'?String(info.prime):strandMode==='double'?`${info.pair[0]} ↔ ${info.pair[1]}`:`${info.single[0]}`;
+    primeCubeLink.hidden=mode!=='residue';
+    if(mode==='residue')primeCubeLink.href=cubeReturnUrl(list[selected]);
     if(mode==='zeta'){
       const trace=M.traceWordData(traceWord),seam=M.phaseSeamData();
       const mirror=zetaLens==='smooth'?'θ ↔ −θ · conjugate wave':zetaLens==='trace'?`${traceWord} slot ${info.traceSlot}/4 · ${info.traceSymbol} · ${info.kink?'KINK':'run'}`:'−1/12 ≡ 11/12 (mod 1) · lift Δ=1';
@@ -1019,13 +1022,16 @@
   window.addEventListener('hashchange',openTermLink);
   new ResizeObserver(resize).observe(canvas);
   setupRosslerLift(root.querySelector("#helix-rossler-lift"));
-  function showResidueStack(recordId){
+  function showPrimeRecord(record,showStack){
     sliceToggle.checked=false;
-    stackToggle.checked=true;
+    stackToggle.checked=showStack;
     setMode('residue');
     setResidueAngle('paired');
+    setSelected(record.index-1);
+  }
+  function showResidueStack(recordId){
     const snapshot=stackSnapshots.find(record=>record.sourceIds[0]===recordId)||stackSnapshots[0];
-    setSelected(snapshot.index-1);
+    showPrimeRecord(snapshot,true);
   }
   function showMod7(slicing){
     sliceToggle.checked=slicing;
@@ -1034,6 +1040,13 @@
     setResidueAngle('mod7');
   }
   function openResidueLink(){
+    if(location.hash==='#helix-prime-record'){
+      const recordId=new URLSearchParams(location.search).get('helix');
+      const record=M.primeResidueRecords().find(item=>item.sourceIds[0]===recordId);
+      if(!record)return false;
+      showPrimeRecord(record,stackSnapshots.some(snapshot=>snapshot.index===record.index));
+      return true;
+    }
     if(location.hash==='#helix-stack-5-1'){
       showResidueStack(new URLSearchParams(location.search).get('helix'));
       return true;

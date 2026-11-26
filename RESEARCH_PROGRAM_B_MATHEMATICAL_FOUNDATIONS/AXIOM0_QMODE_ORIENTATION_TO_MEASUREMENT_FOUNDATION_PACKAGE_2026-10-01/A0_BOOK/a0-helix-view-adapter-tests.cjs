@@ -85,6 +85,20 @@ const traceGeometry=M.buildZetaGeometry(zeros,{logX:Math.log(1000),zetaLens:'tra
 const seamGeometry=M.buildZetaGeometry(zeros,{logX:Math.log(1000),zetaLens:'seam'});assert.equal(seamGeometry.lensMode,'seam');for(const pair of seamGeometry.rungs){assert(Math.abs(pair.strandA.x-pair.strandB.x)<1e-12);assert(Math.abs(pair.strandA.z-pair.strandB.z)<1e-12);assert.equal(pair.phaseLift.liftDelta,1);assert.equal(pair.conjugateMirror,false)}
 const traceInspection=M.inspection('zeta',1,0,'double',{logX:Math.log(1000),zetaLens:'trace',traceWord:'RLLR'}),seamInspection=M.inspection('zeta',0,0,'double',{logX:Math.log(1000),zetaLens:'seam'});assert.equal(traceInspection.traceSymbol,'L');assert.equal(traceInspection.kink,true);assert.equal(seamInspection.phaseLift.equivalentModuloOne,true);assert.equal(seamInspection.conjugateMirror,false);
 const residueRecords=M.primeResidueRecords(),primeTail=M.primeTailRecords();assert.equal(residueRecords.length,168);assert.equal(residueRecords[0].prime,2);assert.equal(residueRecords.at(-1).prime,997);assert.equal(primeTail.length,18);assert.equal(primeTail[0],1009);assert.equal(primeTail.at(-1),1109);
+
+const primecube=global.A0PrimecubeModel;
+assert.deepEqual(residueRecords.map(({prime})=>prime),primecube.sieve(1000));
+for(const {index,prime,sourceIds} of residueRecords){
+  const cubeAddress=primecube.cubeAddress(prime);
+  assert.equal(primecube.cubeNumber(cubeAddress),prime);
+  assert.equal(M.inspection('residue',index-1,0,'double',{residueAngle:'paired'}).recordId,sourceIds[0]);
+  assert.equal(sourceIds[0],'PC1111:N'+String(prime).padStart(4,'0'));
+}
+const loki419=M.inspection('residue',80,0,'double',{residueAngle:'paired'});
+assert.deepEqual([loki419.index,loki419.prime,loki419.recordId],[81,419,'PC1111:N0419']);
+assert.deepEqual(primecube.cubeAddress(loki419.prime),{x:0,y:5,z:3});
+assert.equal(primecube.cubeNumber({x:0,y:5,z:3}),loki419.prime);
+assert.equal(primecube.cubeNumber({x:0,y:3,z:3}),397);
 const constantSpectrum=M.sliceSpectrum([1,1,1,1]);
 assert.equal(constantSpectrum.mean,1);
 assert.ok(constantSpectrum.bins.every(term=>term.amplitude===0));

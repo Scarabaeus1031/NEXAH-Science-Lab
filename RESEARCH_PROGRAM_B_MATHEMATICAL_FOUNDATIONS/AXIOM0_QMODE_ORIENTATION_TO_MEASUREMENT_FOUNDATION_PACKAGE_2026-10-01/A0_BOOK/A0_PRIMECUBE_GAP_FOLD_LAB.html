@@ -219,7 +219,7 @@
           </figure>
           <div data-pc-helix-return hidden>
             <p data-pc-helix-record role="status"></p>
-            <p><a href="#shadow-cube-3d" data-pc-helix-stage>↑ Record im 3D-Würfel ansehen</a></p><p><a data-pc-helix-back>Zurück zur 7|11-Sprosse ↗</a></p>
+            <p><a href="#shadow-cube-3d" data-pc-helix-stage>↑ Record im 3D-Würfel ansehen</a></p><p><a data-pc-helix-back>Zur Helix ↗</a></p>
           </div>
           <p data-pc-overlay-count role="status">17 Spalten insgesamt · 5 gemeinsam</p>
           <p><strong>Prime Cube</strong> · Ebene z=8 · Records 969–1089<br><strong>Shadow Cube</strong> · Ebene z=10 · Adressen 1211–1331</p>
@@ -231,6 +231,9 @@
           <input id="shadowOverlayShift" data-pc-overlay-shift type="range" min="0" max="11" value="6" step="1">
           <label for="shadowOverlayShiftY">Loki-L · y nach unten <output data-pc-overlay-shift-y-value for="shadowOverlayShiftY">0</output></label>
           <input id="shadowOverlayShiftY" data-pc-overlay-shift-y type="range" min="0" max="11" value="0" step="1">
+          <p><label for="shadowHelixPrime">Primzahl in Helix und Primecube</label><br>
+            <select id="shadowHelixPrime" data-pc-helix-select><option value="">Primzahl wählen (168)</option></select>
+          </p>
           <div data-pc-overlay-stage></div>
           <ul class="pc-shadow-overlay-legend">
             <li><span class="carrier" aria-hidden="true"></span>Prime Cube</li>
@@ -744,7 +747,7 @@
 <script src="a0-loki-tessarec-pipe.js?rev=20261123-r1"></script>
 <script src="a0-primecube-ui.js?rev=20261124-r24"></script>
 <script src="a0-primecube-navigation.js?rev=20261124-r3"></script>
-<script src="a0-primecube-shadow-envelope.js?rev=20261126-loki-3d-r2"></script>
+<script src="a0-primecube-shadow-envelope.js?rev=pc1111-roundtrip"></script>
 <script src="a0-primecube-root-topology.js?rev=20261122-r1"></script>
 <script src="a0-primecube-khipu-knot.js?rev=20261122-r2"></script>
 <script src="a0-primecube-sz-chirality.js?rev=20261124-r2"></script>
