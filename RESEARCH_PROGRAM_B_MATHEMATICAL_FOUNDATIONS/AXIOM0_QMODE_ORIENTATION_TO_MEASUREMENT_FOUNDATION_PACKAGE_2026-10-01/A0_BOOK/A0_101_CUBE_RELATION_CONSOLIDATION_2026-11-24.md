@@ -80,6 +80,15 @@ gehört zur Gegenüberstellung zweier Ansichten.
   beschreibt den abnehmenden Abstand benachbarter reeller Wurzeln
   `√(n+1) − √n`.
 
+### Methodenvergleich mit Lorenz
+
+397 und 419 teilen im Loki-Schnitt dieselbe X–Z-Position. Ihre Y-Ebenen und
+PC1111-IDs halten den Adressrückweg offen. Beim
+[Black-Egg-U-Turn](A0_TOURS.html#black-egg-u-turn) führt eine X–Z-Zelle zu
+acht numerischen Stichproben aus einem Lorenz-Lauf. Der 3D-Record liefert
+ihre Y-Werte und ihre Reihenfolge. [Paper E](A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html#black-egg-method-example)
+stellt beide Rückwege als Methodenbeispiele nebeneinander.
+
 ## Cube-role register
 
 | Name in the corpus | Current role | Identity disposition |

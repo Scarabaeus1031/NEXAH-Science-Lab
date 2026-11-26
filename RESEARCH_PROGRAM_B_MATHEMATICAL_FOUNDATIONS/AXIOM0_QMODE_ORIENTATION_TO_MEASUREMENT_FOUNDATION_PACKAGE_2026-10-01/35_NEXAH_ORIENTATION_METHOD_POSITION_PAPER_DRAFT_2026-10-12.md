@@ -1539,6 +1539,20 @@ Orientierungsnutzen für neue Aufgaben bleibt zu prüfen.
 verbindet den Adressrückweg mit dem Windungsbeispiel und ordnet beide als
 modellhaften Vergleich zu Stringtheorie und Loop-Quantengravitation ein.
 
+<a id="black-egg-method-example"></a>
+
+### Lorenz · Black-Egg-U-Turn
+
+Die X–Z-Dichtekarte zählt acht Stichproben in der Beispielzelle. Der
+geordnete 3D-Record desselben Laufs gibt ihre Y-Werte und Laufnummern zurück.
+Der Primecube verwendet für 397 und 419 exakte Adressen und PC1111-IDs.
+Die Lorenz-Zelle fasst numerische Stichproben nach Zellgrenzen zusammen.
+Beide Beispiele machen sichtbar, welche Angaben der Rückweg zur Quelle
+braucht. Der Nutzen für Leser bleibt offen.
+
+[Beispiel in „Lorenz lesen“](A0_BOOK/A0_TOURS.html#black-egg-u-turn) ·
+[Einordnung im Findings-Workspace](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#black-egg-method-example)
+
 <a id="jupiter-grid-return-method-example"></a>
 
 ### Jupiter · Rückweg über den Stundenindex

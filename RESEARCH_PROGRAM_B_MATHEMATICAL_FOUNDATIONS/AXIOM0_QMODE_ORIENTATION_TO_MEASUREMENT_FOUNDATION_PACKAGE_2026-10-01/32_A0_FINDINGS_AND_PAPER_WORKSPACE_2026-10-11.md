@@ -4464,6 +4464,24 @@ Disposition: `SOURCE-BOUND CONSOLIDATION / EXISTING IDENTITY REUSED / 9 LOCAL
 BINDINGS / 4 CLEANUP LANES / NO DELETE / NO MERGE / NEW ID 0 / CANONICAL
 RELATION 0 / STUDY 0 / FINDING 0 / PUBLICATION 0 / GRAPH DELTA 0`.
 
+<a id="black-egg-method-example"></a>
+
+### Black-Egg-U-Turn · Methodenbeispiel für Paper E · 26.11.2026
+
+Die X–Z-Projektion zählt acht Stichproben in der Beispielzelle. Der 3D-Record
+aus demselben Lauf liefert die Y-Werte und die ursprünglichen Laufnummern
+574, 575, 576, 16374, 36897, 50924, 54792 und 54793. Der lokale Abgleich
+reproduzierte alle 90.000 Zellzählungen aus dem Record. Der Vergleich mit
+397/419 dient der Frage, welche Angaben die Ansicht ausblendet und welche
+der Rückweg zur Quelle wieder zugänglich macht.
+
+Einordnung: geprüftes Methodenbeispiel im bestehenden A0-Lesepfad. Der
+Nutzen für Leser bleibt offen. Aus dem Beispiel folgt kein neuer F-A0-Eintrag.
+
+[„Lorenz lesen“](A0_BOOK/A0_TOURS.html#black-egg-u-turn) ·
+[Paper E](A0_BOOK/A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html#black-egg-method-example) ·
+[Cube-Konsolidierung](A0_BOOK/A0_101_CUBE_RELATION_CONSOLIDATION_2026-11-24.md#methodenvergleich-mit-lorenz)
+
 <a id="primecube-boundary-series-science-return--2026-11-23"></a>
 
 ## Primecube / Boundary Series — collection return · 2026-11-23

@@ -143,12 +143,43 @@ main{max-width:1200px;margin:auto;padding:50px 5vw 90px}h1{font:700 clamp(3rem,7
 <section id="core-lorenz" aria-labelledby="coreResearchTitle">
 <div class="kicker">Core ↔ A0 · Forschungsbuch · bestehende Quellen</div><h2 id="coreResearchTitle">Zwischen den Ansichten liegt die Fuge.</h2>
 <p>Links liegen vorhandene Lorenz-Outputs und ihr Code, rechts ihre A0-Lesung. Die Falz benennt die Übersetzung. Human, Science und Builder lesen denselben Gegenstand; sie erzeugen keine drei neuen Forschungssysteme.</p>
+<p><a href="#black-egg-u-turn">Black-Egg-U-Turn · von der Dichtezelle zum 3D-Record ↓</a></p>
 <div class="core-book-path" role="group" aria-label="Lorenz-Leseschritte"><button type="button" data-core-view="landscape" aria-pressed="true">1 · Landschaft</button><button type="button" data-core-view="trajectory" aria-pressed="false">2 · Trajektorie</button><button type="button" data-core-view="switches" aria-pressed="false">3 · L/R-Wechsel</button><button type="button" data-core-view="timeline" aria-pressed="false">4 · Timeline</button><button type="button" data-core-view="control" aria-pressed="false">5 · Kontrollrecord</button></div>
 <div class="core-book-spread"><article class="core-book-page"><div class="kicker" id="coreBookKind">HISTORISCHE OUTPUTS / CODE-ZUORDNUNG</div><h3 id="coreBookTitle">1 · Messgröße wird Landschaft</h3><div class="core-book-media" id="coreBookMedia"><p>Der Quellenviewer benötigt JavaScript. Die Originalpfade und Kontrollen stehen unten weiterhin zur Verfügung.</p></div><p><a id="coreBookCode" href="../../../../../10%20NEXAH%20CORE/NEXAH/APPLICATIONS/dynamical_systems/lorenz/landscapes/lorenz_potential_landscape.py" target="_blank" rel="noopener">Zugeordneten Core-Code lesen ↗</a></p></article>
 <div class="core-book-fold" aria-hidden="true"><span>QUELLE · MAP · VERLUST · RETURN</span></div>
 <article class="core-book-page"><div class="core-book-lenses" role="group" aria-label="Leseperspektive"><button type="button" data-core-lens="human" aria-pressed="true">Human</button><button type="button" data-core-lens="science" aria-pressed="false">Science</button><button type="button" data-core-lens="builder" aria-pressed="false">Builder</button></div><h3 id="coreBookMode">Human · Welche Frage stellt die Ansicht?</h3><code class="core-book-rule" id="coreBookRule">τ → Kehrwert → Normalisierung → Farbe / Höhe</code><p id="coreBookSeam">Ansicht und vollständiger Zustand bleiben verschieden.</p><p id="coreBookReading">Was entsteht durch die Messung, was durch ihre Darstellung?</p><p class="core-book-boundary" id="coreBookBoundary">Historische Outputs erhalten nicht automatisch den PASS eines späteren Kontrollrecords.</p></article></div>
 <div class="core-book-turn"><button type="button" id="coreBookPrevious">← Vorheriger Leseschritt</button><output id="coreBookPosition" aria-live="polite">1 / 5 · HUMAN · LESERECORD, KEIN LAUF</output><button type="button" id="coreBookNext">Nächster Leseschritt →</button></div>
 <p class="note">Gemeinsam ist die Lesefolge, nicht der Datentakt. Die Bilder stammen aus unterschiedlichen historischen Outputs; ihre Generatorläufe werden hier nicht wiederholt. Die Buch-/Pyramidenform ist eine mögliche Bildlesart, keine identifizierte gemeinsame Geometrie mit dem <a href="A0_ORIENTATION_CONTROLLER_BENCH.html#root7OpenBook">Root7-Buch</a>.</p>
+<section id="black-egg-u-turn" aria-labelledby="blackEggTitle">
+  <div class="kicker">Core ↔ A0 · Methodenbeispiel</div>
+  <h3 id="blackEggTitle">Black-Egg-U-Turn</h3>
+  <p>Die X–Z-Dichtekarte zählt acht Stichproben in dieser Zelle. Der Rückweg zum 3D-Record zeigt ihre Y-Werte und ihre ursprüngliche Reihenfolge. Karte und Record stammen aus demselben Lorenz-Lauf mit 60.000 Stichproben.</p>
+  <details>
+    <summary>X–Z-Beispielzelle auswählen · 8 Stichproben</summary>
+    <table class="core-module-table">
+      <caption>3D-Record der Zelle in Laufreihenfolge · Koordinaten auf sechs Dezimalstellen gerundet</caption>
+      <thead><tr><th scope="col">Stichprobe</th><th scope="col">X</th><th scope="col">Y</th><th scope="col">Z</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">574</th><td>−3,819444</td><td>−8,178106</td><td>27,675340</td></tr>
+        <tr><th scope="row">575</th><td>−3,862780</td><td>−8,171259</td><td>27,632995</td></tr>
+        <tr><th scope="row">576</th><td>−3,905618</td><td>−8,164599</td><td>27,591088</td></tr>
+        <tr><th scope="row">16374</th><td>−3,825910</td><td>0,165557</td><td>27,619390</td></tr>
+        <tr><th scope="row">36897</th><td>−3,825354</td><td>0,171541</td><td>27,625437</td></tr>
+        <tr><th scope="row">50924</th><td>−3,919914</td><td>−0,048270</td><td>27,537961</td></tr>
+        <tr><th scope="row">54792</th><td>−3,867368</td><td>0,116404</td><td>27,637239</td></tr>
+        <tr><th scope="row">54793</th><td>−3,827736</td><td>0,114750</td><td>27,563192</td></tr>
+      </tbody>
+    </table>
+  </details>
+  <p><a id="blackEggLocalRun" hidden target="_blank" rel="noopener">Laufenden Core Demonstrator lokal öffnen ↗</a></p>
+  <details>
+    <summary>Core-Quelle und Startbefehl</summary>
+    <p>Im NEXAH-Core-Verzeichnis ausführen:</p>
+    <p><code>python PROTO_CORE/NEXAH_DEMONSTRATOR/scripts/run_demo.py --black-egg</code></p>
+    <p>Der Demonstrator schreibt den vollständigen Lauf nach <code>APPLICATIONS/outputs/lorenz_density/lorenz_density_record.npz</code>.</p>
+  </details>
+  <p><a href="A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html#black-egg-method-example">Paper E · Vergleich mit 397/419 ↗</a> · <a href="../32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#black-egg-method-example">Findings-Workspace · Einordnung ↗</a></p>
+</section>
 <div class="core-book-sources"><strong>Quellen, Kontrollen und Rückwege</strong><ul>
 <li><a href="../../../../../10%20NEXAH%20CORE/NEXAH/RESEARCH/MATHEMATICS_MAP.md">Core Mathematics Map</a> · <a href="../../../../../10%20NEXAH%20CORE/NEXAH/RESEARCH/CORE_CONCEPTS/JANUS_OPERATOR/README.md">JANUS · explorativer Forschungsstrang</a></li>
 <li><a href="../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/UNIFIED_TRANSITION_GEOMETRY_2026-10-06/UTG_FORMAL_01_LORENZ_CROSSING_CONTROL_2026-10-06/00_PREREGISTRATION.md">UTG-FORMAL-01 · Präregistrierung</a> · <a href="../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/UNIFIED_TRANSITION_GEOMETRY_2026-10-06/UTG_FORMAL_01_LORENZ_CROSSING_CONTROL_2026-10-06/01_RESULT_REPORT.md">Ergebnisbericht</a> · <a href="../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/UNIFIED_TRANSITION_GEOMETRY_2026-10-06/UTG_FORMAL_01_LORENZ_CROSSING_CONTROL_2026-10-06/UTG_FORMAL_01_RESULTS.json">Ergebnis-JSON</a> · <a href="../../../SCIENCE_LAB/NAVIGATION/EVIDENCE/UNIFIED_TRANSITION_GEOMETRY_2026-10-06/UTG_FORMAL_01_LORENZ_CROSSING_CONTROL_2026-10-06/UTG_FORMAL_01_EVENTS.csv">Event-CSV</a></li>
@@ -181,4 +212,11 @@ main{max-width:1200px;margin:auto;padding:50px 5vw 90px}h1{font:700 clamp(3rem,7
 <p><a href="A0_ASSET_INDEX.html">Vollständiger A0 Asset Index →</a> · <a href="A0_FAMILY_CONNECTION_ATLAS.html">Family Connection Atlas →</a> · <a href="A0_BUILDER_TOY_STORE.html">Builder Toy Store →</a></p></section>
 <footer><p class="note">Interne Navigation. Keine neue Study, kein neues Ergebnis und keine Publikationsfreigabe. Historische Demonstratoren, aktuelle A0-Instrumente und wissenschaftliche Records behalten getrennte Quellen und Grenzen.</p><a href="A0_RESEARCH_DESK.html#tours">← Zurück zum A0 Science Desk</a></footer></main>
 <script src="a0-core-research-book.js"></script>
+<script>
+  if (location.protocol === 'file:' || ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname)) {
+    const localRun = document.getElementById('blackEggLocalRun');
+    localRun.href = 'http://127.0.0.1:8918/1';
+    localRun.hidden = false;
+  }
+</script>
 <script src="a0-context-navigation.js?rev=flagship-constellation-r1-20261030"></script></body></html>
