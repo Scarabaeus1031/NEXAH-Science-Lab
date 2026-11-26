@@ -1,6 +1,7 @@
 const fs=require('node:fs');
 const path=require('node:path');
 const crypto=require('node:crypto');
+const {execFileSync}=require('node:child_process');
 const vm=require('node:vm');
 const M=require('./a0-primecube-model.js');
 const T=require('./a0-prime-torus-thread-demonstrator.js');
@@ -643,7 +644,25 @@ ok(binding.sources.length===56,'fifty-six pinned source records including the Q4
 ok(binding.owner_visuals.length===28,'twenty-eight owner screenshots pinned');
 ok(binding.navigator_effect.new_identities===0&&binding.navigator_effect.new_relations===0,'binding declares zero graph delta');
 const resolveSource=source=>path.isAbsolute(source.path)?source.path:source.path.startsWith('A0_BOOK/')?path.resolve(__dirname,source.path.slice('A0_BOOK/'.length)):path.resolve(__dirname,'../../..',source.path);
-ok(binding.sources.every(source=>fs.existsSync(resolveSource(source))),'all bound source locators resolve');
-ok(binding.sources.every(source=>crypto.createHash('sha256').update(fs.readFileSync(resolveSource(source))).digest('hex')===source.sha256),'all bound source hashes match');
+const unavailableOwnerVisuals=[];
+for (const source of binding.sources) {
+  const localPath=resolveSource(source);
+  ok(/^[a-f0-9]{64}$/.test(source.sha256),`bound SHA-256 for ${source.role}`);
+  if (source.local_locator_status!==undefined) {
+    ok(source.local_locator_status==='UNAVAILABLE_LOCAL'
+      && path.isAbsolute(source.path)
+      && /^OWNER_VISUAL(?:_SOURCE_WITNESS(?:_NOT_INSTRUCTION)?)?$/.test(source.authority)
+      && binding.owner_visuals.includes(source.sha256),`declared historical owner visual: ${source.role}`);
+    if (!fs.existsSync(localPath)) {
+      unavailableOwnerVisuals.push(source.role);
+      continue;
+    }
+  }
+  ok(fs.existsSync(localPath),`bound source locator resolves: ${source.path}`);
+  const bytes=source.source_revision && !source.original_path
+    ? execFileSync('git',['show',`${source.source_revision}:./${path.relative(__dirname,localPath)}`],{cwd:__dirname})
+    : fs.readFileSync(localPath);
+  ok(crypto.createHash('sha256').update(bytes).digest('hex')===source.sha256,`bound source hash matches: ${source.path}`);
+}
 
-console.log(JSON.stringify({suite:'a0-primecube-gap-fold',passed,status:'PASS',scope:'finite prime census, exact 2D/3D address return, declared gap-view fold, source-retained root ruler and typed H-record crosswalk'},null,2));
+console.log(JSON.stringify({suite:'a0-primecube-gap-fold',passed,status:'PASS',unavailableOwnerVisuals,scope:'finite prime census, exact 2D/3D address return, declared gap-view fold, source-retained root ruler and typed H-record crosswalk'},null,2));

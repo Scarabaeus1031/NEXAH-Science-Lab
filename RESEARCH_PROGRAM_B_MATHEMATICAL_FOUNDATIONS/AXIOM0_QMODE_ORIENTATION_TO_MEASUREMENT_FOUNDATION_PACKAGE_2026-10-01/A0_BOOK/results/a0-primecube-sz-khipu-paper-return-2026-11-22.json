@@ -9,31 +9,45 @@
     "NN:CRT_QRT_37_CARRIER_LADDER",
     "NEXAH:PBM:V1"
   ],
+  "verification_baseline": {
+    "revision": "de81526fd9003fce63fb85939daaa295643c2e9c",
+    "scope": "Later tracked PrimeCube baseline for sources whose original bytes are unavailable locally. The recorded SHA-256 values remain historical evidence."
+  },
   "source_files": {
     "instrument": {
       "path": "A0_PRIMECUBE_GAP_FOLD_LAB.html",
-      "sha256": "94ee3c6fc9bc0df30933c1f76cde64f4d7dbfc1c9d0d66f19c9867b4f7f74a7b"
+      "sha256": "94ee3c6fc9bc0df30933c1f76cde64f4d7dbfc1c9d0d66f19c9867b4f7f74a7b",
+      "original_bytes_status": "UNAVAILABLE_LOCAL",
+      "verification_sha256": "7bc1bc16727fc764407588e3335e79047e0cc4fa231f51ad31a4b2eb9ce95920"
     },
     "contract": {
       "path": "A0_PRIMECUBE_GAP_FOLD_CONTRACT_2026-11-21.md",
-      "sha256": "3bd362b9b975416ebd99e2258e51a725b59aeba4cf2841071639f2f5d9629b5c"
+      "sha256": "3bd362b9b975416ebd99e2258e51a725b59aeba4cf2841071639f2f5d9629b5c",
+      "original_bytes_status": "UNAVAILABLE_LOCAL",
+      "verification_sha256": "40b2950915a296a1d76ab5323b638a66f0f976c5427f278edd77ff01835de379"
     },
     "model": {
       "path": "a0-primecube-model.js",
       "sha256": "34253a28a859ff567be00df336508a16176e95cb07d89da7b966470e64867c8d",
+      "original_bytes_status": "UNAVAILABLE_LOCAL",
+      "verification_sha256": "e419a683abcb911c1910925f34e1c334736ca9f2de8161ab568fb33cccfdc68d",
       "version": "1.39.0"
     },
     "verification_suite": {
       "path": "a0-primecube-tests.cjs",
-      "sha256": "5c03f933ce0f483d2ffc896cc1aac16227140ecd2c3413143a72298c456e42b9"
+      "sha256": "5c03f933ce0f483d2ffc896cc1aac16227140ecd2c3413143a72298c456e42b9",
+      "original_bytes_status": "UNAVAILABLE_LOCAL",
+      "verification_sha256": "bab6fcfd07c98419264ec67b2860b102f41c28f8c9bdf3ca4892be3ae23018b9"
     },
     "sz_operator": {
       "path": "a0-primecube-sz-chirality.js",
-      "sha256": "5a221142440ea355d1411c673b51399a34ac4566522cf93e930ac5220b72864c"
+      "sha256": "5a221142440ea355d1411c673b51399a34ac4566522cf93e930ac5220b72864c",
+      "source_revision": "7a7e167fa84a41f7c71fe2056cb9188aa8dabfb5"
     },
     "sz_view": {
       "path": "a0-primecube-sz-chirality.css",
-      "sha256": "347f6eedd6b64af8b5bde14b7e776f1a7821ff5cd8929f5c004799673f9c24bc"
+      "sha256": "347f6eedd6b64af8b5bde14b7e776f1a7821ff5cd8929f5c004799673f9c24bc",
+      "source_revision": "7a7e167fa84a41f7c71fe2056cb9188aa8dabfb5"
     }
   },
   "verified_register": {

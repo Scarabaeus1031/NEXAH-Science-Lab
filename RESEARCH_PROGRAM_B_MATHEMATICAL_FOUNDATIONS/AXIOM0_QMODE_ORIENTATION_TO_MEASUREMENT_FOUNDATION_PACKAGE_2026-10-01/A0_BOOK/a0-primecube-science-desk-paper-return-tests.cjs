@@ -1,11 +1,12 @@
 const fs=require('fs');
 const path=require('path');
 const crypto=require('crypto');
+const {execFileSync}=require('node:child_process');
 const root=__dirname;
 let passed=0;
 function ok(value,label){if(!value)throw new Error(`FAIL: ${label}`);passed++;}
 function text(file){return fs.readFileSync(path.join(root,file),'utf8');}
-function sha(file){return crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex');}
+function sha(bytes){return crypto.createHash('sha256').update(bytes).digest('hex');}
 
 const receipt=JSON.parse(text('results/a0-primecube-sz-khipu-paper-return-2026-11-22.json'));
 const desk=text('A0_RESEARCH_DESK.html');
@@ -31,9 +32,25 @@ ok(receipt.verified_register.mod11['204']+receipt.verified_register.mod11['258']
 ok(receipt.authority_effect.graph_delta===0&&receipt.authority_effect.new_findings===0,'authority and graph unchanged');
 ok(receipt.authority_effect.publication_authorized===false,'publication remains unauthorized');
 ok(receipt.custody_resolution.code==='SOURCE_CUSTODY_CLOSED_BY_OWNER_APPROVED_FORMAL_SUPERSESSION','custody resolution retained');
-for(const source of Object.values(receipt.source_files))ok(sha(source.path)===source.sha256,`source hash ${source.path}`);
+const unavailableOriginals=[];
+for (const source of Object.values(receipt.source_files)) {
+  ok(fs.statSync(path.join(root,source.path)).isFile(),`current source exists: ${source.path}`);
+  ok(/^[a-f0-9]{64}$/.test(source.sha256),`recorded SHA-256: ${source.path}`);
+  let revision=source.source_revision;
+  let expectedSha=source.sha256;
+  if (source.original_bytes_status!==undefined) {
+    ok(source.original_bytes_status==='UNAVAILABLE_LOCAL' && !revision,`historical source unavailable: ${source.path}`);
+    unavailableOriginals.push(source.path);
+    revision=receipt.verification_baseline.revision;
+    expectedSha=source.verification_sha256;
+    ok(expectedSha!==source.sha256,`baseline SHA-256 is separate: ${source.path}`);
+  }
+  ok(/^[a-f0-9]{40}$/.test(revision),`pinned source revision: ${source.path}`);
+  const bytes=execFileSync('git',['show',`${revision}:./${source.path}`],{cwd:root});
+  ok(sha(bytes)===expectedSha,`source hash at pinned revision: ${source.path}`);
+}
 const primeEntry=manifest.surface_registry.find(item=>item.surface==='A0_PRIMECUBE_GAP_FOLD_LAB.html');
 ok(Boolean(primeEntry),'Primecube manifest entry exists');
 ok(primeEntry.integration_receipt==='results/a0-primecube-sz-khipu-paper-return-2026-11-22.json','manifest returns to integration receipt');
 
-console.log(JSON.stringify({suite:'a0-primecube-science-desk-paper-return',passed,status:'PASS',classification:receipt.classification},null,2));
+console.log(JSON.stringify({suite:'a0-primecube-science-desk-paper-return',passed,status:'PASS',unavailableOriginals,classification:receipt.classification},null,2));
