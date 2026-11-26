@@ -3,7 +3,12 @@
   function boot(root){
     const M=window.A0PrimecubeModel,stage=root.querySelector('[data-pc-rs-stage]'),detail=root.querySelector('[data-pc-rs-detail]'),stepButton=root.querySelector('[data-pc-rs-step]');
     if(!M||!stage||!detail)return;
+    const turingView='TURING';
+    const turingAnchor='#return-seam-4774-turing';
+    const source=document.querySelector('[data-turing-record]');
     let view='WHOLE_W',step=0;
+    let turingWord,turingSwaps=0;
+    let wobble=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const polar=(cx,cy,r,a)=>[cx+r*Math.cos(a),cy+r*Math.sin(a)];
     function sectorPath(cx,cy,r,a0,a1){const p0=polar(cx,cy,r,a0),p1=polar(cx,cy,r,a1);return `M${cx},${cy}L${p0[0]},${p0[1]}A${r},${r} 0 0 1 ${p1[0]},${p1[1]}Z`}
     function arrowDefs(){return '<defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#57ddf7"/></marker><filter id="soft"><feGaussianBlur stdDeviation="2.2"/></filter></defs>'}
@@ -14,14 +19,84 @@
     function swapSvg(pair,accent,title){
       return `<svg viewBox="0 0 660 510" role="img" aria-label="${title}">${arrowDefs()}<rect x="66" y="112" width="206" height="210" rx="28" fill="#101c2b" stroke="${accent}" stroke-width="2"/><rect x="388" y="112" width="206" height="210" rx="28" fill="#101c2b" stroke="${accent}" stroke-width="2"/><text x="169" y="205" text-anchor="middle" fill="#e8f0ff" font-size="42" font-weight="900">${pair.source.word}</text><text x="491" y="205" text-anchor="middle" fill="#e8f0ff" font-size="42" font-weight="900">${pair.target.word}</text><text x="169" y="249" text-anchor="middle" fill="#8295ad" font-size="16">${pair.source.factorization}</text><text x="491" y="249" text-anchor="middle" fill="#8295ad" font-size="16">${pair.target.factorization}</text><path d="M286 190H374" stroke="${accent}" stroke-width="4" marker-end="url(#a)"/><path d="M374 250H286" stroke="${accent}" stroke-width="4" marker-end="url(#a)"/><text x="330" y="155" text-anchor="middle" fill="${accent}" font-size="24" font-weight="900">S₂</text><text x="330" y="370" text-anchor="middle" fill="#ffd153" font-size="20" font-weight="800">${pair.law}</text><text x="330" y="410" text-anchor="middle" fill="#8295ad" font-size="15">${title}</text></svg>`;
     }
+    function zebraSectors(slice){
+      return Array.from({length:12},(_,i)=>{const hidden=slice&&![0,1,5,6,7,11].includes(i),a0=-Math.PI/2+i*Math.PI/6,a1=a0+Math.PI/6;return `<path d="${sectorPath(330,255,205,a0,a1)}" fill="${i%2?'#05070b':'#d7d9dd'}" opacity="${hidden?.08:1}" stroke="#334055" stroke-width="1"/>`}).join('');
+    }
     function carrierSvg(record,slice){
-      const sectors=Array.from({length:12},(_,i)=>{const hidden=slice&&![0,1,5,6,7,11].includes(i),a0=-Math.PI/2+i*Math.PI/6,a1=a0+Math.PI/6;return `<path d="${sectorPath(330,255,205,a0,a1)}" fill="${i%2?'#05070b':'#d7d9dd'}" opacity="${hidden?.08:1}" stroke="#334055" stroke-width="1"/>`}).join('');
+      const sectors=zebraSectors(slice);
       const x=view==='PUNCTUATION_X'?'<path d="M230 155L430 355M430 155L230 355" stroke="#ffd153" stroke-width="5"/>':'';
       const ncs=view==='NCS_292'?'<path d="M410 105L278 105" stroke="#57ddf7" stroke-width="4" marker-end="url(#a)"/><text x="345" y="88" text-anchor="middle" fill="#57ddf7">293 → 292 · −1</text>':'';
       return `<svg viewBox="0 0 660 510" role="img">${arrowDefs()}<g transform="rotate(${record.returnGate.turnDegrees} 330 255)">${sectors}<path d="M105 255H555" stroke="#020308" stroke-width="16"/><path d="M105 255H555" stroke="#ffd153" stroke-width="2" opacity=".65"/><circle cx="330" cy="255" r="16" fill="#57ddf7" stroke="#fff" stroke-width="3"/><text x="330" y="262" text-anchor="middle" fill="#04121a" font-size="22" font-weight="900">·</text>${x}<text x="330" y="472" text-anchor="middle" fill="#ffd153" font-family="ui-monospace" font-size="18">${record.returnGate.word} · ${record.returnGate.turnDegrees}°</text></g>${ncs}</svg>`;
     }
+    function renderTuring(pair){
+      turingWord ??= pair.source.word;
+      stage.innerHTML=`<svg viewBox="0 0 660 510" role="img" aria-label="Zwölf Zebra-Sektoren um einen festen Mittelpunkt mit goldener horizontaler Spiegelachse">
+        <g class="pc-rs-turing-stripes" data-rs-turing-stripes>${zebraSectors(false)}</g>
+        <path d="M105 255H555" stroke="#050b13" stroke-width="14"/>
+        <path d="M105 255H555" stroke="#ffd153" stroke-width="3" data-rs-turing-axis/>
+        <circle cx="330" cy="255" r="14" fill="#57ddf7" stroke="#fff" stroke-width="3"/>
+        <circle cx="330" cy="255" r="3" fill="#04121a"/>
+        <text x="96" y="295" text-anchor="middle" fill="#ffd153" font-size="22" data-rs-turing-left></text>
+        <text x="564" y="295" text-anchor="middle" fill="#ffd153" font-size="22" data-rs-turing-right></text>
+        <text x="330" y="489" text-anchor="middle" fill="#ffd153" font-size="18">Feste Spiegelachse</text>
+      </svg>`;
+      detail.innerHTML=`<h3>Turing · ZETAFAST</h3>
+        <dl>
+          <dt>Blockfolge</dt><dd><code data-rs-turing-word></code></dd>
+          <dt>Rücklauf</dt><dd data-rs-turing-status aria-live="polite"></dd>
+        </dl>
+        <div class="pc-rs-turing-controls" role="group" aria-label="Zebra-Wobble und Blocktausch">
+          <button type="button" data-rs-turing-wobble aria-pressed="false">Wobble</button>
+          <button type="button" data-rs-turing-swap>Blöcke tauschen</button>
+        </div>
+        <div class="pc-rs-card pc-rs-turing-source">
+          <strong>Fester ZETAFAST-Datensatz</strong>
+          <code data-rs-turing-record></code>
+          <code data-rs-turing-values></code>
+          <a href="#primecube-tour-turing">↑ Zur Decodierung in der Tour</a>
+        </div>
+        <p>Der Wobble bewegt die Streifen um den Mittelpunkt. Der Blocktausch wirkt auf die 4774-Naht. Turings Daten dienen als feste Referenz für den Vergleich.</p>`;
+
+      const stripes=stage.querySelector('[data-rs-turing-stripes]');
+      const wobbleButton=detail.querySelector('[data-rs-turing-wobble]');
+      const word=detail.querySelector('[data-rs-turing-word]');
+      const status=detail.querySelector('[data-rs-turing-status]');
+      function updateWobble(){
+        stripes.classList.toggle('is-wobbling',wobble);
+        wobbleButton.setAttribute('aria-pressed',String(wobble));
+      }
+      function updateSwap(){
+        const [left,right]=turingWord.split('|');
+        word.textContent=turingWord;
+        stage.querySelector('[data-rs-turing-left]').textContent=left;
+        stage.querySelector('[data-rs-turing-right]').textContent=right;
+        const returned=turingWord===pair.source.word;
+        status.textContent=turingSwaps===0 ? 'Ausgangsfolge'
+          : returned ? 'Exakter Rücklauf · S₂² = id' : 'Getauscht · Rücklauf offen';
+      }
+      wobbleButton.addEventListener('click',()=>{wobble=!wobble;updateWobble()});
+      detail.querySelector('[data-rs-turing-swap]').addEventListener('click',()=>{
+        const [left,right]=turingWord.split('|');
+        turingWord=`${right}|${left}`;
+        turingSwaps++;
+        updateSwap();
+      });
+      detail.querySelector('[data-rs-turing-record]').textContent=source.textContent.trim();
+      detail.querySelector('[data-rs-turing-values]').textContent=['t','z']
+        .map(field=>document.querySelector(`[data-turing-${field}]`).textContent)
+        .join(' · ');
+      updateWobble();
+      updateSwap();
+    }
     function render(){
-      const record=M.returnSeam4774Record(step,view),slice=view==='MEMORY_M';
+      const isTuring=view===turingView;
+      const record=M.returnSeam4774Record(step,isTuring?'WHOLE_W':view),slice=view==='MEMORY_M';
+      stepButton.hidden=isTuring;
+      root.querySelectorAll('[data-pc-rs-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.pcRsView===view)));
+      if(isTuring){
+        renderTuring(record.blockSwap);
+        return;
+      }
       stage.innerHTML=view==='MOIRE_OVERLAY'?moireSvg(record):view==='BLOCK_SWAP_S2'?swapSvg(record.blockSwap,'#57ddf7','EXACT 2+2 BLOCK SWAP · NOT REV₄'):view==='MIRROR_9119'?swapSvg(record.mirror9119,'#f064c7','SEPARATE COMPARATOR · NOT FESN:4774'):carrierSvg(record,slice);
       let body,title,card;
       if(view==='NCS_292'){
@@ -37,10 +112,21 @@
       }
       detail.innerHTML=`<div class="pc-eyebrow">Typed view · no identity merge</div><h3>${title}</h3><dl>${body}</dl><div class="pc-rs-card">${card}</div>`;
       stepButton.textContent=`NEXT · ${record.returnGate.step}/4`;
-      root.querySelectorAll('[data-pc-rs-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.pcRsView===view)));
     }
     root.querySelectorAll('[data-pc-rs-view]').forEach(button=>button.addEventListener('click',()=>{view=button.dataset.pcRsView;render()}));
-    stepButton.addEventListener('click',()=>{step=(step+1)%4;render()});render();
+    stepButton.addEventListener('click',()=>{step=(step+1)%4;render()});
+    function selectTuringAnchor(){
+      if(window.location.hash===turingAnchor && view!==turingView){
+        view=turingView;
+        render();
+      }
+    }
+    window.addEventListener('hashchange',selectTuringAnchor);
+    document.querySelectorAll(`a[href="${turingAnchor}"]`).forEach(link=>link.addEventListener('click',()=>{
+      if(view!==turingView){view=turingView;render()}
+    }));
+    if(window.location.hash===turingAnchor)view=turingView;
+    render();
   }
   document.querySelectorAll('[data-pc-return-seam]').forEach(boot);
 })();
