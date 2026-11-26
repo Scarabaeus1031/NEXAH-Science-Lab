@@ -65,6 +65,21 @@ bleibt eine Richtungs- und Winkelreferenz. Die
 [goldene Naht](DRAFTS/A0_FIELD_NOTE_III_TIME_AFTER_TIME_2026-11-16.html#stardust-double-cut-bridge)
 gehört zur Gegenüberstellung zweier Ansichten.
 
+### CK, Halbturn und Wurzel
+
+- **[CK](A0_MATHEMATICAL_JOINTS.html#ck-horizon-lambda-beta-glyph-view)** ist
+  eine Glyphe. C ist die Apertur. K hält einen gemeinsamen Stamm für die
+  obere Λ- und die untere β-Ansicht. Die Cedille markiert den Rücklaufhaken.
+- **`k² = −1`** ist eine Analogie zum
+  [U-Turn der Helix](A0_HELIX_VIEW_ADAPTER.html#helix-strand-directions).
+  Zwei gleichgerichtete Halbturns um die k-Achse bringen die räumliche
+  Lage zurück, während das Quaternionenprodukt `−1` ist. Der Helix-U-Turn
+  kehrt die Laufrichtung an der aktuellen Position um.
+- **`√i = (1+i)/√2`** halbiert als Hauptwurzel den Winkel von 90° auf 45°.
+  Der Betrag bleibt 1. [Root Shrinking](A0_ROOT_SHRINKING_1729_CONTRACT_2026-11-21.md)
+  beschreibt den abnehmenden Abstand benachbarter reeller Wurzeln
+  `√(n+1) − √n`.
+
 ## Cube-role register
 
 | Name in the corpus | Current role | Identity disposition |
