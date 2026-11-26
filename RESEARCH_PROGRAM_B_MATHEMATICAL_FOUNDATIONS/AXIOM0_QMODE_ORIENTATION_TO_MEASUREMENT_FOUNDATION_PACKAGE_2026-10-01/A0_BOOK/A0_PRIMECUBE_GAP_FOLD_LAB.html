@@ -709,17 +709,20 @@
           <div class="pc-scarab-buttons" role="group" aria-label="Prism-Core-Ansichten">
             <button type="button" data-prism-preset="18,12">Schrägansicht</button>
             <button type="button" data-prism-preset="0,0">Spiegelansicht</button>
+            <button type="button" data-prism-preset="0,44" data-prism-show-pentagon>0° / 44°</button>
           </div>
           <output data-prism-readout>Azimut 18° · Neigung 12°</output>
+          <label><input data-prism-pentagon-toggle type="checkbox" style="width:auto" checked> 5+5+1-Overlay</label>
         </div>
         <div class="pc-prism-layout">
-          <svg data-prism-svg viewBox="0 0 640 384" role="img" aria-label="Drehbares Dodekaeder mit fünf Khipu-Punkten, zwei farbigen Spiegelpaaren und pinker Spiegelebene"></svg>
+          <svg data-prism-svg viewBox="0 0 640 384" role="img" aria-label="Drehbares Dodekaeder mit fünf Khipu-Punkten, zwei farbigen Spiegelpaaren und pinker Spiegelebene" aria-describedby="prismPentagonLegend"></svg>
           <dl class="pc-scarab-khipu-values pc-prism-values">
             <div><dt>Knoten 1 · auf der Spiegelebene</dt><dd data-prism-slot="1">Kante F04 ∩ F10</dd></div>
             <div><dt>2 ↔ 5 · äußeres Paar</dt><dd><span data-prism-slot="2">Fläche F10</span> ↔ <span data-prism-slot="5">Fläche F04</span> · exakt gespiegelt</dd></div>
             <div><dt>3 ↔ 4 · inneres Paar</dt><dd><span data-prism-slot="3">Fläche F12</span> ↔ <span data-prism-slot="4">Fläche F12</span> · 0,001° Differenz zur exakten Spiegelung</dd></div>
           </dl>
         </div>
+        <p class="pc-scarab-khipu-source" id="prismPentagonLegend">5+5+1 · Goldener Fünfeckzug 1–5–4–3–2–1, je fünf Ticks auf 5 ↔ 2 und 4 ↔ 3, pinke Raute auf der Spiegelachse mittig zwischen beiden Querlinien.</p>
         <p class="pc-scarab-khipu-source">Das Dodekaeder ist die gewählte 3D-Geometrie zur Crown-Grafik. Die Flächen-IDs gelten für dieses Modell. Die 2D-Angabe <code>y ≈ −0,121</code> bleibt die Komponente von Knoten 4 im ursprünglichen Einheitskugel-System.</p>
       </section>
       <small>Interne A0-Vorschau · NEXAH-Science-Lab · codex/five-h-binding · uncommittet · zur Prüfung vorgelegt · rein lokal</small>
@@ -936,7 +939,7 @@
 <script src="a0-primecube-control-plane-coupling.js?rev=20261123-r10"></script>
 <script src="a0-primecube-control-plane-ui.js?rev=20261124-r11"></script>
 <script src="a0-scarab-pillar-projection.js?rev=20261023-pocket-r4"></script>
-<script src="a0-primecube-prism-core.js?rev=20261126-r1"></script>
+<script src="a0-primecube-prism-core.js?rev=20261126-pentagon"></script>
 <script src="a0-primecube-scarab-control.js?rev=20261122-r2"></script>
 <script src="a0-primecube-fractal-field.js?rev=20261126-root-mask-cells"></script>
 <script src="a0-primecube-rotor-demonstrator.js?rev=20261123-r1"></script>
