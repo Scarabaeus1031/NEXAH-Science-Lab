@@ -107,6 +107,11 @@
   const base = find("base");
   const crossing = find("crossing");
   const unit = find("unit");
+  const exampleYear = "2023";
+  const examplePhase = 137;
+  const examplePairs = {3:[5280,5301], 0:[5987,6010], 7:[5280,5301]};
+  const pairButtons = [...panel.querySelectorAll("[data-iota-example-pair]")];
+  const eventButtons = [...panel.querySelectorAll("[data-iota-example-event]")];
   const exact = new Intl.NumberFormat("de-DE", {maximumFractionDigits:7});
   const signed = new Intl.NumberFormat("de-DE", {maximumFractionDigits:3, signDisplay:"exceptZero"});
   const time = new Intl.DateTimeFormat("de-DE", {
@@ -139,9 +144,37 @@
     }));
   }
 
+  function exampleIsActive() {
+    return year.value === exampleYear && phaseValue() === examplePhase;
+  }
+
+  function selectExampleEvent(hour) {
+    crossing.value = String(selected().crossings.findIndex(([referenceHour]) => referenceHour === hour));
+  }
+
+  function renderExample(hour) {
+    const active = exampleIsActive();
+    const matching = active ? examplePairs[base.value] : undefined;
+    find("example").setAttribute("aria-pressed", String(active));
+    find("example-slog").hidden = !active;
+    find("example-events").hidden = !matching;
+    if (!active) return;
+    for (const button of pairButtons) {
+      button.setAttribute("aria-pressed", String(button.dataset.iotaExamplePair === base.value));
+    }
+    if (!matching) return;
+    eventButtons.forEach((button, index) => {
+      const referenceHour = matching[index];
+      const [, direction] = selected().crossings.find(([h]) => h === referenceHour);
+      button.textContent = `${arrow(direction)} · ${crossingTime(referenceHour)}`;
+      button.setAttribute("aria-pressed", String(referenceHour === hour));
+    });
+  }
+
   function renderDetail() {
     const index = Number(crossing.value);
     const [hour, direction] = selected().crossings[index];
+    renderExample(hour);
     find("event").textContent = `${arrow(direction)} · ${crossingTime(hour)} · Referenzstunde ${hour}`;
     setRows(find("slog"), model().inspect(phaseValue(),Number(base.value),index).map(({lag,start,brackets}) => ({
       primary:lag === 24,
@@ -188,15 +221,15 @@
     find("gap-bar").style.setProperty("--iota-width", `${gap * 100}%`);
   }
 
-  function changeYear() {
+  function changeYear(examplePair) {
     const current = selected();
     if (!models.has(year.value)) models.set(year.value, createComparison(current.crossings,primes));
     crossing.replaceChildren(...current.crossings.map(([hour,direction],i) =>
       new Option(`${arrow(direction)} · ${crossingTime(hour)}`,i)
     ));
-    if (year.value === "2023") {
-      base.value = "7";
-      crossing.value = String(current.crossings.findIndex(([hour]) => hour === 5280));
+    if (year.value === exampleYear) {
+      base.value = examplePair ?? "7";
+      selectExampleEvent(examplePairs[base.value][0]);
     } else {
       base.value = "0";
     }
@@ -205,7 +238,27 @@
   }
 
   base.replaceChildren(...Array.from({length:pairs},(_,i) => new Option("",i)));
-  year.addEventListener("change",changeYear);
+  year.addEventListener("change",() => changeYear());
+  find("example").addEventListener("click",() => {
+    year.value = exampleYear;
+    phase.value = String(examplePhase);
+    find("details").open = true;
+    changeYear("3");
+    pairButtons[0].focus();
+  });
+  for (const button of pairButtons) {
+    button.addEventListener("click",() => {
+      base.value = button.dataset.iotaExamplePair;
+      selectExampleEvent(examplePairs[base.value][0]);
+      renderDetail();
+    });
+  }
+  eventButtons.forEach((button,index) => {
+    button.addEventListener("click",() => {
+      selectExampleEvent(examplePairs[base.value][index]);
+      renderDetail();
+    });
+  });
   phase.addEventListener("input",renderPhase);
   base.addEventListener("change",renderDetail);
   crossing.addEventListener("change",renderDetail);

@@ -39,3 +39,8 @@
 .iota-jpl-bars span:first-child { --iota-bar-color: #75d7dd; }
 .iota-jpl-bars span:last-child { --iota-bar-color: #f5be76; }
 .iota-jpl-links { display: flex; flex-wrap: wrap; gap: .4rem 1rem; }
+
+.iota-jpl-example:not([hidden]) { margin-top: .7rem; display: grid; gap: .55rem; }
+.iota-jpl [data-iota-example-events][hidden] { display: none; }
+.iota-jpl [data-iota-example] { border-color: #75d7dd; }
+.iota-jpl button[aria-pressed=true] { background: #254653; border-color: #75d7dd; }

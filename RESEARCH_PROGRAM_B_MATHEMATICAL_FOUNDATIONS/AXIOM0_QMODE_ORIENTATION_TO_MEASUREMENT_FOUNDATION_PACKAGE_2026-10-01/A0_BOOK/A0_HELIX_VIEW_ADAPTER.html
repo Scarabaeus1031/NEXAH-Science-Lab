@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="a0-context-navigation.css">
   <link rel="stylesheet" href="a0-helix-view-adapter.css?rev=shared-angle-sequence">
   <link rel="stylesheet" href="a0-kuramoto-compare.css?rev=phasenwerkstatt">
-  <link rel="stylesheet" href="a0-helix-iota-jpl.css">
+  <link rel="stylesheet" href="a0-helix-iota-jpl.css?rev=phase137">
   <style>
     #helix-jupiter-phases { scroll-margin-top:2rem; padding:clamp(.8rem,2vw,1.3rem); margin:1rem 0 1.6rem; border:1px solid #345369; background:#0c1c29; border-radius:.55rem; }
     #helix-jupiter-phases h4 { font-size:1.35rem; margin:0 0 .4rem; }
@@ -631,6 +631,7 @@
       <div class="iota-jpl-controls">
         <label>Vergleichsjahr <select data-iota-year><option value="2023">2023</option><option value="2025">2025</option></select></label>
         <label>Gemeinsame Startphase <input type="range" min="0" max="729" value="0" data-iota-phase> <output data-iota-phase-label>0 h</output></label>
+        <button type="button" data-iota-example aria-controls="iotaJplSlog">Beispiel +137 h · 2023</button>
         <button type="button" data-iota-reset>Phase 0</button>
       </div>
       <p class="iota-jpl-summary" data-iota-summary aria-live="polite"></p>
@@ -641,8 +642,19 @@
         </table>
       </div>
       <p class="iota-jpl-note">Die Treffer sind über zwölf Startpaare summiert. Der Vorsprung ist der mittlere Gewinn gegenüber D im Primzahlraster abzüglich des mittleren Gewinns im gleichmäßigen Raster.</p>
-      <details class="iota-jpl-details">
+      <details class="iota-jpl-details" id="iotaJplSlog" data-iota-details>
         <summary>SLog · einen Wechsel im Detail prüfen</summary>
+        <div class="iota-jpl-example" data-iota-example-slog hidden>
+          <div class="iota-jpl-controls" role="group" aria-label="Startpaare im Beispiel +137 h">
+            <button type="button" data-iota-example-pair="3" aria-pressed="false">Paar 4 · gegen +12 h</button>
+            <button type="button" data-iota-example-pair="0" aria-pressed="false">Paar 1 · gegen +36 h</button>
+            <button type="button" data-iota-example-pair="7" aria-pressed="false">Paar 8 · gegen D</button>
+          </div>
+          <div class="iota-jpl-controls" data-iota-example-events role="group" aria-label="Entscheidende Wechsel des Startpaars" hidden>
+            <button type="button" data-iota-example-event="0" aria-pressed="false"></button>
+            <button type="button" data-iota-example-event="1" aria-pressed="false"></button>
+          </div>
+        </div>
         <div class="iota-jpl-controls">
           <label>Startpaar <select data-iota-base></select></label>
           <label>Referenzwechsel <select data-iota-crossing></select></label>
@@ -681,6 +693,6 @@
 <script defer src="assets/a0-jupiter-horizons-2025.js?rev=annual"></script>
 <script defer src="a0-helix-jupiter-phases.js?rev=crossing-pairs"></script>
 <script defer src="assets/a0-iota-jpl-2023.js"></script>
-<script defer src="a0-helix-iota-jpl.js"></script>
+<script defer src="a0-helix-iota-jpl.js?rev=phase137"></script>
 </body>
 </html>
