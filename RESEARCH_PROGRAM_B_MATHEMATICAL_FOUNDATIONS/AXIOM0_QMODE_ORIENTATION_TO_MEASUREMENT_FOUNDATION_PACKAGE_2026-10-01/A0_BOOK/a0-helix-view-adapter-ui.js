@@ -143,10 +143,11 @@
   const stackToggle=root.querySelector('[data-hv-stack-toggle]');
   const stackLinks=root.querySelector('[data-hv-stack-snapshots]');
   const primeCubeLink=root.querySelector('[data-hv-primecube-return]');
+  const primeCubeRecordLink=root.querySelector('[data-hv-primecube-record]');
   const stackSnapshots=M.buildPrimeResidueGeometry(M.primeResidueRecords()).stack51;
-  function cubeReturnUrl(record){
+  function cubeReturnUrl(record,target='shadow-cube-slice-overlay'){
     const query=new URLSearchParams({helix:record.sourceIds[0]});
-    return 'A0_PRIMECUBE_GAP_FOLD_LAB.html?'+query+'#shadow-cube-slice-overlay';
+    return 'A0_PRIMECUBE_GAP_FOLD_LAB.html?'+query+'#'+target;
   }
   stackSnapshots.forEach(record=>{
     const link=document.createElement('a');
@@ -525,7 +526,12 @@
     renderFibonacciReadout();
     recordEl.textContent=info.recordId;pairEl.textContent=mode==='residue'?String(info.prime):strandMode==='double'?`${info.pair[0]} ↔ ${info.pair[1]}`:`${info.single[0]}`;
     primeCubeLink.hidden=mode!=='residue';
-    if(mode==='residue')primeCubeLink.href=cubeReturnUrl(list[selected]);
+    primeCubeRecordLink.hidden=mode!=='residue';
+    if(mode==='residue'){
+      primeCubeLink.href=cubeReturnUrl(list[selected]);
+      primeCubeRecordLink.href=cubeReturnUrl(list[selected],'primecube-helix-return');
+      primeCubeRecordLink.textContent=`Record ${info.prime} im PrimeCube öffnen ↗`;
+    }
     if(mode==='zeta'){
       const trace=M.traceWordData(traceWord),seam=M.phaseSeamData();
       const mirror=zetaLens==='smooth'?'θ ↔ −θ · conjugate wave':zetaLens==='trace'?`${traceWord} slot ${info.traceSlot}/4 · ${info.traceSymbol} · ${info.kink?'KINK':'run'}`:'−1/12 ≡ 11/12 (mod 1) · lift Δ=1';

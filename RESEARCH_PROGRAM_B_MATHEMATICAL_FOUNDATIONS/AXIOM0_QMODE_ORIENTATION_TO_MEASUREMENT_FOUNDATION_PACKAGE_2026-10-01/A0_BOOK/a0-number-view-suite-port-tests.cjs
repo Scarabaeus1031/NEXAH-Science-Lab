@@ -1,6 +1,7 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
+const vm = require("node:vm");
 const api = require("./a0-number-view-suite-port.js");
 const cube = require("./a0-primecube-model.js");
 const helix = require("./a0-helix-view-adapter.js");
@@ -67,4 +68,35 @@ const primecube = fs.readFileSync(path.join(__dirname, "A0_PRIMECUBE_GAP_FOLD_LA
 ok(primecube.indexOf('id="primecube-workbench"') < primecube.indexOf('id="number-view-suite-port"'), "workbench precedes the motion chapter");
 ok(primecube.indexOf('id="number-view-suite-port"') < primecube.indexOf('id="contract-demo-audit"'), "motion chapter precedes the contract overview");
 ok(primecube.includes("data-nvp-cycle"), "visible phase and cycle counter");
+
+const helixUi = fs.readFileSync(path.join(__dirname, "a0-helix-view-adapter-ui.js"), "utf8");
+const urlBuilder = helixUi.match(/  function cubeReturnUrl\(record[^\n]*\n[\s\S]*?\n  }/)[0];
+const cubeReturnUrl = vm.runInNewContext(`(${urlBuilder.trim()})`, { URLSearchParams });
+const portSource = fs.readFileSync(path.join(__dirname, "a0-number-view-suite-port.js"), "utf8");
+function openReturn(record, target) {
+  const location = new URL(cubeReturnUrl(record, target), "file:///a0/");
+  const sandbox = { URLSearchParams, location, A0PrimecubeModel: cube, A0HelixViewAdapter: helix };
+  vm.runInNewContext(portSource, sandbox);
+  const input = { value: "661", addEventListener() {} };
+  const readout = { textContent: "" };
+  const link = { href: "" };
+  const host = {
+    dataset: { defaultN: "661" },
+    querySelectorAll() { return []; },
+    querySelector(selector) {
+      return {
+        "[data-nvp-number]": input,
+        "[data-nvp-return]": readout,
+        "[data-nvp-helix-link]": link,
+      }[selector];
+    },
+  };
+  sandbox.A0NumberViewSuitePort.mount(host);
+  return [location.hash, Number(input.value), readout.textContent];
+}
+const returnTarget = "primecube-helix-return";
+eq(openReturn(recordsByPrime.get(661), returnTarget), ["#primecube-helix-return", 661, "PC1111:N0661 · [0,5,5]"]);
+eq(openReturn(recordsByPrime.get(419), returnTarget), ["#primecube-helix-return", 419, "PC1111:N0419 · [0,5,3]"]);
+eq(openReturn({ sourceIds: ["PC1111:N1009"] }, returnTarget), ["#primecube-helix-return", 661, "PC1111:N0661 · [0,5,5]"]);
+eq(openReturn(recordsByPrime.get(419)), ["#shadow-cube-slice-overlay", 661, "PC1111:N0661 · [0,5,5]"]);
 console.log(`PASS ${checks}/${checks} · Number View Suite Port`);

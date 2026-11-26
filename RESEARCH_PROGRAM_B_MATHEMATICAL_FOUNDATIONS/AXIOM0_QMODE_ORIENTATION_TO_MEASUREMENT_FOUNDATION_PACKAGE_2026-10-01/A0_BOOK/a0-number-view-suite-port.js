@@ -148,6 +148,11 @@
     const helixRecords = helixLink && cubeModel && helixModel
       ? new Map(helixModel.primeResidueRecords().map(record => [record.prime, record]))
       : null;
+    if (helixRecords && root.location?.hash === "#primecube-helix-return") {
+      const sourceId = new URLSearchParams(root.location.search).get("helix");
+      const linkedRecord = [...helixRecords.values()].find(record => record.sourceIds[0] === sourceId);
+      if (linkedRecord) n = linkedRecord.prime;
+    }
     const stopPlayback = (finished) => {
       if (playTimer) clearInterval(playTimer);
       playTimer = null;
@@ -165,6 +170,7 @@
       const set = (name, value) => { const el = host.querySelector(`[data-nvp-${name}]`); if (el) el.textContent = value; };
       set("identity", state.identity); set("source", state.role.source); set("operator", state.role.operator);
       set("view", state.role.view); set("return", `${state.address.returnId} · ${state.address.address}`); set("boundary", state.role.boundary);
+      set("locked-source", `SOURCE ${state.address.n} · LOCKED`);
       if (helixRecords) {
         const { cubeReturn, helix } = compareHelix(state.address, helixRecords.get(n), cubeModel);
         set("cube-address", `(x, y, z) = ${state.address.address}`);
