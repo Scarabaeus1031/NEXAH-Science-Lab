@@ -18,6 +18,16 @@
   let count = 0;
   let crossings = [];
   let selectedCrossing = null;
+  let selectedPair = null;
+  // The first hourly sample after each of the two crossings.
+  const crossingPairs = [
+    { label:"22. Juli", samples:[4863, 4870] },
+    { label:"12. September", samples:[6112, 6117] }
+  ];
+  const pairButtons = [...panel.querySelectorAll("[data-jupiter-pair]")];
+  const pairDetail = query("[data-jupiter-pair-detail]");
+  const pairCanvas = query("[data-jupiter-pair-strip]");
+  const pairCtx = pairCanvas.getContext("2d");
   let pickedSample = null;
   let pickedSliderValue = null;
   let movingSliderForPick = false;
@@ -103,6 +113,23 @@
   const crossingColor = ({ rising }) => rising ? "#ffd08a" : "#f49ad4";
   const gridMarkY = ({ rising }) => rising ? 12 : grid.height - 12;
   const crossingX = ({ sample, part }) => xAt(sample - 1 + part);
+  const pairX = ({ samples:[a, b] }) => xAt((a + b - 1) / 2);
+  const pairY = top + 13;
+
+  function drawPairMarkers() {
+    if (count !== fullCount) return;
+    stripCtx.font = "bold 12px system-ui";
+    stripCtx.textAlign = "center";
+    crossingPairs.forEach((pair, index) => {
+      const x = pairX(pair);
+      const color = pair === selectedPair ? "#ffd08a" : "#c0dce7";
+      line(stripCtx, x, pairY + 9, x, yAt(180) - 4, color);
+      dot(stripCtx, x, pairY, 9, color);
+      stripCtx.fillStyle = "#071723";
+      stripCtx.fillText(String(index + 1), x, pairY + 4);
+    });
+  }
+
 
   function prepareStrip(values) {
     stripCtx.clearRect(0, 0, strip.width, strip.height);
@@ -215,6 +242,52 @@
     previousSample = -1;
   }
 
+  function pairRail(hours, [first, last]) {
+    const firstAfter = hours.findIndex(hour => hour >= first);
+    const lastAfter = hours.findIndex(hour => hour >= last);
+    return hours.slice(firstAfter - 1, lastAfter + 1);
+  }
+
+  function showPairDetail() {
+    pairDetail.hidden = !selectedPair;
+    pairButtons.forEach((button, index) => {
+      button.setAttribute("aria-pressed", String(crossingPairs[index] === selectedPair));
+    });
+    if (!selectedPair) return;
+
+    const { label, samples } = selectedPair;
+    const prime = pairRail(activeSampling.hours, samples);
+    const uniform = pairRail(uniformHours, samples);
+    const first = Math.min(prime[0], uniform[0]);
+    const last = Math.max(prime.at(-1), uniform.at(-1));
+    const x = hour => 152 + (hour - first) / (last - first) * (pairCanvas.width - 182);
+    pairCtx.clearRect(0, 0, pairCanvas.width, pairCanvas.height);
+    pairCtx.font = "14px system-ui";
+    for (const [name, hours, y, color, markDirections] of [
+      ["Stündliche Wechsel", samples, 23, "#f5efe3", true],
+      ["Primzahl · +168 h", prime, 65, "#8de5ef"],
+      ["Gleichmäßig", uniform, 107, "#f49ad4"]
+    ]) {
+      line(pairCtx, x(first), y, x(last), y, "#345164");
+      pairCtx.textAlign = "left";
+      pairCtx.fillStyle = color;
+      pairCtx.fillText(name, 10, y + 4);
+      pairCtx.textAlign = "center";
+      hours.forEach(hour => {
+        const crossing = markDirections && crossings.find(mark => mark.sample === hour);
+        const markColor = crossing ? crossingColor(crossing) : color;
+        dot(pairCtx, x(hour), y, 4, markColor);
+        pairCtx.fillStyle = markColor;
+        pairCtx.fillText(String(hour), x(hour), y + 19);
+      });
+    }
+    const hits = hours => hours.slice(1).filter((hour, i) =>
+      (laplace[hour] - 180) * (laplace[hours[i]] - 180) < 0).length;
+    const railLabel = hours => hours.join(" · ") + ` (${hits(hours)} von 2 erfasst)`;
+    query("[data-jupiter-pair-readout]").textContent =
+      `${label} · Stunden ${samples.join(" und ")} · Primzahl +168 h: ${railLabel(prime)} · Gleichmäßig: ${railLabel(uniform)}`;
+  }
+
   let previousSample = -1;
   function render() {
     if (pickedSample !== null && slider.value !== pickedSliderValue) clearPick();
@@ -236,6 +309,7 @@
       stripCtx.strokeStyle = "#fff5cf";
       stripCtx.stroke();
     }
+    drawPairMarkers();
     gridCtx.putImageData(gridBackground, 0, 0);
     line(gridCtx, gridX(sample), 3, gridX(sample), grid.height - 4, "#fff");
     if (selectedCrossing) {
@@ -281,6 +355,28 @@
     slider.dispatchEvent(new Event("input", { bubbles:true }));
     movingSliderForPick = false;
     render();
+  }
+
+  function jumpToPair(pair) {
+    if (count !== fullCount) {
+      windowSelector.value = "365";
+      selectWindow();
+    }
+    offsetSelector.value = "168";
+    selectSampling();
+    selectedPair = pair;
+    showPairDetail();
+    selectCrossing(crossings.find(mark => mark.sample === pair.samples[0]));
+  }
+
+  function pairAt(event) {
+    if (count !== fullCount) return null;
+    const bounds = strip.getBoundingClientRect();
+    const y = bounds.top + pairY * bounds.height / strip.height;
+    return crossingPairs.find(pair => {
+      const x = bounds.left + pairX(pair) * bounds.width / strip.width;
+      return Math.hypot(event.clientX - x, event.clientY - y) <= 14;
+    });
   }
 
   function crossingAt(event) {
@@ -331,6 +427,10 @@
     const days = Number(windowSelector.value);
     count = Math.min(fullCount, Math.round(days * 24 / stepHours) + 1);
     samplingPanel.hidden = count !== fullCount;
+    if (count !== fullCount) {
+      selectedPair = null;
+      showPairDetail();
+    }
     const values = laplace.slice(0, count);
     const minimum = Math.min(...values);
     const maximum = Math.max(...values);
@@ -372,11 +472,19 @@
   crossingSelector.addEventListener("change", () => {
     selectCrossing(crossings.find(({ sample }) => sample === Number(crossingSelector.value)));
   });
-  strip.addEventListener("click", event => selectCrossing(crossingAt(event)));
+  pairButtons.forEach((button, index) => {
+    button.addEventListener("click", () => jumpToPair(crossingPairs[index]));
+  });
+  strip.addEventListener("click", event => {
+    const pair = pairAt(event);
+    if (pair) jumpToPair(pair);
+    else selectCrossing(crossingAt(event));
+  });
   strip.addEventListener("pointermove", event => {
+    const pair = pairAt(event);
     const crossing = crossingAt(event);
-    strip.style.cursor = crossing ? "pointer" : "";
-    strip.title = crossing ? crossingLabel(crossing) : "";
+    strip.style.cursor = pair || crossing ? "pointer" : "";
+    strip.title = pair ? pair.label + " · Wechselpaar bei +168 h" : crossing ? crossingLabel(crossing) : "";
   });
   grid.addEventListener("click", event => {
     const target = gridTarget(event);
@@ -389,6 +497,10 @@
   });
   windowSelector.addEventListener("change", selectWindow);
   offsetSelector.addEventListener("change", () => {
+    if (offsetSelector.value !== "168") {
+      selectedPair = null;
+      showPairDetail();
+    }
     selectSampling();
     render();
   });

@@ -17,6 +17,10 @@
     .jupiter-panels canvas { display:block; width:100%; height:auto; }
     .jupiter-panels figcaption { font-size:.82rem; }
     .jupiter-phase-key { display:inline-block; vertical-align:middle; width:5rem; height:.45rem; border-radius:.2rem; background:linear-gradient(to right,red,#ff0,#0f0,#0ff,#00f,#f0f,red); margin:0 .25rem; }
+    .jupiter-pair-jumps { display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 0; }
+    .jupiter-pair-jumps button[aria-pressed="true"] { border-color:#ffd08a; color:#ffd08a; }
+    .jupiter-pair-detail { margin:.65rem 0; }
+    .jupiter-pair-detail canvas { display:block; width:100%; max-width:700px; height:auto; background:#071723; }
     .jupiter-sampling { margin:1rem 0; padding:1rem; border:1px solid #345369; border-radius:.45rem; }
     .jupiter-sampling h5 { font-size:1.08rem; margin:0 0 .5rem; }
     .jupiter-sampling figure { margin:.65rem 0; }
@@ -581,6 +585,14 @@
       <figure><canvas width="500" height="190" role="img" aria-label="Laplace-Winkel im ausgewählten Fenster mit einer Referenzlinie bei 180 Grad" data-jupiter-strip></canvas><figcaption>Laplace-Winkel · Gold ↑ über 180° · Pink ↓ unter 180°</figcaption></figure>
       <figure><canvas width="1600" height="264" role="img" aria-label="Bahnlängen der Monde. Klick wählt die Stunde. Goldene Übergänge am oberen Rand, pinke am unteren Rand." data-jupiter-grid></canvas><figcaption>Grid · Klick wählt die Stunde · Gold oben, Pink unten · 0°<span class="jupiter-phase-key" aria-hidden="true"></span>360°</figcaption></figure>
     </div>
+    <div class="jupiter-pair-jumps kuramoto-controls" role="group" aria-label="Wechselpaare bei +168 Stunden">
+      <button type="button" data-jupiter-pair="0" aria-pressed="false">1 · 22. Juli · +168 h</button>
+      <button type="button" data-jupiter-pair="1" aria-pressed="false">2 · 12. September · +168 h</button>
+    </div>
+    <figure class="jupiter-pair-detail" data-jupiter-pair-detail hidden>
+      <canvas width="600" height="136" role="img" aria-label="Stündliche Wechsel und benachbarte Marken beider Stichproben" data-jupiter-pair-strip></canvas>
+      <figcaption role="status" data-jupiter-pair-readout></figcaption>
+    </figure>
     <p role="status" data-jupiter-crossing-status></p>
     <p data-jupiter-longitudes></p>
     <p><strong>Dieses Fenster:</strong> <span data-jupiter-range></span> über <span data-jupiter-count></span> Stundenwerte. <span data-jupiter-crossings></span></p>
@@ -624,6 +636,6 @@
 <script src="a0-helix-wheel-decks.js?v=20261126-jila-curve-return" defer></script>
 <script defer src="a0-science-kuramoto.js?rev=phasenwerkstatt"></script>
 <script defer src="assets/a0-jupiter-horizons-2025.js?rev=annual"></script>
-<script defer src="a0-helix-jupiter-phases.js?rev=prime-offsets"></script>
+<script defer src="a0-helix-jupiter-phases.js?rev=crossing-pairs"></script>
 </body>
 </html>
