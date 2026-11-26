@@ -48,6 +48,23 @@ integer cube-root stations inside `1…1111`. The Trident is retained only as a
 three-axis source guide with 120° spacing. No Zeta-zero, quaternion, harmonic
 time or physical resonance relation is introduced.
 
+### Die +1 bei Keystone und in den Repunit-Rastern
+
+- **Keystone 2501.** In der [zentrierten Plattenansicht](a0-primecube-model.js)
+  zählt die `+1` das gesonderte Zentrum. Vier Platten mit je `25²`
+  ergeben zusammen mit dem Zentrum `4 × 25² + 1 = 2501`.
+- **`111²` und `1111²`.** Im [Repunit-Audit](a0-repunit-scale-fracture-audit.js)
+  bildet die 180°-Drehung `(x,y) ↦ (n−1−x,n−1−y)` alle Positionen
+  paarweise aufeinander ab. Ihr einziger Fixpunkt liegt bei nullbasierter
+  Zählung auf `(55,55)` beziehungsweise `(555,555)`.
+
+Beide Konstruktionen zeichnen ein einzelnes Zentrum aus. Bei Keystone
+folgt es aus der Plattenzählung, im Repunit-Audit aus der Drehung.
+[Groma](../../../SCIENCE_LAB/CASE_STUDIES/E8_DEMOS_INTERACTIVE_ORIENTATION_2026-09-21/COXETER_ORBIT_TOPOLOGY_LAB_2026-10-05/GROMA_ASTROLABE_DODECAHEDRON_RESEARCH_QUESTION_2026-10-05.md)
+bleibt eine Richtungs- und Winkelreferenz. Die
+[goldene Naht](DRAFTS/A0_FIELD_NOTE_III_TIME_AFTER_TIME_2026-11-16.html#stardust-double-cut-bridge)
+gehört zur Gegenüberstellung zweier Ansichten.
+
 ## Cube-role register
 
 | Name in the corpus | Current role | Identity disposition |
