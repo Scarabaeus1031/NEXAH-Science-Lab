@@ -1,6 +1,7 @@
 const fs=require('node:fs');
 const path=require('node:path');
 const crypto=require('node:crypto');
+const vm=require('node:vm');
 const M=require('./a0-primecube-model.js');
 const T=require('./a0-prime-torus-thread-demonstrator.js');
 let passed=0;
@@ -491,7 +492,43 @@ ok(/setInterval\(\(\)=>setAngle/.test(latticeUi)&&/Pause 3 Winkel/.test(latticeU
 ok(/drawLanternZoom\(fusion\)/.test(latticeUi)&&/M → J/.test(latticeUi)&&/J → M/.test(latticeUi),'Lantern zoom stays synchronized with sequence and IN OUT direction');
 const directFieldUi=fs.readFileSync('./a0-primecube-fractal-field.js','utf8');
 ok(/fractalDirectFieldRecord/.test(directFieldUi)&&/requestAnimationFrame/.test(directFieldUi),'direct fractal field renders the declared model asynchronously');
-ok(/quadratic HENON/i.test(directField.classification.replaceAll('_',' '))&&/20 CROSS-ARM CELLS EXCLUDED/.test(directFieldUi),'direct field exposes memory classification and root-mask exclusion');
+ok(/quadratic HENON/i.test(directField.classification.replaceAll('_',' ')),'direct field exposes memory classification');
+const rootMask={innerHTML:''};
+const directFieldInput={value:'1',addEventListener(){}};
+const directFieldCanvas={width:1,height:1,getContext:()=>({
+  createImageData:()=>({data:new Uint8ClampedArray(4)}),
+  putImageData(){}
+})};
+const directFieldNodes={
+  '[data-pc-fractal-panels]':{append(){}},
+  '[data-pc-fractal-iterations-input]':directFieldInput,
+  '[data-pc-fractal-iterations]':{},
+  '[data-pc-fractal-render]':{addEventListener(){}},
+  '[data-pc-root-mask]':rootMask,
+  '[data-pc-root-mask-tension]':{addEventListener(){}},
+  '[data-pc-mod11-rail]':{}
+};
+vm.runInNewContext(directFieldUi,{
+  document:{
+    querySelector:()=>({querySelector:selector=>directFieldNodes[selector]}),
+    createElement:()=>({querySelector:()=>directFieldCanvas})
+  },
+  window:{A0PrimecubeModel:M,location:{search:''}},
+  URLSearchParams
+});
+const rootMaskCells=Array.from(rootMask.innerHTML.matchAll(
+  /<rect data-pc-root-cell="(included|excluded)"( data-pc-root-center)? x="(\d+)" y="(\d+)"/g
+),([,membership,center,x,y])=>({included:membership==='included',center:Boolean(center),x:Number(x),y:Number(y)}));
+same(rootMaskCells.reduce((counts,{included})=>{counts[included?0:1]++;return counts;},[0,0]),
+  [101,20],'rendered root mask includes 101 cells and excludes 20');
+const maskRows=[...new Set(rootMaskCells.map(cell=>cell.y))].sort((a,b)=>a-b);
+const maskColumns=[...new Set(rootMaskCells.map(cell=>cell.x))].sort((a,b)=>a-b);
+ok(maskRows.length===11&&maskColumns.length===11&&
+  new Set(rootMaskCells.map(({x,y})=>x+','+y)).size===121,'rendered root mask covers each 11 × 11 cell once');
+ok(rootMaskCells.every(({included,center,x,y})=>{
+  const middleRow=y===maskRows[5],middleColumn=x===maskColumns[5];
+  return center===(middleRow&&middleColumn)&&included===(middleRow===middleColumn);
+}),'rendered root mask excludes only the middle arms and includes the center');
 ok(/record\.mod11Rotor\.orbit/.test(directFieldUi)&&/period 10 · all nonzero residues/.test(directFieldUi),'direct field renders the complete mod-11 rotor from the governed record');
 const rotorDemoUi=fs.readFileSync('./a0-primecube-rotor-demonstrator.js','utf8');
 ok(/HANDLE_101/.test(rotorDemoUi)&&/CONTROL_369/.test(rotorDemoUi)&&/JOINT_89/.test(rotorDemoUi),'rotor demonstrator keeps four typed modes');

@@ -58,7 +58,7 @@
     for(let y=0;y<11;y++)for(let x=0;x<11;x++){
       const center=x===5&&y===5,cross=x===5||y===5,selected=!cross||center;
       const fill=center?'#f3a51c':selected?'#203a66':'#111c2c';
-      cells.push(`<rect x="${pad+x*cell}" y="${pad+y*cell}" width="${cell-2}" height="${cell-2}" rx="2" fill="${fill}" stroke="#43536a"/>`);
+      cells.push(`<rect data-pc-root-cell="${selected?'included':'excluded'}"${center?' data-pc-root-center':''} x="${pad+x*cell}" y="${pad+y*cell}" width="${cell-2}" height="${cell-2}" rx="2" fill="${fill}" stroke="#43536a"/>`);
     }
     lines.push(`<path d="M${pad},${pad} L${pad+11*cell},${pad+11*cell} M${pad+11*cell},${pad} L${pad},${pad+11*cell}" stroke="#f3a51c" stroke-dasharray="5 5" opacity=".8"/>`);
     return `<svg viewBox="0 0 ${size} ${size}" role="img" aria-label="101-cell selection in an 11 by 11 grid">${cells.join('')}${lines.join('')}<text x="${pad+5.5*cell}" y="${pad+5.5*cell+5}" fill="white" font-size="15" text-anchor="middle">×</text><text x="154" y="298" fill="#8291a6" font-size="9" text-anchor="middle">100 QUADRANT CELLS + 1 CENTER · 20 CROSS-ARM CELLS EXCLUDED</text></svg>`;
