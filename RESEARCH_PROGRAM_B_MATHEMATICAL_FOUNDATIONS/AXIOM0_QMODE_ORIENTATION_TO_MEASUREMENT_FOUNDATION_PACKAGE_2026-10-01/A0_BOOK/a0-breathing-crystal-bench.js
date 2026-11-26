@@ -52,32 +52,98 @@
     const viewer=shell.querySelector('[data-bcb-viewer]'),status=shell.querySelector('[data-bcb-status]'),title=shell.querySelector('[data-bcb-title]'),meta=shell.querySelector('[data-bcb-meta]'),rotate=shell.querySelector('[data-bcb-rotate]'),portSelect=shell.querySelector('[data-bcb-port]'),nodeReadout=shell.querySelector('[data-bcb-node]'),portReadout=shell.querySelector('[data-bcb-port-readout]'),addressability=shell.querySelector('[data-bcb-addressability]'),connect=shell.querySelector('[data-bcb-connect]'),phaseInput=shell.querySelector('[data-bcb-phase]'),phaseReadout=shell.querySelector('[data-bcb-phase-readout]'),play=shell.querySelector('[data-bcb-play]'),resetPhase=shell.querySelector('[data-bcb-phase-reset]'),measureShell=shell.querySelector('[data-bcb-measure]'),measureStatus=shell.querySelector('[data-bcb-measure-status]'),measureReceipt=shell.querySelector('[data-bcb-measure-receipt]'),measureGate=shell.querySelector('[data-bcb-measure-gate]'),measurePhase=shell.querySelector('[data-bcb-measure-phase]'),measureCore=shell.querySelector('[data-bcb-measure-core]'),measureCursor=shell.querySelector('[data-bcb-cursor]'),portraitPathNode=shell.querySelector('[data-bcb-lissajous-path]'),portraitPoint=shell.querySelector('[data-bcb-lissajous-point]'),portraitSeam=shell.querySelector('[data-bcb-lissajous-seam]');
     let current=runtimeState(),frame=null,lastFrame=null,measurementMode='individual',measurementPair='ab',captureFrame=null,lastComparison=null,lastMeasurementReturn=null;
     const preview=shell.querySelector('[data-bcb-preview]');
-    const previewShape=preview?.querySelector('[data-bcb-preview-shape]');
+    const canvas=preview?.querySelector('[data-bcb-preview-shape]');
+    const context=canvas?.getContext('2d');
     const previewNote=preview?.querySelector('[data-bcb-preview-note]');
     const previewFile=preview?.querySelector('[data-bcb-preview-file]');
-    const previewBands=preview?.querySelectorAll('[data-bcb-preview-band]');
-    const previewTilts={iso:0.38,front:0.03,top:1};
+    const pointLegend=preview?.querySelector('[data-bcb-point-legend]');
+    const pointMode=shell.querySelector('[data-bcb-point-mode]');
+    const focusNodes=[DRIVER.core,...DRIVER.bands];
+    const pointColors=Object.fromEntries(focusNodes.map((name,index)=>[name,['#edf7ff','#65dfcf','#ef8dce','#ffd373'][index]]));
+    const pointCameras={iso:[35,22],front:[0,0],top:[0,90]};
     const webGLAvailable=!preview||Boolean(doc.createElement('canvas').getContext('webgl2'));
-    let viewerFailed=false;
-    function showPreview(show){
-      if(!preview)return;
-      preview.hidden=!show;
-      rotate.disabled=show;
-      previewShape.toggleAttribute('hidden',current.model==='dense');
-      previewFile.setAttribute('href',current.src);
-      const viewerNote=!webGLAvailable?'WebGL fehlt':viewerFailed?'GLB-Ansicht konnte nicht geladen werden':'bis die 3D-Ansicht bereit ist';
-      const modeNote=current.model==='dense'?'Dense-Wiring · GLB erforderlich':'Schematische Vorschau';
-      previewNote.textContent=`${modeNote} · ${viewerNote}`;
+    let viewerFailed=false,pointSource,pointRequest,groups,rotationFrame,lastRotation;
+    let rotationAngle=0;
+    if(pointMode){
+      pointMode.checked=!webGLAvailable;
+      pointMode.disabled=!webGLAvailable;
     }
+
     function paintPreview(){
-      if(!preview||preview.hidden||current.model==='dense')return;
-      const phaseFrame=measurement(current.phase);
-      previewBands.forEach((band,index)=>{
-        const scale=current.model==='runtime'?phaseFrame.bands[index].scale:1;
-        const radius=[98,124,150][index]*scale;
-        band.setAttribute('rx',radius.toFixed(3));
-        band.setAttribute('ry',(radius*previewTilts[current.camera]).toFixed(3));
-      });
+      if(!groups||preview.hidden)return;
+      const [yaw,tilt]=pointCameras[current.camera].map(degrees=>degrees*Math.PI/180);
+      const scales=current.model==='runtime'
+        ?Object.fromEntries(measurement(current.phase).bands.map(band=>[band.node,band.scale]))
+        :{};
+      win.A0GLBPointView.drawPoints(context,groups,{yaw:yaw+rotationAngle,tilt,colors:pointColors,scales});
+    }
+    function syncPointRotation(){
+      if(rotationFrame!==undefined)win.cancelAnimationFrame(rotationFrame);
+      rotationFrame=lastRotation=undefined;
+      if(!groups||preview.hidden||!current.rotation)return;
+      function tick(now){
+        if(lastRotation!==undefined)rotationAngle+=(now-lastRotation)*0.00045;
+        lastRotation=now;
+        paintPreview();
+        rotationFrame=win.requestAnimationFrame(tick);
+      }
+      rotationFrame=win.requestAnimationFrame(tick);
+    }
+    async function loadPointView(){
+      if(pointSource===current.src)return;
+      pointRequest?.abort();
+      pointRequest=new AbortController();
+      const {signal}=pointRequest;
+      const {src,model}=current;
+      pointSource=src;
+      groups=null;
+      rotationAngle=0;
+      canvas.hidden=true;
+      pointLegend.hidden=true;
+      rotate.disabled=true;
+      previewNote.textContent='GLB-Punkte werden geladen …';
+      syncPointRotation();
+      try{
+        if(!context)throw Error('Canvas ist in diesem Browser nicht verfügbar');
+        const response=await win.fetch(src,{signal});
+        if(!response.ok)throw Error(`GLB-Abruf fehlgeschlagen (HTTP ${response.status})`);
+        const geometry=await win.A0GLBPointView.readPoints(await response.arrayBuffer(),model==='dense'?undefined:focusNodes);
+        if(signal.aborted)return;
+        if(model!=='dense'&&focusNodes.some(name=>!geometry.some(group=>group.name===name))){
+          throw Error('Kern oder Band fehlt in der GLB-Datei');
+        }
+        groups=geometry;
+        canvas.hidden=false;
+        pointLegend.hidden=model==='dense';
+        previewNote.textContent=model==='dense'
+          ?'GLB-Punktansicht · Dense-Wiring ohne Segmentierung'
+          :'GLB-Punktansicht · Kern und drei Bänder';
+        rotate.disabled=false;
+        paintPreview();
+        syncPointRotation();
+      }catch(error){
+        if(signal.aborted)return;
+        previewNote.textContent=error.message;
+      }
+    }
+    function showPreview(){
+      if(!preview)return;
+      const showPoints=pointMode.checked||viewerFailed;
+      preview.hidden=!showPoints&&viewer.loaded;
+      previewFile.setAttribute('href',current.src);
+      if(showPoints){
+        loadPointView();
+        rotate.disabled=!groups;
+        paintPreview();
+      }else{
+        pointRequest?.abort();
+        pointSource=groups=null;
+        canvas.hidden=true;
+        pointLegend.hidden=true;
+        rotate.disabled=!viewer.loaded;
+        previewNote.textContent='GLB wird geladen …';
+      }
+      syncPointRotation();
     }
     portSelect.innerHTML=PORT_IDS.map(id=>`<option value="${id}">${PORTS[id].label} · ${PORTS[id].nodes.length}</option>`).join('');
     const emit=(event=EVENT)=>{if(typeof win.CustomEvent==='function')doc.dispatchEvent(new win.CustomEvent(event,{detail:{...current}}))};
@@ -91,6 +157,7 @@
     function paintPhase(shouldEmit=true){phaseInput.value=String(current.phase);phaseReadout.textContent=current.phase.toFixed(3);play.setAttribute('aria-pressed',String(current.playing));play.textContent=current.playing?'PAUSE SWEEP':'PLAY SWEEP';applyPhase();paintPreview();paintMeasurement(shouldEmit);if(shouldEmit)emit(DRIVER_EVENT)}
     function startLoop(){stopLoop();if(!current.playing||typeof win.requestAnimationFrame!=='function')return;const tick=timestamp=>{if(!current.playing)return stopLoop();if(lastFrame===null)lastFrame=timestamp;const delta=(timestamp-lastFrame)/(DRIVER.durationSeconds*1000);lastFrame=timestamp;current=state(current.model,current.camera,current.rotation,current.port,current.memberIndex,current.connected,(current.phase+delta)%1,true);paintPhase(true);frame=win.requestAnimationFrame(tick)};frame=win.requestAnimationFrame(tick)}
     function render(next,shouldEmit=true){
+      if(next.camera!==current.camera||next.model!==current.model)rotationAngle=0;
       stopLoop();current=state(next.model,next.camera,next.rotation,next.port,next.memberIndex,next.connected,next.phase,next.playing);const model=MODELS[current.model],port=PORTS[current.port];
       const modelChanged=viewer.getAttribute('src')!==model.src;
       if(webGLAvailable){
@@ -102,23 +169,23 @@
         viewer.cameraOrbit=CAMERAS[current.camera];
         viewer.autoRotate=current.rotation;
       }
-      showPreview(!webGLAvailable||viewerFailed||modelChanged||!viewer.loaded);
+      showPreview();
       title.textContent=model.title;meta.textContent=`${model.nodes} Nodes · ${model.meshes} Meshes · ${model.animations} ${model.runtime?'generated':'native'} Animationen · ${Math.round(model.bytes/1024)} KiB`;rotate.setAttribute('aria-pressed',String(current.rotation));rotate.textContent=current.rotation?'Ansichtsrotation an':'Ansichtsrotation aus';portSelect.value=current.port;portSelect.disabled=!model.addressable;shell.querySelectorAll('[data-bcb-step]').forEach(button=>button.disabled=!model.addressable);connect.disabled=!model.addressable;connect.setAttribute('aria-pressed',String(current.connected));connect.textContent=current.connected?'PORT VERBUNDEN':'PORT VERBINDEN';portReadout.textContent=`${current.port} · ${port.role} · ${current.memberIndex+1}/${port.nodes.length}`;nodeReadout.textContent=current.node||'— · DENSE MESH NICHT SEGMENTIERT';addressability.textContent=current.addressability;shell.dataset.bcbAddressability=current.addressability;shell.querySelectorAll('[data-bcb-model]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.bcbModel===current.model)));shell.querySelectorAll('[data-bcb-camera]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.bcbCamera===current.camera)));phaseInput.disabled=!model.runtime;play.disabled=!model.runtime;resetPhase.disabled=!model.runtime;status.textContent=`${current.connected?'CONNECTED':'READY'} · ${model.role} · ${current.node||current.addressability} · ${current.addressability} · HASH ${model.sha256.slice(0,12)}…`;paintPhase(false);if(webGLAvailable&&viewer.loaded&&typeof viewer.jumpCameraToGoal==='function')viewer.jumpCameraToGoal();if(current.playing)startLoop();if(shouldEmit)emit();return current
     }
     viewer.addEventListener('load',()=>{
       if(!webGLAvailable)return;
       viewerFailed=false;
-      showPreview(false);
+      showPreview();
       if(typeof viewer.jumpCameraToGoal==='function')viewer.jumpCameraToGoal();
       applyPhase();
     });
     viewer.addEventListener('error',()=>{
       viewerFailed=true;
-      showPreview(true);
-      paintPreview();
+      showPreview();
     });
     shell.querySelectorAll('[data-bcb-model]').forEach(button=>button.addEventListener('click',()=>render({...current,model:button.dataset.bcbModel,connected:button.dataset.bcbModel!=='dense'&&current.connected,phase:0,playing:false,port:button.dataset.bcbModel==='runtime'?'crystal.band':current.port})));
     shell.querySelectorAll('[data-bcb-camera]').forEach(button=>button.addEventListener('click',()=>render({...current,camera:button.dataset.bcbCamera})));
+    pointMode?.addEventListener('change',showPreview);
     rotate.addEventListener('click',()=>render({...current,rotation:!current.rotation}));
     portSelect.addEventListener('change',()=>render({...current,port:portSelect.value,memberIndex:0}));
     shell.querySelectorAll('[data-bcb-step]').forEach(button=>button.addEventListener('click',()=>render(step(current,Number(button.dataset.bcbStep)))));

@@ -12,57 +12,6 @@
     ['gallery','components','Universal Gallery · Curved Banners','only textured GLB in the audited collection','universal_gallery_curved_banners.glb',8,7,null,'aecc5ec1']
   ].map(([id,group,label,role,file,nodes,meshes,triangles,hash])=>({id,group,label,role,file,nodes,meshes,triangles,hash}));
   const fmt=n=>n==null?'—':new Intl.NumberFormat('de-DE').format(n);
-  async function readPoints(buffer){
-    const data=new DataView(buffer);
-    if(data.getUint32(0,true)!==0x46546c67||data.getUint32(4,true)!==2){
-      throw Error('Ungültige GLB-Datei');
-    }
-    const jsonLength=data.getUint32(12,true);
-    const gltf=JSON.parse(new TextDecoder().decode(new Uint8Array(buffer,20,jsonLength)));
-    const binaryStart=28+jsonLength;
-    if(!root.THREE)await import('./assets/game-of-worlds-play/vendor/three-0.147.0/three.min.js');
-    const {Matrix4,Vector3,Quaternion,Box3}=root.THREE;
-    const positions=mesh=>gltf.meshes[mesh].primitives.map(primitive=>gltf.accessors[primitive.attributes.POSITION]);
-    const instances=[];
-    function visit(id,parent){
-      const node=gltf.nodes[id];
-      const local=new Matrix4();
-      if(node.matrix)local.fromArray(node.matrix);
-      else local.compose(
-        new Vector3(...(node.translation||[0,0,0])),
-        new Quaternion(...(node.rotation||[0,0,0,1])),
-        new Vector3(...(node.scale||[1,1,1]))
-      );
-      const world=new Matrix4().multiplyMatrices(parent,local);
-      if(node.mesh!==undefined)instances.push({world,accessors:positions(node.mesh)});
-      for(const child of node.children||[])visit(child,world);
-    }
-    for(const id of gltf.scenes[gltf.scene??0].nodes)visit(id,new Matrix4());
-    const count=instances.reduce((sum,part)=>sum+part.accessors.reduce((subtotal,a)=>subtotal+a.count,0),0);
-    const step=Math.max(1,Math.ceil(count/32000));
-    const bounds=new Box3();
-    const points=[];
-    for(const {world,accessors} of instances){
-      for(const accessor of accessors){
-        if(accessor.type!=='VEC3'||accessor.componentType!==5126||accessor.sparse){
-          throw Error('Positionsformat für die Punktansicht nicht unterstützt');
-        }
-        const view=gltf.bufferViews[accessor.bufferView];
-        const base=binaryStart+(view.byteOffset||0)+(accessor.byteOffset||0);
-        for(let index=0;index<accessor.count;index+=step){
-          const offset=base+index*(view.byteStride||12);
-          const point=new Vector3(data.getFloat32(offset,true),data.getFloat32(offset+4,true),data.getFloat32(offset+8,true)).applyMatrix4(world);
-          bounds.expandByPoint(point);
-          points.push(point);
-        }
-      }
-    }
-    if(!points.length)throw Error('Keine GLB-Punkte gefunden');
-    const center=bounds.getCenter(new Vector3());
-    const radius=bounds.getSize(new Vector3()).length()/2||1;
-    return points.map(point=>point.sub(center).divideScalar(radius));
-  }
-
   function mount(doc=document){
     const host=doc.getElementById('universalMachinePartsShelf');
     if(!host)return null;
@@ -84,18 +33,7 @@
     grid.innerHTML=MODELS.map((m,i)=>`<article class="ums-card" data-group="${m.group}" data-model="${m.id}" style="--ums-accent:${['#f4b942','#64d8ef','#ef62b2','#8de36d'][i%4]}"><small>${String(i+1).padStart(2,'0')} · ${m.group.toUpperCase()}</small><h3>${m.label}</h3><p>${m.role}</p><dl><div><dt>Nodes</dt><dd>${fmt(m.nodes)}</dd></div><div><dt>Meshes</dt><dd>${fmt(m.meshes)}</dd></div><div><dt>Triangles</dt><dd>${fmt(m.triangles)}</dd></div></dl><button type="button" data-load="${m.id}">3D laden · ${m.hash}</button></article>`).join('');
 
     function draw(){
-      const {width,height}=canvas;
-      const scale=height*0.39;
-      const cos=Math.cos(angle), sin=Math.sin(angle);
-      context.clearRect(0,0,width,height);
-      context.fillStyle='#ffda91';
-      context.beginPath();
-      for(const {x,y,z} of points){
-        const side=x*cos+z*sin;
-        const depth=z*cos-x*sin;
-        context.rect(width/2+scale*side,height*0.45-scale*(y*0.93-depth*0.37),1.6,1.6);
-      }
-      context.fill();
+      root.A0GLBPointView.drawPoints(context,points,{yaw:angle});
     }
 
     function setRotation(on){
@@ -123,7 +61,7 @@
       try{
         const response=await fetch(src,{signal});
         if(!response.ok)throw Error(`GLB-Abruf fehlgeschlagen (HTTP ${response.status})`);
-        const geometry=await readPoints(await response.arrayBuffer());
+        const geometry=await root.A0GLBPointView.readPoints(await response.arrayBuffer());
         if(signal.aborted)return;
         if(!context)throw Error('Canvas ist in diesem Browser nicht verfügbar');
         points=geometry;
