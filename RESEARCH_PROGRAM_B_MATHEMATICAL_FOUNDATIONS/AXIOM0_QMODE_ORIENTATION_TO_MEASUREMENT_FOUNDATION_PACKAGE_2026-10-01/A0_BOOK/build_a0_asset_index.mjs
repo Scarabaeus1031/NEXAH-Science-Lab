@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-import { readdir, readFile, stat, writeFile } from "node:fs/promises";
-import { dirname, extname, join, relative } from "node:path";
+import { execFileSync } from "node:child_process";
+import { readFile, stat, writeFile } from "node:fs/promises";
+import { dirname, extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = dirname(fileURLToPath(import.meta.url));
@@ -20,6 +21,7 @@ const generatedPaths = new Set([
 const ignoredNames = new Set([
   ".DS_Store",
   ".a0-public-export-preview",
+  ".nexah-observer-staging",
   "a0-human",
 ]);
 
@@ -156,23 +158,15 @@ const inferFamily = (path, work, role) => {
   return "Repository Records";
 };
 
-async function walk(directory) {
-  const entries = await readdir(directory, { withFileTypes: true });
-  const files = [];
-  for (const entry of entries.sort((a, b) => a.name.localeCompare(b.name))) {
-    if (ignoredNames.has(entry.name) || entry.name === ".git") continue;
-    const fullPath = join(directory, entry.name);
-    if (entry.isDirectory()) files.push(...await walk(fullPath));
-    else files.push(fullPath);
-  }
-  return files;
-}
+const trackedPaths = execFileSync("git", ["ls-files", "--cached", "--deduplicate", "-z", "--", "."], {
+  cwd: root,
+  encoding: "utf8"
+}).split("\0").filter(Boolean);
 
-const [manifest, coverage, apertureJourney, discovered] = await Promise.all([
+const [manifest, coverage, apertureJourney] = await Promise.all([
   readFile(manifestPath, "utf8").then(JSON.parse),
   readFile(coveragePath, "utf8").then(JSON.parse),
-  readFile(apertureJourneyPath, "utf8").then(JSON.parse),
-  walk(root)
+  readFile(apertureJourneyPath, "utf8").then(JSON.parse)
 ]);
 
 const registry = new Map(manifest.surface_registry.map((item) => [item.surface, item]));
@@ -181,9 +175,9 @@ const workBySurface = new Map(
 );
 
 const files = [];
-for (const fullPath of discovered) {
-  const path = relative(root, fullPath).split("\\").join("/");
-  if (generatedPaths.has(path)) continue;
+for (const path of trackedPaths) {
+  if (generatedPaths.has(path) || path.split("/").some((name) => ignoredNames.has(name))) continue;
+  const fullPath = join(root, path);
   const info = await stat(fullPath);
   const extension = extname(path).toLowerCase();
   const registered = registry.get(path);
