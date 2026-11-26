@@ -93,7 +93,7 @@
   <link rel="stylesheet" href="a0-universal-ring-aperture.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-angle-address-compare.css?rev=20261025-r1">
   <link rel="stylesheet" href="a0-look-again-game.css?rev=20261023-r1">
-  <link rel="stylesheet" href="a0-universal-machine-parts-shelf.css?rev=20261023-r1">
+  <link rel="stylesheet" href="a0-universal-machine-parts-shelf.css?rev=20261126-glb-preview">
   <link rel="stylesheet" href="a0-tesseract-face-coupler.css?rev=20261030-r1">
   <link rel="stylesheet" href="a0-breathing-crystal-bench.css?rev=20261126-crystal-preview">
   <link rel="stylesheet" href="a0-scarab-stretch-chamber.css?rev=20261101-r1">
@@ -263,8 +263,9 @@
     <div class="ums-layout">
       <div class="ums-stage" data-ums-stage>
         <model-viewer camera-controls interaction-prompt="none" shadow-intensity="0.7" exposure="1" loading="lazy"></model-viewer>
-        <div class="ums-empty"><b>Noch kein Körper geladen.</b><span>Rechts einen Serienvertreter wählen. Die übrigen acht GLBs bleiben entladen.</span></div>
-        <div class="ums-stagebar"><div><b data-ums-title>Parts Shelf bereit</b><span data-ums-meta>9 Modelle · 13.27 MB · on demand</span></div><button type="button" data-ums-rotate aria-pressed="false">Ansichtsrotation</button></div>
+        <canvas class="ums-points" data-ums-points width="900" height="650" role="img" hidden></canvas>
+        <div class="ums-empty" data-ums-message>Noch kein Körper geladen. Wähle einen Serienvertreter.</div>
+        <div class="ums-stagebar"><div><b data-ums-title>Parts Shelf bereit</b><span data-ums-meta>9 Modelle · 13.27 MB · on demand</span></div><a data-ums-download download hidden>GLB herunterladen</a><button type="button" data-ums-rotate aria-pressed="false" disabled>Ansichtsrotation</button></div>
       </div>
       <aside class="ums-browser" aria-label="Universal Machine Serienvertreter">
         <div class="ums-kicker">SERIES FILTER · KEINE QUELLÄNDERUNG</div>
@@ -3556,7 +3557,7 @@
 </script>
 <script src="a0-bench-polish.js?rev=20261025-reader-route-r1"></script>
 <script>window.A0BenchPolish.arrange(document,window);</script>
-<script src="a0-universal-machine-parts-shelf.js?rev=20261023-r1"></script>
+<script src="a0-universal-machine-parts-shelf.js?rev=20261126-glb-preview"></script>
 <script>
   try{window.A0UniversalMachinePartsShelfController=window.A0UniversalMachinePartsShelf.mount(document)}
   catch(error){const status=document.querySelector('[data-ums-status]');if(status)status.textContent=`PARTS SHELF HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}

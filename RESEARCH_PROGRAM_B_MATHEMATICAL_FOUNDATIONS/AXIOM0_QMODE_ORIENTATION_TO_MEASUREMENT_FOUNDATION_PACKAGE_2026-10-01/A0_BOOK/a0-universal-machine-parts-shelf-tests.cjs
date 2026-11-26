@@ -36,7 +36,7 @@ for (const model of binder.models) {
 
 check(bench.includes('id="universalMachinePartsShelf"'), 'bench shelf mounted');
 check(bench.includes('assets/vendor/a0-model-viewer-classic.js'), 'local model viewer used');
-check(bench.includes('a0-universal-machine-parts-shelf.js?rev=20261023-r1'), 'shelf controller loaded');
+check(bench.includes('a0-universal-machine-parts-shelf.js?rev=20261126-glb-preview'), 'shelf controller loaded');
 check(bench.includes('A0_RESEARCH_DESK.html#universal-machine-parts-return-20261023'), 'bench returns to Science Desk');
 check(desk.includes('id="universal-machine-parts-return-20261023"'), 'Science Desk return present');
 check(desk.includes('9 von 45'), 'Science Desk states selection denominator');
