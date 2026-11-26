@@ -95,7 +95,7 @@
   <link rel="stylesheet" href="a0-look-again-game.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-universal-machine-parts-shelf.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-tesseract-face-coupler.css?rev=20261030-r1">
-  <link rel="stylesheet" href="a0-breathing-crystal-bench.css?rev=20261030-crystal-v12-handoff-r1">
+  <link rel="stylesheet" href="a0-breathing-crystal-bench.css?rev=20261126-crystal-preview">
   <link rel="stylesheet" href="a0-scarab-stretch-chamber.css?rev=20261101-r1">
   <script defer src="assets/vendor/a0-model-viewer-classic.js"></script>
 </head>
@@ -326,13 +326,30 @@
       <article><small>09 · TIME</small><b>RANK48</b><span>φ-Phase und Euler-Multiplikation liefern 48 endliche Adressen.</span></article>
     </div>
     <p class="tfc-boundary"><strong>BOUNDARY:</strong> <code>23</code>, <code>24</code> und <code>25</code> sind Kontrollschichten desselben exakten Q4-Flächenträgers; <code>25</code> ist keine 25. Fläche. <code>A</code> ist die geometrische Antipode, <code>J_view</code> nur der PINK/BLACK-Ansichtswechsel. <code>G8³</code>, <code>4×7</code> und Rank48 sind deklarierte Projektion, Display-Wicklung und endlicher Zeitplan — keine Identitäten, Naturgesetze, Material-, Akustik- oder Stabilitätsbehauptungen.</p>
-    <nav class="tfc-links" aria-label="Face coupler returns"><a href="A0_F_A0_26_REVIEW_PROBE.html#acousticSourceProjection">24er Source Projection ↗</a><a href="results/a0-tesseract-face-coupler-return-2026-10-30.json">Exact Return Receipt ↗</a><a href="A0_TESSAREC_BLUE_BODY_LAB.html">Existing MOD:TESSAREC host ↗</a></nav>
+    <nav class="tfc-links" aria-label="Face coupler returns"><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html#shadow-cube-envelope">← PrimeCube · Shadow Cube 11³</a><a href="A0_F_A0_26_REVIEW_PROBE.html#acousticSourceProjection">24er Source Projection ↗</a><a href="results/a0-tesseract-face-coupler-return-2026-10-30.json">Exact Return Receipt ↗</a><a href="A0_TESSAREC_BLUE_BODY_LAB.html">Existing MOD:TESSAREC host ↗</a></nav>
     <output class="tfc-status" data-tfc-status role="status" aria-live="polite">PASS · 24-LAYER · O→P/Y→X · G8³/512 · ZITHER 1/28 · RANK48 0</output>
   </section>
   <section id="breathingCrystalBench" class="breathing-crystal-bench" data-bcb aria-labelledby="breathingCrystalBenchTitle">
     <header class="bcb-head"><div><small>FAM-035 · SEGMENTATION R1 · EXISTING IDENTITY</small><h2 id="breathingCrystalBenchTitle">Breathing Crystal. Körper, Anschlüsse, Atemphase.</h2><p>Alle 119 source-authored Mesh-Nodes bleiben adressierbar. Der erste freigegebene Runtime-Slice hält <code>CORE</code> fest und treibt ausschließlich die drei benannten <code>BAND_*</code>-Nodes über <code>breath.phase ∈ [0,1]</code>. Der Return führt auf die unveränderte Quelle <code>BANDED · CORE · ISO</code> zurück.</p></div><span class="bcb-badge">CORE + 3 BANDS READY · DENSE HOLD</span></header>
     <div class="bcb-layout">
-      <div class="bcb-stage"><model-viewer data-bcb-viewer src="assets/breathing-crystal/breathing_crystal_core_band_runtime_r1.glb" alt="Breathing Crystal Core and Band runtime derivative" camera-controls interaction-prompt="none" shadow-intensity=".8" exposure="1" loading="lazy" camera-orbit="35deg 68deg 105%"></model-viewer><div class="bcb-stagebar"><div><b data-bcb-title>Core + Band Runtime</b><span data-bcb-meta>120 Nodes · 119 Meshes · 1 generated Animation · 786 KiB</span></div><button type="button" data-bcb-rotate aria-pressed="false">Ansichtsrotation aus</button></div></div>
+      <div class="bcb-stage">
+        <div class="bcb-stage-view">
+          <model-viewer data-bcb-viewer src="assets/breathing-crystal/breathing_crystal_core_band_runtime_r1.glb" alt="Breathing Crystal Core and Band runtime derivative" camera-controls interaction-prompt="none" shadow-intensity=".8" exposure="1" loading="lazy" camera-orbit="35deg 68deg 105%"></model-viewer>
+          <div class="bcb-preview" data-bcb-preview>
+            <svg viewBox="0 0 400 300" role="img" aria-label="Schematische Projektion des festen Kerns und der drei Bänder" data-bcb-preview-shape>
+              <g fill="none" stroke-width="2">
+                <ellipse cx="200" cy="150" rx="98" ry="37" stroke="#65dfcf" data-bcb-preview-band/>
+                <ellipse cx="200" cy="150" rx="124" ry="47" stroke="#ef8dce" data-bcb-preview-band/>
+                <ellipse cx="200" cy="150" rx="150" ry="57" stroke="#ffd373" data-bcb-preview-band/>
+              </g>
+              <circle cx="200" cy="150" r="27" fill="#18303b" stroke="#e7f4f6" stroke-width="2"/>
+              <text x="200" y="150" text-anchor="middle" dominant-baseline="central" fill="#e7f4f6" font-size="12">CORE</text>
+            </svg>
+            <p data-bcb-preview-note>Schematische Vorschau · bis die 3D-Ansicht bereit ist</p>
+            <a data-bcb-preview-file href="assets/breathing-crystal/breathing_crystal_core_band_runtime_r1.glb" download>GLB herunterladen</a>
+          </div>
+        </div>
+        <div class="bcb-stagebar"><div><b data-bcb-title>Core + Band Runtime</b><span data-bcb-meta>120 Nodes · 119 Meshes · 1 generated Animation · 786 KiB</span></div><button type="button" data-bcb-rotate aria-pressed="false">Ansichtsrotation aus</button></div></div>
       <aside class="bcb-tools"><div class="bcb-kicker">NODE PORT BRIDGE · PHASE / ADDRESS / RETURN</div><h3>Quelle behalten. Bänder bewegen.</h3><p>Die Runtime-GLB ist deterministisch aus der unveränderten Banded-Quelle gebaut. <code>CORE</code> bleibt Fixpunkt; nur drei <code>BAND_*</code>-Skalen werden im Viewer getrieben.</p><div class="bcb-models" aria-label="Crystal-Modell wählen"><button type="button" data-bcb-model="banded" aria-pressed="false">SOURCE · BANDED</button><button type="button" data-bcb-model="runtime" aria-pressed="true">DRIVER · CORE+BAND</button><button type="button" data-bcb-model="dense" aria-pressed="false">DENSE · HOLD</button></div><div class="bcb-driver"><label for="bcbPhase">BREATH.PHASE <output data-bcb-phase-readout for="bcbPhase">0.000</output></label><input id="bcbPhase" data-bcb-phase type="range" min="0" max="1" step="0.001" value="0"><div><button type="button" data-bcb-play aria-pressed="false">PLAY SWEEP</button><button type="button" data-bcb-phase-reset>RESET PHASE</button></div><small>4 s cycle · ±6% · 120° versetzte Bandphasen</small></div><div class="bcb-port-control"><label for="bcbPort">PORT FAMILY</label><select id="bcbPort" data-bcb-port aria-label="Crystal-Portfamilie"></select><div><button type="button" data-bcb-step="-1" aria-label="Vorherige Node">← NODE</button><button type="button" data-bcb-step="1" aria-label="Nächste Node">NODE →</button></div><button type="button" data-bcb-connect aria-pressed="true">PORT VERBUNDEN</button></div><div class="bcb-port-readout"><div><small>PORT / ROLE / ADDRESS</small><b data-bcb-port-readout>crystal.band · RUNTIME_TRANSFORM_VIEW · 1/3</b></div><div><small>GLB NODE</small><b data-bcb-node>BAND_0.429</b></div><div><small>ADDRESSABILITY</small><b data-bcb-addressability>RUNTIME_TRANSFORM_READY</b></div></div><div class="bcb-camera" aria-label="Kamera wählen"><button type="button" data-bcb-camera="iso" aria-pressed="true">ISO</button><button type="button" data-bcb-camera="front" aria-pressed="false">FRONT</button><button type="button" data-bcb-camera="top" aria-pressed="false">TOP</button></div><div class="bcb-return-actions"><button type="button" data-bcb-return>RETURN TO SOURCE + CORE</button><button type="button" data-bcb-export>EXPORT NODE-PORT RECEIPT</button></div><div class="bcb-ledger"><div><small>IDENTITY</small><b>NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1</b></div><div><small>DRIVER EVENT</small><b>a0:breathing-crystal-phase</b></div><div><small>RELEASE / HOLD</small><b>CORE + BAND READY · DENSE UNSEGMENTED_HOLD</b></div></div></aside>
     </div>
     <section class="bcb-measure" id="breathingCrystalMeasurementDeck" data-bcb-measure aria-labelledby="bcbMeasureTitle">
@@ -3546,7 +3563,7 @@
 </script>
 <script src="a0-tesseract-face-coupler.js?rev=20261030-r1"></script>
 <script>window.A0TesseractFaceCouplerController=window.A0TesseractFaceCoupler.mount(document);</script>
-<script src="a0-breathing-crystal-bench.js?rev=20261030-crystal-v12-handoff-r1"></script>
+<script src="a0-breathing-crystal-bench.js?rev=20261126-crystal-preview"></script>
 <script>
   try{window.A0BreathingCrystalBenchController=window.A0BreathingCrystalBench.mount(document,window)}
   catch(error){const status=document.querySelector('[data-bcb-status]');if(status)status.textContent=`BREATHING CRYSTAL HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
