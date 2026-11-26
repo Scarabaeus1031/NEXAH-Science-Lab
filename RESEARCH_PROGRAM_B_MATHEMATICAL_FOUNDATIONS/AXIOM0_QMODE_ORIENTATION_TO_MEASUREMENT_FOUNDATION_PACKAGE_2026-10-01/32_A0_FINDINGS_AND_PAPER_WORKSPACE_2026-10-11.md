@@ -4850,3 +4850,46 @@ derselben Stundenreihe zurückgeführt. **Finding offen.**
 [Helix · JPL-Jahresfenster](A0_BOOK/A0_HELIX_VIEW_ADAPTER.html?jupiter=365#helix-jupiter-phases) ·
 [A0 · JPL-Quellrücklauf](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#jpl-prime-hours-science-return) ·
 [Paper E · Stundenindex als Rückweg](35_NEXAH_ORIENTATION_METHOD_POSITION_PAPER_DRAFT_2026-10-12.md#jupiter-grid-return-method-example)
+
+<a id="jpl-twelve-offsets"></a>
+
+### Zwölf weitere Versätze im selben JPL-Jahresfenster
+
+Vor der Auswertung wurden die Mittelpunkte von zwölf gleich großen
+Abschnitten des 8.760-Stunden-Jahres gewählt. Die Versätze beginnen bei
++365 h und steigen jeweils um 730 h. Jeder Lauf verschiebt dieselben
+1.092 Primzahlmarken modulo 8.760 und ordnet sie chronologisch. Die
+gleichmäßige Stichprobe mit 1.092 Marken bleibt fest. Von den 21 stündlichen
+180°-Wechseln zählt ein Wechsel als erfasst, wenn er allein zwischen zwei
+benachbarten Marken liegt und deren Winkelwerte auf verschiedenen Seiten
+von 180° liegen.
+
+**Ergebnis.** Drei Versätze erfassen **21/21**, neun **19/21**.
+Die feste gleichmäßige Spur erfasst **19/21** und verpasst das Paar vom
+12. September.
+
+| Versatz (h) | Erfasst | Verpasstes Wechselpaar |
+| ---: | ---: | --- |
+| +365 | 19/21 | 22. Juli |
+| +1.095 | 19/21 | 5. September |
+| +1.825 | 19/21 | 5. September |
+| +2.555 | 21/21 | — |
+| +3.285 | 19/21 | 12. September |
+| +4.015 | 21/21 | — |
+| +4.745 | 19/21 | 22. Juli |
+| +5.475 | 19/21 | 22. Juli |
+| +6.205 | 19/21 | 22. Juli |
+| +6.935 | 19/21 | 5. September |
+| +7.665 | 19/21 | 22. Juli |
+| +8.395 | 21/21 | — |
+
+Die Uhrzeit bezeichnet den ersten Stundenwert nach dem Wechsel (TDB).
+Am **22. Juli** liegt das Paar bei 15:00 ↓ und 22:00 ↑ (Stunden 4863/4870),
+am **5. September** bei 11:00 ↑ und 22:00 ↓ (5939/5950) und am
+**12. September** bei 16:00 ↑ und 21:00 ↓ (6112/6117).
+
+Der Vergleich gilt für das JPL-Jahr 2025, die zwölf Versätze und diese
+feste gleichmäßige Spur. **Finding offen.**
+
+[Science Desk](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#jpl-twelve-offsets-science-return) ·
+[Helix · JPL-Jahresfenster](A0_BOOK/A0_HELIX_VIEW_ADAPTER.html?jupiter=365#helix-jupiter-phases)
