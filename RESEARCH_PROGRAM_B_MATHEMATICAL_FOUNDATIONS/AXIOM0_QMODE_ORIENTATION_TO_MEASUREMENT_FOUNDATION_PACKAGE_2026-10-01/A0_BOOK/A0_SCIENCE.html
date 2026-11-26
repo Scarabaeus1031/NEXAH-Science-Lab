@@ -35,6 +35,43 @@
     #contributions .closing code{color:#167c92;overflow-wrap:anywhere}
   </style>
   <style>
+    #zeta-loki-map { scroll-margin-top:7rem; }
+    #zeta-loki-map .head { display:block; }
+    .map-compare { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .map-panel,.map-depth { border:1px solid var(--nightline); border-radius:.6rem; background:#0a1d2a; padding:clamp(1rem,2.6vw,2rem); }
+    .map-panel h3 { margin:.3rem 0 1rem; font:700 clamp(1.4rem,2.5vw,2.15rem)/1.15 var(--serif); }
+    .map-wheel-figure { display:grid; place-items:center; gap:1rem; margin:1.35rem 0 1rem; }
+    .map-wheel { position:relative; width:min(100%,9.8rem); aspect-ratio:1; border:1px solid #456477; border-radius:50%; background:radial-gradient(circle,#182f40 0 2%,transparent 3%),radial-gradient(circle,transparent 47%,#274854 48% 49%,transparent 50%); }
+    .map-wheel::before,.map-wheel::after { content:""; position:absolute; background:#456477; }
+    .map-wheel::before { inset:0 auto 0 50%; width:1px; background:var(--gold); }
+    .map-wheel::after { inset:50% 0 auto; height:1px; }
+    .map-wheel span { position:absolute; left:calc(50% + .9rem); font:.8rem var(--mono); }
+    .map-wheel span:first-child { top:-.6rem; }
+    .map-wheel span:nth-child(2) { bottom:-.45rem; color:#b0c4d4; }
+    .map-wheel i,.map-slice-grid i { position:absolute; border-radius:50%; width:.75rem; aspect-ratio:1; transform:translate(-50%,-50%); }
+    .map-wheel i { left:50%; top:0; border:2px solid #ccd6e0; background:#ff8ac6; box-shadow:0 0 14px #ff8ac6; }
+    .map-panel figcaption { font-size:.9rem; }
+    .map-key { display:grid; gap:.3rem; margin:0; }
+    .map-key div { display:grid; grid-template-columns:3.25rem 1fr; gap:.6rem; }
+    .map-key dt { font-weight:750; }
+    .map-key dd { margin:0; }
+    .map-grey { color:#ccd6e0; }
+    .map-purple { color:#c3a5ff; }
+    .map-pink { color:#ff8ac6; }
+    .map-slices { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(.45rem,2vw,1.3rem); }
+    .map-slice { margin:0; min-width:0; }
+    .map-slice figcaption { margin-bottom:.4rem; font-weight:750; }
+    .map-slice-grid { position:relative; width:100%; max-width:10.5rem; aspect-ratio:1; border:1px solid #456477; background-color:#081722; background-image:linear-gradient(to bottom,#274854 1px,transparent 1px),linear-gradient(to right,#274854 1px,transparent 1px); background-size:calc(100% / 11) calc(100% / 11); }
+    .map-slice-grid i { left:calc(100% / 22); top:calc(100% * 7.5 / 11); width:7%; background:currentColor; box-shadow:0 0 10px currentColor; }
+    .map-axis { display:flex; justify-content:space-between; max-width:10.5rem; margin:.2rem 0 .5rem; color:#b0c4d4; font:.65rem var(--mono); }
+    .map-slice a { font-size:clamp(.68rem,1.3vw,.84rem); overflow-wrap:anywhere; }
+    .map-links { display:flex; flex-wrap:wrap; gap:.4rem 1rem; font-size:.88rem; }
+    .map-links a { color:#a1e9f6; }
+    .map-depth { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); align-items:center; gap:1rem; margin:1rem 0 0; }
+    .map-depth canvas { display:block; width:100%; height:auto; }
+    .map-depth figcaption strong { font:700 1.35rem var(--serif); }
+    .map-depth input { display:block; width:100%; max-width:22rem; accent-color:var(--pink); }
+    @media(max-width:760px) { .map-compare,.map-depth { grid-template-columns:1fr; } }
     #t-layer-27-stride-comparison { margin-top:1.5rem; scroll-margin-top:7rem; }
     .t-layer-result-table { width:100%; border-collapse:collapse; }
     .t-layer-result-table th, .t-layer-result-table td {
@@ -260,7 +297,57 @@
     <p><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html?helix=PC1111%3AN0419#shadow-cube-slice-overlay">419 im Primecube öffnen ↗</a> · <a href="A0_HELIX_VIEW_ADAPTER.html?helix=PC1111%3AN0419#helix-prime-record">Dieselbe ID in der Helix öffnen ↗</a> · <a href="A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html#helix-primecube-168-method-example">Paper E · Methodenbeispiel ↗</a></p>
     <p>Bei Rössler lässt sich außerdem jeder Übergang über dieselben Sample-IDs in XY und XYZ verfolgen. Von 25 XY-Schritten in 1→1 bleiben 6 auch mit Höhe in dieser Zelle. 19 wechseln die Zelle, 2 kommen hinzu. Im Lift markiert ein Klick die herausgefallenen Schritte in beiden Bahnen.</p>
     <p><a href="A0_HELIX_VIEW_ADAPTER.html#helix-rossler-clusters">Übergänge mit und ohne z öffnen ↗</a> · <a href="A0_HELIX_VIEW_ADAPTER.html#helix-zeta-kinks">Zeta-Knicke drehen ↗</a></p>
-    <p><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-loki-3d">Adressabstand im 3D-Würfel ↗</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#helix-primecube-resume-20261126">Resümee und offene Findings ↗</a></p>
+    <p><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-loki-3d">Adressabstand im 3D-Würfel ↗</a> · <a href="#zeta-loki-map">Wheel und Loki vergleichen ↗</a> · <a href="A0_RESEARCH_DESK.html?desk=returns#helix-primecube-resume-20261126">Resümee und offene Findings ↗</a></p>
+  </section>
+
+  <section class="spread" id="zeta-loki-map" aria-labelledby="zetaLokiMapTitle">
+    <header class="head">
+      <div><div class="label">A0 Science · Ansichtswechsel</div><h2 id="zetaLokiMapTitle">Ein Punkt in der Ansicht, zwei Rückwege</h2></div>
+    </header>
+    <div class="map-compare">
+      <article class="map-panel">
+        <header><div class="label">Wheel · ζ-Spiegel</div><h3>Kontakt 10→11</h3></header>
+        <figure class="map-wheel-figure">
+          <div class="map-wheel" aria-hidden="true"><span>0°</span><span>180°</span><i></i></div>
+          <figcaption>Grey und Pink treffen auf der <strong>0°-Marke</strong> der Ghost Line.</figcaption>
+        </figure>
+        <dl class="map-key">
+          <div><dt class="map-grey">Grey</dt><dd>+720° · zwei positive Umläufe</dd></div>
+          <div><dt class="map-pink">Pink</dt><dd>−720° · zwei negative Umläufe</dd></div>
+        </dl>
+        <p>Der Kontakt 10→11 legt die Sprossenhöhe fest. Der vorzeichenbehaftete Winkel hält beim Rückweg fest, welcher Ast wie weit gedreht hat.</p>
+        <nav class="map-links" aria-label="Wheel und Helix"><a href="A0_GAME_OF_WORLDS_PLAY.html?world=numbers&amp;view=wheels&amp;rule=wheels#numbers">Kontaktrad öffnen ↗</a><a href="A0_HELIX_VIEW_ADAPTER.html?zeta-contact=10-11#helix-strand-directions">Zu Kontakt 10→11 in der Helix ↗</a></nav>
+      </article>
+      <article class="map-panel">
+        <header><div class="label">Primecube · Loki</div><h3>Gleicher x–z-Punkt</h3></header>
+        <p>Beide Marker liegen bei <strong>x=0, z=3</strong>.</p>
+        <div class="map-slices">
+          <figure class="map-slice map-purple">
+            <figcaption>397 · y=3</figcaption>
+            <div class="map-slice-grid" aria-hidden="true"><i></i></div>
+            <div class="map-axis" aria-hidden="true"><span>x=0</span><span>x=10</span></div>
+            <a href="A0_PRIMECUBE_GAP_FOLD_LAB.html?helix=PC1111%3AN0397#shadow-cube-slice-overlay"><code>PC1111:N0397</code> ↗</a>
+          </figure>
+          <figure class="map-slice map-pink">
+            <figcaption>419 · y=5</figcaption>
+            <div class="map-slice-grid" aria-hidden="true"><i></i></div>
+            <div class="map-axis" aria-hidden="true"><span>x=0</span><span>x=10</span></div>
+            <a href="A0_PRIMECUBE_GAP_FOLD_LAB.html?helix=PC1111%3AN0419#shadow-cube-slice-overlay"><code>PC1111:N0419</code> ↗</a>
+          </figure>
+        </div>
+        <p><strong>Rückweg:</strong> y legt den Schnitt fest, die PC1111-ID den Record. 397 führt zur Helix-Ebene 78, 419 zur Ebene 81.</p>
+        <nav class="map-links" aria-label="Loki und Primecube"><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-loki-slice-compare">Loki-Schnitte öffnen ↗</a><a href="A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-loki-3d">Beide Records im Primecube ↗</a></nav>
+      </article>
+    </div>
+    <figure class="map-depth">
+      <canvas width="840" height="280" data-map-depth aria-label="Drehbarer Würfel mit der Strecke von 397 bei y=3 zu 419 bei y=5 bei festem x=0 und z=3.">397 liegt bei (0, 3, 3), 419 bei (0, 5, 3).</canvas>
+      <figcaption>
+        <strong>Zwei Rastereinheiten entlang y</strong>
+        <p>Beim Drehen verändert sich die Projektion. Beide Adressen und ihr Abstand bleiben erhalten.</p>
+        <label for="zetaLokiYaw" hidden>Würfel drehen <input id="zetaLokiYaw" type="range" min="0" max="360" value="35"></label>
+      </figcaption>
+    </figure>
+    <p><strong>Finding offen.</strong> An den beiden Beispielen lässt sich prüfen, welche Angaben eine Ansicht für ihren Rückweg braucht.</p>
   </section>
 
   <section class="spread" id="attraktoren-fourier-projektionen" aria-labelledby="attractorFourierTitle">
@@ -334,6 +421,83 @@
 <section class="night" id="unit-root-shear-source-dock-20261124"><div class="spread"><header class="head"><div class="no">333 · 4 · 3 · CRT</div><div><div class="label">A0 Science addendum · typed source dock · 24.11.2026</div><h2>Fünf Verträge treffen sich — ihre Quellen bleiben unterscheidbar.</h2><p class="sub">Der Unit/Root/Shear-View bindet den 333°-Kontrolllauf, Plate/Mirror, Pink–Grey, Breathing Crystal und Mycel/CRT Split als fünf getrennte Source-Lesarten ein.</p></div></header><div class="status-grid"><article><small>333 control</small><strong>40 Richtungen · Return 40 · ×3</strong><p><code>333°=3·111°</code> und <code>gcd(111,120)=3</code>. Das ist nicht der historische 33°-Ray.</p></article><article><small>Plate / Mirror</small><strong>Quelle bleibt · Ansicht wechselt</strong><p>Die Adresse wählt die Platte; X/O und Spiegel wechseln nur die Projektion.</p></article><article><small>Pink / Grey</small><strong>Vier Register · ein Return-Check</strong><p>Position, Pink Shift, Echo Lag und Shadow Fraction bleiben separat; Grey ist die Kontrolle.</p></article><article><small>Breath</small><strong>CORE fest · drei Bänder</strong><p><code>0°/120°/240°</code> und vier Sekunden beschreiben einen Displayzyklus, kein physiologisches Modell.</p></article><article><small>Mycel / CRT split</small><strong><code>97 ↔ 944</code> · nur <code>mod 13</code> wechselt</strong><p>Die gemeinsame <code>(mod 7, mod 11)</code>-Schiene bleibt exakt. 696 ist ein eigener Kandidat und keine Identität der beiden Endpunkte.</p></article><article><small>Aktiver Untervertrag</small><strong>Source · Operator · Return · Boundary</strong><p>Die Auswahl erscheint direkt am Visual und hebt nur ihren Canvas-Bereich hervor. Acht Einheiten, Faltregler und Play/Pause bleiben View-Operatoren desselben Instruments.</p></article></div><div class="boundary"><strong>Boundary:</strong> Gemeinsame Anzeige erzeugt keinen gemeinsamen Operator, keine Carrier-Identität, keine Uhr und keinen physischen Mechanismus. Animation ist ein View-Operator; Dzhanibekov bleibt ungebundene Analogie. <code>Δgraph=0 · STUDY 0 · FINDING 0</code>.</div><div class="btns"><a class="btn gold" href="A0_PRIMECUBE_GAP_FOLD_LAB.html#unit-root-shear-source-dock">Source Dock öffnen</a><a class="btn" href="A0_RESEARCH_DESK.html#primecube-unit-root-shear-source-dock-20261124">Science Desk</a><a class="btn" href="results/a0-primecube-unit-root-shear-source-dock-return-2026-11-24.json">Receipt</a></div></div></section>
 <section class="night" id="yugo-jogi-tlift-adapter-20261124" aria-labelledby="yugoJogiTliftScienceTitle"><div class="spread"><header class="head"><div class="no">TLiftK · J</div><div><div class="label">A0 Science addendum · source, ambiguity and return · 24 November 2026</div><h2 id="yugoJogiTliftScienceTitle">Eine Schwelle öffnet den Tail. Ein Witness entscheidet den Return.</h2><p class="sub">Die YUGO/JOGI-Ansicht ist jetzt ein untergeordneter Modus im bestehenden Primecube: <code>d₀</code> setzt den Beginn des geprüften Bereichs; <code>J</code> trennt Fixlinie und Spiegelpaar; <code>DECIDE/ABSTAIN</code> hält sichtbar, ob der beobachtete Zustand eindeutig zurückgeführt werden kann.</p></div></header><div class="status-grid"><article><small>Quantifier</small><strong><code>∃d₀ · ∀d≥d₀</code></strong><p>Der einzelne Probegrad ist nicht die All-Aussage. Die Ansicht zeigt deshalb Schwelle, aktuelle Probe und Tail-Bedingung getrennt.</p></article><article><small>Involution</small><strong><code>J²=I</code> · <code>Fix(J): y=0</code></strong><p>Auf der Ghostline fällt das Spiegelpaar zusammen. Außerhalb bleiben Zustand und Gegenansicht unterscheidbar.</p></article><article><small>Observer decision</small><strong>Witness oder <code>ABSTAIN</code></strong><p>Ein sichtbares Bild allein identifiziert den Zustand nicht immer. Ohne Richtungswitness bleibt der Return bewusst offen.</p></article><article><small>Finite glyph view</small><strong><code>d↔b</code> · <code>q↔p</code></strong><p>Vier Orientierungsmarker bilden zwei Spiegelpaare und schließen nach endlicher Wiederholung.</p></article><article><small>Verification</small><strong><code>5/5 PASS</code></strong><p>Der eingebettete Adapter besteht seine fünf begrenzten Modellkontrollen; die Primecube-Suite bestätigt zusätzlich UI- und Rückbindungsmarker. Die Quellenexperimente wurden nicht neu ausgeführt.</p></article><article><small>Authority</small><strong><code>Δgraph=0</code></strong><p>EMP‑02, EXP‑JANUS‑16D und POLARPASS‑FLB liefern nur Provenienz- und Darstellungsgrammatik. Keine physikalische oder zahlentheoretische Claim-Promotion.</p></article></div><div class="boundary"><strong>Science boundary:</strong> Der Adapter ist eine View desselben Primecube-Carriers, kein Standalone-Modul und keine neue Identität. Er beweist weder eine Fluiddynamik noch eine positive Masselücke, RH oder GRH; <code>TLiftK</code> wird nicht zu einem Naturmechanismus. <code>STUDY 0 · FINDING 0 · PUBLICATION 0</code>.</div><div class="btns"><a class="btn gold" href="A0_RESEARCH_DESK.html#yugo-jogi-tlift-adapter-return-20261124">Science Desk Return →</a><a class="btn" href="A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-window-11-12-13-sequence">Primecube Observer öffnen →</a><a class="btn" href="results/a0-yugo-jogi-tlift-adapter-return-2026-11-24.json">5/5 Receipt →</a></div></div></section>
   <script src="a0-primecube-model.js?rev=20261124-r45"></script>
+  <script>
+    (() => {
+      const canvas = document.querySelector('[data-map-depth]');
+      const yaw = document.getElementById('zetaLokiYaw');
+      const ctx = canvas.getContext('2d');
+      const model = window.A0PrimecubeModel;
+      if (!ctx || !model) { canvas.style.display = 'none'; return; }
+
+      const edge = model.CUBE_SIZE - 1;
+      const records = [
+        { n:397, color:'#c3a5ff', address:model.cubeAddress(397) },
+        { n:419, color:'#ff8ac6', address:model.cubeAddress(419) }
+      ];
+      const corners = [0,edge].flatMap(x => [0,edge].flatMap(y => [0,edge].map(z => ({ x,y,z }))));
+
+      function draw() {
+        const angle = yaw.valueAsNumber * Math.PI / 180;
+        const cos = Math.cos(angle);
+        const sin = Math.sin(angle);
+        const project = ({ x,y,z }) => [
+          420 + 21 * ((x - edge / 2) * cos - (y - edge / 2) * sin),
+          140 + 8 * ((x - edge / 2) * sin + (y - edge / 2) * cos) - 15 * (z - edge / 2)
+        ];
+        function path(addresses) {
+          ctx.beginPath();
+          addresses.forEach((address,index) => {
+            const [x,y] = project(address);
+            if (index === 0) ctx.moveTo(x,y);
+            else ctx.lineTo(x,y);
+          });
+        }
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        path([{x:0,y:0,z:0},{x:0,y:edge,z:0},{x:0,y:edge,z:edge},{x:0,y:0,z:edge}]);
+        ctx.closePath();
+        ctx.fillStyle = '#143344';
+        ctx.fill();
+        ctx.strokeStyle = '#48687c';
+        ctx.lineWidth = 1.5;
+        corners.forEach((a,index) => {
+          for (const b of corners.slice(index + 1)) {
+            if (Math.abs(a.x-b.x) + Math.abs(a.y-b.y) + Math.abs(a.z-b.z) === edge) {
+              path([a,b]);
+              ctx.stroke();
+            }
+          }
+        });
+        path(records.map(record => record.address));
+        ctx.strokeStyle = '#f0c879';
+        ctx.lineWidth = 5;
+        ctx.stroke();
+        const marks = records.map(record => ({ ...record, point:project(record.address) }))
+          .sort((a,b) => a.point[0] - b.point[0]);
+        marks.forEach(({ n,color,address,point:[x,y] },index) => {
+          const lead = index === 0 ? -1 : 1;
+          const tx = x + lead * 24;
+          const ty = y - 16 - index * 16;
+          ctx.beginPath();
+          ctx.moveTo(x,y);
+          ctx.lineTo(tx,ty);
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.arc(x,y,6,0,Math.PI * 2);
+          ctx.fillStyle = color;
+          ctx.fill();
+          ctx.font = '600 19px system-ui';
+          ctx.textAlign = lead < 0 ? 'right' : 'left';
+          ctx.fillText(n + ' · y=' + address.y,tx + lead * 5,ty);
+        });
+      }
+
+      yaw.closest('label').hidden = false;
+      yaw.addEventListener('input',draw);
+      draw();
+    })();
+  </script>
   <script src="a0-deris-pink-strip.js?rev=20261023-r1"></script>
   <script src="a0-primecube-algo.js?rev=14"></script>
   <script defer src="assets/a0-attractor-fourier-data.js?rev=1"></script>
