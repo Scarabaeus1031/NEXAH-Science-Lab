@@ -27,14 +27,25 @@ function mount(scope){const host=(scope||document).querySelector('[data-machina-
 // by half the travel angle, so its orientation changes sign at the seam.
 function seamRecord(degrees) {
   const angle = mod(degrees, 360) * Math.PI / 180;
-  const tilt = degrees * Math.PI / 360;
+  const halfAngle = degrees * Math.PI / 360;
+  const halfTilt = halfAngle / 2;
   const clean = value => Math.abs(value) < 1e-12 ? 0 : value;
   const place = [Math.cos(angle), Math.sin(angle), 0].map(clean);
+  // Continuous lift of Rz(angle) Ry(angle / 2), without reducing the
+  // angle modulo a turn or choosing a canonical quaternion sign.
+  const zCos = Math.cos(halfAngle);
+  const zSin = Math.sin(halfAngle);
+  const yCos = Math.cos(halfTilt);
+  const ySin = Math.sin(halfTilt);
   return {
     place,
     laps: Math.floor(degrees / 360),
-    mobius: [place[0] * Math.sin(tilt), place[1] * Math.sin(tilt), Math.cos(tilt)].map(clean),
+    mobius: [place[0] * Math.sin(halfAngle), place[1] * Math.sin(halfAngle), Math.cos(halfAngle)].map(clean),
     cylinder: [0, 0, 1],
+    quaternion: {
+      mobius: [zCos * yCos, -zSin * ySin, zCos * ySin, zSin * yCos].map(clean),
+      cylinder: [zCos, 0, 0, zSin].map(clean),
+    },
   };
 }
 
@@ -92,9 +103,14 @@ function mountSeam(panel) {
     place: view.querySelector('[data-seam-place]'),
     laps: view.querySelector('[data-seam-laps]'),
     direction: view.querySelector('[data-seam-direction]'),
+    quaternion: view.querySelector('[data-seam-quaternion]'),
   }));
   const format = new Intl.NumberFormat('de-DE', {maximumFractionDigits: 3});
   const vector = values => '(' + values.map(value => format.format(value)).join(' / ') + ')';
+  const signedScalar = ([w, x, y, z]) => {
+    if (x === 0 && y === 0 && z === 0) return w < 0 ? '−1' : '+1';
+    return vector([w, x, y, z]);
+  };
   function render(degrees) {
     angle.value = String(degrees);
     angleValue.textContent = degrees + '°';
@@ -103,14 +119,16 @@ function mountSeam(panel) {
       view.place.textContent = vector(record.place);
       view.laps.textContent = record.laps;
       view.direction.textContent = vector(record[view.kind]);
+      view.quaternion.textContent = 'q = ' + signedScalar(record.quaternion[view.kind]);
       drawSeam(view.canvas, view.kind, record);
     }
     for (const button of buttons) {
       button.setAttribute('aria-pressed', String(Number(button.dataset.seamTurn) === degrees));
     }
     if (degrees === 0) status.textContent = 'Start · Gleicher Ort, gleicher Querpfeil.';
-    else if (degrees === 360) status.textContent = '1 Runde · Beide am Startort. Der Möbius-Pfeil ist umgekehrt.';
-    else if (degrees === 720) status.textContent = '2 Runden · Beide am Startort. Beide Pfeile zeigen wieder wie am Start.';
+    else if (degrees === 360 || degrees === 1080) status.textContent = 'Beide am Startort. Der Möbius-Pfeil ist umgekehrt.';
+    else if (degrees === 720) status.textContent = '2 Runden · Ort und Querpfeil sind zurück. Der Möbius-Record steht auf q = −1.';
+    else if (degrees === 1440) status.textContent = '4 Runden · Auch der Möbius-Record ist bei q = +1 zurück.';
     else status.textContent = 'Unterwegs · Der Record zeigt Ort und Richtung am gewählten Winkel.';
   }
   angle.addEventListener('input', () => render(Number(angle.value)));

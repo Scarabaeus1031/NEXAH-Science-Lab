@@ -39,6 +39,10 @@
 .mgr-seam-views dl { display: grid; grid-template-columns: 1fr auto; gap: 5px 12px; margin: 0; }
 .mgr-seam-views dd { margin: 0; font-variant-numeric: tabular-nums; }
 .mgr-seam [data-seam-result] { color: #ffe0a6; }
+.mgr-seam-views [data-seam-quaternion] { color: #ffe0a6; font-weight: 700; }
+.mgr-seam-map { margin: 14px 0 0; }
+.mgr-seam-map img { display: block; width: min(100%, 380px); height: auto; }
+.mgr-seam-map figcaption { margin-top: 8px; }
 @media (max-width: 760px) {
   .mgr-seam-controls, .mgr-seam-views { grid-template-columns: 1fr; }
 }
