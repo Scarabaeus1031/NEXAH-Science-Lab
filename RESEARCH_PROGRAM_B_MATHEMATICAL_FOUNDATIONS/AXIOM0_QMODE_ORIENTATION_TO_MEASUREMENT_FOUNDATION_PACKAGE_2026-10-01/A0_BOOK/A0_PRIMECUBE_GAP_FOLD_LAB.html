@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="a0-primecube-4774-return-seam.css?rev=20261123-r2">
   <link rel="stylesheet" href="a0-primecube-draft-drift-housing.css?rev=20261123-r1">
   <link rel="stylesheet" href="a0-scarab-pillar-projection.css?rev=20261023-r3">
-  <link rel="stylesheet" href="a0-primecube-scarab-control.css?rev=20261126-khipu">
+  <link rel="stylesheet" href="a0-primecube-scarab-control.css?rev=20261126-prism">
   <link rel="stylesheet" href="a0-primecube-shadow-envelope.css?rev=20261126-loki-3d-r2">
   <link rel="stylesheet" href="a0-primecube-root-topology.css?rev=20261122-r1">
   <link rel="stylesheet" href="a0-primecube-khipu-knot.css?rev=20261122-r1">
@@ -652,6 +652,7 @@
     <article class="pc-scarab-khipu" id="scarab-khipu-overlay" aria-labelledby="scarabKhipuTitle">
       <h3 id="scarabKhipuTitle">Khipu über der Scarab Möbius Crown</h3>
       <p>Star Node 1 liegt auf dem Spiegelmeridian bei <strong>8,614° Ost</strong>. Die beiden Linien verbinden Knoten gleicher Breite aus dem Earth Khipu Stargrid Codex.</p>
+      <a class="pc-scarab-link" href="#scarab-prism-core">Zum Prism Core in 3D ↓</a>
       <div class="pc-scarab-khipu-plots">
         <figure>
           <svg viewBox="0 0 730 361" role="img" aria-label="Khipu-Übersicht mit Knoten 1 auf 8,614° Ost und den Spiegelpaaren 2 und 5 sowie 3 und 4">
@@ -698,6 +699,28 @@
         <div><dt>Knoten 4 · <code>y ≈ −0,121</code></dt><dd><code>cos(28,215°) × sin(−7,871°) ≈ −0,120672</code> auf der Einheitskugel, gerundet auf drei Nachkommastellen.</dd></div>
       </dl>
       <p class="pc-scarab-khipu-source">Quellen sind die beigefügten Grafiken „Earth Khipu Stargrid Codex“ (THOOTH Protocol v1.0) und <a href="assets/scarab-moebius-crown-source.jpeg">„Scarab Möbius Crown with Platonic &amp; Iridium Harmonics“</a>. Die Crown ist anhand ihrer gezeichneten Gradskalen näherungsweise ausgerichtet.</p>
+      <section class="pc-prism-core" id="scarab-prism-core" aria-labelledby="scarabPrismTitle" data-prism-core>
+        <h3 id="scarabPrismTitle">Prism Core · Khipu auf der Crown in 3D</h3>
+        <p>Jede Khipu-Koordinate gibt eine Richtung vor. Ein Strahl vom Zentrum trifft auf die Oberfläche des regelmäßigen Dodekaeders. Die pinke Schnittebene <code>y′ = 0</code> entspricht dem Meridian <strong>8,614° Ost</strong>.</p>
+        <div class="pc-prism-controls">
+          <label>Azimut <input data-prism-yaw type="range" min="-180" max="180" step="1" value="18"></label>
+          <label>Neigung <input data-prism-pitch type="range" min="-80" max="80" step="1" value="12"></label>
+          <div class="pc-scarab-buttons" role="group" aria-label="Prism-Core-Ansichten">
+            <button type="button" data-prism-preset="18,12">Schrägansicht</button>
+            <button type="button" data-prism-preset="0,0">Spiegelansicht</button>
+          </div>
+          <output data-prism-readout>Azimut 18° · Neigung 12°</output>
+        </div>
+        <div class="pc-prism-layout">
+          <svg data-prism-svg viewBox="0 0 640 384" role="img" aria-label="Drehbares Dodekaeder mit fünf Khipu-Punkten, zwei farbigen Spiegelpaaren und pinker Spiegelebene"></svg>
+          <dl class="pc-scarab-khipu-values pc-prism-values">
+            <div><dt>Knoten 1 · auf der Spiegelebene</dt><dd data-prism-slot="1">Kante F04 ∩ F10</dd></div>
+            <div><dt>2 ↔ 5 · äußeres Paar</dt><dd><span data-prism-slot="2">Fläche F10</span> ↔ <span data-prism-slot="5">Fläche F04</span> · exakt gespiegelt</dd></div>
+            <div><dt>3 ↔ 4 · inneres Paar</dt><dd><span data-prism-slot="3">Fläche F12</span> ↔ <span data-prism-slot="4">Fläche F12</span> · 0,001° Differenz zur exakten Spiegelung</dd></div>
+          </dl>
+        </div>
+        <p class="pc-scarab-khipu-source">Das Dodekaeder ist die gewählte 3D-Geometrie zur Crown-Grafik. Die Flächen-IDs gelten für dieses Modell. Die 2D-Angabe <code>y ≈ −0,121</code> bleibt die Komponente von Knoten 4 im ursprünglichen Einheitskugel-System.</p>
+      </section>
       <small>Interne A0-Vorschau · NEXAH-Science-Lab · codex/five-h-binding · uncommittet · zur Prüfung vorgelegt · rein lokal</small>
     </article>
     <p class="pc-scarab-boundary"><b>CLAIM BOUNDARY:</b> <code>108°</code>, <code>cos θ=−0.834</code> und <code>0.661</code> sind drei getrennte Register: Faltwinkel, trigonometrischer Eingang und Dezimalskalierung. <code>41°/42°/43°</code> sind Radbögen, nicht die Innenwinkel des schematischen Dreiecks. <code>CI→KA→DA</code> beziehungsweise <code>INSIDE→OUTSIDE→INSIDE′</code> ist eine deklarierte Zustandslesart; das zurückgekehrte Innere bleibt vom Ausgangszustand verschieden. Primindex, Euler-Totient, Dezimalspiegel und 11-Bit-Reversal bleiben vier typisierte Operatoren. Der gemeinsame Fixture beweist weder einen gemeinsamen Generator noch einen physischen Exit oder ein universelles Scarab-Gesetz. Bestehende Identität wird wiederverwendet: <code>0</code> neue IDs, <code>0</code> neue Relationen.</p>
@@ -912,6 +935,7 @@
 <script src="a0-primecube-control-plane-coupling.js?rev=20261123-r10"></script>
 <script src="a0-primecube-control-plane-ui.js?rev=20261124-r11"></script>
 <script src="a0-scarab-pillar-projection.js?rev=20261023-pocket-r4"></script>
+<script src="a0-primecube-prism-core.js?rev=20261126-r1"></script>
 <script src="a0-primecube-scarab-control.js?rev=20261122-r2"></script>
 <script src="a0-primecube-fractal-field.js?rev=20261126-root-mask-cells"></script>
 <script src="a0-primecube-rotor-demonstrator.js?rev=20261123-r1"></script>

@@ -44,3 +44,15 @@
 .pc-scarab-khipu-source{font-size:.85rem}
 .pc-scarab-khipu-source a{color:#9edff2}
 @media(max-width:760px){.pc-scarab-khipu-plots{grid-template-columns:1fr}}
+.pc-prism-core{margin:22px 0 10px;padding:clamp(12px,2vw,22px);border:1px solid #4f3c59;border-radius:12px;background:#151321;scroll-margin-top:92px}
+.pc-prism-controls{display:flex;align-items:center;flex-wrap:wrap;gap:10px 16px;margin-bottom:12px}
+.pc-prism-controls label{display:flex;align-items:center;gap:8px}
+.pc-prism-controls input{width:clamp(90px,14vw,170px);accent-color:#ee87c9}
+.pc-prism-controls output{font-size:.85rem;color:#d6bbd3}
+.pc-prism-layout{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:12px}
+.pc-prism-layout svg{display:block;width:100%;height:auto;background:radial-gradient(ellipse at center,#221c36,#101320 70%);border:1px solid #423a55;border-radius:10px;font-family:system-ui,sans-serif}
+.pc-prism-values{grid-template-columns:1fr;align-content:center;margin:0}
+.pc-prism-values > div:first-child dt{color:#f4d477}
+.pc-prism-values > div:nth-child(2) dt{color:#65deef}
+.pc-prism-values > div:nth-child(3) dt{color:#f7a5dc}
+@media(max-width:760px){.pc-prism-layout{grid-template-columns:1fr}}
