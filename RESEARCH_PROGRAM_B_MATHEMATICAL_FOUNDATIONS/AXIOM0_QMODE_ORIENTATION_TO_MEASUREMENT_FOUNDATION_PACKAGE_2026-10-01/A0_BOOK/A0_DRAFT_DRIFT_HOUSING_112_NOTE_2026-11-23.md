@@ -130,10 +130,10 @@ kein besonderer IOTA-Vorteil des 24-Stunden-Versatzes**. Der Befund bleibt auf d
 Fenster und die vorab festgelegten Versätze begrenzt. Der Status der
 Hypothese und die Zulassung eines Findings ändern sich dadurch nicht.
 
-Lokale Nachweise:
-[Prüfprotokoll](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/protocol.json>) ·
-[Ergebnisse je Startpaar](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/result.json>) ·
-[Quellabrufe](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/sources.json>).
+Prüfbelege im Science Lab · [Übersicht und Nachrechnung](../IOTA_JPL_2023_2026-11-26/README.md):
+[Prüfprotokoll](<../IOTA_JPL_2023_2026-11-26/protocol.json>) ·
+[Ergebnisse je Startpaar](<../IOTA_JPL_2023_2026-11-26/result.json>) ·
+[Quellabrufe](<../IOTA_JPL_2023_2026-11-26/sources.json>).
 
 
 ### Gemeinsamer Phasentest · JPL 2023
@@ -160,9 +160,9 @@ für dieses Fenster.
 Der **SLog** hält für jeden Referenzwechsel die Richtung um die 180°-Linie,
 die benachbarten Abtastmarken und den Trefferstatus fest. Die Referenz
 enthält **10 Aufwärts- und 9 Abwärtswechsel**.
-[SLog mit Wechselrichtungen (CSV, gzip)](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/phase-sweep/slog.csv.gz>) ·
-[Phasenergebnisse](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/phase-sweep/phases.csv>) ·
-[Prüfprotokoll des Phasentests](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/phase-sweep/protocol.json>).
+[SLog mit Wechselrichtungen (CSV, gzip)](<../IOTA_JPL_2023_2026-11-26/phase-sweep/slog.csv.gz>) ·
+[Phasenergebnisse](<../IOTA_JPL_2023_2026-11-26/phase-sweep/phases.csv>) ·
+[Prüfprotokoll des Phasentests](<../IOTA_JPL_2023_2026-11-26/phase-sweep/protocol.json>).
 
 
 
@@ -193,7 +193,7 @@ Das Beispiel zeigt, wie die Lage der Abtastmarken den Treffergewinn
 in dieser Phase erzeugt.
 
 [Helix-Demonstrator](A0_HELIX_VIEW_ADAPTER.html?jupiter=365#helix-iota-jpl) ·
-[SLog mit Wechselrichtungen](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/phase-sweep/slog.csv.gz>).
+[SLog mit Wechselrichtungen](<../IOTA_JPL_2023_2026-11-26/phase-sweep/slog.csv.gz>).
 
 ### Zahlengleichheit mit dem IOTA-V-Gap · Einheiten und Gegenprobe 2025
 
@@ -224,7 +224,7 @@ nicht vorgibt. Die Zahlengleichheit allein liefert keinen Beleg dafür,
 dass der V-Gap die erfolgreichen Phasen bestimmt.
 
 [IOTA-Rechenregel](a0-machina-triangle-phi-lens.js) ·
-[Zusammenfassung Phasentest 2023](<../../../../90 DATA ARTIFACTS/IOTA_JPL_2023_LOCAL_2026-11-26/phase-sweep/summary.json>).
+[Zusammenfassung Phasentest 2023](<../IOTA_JPL_2023_2026-11-26/phase-sweep/summary.json>).
 
 ## Verification
 

@@ -1,0 +1,12 @@
+{
+  "scope": "Descriptive local phase sweep on the already evaluated JPL 2023 window.",
+  "base_protocol_sha256": "aadecd5d319f1d29804316d6cc5a51e29600549633152438b390fdf93aa07e94",
+  "base_result_sha256": "e80618faa6ca8e3d137a62e19568fb924ce49a5d07b8dadd78bc7f56c149c6ed",
+  "phases": "Translate all twelve base starts together by each integer hour r=0..8759 modulo 8760. Basis spacing is 730 hours, so r=0..729 represents 730 distinct sets, each repeated twelve times.",
+  "endpoint_rule": "Keep all scoring and endpoint rules in the base protocol, including no synthetic interval across the dated data boundary.",
+  "score": "For each lag d=12,24,36 compute S_d = (sum over twelve prime count gains from D - sum over twelve uniform count gains from D)/12.",
+  "strict_win": "S_24 > max(S_12,S_36), strict. Report that count and, separately, how many also have positive prime gain and S_24>0 as in the base protocol.",
+  "raw_prime_comparison": "As a secondary summary, count phases with prime gain at +24 strictly greater than at both +12 and +36, before adjusting for uniform gains.",
+  "SLog": "Every pair, grid and reference crossing is recorded once per distinct phase, with its upward or downward direction, first hourly sample after the crossing, surrounding D/control sample brackets and four capture flags. Full-year aliases are recoverable by reindexing the twelve starts.",
+  "interpretation": "Exact frequency under a uniform translation of the declared set in the fixed 2023 ephemeris. The distinct phases overlap in their data and are not independent yearly replications."
+}

@@ -1,0 +1,21 @@
+{
+  "scope": "Bounded local check requested by Human Owner. No Study admission or publication.",
+  "baseline_commit": "e050ef39269826e3ddca52ca4f447c59d04c025e",
+  "window_selection": "2023 is the most recent complete non-leap calendar year before 2025. The local A0 sources located for this comparison contain no evaluation of 2023. No outcome data inspected before this record.",
+  "start_tdb": "2023-01-01",
+  "stop_tdb_inclusive_endpoint": "2024-01-01",
+  "baseline_marks": 1092,
+  "hours": 8760,
+  "bases_hours": [365,1095,1825,2555,3285,4015,4745,5475,6205,6935,7665,8395],
+  "D_hours_from_base": 96,
+  "E_lag_hours_from_D": 24,
+  "alternative_lag_hours_from_D": [12,36],
+  "alternative_selection": "Two symmetric flanks of +24 h, selected before download. +12 h corresponds to the IOTA half address and +36 h is 1.5 addresses.",
+  "source": "JPL Horizons ELEMENTS, hourly TDB, 501/502/503 relative to 500@599, BODY EQUATOR; match 2025 jup365_merged when available and disclose any ephemeris difference",
+  "angle": "Individual longitudes = round((OM + W + MA) modulo 360, 7); Laplace angle = (Io - 3*Europa + 2*Ganymede) modulo 360",
+  "grids": "Prime integer hours in 0..8759. Uniform hours = nearest integer to i*8760/1092 for i=0..1091 with ties upward. Shift both grids modulo 8760 and sort.",
+  "scoring": "Strict sign change of hourly Laplace angle around 180 degrees defines reference crossing. Count a crossing only if alone between successive sorted marks, with left mark < crossing hour <= right mark, and endpoints on opposite sides. Include hour 8760 in the hourly reference. Do not create a cyclic interval between last and first sampling marks.",
+  "primary_decision": "For each lag subtract D count from shifted count per base and grid, across 12 pairs. Hypothesis supported in this window only if average prime difference at +24 h is positive and larger than average uniform difference. A nonpositive prime difference rejects direction for this window; equal or greater uniform gain leaves prime specificity unsupported.",
+  "specificity_decision": "Compute the same prime-minus-uniform paired gain for +12 h and +36 h. +24 h is uniquely strongest among these controls only if it strictly exceeds both and passes the primary rule. No inferential claim from overlapping phases.",
+  "stop": "No scoring if timestamps, common frame, or reference transitions cannot be verified; no data-dependent offset or year substitution."
+}
