@@ -1535,6 +1535,10 @@ Orientierungsnutzen für neue Aufgaben bleibt zu prüfen.
 [A0 Science](A0_BOOK/A0_SCIENCE.html#helix-mod7-methodenvergleich) ·
 [Findings-Workspace](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#helix-primecube-168-open-finding)
 
+[A0 · 419/397 und 270°/−90°](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#primecube-helix-windung-vergleich)
+verbindet den Adressrückweg mit dem Windungsbeispiel und ordnet beide als
+modellhaften Vergleich zu Stringtheorie und Loop-Quantengravitation ein.
+
 <a id="jupiter-grid-return-method-example"></a>
 
 ### Jupiter · Rückweg über den Stundenindex
