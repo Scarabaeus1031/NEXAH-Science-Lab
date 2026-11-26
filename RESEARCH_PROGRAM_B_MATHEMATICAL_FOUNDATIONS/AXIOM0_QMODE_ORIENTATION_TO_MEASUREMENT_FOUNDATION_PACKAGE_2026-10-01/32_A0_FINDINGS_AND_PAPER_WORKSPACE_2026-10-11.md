@@ -4893,3 +4893,35 @@ feste gleichmäßige Spur. **Finding offen.**
 
 [Science Desk](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#jpl-twelve-offsets-science-return) ·
 [Helix · JPL-Jahresfenster](A0_BOOK/A0_HELIX_VIEW_ADAPTER.html?jupiter=365#helix-jupiter-phases)
+
+<a id="jpl-paired-starts-2025"></a>
+
+### JPL 2025 · Gepaarter Vergleich über zwölf Startlagen
+
+Für beide Raster gelten dieselben [zwölf Startlagen](#jpl-twelve-offsets)
+von +365 h bis +8.395 h in 730-Stunden-Schritten und je 1.092 Marken.
+Das verschiebbare gleichmäßige Raster setzt seine Ausgangsmarken auf
+`round(i × 8760 / 1092)` für `i = 0…1091`. Beide Raster werden modulo
+8.760 verschoben und chronologisch sortiert. Die bisherige feste
+gleichmäßige Referenz mit beiden Endpunkten der Stundenreihe bleibt
+erhalten. Gezählt werden eindeutig erfasste Wechsel unter den 21
+stündlichen Übergängen nach der Zählregel oben.
+
+| Raster | Eindeutig erfasste Wechsel | Durchschnitt über zwölf Starts |
+| --- | --- | ---: |
+| Primzahlmarken | 3× 21/21 · 9× 19/21 | **19,5/21** |
+| Gleichmäßiges Raster, verschoben | 12× 19/21 | **19,0/21** |
+| Feste gleichmäßige Referenz | 19/21 im Referenzlauf | — |
+
+Bei +2.555 h, +4.015 h und +8.395 h erfassen die Primzahlmarken alle
+21 Wechsel. In den neun übrigen Paarvergleichen haben beide Raster
+jeweils 19 Treffer. Das verschobene gleichmäßige Raster und die feste
+Referenz verpassen das Paar vom **12. September** bei 16:00 ↑ und
+21:00 ↓ TDB (Stunden 6112 und 6117) in jedem ihrer Läufe. Die
+[vorherige Tabelle](#jpl-twelve-offsets) enthält die verpassten Paare
+der Primzahlmarken für jede Startlage.
+
+Der mittlere Abstand von 0,5 Wechseln pro Startlage gilt für die
+gewählten Rasterphasen im JPL-Jahr 2025. **Finding offen.**
+
+[Science Desk · gepaarter JPL-Vergleich](A0_BOOK/A0_RESEARCH_DESK.html?desk=returns#jpl-paired-starts-2025-science-return)
