@@ -1553,6 +1553,22 @@ braucht. Der Nutzen für Leser bleibt offen.
 [Beispiel in „Lorenz lesen“](A0_BOOK/A0_TOURS.html#black-egg-u-turn) ·
 [Einordnung im Findings-Workspace](32_A0_FINDINGS_AND_PAPER_WORKSPACE_2026-10-11.md#black-egg-method-example)
 
+<a id="tessarec-radius-method-example"></a>
+
+### Tessarec · Radius und Vorzeichen
+
+Die Tafel „Tessarec Coordinate Equation“ zeigt die euklidische Norm
+`R = √(X² + Y² + Z²)`. Speichert die Ansicht X, Z und R, dann ist
+`|Y| = √(R² − X² − Z²)` bestimmt. Bei positivem Radikanden bleiben
+zwei Möglichkeiten. So liegen (3, 4, 0) und (3, −4, 0) beide bei R = 5.
+Ein Vorzeichen im Record genügt, um Y eindeutig zurückzugeben.
+Bei Radikand null ist Y bereits eindeutig null.
+
+Beim Primecube unterscheidet die PC1111-ID exakte Adressen. Beim
+Black-Egg-U-Turn liefert der geordnete Lorenz-Record die zu einer Zelle
+gehörenden Stichproben. Tessarec ergänzt den Fall, in dem sich die
+fehlende Information für den Rückweg genau benennen lässt.
+
 <a id="jupiter-grid-return-method-example"></a>
 
 ### Jupiter · Rückweg über den Stundenindex
