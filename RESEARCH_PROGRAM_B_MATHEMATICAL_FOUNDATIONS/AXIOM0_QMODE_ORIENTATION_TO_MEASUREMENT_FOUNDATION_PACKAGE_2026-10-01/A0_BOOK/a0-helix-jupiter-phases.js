@@ -3,14 +3,16 @@
 
   const panel = document.getElementById("helix-jupiter-phases");
   const data = window.A0JupiterHorizons;
+  const model = window.A0PrimecubeModel;
   const slider = document.getElementById("kuramotoCompareTime");
   const timeLabel = document.querySelector("[data-kuramoto-time-label]");
-  if (!panel || !data || !slider || !timeLabel) return;
+  if (!panel || !data || !model || !slider || !timeLabel) return;
 
   const query = (selector) => panel.querySelector(selector);
   const { satellites, stepHours, calendarStart } = data;
   const fullCount = satellites[0].longitudes.length;
   const windowSelector = query("[data-jupiter-window]");
+  if (new URLSearchParams(window.location.search).get("jupiter") === "365") windowSelector.value = "365";
   let count = 0;
   const colors = ["#8de5ef", "#ffd08a", "#f49ad4"];
   const wrap = (degrees) => ((degrees % 360) + 360) % 360;
@@ -135,6 +137,45 @@
     return gridCtx.getImageData(0, 0, grid.width, grid.height);
   }
 
+  const samplingPanel = query("[data-jupiter-sampling]");
+  const samplingCanvas = query("[data-jupiter-sample-strip]");
+  const samplingCtx = samplingCanvas.getContext("2d");
+  const sampleX = index => 10 + (samplingCanvas.width - 20) * index / (fullCount - 1);
+  const primeHours = model.sieve(fullCount - 1);
+  const uniformHours = primeHours.map((_, i) => Math.round(i * (fullCount - 1) / (primeHours.length - 1)));
+  const primeSet = new Set(primeHours);
+  const uniformSet = new Set(uniformHours);
+  const formatCount = number => number.toLocaleString("de-DE");
+  const formatPercent = new Intl.NumberFormat("de-DE", {
+    style:"percent", minimumFractionDigits:1, maximumFractionDigits:1
+  });
+
+  function summarizeSampling(name, values) {
+    const row = query("[data-jupiter-sample-summary]").insertRow();
+    const heading = document.createElement("th");
+    heading.scope = "row";
+    heading.textContent = name;
+    row.append(heading);
+    const below = values.filter(value => value < 180).length;
+    const changes = values.filter((value, i) => i > 0 && (value - 180) * (values[i - 1] - 180) < 0).length;
+    const average = values.reduce((sum, value) => sum + value, 0) / values.length;
+    for (const value of [
+      formatCount(values.length),
+      `${angle.format(Math.min(...values))}°–${angle.format(Math.max(...values))}°`,
+      angle.format(average) + "°",
+      formatPercent.format(below / values.length),
+      formatCount(changes)
+    ]) row.insertCell().textContent = value;
+  }
+  summarizeSampling("Alle Stunden", laplace);
+  summarizeSampling("Primzahlindex", primeHours.map(i => laplace[i]));
+  summarizeSampling("Gleichmäßig", uniformHours.map(i => laplace[i]));
+  for (const [hours, color, y] of [[primeHours, "#8de5ef", 10], [uniformHours, "#f49ad4", 38]]) {
+    samplingCtx.fillStyle = color;
+    for (const index of hours) samplingCtx.fillRect(Math.round(sampleX(index)), y, 1, 17);
+  }
+  const samplingBackground = samplingCtx.getImageData(0, 0, samplingCanvas.width, samplingCanvas.height);
+
   let previousSample = -1;
   function render() {
     const sample = Math.round(Number(slider.value) * (count - 1) / Number(slider.max));
@@ -151,11 +192,19 @@
     dot(stripCtx, xAt(sample), yAt(laplace[sample]), 4, "#ffd08a");
     gridCtx.putImageData(gridBackground, 0, 0);
     line(gridCtx, gridX(sample), 3, gridX(sample), grid.height - 4, "#fff");
+    if (!samplingPanel.hidden) {
+      samplingCtx.putImageData(samplingBackground, 0, 0);
+      line(samplingCtx, sampleX(sample), 3, sampleX(sample), samplingCanvas.height - 4, "#fff");
+      const membership = [primeSet.has(sample) ? "Primzahlindex" : "", uniformSet.has(sample) ? "gleichmäßig" : ""].filter(Boolean);
+      query("[data-jupiter-sample-cursor]").textContent =
+        "Stunde " + formatCount(sample) + " · " + (membership.join(" und ") || "außerhalb beider Stichproben");
+    }
   }
 
   function selectWindow() {
     const days = Number(windowSelector.value);
     count = Math.min(fullCount, Math.round(days * 24 / stepHours) + 1);
+    samplingPanel.hidden = count !== fullCount;
     const values = laplace.slice(0, count);
     const minimum = Math.min(...values);
     const maximum = Math.max(...values);

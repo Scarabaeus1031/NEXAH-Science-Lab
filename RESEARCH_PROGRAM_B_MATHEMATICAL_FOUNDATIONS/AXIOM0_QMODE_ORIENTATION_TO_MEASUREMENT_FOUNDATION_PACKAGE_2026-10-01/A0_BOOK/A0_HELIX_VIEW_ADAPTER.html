@@ -17,6 +17,16 @@
     .jupiter-panels canvas { display:block; width:100%; height:auto; }
     .jupiter-panels figcaption { font-size:.82rem; }
     .jupiter-phase-key { display:inline-block; vertical-align:middle; width:5rem; height:.45rem; border-radius:.2rem; background:linear-gradient(to right,red,#ff0,#0f0,#0ff,#00f,#f0f,red); margin:0 .25rem; }
+    .jupiter-sampling { margin:1rem 0; padding:1rem; border:1px solid #345369; border-radius:.45rem; }
+    .jupiter-sampling h5 { font-size:1.08rem; margin:0 0 .5rem; }
+    .jupiter-sampling figure { margin:.65rem 0; }
+    .jupiter-sampling canvas { width:100%; height:auto; display:block; background:#071723; }
+    .jupiter-sampling figcaption { display:flex; gap:.5rem 1rem; flex-wrap:wrap; font-size:.85rem; }
+    .jupiter-prime-key { color:#8de5ef; }
+    .jupiter-uniform-key { color:#f49ad4; }
+    .jupiter-table-scroll { overflow-x:auto; }
+    .jupiter-table-scroll table { width:100%; border-collapse:collapse; font-size:.85rem; font-variant-numeric:tabular-nums; }
+    .jupiter-table-scroll :is(th,td) { text-align:left; border-bottom:1px solid #345369; padding:.4rem .55rem; white-space:nowrap; }
     @media (max-width:760px) { .jupiter-panels { grid-template-columns:1fr; } }
   </style>
 </head>
@@ -382,6 +392,21 @@
     </div>
     <p data-jupiter-longitudes></p>
     <p><strong>Dieses Fenster:</strong> <span data-jupiter-range></span> über <span data-jupiter-count></span> Stundenwerte. <span data-jupiter-crossings></span></p>
+    <section class="jupiter-sampling" data-jupiter-sampling hidden aria-labelledby="jupiterSamplingTitle">
+      <h5 id="jupiterSamplingTitle">Primzahlstunden gegen gleichmäßige Abtastung</h5>
+      <p>Stundenindex 0 ist der 1. Januar 2025, 00:00 TDB. Die gleichmäßige Stichprobe verteilt genauso viele Punkte über das ganze Jahr, einschließlich beider Enden, und rundet auf die nächste Stunde.</p>
+      <figure>
+        <canvas width="1600" height="65" role="img" aria-label="Über das Jahr markierte Stunden: oben Primzahlindizes, unten die gleichmäßige Stichprobe. Der weiße Cursor zeigt den gemeinsamen Zeitregler." data-jupiter-sample-strip></canvas>
+        <figcaption><span class="jupiter-prime-key">Oben: Primzahlindex</span><span class="jupiter-uniform-key">Unten: gleichmäßig</span><span data-jupiter-sample-cursor></span></figcaption>
+      </figure>
+      <div class="jupiter-table-scroll" role="region" tabindex="0" aria-label="Laplace-Winkel nach Abtastung">
+        <table>
+          <thead><tr><th scope="col">Abtastung</th><th scope="col">Stunden</th><th scope="col">Winkelbereich</th><th scope="col">Mittelwert</th><th scope="col">Unter 180°</th><th scope="col">Seitenwechsel</th></tr></thead>
+          <tbody data-jupiter-sample-summary></tbody>
+        </table>
+      </div>
+      <p>Seitenwechsel zählen benachbarte Werte in der jeweiligen Stichprobe. Bei Lücken können mehrere Wechsel zwischen zwei ausgewählten Stunden liegen. Vergleich für dieses Jahr und diesen Startindex. Finding offen.</p>
+    </section>
     <p>Laplace-Winkel = λ<sub>Io</sub> − 3λ<sub>Europa</sub> + 2λ<sub>Ganymed</sub> modulo 360°. λ = Ω + ω + M aus oskulierenden Bahnelementen im Jupiter-Bezugssystem. <a href="https://ssd.jpl.nasa.gov/sats/ephem/">JPL · JUP365 ↗</a> · <a href="https://doi.org/10.1051/0004-6361/202141311">Laplace-Resonanz ↗</a> · Finding offen.</p>
   </section>
   <p class="hv-boundary"><b>CLAIM BOUNDARY:</b> <code>RN\A</code>, <code>(c)D|⁄|A</code>, <code>RDMH</code>, <code>F/H</code> und <code>TRIAD</code> sind deklarierte typografische und geometrische View-Bezeichner. <code>Θ</code>, <code>ι</code> und <code>DAO</code> sind hier ausschließlich die explizit definierten normierten Größen <code>Δθ</code>, <code>Δz/Δθ</code> und <code>R²+ι²</code>. Der Backslash wird nicht ohne getrennt definierte Mengen als bewiesene Mengendifferenz gelesen. Die daraus abgeleitete Torsionsgröße <code>|τ|</code> ist keine physikalische Messung. Die ζ-Linse verwendet nur eine endliche Tabelle der ersten 20 positiven nichttrivialen Nullstellenordinaten und den einzelnen konjugierten Paarterm der expliziten Formel; sie berechnet weder die vollständige Formel noch neue Nullstellen und beweist weder RH noch GRH. <code>RLLR/LRRL</code> sind Trace-Wörter, keine Dirichlet-Charaktere; Periodizität modulo <code>q</code>, vollständige Multiplikativität und Nullwerte auf Nicht-Einheiten werden nicht behauptet. <code>−1/12</code> und <code>11/12</code> sind modulo 1 derselbe Phasenpunkt, aber getrennte Lift-/Pfadzeugen. Die Prime-Residue-Helix ordnet einen endlichen bekannten Primzahlträger nach Index und weist deklarierte Modulo-Winkel zu; sie ist weder eine natürliche Primzahlhelix noch identisch mit dem separaten Euler-7×11-Kantenaudit. Einzelstrang, Doppelhelix, Phasenüberblendung, Register-Layer und φ-Rail behaupten keine RNA-/DNA-Validierung, biologische Primzahlsteuerung, physikalische Resonanz, keinen Primzahlgenerator und keine natürliche Identität zwischen Twin Primes, ℤ₃₇, ζ-Nullstellen oder Fibonacci.</p>
@@ -393,6 +418,6 @@
 <script src="a0-context-navigation.js"></script>
 <script defer src="a0-science-kuramoto.js?rev=4"></script>
 <script defer src="assets/a0-jupiter-horizons-2025.js?rev=annual"></script>
-<script defer src="a0-helix-jupiter-phases.js?rev=annual"></script>
+<script defer src="a0-helix-jupiter-phases.js?rev=prime-sampling"></script>
 </body>
 </html>
