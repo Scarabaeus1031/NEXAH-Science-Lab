@@ -55,7 +55,7 @@
   <link rel="stylesheet" href="a0-tl-final-pin.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-channel-census.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-aperture-stack-calibration.css?rev=20261022-source-link">
-  <link rel="stylesheet" href="a0-rolled-layer-seam-return.css?rev=20261115-r1">
+  <link rel="stylesheet" href="a0-rolled-layer-seam-return.css?rev=20261127-mycelium">
   <link rel="stylesheet" href="a0-bench-showcase-tour.css?rev=20261019-longplay-r1">
   <link rel="stylesheet" href="a0-native-face-ninefold.css?rev=20261019-reader-r1">
   <link rel="stylesheet" href="a0-ail-replay.css?rev=20261018-gap04-replay-r1">
@@ -1841,6 +1841,17 @@
           <div class="rlsr-ledger" id="rlsrLedger" aria-live="polite"></div>
           <p class="rlsr-positive"><strong>POSITIVE FINDING:</strong> Die Schichtordnung, die eindeutige A/B-Randpaarung und die typisierte Registeradresse bleiben durch alle fünf Darstellungen erhalten. Der Informationsgewinn liegt in der gekoppelten Lesung der Ansichten.</p>
           <p class="rlsr-boundary"><strong>BOUNDARY:</strong> Der Demonstrator visualisiert die bestehende Multi-View-/Return-Grammatik und verwendet keine Lorenz-, FTLE- oder Potentialdaten als Nachweis. <code>PALAT ↔ SCHINKEN</code> ist eine merkfähige Vorder-/Rückseitenbeschriftung. Der Körper ist eine deklarierte Display-Geometrie; es wird keine physische Faltung, neue Topologie oder Aktivierung von <code>A0_BL_056</code> behauptet.</p>
+          <section class="rlsr-mycelium" id="fromDustToDawn" aria-labelledby="fromDustToDawnTitle">
+            <h4 id="fromDustToDawnTitle">From Dust to Dawn</h4>
+            <div class="rlsr-controls" role="group" aria-label="Myzel-Wachstumsstufe">
+              <button type="button" data-mycelium-stage="0" aria-pressed="true">Spore</button>
+              <button type="button" data-mycelium-stage="1" aria-pressed="false">Radiale Wachstumsfront</button>
+              <button type="button" data-mycelium-stage="2" aria-pressed="false">Verzweigung und Wiederverbindung</button>
+            </div>
+            <canvas width="760" height="280" role="img" aria-label="Eine Spore im Zentrum."></canvas>
+            <p data-mycelium-caption aria-live="polite">Eine Spore ist der Startpunkt des Geflechts.</p>
+            <p class="rlsr-boundary">Äußerer Ring: schematische Wachstumsfront. Goldene Stücke: wieder verbundene Zweige. Das Schema zeigt eine mögliche Geometrie eines Myzels.</p>
+          </section>
         </section>
         <section class="ocb-qa" id="ocbBrowserQa" aria-labelledby="ocbQaTitle">
           <header><div><small>PRIORITY 1 · OCB-GAP-09</small><h3 id="ocbQaTitle">Browser, accessibility and interaction QA</h3></div><button type="button" id="ocbQaRun">Run current viewport QA</button></header>
@@ -2713,6 +2724,7 @@
   </script>
   <script src="a0-aperture-stack-calibration.js?rev=20261022-binder-live"></script>
   <script src="a0-rolled-layer-seam-return.js?rev=20261115-r1"></script>
+  <script src="a0-from-dust-to-dawn.js" defer></script>
   <script>
     try{window.A0RolledLayerSeamReturnController=window.A0RolledLayerSeamReturn.mount(document,window)}
     catch(error){const status=document.getElementById('rlsrStatus');if(status)status.textContent=`ROLLED LAYER HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}
