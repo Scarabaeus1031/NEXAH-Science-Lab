@@ -805,7 +805,9 @@
         </span>
       </nav>
       <p>Jede Khipu-Koordinate gibt eine Richtung vor. Ein Strahl vom Zentrum trifft auf die Oberfläche des regelmäßigen Dodekaeders. Die pinke Schnittebene <code>y′ = 0</code> entspricht dem Meridian <strong>8,614° Ost</strong>.</p>
-      <p><a class="pc-scarab-link" href="A0_ORIENTATION_CONTROLLER_BENCH.html#machinaPrimeReturn">← Zum pinken Prismenkern in THE MACHINA</a></p>
+      <p id="prismNowPrompt"><strong>NEXAH Now · interner Cut</strong><br>
+        Klapp das goldene Dach mit dem Regler auf. <strong>Welche Kante bleibt fest?</strong>
+      </p>
       <div class="pc-prism-controls">
         <label>Azimut <input data-prism-yaw type="range" min="-180" max="180" step="1" value="18"></label>
         <label>Neigung <input data-prism-pitch type="range" min="-80" max="80" step="1" value="12"></label>
@@ -818,7 +820,7 @@
         <label><input data-prism-pentagon-toggle type="checkbox" style="width:auto" checked> 5+5+1-Overlay</label>
         <div class="pc-scarab-buttons" style="align-items:center">
           <label for="prismRoofFold">Dach klappen</label>
-          <input id="prismRoofFold" data-prism-roof-fold type="range" min="0" max="90" step="1" value="0">
+          <input id="prismRoofFold" data-prism-roof-fold aria-describedby="prismNowPrompt" type="range" min="0" max="90" step="1" value="0">
           <output for="prismRoofFold" data-prism-roof-readout>0°</output>
         </div>
       </div>
@@ -830,6 +832,7 @@
           <div><dt>3 ↔ 4 · inneres Paar</dt><dd><span data-prism-slot="3">Fläche F12</span> ↔ <span data-prism-slot="4">Fläche F12</span> · 0,001° Differenz zur exakten Spiegelung</dd></div>
         </dl>
       </div>
+      <p><a class="pc-scarab-link" href="A0_ORIENTATION_CONTROLLER_BENCH.html#machinaPrimeReturn">← Zurück zu THE MACHINA</a></p>
       <p class="pc-scarab-khipu-source" id="prismPentagonLegend">5+5+1 · Goldener Fünfeckzug 1–5–4–3–2–1, je fünf Ticks auf 5 ↔ 2 und 4 ↔ 3, pinke Raute auf der Spiegelachse mittig zwischen beiden Querlinien.</p>
       <p class="pc-scarab-khipu-source" id="prismRoofLegend">Das goldene Dach 5–1–2 klappt um die grüne Kante F04 ∩ F10. Die Khipu-Punkte bleiben als Referenz sichtbar.</p>
       <p class="pc-scarab-khipu-source">Scarab-Ast <strong>1033 ↔ 3301</strong> · Scarabgon-Summe <code>17 399 = 127 × 137</code></p>
