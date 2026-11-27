@@ -18,11 +18,23 @@
       <p class="eyebrow">Repository map · visual instruments · records · source assets</p>
       <h1>A0 ASSET<br>INDEX</h1>
       <p class="lede">Eine visuelle Werkbank für den gesamten A0-Bestand: Einstiegspunkte, HTML-Instrumente, Paper, Records, Daten, Skripte, Bilder und 3D-Assets — durchsuchbar, filterbar und direkt im Repository geöffnet.</p>
+      <p><a class="back-link" href="#family-map-section">Family Map öffnen ↓</a></p>
     </div>
     <div class="masthead__meta" id="stats" aria-label="Bestandsstatistik"></div>
   </header>
 
   <main class="workspace">
+    <section id="family-map-section" aria-labelledby="family-title">
+      <div class="section-head">
+        <div><span class="section-kicker">01 · FAMILY MAP</span><h2 id="family-title">Ein Workspace. Dreizehn Families.</h2></div>
+        <p class="section-copy">Die Größe folgt der Zahl der zugeordneten Assets. Farbe und Position sind Navigationshilfen — keine wissenschaftliche Hierarchie oder Identitätsbehauptung.</p>
+      </div>
+      <div class="family-map-shell">
+        <svg id="family-map" class="family-map" viewBox="0 0 760 620" role="img" aria-label="Karte der A0 Asset Families"></svg>
+        <div class="family-legend" id="family-legend" aria-label="Legende der A0 Families"></div>
+      </div>
+    </section>
+
     <aside class="source-utility" aria-labelledby="source-system-title">
       <div>
         <span class="section-kicker">SOURCE SYSTEM · INTERNAL UTILITY</span>
@@ -34,21 +46,10 @@
 
     <section aria-labelledby="entry-title">
       <div class="section-head">
-        <div><span class="section-kicker">01 · WORKSPACE ENTRY POINTS</span><h2 id="entry-title">Wo willst du hinein?</h2></div>
+        <div><span class="section-kicker">02 · WORKSPACE ENTRY POINTS</span><h2 id="entry-title">Wo willst du hinein?</h2></div>
         <p class="section-copy">Sieben stabile Türen in denselben Workspace. Sie ordnen das Material, ohne neue Forschungsobjekte oder Publikationszustände zu erzeugen.</p>
       </div>
       <div class="entry-grid" id="entry-grid"></div>
-    </section>
-
-    <section aria-labelledby="family-title">
-      <div class="section-head">
-        <div><span class="section-kicker">02 · FAMILY MAP</span><h2 id="family-title">Ein Workspace. Dreizehn Families.</h2></div>
-        <p class="section-copy">Die Größe folgt der Zahl der zugeordneten Assets. Farbe und Position sind Navigationshilfen — keine wissenschaftliche Hierarchie oder Identitätsbehauptung.</p>
-      </div>
-      <div class="family-map-shell">
-        <svg id="family-map" class="family-map" viewBox="0 0 760 620" role="img" aria-label="Karte der A0 Asset Families"></svg>
-        <div class="family-legend" id="family-legend" aria-label="Legende der A0 Families"></div>
-      </div>
     </section>
 
     <section aria-labelledby="inventory-title">
@@ -108,7 +109,7 @@
     <p id="load-state" role="status">Asset-Datensatz wird geladen …</p>
   </main>
 
-  <script src="assets/a0-asset-index-v1.js?rev=tracked-inventory-20261127"></script>
+  <script src="assets/a0-asset-index-v1.js?rev=family-map-20261127"></script>
   <script src="assets/a0-asset-index-app.js?rev=flagship-groups-20261014"></script>
 <script src="a0-orientation-map.js"></script>
 </body>
