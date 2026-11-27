@@ -38,6 +38,7 @@ main{max-width:1200px;margin:auto;padding:50px 5vw 90px}h1{font:700 clamp(3rem,7
 .black-egg-preview a{display:block}
 .black-egg-preview img{display:block;width:100%;height:auto;border:1px solid #ac9e85}
 .black-egg-preview figcaption{margin-top:6px;font-size:.85rem}
+#primecube-black-egg-compare,#black-egg-chain{scroll-margin-top:110px}
 </style></head>
 <body><header class="top"><a href="A0_RESEARCH_DESK.html">NEXAH · A0 Desk</a><nav aria-label="Tour-Navigation"><a href="#experience-choices">Erlebniswege</a><a href="#tour-map">Tourenkarte</a><a href="#core-lorenz">Lorenz lesen</a><a href="#fieldbook-mathfield-index">Complete Index</a><a href="#crosswalk">Crosswalk</a><a href="#historical-htmls">Historische HTMLs</a><a href="A0_RESEARCH_DESK.html#reader">Reader</a></nav></header>
 <main data-a0-reader-scope><div class="kicker">Ein Bestand · mehrere Wege · vorhandene Ziele</div><h1>Welche Tour<br>wählst du?</h1>
@@ -164,6 +165,29 @@ main{max-width:1200px;margin:auto;padding:50px 5vw 90px}h1{font:700 clamp(3rem,7
 <section id="black-egg-u-turn" aria-labelledby="blackEggTitle">
   <div class="kicker">Core ↔ A0 · Methodenbeispiel</div>
   <h3 id="blackEggTitle">Black-Egg-U-Turn</h3>
+  <div id="primecube-black-egg-compare" aria-labelledby="primecubeBlackEggTitle">
+    <h4 id="primecubeBlackEggTitle">X–Z im Vergleich · zwei Rückwege</h4>
+    <p>Beide Ansichten zeigen X und Z. Im PrimeCube fallen zwei Adressen auf einen Punkt. Im Lorenz-Lauf fallen mehrere Samples in eine Zelle.</p>
+    <div class="black-egg-examples">
+      <article aria-labelledby="primecubeCompareTitle">
+        <h4 id="primecubeCompareTitle">PrimeCube · 397 und 419</h4>
+        <p><strong>X–Z-Schnitt:</strong> Beide Zahlen erscheinen bei <code>(x, z) = (0, 3)</code>.</p>
+        <p><strong>Rückweg über die y-Ebene:</strong><br>
+          <code>y = 3</code> führt zu <strong>397</strong> bei <code>(0, 3, 3)</code>.<br>
+          <code>y = 5</code> führt zu <strong>419</strong> bei <code>(0, 5, 3)</code>.
+        </p>
+        <a href="A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-loki-slice-compare">Die beiden Loki-Schnitte öffnen ↗</a>
+      </article>
+      <article aria-labelledby="blackEggCompareTitle">
+        <h4 id="blackEggCompareTitle">Lorenz · Black Egg</h4>
+        <p><strong>X–Z-Dichtezelle:</strong> Acht Treffer in derselben Rasterzelle.</p>
+        <p><strong>Rückweg über die Sample-Reihenfolge:</strong><br>
+          <strong>1889–1894</strong> bilden den ersten Besuch. Nach <strong>615 Samples außerhalb</strong> kehrt die Bahn bei <strong>2510–2511</strong> zurück.
+        </p>
+        <a href="#black-egg-chain">Zur Kette und ihren 3D-Koordinaten ↓</a>
+      </article>
+    </div>
+  </div>
   <p>Beide X–Z-Zellen enthalten acht Stichproben aus demselben Lorenz-Lauf mit 60.000 Samples. Der 3D-Record zeigt ihre Y-Werte und die ursprüngliche Laufreihenfolge.</p>
   <div class="black-egg-examples">
     <article>
@@ -187,7 +211,7 @@ main{max-width:1200px;margin:auto;padding:50px 5vw 90px}h1{font:700 clamp(3rem,7
       </details>
     </article>
     <article>
-      <h4>Beispiel 2 · Kette und Rückkehr</h4>
+      <h4 id="black-egg-chain">Beispiel 2 · Kette und Rückkehr</h4>
       <ol class="black-egg-sequence" aria-label="Laufreihenfolge">
         <li><strong>1889–1894</strong><span>6 Samples in der Zelle</span></li>
         <li class="black-egg-gap"><strong>615 Samples</strong><span>außerhalb der Zelle</span></li>
