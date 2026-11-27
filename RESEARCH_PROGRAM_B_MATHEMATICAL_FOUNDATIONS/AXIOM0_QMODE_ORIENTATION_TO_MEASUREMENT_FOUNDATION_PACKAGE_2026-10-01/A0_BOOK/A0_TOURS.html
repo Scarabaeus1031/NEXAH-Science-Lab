@@ -39,6 +39,8 @@ main{max-width:1200px;margin:auto;padding:50px 5vw 90px}h1{font:700 clamp(3rem,7
 .black-egg-preview img{display:block;width:100%;height:auto;border:1px solid #ac9e85}
 .black-egg-preview figcaption{margin-top:6px;font-size:.85rem}
 #primecube-black-egg-compare,#black-egg-chain{scroll-margin-top:110px}
+#black-egg-mandelbrot{scroll-margin-top:110px}
+#black-egg-mandelbrot canvas{display:block;width:100%;max-width:420px;height:auto;background:#fffaf2}
 </style></head>
 <body><header class="top"><a href="A0_RESEARCH_DESK.html">NEXAH · A0 Desk</a><nav aria-label="Tour-Navigation"><a href="#experience-choices">Erlebniswege</a><a href="#tour-map">Tourenkarte</a><a href="#core-lorenz">Lorenz lesen</a><a href="#fieldbook-mathfield-index">Complete Index</a><a href="#crosswalk">Crosswalk</a><a href="#historical-htmls">Historische HTMLs</a><a href="A0_RESEARCH_DESK.html#reader">Reader</a></nav></header>
 <main data-a0-reader-scope><div class="kicker">Ein Bestand · mehrere Wege · vorhandene Ziele</div><h1>Welche Tour<br>wählst du?</h1>
@@ -188,6 +190,22 @@ main{max-width:1200px;margin:auto;padding:50px 5vw 90px}h1{font:700 clamp(3rem,7
       </article>
     </div>
   </div>
+  <section id="black-egg-mandelbrot" aria-labelledby="blackEggMandelbrotTitle">
+    <h4 id="blackEggMandelbrotTitle">Mandelbrot · Rückkehr nach zwei Schritten</h4>
+    <p>Für <code>zₙ₊₁ = zₙ² + c</code> mit <code>c = −1</code> ergibt sich aus <code>z₀ = 0</code> die Folge <strong>0 → −1 → 0</strong>. Ab Schritt 2 wiederholt sich die Bahn.</p>
+    <div class="black-egg-examples">
+      <article>
+        <h5>Mit Iterationsachse</h5>
+        <canvas id="blackEggOrbitSteps" width="420" height="166" role="img" aria-label="Schritt 0 bei z gleich 0, Schritt 1 bei z gleich minus 1, Schritt 2 wieder bei z gleich 0."></canvas>
+        <p>Die beiden Besuche bei <code>z = 0</code> liegen bei <code>n = 0</code> und <code>n = 2</code>.</p>
+      </article>
+      <article>
+        <h5>Flache Projektion</h5>
+        <canvas id="blackEggOrbitProjection" width="420" height="166" role="img" aria-label="Zwei Punkte auf der reellen Achse. Schritt 1 liegt bei minus 1. Schritte 0 und 2 fallen bei 0 zusammen."></canvas>
+        <p>Beim Blick auf die <code>z</code>-Ebene fallen Start und Rückkehr auf denselben Punkt. Die Schrittfolge ist nur mit den Beschriftungen erkennbar.</p>
+      </article>
+    </div>
+  </section>
   <p>Beide X–Z-Zellen enthalten acht Stichproben aus demselben Lorenz-Lauf mit 60.000 Samples. Der 3D-Record zeigt ihre Y-Werte und die ursprüngliche Laufreihenfolge.</p>
   <div class="black-egg-examples">
     <article>
@@ -289,5 +307,62 @@ main{max-width:1200px;margin:auto;padding:50px 5vw 90px}h1{font:700 clamp(3rem,7
     localRun.href = 'http://127.0.0.1:8918/1';
     localRun.hidden = false;
   }
+</script>
+<script>
+  (() => {
+    const c = -1;
+    const orbit = [0];
+    for (let n = 0; n < 2; n++) orbit.push(orbit[n] ** 2 + c);
+    const steps = document.getElementById('blackEggOrbitSteps').getContext('2d');
+    const flat = document.getElementById('blackEggOrbitProjection').getContext('2d');
+
+    function line(ctx, points, color, width = 1) {
+      ctx.beginPath();
+      ctx.moveTo(...points[0]);
+      for (const point of points.slice(1)) ctx.lineTo(...point);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.stroke();
+    }
+
+    function label(ctx, text, x, y) {
+      ctx.fillStyle = '#253746';
+      ctx.font = '15px system-ui, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(text, x, y);
+    }
+
+    function dot(ctx, x, y) {
+      ctx.beginPath();
+      ctx.arc(x, y, 5, 0, 2 * Math.PI);
+      ctx.fillStyle = '#125d72';
+      ctx.fill();
+    }
+
+    const byStep = orbit.map((z, n) => [84 + 114 * n, 40 - 80 * z]);
+    line(steps, [[62, 40], [334, 40]], '#b8b0a1');
+    line(steps, [[62, 120], [334, 120]], '#b8b0a1');
+    line(steps, [[62, 30], [62, 130], [334, 130]], '#766f61');
+    label(steps, 'zₙ', 27, 24);
+    label(steps, '0', 43, 45);
+    label(steps, '−1', 43, 125);
+    label(steps, 'Schritt n', 374, 152);
+    line(steps, byStep, '#125d72', 2);
+    byStep.forEach(([x, y], n) => {
+      dot(steps, x, y);
+      label(steps, n, x, 152);
+    });
+
+    const re = z => 285 + 150 * z;
+    line(flat, [[68, 86], [346, 86]], '#766f61');
+    label(flat, 'Re z', 375, 91);
+    for (const z of new Set(orbit)) {
+      const x = re(z);
+      const visits = orbit.flatMap((value, n) => value === z ? [n] : []);
+      dot(flat, x, 86);
+      label(flat, 'n = ' + visits.join(', '), x, 62);
+      label(flat, z === -1 ? '−1' : '0', x, 114);
+    }
+  })();
 </script>
 <script src="a0-context-navigation.js?rev=flagship-constellation-r1-20261030"></script></body></html>
