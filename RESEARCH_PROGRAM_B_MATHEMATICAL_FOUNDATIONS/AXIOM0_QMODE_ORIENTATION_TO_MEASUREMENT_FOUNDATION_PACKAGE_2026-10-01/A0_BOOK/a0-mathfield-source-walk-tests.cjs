@@ -18,7 +18,11 @@ const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 check(new Set(ids).size===ids.length,'unique page IDs');
 for(const m of part.matchAll(/href="([^"]+)"/g)){
  if(m[1].startsWith('https://')){
-  check(/^https:\/\/github\.com\/Scarabaeus1031\/NEXAH\/blob\/[a-f0-9]{40}\/RESEARCH\/FOUNDATION\/MATHEMATICAL_FOUNDATIONS_GLOSSARY\.md#L\d+-L\d+$/.test(m[1]),'revision-pinned Core glossary link');
+  const source=m[1].match(/^https:\/\/github\.com\/Scarabaeus1031\/NEXAH\/blob\/[a-f0-9]{40}\/(.+)#L\d+-L\d+$/)?.[1];
+  check([
+   'RESEARCH/FOUNDATION/MATHEMATICAL_FOUNDATIONS_GLOSSARY.md',
+   'APPLICATIONS/power_systems/stability_field_dynamics/ieee_test_cases/outputs/v32_phase_classifier.csv',
+  ].includes(source),'revision-pinned Core source link: '+m[1]);
   continue;
  }
  const [location,anchor]=m[1].split('#');
