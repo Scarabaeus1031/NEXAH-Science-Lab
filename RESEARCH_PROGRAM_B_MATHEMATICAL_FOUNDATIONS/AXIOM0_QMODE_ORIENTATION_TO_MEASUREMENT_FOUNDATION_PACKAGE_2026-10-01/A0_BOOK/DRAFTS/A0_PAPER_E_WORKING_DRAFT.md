@@ -1145,6 +1145,34 @@ erklärt, warum die technischen Verträge über Source, Interface, View, Return
 und Residuum überhaupt gebaut werden: damit Menschen Unterschiede bemerken,
 Perspektiven wechseln und verantwortbar erneut orientieren können.
 
+<a id="toi-return-and-wave-cases"></a>
+
+### 14.9 Zwei TOI-Beispiele · Rückweg und Formbildung
+
+**Cube–Helix · Was muss die Ansicht mitführen?** Sample 18 führt vom
+Cube-Punkt (2, 2, 0) über die Grid Bridge zur Zither-Helix bei P2 · 180° ·
+Slot 19. Die Windungsadresse wiederholt sich nach 28 Samples. Der
+Rückweg zur exakten Cube-Adresse braucht daher die ursprüngliche
+Sample-ID. In der Grid Bridge hält die Fineline die Zuordnung über den
+Ansichtswechsel sichtbar.
+
+[Sample 18 im Demonstrator](A0_BOOK/A0_IOTA_BRIDGE_DEMONSTRATOR.html?view=cube-helix#gridBridgeCubeHelix)
+
+**Saite · Was bestimmt das Muster?** Ein kurzer Anstoß kann einen
+laufenden Wellenpuls mit eigenem Profil auslösen. Bei der Reflexion
+überlagern sich hin- und rücklaufende Wellen. Die Randbedingungen legen
+fest, welche stehenden Muster die Saite tragen kann. Bei gleicher
+Anregung lässt sich gezielt ein Ende variieren. Am festen Ende ist die
+Auslenkung null. Am ideal freien Ende kann eine stehende Mode dort einen
+Schwingungsbauch haben.
+
+Die Prüffrage lautet: Was am beobachteten Muster geht auf die Anregung
+zurück, was auf die Überlagerung und was auf die Randbedingung?
+„Hermetisch“ meint hier, dass der Vergleich seine Bedingungen explizit
+festlegt.
+
+[Weg, Welle, Spur im Science Desk](A0_BOOK/A0_RESEARCH_DESK.html?desk=research#weg-welle-spur)
+
 ## 15. NEXAH Essence — gegenwärtige Kurzform
 
 ```text
