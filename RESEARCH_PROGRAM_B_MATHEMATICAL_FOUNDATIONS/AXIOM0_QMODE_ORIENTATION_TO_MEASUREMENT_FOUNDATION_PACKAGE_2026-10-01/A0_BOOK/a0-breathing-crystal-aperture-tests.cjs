@@ -12,4 +12,40 @@ const html=fs.readFileSync('./A0_BREATHING_CRYSTAL_APERTURE.html','utf8');
 assert.match(html,/A0_ORIENTATION_CONTROLLER_BENCH\.html#breathingCrystalBench/);
 assert.match(html,/APERTURE VIEW · EXISTING BREATHING CRYSTAL IDENTITY/);
 assert.match(html,/BLUE GH \/ GHOSTGRID · SEPARATE SOURCE VIEW/);
-console.log(JSON.stringify({status:'PASS',checks:25,identity:'NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1',stages:model.STAGES,materials:Object.keys(model.MATERIALS)},null,2));
+const bench = require('./a0-breathing-crystal-bench.js');
+const address = bench.runtimeState();
+const sample = {port: address.port, node: address.node, modelSha256: address.sha256, x: .43, y: .004};
+const frames = model.BAND_ROUTE.map(stage => model.bandFrame(model.stageState(stage), sample, 'orange-shadow'));
+assert.equal(frames[0].node, 'BAND_0.429');
+assert.notEqual(frames[1].y, frames[0].y);
+assert.deepEqual(model.checkBandReturn(frames), {pass: true, addressMatches: true, residual: 0});
+assert.equal(model.checkBandReturn([frames[0], frames[3]]), null);
+const returnedToOtherBand = {...frames[3], node: 'BAND_0.456'};
+assert.deepEqual(model.checkBandReturn([...frames.slice(0, 3), returnedToOtherBand]), {
+  pass: false, addressMatches: false, residual: 0
+});
+const differentProjection = {...frames[3], x: frames[3].x + .1};
+assert.equal(model.checkBandReturn([...frames.slice(0, 3), differentProjection]).pass, false);
+const greyShadow = {...frames[2], view: 'graphite'};
+assert.equal(model.checkBandReturn([frames[0], frames[1], greyShadow, frames[3]]).pass, false);
+
+const point = {x: .43, y: .02, z: .001};
+const a = {...sample, reference: point};
+const b = {...a, node: bench.step(address, 1).node};
+const turn = (input, angle) => model.BAND_ROUTE.map(stage =>
+  model.quarterTurnFrame(model.stageState(stage), input, 'orange-shadow', angle)
+);
+const aRoute = turn(a, 90);
+const bRoute = turn(b, -270);
+for (const [route, node, degrees] of [[aRoute, 'BAND_0.429', 90], [bRoute, 'BAND_0.456', -270]]) {
+  assert.ok(route.every(frame => frame.node === node && frame.port === 'crystal.band'));
+  assert.equal(route[2].angle, degrees);
+  assert.equal(route[3].inverseAngle, -degrees);
+  assert.equal(route[2].x, -.02);
+  assert.deepEqual(model.checkBandReturn(route), {pass: true, addressMatches: true, residual: 0});
+}
+assert.equal(aRoute[2].y, bRoute[2].y);
+assert.equal(model.checkBandReturn([...aRoute.slice(0, 3), bRoute[3]]).pass, false);
+assert.equal(model.checkBandReturn(aRoute.slice(0, 3)), null);
+assert.throws(() => turn(a, 180), RangeError);
+console.log(JSON.stringify({status:'PASS',checks:46,identity:'NEXAH:INSTRUMENT:BREATHING_PRIME_CRYSTAL:V1',stages:model.STAGES,materials:Object.keys(model.MATERIALS)},null,2));
