@@ -17,6 +17,10 @@ check(!/<script|<iframe|setInterval|requestAnimationFrame/.test(part),'no second
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 check(new Set(ids).size===ids.length,'unique page IDs');
 for(const m of part.matchAll(/href="([^"]+)"/g)){
+ if(m[1].startsWith('https://')){
+  check(/^https:\/\/github\.com\/Scarabaeus1031\/NEXAH\/blob\/[a-f0-9]{40}\/RESEARCH\/FOUNDATION\/MATHEMATICAL_FOUNDATIONS_GLOSSARY\.md#L\d+-L\d+$/.test(m[1]),'revision-pinned Core glossary link');
+  continue;
+ }
  const [location,anchor]=m[1].split('#');
  const [file,query='']=location.split('?');
  if(!file&&anchor){
