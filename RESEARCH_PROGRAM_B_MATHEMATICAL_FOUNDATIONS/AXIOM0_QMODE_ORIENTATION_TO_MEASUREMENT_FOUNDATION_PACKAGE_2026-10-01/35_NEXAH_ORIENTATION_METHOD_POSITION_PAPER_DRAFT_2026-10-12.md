@@ -801,6 +801,25 @@ Quellen:
 - [Numbermagick control](A0_BOOK/A0_NUMBERMAGICK_GRID_RESEARCH.html#grey-pink-decay-gap)
 - [Breathing Crystal parent](A0_BOOK/A0_ORIENTATION_CONTROLLER_BENCH.html#breathingCrystalBench)
 
+<a id="breathing-crystal-band-address-return"></a>
+
+#### Adressrücklauf von BAND_0.429 im Breathing Crystal
+
+Die Probe bindet die Bench-Adresse `crystal.band / BAND_0.429` an den
+prüfsummenverifizierten Laufzeit-GLB. Ein aus dem Knoten abgeleiteter
++X-Referenzpunkt wird in der lokalen 2D-Ansicht durch die X|-Apertur und
+den Orange Shadow mitgeführt. Im Durchlauf `SOURCE → PUNCH → FOURIER → RETURN`
+stimmen Port, Knotenname und GLB-Prüfsumme überein. Die projizierte Position
+am Ende entspricht der Ausgangsposition mit Residuum 0. Ein direkter
+Rücksprung stellt den visuellen Zustand wieder her und lässt die
+Adressprüfung offen, wenn die Zwischenansichten fehlen.
+
+Der Befund gilt für diese 2D-Ansicht und den ausgewählten GLB-Knoten.
+Eine gemeinsame Zuordnung zu Ghostgrid und n-Band über weitere Ansichten
+hinweg bleibt offen.
+
+[Knotenprobe im Breathing Crystal](A0_BOOK/A0_BREATHING_CRYSTAL_APERTURE.html#crystalBandTitle)
+
 ## 9. Euler / Navier–Stokes als adversarialer Beispiel-Record
 
 Der Euler/Navier–Stokes-Fall ist nicht die Grundlage der NEXAH-Methode und
