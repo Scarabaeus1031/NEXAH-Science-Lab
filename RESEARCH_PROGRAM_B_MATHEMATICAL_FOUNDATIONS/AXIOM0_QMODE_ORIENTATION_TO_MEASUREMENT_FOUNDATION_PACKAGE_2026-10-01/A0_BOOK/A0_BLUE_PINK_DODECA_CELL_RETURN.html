@@ -213,6 +213,7 @@
             <div class="label">Tip → Schalen → Teller → Orbit → Möbius → TESA → Golden Oval</div>
             <h3 id="oneFlowTitle">Ein Flow · ein Pivot · nachvollziehbarer Return.</h3>
             <p>Die vorhandene goldene Spitze erhält eine Kontaktsonde. Drei Schalen, zwei gegenüberliegende Teller und ein parametrisiertes Möbiusband erweitern die Ansichten. Die abschließende Golden-Oval-Kachel liest Phasenraum, Ovalteilung und Maske gemeinsam. Quelle bleibt Quelle: Bildreferenzen und Beispielgeometrien sind keine physikalische Kopplung.</p>
+            <p><a href="#rosettaLadder">Golden Rosetta · Node–Frame-Leiter ↓</a></p>
             <style>
               #oneFlowOverview{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:9px;margin:16px 0}
               #oneFlow .one-flow-tile{display:flex;flex-direction:column;align-items:stretch;min-width:0;padding:8px;border:1px solid #315364;background:#061722;color:#dff2f7;text-align:left;cursor:pointer;font:inherit}
@@ -222,6 +223,15 @@
               #oneFlow .one-flow-tile:focus-visible{outline:3px solid #29c7ef;outline-offset:2px}
               #oneFlow .one-flow-trace{font:12px/1.7 monospace;padding:8px;border-left:3px solid #e5b340;background:#061722;overflow-wrap:anywhere}
               #oneFlow .one-flow-trace[data-plane="VM"]{border-color:#29c7ef}#oneFlow .one-flow-trace[data-plane="PM"]{border-color:#ee6ca5}
+              #rosettaLadder{margin:24px 0 0;padding:clamp(10px,2vw,20px);border:1px solid #8b7134;background:#061722}
+              #rosettaLadder h4{margin-top:0;color:#ffe397}
+              #rosettaLadder figure{margin:16px 0}
+              #rosettaLadder .rosetta-chart-scroll{overflow-x:auto}
+              #rosettaLadderChart{display:block;width:100%;min-width:360px;max-width:700px;background:#020d15;font:13px var(--mono,monospace)}
+              #rosettaLadder table{width:100%;border-collapse:collapse;font-size:.85rem;line-height:1.45}
+              #rosettaLadder th,#rosettaLadder td{padding:7px 6px;text-align:left;vertical-align:top;border-bottom:1px solid #315364}
+              #rosettaLadder tbody th{white-space:nowrap;font-variant-numeric:tabular-nums;color:#ffe397}
+              #rosettaLadder tbody + tbody{border-top:2px solid #8b7134}
             </style>
             <nav aria-label="One Flow Leseschritt"><label>Leseschritt <select id="oneFlowMode">
               <option value="overview" selected>Start · Kachel-Gesamtsicht</option>
@@ -255,6 +265,41 @@
             <details><summary>Tessarec-Manual · Bildrollen und Herkunft</summary><p>Blau: Orientierungsanker · Grün: nacheinander angesprochene Stationen · Violett: Rückweg / Umkehr / Feedback · Gold: verbindender Spiral-/Zeitfaden · Weiß: gemeinsamer Kern · Pyramidenspitze: Übergang / Ausgang. Diese Rollen stammen aus den Owner-Tafeln „Manual of Dimensional Actions / Harmonic Obelisk Core“. Die Bandansicht verwendet weiterhin die vorhandenen AM/VM/PM-Farben zur eindeutigen Paarung.</p><p>Sechs blaue Anker und acht violette Knoten in einzelnen Tafeln legen keine Bandanzahl fest. Uneinheitliche oder schwer lesbare „Master Equations“ werden nicht als ausführbare Dynamik übernommen. Hier bewegt dieselbe Quellphase den Marker auf dem Hinweg mit +u und auf dem Rückweg mit −u. Die entrollte Bandzeit verhindert einen künstlichen Sprung beim 2π-Umschlag.</p></details>
             <p>TESA-Beispiel: normierte Quellpunkte (x,y)/√2 aus [−1,1]² in 7 Spalten × 4 Zeilen, y nach oben. Randpunkte außen bleiben zugeordnet; außerhalb kein Eintrag. Mehrfachbelegung ist möglich; keine Umkehrbarkeit oder Zuordnung zu 60 Körperzellen. Die 29 bleibt extern. <a href="#rootRoomLocalModes">Root-Ringe ↑</a> · <a href="#registerOverlay">TESA-Referenz und bewegte Register ↓</a></p>
             <details id="oneFlowRecordDetails"><summary>Gehaltener One-Flow-Return</summary><pre id="oneFlowRecord" style="white-space:pre-wrap;overflow-wrap:anywhere">Noch kein Return gehalten.</pre></details>
+            <section id="rosettaLadder" aria-labelledby="rosettaLadderTitle">
+              <h4 id="rosettaLadderTitle">Golden Rosetta · Node–Frame-Leiter</h4>
+              <p>Die Leiter zeigt den Archiv-Frame pro NodeNumber (NN). Die fünf Phasen und Beschreibungen stammen aus den Golden-Rosetta-Tafeln. Eine Zuordnung zur A0-Signalzeit ist offen.</p>
+              <figure id="rosettaLadderFigure" hidden>
+                <div class="rosetta-chart-scroll">
+                  <svg id="rosettaLadderChart" viewBox="0 0 540 240" role="img" aria-labelledby="rosettaChartTitle rosettaChartDesc">
+                    <title id="rosettaChartTitle">Zehn NodeNumbers und ihre Archiv-Frames</title>
+                    <desc id="rosettaChartDesc">Die x-Achse zeigt die NodeNumber, die y-Achse den Frame. Die genauen Werte stehen in der Tabelle unter dem Diagramm.</desc>
+                  </svg>
+                </div>
+              </figure>
+              <table aria-label="Golden Rosetta Archivdaten">
+                <thead><tr><th scope="col">NN</th><th scope="col">Frame</th><th scope="col">Phase</th><th scope="col">Beschreibung</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">1</th><td>2</td><td rowspan="2">Erste Schritte · 2 → 4</td><td>Erster Seed (Breath Ignition)</td></tr>
+                  <tr><th scope="row">2</th><td>4</td><td>Erste Stabilisierung (2² = 4)</td></tr>
+                </tbody>
+                <tbody>
+                  <tr><th scope="row">3</th><td>49</td><td rowspan="2">Öffnung · 49 → 57</td><td>Dimensional Crossover (7 × 7)</td></tr>
+                  <tr><th scope="row">4</th><td>57</td><td>Öffnung der Rosetta-Brücke (3 × 19)</td></tr>
+                </tbody>
+                <tbody>
+                  <tr><th scope="row">5</th><td>106</td><td rowspan="2">Beschleunigung und Expansion · 106 → 108</td><td>Beschleunigungssprung am Mittelpunkt</td></tr>
+                  <tr><th scope="row">6</th><td>108</td><td>Breathing Expansion (Bezug zur 9)</td></tr>
+                </tbody>
+                <tbody>
+                  <tr><th scope="row">7</th><td>162</td><td rowspan="2">Kontraktion vor dem Gate · 162 → 179</td><td>Resonanzwechsel (9 × 18)</td></tr>
+                  <tr><th scope="row">8</th><td>179</td><td>Kompressionsknoten der Spirale</td></tr>
+                </tbody>
+                <tbody>
+                  <tr><th scope="row">9</th><td>188</td><td rowspan="2">Scarab Flip · 188 → 190</td><td>Letzte Kompression vor dem Sprung</td></tr>
+                  <tr><th scope="row">10</th><td>190</td><td>Red Cap · letzte Scarab-Phase</td></tr>
+                </tbody>
+              </table>
+            </section>
           </section>
           <section id="sharedMeasurement" style="margin:24px 0;border:1px solid #315364;padding:16px" aria-labelledby="sharedMeasurementTitle">
             <div class="label">Eine Quelle · ein Zeitpunkt · lesender Anschluss</div>
@@ -764,6 +809,44 @@
   <script src="a0-register-overlay.js?rev=grid-selection-20261017"></script>
   <script src="a0-breathing-fin.js?rev=orbit-content-20261017"></script>
   <script src="a0-one-flow.js?rev=golden-oval-synthesis-20261120"></script>
+  <script>
+    (() => {
+      const chart = document.getElementById('rosettaLadderChart');
+      const rows = document.querySelectorAll('#rosettaLadder tbody tr');
+      const samples = Array.from(rows, ({cells}) => ({
+        nn: Number(cells[0].textContent),
+        frame: Number(cells[1].textContent)
+      }));
+      const frameStep = 50;
+      const frameMax = Math.ceil(Math.max(...samples.map(({frame}) => frame)) / frameStep) * frameStep;
+      const left = 55, right = 508, top = 25, bottom = 188;
+      const x = nn => left + (nn - samples[0].nn) / (samples.at(-1).nn - samples[0].nn) * (right - left);
+      const y = frame => bottom - frame / frameMax * (bottom - top);
+
+      function draw(tag, attributes, label) {
+        const element = document.createElementNS('http://www.w3.org/2000/svg', tag);
+        for (const [name, value] of Object.entries(attributes)) element.setAttribute(name, value);
+        if (label !== undefined) element.textContent = label;
+        chart.append(element);
+      }
+
+      for (let frame = 0; frame <= frameMax; frame += frameStep) {
+        draw('line', {x1: left, x2: right, y1: y(frame), y2: y(frame), stroke: '#315364'});
+        draw('text', {x: left - 9, y: y(frame) + 4, fill: '#b8d0da', 'text-anchor': 'end'}, frame);
+      }
+      draw('text', {x: 12, y: 14, fill: '#b8d0da'}, 'Frame');
+      draw('text', {x: (left + right) / 2, y: 230, fill: '#b8d0da', 'text-anchor': 'middle'}, 'NodeNumber (NN)');
+      const points = samples.map(({nn, frame}) => [x(nn), y(frame)]);
+      draw('polyline', {points: points.map(point => point.join(',')).join(' '), fill: 'none', stroke: '#e5b340', 'stroke-width': 2});
+      samples.forEach(({nn, frame}, index) => {
+        const [cx, cy] = points[index];
+        draw('circle', {cx, cy, r: 4, fill: '#ffe397'});
+        draw('text', {x: cx, y: cy - 9, fill: '#ffe397', 'text-anchor': 'middle'}, frame);
+        draw('text', {x: cx, y: bottom + 18, fill: '#b8d0da', 'text-anchor': 'middle'}, nn);
+      });
+      document.getElementById('rosettaLadderFigure').hidden = false;
+    })();
+  </script>
   <script src="a0-flow-grid.js?rev=1-20261017"></script>
   <script src="a0-shared-measurement.js?rev=20261020-r1"></script>
   <script src="a0-blue-pink-mask-clock.js?rev=20261020-r1"></script>
