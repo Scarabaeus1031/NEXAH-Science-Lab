@@ -286,8 +286,19 @@
       STATIONS.slice(3).forEach(item=>{const node=documentNode.querySelector(item.selector);if(node)observer.observe(node)});
     }
     documentNode.addEventListener('visibilitychange',()=>{if(documentNode.hidden)audioScore.suspend()});
-    if(documentNode.defaultView)documentNode.defaultView.addEventListener('pagehide',audioScore.suspend,{once:true});
-    render(0,true);
+    function openPanelFromHash(){
+      const hash=documentNode.defaultView?.location?.hash;
+      const index=STATIONS.slice(0,3).findIndex(station=>station.selector===hash);
+      if(index<0)return false;
+      stopTour();
+      go(index);
+      return true;
+    }
+    if(documentNode.defaultView){
+      documentNode.defaultView.addEventListener('pagehide',audioScore.suspend,{once:true});
+      documentNode.defaultView.addEventListener('hashchange',openPanelFromHash);
+    }
+    if(!openPanelFromHash())render(0,true);
     return Object.freeze({go,render,runTour,stopTour,setOverview:()=>render(active,false),state:()=>Object.freeze({...stationAt(active),mode,touring,score:scoreAt(active),audio:audioScore.state()})});
   }
   return Object.freeze({STATIONS,CLOCK_RHYTHM,TOUR_TIMING,TOUR_SEQUENCE,SCORE_STATIONS,stationAt,statusAt,clockAt,scoreAt,mount});

@@ -14,7 +14,9 @@
   <link rel="stylesheet" href="a0-light-time-measurement-bridge.css?rev=20261118-controls-r5">
   <link rel="stylesheet" href="a0-flow-of-light-lab.css?rev=20261119-gh-number-r8">
   <link rel="stylesheet" href="a0-flow-of-light-atlas.css?rev=20261118-r1">
-  <style>[data-fol-root] .fol-layer-presets{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}</style>
+  <style>[data-fol-root] .fol-layer-presets{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+    .lens-moire-return{display:block;width:max-content;max-width:100%;margin-top:6px;color:#81e7f4;font:.72rem var(--mono);text-underline-offset:.18em}
+  </style>
   <script src="a0-atlas-source-focus.js" defer></script>
   <script src="a0-observer-lens-i18n.js?rev=20261119-en-r1" defer></script>
 </head>
@@ -67,7 +69,7 @@
       </div>
       <div class="triptych">
         <section class="lens" id="journeySource" data-journey-panel="source"><div class="lens-caption"><b>NEWTON · decomposition</b><span>white source → seven wavelength samples</span></div><div class="orientation-tag">λREF 530 nm <span>≠ angle</span></div><canvas id="newtonCanvas" role="img" aria-label="Schematische Newton-Ansicht mit weißem Strahl, Prisma und sieben getrennten Wellenlängen-Samples"></canvas></section>
-        <section class="lens" id="journeyRelation" data-journey-panel="relation"><div class="lens-caption"><b>LEIBNIZ · relation</b><span>pyramid-edge orientation → relational order</span></div><div class="orientation-tag">α EDGE · <span id="edgeTag">7°</span></div><canvas id="relationCanvas" role="img" aria-label="Leibniz-Linse als konstruierte Moiré-Differenz mit projizierter Pyramidenkante und optionalem endlichem Geometrie-Overlay"></canvas><div class="observer-pin" aria-hidden="true"><span>OBSERVER / RETURN PIVOT</span></div></section>
+        <section class="lens" id="journeyRelation" data-journey-panel="relation"><div class="lens-caption"><b>LEIBNIZ · relation</b><span>pyramid-edge orientation → relational order</span><a class="lens-moire-return" href="A0_PRIMECUBE_GAP_FOLD_LAB.html#return-seam-4774-moire">← Zum 4774-Zebrarad</a></div><div class="orientation-tag">α EDGE · <span id="edgeTag">7°</span></div><canvas id="relationCanvas" role="img" aria-label="Leibniz-Linse als konstruierte Moiré-Differenz mit projizierter Pyramidenkante und optionalem endlichem Geometrie-Overlay"></canvas><div class="observer-pin" aria-hidden="true"><span>OBSERVER / RETURN PIVOT</span></div></section>
         <section class="lens" id="journeyBoundary" data-journey-panel="boundary"><div class="lens-caption"><b>GOETHE · boundary</b><span>Q° cone → pink-strip window</span></div><div class="orientation-tag">β OBSERVER · <span id="observerTag">+42° · RIGHT</span></div><canvas id="goetheCanvas" role="img" aria-label="Schematische Goethe-Ansicht mit links oder rechts liegendem Q-Observer, vier orthogonalen Orientierungspunkten und Sichtkegel zum Farbstreifen"></canvas></section>
       </div>
       <div class="journey-transition-stage" data-journey-transition hidden aria-live="polite">
@@ -235,7 +237,7 @@
   <script src="a0-context-navigation.js?rev=flagship-constellation-r1-20261030"></script>
   <script src="assets/a0-newton-goethe-observer-lens-v1.js?rev=20261118-r3"></script>
   <script src="a0-iota-stage.js?rev=20261119-outro-r3"></script>
-  <script src="a0-observer-journey.js?rev=20261119-tour-score-r12"></script>
+  <script src="a0-observer-journey.js?rev=20261127-moire-links"></script>
   <script src="a0-light-time-measurement-bridge.js?rev=20261118-controls-r5"></script>
   <script src="a0-boundary-grid-atlas.js?rev=20261118-address-r1"></script>
   <script src="a0-flow-of-light-lab.js?rev=20261118-scopes-r7"></script>

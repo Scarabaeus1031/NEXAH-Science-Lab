@@ -5,7 +5,11 @@
     if(!M||!stage||!detail)return;
     const turingView='TURING';
     const primusView='PRIMUS_ONE';
-    const linkedViews=new Map([['#return-seam-4774-turing',turingView],['#return-seam-4774-primus-one',primusView]]);
+    const linkedViews=new Map([
+      ['#return-seam-4774-turing',turingView],
+      ['#return-seam-4774-primus-one',primusView],
+      ['#return-seam-4774-moire','MOIRE_OVERLAY']
+    ]);
     const source=document.querySelector('[data-turing-record]');
     let view='WHOLE_W',step=0;
     let turingWord,turingSwaps=0;
