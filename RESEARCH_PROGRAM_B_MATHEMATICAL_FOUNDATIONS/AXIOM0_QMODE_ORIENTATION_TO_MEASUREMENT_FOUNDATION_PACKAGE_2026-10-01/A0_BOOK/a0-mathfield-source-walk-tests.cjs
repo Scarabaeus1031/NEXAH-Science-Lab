@@ -18,6 +18,11 @@ const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
 check(new Set(ids).size===ids.length,'unique page IDs');
 for(const m of part.matchAll(/href="([^"]+)"/g)){
  if(m[1].startsWith('https://')){
+  if(m[1].startsWith('https://github.com/Scarabaeus1033/NEXAH-CODEX/')){
+   const source=m[1].match(/^https:\/\/github\.com\/Scarabaeus1033\/NEXAH-CODEX\/blob\/[a-f0-9]{40}\/(.+)#L\d+-L\d+$/)?.[1];
+   check(source&&decodeURIComponent(source)==='SYSTEM_1_MATHEMATICA/Hermetic_Pythagoras_Model/GEOMETRIA NOVA · Part VII — Quaternionic Resonance & Retrograde Proofs/README.md','revision-pinned Geometria Nova VII source link');
+   continue;
+  }
   const source=m[1].match(/^https:\/\/github\.com\/Scarabaeus1031\/NEXAH\/blob\/[a-f0-9]{40}\/(.+)#L\d+-L\d+$/)?.[1];
   check([
    'RESEARCH/FOUNDATION/MATHEMATICAL_FOUNDATIONS_GLOSSARY.md',
