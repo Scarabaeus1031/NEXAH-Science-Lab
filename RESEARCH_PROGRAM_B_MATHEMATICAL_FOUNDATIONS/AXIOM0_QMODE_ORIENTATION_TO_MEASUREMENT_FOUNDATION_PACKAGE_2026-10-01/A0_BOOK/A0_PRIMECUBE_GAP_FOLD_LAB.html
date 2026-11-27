@@ -633,6 +633,10 @@
     <div class="pc-cp-line">
       <header class="pc-cp-line-head"><div><div class="pc-eyebrow">Typed line inspector</div><h3><code>.</code> SOURCE → <code>:</code> JOINT → TARGET</h3></div><div class="pc-cp-line-buttons" role="group" aria-label="Typed connector"><button type="button" data-pc-cp-line="OPEN" aria-pressed="true">OPEN :</button><button type="button" data-pc-cp-line="Q_PLUS" aria-pressed="false">:Q+</button><button type="button" data-pc-cp-line="Q_MINUS" aria-pressed="false">:Q−</button><button type="button" data-pc-cp-line="PHASE" aria-pressed="false">:φ · FAIL</button></div></header>
       <dl class="pc-cp-line-output" data-pc-cp-line-output></dl>
+      <dl class="pc-cp-line-output" aria-label="Exakter Rückschritt im Q-Register">
+        <dt>¢ · :Q−-Rückschritt</dt>
+        <dd><strong data-pc-cp-q-minus-trace></strong> · :Q+ hin, :Q− zurück · mod 1001</dd>
+      </dl>
     </div>
     <section class="pc-cp-window" aria-labelledby="primecube720WindowTitle">
       <header><div><div class="pc-eyebrow">720 UNIT WINDOW × 840 JOINT RETURN</div><h3 id="primecube720WindowTitle">Q-GRUPPENFENSTER / LOKI −8 RECURRENCE</h3></div><div class="pc-cp-window-laws"><code>840−120=720</code><code>840+600=1440</code><code>7·720=6·840=5040</code></div></header>
@@ -684,10 +688,10 @@
       <article class="pc-cp-control-card"><small>PHASE CONTROL</small><h3>Informative uniform MZ24</h3><b>0 / 56</b><p>430 und 859 bleiben degeneriert auf Tick 2. Kein nichttrivialer konstanter Phasentransport.</p></article>
       <article class="pc-cp-control-card"><small>CHAMBER CONTROL</small><h3>C6 rotation / D6 fold</h3><b>π/3 → π/6</b><p>60° Rotation; Spiegelung halbiert die Fundamentalkammer auf 30°. Kein MZ24-Gesetz.</p></article>
     </div>
-    <div class="pc-cp-glyphs" aria-label="UNBOUND GLYPH LEDGER">
-      <article class="pc-cp-glyph"><code>.:SOURCE</code><span>BOUND · addressed source point</span></article><article class="pc-cp-glyph"><code>:</code><span>DEFAULT · open typed joint</span></article><article class="pc-cp-glyph"><code>:Q+</code><span>LOCAL · q′=771q mod 1001</span></article><article class="pc-cp-glyph"><code>:Q−</code><span>LOCAL · q′=309q mod 1001</span></article><article class="pc-cp-glyph is-fail"><code>:φ</code><span>FAIL · uniform MZ24 phase</span></article><article class="pc-cp-glyph is-hold"><code>€</code><span>OWNER CANDIDATE · unbound</span></article><article class="pc-cp-glyph is-hold"><code>¢</code><span>UNBOUND GLYPH LEDGER · HOLD</span></article>
+    <div class="pc-cp-glyphs" aria-label="Control Plane glyph ledger">
+      <article class="pc-cp-glyph"><code>.:SOURCE</code><span>BOUND · addressed source point</span></article><article class="pc-cp-glyph"><code>:</code><span>DEFAULT · open typed joint</span></article><article class="pc-cp-glyph"><code>:Q+</code><span>LOCAL · q′=771q mod 1001</span></article><article class="pc-cp-glyph"><code>:Q−</code><span>LOCAL · q′=309q mod 1001</span></article><article class="pc-cp-glyph is-fail"><code>:φ</code><span>FAIL · uniform MZ24 phase</span></article><article class="pc-cp-glyph is-hold"><code>€</code><span>OWNER CANDIDATE · unbound</span></article><article class="pc-cp-glyph"><code>¢</code><span>LOCAL · :Q− return marker</span></article>
     </div>
-    <p class="pc-cp-boundary"><b>CLAIM BOUNDARY:</b> Der exakte 840-Return ist das kgV unabhängiger Perioden und kein natürlicher gemeinsamer Takt. Der C6/D6-Adapter ist source-spezifisch und nicht die eindeutige Ordnung‑6-Einbettung in <code>(ℤ/1001ℤ)×</code>. <code>π/6</code> ist die Fundamentalkammer der Spiegelwirkung, keine MZ24-Phase. <code>:Q±</code> ist lokale Display-Syntax; der Doppelpunkt wird nicht global umdefiniert. <code>€</code> und <code>¢</code> bleiben ungebunden. Neue IDs, Relationen, Study, Finding und Publikationswirkung: jeweils <code>0</code>.</p>
+    <p class="pc-cp-boundary"><b>CLAIM BOUNDARY:</b> Der exakte 840-Return ist das kgV unabhängiger Perioden und kein natürlicher gemeinsamer Takt. Der C6/D6-Adapter ist source-spezifisch und nicht die eindeutige Ordnung‑6-Einbettung in <code>(ℤ/1001ℤ)×</code>. <code>π/6</code> ist die Fundamentalkammer der Spiegelwirkung, keine MZ24-Phase. <code>:Q±</code> ist lokale Display-Syntax; der Doppelpunkt wird nicht global umdefiniert. <code>¢</code> markiert hier den exakten <code>:Q−</code>-Rückschritt im Q-Register. <code>€</code> bleibt ungebunden. Neue IDs, Relationen, Study, Finding und Publikationswirkung: jeweils <code>0</code>.</p>
   </section>
 
   <section class="pc-panel pc-scarab-control scarab-projection" id="scarab-control-lens" data-pc-scarab-control aria-labelledby="scarabControlTitle">
@@ -1162,8 +1166,8 @@
 <script src="a0-primecube-loki-chassis.js?rev=20261122-r1"></script>
 <script src="assets/a0-flame-mandelbrot-formation-v1.js?rev=1"></script>
   <script src="a0-primecube-mathfield-deck.js?rev=20261123-r9"></script>
-<script src="a0-primecube-control-plane-coupling.js?rev=20261123-r10"></script>
-<script src="a0-primecube-control-plane-ui.js?rev=20261124-r11"></script>
+<script src="a0-primecube-control-plane-coupling.js?rev=20261127-q-minus"></script>
+<script src="a0-primecube-control-plane-ui.js?rev=20261127-q-minus"></script>
 <script src="a0-scarab-pillar-projection.js?rev=20261023-pocket-r4"></script>
 <script src="a0-primecube-prism-core.js?rev=20261126-roof-hinge"></script>
 <script src="a0-primecube-scarab-control.js?rev=20261122-r2"></script>

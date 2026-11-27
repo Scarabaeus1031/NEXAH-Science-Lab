@@ -195,6 +195,9 @@
   }
 
   function glyphDecisionRecord(){
+    const source=ADAPTER_GENERATOR;
+    const forward=mod(source*ADAPTER_GENERATOR,Q);
+    const returned=mod(forward*ADAPTER_INVERSE_GENERATOR,Q);
     return Object.freeze({
       name:'CONTROL_PLANE_TYPED_GLYPH_DECISION',tokens:Object.freeze([
         Object.freeze({token:'.:SOURCE',role:'ADDRESSED_SOURCE_POINT',status:'BOUND'}),
@@ -203,7 +206,7 @@
         Object.freeze({token:':Q−',role:`EXPLICIT INVERSE Q EDGE · q'=${ADAPTER_INVERSE_GENERATOR}q mod ${Q}`,status:'BOUND_LOCAL_SYNTAX'}),
         Object.freeze({token:':φ',role:'UNIFORM PHASE EDGE',status:'HOLD_REJECTED_FOR_MZ24'}),
         Object.freeze({token:'€',role:'EXCHANGE_VALUE_VIEW',status:'OWNER_CANDIDATE_UNBOUND'}),
-        Object.freeze({token:'¢',role:'UNASSIGNED_GLYPH_PORT',status:'UNBOUND_HOLD'})
+        Object.freeze({token:'¢',role:'Q_MINUS_RETURN_MARKER',status:'BOUND_LOCAL_MARKER',marks:':Q−',trace:Object.freeze([source,forward,returned])})
       ]),
       newVocabulary:false,globalColonRedefinition:false,status:'PASS_LOCAL_TYPED_SYNTAX_WITH_UNBOUND_GLYPHS',
       boundary:'The :Q annotations are local display syntax for a selected edge contract. They do not redefine punctuation globally or admit Euro and cent as operators.'
@@ -492,6 +495,8 @@
     check(phase.informativeUniformGeneratorCount===0,'no order-six generator produces nontrivial uniform MZ24 phase transport');
     check(phase.indexPositiveControl.deltas.every(delta=>delta===4),'constructed index-phase positive control closes uniformly');
     check(glyphs.tokens.find(item=>item.token===':Q+').status==='BOUND_LOCAL_SYNTAX'&&glyphs.tokens.find(item=>item.token===':φ').status.includes('REJECTED'),'Q edge syntax is bound locally while phase syntax remains rejected');
+    const qMinusMarker=glyphs.tokens.find(item=>item.token==='¢');
+    check(qMinusMarker.marks===':Q−'&&qMinusMarker.trace.join(',')==='771,848,771','cent marks the exact local Q-minus return');
     check(!glyphs.newVocabulary&&!glyphs.globalColonRedefinition,'glyph decision creates no global vocabulary or colon redefinition');
     check(unitWindow.unitWindow===unitWindow.unitGroupSize&&unitWindow.complementToJoint===120&&unitWindow.doubleWindow===1440,'720 window equals phi 1001 and retains the 120 and 1440 arithmetic controls');
     check(unitWindow.lokiWindowResidue===48&&unitWindow.lokiSignedOffset===-8&&unitWindow.gcdWithLoki===8,'each 720 window has the exact minus-eight residue modulo 56');

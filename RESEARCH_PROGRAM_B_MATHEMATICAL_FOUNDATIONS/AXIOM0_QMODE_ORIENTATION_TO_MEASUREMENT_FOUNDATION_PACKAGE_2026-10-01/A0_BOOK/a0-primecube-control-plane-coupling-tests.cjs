@@ -19,7 +19,7 @@ assert.deepEqual(proof.relationChanges,[]);integrationChecks++;
 assert.ok(fs.existsSync('./A0_PRIMECUBE_CONTROL_PLANE_BASELINE_2026-11-23.md'));integrationChecks++;
 assert.ok(fs.existsSync('./results/a0-primecube-control-plane-baseline-2026-11-23.json'));integrationChecks++;
 assert.equal(controls.status,'PASS_STEPS_7_TO_14_WITH_ZIRKEL_SPLIT_RETURN_CONTROL');integrationChecks++;
-assert.equal(controls.checkCount,103);integrationChecks++;
+assert.equal(controls.checkCount,104);integrationChecks++;
 assert.equal(controls.relabeling.passingCyclicClasses,4);integrationChecks++;
 assert.equal(controls.generators.orderSixUnitCount,56);integrationChecks++;
 assert.equal(controls.phase.informativeUniformGeneratorCount,0);integrationChecks++;

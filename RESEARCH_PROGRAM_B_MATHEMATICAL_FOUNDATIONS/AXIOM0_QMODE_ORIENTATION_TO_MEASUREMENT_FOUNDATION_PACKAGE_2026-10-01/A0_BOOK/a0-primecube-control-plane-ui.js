@@ -6,6 +6,7 @@
   'use strict';
   if(!C)throw Error('A0PrimecubeControlPlaneCoupling is required');
   const esc=value=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const qMinusMarker=C.glyphDecisionRecord().tokens.find(item=>item.marks===':Q−');
 
   function viewRecord(step=0,direction='FORWARD',folded=false,lineMode='OPEN'){
     const safeStep=Math.max(0,Math.min(C.JOINT_PERIOD,Math.trunc(Number(step)||0))),adapter=C.adapterRecord(direction),joint=C.jointState(safeStep),baseIndex=safeStep%6,base=adapter.entries[baseIndex];
@@ -27,7 +28,7 @@
     if(mode==='OPEN')return Object.freeze({token:':',type:'OPEN_TYPED_JOINT',payload:'NONE',law:'NO EDGE SELECTED',returnContract:'OPEN',status:'HOLD'});
     if(mode==='PHASE')return Object.freeze({token:':φ',type:'UNIFORM_MZ24_PHASE EDGE',payload:reading.adapter.phase.ticks.join(' → '),law:`Δ = ${reading.adapter.phase.deltaTicks.join(', ')} mod 24`,returnContract:'CLOSES AFTER 6 · CONSTANT Δ DOES NOT EXIST',status:'FAIL'});
     const direction=mode==='Q_PLUS'?'FORWARD':'REVERSE',adapter=C.adapterRecord(direction),source=adapter.entries[reading.step%6],target=adapter.entries[(reading.step+1)%6];
-    return Object.freeze({token:mode==='Q_PLUS'?':Q+':':Q−',type:'EXPLICIT REVERSIBLE Q STATE EDGE',payload:`${source.anchor}[Q${source.q}] → ${target.anchor}[Q${target.q}]`,law:`q' = ${adapter.generator}q mod 1001`,returnContract:'EXACT RETURN AFTER 6',status:'PASS'});
+    return Object.freeze({token:mode==='Q_PLUS'?':Q+':':Q−',marker:mode==='Q_MINUS'?qMinusMarker.token:null,type:'EXPLICIT REVERSIBLE Q STATE EDGE',payload:`${source.anchor}[Q${source.q}] → ${target.anchor}[Q${target.q}]`,law:`q' = ${adapter.generator}q mod 1001`,returnContract:'EXACT RETURN AFTER 6',status:'PASS'});
   }
 
   function window720Markup(record=C.unitWindowControlRecord()){
@@ -98,12 +99,14 @@
     const root=doc.querySelector('[data-pc-control-plane]');if(!root)return null;
     const svg=root.querySelector('[data-pc-cp-svg]'),stepOut=root.querySelector('[data-pc-cp-step-out]'),slider=root.querySelector('[data-pc-cp-step]'),progress=root.querySelector('[data-pc-cp-progress]'),status=root.querySelector('[data-pc-cp-status]'),lineOut=root.querySelector('[data-pc-cp-line-output]'),windowGrid=root.querySelector('[data-pc-cp-window-grid]'),refinementGrid=root.querySelector('[data-pc-cp-c24-grid]'),lengthBody=root.querySelector('[data-pc-cp-length-body]'),origamiTransport=root.querySelector('[data-pc-cp-origami-transport]'),zirkel=root.querySelector('[data-pc-cp-zirkel]'),baselAlphaBeta=root.querySelector('[data-pc-cp-basel-alpha-beta]'),scarabT11Shadow=root.querySelector('[data-pc-cp-scarab-t11-shadow]'),center13And5040=root.querySelector('[data-pc-cp-center13-5040]');
     let state={step:0,direction:'FORWARD',folded:false,lineMode:'OPEN'},timer=null;
+    const trace=root.querySelector('[data-pc-cp-q-minus-trace]');
+    if(trace)trace.textContent=qMinusMarker.trace.join(' → ');
     const stop=()=>{if(timer){clearInterval(timer);timer=null}const play=root.querySelector('[data-pc-cp-play]');if(play)play.textContent='PLAY'};
     function render(){
       const reading=viewRecord(state.step,state.direction,state.folded,state.lineMode),line=lineReading(reading,state.lineMode);svg.innerHTML=svgMarkup(reading);stepOut.textContent=`${reading.step} / 840`;slider.value=String(reading.step);progress.style.width=`${reading.progress*100}%`;status.textContent=reading.returnReached?'EXACT JOINT RETURN · Q1 · LOKI 0/0 · FOLD 0':`RUNNING PRODUCT STATE · ${840-reading.step} TO RETURN`;
       root.querySelector('[data-pc-cp-q]').textContent=`${reading.joint.q}`;root.querySelector('[data-pc-cp-loki]').textContent=`S${reading.joint.loki.station} · O${reading.joint.loki.orientation}`;root.querySelector('[data-pc-cp-fold]').textContent=reading.joint.fold?'1 · REFLECTED PARITY':'0 · BASE PARITY';root.querySelector('[data-pc-cp-mz]').textContent=`${reading.joint.mz24.tick} · ${reading.joint.mz24.angleDegrees}°`;
       root.querySelector('[data-pc-cp-adapter]').innerHTML=`ANCHOR <b>${reading.active.anchor}</b> · Q <b>${reading.active.q}</b> · MZ <b>${reading.active.mz24.tick}</b><br>${reading.direction} · ${reading.folded?'F APPLIED':'SOURCE REPRESENTATIVE'} · A(i)=T20<sup>10i</sup>`;
-      lineOut.innerHTML=`<dt>Token</dt><dd class="${line.status==='FAIL'?'is-fail':line.status==='HOLD'?'is-hold':''}">${esc(line.token)} · ${line.status}</dd><dt>Type</dt><dd>${esc(line.type)}</dd><dt>Payload</dt><dd>${esc(line.payload)}</dd><dt>Law</dt><dd>${esc(line.law)}</dd><dt>Return</dt><dd>${esc(line.returnContract)}</dd>`;
+      lineOut.innerHTML=`<dt>Token</dt><dd class="${line.status==='FAIL'?'is-fail':line.status==='HOLD'?'is-hold':''}">${esc(line.token)}${line.marker ? ` · ${esc(line.marker)}` : ''} · ${line.status}</dd><dt>Type</dt><dd>${esc(line.type)}</dd><dt>Payload</dt><dd>${esc(line.payload)}</dd><dt>Law</dt><dd>${esc(line.law)}</dd><dt>Return</dt><dd>${esc(line.returnContract)}</dd>`;
       root.querySelectorAll('[data-pc-cp-direction]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.pcCpDirection===state.direction)));root.querySelectorAll('[data-pc-cp-line]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.pcCpLine===state.lineMode)));root.querySelector('[data-pc-cp-fold-toggle]').setAttribute('aria-pressed',String(state.folded));
       return reading;
     }
