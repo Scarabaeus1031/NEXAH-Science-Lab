@@ -64,7 +64,7 @@ assert.match(navigation,/\|\| null\);/,'unlisted tool and register pages do not 
 assert.doesNotMatch(navigation,/\|\| readerLanes\[1\]/,'Science is never the implicit fallback lane');
 const scienceEntry=fs.readFileSync(path.join(root,'NEXAH_SCIENCE.html'),'utf8');
 const a0ScienceEntry=fs.readFileSync(path.join(root,'A0_SCIENCE.html'),'utf8');
-assert.match(a0ScienceEntry,/<a class="btn gold" href="#overview">Mit dem Überblick beginnen<\/a>/);
+assert.match(a0ScienceEntry,/<a class="btn gold" href="#science-status-plate">Zum Forschungsstand · NOW<\/a>/);
 assert.match(a0ScienceEntry,/<title>NEXAH · A0 Science · Owner Staging<\/title>/);
 assert.match(a0ScienceEntry,/id="overview"/);
 assert.match(a0ScienceEntry,/Source[\s\S]*Aperture[\s\S]*Relation[\s\S]*Return/);
