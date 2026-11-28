@@ -1,0 +1,461 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Game of Numbers</title><link rel="stylesheet" href="../../../a0-game-of-numbers.css?v=zeta-angle-sequence"><link rel="stylesheet" href="../../../a0-cathedral-world.css"><link rel="stylesheet" href="../../../a0-number-parallel.css"><link rel="stylesheet" href="../../../a0-trinity-lens.css"></head><body>
+<main id="numberWorld"><section id="numberParallel" aria-label="Gruppierte Vergleichsläufe, getrennte Regeln und Zustände"></section><section id="numberTrinity" hidden aria-label="Trinity: zwei Linsen und ihre Überlagerung"><div class="trinity-controls"><label><input id="trinityLeft" type="checkbox" checked> Linke Linse A</label><label><input id="trinityRight" type="checkbox" checked> Rechte Linse B</label><label><input id="trinitySwap" type="checkbox"> AM / PM Anordnung tauschen</label><label>Farbansicht <select id="trinityPalette"><option value="roles">Rollenfarben</option><option value="rgb">RGB · screen</option><option value="cmyk">CMYK / YMCK · Display</option></select></label><label>K · Schwarz <input id="trinityK" type="range" min="0" max="1" step="0.05" value="0"></label><label>Lesemarke <select id="trinityMarker"><option value="dawn">Dawn</option><option value="day">Day</option><option value="demizel">Demizel</option><option value="dusk">Dusk</option><option value="night">Night</option></select></label></div><output id="trinityStatus" aria-live="polite"></output><div id="trinityDrawing"></div><p class="trinity-provenance">Begriffliche Herkunft: NEXAH Codex; A0 ist Darstellungs- und Prüffläche. Q°: historisches Beobachterlabel. CA / Consciousness-Achse, Sunset Boulevard und T1/T2/T3 werden nicht als A0-Operatoren oder bewiesene Zuordnung ausgegeben. Die Lesemarke ist manuell, keine gemessene Tageszeit. Prismaflächen- und Bench-Übergabe bleiben getrennt offen.</p></section><section id="numberPQ" hidden aria-label="P/Q Conjugate Orbit: gebundenes Clockwork-3D-Modell"><model-viewer id="numberPQViewer" camera-controls interaction-prompt="auto" animation-name="OIL_RIS_ORBITAL_CLOSURE_48S" exposure="1.1" alt="Vorhandenes P/Q-Conjugate-Orbit-v7-Modell mit Gegenbahn und Schattenknoten"></model-viewer><output id="numberPQStatus" aria-live="polite">Modell lädt erst beim Öffnen der P/Q-Ansicht.</output></section><nav id="numberWheelControls" hidden aria-label="Deklarierte Räderkopplung"><label>1836 : 1729 <select id="wheelRatio"><option value="3:2">3 : 2</option><option value="2:3">2 : 3</option></select></label><label>Richtung <select id="wheelDirection"><option value="counter">Gegenlauf ↺ ↻</option><option value="co">Gleichlauf ↺ ↺</option></select></label>
+<div id="wheelBeatControls" role="group" aria-label="1836 · 432 und 408 im gemeinsamen 808-Takt">
+  <div class="wheel-beat-row" role="group" aria-label="Beat abspielen">
+    <button id="wheelBeatABCLoop" type="button" aria-pressed="false" aria-describedby="wheelBeatABCPattern wheelPresetHint">Beat starten</button>
+    <label><input id="wheelBeatSyncNumbers" type="checkbox" checked> Zahlenlauf im 7/8 koppeln</label>
+    <button id="wheelBlindOpen" type="button">7/8-Blindtest · 24 Durchgänge</button>
+    <a href="#wheelMix">7/8 + 5/4</a>
+    <span id="wheelBeatABCPattern">7/8 · A auf 1 · B auf 3 · C auf 5</span>
+    <output id="wheelBeatCue" aria-live="polite"></output>
+  </div>
+  <div class="wheel-beat-row" role="group" aria-label="Startmodi">
+    <strong>Startmodi</strong>
+    <button id="wheelPresetQrt20" type="button">7/8 · QRT20</button>
+    <button id="wheelPresetSevenBase" type="button">7/8 · Grundspur</button>
+    <button id="wheelPresetResonance" type="button">5/4 · Resonanz</button>
+    <button id="wheelPresetPolar" type="button">Polar Cut · S3</button>
+    <button id="wheelPresetBasic" type="button">2–1–3 · Basis</button>
+  </div>
+  <small id="wheelPresetHint" role="status">7/8-Groove mit Reverse-808, Hi-Hat und 69-Hz-Backloop.</small>
+  <div class="wheel-clock-comparison">
+  <section id="wheelLokiTessarec" aria-labelledby="wheelLokiTitle">
+    <div>
+      <h3 id="wheelLokiTitle">Loki im Tessarec</h3>
+      <p>Ab dem ersten Einsatz schaltet jedes Achtel Station und Orientierung einen Schritt weiter.</p>
+      <output id="wheelLokiStep" aria-live="off">Schritt 0 · Station S1 · Orientierung O0</output>
+      <p id="wheelLokiReturn" role="status">Start · S1 / O0 · erster Return bei 56</p>
+      <div id="wheelLokiControls" role="group" aria-label="Schrittvergleich" hidden>
+        <button id="wheelLokiBack" type="button" hidden>Zurück</button>
+        <button id="wheelLokiContinue" type="button">Weiter</button>
+        <button id="wheelLokiResume" type="button" hidden>Takt fortsetzen</button>
+      </div>
+      <a href="../../../../a0-human/start/A0_WERKBANK.html" target="_parent">Tessarec-Pipe in der Werkbank →</a>
+    </div>
+    <div class="wheel-loki-visuals">
+      <svg id="wheelLokiPipe" viewBox="0 20 340 217" role="img" aria-label="Tessarec-Pipe mit sieben Stationen und acht Orientierungen" aria-describedby="wheelLokiStep"></svg>
+      <figure>
+        <figcaption id="wheelLoki19Caption">19er-Rad · +1 je Achtel</figcaption>
+        <svg id="wheelLoki19" viewBox="0 0 180 180" role="img" aria-label="19er-Rad mit Resten 0 bis 18" aria-describedby="wheelLoki19Step"></svg>
+        <output id="wheelLoki19Step">Schritt 0 · Rest 0</output>
+      </figure>
+    </div>
+    <p id="wheelLoki19Witness" role="status"></p>
+  </section>
+  <section id="wheelClockAddress" aria-labelledby="wheelClockAddressTitle">
+    <h3 id="wheelClockAddressTitle">Clock Address</h3>
+    <div class="wheel-clock-source">
+      <label for="wheelClockAddressSource">Adresse</label>
+      <select id="wheelClockAddressSource">
+        <option value="step" selected>Aktueller Schritt</option>
+        <option value="1836">1836 · feste Adresse</option>
+        <option value="3656">3656 · Mod 57 und 19 vergleichen</option>
+        <option value="3565">3565 · Mod 57 und 19 vergleichen</option>
+      </select>
+    </div>
+    <svg id="wheelClockAddressRings" viewBox="0 0 220 220" role="img" aria-label="Fünf Uhren mit gemeinsamer Null oben. Der 57er-Ring liegt außen." aria-describedby="wheelClockAddressValues"></svg>
+    <ul id="wheelClockAddressValues"></ul>
+    <p id="wheelClockAddressComparison" role="status" hidden></p>
+    <p id="wheelClockAddressTransition" hidden>56 → 57 · Mod 24: 8 → 9 · Mod 408, 432 und 360: 56 → 57 · Mod 57: 56 → 0</p>
+    <section id="wheelZetaContacts" data-angle-sequence aria-labelledby="wheelZetaTitle" hidden>
+      <h4 id="wheelZetaTitle">Grey/Pink · ζ‑Kontaktrad</h4>
+      <p>Wähle einen Kontakt. Der Winkel steht am Rad, der Rückweg führt zur Sprossenhöhe.</p>
+      <svg id="wheelZetaDial" data-angle-wheel="91" viewBox="0 0 220 220" role="group" aria-label="Fünf anwählbare ζ‑Kontakte"></svg>
+      <div class="wheel-zeta-sequence">
+        <button id="wheelZetaSequencePlay" data-angle-play type="button">▶ Winkelfolge abspielen</button>
+        <span>+90° → +90° → −270°</span>
+        <output id="wheelZetaSequenceStatus" data-angle-status aria-live="polite">Start bei 0°</output>
+        <div class="wheel-zeta-angle-values" aria-label="Winkel der Winkelfolge">
+          <span>Rad <b id="wheelZetaSequencePhase" data-angle-phase>0°</b></span>
+          <span>Lift <b id="wheelZetaSequenceLift" data-angle-lift>0°</b></span>
+        </div>
+      </div>
+      <a class="wheel-zeta-helix-link" aria-disabled="true" target="_top">Winkelfolge an der A0‑Sprosse ↗</a>
+      <output id="wheelZetaReadout" aria-live="polite"></output>
+      <a id="wheelZetaReturn" hidden target="_top">Kontakt in der A0‑Helix öffnen ↗</a>
+    </section>
+  </section>
+  </div>
+  <div class="wheel-beat-meters" role="group" aria-label="808-Hüllkurven für 432, 408 und C">
+    <span aria-hidden="true">432</span><span class="wheel-beat-meter" aria-hidden="true"><span id="wheelBeatMeter432"></span></span>
+    <span aria-hidden="true">408</span><span class="wheel-beat-meter" aria-hidden="true"><span id="wheelBeatMeter408"></span></span>
+    <span aria-hidden="true">C · 123</span><span class="wheel-beat-meter" aria-hidden="true"><span id="wheelBeatMeter123"></span></span>
+  </div>
+  <output id="wheelBeatState">Schlag 0/612 · 432 · + 90° / − 90° | 408 · + 180° / − 180°</output>
+</div></nav><nav id="numberMixerControls" hidden aria-label="Mischer-Linsenausschnitt"><button id="mixerAll" aria-pressed="true">Gesamt</button><button id="mixerA" aria-pressed="false">A · Linke Linse</button><button id="mixerB" aria-pressed="false">B · Rechte Linse</button></nav><output id="numberFoldStatus" hidden aria-live="polite">AXIS I · FOLD 0° · CROWN 00/19</output><div id="numberMixer" hidden role="img" aria-label="Schichtenmischer mit drei Pentagonschichten, Körperprojektion, Schnittflächen, pinker Spur und gekoppelter Drei-Achsen-Faltführung 0, 78, 33, 7, 0 Grad"></div><div id="numberJointControls" hidden aria-label="Joint Modulo-Ansicht"><label>Projektion <select id="jointModulus"><option value="11">Mod 11 · fest bei +11</option><option value="12" selected>Mod 12 · A −1 / Tick</option><option value="13">Mod 13 · A −2 / Tick</option><option value="36">Mod 36 · Startreste 0 / 1 / 1</option></select></label><label>Kopplung <select id="jointDirection"><option value="co">Gleichlauf · +11 / +11</option><option value="counter">Gegenlauf · +11 / −11</option></select></label><button id="jointActivate">Joint +11 aktivieren</button></div><button id="numberBreathToggle" type="button" aria-pressed="false" hidden>CON–DAO · Atem zuschalten</button><nav id="numberQrt20Controls" hidden aria-label="QRT20 Werkzeuge"><button id="qrt20QuarterTurn" aria-pressed="true">Quarter Turn</button><button id="qrt20CouplingWindow" aria-pressed="true">Coupling Window</button><button id="qrt20Terrace" aria-pressed="true">Terrace</button><button id="qrt20Tesa" aria-pressed="true">TESA</button><button id="qrt20TesaMode">Mode · 3×16</button><button id="qrt20TesaTrace" aria-pressed="true">Trace</button><button id="qrt20IotaGate">IOTA Gate</button><button id="qrt20FoldBank">Winkelbank</button><button id="qrt20CoreMotion" aria-pressed="true">Core Motion Test</button><button id="qrt20BetaStep">LB ↔ ßl</button><button id="qrt20VpaProfile">V/PA</button><button id="qrt20VpaStep">V/PA STEP</button><button id="qrt20PascalSeam">Seam Demo</button><output id="qrt20Status" aria-live="polite"></output></nav><canvas id="numberCanvas" tabindex="0" aria-label="Zahlenwelt: ziehen oder Pfeiltasten zum Drehen, Plus und Minus zum Zoomen"></canvas>
+<div id="wheelBeatDetails" hidden role="group" aria-label="Hörproben und Vergleiche am Doppelrad">
+  <section id="wheelMix" class="wheel-playback-details" aria-labelledby="wheelMixTitle">
+    <h2 id="wheelMixTitle">7/8 + 5/4 · 120 BPM</h2>
+    <div class="wheel-beat-row">
+      <button id="wheelMixPlay" type="button" aria-pressed="false">Mix starten</button>
+      <fieldset class="wheel-beat-row">
+        <legend>5/4-Startversatz</legend>
+        <label><input type="radio" name="wheelMixOffset" value="0" checked> 0 s</label>
+        <label><input type="radio" name="wheelMixOffset" value="0.2"> 0,2 s</label>
+      </fieldset>
+      <output id="wheelMixStatus" role="status">Mix bereit.</output>
+    </div>
+    <p>Ein Wechsel startet die Runde neu. Zwei 70er-Raster zeigen die 140 Sechzehntel bis zur Wiederholung nach 17,5 s.</p>
+    <div class="wheel-beat-row" aria-label="Spuren im Raster">
+      <span class="wheel-mix-seven">7/8 · 808</span>
+      <span class="wheel-mix-five">5/4 · Snare</span>
+    </div>
+    <div id="wheelMixGrid" aria-label="Takt-Einsen im Sechzehntelraster">
+      <div class="wheel-mix-panel">
+        <div class="wheel-mix-scale"><span>0</span><span>70</span></div>
+        <div class="wheel-mix-lanes">
+          <div class="wheel-mix-track" role="img"></div>
+          <div class="wheel-mix-track" role="img"></div>
+          <span class="wheel-mix-cursor" hidden aria-hidden="true"></span>
+        </div>
+      </div>
+      <div class="wheel-mix-panel">
+        <div class="wheel-mix-scale"><span>70</span><span>140</span></div>
+        <div class="wheel-mix-lanes">
+          <div class="wheel-mix-track" role="img"></div>
+          <div class="wheel-mix-track" role="img"></div>
+          <span class="wheel-mix-cursor" hidden aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <details class="wheel-playback-details">
+    <summary>808-Hörproben · A, B und C</summary>
+  <div class="wheel-beat-row" role="group" aria-label="808-Hörvergleich">
+    <button id="wheelBeatListenA" type="button">A · 306 · Echo + Return</button>
+    <button id="wheelBeatListenB" type="button">B · 612 · Doppelreturn</button>
+    <button id="wheelBeatListenC" type="button">C · 123er-Impuls</button>
+    <button id="wheelBeatABLoop" type="button" aria-pressed="false">A und B im Wechsel</button>
+  </div>
+  </details>
+  <details class="wheel-playback-details">
+    <summary>Beat einstellen · Takt und Klang</summary>
+  <div class="wheel-beat-row" role="group" aria-label="Rhythmus und Klang">
+    <label>A/B/C-Takt
+      <select id="wheelBeatABCMeter">
+        <option value="6" selected>2–1–3 · 6 Pulse</option>
+        <option value="5">5/4 · 2–1–2</option>
+        <option value="7/8">7/8 · 2+2+3</option>
+      </select>
+    </label>
+    <label><input id="wheelBeatBackloop" type="checkbox"> 69-Hz-Backloop im 7/8</label>
+    <label><input id="wheelBeatReverseA" type="checkbox"> Reverse-808 bei A</label>
+    <label><input id="wheelBeatHat" type="checkbox"> Hi-Hat</label>
+    <label><input id="wheelBeatSnare" type="checkbox" checked> Snare-Fills im 5/4</label>
+    <label>Snare-Doppelschläge
+      <select id="wheelBeatSnareTiming">
+        <option value="original" selected>Bisher</option>
+        <option value="late">Später · +62,5 ms</option>
+      </select>
+    </label>
+    <label><input id="wheelBeatGlue" type="checkbox"> Glue-Bass</label>
+  </div>
+  <div class="wheel-beat-row">
+    <label for="wheelBeatReverseLength">Reverse-Länge bei A</label>
+    <input id="wheelBeatReverseLength" type="range" min="120" max="650" step="10" value="320">
+    <output id="wheelBeatReverseValue" for="wheelBeatReverseLength">320 ms</output>
+  </div>
+  </details>
+  <details id="wheelPolarCompare">
+    <summary>Polar Cut Atlas · S3 · 316°</summary>
+    <div class="wheel-beat-row" role="group" aria-label="Aperturachse">
+      <button id="wheelPolar270" type="button" aria-pressed="true">270°</button>
+      <button id="wheelPolar268" type="button" aria-pressed="false">268°</button>
+      <output id="wheelPolarMetrics">—</output>
+    </div>
+    <div class="wheel-beat-row" aria-live="polite">
+      <output id="wheelPolar643" class="wheel-polar-prime">643</output>
+      <output id="wheelPolar761" class="wheel-polar-prime">761</output>
+      <output id="wheelPolarSwap">—</output>
+    </div>
+    <a href="../../../../a0-human/start/A0_NUMBERMAGICK_GRID_RESEARCH.html" target="_blank" rel="noopener noreferrer">Im Polar Cut Atlas öffnen ↗</a>
+  </details>
+  <details id="wheelComposite">
+    <summary>Composite · 1729 / 1836 / 1935</summary>
+    <div class="wheel-composite-layout">
+      <canvas id="wheelCompositeCanvas" width="320" height="320" role="img" aria-label="1561-Lock mit drei gespiegelten Winkelpaaren"></canvas>
+      <div>
+        <div class="wheel-beat-row" role="group" aria-label="Spuren im Composite">
+          <button id="wheelCompositeAll" type="button" aria-pressed="true">Alle drei</button>
+          <button id="wheelComposite1729" type="button" aria-pressed="false">1729</button>
+          <button id="wheelComposite1836" type="button" aria-pressed="false">1836</button>
+          <button id="wheelComposite1935" type="button" aria-pressed="false">1935</button>
+        </div>
+        <div class="wheel-backloop-grid">
+          <table aria-label="Brückenfarben, Faktoren, Quotienten und Winkel">
+            <thead><tr><th scope="col">Spur</th><th scope="col">Faktoren</th><th scope="col">1561 / n</th><th scope="col">±θ</th><th scope="col">6561 / n</th></tr></thead>
+            <tbody id="wheelCompositeRows"></tbody>
+          </table>
+        </div>
+        <small>θ = arccos(1561 / n) · Komplementband 0,571 ≈ 1 − 0,429</small>
+        <div class="wheel-beat-row" role="group" aria-label="Regulator bei zwei Return-Schritten vergleichen">
+          <button id="wheelCompositeCompare1260" type="button" aria-pressed="false">1 260 · Rest 6</button>
+          <button id="wheelCompositeCompare23940" type="button" aria-pressed="false">23 940 · Rest 0</button>
+          <button id="wheelCompositeLive" type="button" aria-pressed="true">Live</button>
+          <output id="wheelCompositeMod19" aria-live="off"></output>
+        </div>
+      </div>
+    </div>
+  </details>
+  <div id="wheelBackloopView" hidden role="group" aria-label="69-Hz-Backloop im 192er-Raster">
+    <div class="wheel-beat-row">
+      <strong>69-Hz-Backloop</strong>
+      <label>Hörspur
+        <select id="wheelBackloopDiagonal">
+          <option value="all">Alle 69er-Einsätze</option>
+          <option value="positive">Grüne Diagonale · + / + / +</option>
+          <option value="mixed">Rosa Diagonale · − / + / −</option>
+        </select>
+      </label>
+      <label><input id="wheelBackloopTimbre" type="checkbox"> QRT20-Klangfarbe</label>
+      <span class="wheel-beat-meter" aria-hidden="true"><span id="wheelBackloopMeter"></span></span>
+      <output id="wheelBackloopPosition" aria-live="off">Takt 1/4 · Tick 0</output>
+    </div>
+    <div class="wheel-beat-row" role="group" aria-label="A/B-Hörvergleich der goldenen Mitte">
+      <button id="wheelBackloopListenR1" type="button">A · r1 · warm</button>
+      <button id="wheelBackloopListenR17" type="button">B · r17 · hell</button>
+      <small>Goldenes + · Einzelimpuls bei 69 Hz</small>
+    </div>
+    <small><output id="wheelBackloopCenterTimbre" aria-live="off">Letzte Mitte · —</output></small>
+    <div class="wheel-backloop-views">
+      <div class="wheel-backloop-raster">
+        <small>192 Ticks/Viertel · 96 Ticks/Achtel · 672 Ticks pro 7/8-Takt</small>
+        <div class="wheel-backloop-grid">
+          <table id="wheelBackloopGrid" aria-label="Einsätze und Polarität über vier 7/8-Takte"></table>
+        </div>
+        <small><strong>3×3-Feld</strong> · <span class="backloop-key-positive">+ / + / +</span> · <span class="backloop-key-mixed">− / + / −</span> · Gold = aktives Plus in der Mitte</small>
+        <section class="wheel-qrt20-raster" aria-labelledby="wheelBackloopQrt20Title">
+          <strong id="wheelBackloopQrt20Title">QRT20 · Gegenlauf aus dem Vendissimal Audit</strong>
+          <small>Differenzrest ab r7 · pro Achtel +2 mod 20</small>
+          <ol id="wheelBackloopQrt20Steps" aria-label="QRT20-Residuen von Start bis Return"></ol>
+          <div class="wheel-beat-row">
+            <output id="wheelBackloopQrt20Status" aria-live="off">QRT20 · Return alle 10 Achtel</output>
+            <output id="wheelBackloopReturnStatus" aria-live="off">69er · Return alle 28 Achtel</output>
+          </div>
+        </section>
+        <section class="wheel-qrt20-raster wheel-mod19-raster" aria-labelledby="wheelMod19Title">
+          <strong id="wheelMod19Title">19er-Spur · stumm</strong>
+          <small>Start bei Rest 0 · pro Achtel +1 mod 19</small>
+          <ol id="wheelMod19Steps" aria-label="Reste modulo 19"></ol>
+          <output id="wheelMod19Position" aria-live="off">Schritt 0 · Rest 0</output>
+          <div class="wheel-beat-row">
+            <button id="wheelMod19CompareJump" type="button">Zu Schritt 1 260</button>
+            <button id="wheelMod19ReturnJump" type="button">Zu Schritt 23 939</button>
+            <output id="wheelMod19ReturnStatus" aria-live="polite"></output>
+          </div>
+        </section>
+        <section class="wheel-qrt20-raster" aria-labelledby="wheelEulerLensTitle">
+          <strong id="wheelEulerLensTitle">Euler-Linse 41/42 · Gegenprobe</strong>
+          <div class="wheel-beat-row" role="group" aria-label="Anzahl der Nachkommastellen">
+            <span>Nachkommastellen</span>
+            <button id="wheelEulerDigits10" type="button" aria-pressed="false">10</button>
+            <button id="wheelEulerDigits11" type="button" aria-pressed="true">11</button>
+            <button id="wheelEulerDigits12" type="button" aria-pressed="false">12</button>
+          </div>
+          <small>Abgeschnittene Nachkommastellen als ganze Zahl binär lesen.</small>
+          <output id="wheelEulerLensResult" aria-live="polite">
+            <span>Dezimalausschnitt</span> <code id="wheelEulerDecimal"></code>
+            <span>Binär</span> <code id="wheelEulerBinary"></code>
+            <strong id="wheelEulerOnes"></strong>
+          </output>
+          <div class="wheel-backloop-grid">
+            <table class="wheel-euler-comparison" aria-label="Euler-Einsen und Modulo-19-Reste an beiden Return-Schritten">
+              <thead><tr><th scope="col">Schritt</th><th scope="col">Rest mod 19</th><th scope="col">Euler-Einsen</th></tr></thead>
+              <tbody id="wheelEulerComparison"></tbody>
+            </table>
+          </div>
+          <small>Finding offen · Zusammenhang mit der 19er-Spur.</small>
+        </section>
+        <small>69er · nach 2 Takten gleiche Einsätze mit umgekehrtem Vorzeichen, nach 4 Takten zurück bei Tick 2688.</small>
+      </div>
+      <section class="wheel-phase-view" aria-labelledby="wheelPhaseTitle">
+        <strong id="wheelPhaseTitle">Phasenvergleich · stumm</strong>
+        <output id="wheelPhaseStatus" aria-live="off">Schritt 0 · Blau 0° · Orange 0° · Start</output>
+        <canvas id="wheelPhaseCanvas" width="620" height="206" role="img" aria-label="Winkelkurven bis zum ersten Return und Zeiger im Kreis" aria-describedby="wheelPhaseStatus wheelPhaseLegend wheelPhaseReference"></canvas>
+        <small id="wheelPhaseLegend"><span class="wheel-phase-blue">Blau −20°</span> · <span class="wheel-phase-orange">Orange +100°</span> pro Achtel · Treffen ◇ · Return □</small>
+        <small id="wheelPhaseReference">Kreis · durchgezogen 0°/120°/240° · gestrichelt A/B/C auf 1/3/5 im 7/8</small>
+        <section class="wheel-qrt20-raster" aria-labelledby="wheelPlatterTitle">
+          <strong id="wheelPlatterTitle">Plattenteller und 7/8-Takt</strong>
+          <div class="wheel-beat-row">
+            <label>Platte
+              <select id="wheelPlatterRpm"><option value="33">33⅓ RPM</option><option value="45">45 RPM</option></select>
+            </label>
+            <label>Viertel pro Minute
+              <select id="wheelSevenTempo"><option value="120">120</option><option value="lock">116⅔</option></select>
+            </label>
+          </div>
+          <div class="wheel-beat-row">
+            <div class="wheel-platter-dial" aria-hidden="true">
+              <span id="wheelPlatterNeedle"></span><span id="wheelBarNeedle"></span>
+            </div>
+            <div>
+              <small><span class="wheel-phase-orange">Platte</span> · <span class="wheel-phase-blue">Takt</span></small>
+              <output id="wheelPlatterStatus" aria-live="off">Wartet auf den 7/8-Beat.</output>
+            </div>
+          </div>
+          <small>Beide Zeiger starten gemeinsam auf A. Änderungen richten sie am nächsten übernommenen A neu aus.</small>
+          <small>Automatische Return-Töne · aktive Häkchen spielen bei jedem Return mit.</small>
+          <div class="wheel-beat-row" role="group" aria-label="Return-Töne im 7/8">
+            <label><input id="wheelQrt20ReturnSound" type="checkbox"> QRT20 · r7 alle 10 Achtel</label>
+            <label><input id="wheel60ReturnSound" type="checkbox"> 60er · alle 60 Achtel</label>
+          </div>
+          <div class="wheel-beat-row" role="group" aria-label="Weitere Return-Töne">
+            <label><input id="wheel69ReturnSound" type="checkbox"> 69er-Return · alle 28 Achtel</label>
+            <label><input id="wheelPinkReturnSound" type="checkbox"> Pink · 1729 auf Tick 0</label>
+            <label><input id="wheelAlgoReturnSound" type="checkbox"> Algo · 1836 auf Tick 0</label>
+          </div>
+          <output id="wheelReturnSoundStatus" aria-live="off">Letzter Return-Ton · —</output>
+          <small>Im laufenden 7/8 setzt die Hörprobe auf dem nächsten Achtel ein.</small>
+          <div class="wheel-beat-row" role="group" aria-label="Return-Klänge anhören">
+            <button id="wheelListenReturn69" type="button">69er anhören</button>
+            <button id="wheelListenReturnPink" type="button">Pink anhören</button>
+            <button id="wheelListenReturnAlgo" type="button">Algo anhören</button>
+            <button id="wheelListenReturnTogether" type="button">Alle drei · wie bei 1260</button>
+            <output id="wheelReturnAuditionStatus" aria-live="polite"></output>
+          </div>
+          <div class="wheel-beat-row" role="group" aria-label="A/B-Hörvergleich am gemeinsamen Return">
+            <button id="wheelReturnComparePair" type="button">A → B · 1260 und 1261 hören</button>
+            <button id="wheelReturnCompareA" type="button">A · bei 1260</button>
+            <button id="wheelReturnCompareB" type="button">B · bei 1261</button>
+          </div>
+          <small>Start bei 1259 · A auf Tick 0, B ein Achtel später auf Tick 96 · gleiche drei Klänge, gleicher Pegel. Der Groove läuft weiter.</small>
+        </section>
+      </section>
+    </div>
+    <div class="wheel-beat-row">
+      <button id="wheelQrt20ReturnJump" type="button">Zu Schritt 139 · QRT20 und 69er</button>
+      <output id="wheelQrt20JointReturnStatus" aria-live="polite">QRT20 und 69er · erster gemeinsamer Return bei Schritt 140</output>
+    </div>
+    <div class="wheel-beat-row">
+      <button id="wheelCommonReturnJump" type="button">Ein Achtel vor den gemeinsamen Return</button>
+      <output id="wheelCommonReturnStatus" aria-live="polite">Winkelzeiger und 69er · erster gemeinsamer Return bei Schritt 252</output>
+    </div>
+    <div class="wheel-beat-row">
+      <button id="wheelAllReturnJump" type="button">Zu Schritt 1259 · alle drei Spuren</button>
+      <output id="wheelAllReturnStatus" aria-live="polite">Alle drei Spuren · erster gemeinsamer Return bei Schritt 1260</output>
+    </div>
+  </div>
+  <details id="wheelResonance" class="wheel-playback-details">
+    <summary>5/4-Resonanz · Hörproben bei 48 und 96 Hz</summary>
+    <div class="wheel-beat-row" role="group" aria-label="Direktvergleich bei 0,4 pro Sekunde">
+      <button id="wheelResonancePreset3" type="button" aria-pressed="false">3 Hz</button>
+      <button id="wheelResonancePreset6" type="button" aria-pressed="false">6 Hz</button>
+      <button id="wheelResonancePreset9" type="button" aria-pressed="false">9 Hz</button>
+      <button id="wheelResonancePreset12" type="button" aria-pressed="false">12 Hz</button>
+      <button id="wheelResonancePreset24" type="button" aria-pressed="false">24 Hz</button>
+      <button id="wheelResonancePreset48" type="button" aria-pressed="false">48 Hz</button>
+      <button id="wheelResonancePreset49" type="button" aria-pressed="false">49 Hz</button>
+      <button id="wheelResonancePreset96" type="button" aria-pressed="false">96 Hz</button>
+      <small>Dämpfung · 0,4 s⁻¹</small>
+    </div>
+    <div class="wheel-beat-row" role="group" aria-label="48 und 96 Hz je zwei 5/4-Takte ab Stille">
+      <button id="wheelResonanceListen48" type="button" aria-pressed="false">A · 48 Hz · 2 Takte</button>
+      <span>Spitze A <output id="wheelResonancePeak48" aria-live="polite">—</output></span>
+      <button id="wheelResonanceListen96" type="button" aria-pressed="false">B · 96 Hz · 2 Takte</button>
+      <span>Spitze B <output id="wheelResonancePeak96" aria-live="polite">—</output></span>
+    </div>
+    <div class="wheel-beat-row" role="group" aria-label="48 und 96 Hz je acht 5/4-Takte ab Stille">
+      <button id="wheelResonanceListen48Long" type="button" aria-pressed="false">48 Hz · 8 Takte · 0 ms</button>
+      <span>Spitze A <output id="wheelResonancePeak48Long" aria-live="polite">—</output></span>
+      <button id="wheelResonanceListen96Long" type="button" aria-pressed="false">96 Hz · 8 Takte · 0 ms</button>
+      <span>Spitze B <output id="wheelResonancePeak96Long" aria-live="polite">—</output></span>
+    </div>
+    <div class="wheel-beat-row" role="group" aria-label="Acht 5/4-Takte ab Stille mit alternierendem Versatz">
+      <button id="wheelResonanceListen48Delayed" type="button" aria-pressed="false">48 Hz · 8 Takte · +20 ms</button>
+      <span>Spitze <output id="wheelResonancePeak48Delayed" aria-live="polite">—</output></span>
+      <button id="wheelResonanceListen96Delayed" type="button" aria-pressed="false">96 Hz · 8 Takte · +20 ms</button>
+      <span>Spitze <output id="wheelResonancePeak96Delayed" aria-live="polite">—</output></span>
+    </div>
+    <small>+20 ms verzögert jeden zweiten Resonanzimpuls. Die 808 und das Reverse-Echo bleiben im Takt.</small>
+    <div class="wheel-beat-row" role="group" aria-label="48 Hz bei acht 5/4-Takten mit und ohne Feedback-Delay">
+      <strong>48 Hz · Feedback-Delay</strong>
+      <button id="wheelResonanceListenDry" type="button" aria-pressed="false">Ohne Feedback</button>
+      <button id="wheelResonanceListenFeedback" type="button" aria-pressed="false">Mit Feedback</button>
+    </div>
+    <small>8 Takte ab Stille · alternierend +20 ms · Delay 250 ms, Rückkopplung 92 %, Effektanteil 5 %.</small>
+    <table class="wheel-tail-results" aria-label="Resonanzpegel relativ zu einem Einzelimpuls">
+      <thead><tr><th scope="col">Resonanz</th><th scope="col">Spitze im Groove</th><th scope="col">Nach 1 s</th><th scope="col">Nach 3 s</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Ohne Feedback</th><td><output id="wheelResonancePeakDry">—</output></td><td><output id="wheelResonanceTailDry1">—</output></td><td><output id="wheelResonanceTailDry3">—</output></td></tr>
+        <tr><th scope="row">Mit Feedback</th><td><output id="wheelResonancePeakFeedback">—</output></td><td><output id="wheelResonanceTailFeedback1">—</output></td><td><output id="wheelResonanceTailFeedback3">—</output></td></tr>
+      </tbody>
+    </table>
+    <small>Nachklang ab dem letzten Resonanzimpuls · Einzelimpuls = 1×.</small>
+    <div class="wheel-beat-row" role="group" aria-label="48 Hz gegen 48 und 69 Hz bei gleichem Effektivpegel">
+      <button id="wheelResonanceListen48Solo" type="button" aria-pressed="false">A · 48 Hz</button>
+      <span>Spitze A <output id="wheelResonancePeak48Solo" aria-live="polite">—</output></span>
+      <button id="wheelResonanceListen48Plus69" type="button" aria-pressed="false">B · 48 + 69 Hz</button>
+      <span>Spitze B <output id="wheelResonancePeak48Plus69" aria-live="polite">—</output></span>
+    </div>
+    <small>Je 8 Takte ab Stille · gleicher Effektivpegel der Resonanzspur über 20 s · alternierend +20 ms · Reverse 320 ms.</small>
+    <details class="wheel-playback-details">
+      <summary>Frequenzen schichten · 3 bis 96 Hz</summary>
+      <p>Jede Stufe enthält alle Frequenzen der vorherigen. Acht 5/4-Takte ab Stille bei 0,4 s⁻¹ Dämpfung, mit alternierend +20 ms. Der Effektivpegel der Resonanzspur entspricht der 48-Hz-Einzelprobe.</p>
+      <table class="wheel-tail-results" aria-label="Sieben Hörstufen bei gleichem Effektivpegel">
+        <thead><tr><th scope="col">Aktive Frequenzen</th><th scope="col">Hörprobe</th><th scope="col">Spitze</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">3 Hz</th><td><button id="wheelResonanceListenLadder3" type="button" aria-pressed="false">Stufe 1 hören</button></td><td><output id="wheelResonancePeakLadder3" aria-live="polite">—</output></td></tr>
+          <tr><th scope="row">3 + 6 Hz</th><td><button id="wheelResonanceListenLadder6" type="button" aria-pressed="false">Stufe 2 hören</button></td><td><output id="wheelResonancePeakLadder6" aria-live="polite">—</output></td></tr>
+          <tr><th scope="row">3 + 6 + 9 Hz</th><td><button id="wheelResonanceListenLadder9" type="button" aria-pressed="false">Stufe 3 hören</button></td><td><output id="wheelResonancePeakLadder9" aria-live="polite">—</output></td></tr>
+          <tr><th scope="row">3 + 6 + 9 + 12 Hz</th><td><button id="wheelResonanceListenLadder12" type="button" aria-pressed="false">Stufe 4 hören</button></td><td><output id="wheelResonancePeakLadder12" aria-live="polite">—</output></td></tr>
+          <tr><th scope="row">3 + 6 + 9 + 12 + 24 Hz</th><td><button id="wheelResonanceListenLadder24" type="button" aria-pressed="false">Stufe 5 hören</button></td><td><output id="wheelResonancePeakLadder24" aria-live="polite">—</output></td></tr>
+          <tr><th scope="row">3 + 6 + 9 + 12 + 24 + 48 Hz</th><td><button id="wheelResonanceListenLadder48" type="button" aria-pressed="false">Stufe 6 hören</button></td><td><output id="wheelResonancePeakLadder48" aria-live="polite">—</output></td></tr>
+          <tr><th scope="row">3 + 6 + 9 + 12 + 24 + 48 + 96 Hz</th><td><button id="wheelResonanceListenLadder96" type="button" aria-pressed="false">Stufe 7 hören</button></td><td><output id="wheelResonancePeakLadder96" aria-live="polite">—</output></td></tr>
+        </tbody>
+      </table>
+    </details>
+    <div class="wheel-beat-row">
+      <label><input id="wheelResonanceEnabled" type="checkbox"> Resonanzspur im 5/4</label>
+      <label for="wheelResonanceFrequency">Eigenfrequenz</label>
+      <input id="wheelResonanceFrequency" type="range" min="3" max="96" step="0.1" value="48">
+      <output id="wheelResonanceFrequencyValue" for="wheelResonanceFrequency">48 Hz</output>
+      <label for="wheelResonanceDamping">Dämpfung</label>
+      <input id="wheelResonanceDamping" type="range" min="0.4" max="6" step="0.1" value="1">
+      <output id="wheelResonanceDampingValue" for="wheelResonanceDamping">1 s⁻¹</output>
+    </div>
+    <div class="wheel-beat-row">
+      <span>Antwort</span><span class="wheel-beat-meter" aria-hidden="true"><span id="wheelResonanceMeter"></span></span>
+      <output id="wheelResonanceLevel" aria-live="off">0,00×</output><small>Einzelimpuls = 1×</small>
+    </div>
+  </details>
+  <details class="wheel-playback-details">
+    <summary>Radtakt · 432 und 408</summary>
+    <div class="wheel-beat-row">
+      <button id="wheelBeatPlay" type="button">Radtakt starten</button>
+      <label><input id="wheelBeatBass" type="checkbox"> 808 im Radtakt</label>
+    </div>
+    <div class="wheel-beat-jumps">
+      <button id="wheelBeatReset" type="button">Zu Schlag 0</button>
+      <button id="wheelBeatHalfPreview" type="button">Vor Schlag 306</button>
+      <button id="wheelBeatPreview" type="button">Vor gemeinsamen Return</button>
+    </div>
+  </details>
+</div>
+<section id="qrt20SeamLedger" hidden aria-label="QRT20 Seam Observatory mit A/B-Pfad, D4 Golden Path und 1031 Carrier Grammar"></section><div class="number-title"><span id="numberRule">EULER · ORBIT</span><h1 id="numberValue">3 + 4i</h1><small id="numberStep">n 0</small></div><div class="number-hint">DRAG TO EXPLORE · + / − ZOOM</div>
+<section id="numberReturnControls" hidden aria-label="Berechneter inverser Rückweg, nicht Gegenlauf oder Replay"><h2>Vorlauf &amp; geprüfter Rückweg</h2><p>978: N → 10N−2, invers (N+2)/10 nur in der deklarierten Folge. Joint-Vorlauf: +11/+11, invers −11/−11. Joint-Gegenlauf: +11/−11, invers −11/+11. Zurückspulen bewegt nur den gespeicherten Cursor.</p><button id="numberCaptureReturn">Source-Anker erfassen</button><button id="numberInverseStep">Invers −1 prüfen</button><button id="numberSourceReturn">Zum Source-Anker · prüfen</button><output id="numberReturnStatus" aria-live="polite"></output><p>Geprüft werden vollständige Integerzustände samt Fingerprint und Profil. Historie bleibt erhalten. E–D–C / Eris–Ceris bleibt historische Suchspur, kein neuer Operator. JSON-Export und Replay unten in der Motorhaube.</p></section><section id="numberHood" hidden><h2>Unter der Motorhaube</h2><pre id="numberExact"></pre><p>Euler/Fibonacci verwenden das vorhandene Modell. Zero Rails, Repunit-Quadrate, die gepaarte (97,101)-Verdopplung und die bestätigte Carrier-Route sind eigene begrenzte Adapter der dokumentierten Regeln. Jede Spur behält ihren Lauf. Pink bezeichnet lokal die ×2-Spur, keine universelle Zahlenfarbe. Dezimal und Binär sind verschiedene Kodierungen; QRT20 benötigt Quotient und Rest.</p><p>Flip wechselt nur die Ansichtsseite; er berechnet weder eine Generation noch einen mathematischen Vorzeichenwechsel. X/TOUCH prüft hier ausschließlich die exakte Übersetzung. Historische Vendissimal-Verklebung, vier 1en/vier 0er, Signal–Sign–Signet und ein gemeinsamer Generationsoperator sind noch OPEN. Repunit 1111² und seine vier Einsen ersetzen diese fehlenden Bindungen nicht.</p><p><a target="_blank" rel="noopener" aria-disabled="true">Carrier-/QRT-Quelle</a> · <a target="_blank" rel="noopener" aria-disabled="true">Gepaarter Ghostgrid-Lift</a> · <a target="_blank" rel="noopener" aria-disabled="true">Vorhandene Zero-Rail-Regel</a></p><p><a href="../../../../a0-human/start/A0_NUMBERMAGICK_GRID_RESEARCH.html#field-geometry-book" target="_blank" rel="noopener">Das Buch dahinter · Leo / Lilith · J / L · G / H</a>: vorhandene Bildquelle und Instrumente gemeinsam lesen, ohne ihre Begriffe gleichzusetzen.</p><p><a href="../../../../a0-human/start/A0_NUMBERMAGICK_GRID_RESEARCH.html#ghReturnGateTitle" target="_blank" rel="noopener">Return Gate v1 öffnen ↗</a> · Getypter Empfang: ausschließlich vollständige Winkel-Preset-Receipts. Ein Numbers-Record ist kein Winkel-Preset und wird AMBIGUOUS, nicht EXACT. Die numerische Rückkehr bleibt separat über Replay prüfen erhalten; eine Zahlen→Winkel-Abbildung ist noch OPEN.</p><p>Joint-Gegenlauf: Kopplung umschaltbar zwischen Gleichlauf (+11,+11) und Gegenlauf (+11,−11). Zwei getrennt gespeicherte Läufe; Wechsel pausiert, Rückwechsel stellt den jeweiligen Lauf wieder her. Gegenlauf hält A+B=3565 exakt und hat Δ=107+22n; Gleichlauf hält Δ=107 und hat A+B=3565+22n. Gegenlauf ist weder Flip noch Rückwärtswiedergabe. Im Gegenlauf bleibt die Summe im Radzentrum angezeigt und ihr Restzeiger fest. In Mod 11 bleiben beide Komponenten fest, in Mod 12/13 laufen A/B entgegengesetzt. Modwahl und Inspektionsseite bleiben beim Kopplungswechsel erhalten. JSON enthält die Kopplung im Session-Vertrag; Replay berechnet jeden Frame erneut.</p><p>Joint-Rotation: Mod 11 / 12 / 13 sind Ansichten desselben gespeicherten +11-Laufs. In Mod 11 bleiben die Restpunkte fest; Mod 12 zeigt −1, Mod 13 −2 pro A/B-Schritt. A+B läuft mit +22 und hat eigene Restperioden 1 / 6 / 13. Kanalradien dienen nur der Lesbarkeit; Linien verbinden die letzten gespeicherten Reste. Kein Integer-Return aus gleichem Rest. Der Joint-Button im PLAY-Rahmen wählt jetzt ausdrücklich den gespeicherten Joint-Lauf und pausiert, statt unbemerkt Euler weiterlaufen zu lassen.</p><p>Core-Rückwege, nicht dieselbe Rekurrenz: <a target="_blank" rel="noopener" aria-disabled="true">Prime-Flow 7/11/13 (stochastischer Quellgenerator)</a> · <a target="_blank" rel="noopener" aria-disabled="true">Pascal–Rosetta C12-Vertrag</a> · <a target="_blank" rel="noopener" aria-disabled="true">Wheel-/CRT-Ergebnis: 6×7, 30/120/360, 280/360</a>. Diese Quellen wurden gelesen, nicht erneut als Forschungsversuch ausgeführt. Kreisprojektion übernommen als Darstellungsprinzip, kein Import ihres Übergangskerns.</p><p>Elevator: neun Carrier aus der gelieferten Grid-Tafel, mit explizitem +20 pro Schritt. Der neue Joint-Lift setzt A=1836+11k, B=1729+11k und berechnet A+B vollständig. Das sind deklarierte Spielregeln, keine wiedergefundenen historischen Operatoren. Rot/Grün ist hier nur die lokale Kanalpalette; der historische Adapter bleibt OPEN. Der Elevator bewahrt q und r; gleiche Restspalte ist keine Integer-Identität.</p><p>Mischer: vorhandene A0LayeredPentagonScene.snapshot/drawing, ohne Änderung der Quelle. Eigene Ansichtsphase 0..360° in 2°-Schritten, keine Zahlenrekurrenz. Drei Pentagone, berechnete Schnittflächen, H3-Körperprojektion und Magenta-Punkt teilen eine Phase. Die deklarierte Drei-Achsen-Faltführung läuft auf demselben Cursor über 0° → 78° → 33° → 7° → 0°; dazwischen wird linear interpoliert. Die 20er-Krone ist eine Taktanzeige desselben Laufs, keine zweite Uhr. Historische Torus-/Kompassbilder liefern nur die visuelle Grammatik und keine Source-Identität oder Naturbehauptung. Bei 360° kehren Ansichtsphase und Faltführung zurück; die gespeicherte Historie bleibt erhalten und ein nativer Source-Return wird weiterhin nicht behauptet.</p><p>RGB · Light verwendet dieselbe Snapshot-Geometrie, A/B-Fenster, Magenta-Spur und Faltführung, ersetzt aber die drei Pentagone durch R/G/B-Kanäle mit SVG/CSS-screen-Mischung auf schwarzem Hintergrund. Das ist eine Bildschirmdarstellung, keine optische Simulation. ILAU vergleicht denselben Frame in Mischer und RGB: Geometrie/Zustand erhalten; ursprüngliche Palette ersetzt; RGB-Blending hinzugefügt; physikalische und OI-Zuordnung offen. Die ursprüngliche Mischeransicht bleibt verfügbar.</p><p>Gesamt / A / B vergrößert die bereits vorhandenen Linsenausschnitte durch einen SVG-ViewBox-Wechsel. Derselbe Quellzustand und dieselbe Phase, keine neue Welt oder Uhr. Der Ausschnitt bleibt beim Wechsel Mischer ↔ RGB erhalten und wird im JSON-Record unter inspection.aperture gespeichert.</p><p>P/Q · Schatten: <a href="../../../06_PROJECTION_FOURIER_SHADOWS.html#crystal-view" target="_blank" rel="noopener">vorhandenes A0-Modell</a>, unveränderte Clockwork-output-GLB. Der originale Clip OIL_RIS_ORBITAL_CLOSURE_48S hat 23 Kanäle und 48 Sekunden. PLAY speichert 97 Positionen im Abstand von 500 ms und setzt die Modellpose; der native Viewer läuft nicht unabhängig. Kameraänderungen sind nur Ansicht. 48 s ist ein lokales Clip-Ende, kein physikalischer Return. Modell-Schattenknoten, P/Q-Gegenbahn und HZ/FZ-Bootstrapwolke bleiben verschiedene Objekte. Sum-/Difference- und Gamma-Bildformeln sind dadurch nicht als Messgesetze oder neue Zahlenoperatoren validiert.</p><p>Gruppenwirkung: D4 auf dem ganzzahligen Grid [-4,4]², Seed (3,1). R(x,y)=(-y,x), S(x,y)=(x,-y). Cyan und Pink führen pro Tick je eine Operation aus, in chronologischer Reihenfolge R→S bzw. S→R. Gold/Violett sind R-only-/S-only-Kontrollen. Exakt R⁴=I, S²=I und SRS=R⁻¹; Reihenfolge ist relevant. Keine Gleichsetzung mit Bench-J, keine allgemeine Kopplung an Fibonacci, LIFE oder den P/Q-Clip.</p><p>XIX Wheels: deklarierte Spielkopplung, keine rekonstruierte historische Regel. 1836 trägt hier das 17er-Rad, 1729 das 29er-Rad. Positive Winkel sind gegen den Uhrzeigersinn; das zweite Rad kann gegen- oder gleichlaufen. Ein Basisphasenlauf 0..360° treibt je 3/2 oder 2/3 Umdrehungen an. XIX ist eine feste vertikale Referenz, außen stehen sieben feste Teilungen. 29/31/33/45/78 bleiben Markerlabels ohne Winkel-/Naturgesetzbindung. Variantenwechsel pausiert und behält vier getrennte gespeicherte Läufe. Modulo-Orientierung kehrt am Phasenende zurück; vollständige Turnzähler und Historie werden nicht gelöscht. Kein HZ/FZ-Experiment, keine neue Frequenzmessung und keine Gleichsetzung mit 1836/1729 als Drehzahlquotient.</p><label>Gespeicherter Cursor · kein inverser Operator <input id="numberScrub" type="range" value="0" min="0" max="0"></label><button id="numberVerify">Replay prüfen</button><button id="numberExport">Record ↓ JSON</button><output id="numberReceipt"></output></section>
+<section id="jointQrt20Audit" hidden aria-label="Joint und QRT20 Codec Audit"><header><div><span>EXACT LOCAL CODEC · IDENTITY REUSE</span><h2>Joint × QRT20 · Vendissimal Audit</h2></div><nav aria-label="Audit-Ebene"><button id="jointQrt20Junction" type="button" aria-pressed="false">01 · 90+50</button><button id="jointQrt20AB" type="button" aria-pressed="true">02 · A / B</button><button id="jointQrt20SD" type="button" aria-pressed="false">03 · Σ / Δ</button><button id="jointQrt20Codec" type="button" aria-pressed="false">04 · QRT20</button></nav></header><div class="joint-qrt20-equation"><strong id="jointQrt20Left">A 1836</strong><b id="jointQrt20Operator">+</b><strong id="jointQrt20Right">B 1729</strong><span id="jointQrt20Equation">Σ=3565 · Δ=107</span></div><p id="jointQrt20Path" class="joint-qrt20-path">r5 → r7 → r9 → r11 → r13 → r15 → r17 → r19 → r1 → r3 → r5</p><div class="joint-qrt20-results"><output id="jointQrt20Technical">PASS · EXACT LOCAL CODEC BRIDGE</output><output id="jointQrt20Historical">HOLD · HISTORICAL VENDISSIMAL OPERATOR OPEN</output></div><p class="joint-qrt20-boundary">ANGLE:90° und VALUE:50 bleiben verschieden getypt und dürfen erst im deklarierten Additionsknoten 140 zusammentreffen. Auf der 20er-Uhr sind 5 Sektoren 90° und 10 Sektoren 180°/50%. A/B ↔ (Σ,Δ) und N ↔ (q,r) bleiben separat exakt; daraus folgt kein historischer oder physikalischer Operator.</p></section>
+<output id="numberTouchStatus" aria-live="polite"></output><p id="numberError" role="alert"></p><dialog id="wheelBlindTest" aria-labelledby="wheelBlindTitle">
+  <h2 id="wheelBlindTitle">7/8-Blindtest</h2>
+  <p>Je 12 Durchgänge für 1260/1261 und eine normale Takt-Eins mit dem folgenden Achtel. Beide Vergleiche und die Reihenfolge der Proben sind gemischt.</p>
+  <p>69er, Pink und Algo spielen bei gleichem Pegel. Der 7/8-Groove läuft mit den gewählten Einstellungen. Der 69-Hz-Backloop behält seine Phase am jeweiligen Schritt. Automatische Return-Töne sind während des Tests stumm.</p>
+  <strong id="wheelBlindProgress"></strong>
+  <p id="wheelBlindStatus" role="status"></p>
+  <div class="wheel-beat-row">
+    <button id="wheelBlindListen" type="button" autofocus>Beide Proben hören</button>
+    <button id="wheelBlindPick1" type="button" disabled>Probe 1 rastet stärker ein</button>
+    <button id="wheelBlindPick2" type="button" disabled>Probe 2 rastet stärker ein</button>
+  </div>
+  <ul id="wheelBlindResult" aria-label="Auswertung · Benchmark 10 von 12" hidden></ul>
+  <p>Benchmark je Vergleich · 10/12 für dieselbe Einsatzposition. Finding offen.</p>
+  <form id="wheelBlindSaveForm" hidden>
+    <label for="wheelBlindConditions">Hörbedingungen</label>
+    <input id="wheelBlindConditions" type="text" maxlength="240" required placeholder="z. B. Kopfhörer, ruhiger Raum, mittlere Lautstärke">
+    <button type="submit">Im Science Desk festhalten</button>
+    <p id="wheelBlindSaveStatus" role="status"></p>
+    <a id="wheelBlindDeskLink" href="https://scarabaeus1031.github.io/NEXAH-Control-Portal/" target="_blank" rel="noopener" hidden>Zum Hörprotokoll im Science Desk ↗</a>
+  </form>
+  <form method="dialog"><button id="wheelBlindClose">Schließen</button></form>
+</dialog></main>
+<script src="../../../../a0-human/start/assets/external/cylinder-engine.js"></script><script src="../../../../a0-human/start/assets/external/domain-engine.js"></script><script src="../../../a0-numbermagick-number-lens.js"></script><script src="../../../a0-family-spatial-navigation.js"></script><script src="../../../a0-game-of-worlds-model.js"></script><script src="../../../a0-trinity-lens.js"></script><script src="../../../a0-game-of-numbers-model.js?v=20261101-carrier-1031-r1"></script><script src="../../../assets/a0-blue-body-dodeca-countershot-v1.js"></script><script src="../../../a0-layered-pentagon-scene.js"></script><script src="../../../assets/vendor/a0-model-viewer-classic.js"></script><script src="../../../a0-cathedral-parts.js"></script><script src="../../../a0-cathedral-world-projection.js"></script><script src="../../../a0-cathedral-world-view.js"></script><script src="../../../a0-number-parallel-model.js?v=20261031-qrt20-r1"></script><script src="../../../a0-number-parallel-view.js"></script><script src="../../../../a0-human/start/assets/external/breath-model.js"></script><script src="../../../a0-con-dao-phase.js"></script><script src="../../../a0-prime-address-countershot.js"></script><script src="../../../a0-loki-tessarec-pipe.js?v=20261126-clock-57"></script><script src="../../../a0-helix-view-adapter.js?rev=zeta-contact-wheel"></script><script src="../../../a0-game-of-numbers.js?v=shared-angle-sequence"></script><script src="../../../a0-angle-sequence.js?v=1"></script>
+<script src="e06-wheels-entry.js"></script>
+</body></html>

@@ -1,0 +1,2419 @@
+(function(){
+  'use strict';
+  const M=window.A0GameOfNumbers,P=window.A0SpatialReaderPrimitives,$=id=>document.getElementById(id),canvas=$('numberCanvas'),ctx=canvas.getContext('2d');
+  if(!M||!P||!ctx){$('numberError').textContent='Zahlen- oder Ansichtsbaustein fehlt.';return}
+  try{const jointEntry=parent.document?.querySelector?.('#numberLenses [data-view="joint"]');if(jointEntry)jointEntry.textContent='Joint +11 × QRT20 · 90+50 Audit'}catch{}
+  canvas.insertAdjacentElement?.('beforebegin',$('jointQrt20Audit'));
+  if(!$('numberCorridorControls')&&document.createElement&&document.body?.appendChild){const nav=document.createElement('nav');nav.id='numberCorridorControls';nav.hidden=true;nav.setAttribute('aria-label','69 nach C100 Transition Corridor');nav.innerHTML='<label>Register <select id="corridorModulus"><option value="9">mod 9 · exact return</option><option value="100">mod 100 · witness</option></select></label><label>Witness <select id="corridorWitness"><option value="none">off</option><option value="0">bit 0</option><option value="1">bit 1</option></select></label><output id="corridorStatus" aria-live="polite"></output>';document.body.appendChild(nav)}
+  if(!$('numberQrt20Controls')&&document.createElement&&document.body?.appendChild){const nav=document.createElement('nav');nav.id='numberQrt20Controls';nav.hidden=true;nav.setAttribute('aria-label','QRT20 Stillpoint Bridge controls');nav.innerHTML='<button id="qrt20QuarterTurn" type="button" aria-pressed="true">Quarter-Turn · +5 / 90°</button><button id="qrt20CouplingWindow" type="button" aria-pressed="true">Verschränkungsfenster · Digit Lattice</button><button id="qrt20Terrace" type="button" aria-pressed="true">Eightfold Terrace · 8×8</button><button id="qrt20Tesa" type="button" aria-pressed="true">TESA Window · 16/48</button><button id="qrt20TesaMode" type="button">Mode · 3×16</button><button id="qrt20TesaTrace" type="button" aria-pressed="true">Trace · OUT / RETURN</button><button id="qrt20IotaGate" type="button">IOTA Gate · 0/4 · OPEN</button><button id="qrt20FoldBank" type="button">Winkelbank · 45°</button><button id="qrt20CoreMotion" type="button" aria-pressed="true">Core Motion Test · ON</button><button id="qrt20BetaStep" type="button">LB ↔ ßl · k −6</button><button id="qrt20VpaProfile" type="button">V/PA · 7/3/5</button><button id="qrt20VpaStep" type="button">V/PA STEP · 0/105</button><button id="qrt20PascalSeamReset" type="button">Seam Demo · Start</button><button id="qrt20PascalSeam" type="button">Seam Demo · Next</button><output id="qrt20Status" aria-live="polite"></output>';document.body.appendChild(nav)}
+  if(!$('qrt20SeamLedger')&&document.createElement&&canvas?.insertAdjacentElement){const section=document.createElement('section');section.id='qrt20SeamLedger';section.hidden=true;section.setAttribute('aria-label','Pascal QRT20 Seam Observatory comparator ledger');canvas.insertAdjacentElement('afterend',section)}
+  const sessions=Object.fromEntries(M.RULES.map(r=>[r,M.start(r)]));let cathedralActive=false;let rule='euler',view='rings',timer=null,loop=true,delay=700,orbit=false,drag=null,dirty=true,last=0,raf=null,side='front',touch=null,aperture='all',pqStarted=false,pqReady=false,pqFailed=false;
+  const PM=window.A0NumberParallel;let parallelActive=false,comparison=null;const parallelPanel=window.A0NumberParallelView?.mount($('numberParallel'),{onDetail:r=>command('parallel-detail',r)});
+  const wheelSessions=new Map(),jointSessions=new Map();let jointModulus=12,jointQrt20View='ab',corridorModulus=9,corridorWitness=null,qrt20QuarterTurn=true,qrt20CouplingWindow=true,qrt20Terrace=true,qrt20Tesa=true,qrt20TesaMode='3x16',qrt20TesaTrace=true,qrt20IotaGateStep=0,qrt20FoldIndex=0,qrt20CoreMotion=true,qrt20BetaExponent=-6,qrt20VpaProfile='FK_TL_RT',qrt20VpaTick=0,qrt20PascalSeamStep=0;let returnWitness=null,returnStatus='Source-Anker noch nicht erfasst';const returnAnchors=new Map();let breathEnabled=false,motion=null;const T=window.A0TrinityLens;let trinity=T?T.settings():null;
+  const camera={yaw:.12,pitch:1.05,zoom:1},reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches||false;
+  const session=()=>sessions[rule],frame=()=>session().frames[session().cursor];
+  const wheelBeatPlay = $('wheelBeatPlay');
+  const wheelBeatABCLoop = $('wheelBeatABCLoop');
+  const lokiPipe = window.A0LokiTessarecPipe;
+  const lokiBeatPanel = $('wheelLokiTessarec');
+  const lokiContinue = $('wheelLokiContinue');
+  const lokiBack = $('wheelLokiBack');
+  const lokiResume = $('wheelLokiResume');
+  const lokiControls = $('wheelLokiControls');
+  const clockAddressSource = $('wheelClockAddressSource');
+  const clockAddressModuli = [24, 408, 432, 360, 57];
+  const clockAddressExamples = new Set(['3656', '3565']);
+  let lokiBeatStep = null;
+  let lokiHold = null;
+  function dialPoint(center, radius, phase) {
+    const angle = 2 * Math.PI * phase - Math.PI / 2;
+    return [center + radius * Math.cos(angle), center + radius * Math.sin(angle)];
+  }
+  function clockRingRadius(index) {
+    return 32 + index * 17;
+  }
+  function initClockAddress() {
+    const dial = $('wheelClockAddressRings');
+    if (!dial) return;
+    dial.innerHTML = clockAddressModuli.map((modulus, i) => {
+      const radius = clockRingRadius(i);
+      const divisions = modulus === 57 ? 57 : 24;
+      const majorEvery = modulus === 57 ? 19 : 6;
+      const ticks = Array.from({length: divisions}, (_, i) => {
+        const [x1, y1] = dialPoint(110, radius, i / divisions);
+        const [x2, y2] = dialPoint(110, radius - (i % majorEvery === 0 ? 5 : 2), i / divisions);
+        return `<line class="wheel-clock-tick" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`;
+      }).join('');
+      return `<g data-clock-mod="${modulus}"><circle class="wheel-dial-ring" cx="110" cy="110" r="${radius}"/>${ticks}<circle class="wheel-clock-zero" cx="110" cy="${110 - radius}" r="2.5"/><circle class="wheel-clock-rest" r="4"/></g>`;
+    }).join('') + '<text class="wheel-dial-center" x="110" y="110"></text>';
+    clockAddressSource.addEventListener('change', () => {
+      const step = lokiHold?.displayStep ?? lokiBeatStep ?? 0;
+      paintClockAddress(step);
+      if (lokiPipe) paintLoki19(step);
+    });
+    paintClockAddress(0);
+  }
+  function paintClockAddress(step) {
+    if (!clockAddressSource) return;
+    const followsStep = clockAddressSource.value === 'step';
+    const number = followsStep ? step : Number(clockAddressSource.value);
+    const dial = $('wheelClockAddressRings');
+    dial.querySelector('.wheel-dial-center').textContent = number;
+    $('wheelClockAddressValues').innerHTML = clockAddressModuli.map((modulus, i) => {
+      const remainder = number % modulus;
+      const [x, y] = dialPoint(110, clockRingRadius(i), remainder / modulus);
+      const ring = dial.querySelector(`[data-clock-mod="${modulus}"]`);
+      const marker = ring.querySelector('.wheel-clock-rest');
+      ring.dataset.clockRest = String(remainder);
+      marker.setAttribute('cx', x);
+      marker.setAttribute('cy', y);
+      let a = modulus, b = remainder;
+      while (b) [a, b] = [b, a % b];
+      const phase = remainder === 0 ? '0' : `${remainder / a}/${modulus / a}`;
+      return `<li data-clock-row="${modulus}"><b>Mod ${modulus}</b> <span>${number} = ${Math.floor(number / modulus)} × ${modulus} + ${remainder}</span> <small>Phase ${phase}</small></li>`;
+    }).join('');
+    const comparing = clockAddressExamples.has(clockAddressSource.value);
+    const comparison = $('wheelClockAddressComparison');
+    comparison.hidden = !comparing;
+    if (comparing) {
+      const rest57 = number % 57;
+      comparison.textContent = `Mod 57 → Mod 19 · Rest ${rest57} → ${rest57 % mod19Period}`;
+    }
+    $('wheelClockAddressTransition').hidden = !followsStep || !lokiPipe || (lokiBeatStep ?? 0) <= lokiPipe.RETURN;
+  }
+  function initZetaContactWheel() {
+    const panel = $('wheelZetaContacts');
+    const model = window.A0HelixViewAdapter;
+    if (!panel || !model) return;
+    const contacts = model.zetaMirrorContacts();
+    const dial = $('wheelZetaDial');
+    const readout = $('wheelZetaReadout');
+    const link = $('wheelZetaReturn');
+    dial.innerHTML = '<path class="wheel-zeta-axis" d="M91 16v188 M10 110h162"/>' +
+      '<text class="wheel-zeta-axis-label" x="13" y="22">0°</text><text class="wheel-zeta-axis-label" x="13" y="207">180°</text>' +
+      contacts.map((contact, index) => {
+        const radius = 88 - index * 15;
+        const [, y] = dialPoint(110, radius, contact.phase / 360);
+        return `<circle class="wheel-dial-ring" cx="91" cy="110" r="${radius}"/>
+          <g class="wheel-zeta-contact" role="button" tabindex="0" aria-label="Kontakt ${contact.from}→${contact.to}"
+             aria-pressed="false" data-zeta-contact="${contact.id}">
+            <rect x="78" y="${y - 11}" width="87" height="22" rx="5"/>
+            <circle cx="91" cy="${y}" r="5"/>
+            <text x="104" y="${y + 4}">${contact.from}→${contact.to}</text>
+          </g>`;
+      }).join('');
+    const targets = [...dial.querySelectorAll('[data-zeta-contact]')];
+
+    function select(contact) {
+      targets.forEach(target => target.setAttribute('aria-pressed', String(target.dataset.zetaContact === contact.id)));
+      readout.textContent = `${contact.from}→${contact.to} · Rad ${contact.phase}° · Grey +${contact.angle}° / Pink −${contact.angle}°`;
+      link.href = `../../../A0_HELIX_VIEW_ADAPTER.html?zeta-contact=${contact.id}#helix-strand-directions`;
+    }
+
+    function pick(event) {
+      const target = event.target.closest('[data-zeta-contact]');
+      if (target) select(contacts.find(contact => contact.id === target.dataset.zetaContact));
+    }
+
+    dial.addEventListener('click', pick);
+    dial.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      pick(event);
+    });
+    select(contacts[0]);
+    panel.hidden = false;
+  }
+  function paintLoki19(step) {
+    const dial = $('wheelLoki19');
+    if (!dial) return;
+    if (step === 0) {
+      dial.innerHTML = '<circle class="wheel-dial-ring" cx="90" cy="90" r="66"/>' +
+        Array.from({length: mod19Period}, (_, i) => {
+          const [x, y] = dialPoint(90, 76, i / mod19Period);
+          return `<text class="wheel-dial-number" x="${x}" y="${y}">${i}</text>`;
+        }).join('') +
+        '<line class="wheel-mod19-needle" x1="90" y1="90" x2="90" y2="33"/><text class="wheel-dial-center" x="90" y="90"></text>';
+      $('wheelLoki19Witness').textContent = '';
+    }
+    const comparing = clockAddressExamples.has(clockAddressSource?.value);
+    const number = comparing ? Number(clockAddressSource.value) : step;
+    const rest = number % mod19Period;
+    const [x, y] = dialPoint(90, 57, rest / mod19Period);
+    const needle = dial.querySelector('.wheel-mod19-needle');
+    needle.setAttribute('x2', x);
+    needle.setAttribute('y2', y);
+    dial.querySelector('.wheel-dial-center').textContent = rest;
+    dial.dataset.rest = String(rest);
+    $('wheelLoki19Caption').textContent = comparing ? '19er-Rad · gewählte Adresse' : '19er-Rad · +1 je Achtel';
+    $('wheelLoki19Step').textContent = `${comparing ? 'Adresse' : 'Schritt'} ${number} · Rest ${rest}`;
+    const witness = $('wheelLoki19Witness');
+    witness.hidden = comparing;
+    if (step === lokiPipe.RETURN + 1) {
+      witness.textContent = `56 → 57 · Rest 18 → 0 · 57 = 3 × ${mod19Period}`;
+    }
+  }
+  function paintLokiBeat(step) {
+    if (!lokiPipe || !lokiBeatPanel) return;
+    const active = lokiPipe.state(step);
+    const returning = step > 0 && active.station === 0 && active.orientation === 0;
+    const stamp = `Station S${active.station + 1} · Orientierung O${active.orientation}`;
+    $('wheelLokiStep').textContent = `Schritt ${step} · ${stamp}`;
+    lokiBeatPanel.dataset.return = String(returning);
+    lokiPipe.renderPipe($('wheelLokiPipe'), active);
+    paintLoki19(step);
+    if (clockAddressSource?.value === 'step') paintClockAddress(step);
+    if (step === 0) $('wheelLokiReturn').textContent = 'Start · S1 / O0 · erster Return bei 56';
+    if (step === lokiPipe.RETURN) $('wheelLokiReturn').textContent = `Erster Return bei Schritt ${step} · S1 / O0 · beide am Start`;
+    if (step === lokiPipe.RETURN + 1) $('wheelLokiReturn').textContent = 'Schritt 57 · ein Achtel nach dem ersten Return';
+  }
+  function advanceLokiBeat() {
+    if (wheelAuditionLoop?.button !== wheelBeatABCLoop) return;
+    lokiBeatStep = (lokiBeatStep ?? -1) + 1;
+    paintLokiBeat(lokiBeatStep);
+    if (lokiPipe && (lokiBeatStep === lokiPipe.RETURN || lokiBeatStep === lokiPipe.RETURN + 1)) holdLokiBeat();
+  }
+  function holdLokiBeat() {
+    const now = performance.now();
+    const pending = [];
+    for (const [handle, {due, action}] of wheelBeatFills) {
+      clearTimeout(handle);
+      pending.push({delay: Math.max(0, due - now), action});
+    }
+    wheelBeatFills.clear();
+    lokiHold = {pending, suspended: wheelAudio.suspend(), displayStep: lokiBeatStep};
+    paintLokiHoldControls();
+    wheelBeatABCLoop.textContent = lokiBeatStep === lokiPipe.RETURN ? 'Weiter' : 'Takt fortsetzen';
+  }
+  function paintLokiHoldControls() {
+    if (!lokiControls) return;
+    const comparing = Boolean(lokiHold && lokiBeatStep === lokiPipe.RETURN + 1);
+    lokiControls.hidden = !lokiHold;
+    lokiBack.hidden = lokiResume.hidden = !comparing;
+    const atFirst = comparing && lokiHold.displayStep === lokiPipe.RETURN;
+    lokiBack.setAttribute('aria-disabled', String(!comparing || atFirst));
+    lokiContinue.setAttribute('aria-disabled', String(comparing && !atFirst));
+  }
+  function compareLokiSteps(step) {
+    if (!lokiHold || lokiHold.resuming || lokiBeatStep !== lokiPipe.RETURN + 1 || lokiHold.displayStep === step) return;
+    lokiHold.displayStep = step;
+    paintLokiBeat(step);
+    paintLokiHoldControls();
+  }
+  async function continueLokiBeat() {
+    const hold = lokiHold;
+    if (!hold || hold.resuming) return;
+    hold.resuming = true;
+    await hold.suspended;
+    if (lokiHold !== hold) return;
+    await enableWheelBass();
+    if (lokiHold !== hold) return;
+    if (wheelAudio?.state !== 'running') {
+      hold.resuming = false;
+      return;
+    }
+    lokiHold = null;
+    if (hold.displayStep !== lokiBeatStep) paintLokiBeat(lokiBeatStep);
+    wheelBeatABCLoop.textContent = 'Beat stoppen';
+    if (lokiControls.contains(document.activeElement)) wheelBeatABCLoop.focus({preventScroll:true});
+    paintLokiHoldControls();
+    for (const {delay, action} of hold.pending) scheduleWheelAction(delay, action);
+  }
+  const wheelBeatSyncNumbers = $('wheelBeatSyncNumbers');
+  const wheelBeatABCMeter = $('wheelBeatABCMeter');
+  const wheelBeatBackloop = $('wheelBeatBackloop');
+  const wheelBackloopView = $('wheelBackloopView');
+  const wheelBackloopMeter = $('wheelBackloopMeter');
+  const wheelBackloopDiagonal = $('wheelBackloopDiagonal');
+  const wheelBackloopTimbre = $('wheelBackloopTimbre');
+  const wheelPhaseCanvas = $('wheelPhaseCanvas');
+  const wheelCommonReturnStatus = $('wheelCommonReturnStatus');
+  const wheelQrt20JointReturnStatus = $('wheelQrt20JointReturnStatus');
+  const wheelAllReturnStatus = $('wheelAllReturnStatus');
+  const backloopQrt20 = M.jointQrt20CodecAudit(1836, 1729, 'counter').qrt20;
+  const qrt20ReturnEighths = backloopQrt20.moving_residue_return_period;
+  const abcGaps = [2, 1, 3];
+  const fiveBeatGaps = [2, 1, 2];
+  const sevenBeatGaps = [2, 2, 3];
+  const wheelResonanceTakes = [
+    { bars: 2, suffix: '', delayMs: 0 },
+    { bars: 8, suffix: 'Long', delayMs: 0 },
+    { bars: 8, suffix: 'Delayed', delayMs: 20 },
+  ].flatMap(({ bars, suffix, delayMs }) => [48, 96].map(frequency => ({
+    button: $('wheelResonanceListen' + frequency + suffix),
+    gaps: abcGaps,
+    frequency,
+    bars,
+    delayMs,
+    peakOutput: $('wheelResonancePeak' + frequency + suffix),
+  })));
+  const wheelFeedbackTakes = ['Dry', 'Feedback'].map(suffix => ({
+    button: $('wheelResonanceListen' + suffix),
+    gaps: abcGaps,
+    frequency: 48,
+    bars: 8,
+    delayMs: 20,
+    feedback: suffix === 'Feedback',
+    peakOutput: $('wheelResonancePeak' + suffix),
+    tailOutputs: [1, 3].map(second => ({ second, output: $('wheelResonanceTail' + suffix + second) })),
+  }));
+  const wheelResonanceLadder = [3, 6, 9, 12, 24, 48, 96];
+  const wheelFrequencyTakes = [
+    { suffix: '48Solo', frequencies: [48] },
+    { suffix: '48Plus69', frequencies: [48, 69] },
+    ...wheelResonanceLadder.map((frequency, index) => ({
+      suffix: 'Ladder' + frequency,
+      frequencies: wheelResonanceLadder.slice(0, index + 1),
+    })),
+  ].map(({ suffix, frequencies }) => ({
+    button: $('wheelResonanceListen' + suffix),
+    gaps: abcGaps,
+    frequency: frequencies[0],
+    frequencies,
+    bars: 8,
+    delayMs: 20,
+    reverseMs: 320,
+    peakOutput: $('wheelResonancePeak' + suffix),
+  }));
+  const wheelAuditionLoops = [
+    { button: $('wheelBeatABLoop'), gaps: [2, 2] },
+    { button: wheelBeatABCLoop, gaps: abcGaps },
+    ...wheelResonanceTakes,
+    ...wheelFeedbackTakes,
+    ...wheelFrequencyTakes,
+  ];
+  const wheelBeatHat = $('wheelBeatHat');
+  const wheelBeatSnare = $('wheelBeatSnare');
+  const wheelBeatSnareTiming = $('wheelBeatSnareTiming');
+  const wheelBeatGlue = $('wheelBeatGlue');
+  const wheelBeatReverseA = $('wheelBeatReverseA');
+  const wheelBeatReverseLength = $('wheelBeatReverseLength');
+  const wheelBeatReverseValue = $('wheelBeatReverseValue');
+  const wheelBeatBass = $('wheelBeatBass');
+  const wheelBeatState = $('wheelBeatState');
+  const wheelBeatCue = $('wheelBeatCue');
+  const wheelResonanceEnabled = $('wheelResonanceEnabled');
+  const wheelResonanceFrequency = $('wheelResonanceFrequency');
+  const wheelResonanceDamping = $('wheelResonanceDamping');
+  const wheelResonanceMeter = $('wheelResonanceMeter');
+  const wheelResonanceLevel = $('wheelResonanceLevel');
+  const resonanceComparisonDamping = 0.4;
+  const wheelResonancePresets = [3, 6, 9, 12, 24, 48, 49, 96].map(frequency => ({
+    frequency,
+    button: $('wheelResonancePreset' + frequency),
+  }));
+  const wheelBeatStride = 12;
+  const beatRings = [432, 408].map((modulus, index) => ({
+    modulus,
+    start: 1836 % modulus,
+    period: modulus / wheelBeatStride,
+    pitch: [47, 57][index],
+    meter: $('wheelBeatMeter' + modulus),
+  }));
+  const impulse123 = { pitch: 64, meter: $('wheelBeatMeter123') };
+  let sharedBeatReturn = beatRings[0].period;
+  while (sharedBeatReturn % beatRings[1].period !== 0) sharedBeatReturn += beatRings[0].period;
+  let wheelBeat = 0;
+  let wheelBeatTimer = null;
+  let wheelAudio = null;
+  let wheelAudioGain = null;
+  let wheelReturnAuditionGain = null;
+  let pendingWheelReturnAudition = null;
+  let interruptWheelBlindTrial = null;
+  let stopWheelMix = null;
+  const wheelAuditionCells = new Set();
+  let wheelNoiseBuffer = null;
+  let wheelReverseBuffer = null;
+  const wheelBackloopBuffers = new Map();
+  const backloopTimbres = new Map([
+    [0, { label: 'Grundklang', harmonics: [] }],
+    [1, { label: 'warm', harmonics: [[2, 0.35]] }],
+    [17, { label: 'hell', harmonics: [[3, 0.28], [5, 0.17]] }],
+  ]);
+  let wheelBeatPlayback = 0;
+  let wheelAuditionLoop = null;
+  const wheelBeatFills = new Map();
+  const wheelBassSources = new Set();
+  const wheelResonanceSources = new Set();
+  const resonanceImpulse = 0.09;
+  const resonanceNumber = new Intl.NumberFormat('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  let wheelResonanceAnalyser = null;
+  let wheelResonanceFeedback = null;
+  let wheelResonanceBuffer = null;
+  const wheelMatchedResonanceBuffers = new WeakMap();
+  let wheelResonanceSamples = null;
+  let wheelResonanceFrame = null;
+  let wheelResonanceNext = null;
+  let wheelResonanceTakePeak = 0;
+  const wheelBeatMeters = new Map();
+  const bassDecay = 0.32;
+  const bassAttack = 0.008;
+  const bassPitchGlide = 0.065;
+  const audioScheduleMs = 12;
+  const wheelBeatMs = 500;
+  const ticksPerQuarter = 192;
+  const ticksPerEighth = ticksPerQuarter / 2;
+  const wheelTickMs = wheelBeatMs / ticksPerQuarter;
+  const wheelPlatterRpm = $('wheelPlatterRpm');
+  const wheelSevenTempo = $('wheelSevenTempo');
+  const wheelQrt20ReturnSound = $('wheelQrt20ReturnSound');
+  const wheel60ReturnSound = $('wheel60ReturnSound');
+  const wheelReturnAuditions = [
+    { key: '69', label: '69er', pitch: 69, level: 0.13, decay: 0.22, atReturn: step => step % backloopReturnEighths === 0 },
+    { key: 'Pink', label: 'Pink', pitch: 330, level: 0.08, decay: 0.09, atReturn: (step, wheel) => wheel?.tick1729 === 0 },
+    { key: 'Algo', label: 'Algo', pitch: 148, level: 0.09, decay: 0.12, atReturn: (step, wheel) => wheel?.tick1836 === 0 },
+  ].map(voice => ({ ...voice, toggle: $('wheel' + voice.key + 'ReturnSound') }));
+  const wheelPlatterStatus = $('wheelPlatterStatus');
+  const wheelPlatterNeedle = $('wheelPlatterNeedle');
+  const wheelBarNeedle = $('wheelBarNeedle');
+  let platterFrame = null;
+  let platterClock = null;
+  const sevenTickMs = () => (wheelSevenTempo.value === 'lock' ? 1800 / 7 * 2 : wheelBeatMs) / ticksPerQuarter;
+  const platterRpm = () => wheelPlatterRpm.value === '45' ? 45 : 100 / 3;
+  const eighthsPerSevenBar = sevenBeatGaps.reduce((total, gap) => total + gap, 0);
+  const ticksPerSevenBar = eighthsPerSevenBar * ticksPerEighth;
+  const backloopPeriodTicks = 2 * ticksPerQuarter;
+  let backloopReturnBars = 1;
+  while (backloopReturnBars * ticksPerSevenBar % backloopPeriodTicks !== 0) backloopReturnBars += 1;
+  const backloopReturnTicks = backloopReturnBars * ticksPerSevenBar;
+  const backloopReturnEighths = backloopReturnTicks / ticksPerEighth;
+  const backloopDuration = 0.15;
+  const phaseTracks = [
+    { stride: -20, color: '#69dceb' },
+    { stride: 100, color: '#ffae69' },
+  ];
+  const phaseAngle = (step, stride) => (step * stride % 360 + 360) % 360;
+  let phaseReturnStep = 1;
+  while (phaseTracks.some(track => phaseAngle(phaseReturnStep, track.stride))) phaseReturnStep += 1;
+  function sharedReturnPeriod(first, second) {
+    let step = first;
+    while (step % second !== 0) step += first;
+    return step;
+  }
+  const commonReturnEighths = sharedReturnPeriod(phaseReturnStep, backloopReturnEighths);
+  const qrt20JointReturnEighths = sharedReturnPeriod(qrt20ReturnEighths, backloopReturnEighths);
+  const allReturnEighths = sharedReturnPeriod(commonReturnEighths, qrt20ReturnEighths);
+  const mod19Period = 19;
+  const mod19JointReturnEighths = sharedReturnPeriod(allReturnEighths, mod19Period);
+  const mod19ReturnReady = 'Erster gemeinsamer Return mit der 19er-Spur bei Schritt 23 940';
+  const commonReturnTicks = commonReturnEighths * ticksPerEighth;
+  const commonReturnReady = `Winkelzeiger und 69er · erster gemeinsamer Return bei Schritt ${commonReturnEighths}`;
+  const qrt20JointReturnReady = `QRT20 und 69er · erster gemeinsamer Return bei Schritt ${qrt20JointReturnEighths}`;
+  const allReturnReady = `Alle drei Spuren · erster gemeinsamer Return bei Schritt ${allReturnEighths}`;
+  let armedBackloopReturn = 0;
+  let activeBackloopCell = null;
+  let activeQrt20Cell = null;
+  let activeMod19Cell = null;
+  let backloopStep = 0;
+  let compositeCompareStep = null;
+  const compositeMod19Steps = [
+    ['wheelCompositeCompare1260', allReturnEighths],
+    ['wheelCompositeCompare23940', mod19JointReturnEighths],
+  ];
+  const backloopSign = tick => tick % ticksPerQuarter === ticksPerEighth
+    ? Math.floor(tick / ticksPerQuarter) % 2 === 0 ? 1 : -1
+    : 0;
+  const fiveBeatSnare = [
+    [
+      { pulse: 1.5, level: 0.11 },
+      { pulse: 3.5, level: 0.05, double: true },
+      { pulse: 3.75, level: 0.095, double: true },
+    ],
+    [
+      { pulse: 1, level: 0.10 },
+      { pulse: 4.25, level: 0.045, double: true },
+      { pulse: 4.5, level: 0.085, double: true },
+    ],
+  ];
+  const auditionBeats = [sharedBeatReturn / 2, sharedBeatReturn];
+  const reverseLengthFor = index => index === 0 && wheelBeatReverseA.checked ? Number(wheelBeatReverseLength.value) : 0;
+
+  const wheelBeatVisible = () => !parallelActive && !cathedralActive && rule === 'wheels' && view === 'wheels';
+  const wheelNumberSyncActive = () => wheelBeatVisible() && wheelBeatSyncNumbers.checked &&
+    wheelAuditionLoop?.button === wheelBeatABCLoop && wheelBeatABCMeter.value === '7/8';
+  const beatPhase = (ring, beat = wheelBeat) => beat % ring.period;
+  const wheelBeatDegrees = (ring, direction) =>
+    ((ring.start + direction * wheelBeatStride * beatPhase(ring)) % ring.modulus + ring.modulus) %
+    ring.modulus * 360 / ring.modulus;
+  const beatCue = (ring, beat) => beatPhase(ring, beat) === 0 ? 'Return' : beatPhase(ring, beat) === ring.period / 2 ? 'Echo' : '';
+
+  async function enableWheelBass() {
+    try {
+      if (!wheelAudio) {
+        const Audio = window.AudioContext || window.webkitAudioContext;
+        wheelAudio = new Audio();
+        wheelAudioGain = wheelAudio.createGain();
+        wheelAudioGain.gain.value = 0;
+        wheelAudioGain.connect(wheelAudio.destination);
+        wheelReturnAuditionGain = wheelAudio.createGain();
+        wheelReturnAuditionGain.gain.value = 0.45;
+        wheelReturnAuditionGain.connect(wheelAudio.destination);
+      }
+      await wheelAudio.resume();
+    } catch {
+      wheelBeatBass.checked = false;
+      wheelBeatCue.textContent = '808-Audio ist in diesem Browser gerade nicht verfügbar.';
+    }
+  }
+
+  function hitWheelBass(audition = false, onset, beat = wheelBeat) {
+    if ((!audition && !wheelBeatBass.checked) || wheelAudio?.state !== 'running') return;
+    const now = onset ?? wheelAudio.currentTime;
+    const accents = beatRings.filter(ring => beatCue(ring, beat));
+    wheelAudioGain.gain.setValueAtTime(0.45, now);
+    if (!accents.length) {
+      playWheelTone(beatRings[0], 0.22, now);
+      return;
+    }
+    for (const ring of accents) {
+      const level = beatCue(ring, beat) === 'Echo' ? 0.10 : 0.55;
+      playWheelTone(ring, level / accents.length, now);
+    }
+  }
+
+  function showWheelResonance(level) {
+    wheelResonanceMeter.style.transform = `scaleX(${Math.min(1, level / 4)})`;
+    const readout = `${resonanceNumber.format(level)}×`;
+    if (wheelResonanceLevel.textContent !== readout) wheelResonanceLevel.textContent = readout;
+  }
+
+  function readWheelResonancePeak() {
+    wheelResonanceAnalyser.getFloatTimeDomainData(wheelResonanceSamples);
+    let peak = 0;
+    for (const sample of wheelResonanceSamples) peak = Math.max(peak, Math.abs(sample));
+    return peak / resonanceImpulse;
+  }
+
+  function measureWheelResonance() {
+    wheelResonanceFrame = null;
+    if (!wheelResonanceSources.size) {
+      showWheelResonance(0);
+      return;
+    }
+    const level = readWheelResonancePeak();
+    if (wheelAuditionLoop?.peakOutput) wheelResonanceTakePeak = Math.max(wheelResonanceTakePeak, level);
+    showWheelResonance(level);
+    wheelResonanceFrame = requestAnimationFrame(measureWheelResonance);
+  }
+
+  function createWheelResonanceBuffer(frequencies, damping) {
+    const rate = wheelAudio.sampleRate;
+    const length = Math.ceil(7 * rate / damping);
+    const buffer = wheelAudio.createBuffer(1, length, rate);
+    const samples = buffer.getChannelData(0);
+    const phaseSteps = frequencies.map(frequency => 2 * Math.PI * frequency / rate);
+    const decayStep = Math.exp(-damping / rate);
+    let envelope = resonanceImpulse;
+    for (let i = 0; i < length; i += 1) {
+      let wave = 0;
+      for (const phaseStep of phaseSteps) wave += Math.sin(phaseStep * i);
+      samples[i] = envelope * wave;
+      envelope *= decayStep;
+    }
+    return buffer;
+  }
+
+  function wheelTakeDelayMs(take, bar, accent) {
+    return (bar * abcGaps.length + accent) % 2 === 1 ? take.delayMs : 0;
+  }
+
+  function matchWheelResonanceRms(take) {
+    const rate = wheelAudio.sampleRate;
+    const sampleCount = Math.round(take.bars * 5 * wheelBeatMs * rate / 1000);
+    const onsets = [];
+    let pulse = 0;
+    for (let bar = 0; bar < take.bars; bar += 1) {
+      for (const [accent, gap] of fiveBeatGaps.entries()) {
+        const atMs = pulse * wheelBeatMs + wheelTakeDelayMs(take, bar, accent);
+        onsets.push(Math.round(atMs * rate / 1000));
+        pulse += gap;
+      }
+    }
+    function rms(impulse) {
+      const signal = new Float64Array(sampleCount);
+      for (const onset of onsets) {
+        const length = Math.min(impulse.length, sampleCount - onset);
+        for (let i = 0; i < length; i += 1) signal[onset + i] += impulse[i];
+      }
+      return Math.sqrt(signal.reduce((sum, sample) => sum + sample * sample, 0) / signal.length);
+    }
+    const reference = createWheelResonanceBuffer([48], resonanceComparisonDamping);
+    const mix = createWheelResonanceBuffer(take.frequencies, resonanceComparisonDamping);
+    const samples = mix.getChannelData(0);
+    const scale = rms(reference.getChannelData(0)) / rms(samples);
+    for (let i = 0; i < samples.length; i += 1) samples[i] *= scale;
+    return mix;
+  }
+
+  function exciteWheelResonance(onset) {
+    if (!wheelResonanceEnabled.checked) return;
+    if (!wheelResonanceAnalyser) {
+      wheelResonanceAnalyser = wheelAudio.createAnalyser();
+      wheelResonanceAnalyser.connect(wheelAudioGain);
+    }
+    const frequency = Number(wheelResonanceFrequency.value);
+    const damping = Number(wheelResonanceDamping.value);
+    // Extend the measurement window for sub-audible frequencies.
+    const windowSize = Math.min(32768, Math.max(2048, 2 ** Math.ceil(Math.log2(wheelAudio.sampleRate / frequency))));
+    if (wheelResonanceSamples?.length !== windowSize || wheelResonanceAnalyser.fftSize !== windowSize) {
+      wheelResonanceAnalyser.fftSize = windowSize;
+      wheelResonanceSamples = new Float32Array(windowSize);
+    }
+    const tone = wheelAudio.createBufferSource();
+    const matched = wheelMatchedResonanceBuffers.get(wheelAuditionLoop);
+    if (matched) {
+      tone.buffer = matched;
+    } else {
+      if (!wheelResonanceBuffer || wheelResonanceBuffer.frequency !== frequency || wheelResonanceBuffer.damping !== damping) {
+        wheelResonanceBuffer = { frequency, damping, buffer: createWheelResonanceBuffer([frequency], damping) };
+      }
+      tone.buffer = wheelResonanceBuffer.buffer;
+    }
+    tone.connect(wheelResonanceAnalyser);
+    if (wheelAuditionLoop?.feedback) {
+      if (!wheelResonanceFeedback) {
+        const delay = wheelAudio.createDelay(0.5);
+        const feedback = wheelAudio.createGain();
+        const wet = wheelAudio.createGain();
+        delay.delayTime.value = 0.25;
+        feedback.gain.value = 0.92;
+        wet.gain.value = 0.05;
+        delay.connect(feedback).connect(delay);
+        delay.connect(wet).connect(wheelResonanceAnalyser);
+        wheelResonanceFeedback = { delay, feedback, wet };
+      }
+      tone.connect(wheelResonanceFeedback.delay);
+    }
+    wheelResonanceSources.add(tone);
+    tone.onended = () => wheelResonanceSources.delete(tone);
+    tone.start(onset);
+    if (wheelResonanceFrame === null) wheelResonanceFrame = requestAnimationFrame(measureWheelResonance);
+  }
+
+  function clearWheelResonance() {
+    for (const source of wheelResonanceSources) source.stop();
+    wheelResonanceSources.clear();
+    if (wheelResonanceFeedback) {
+      for (const node of Object.values(wheelResonanceFeedback)) node.disconnect();
+      wheelResonanceFeedback = null;
+    }
+    if (wheelResonanceFrame !== null) cancelAnimationFrame(wheelResonanceFrame);
+    wheelResonanceFrame = null;
+    showWheelResonance(0);
+  }
+
+  function updateWheelResonance() {
+    const frequency = Number(wheelResonanceFrequency.value);
+    const damping = Number(wheelResonanceDamping.value);
+    $('wheelResonanceFrequencyValue').textContent = `${frequency.toLocaleString('de-DE')} Hz`;
+    $('wheelResonanceDampingValue').textContent = `${damping.toLocaleString('de-DE')} s⁻¹`;
+    for (const preset of wheelResonancePresets) {
+      preset.button.setAttribute('aria-pressed', String(
+        wheelResonanceEnabled.checked && damping === resonanceComparisonDamping && frequency === preset.frequency
+      ));
+    }
+    clearWheelResonance();
+    if (wheelResonanceNext !== null && wheelResonanceNext > wheelAudio.currentTime) {
+      exciteWheelResonance(wheelResonanceNext);
+    }
+  }
+
+  function selectWheelResonance(frequency) {
+    wheelResonanceEnabled.checked = true;
+    wheelResonanceFrequency.value = String(frequency);
+    wheelResonanceDamping.value = String(resonanceComparisonDamping);
+    updateWheelResonance();
+  }
+
+  function lockWheelResonanceControls(locked) {
+    for (const control of [
+      wheelResonanceEnabled, wheelResonanceFrequency, wheelResonanceDamping,
+      ...wheelResonancePresets.map(preset => preset.button),
+    ]) control.disabled = locked;
+  }
+
+  function playBassVoice(pitch, level, now, decay, output = wheelAudioGain) {
+    const tone = wheelAudio.createOscillator();
+    const envelope = wheelAudio.createGain();
+    tone.frequency.setValueAtTime(3 * pitch, now);
+    tone.frequency.exponentialRampToValueAtTime(pitch, now + bassPitchGlide);
+    envelope.gain.setValueAtTime(0.001, now);
+    envelope.gain.exponentialRampToValueAtTime(level, now + bassAttack);
+    envelope.gain.exponentialRampToValueAtTime(0.001, now + decay);
+    tone.connect(envelope).connect(output);
+    trackWheelBass(tone);
+    tone.start(now);
+    tone.stop(now + decay + 0.01);
+  }
+
+  function playWheelTone(ring, level, now) {
+    playBassVoice(ring.pitch, level, now, bassDecay);
+    animateWheelMeter(ring, level, { onset: now });
+  }
+
+  function trackWheelBass(source) {
+    wheelBassSources.add(source);
+    source.onended = () => wheelBassSources.delete(source);
+  }
+
+  function animateWheelMeter(ring, level, { reverseMs = 0, onset } = {}) {
+    const delay = onset === undefined ? 0 : Math.max(0, (onset - wheelAudio.currentTime) * 1000);
+    if (delay > audioScheduleMs + 1) {
+      scheduleWheelAction(delay - audioScheduleMs, () => animateWheelMeter(ring, level, { reverseMs, onset }));
+      return;
+    }
+    wheelBeatMeters.get(ring)?.cancel();
+    const duration = reverseMs ? reverseMs / 1000 : bassDecay;
+    const decayFrames = [0.15, 0.3, 0.55, 1].map(fraction => ({
+      offset: (bassAttack + (duration - bassAttack) * fraction) / duration,
+      transform: `scaleX(${level * Math.pow(0.001 / level, fraction) / 0.55})`,
+    }));
+    const frames = [
+      { offset: 0, transform: 'scaleX(0)' },
+      { offset: bassAttack / duration, transform: `scaleX(${level / 0.55})` },
+      ...decayFrames,
+    ];
+    if (reverseMs) {
+      frames.reverse();
+      for (const frame of frames) frame.offset = 1 - frame.offset;
+    }
+    const animation = ring.meter?.animate?.(frames, { duration: duration * 1000, delay });
+    if (animation) wheelBeatMeters.set(ring, animation);
+  }
+
+  function playReverseWheelEcho(durationMs, downbeat) {
+    const ring = beatRings[0];
+    const level = 0.10 / beatRings.length;
+    const duration = durationMs / 1000;
+    const rate = wheelAudio.sampleRate;
+    const count = Math.round(rate * duration);
+    if (wheelReverseBuffer?.length !== count) {
+      wheelReverseBuffer = wheelAudio.createBuffer(1, count, rate);
+      const samples = wheelReverseBuffer.getChannelData(0);
+      let phase = 0;
+      for (let i = 0; i < count; i += 1) {
+        const time = i / rate;
+        const gain = time < bassAttack
+          ? 0.001 * Math.pow(level / 0.001, time / bassAttack)
+          : level * Math.pow(0.001 / level, (time - bassAttack) / (duration - bassAttack));
+        samples[count - 1 - i] = Math.sin(phase) * gain;
+        const pitch = ring.pitch * Math.pow(3, 1 - Math.min(1, time / bassPitchGlide));
+        phase += 2 * Math.PI * pitch / rate;
+      }
+    }
+    const source = wheelAudio.createBufferSource();
+    source.buffer = wheelReverseBuffer;
+    source.connect(wheelAudioGain);
+    const start = downbeat === undefined ? wheelAudio.currentTime + audioScheduleMs / 1000 : downbeat - wheelReverseBuffer.duration;
+    const now = Math.max(start, wheelAudio.currentTime);
+    const end = start + wheelReverseBuffer.duration;
+    if (now >= end) return end;
+    trackWheelBass(source);
+    wheelAudioGain.gain.setValueAtTime(0.45, now);
+    source.start(now, now - start);
+    animateWheelMeter(ring, level, { reverseMs: durationMs, onset: start });
+    return end;
+  }
+
+  function playWheelNoise(now, { type, frequency, level, decay }) {
+    if (!wheelNoiseBuffer) {
+      const count = Math.ceil(wheelAudio.sampleRate * 0.11);
+      wheelNoiseBuffer = wheelAudio.createBuffer(1, count, wheelAudio.sampleRate);
+      const samples = wheelNoiseBuffer.getChannelData(0);
+      for (let i = 0; i < count; i += 1) samples[i] = Math.random() * 2 - 1;
+    }
+    const noise = wheelAudio.createBufferSource();
+    const filter = wheelAudio.createBiquadFilter();
+    const envelope = wheelAudio.createGain();
+    noise.buffer = wheelNoiseBuffer;
+    filter.type = type;
+    filter.frequency.value = frequency;
+    envelope.gain.setValueAtTime(level, now);
+    envelope.gain.exponentialRampToValueAtTime(0.001, now + decay);
+    noise.connect(filter).connect(envelope).connect(wheelAudioGain);
+    trackWheelBass(noise);
+    noise.start(now);
+    noise.stop(now + decay);
+  }
+
+  function playWheelHat(now, level = 0.06) {
+    playWheelNoise(now, { type: 'highpass', frequency: 6800, level, decay: 0.06 });
+  }
+
+  function playWheelSnare(now, level) {
+    playWheelNoise(now, { type: 'bandpass', frequency: 1950, level, decay: 0.095 });
+    playBassVoice(145, level * 0.3, now, 0.085);
+  }
+
+  function scheduleWheelAction(offset, action) {
+    const delay = Math.max(0, offset);
+    if (lokiHold) {
+      lokiHold.pending.push({delay, action});
+      return;
+    }
+    const handle = setTimeout(() => {
+      wheelBeatFills.delete(handle);
+      action();
+    }, delay);
+    wheelBeatFills.set(handle, {due:performance.now() + delay, action});
+  }
+
+  function scheduleWheelFill(toggle, offset, play) {
+    scheduleWheelAction(offset, () => {
+      if (wheelAuditionLoop && toggle.checked && wheelAudio.state === 'running') play(wheelAudio.currentTime);
+    });
+  }
+
+  function scheduleFiveBeatPercussion(phrasePulse, gap) {
+    for (let i = 0; i < gap; i += 1) {
+      const level = (phrasePulse + i) % 2 === 0 ? 0.075 : 0.024;
+      scheduleWheelFill(wheelBeatHat, i * wheelBeatMs, now => playWheelHat(now, level));
+    }
+    const inBar = phrasePulse % 5;
+    const snare = fiveBeatSnare[Math.floor(phrasePulse / 5)];
+    for (const hit of snare) {
+      const pulse = hit.pulse + (hit.double && wheelBeatSnareTiming.value === 'late' ? 1 / 8 : 0);
+      if (pulse >= inBar && pulse < inBar + gap) {
+        scheduleWheelFill(wheelBeatSnare, (pulse - inBar) * wheelBeatMs, now => playWheelSnare(now, hit.level));
+      }
+    }
+  }
+
+  function playWheelBackloop(now, phaseSign, tick, useQrt20 = wheelBackloopTimbre.checked) {
+    const step = tick / ticksPerEighth;
+    const residue = backloopQrt20.moving_residue_path[step % qrt20ReturnEighths];
+    const timbre = (useQrt20 && backloopTimbres.get(residue)) || backloopTimbres.get(0);
+    if (!wheelBackloopBuffers.has(timbre)) {
+      const rate = wheelAudio.sampleRate;
+      const count = Math.round(rate * backloopDuration);
+      const buffer = wheelAudio.createBuffer(1, count, rate);
+      const samples = buffer.getChannelData(0);
+      for (let i = 0; i < count; i += 1) {
+        const shape = Math.sin(Math.PI * i / (count - 1)) ** 2;
+        const phase = 2 * Math.PI * 69 * i / rate;
+        let wave = Math.sin(phase);
+        for (const [multiple, level] of timbre.harmonics) wave += level * Math.sin(multiple * phase);
+        samples[i] = 0.08 * shape * wave;
+      }
+      wheelBackloopBuffers.set(timbre, buffer);
+    }
+    const tone = wheelAudio.createBufferSource();
+    const polarity = wheelAudio.createGain();
+    tone.buffer = wheelBackloopBuffers.get(timbre);
+    polarity.gain.setValueAtTime(phaseSign, now);
+    tone.connect(polarity).connect(wheelAudioGain);
+    trackWheelBass(tone);
+    tone.start(now);
+    if (backloopFieldAt(tick)?.center) {
+      $('wheelBackloopCenterTimbre').textContent = `Letzte Mitte · Schritt ${step} · r${residue} · ${timbre.label}`;
+    }
+    wheelBeatMeters.get(wheelBackloopMeter)?.cancel();
+    const levels = [0, 0.5, 1, 0.5, 0].map(level => ({ transform: `scaleX(${level})` }));
+    const animation = wheelBackloopMeter.animate?.(levels, backloopDuration * 1000);
+    if (animation) wheelBeatMeters.set(wheelBackloopMeter, animation);
+  }
+
+  function backloopFieldAt(absoluteTick) {
+    const tick = absoluteTick % backloopReturnTicks;
+    const row = Math.floor(tick / ticksPerSevenBar) - 1;
+    const column = tick % ticksPerSevenBar / ticksPerEighth - 2;
+    if (row < 0 || row > 2 || column < 0 || column > 2) return null;
+    return {
+      positive: row === column,
+      mixed: row + column === 2,
+      center: row === 1 && column === 1,
+      pole: row !== 1 && column !== 1,
+    };
+  }
+
+  function backloopPassesFilter(tick, diagonal = wheelBackloopDiagonal.value) {
+    return diagonal === 'all' || Boolean(backloopFieldAt(tick)?.[diagonal]);
+  }
+
+  function renderWheelBackloopGrid() {
+    const slots = Array.from({ length: eighthsPerSevenBar }, (_, index) => index * ticksPerEighth);
+    const headings = slots.map(tick => `<th scope="col">${tick}</th>`).join('');
+    const rows = Array.from({ length: backloopReturnBars }, (_, index) => {
+      const cells = slots.map(tick => {
+        const phraseTick = index * ticksPerSevenBar + tick;
+        const sign = backloopSign(phraseTick);
+        const label = sign > 0 ? '+' : sign < 0 ? '−' : '·';
+        const field = backloopFieldAt(phraseTick);
+        const classes = [];
+        if (field) {
+          classes.push('backloop-field');
+          if (field.positive) classes.push('backloop-diagonal-positive');
+          if (field.mixed) classes.push('backloop-diagonal-mixed');
+          if (field.center) classes.push('backloop-center');
+          if (field.pole) classes.push('backloop-pole');
+        }
+        const classAttr = classes.length ? ` class="${classes.join(' ')}"` : '';
+        return `<td id="wheelBackloopTick${phraseTick}" data-polarity="${sign}"${classAttr}><span>${label}</span></td>`;
+      }).join('');
+      return `<tr><th scope="row">Takt ${index + 1}</th>${cells}</tr>`;
+    }).join('');
+    $('wheelBackloopGrid').innerHTML = `<thead><tr><th scope="col">Tick im Takt</th>${headings}</tr></thead><tbody>${rows}</tbody>`;
+    $('wheelMod19Steps').innerHTML = Array.from({ length: mod19Period }, (_, residue) =>
+      `<li id="wheelMod19Residue${residue}">${residue}</li>`
+    ).join('');
+    $('wheelBackloopQrt20Steps').innerHTML = backloopQrt20.moving_residue_path.map((residue, index) =>
+      `<li id="wheelQrt20Step${index}"${index === qrt20ReturnEighths ? ' class="wheel-qrt20-return"' : ''}>` +
+      `<span>${index}</span><b>r${residue}</b></li>`
+    ).join('');
+  }
+
+  function showWheelBackloopQrt20(step) {
+    const qrtPosition = step % qrt20ReturnEighths;
+    const qrtReturn = step > 0 && qrtPosition === 0;
+    const index = qrtReturn ? qrt20ReturnEighths : qrtPosition;
+    activeQrt20Cell?.setAttribute('aria-current', 'false');
+    activeQrt20Cell = $('wheelQrt20Step' + index);
+    activeQrt20Cell?.setAttribute('aria-current', 'step');
+
+    const qrt = $('wheelBackloopQrt20Status');
+    qrt.dataset.return = String(qrtReturn);
+    qrt.textContent = qrtReturn
+      ? `QRT20 · Return bei ${step} · r${backloopQrt20.moving_residue_path[index]}`
+      : `QRT20 · r${backloopQrt20.moving_residue_path[index]} · Return alle ${qrt20ReturnEighths} Achtel`;
+    const backloop = $('wheelBackloopReturnStatus');
+    const returning = step > 0 && step % backloopReturnEighths === 0;
+    backloop.dataset.return = String(returning);
+    backloop.textContent = returning
+      ? `69er · Return bei ${step} · Tick 0`
+      : `69er · Return alle ${backloopReturnEighths} Achtel`;
+    if (qrtReturn && returning) {
+      wheelQrt20JointReturnStatus.textContent = `Gemeinsamer Return · Schritt ${step} · nach ${step / eighthsPerSevenBar} Takten · r${backloopQrt20.moving_residue_path[index]} · Tick 0`;
+    }
+  }
+
+  function drawWheelPhase(step) {
+    const context = wheelPhaseCanvas.getContext('2d');
+    if (!context) return;
+    const angles = phaseTracks.map(track => phaseAngle(step, track.stride));
+    const returning = step > 0 && angles.every(angle => angle === 0);
+    const meeting = angles[0] === angles[1];
+    const event = step === 0 ? 'Start' : returning ? 'Gemeinsamer Return' : meeting ? 'Treffen' : 'Getrennt';
+    const status = $('wheelPhaseStatus');
+    status.dataset.return = String(returning);
+    status.textContent = `Schritt ${step} · Blau ${angles[0]}° · Orange ${angles[1]}° · ${event}`;
+
+    const left = 42;
+    const bottom = 174;
+    const x = n => left + 345 * n / phaseReturnStep;
+    const y = angle => bottom - 151 * angle / 360;
+    const drawLine = (points, color, width = 1) => {
+      context.beginPath();
+      points.forEach(([px, py], index) => index ? context.lineTo(px, py) : context.moveTo(px, py));
+      context.strokeStyle = color;
+      context.lineWidth = width;
+      context.stroke();
+    };
+    context.clearRect(0, 0, 620, 206);
+    context.font = '13px ui-monospace, monospace';
+    context.fillStyle = '#b9d0d9';
+    for (const angle of [0, 90, 180, 270, 360]) {
+      drawLine([[left, y(angle)], [x(phaseReturnStep), y(angle)]], '#274352');
+      context.fillText(`${angle}°`, 4, y(angle) + 4);
+    }
+    for (const track of phaseTracks) {
+      const samples = Array.from({ length: phaseReturnStep + 1 }, (_, n) => [x(n), y(phaseAngle(n, track.stride))]);
+      drawLine(samples, track.color, 2);
+    }
+    for (let n = 1; n <= phaseReturnStep; n += 1) {
+      const angle = phaseAngle(n, phaseTracks[0].stride);
+      if (angle !== phaseAngle(n, phaseTracks[1].stride)) continue;
+      const px = x(n);
+      const py = y(angle);
+      if (n === phaseReturnStep) {
+        context.strokeStyle = '#ffdf91';
+        context.lineWidth = 2;
+        context.strokeRect(px - 4, py - 4, 8, 8);
+      } else {
+        drawLine([[px, py - 4], [px + 4, py], [px, py + 4], [px - 4, py], [px, py - 4]], '#ffdf91', 2);
+      }
+    }
+    for (const tick of [0, 3, 9, phaseReturnStep]) context.fillText(String(tick), x(tick) - 5, 196);
+    const cursor = x(returning ? phaseReturnStep : step % phaseReturnStep);
+    drawLine([[cursor, y(360)], [cursor, bottom]], '#e4fbff', 1);
+
+    const center = [505, 100];
+    const point = (angle, radius) => {
+      const radians = angle * Math.PI / 180;
+      return [center[0] + radius * Math.sin(radians), center[1] - radius * Math.cos(radians)];
+    };
+    context.beginPath();
+    context.arc(...center, 72, 0, 2 * Math.PI);
+    context.strokeStyle = '#476579';
+    context.stroke();
+    for (const angle of [0, 120, 240]) drawLine([center, point(angle, 72)], '#738c9b');
+    const accents = [0, sevenBeatGaps[0], sevenBeatGaps[0] + sevenBeatGaps[1]];
+    context.setLineDash([4, 3]);
+    for (const accent of accents) drawLine([center, point(accent * 360 / eighthsPerSevenBar, 80)], '#e7d69f');
+    context.setLineDash([]);
+    angles.forEach((angle, index) => {
+      const color = phaseTracks[index].color;
+      const endpoint = point(angle, index === 0 ? 67 : 52);
+      drawLine([center, endpoint], color, 3);
+      context.beginPath();
+      context.arc(...endpoint, 4, 0, 2 * Math.PI);
+      context.fillStyle = color;
+      context.fill();
+    });
+  }
+
+  function renderWheelCompositeRegulator() {
+    const step = compositeCompareStep ?? backloopStep;
+    const residue = step % mod19Period;
+    const regulatorOn = residue === 0;
+    const mode = compositeCompareStep === null ? 'Live' : 'Momentaufnahme';
+    $('wheelComposite').dataset.regulator = String(regulatorOn);
+    $('wheelCompositeMod19').textContent =
+      `${mode} · Schritt ${step.toLocaleString('de-DE')} · Rest ${residue} · Regulator ${regulatorOn ? 'an' : 'aus'}`;
+  }
+
+  function selectWheelCompositeStep(step) {
+    compositeCompareStep = step;
+    for (const [id, comparison] of compositeMod19Steps) {
+      $(id).setAttribute('aria-pressed', String(comparison === step));
+    }
+    $('wheelCompositeLive').setAttribute('aria-pressed', String(step === null));
+    renderWheelCompositeRegulator();
+  }
+
+  function showWheelBackloopTick(absoluteTick) {
+    const phraseTick = absoluteTick % backloopReturnTicks;
+    activeBackloopCell?.setAttribute('aria-current', 'false');
+    activeBackloopCell = $('wheelBackloopTick' + phraseTick);
+    activeBackloopCell?.setAttribute('aria-current', 'step');
+    const bar = 1 + Math.floor(phraseTick / ticksPerSevenBar);
+    const sign = backloopSign(phraseTick);
+    const hit = sign ? ` · 69 Hz ${sign > 0 ? '+' : '−'}` : '';
+    const filtered = sign && !backloopPassesFilter(phraseTick) ? ' · stumm' : '';
+    $('wheelBackloopPosition').textContent = `Takt ${bar}/${backloopReturnBars} · Tick ${phraseTick % ticksPerSevenBar}${hit}${filtered}`;
+    const step = absoluteTick / ticksPerEighth;
+    showWheelBackloopQrt20(step);
+    const residue = step % mod19Period;
+    activeMod19Cell?.setAttribute('aria-current', 'false');
+    activeMod19Cell = $('wheelMod19Residue' + residue);
+    activeMod19Cell?.setAttribute('aria-current', 'step');
+    backloopStep = step;
+    $('wheelMod19Position').textContent = `Schritt ${step.toLocaleString('de-DE')} · Rest ${residue}`;
+    if (compositeCompareStep === null) renderWheelCompositeRegulator();
+    if (step > 0 && step % mod19JointReturnEighths === 0) {
+      const status = $('wheelMod19ReturnStatus');
+      status.dataset.return = 'true';
+      status.textContent = `Gemeinsamer Return · Schritt ${step.toLocaleString('de-DE')} · Rest 0 · r7 · Winkel 0°/0° · 69er bei Tick 0`;
+    }
+    drawWheelPhase(step);
+    if (absoluteTick > 0 && absoluteTick % commonReturnTicks === 0) {
+      wheelCommonReturnStatus.textContent = `Gemeinsamer Return · Schritt ${step} · nach ${step / eighthsPerSevenBar} Takten · Blau 0° · Orange 0° · 69er bei Tick 0`;
+    }
+    if (step > 0 && step % allReturnEighths === 0) {
+      wheelAllReturnStatus.textContent = `Return aller drei Spuren · Schritt ${step} · nach ${step / eighthsPerSevenBar} Takten · r7 · Blau 0° · Orange 0° · 69er bei Tick 0`;
+    }
+  }
+
+  function jumpToMod19Comparison(step) {
+    stopWheelBeat();
+    resetWheelMod19Return();
+    showWheelBackloopTick(step * ticksPerEighth);
+    if (step === allReturnEighths) {
+      $('wheelMod19ReturnStatus').textContent = `Bisherige Spuren am Start · 19er bei Rest ${step % mod19Period}`;
+    }
+  }
+
+  function resetWheelMod19Return() {
+    const status = $('wheelMod19ReturnStatus');
+    status.dataset.return = 'false';
+    status.textContent = mod19ReturnReady;
+  }
+
+  function drawWheelPlatter() {
+    const { origin, barSeconds, rpm } = platterClock;
+    const elapsed = Math.max(0, wheelAudio.currentTime - origin);
+    const platterTurns = elapsed * rpm / 60;
+    const bars = elapsed / barSeconds;
+    wheelPlatterNeedle.style.transform = `rotate(${(platterTurns % 1) * 360}deg)`;
+    wheelBarNeedle.style.transform = `rotate(${(bars % 1) * 360}deg)`;
+    const completedBars = Math.floor(bars);
+    const drift = completedBars * (barSeconds * rpm / 60 - 1) * 360;
+    const phase = Math.abs(drift) < 1e-8 ? '0°' : drift.toLocaleString('de-DE', {
+      maximumFractionDigits: 1, signDisplay: 'always',
+    }) + '°';
+    const status = `Taktwechsel ${completedBars} · Platte ${phase} zum Takt`;
+    if (wheelPlatterStatus.textContent !== status) wheelPlatterStatus.textContent = status;
+    platterFrame = requestAnimationFrame(drawWheelPlatter);
+  }
+
+  function alignWheelPlatter(origin, tickMs, rpm) {
+    platterClock = { origin, barSeconds: ticksPerSevenBar * tickMs / 1000, rpm };
+    if (platterFrame === null) drawWheelPlatter();
+  }
+
+  function stopWheelPlatter() {
+    if (platterFrame !== null) cancelAnimationFrame(platterFrame);
+    platterFrame = null;
+    platterClock = null;
+    wheelPlatterNeedle.style.transform = '';
+    wheelBarNeedle.style.transform = '';
+    wheelPlatterStatus.textContent = 'Wartet auf den 7/8-Beat.';
+  }
+
+  function syncWheelNumberStep(step) {
+    const limit = M.limit('wheels');
+    const target = step === 0 ? 0 : (step - 1) % limit + 1;
+    let current = session();
+    if (target >= current.frames.length) {
+      current = M.at(current, current.frames.length - 1);
+      while (current.cursor < target) current = M.step(current);
+    }
+    if (current.cursor !== target) current = M.at(current, target);
+    sessions.wheels = current;
+    readout();
+    return frame().state;
+  }
+
+  function scheduleWheelReturnVoices(voices, time) {
+    for (const voice of voices) {
+      playBassVoice(voice.pitch, voice.level, time, voice.decay, wheelReturnAuditionGain);
+    }
+  }
+
+  function showWheelReturnAudition(voices, step, comparisonLabel = 'Hörprobe') {
+    const labels = voices.map(voice => voice.label).join(' + ');
+    $('wheelReturnAuditionStatus').textContent = step === undefined
+      ? `Hörprobe · ${labels}`
+      : `${comparisonLabel} · Schritt ${step.toLocaleString('de-DE')} · ${labels}`;
+  }
+
+  function clearWheelReturnMarkers() {
+    for (const cell of wheelAuditionCells) cell.dataset.audition = 'false';
+    wheelAuditionCells.clear();
+  }
+
+  function flashWheelReturnAudition(keepPrevious) {
+    const cell = activeBackloopCell;
+    if (!cell) return;
+    if (!keepPrevious) clearWheelReturnMarkers();
+    wheelAuditionCells.add(cell);
+    cell.dataset.audition = 'flash';
+    scheduleWheelAction(175, () => {
+      if (wheelAuditionCells.has(cell)) cell.dataset.audition = 'last';
+    });
+  }
+
+  function scheduleSevenBeatFills(sevenTicks, gapTicks, tickMs, comparisonSteps = []) {
+    const paired = comparisonSteps.length === 2;
+    for (let offset = 0; offset < gapTicks; offset += ticksPerEighth) {
+      const delay = offset * tickMs;
+      scheduleWheelFill(wheelBeatHat, delay, now => playWheelHat(now, offset === 0 ? 0.075 : 0.024));
+      const tick = sevenTicks + offset;
+      const step = tick / ticksPerEighth;
+      scheduleWheelAction(delay, () => {
+        if (!comparisonSteps.length) advanceLokiBeat();
+        const isComparisonHit = comparisonSteps.includes(step);
+        const audition = isComparisonHit ? wheelReturnAuditions : pendingWheelReturnAudition;
+        if (!isComparisonHit) pendingWheelReturnAudition = null;
+        const pairedLabel = paired && isComparisonHit ? (step === allReturnEighths ? 'A' : 'B') : '';
+        if (audition) {
+          if (!pairedLabel) scheduleWheelReturnVoices(audition, wheelAudio.currentTime);
+          showWheelReturnAudition(audition, step, pairedLabel || undefined);
+        }
+        const wheel = wheelNumberSyncActive() ? syncWheelNumberStep(step) : null;
+        showWheelBackloopTick(tick);
+        showWheelTransportStep(step);
+        if (audition) flashWheelReturnAudition(Boolean(pairedLabel));
+        if (step === 0 || !wheelAuditionLoop || wheelAudio.state !== 'running') return;
+        const now = wheelAudio.currentTime;
+        const voices = [];
+        if (pairedLabel) return;
+        const compareReturn = comparisonSteps.length > 0 && step === allReturnEighths;
+        for (const [enabled, returning, label, pitch, level, decay] of [
+          [wheelQrt20ReturnSound.checked, step % qrt20ReturnEighths === 0, 'QRT20', 220, 0.09, 0.10],
+          [wheel60ReturnSound.checked, step % 60 === 0, '60er', 82, 0.14, 0.17],
+          ...wheelReturnAuditions.map(voice => [
+            !compareReturn && voice.toggle.checked, voice.atReturn(step, wheel), voice.label, voice.pitch, voice.level, voice.decay,
+          ]),
+        ]) {
+          if (!enabled || !returning) continue;
+          playBassVoice(pitch, level, now, decay, wheelReturnAuditionGain);
+          voices.push(label);
+        }
+        if (voices.length) {
+          $('wheelReturnSoundStatus').textContent = `Letzter Return-Ton · Schritt ${step} · ${voices.join(' + ')}`;
+        }
+      });
+      const phaseSign = backloopSign(tick);
+      if (phaseSign) {
+        scheduleWheelFill(wheelBeatBackloop, delay, now => {
+          if (backloopPassesFilter(tick)) playWheelBackloop(now, phaseSign, tick);
+        });
+      }
+    }
+    if (gapTicks > ticksPerQuarter) {
+      scheduleWheelFill(wheelBeatGlue, ticksPerQuarter * tickMs, now => playBassVoice(39, 0.085, now, 0.16));
+    }
+  }
+
+  function playWheelAudition(index, reverseMs, { scheduled, resonant = false, resonanceDelayMs = 0, visual = true, trackPosition = true, afterAccent = () => {} } = {}) {
+    const audioReady = wheelAudio?.state === 'running';
+    const reverse = reverseMs > 0 && audioReady;
+    const returnRing = beatRings[1];
+    const returnLevel = 0.55 / beatRings.length;
+    let downbeat;
+    if (audioReady) {
+      downbeat = scheduled === undefined ? wheelAudio.currentTime : Math.max(scheduled, wheelAudio.currentTime + 0.005);
+      if (reverse) {
+        downbeat = playReverseWheelEcho(reverseMs, scheduled === undefined ? undefined : downbeat);
+        wheelAudioGain.gain.setValueAtTime(0.45, downbeat);
+        playWheelTone(returnRing, returnLevel, downbeat);
+        if (visual) {
+          const showReverse = () => {
+            wheelBeatCue.textContent = `A · 432er Reverse-Echo läuft ein · ${reverseMs} ms`;
+          };
+          const leadWait = (downbeat - wheelAudio.currentTime) * 1000 - reverseMs;
+          if (leadWait > audioScheduleMs) scheduleWheelAction(leadWait, showReverse);
+          else showReverse();
+        }
+      } else if (index === 2) {
+        wheelAudioGain.gain.setValueAtTime(0.45, downbeat);
+        playWheelTone(impulse123, 0.22, downbeat);
+      } else {
+        hitWheelBass(true, downbeat, auditionBeats[index]);
+      }
+      if (resonant) {
+        wheelResonanceNext = downbeat + resonanceDelayMs / 1000;
+        exciteWheelResonance(wheelResonanceNext);
+      }
+    }
+    if (!visual) return;
+    const land = () => {
+      if (index === 2) {
+        wheelBeatCue.textContent = 'C · 123er-Impuls';
+      } else {
+        const eventBeat = auditionBeats[index];
+        if (trackPosition) {
+          wheelBeat = eventBeat;
+          showWheelBeat();
+        } else {
+          wheelBeatCue.textContent = beatRings.filter(ring => beatCue(ring, eventBeat))
+            .map(ring => `${ring.modulus} · ${beatCue(ring, eventBeat)}`).join(' | ');
+        }
+        if (reverse) wheelBeatCue.textContent = '432 · Reverse-Echo | 408 · Return';
+      }
+      afterAccent(downbeat);
+    };
+    const wait = downbeat === undefined ? 0 : (downbeat - wheelAudio.currentTime) * 1000;
+    if (wait > 0) scheduleWheelAction(wait, land);
+    else land();
+  }
+
+  function showWheelABCPattern() {
+    const seven = wheelBeatABCMeter.value === '7/8' && !wheelAuditionLoop?.peakOutput;
+    wheelBackloopView.hidden = !seven;
+    if (!seven) {
+      armedBackloopReturn = 0;
+      if (pendingWheelReturnAudition) {
+        pendingWheelReturnAudition = null;
+        $('wheelReturnAuditionStatus').textContent = '';
+      }
+    }
+    const meter = wheelBeatABCMeter.value;
+    $('wheelBeatABCPattern').textContent = meter === '7/8'
+      ? '7/8 · A auf 1 · B auf 3 · C auf 5'
+      : `${meter === '5' ? '5/4' : '2–1–3'} · A auf 1 · B auf 3 · C auf 4`;
+  }
+
+  function stopWheelBeat() {
+    const wasSynced = wheelNumberSyncActive();
+    stopWheelPlatter();
+    wheelBeatPlayback += 1;
+    clearInterval(wheelBeatTimer);
+    wheelBeatTimer = null;
+    armedBackloopReturn = 0;
+    wheelAuditionLoop?.button.setAttribute('aria-pressed', 'false');
+    if (wheelAuditionLoop?.peakOutput) lockWheelResonanceControls(false);
+    wheelAuditionLoop = null;
+    if (wasSynced) publish();
+    showWheelABCPattern();
+    for (const handle of wheelBeatFills.keys()) clearTimeout(handle);
+    wheelBeatFills.clear();
+    if (lokiHold && lokiHold.displayStep !== lokiBeatStep) paintLokiBeat(lokiBeatStep);
+    lokiHold = null;
+    paintLokiHoldControls();
+    interruptWheelBlindTrial?.();
+    interruptWheelBlindTrial = null;
+    stopWheelMix?.();
+    stopWheelMix = null;
+    if (pendingWheelReturnAudition) {
+      pendingWheelReturnAudition = null;
+      $('wheelReturnAuditionStatus').textContent = '';
+    }
+    clearWheelReturnMarkers();
+    for (const source of wheelBassSources) source.stop();
+    wheelBassSources.clear();
+    wheelResonanceNext = null;
+    clearWheelResonance();
+    wheelBeatPlay.textContent = 'Radtakt starten';
+    wheelBeatABCLoop.textContent = 'Beat starten';
+    if (wheelAudioGain) {
+      const now = wheelAudio.currentTime;
+      wheelAudioGain.gain.cancelScheduledValues(now);
+      wheelAudioGain.gain.setValueAtTime(0, now);
+    }
+    for (const animation of wheelBeatMeters.values()) animation.cancel();
+    wheelBeatMeters.clear();
+  }
+
+  function showWheelTransportStep(step) {
+    wheelBeat = step === 0 ? 0 : (step - 1) % sharedBeatReturn + 1;
+    showWheelBeat({ updateCue: false });
+  }
+
+  function showWheelBeat({ updateCue = true } = {}) {
+    const angles = beatRings.map(ring => {
+      const angle = direction => Number(wheelBeatDegrees(ring, direction).toFixed(1)).toLocaleString('de-DE');
+      return `${ring.modulus} · + ${angle(1)}° / − ${angle(-1)}°`;
+    });
+    wheelBeatState.textContent = `Schlag ${wheelBeat}/${sharedBeatReturn} · ${angles.join(' | ')}`;
+    const cue = wheelBeat === sharedBeatReturn ? 'Gemeinsamer Return · 432 und 408' :
+      wheelBeat ? beatRings.filter(ring => beatCue(ring)).map(ring => `${ring.modulus} · ${beatCue(ring)}`).join(' | ') : '';
+    if (updateCue && wheelBeatCue.textContent !== cue) wheelBeatCue.textContent = cue;
+    requestDraw();
+  }
+
+  function mountWheelEulerLens() {
+    const digitCounts = [10, 11, 12];
+    function show(digits) {
+      const prefix = 41n * 10n ** BigInt(digits) / 42n;
+      const binary = prefix.toString(2);
+      const ones = binary.replaceAll('0', '').length;
+      for (const count of digitCounts) {
+        $('wheelEulerDigits' + count).setAttribute('aria-pressed', String(count === digits));
+      }
+      $('wheelEulerDecimal').textContent = '0,' + prefix.toString().padStart(digits, '0');
+      $('wheelEulerBinary').textContent = binary;
+      $('wheelEulerOnes').textContent = `${ones} Einsen · ${binary.length} Bits`;
+      $('wheelEulerComparison').innerHTML = [allReturnEighths, mod19JointReturnEighths].map(step =>
+        `<tr><th scope="row">${step.toLocaleString('de-DE')}</th><td>${step % mod19Period}</td><td>${ones}</td></tr>`
+      ).join('');
+    }
+    for (const digits of digitCounts) {
+      $('wheelEulerDigits' + digits).addEventListener('click', () => show(digits));
+    }
+    show(11);
+  }
+
+  function mountWheelComposite() {
+    const canvas = $('wheelCompositeCanvas');
+    const context = canvas.getContext('2d');
+    if (!context) return;
+    const tracks = [
+      { number: 1729, color: '#ffb9cd', label: 'Ramanujan Bridge', factors: '7 × 13 × 19' },
+      { number: 1836, color: '#aeb4bd', label: 'Mass Ratio Bridge', factors: '2² × 3³ × 17' },
+      { number: 1935, color: '#69baff', label: 'Blauer Strahl', factors: '3² × 5 × 43' },
+    ].map(track => ({
+      ...track,
+      ratio: 1561 / track.number,
+      angle: Math.acos(1561 / track.number),
+    }));
+    const options = ['All', ...tracks.map(track => track.number)];
+    const format = (value, digits) => value.toLocaleString('de-DE', {
+      minimumFractionDigits: digits,
+      maximumFractionDigits: digits,
+    });
+    const center = canvas.width / 2;
+    const radius = center - 12;
+    function ring(fraction, color) {
+      context.beginPath();
+      context.arc(center, center, fraction * radius, 0, 2 * Math.PI);
+      context.strokeStyle = color;
+      context.stroke();
+    }
+    let selected = 'All';
+    function show(selection) {
+      selected = selection;
+      for (const option of options) {
+        $('wheelComposite' + option).setAttribute('aria-pressed', String(option === selection));
+      }
+      const visible = tracks.filter(track => selection === 'All' || track.number === selection);
+      $('wheelCompositeRows').innerHTML = visible.map(track =>
+        `<tr><th scope="row" style="color:${track.color}">${track.number} <small>${track.label}</small></th>` +
+        `<td>${track.factors}${track.number === 1729
+          ? '<small><span class="wheel-regulator-lamp" aria-hidden="true"></span> Regulator Bridge 19</small>' : ''}</td>` +
+        `<td>${format(track.ratio, 3)}</td>` +
+        `<td>${format(track.angle * 180 / Math.PI, 1)}°</td>` +
+        `<td>${format(6561 / track.number, 3)}</td></tr>`
+      ).join('');
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.lineWidth = 1;
+      for (const band of [0.429, 0.456, 0.487]) ring(band, '#3a5467');
+      ring(0.571, '#718c9c');
+      ring(1, '#718c9c');
+      context.beginPath();
+      context.moveTo(center, center);
+      context.lineTo(center + radius, center);
+      context.stroke();
+      for (const track of visible) {
+        context.lineWidth = 1;
+        ring(track.ratio, track.color);
+        context.lineWidth = 2;
+        context.beginPath();
+        for (const side of [-1, 1]) {
+          context.moveTo(center, center);
+          context.lineTo(
+            center + radius * track.ratio * Math.cos(track.angle),
+            center + side * radius * track.ratio * Math.sin(track.angle)
+          );
+        }
+        context.stroke();
+      }
+    }
+    for (const option of options) {
+      $('wheelComposite' + option).addEventListener('click', () => show(option));
+    }
+    for (const [id, step] of compositeMod19Steps) {
+      $(id).addEventListener('click', () => {
+        if (selected !== 'All' && selected !== 1729) show(1729);
+        selectWheelCompositeStep(step);
+        if (!wheelAuditionLoop && wheelBeatTimer === null) jumpToMod19Comparison(step);
+      });
+    }
+    $('wheelCompositeLive').addEventListener('click', () => selectWheelCompositeStep(null));
+    show('All');
+  }
+
+  function mountWheelPolarComparison() {
+    const polar = window.A0PrimeAddressCountershot;
+    if (!polar) return;
+    const spiral = polar.primeSpiralModel('golden');
+    const cuts = new Map([270, 268].map(axis => [
+      axis, polar.polarCutAtlasModel(spiral, polar.polarCutFrame('outer', axis, 316)),
+    ]));
+    let previous = null;
+    const renderCut = axis => {
+      const cut = cuts.get(axis);
+      if (previous === cut) return;
+      const change = previous ? polar.polarCutTransition(previous, cut) : null;
+      for (const value of cuts.keys()) $('wheelPolar' + value).setAttribute('aria-pressed', String(value === axis));
+      $('wheelPolarMetrics').textContent = `${cut.insidePoints.length} IN · ${cut.outsidePoints.length} OUT · ${cut.crossingEdges.length} Randwechsel · Schwerpunktabstand ${cut.centroid.drift.toFixed(5).replace('.', ',')}`;
+      for (const prime of [643, 761]) {
+        const point = cut.points.find(candidate => candidate.prime === prime);
+        const entry = $('wheelPolar' + prime);
+        const moved = change?.entered.includes(prime) ? 'entered' : change?.exited.includes(prime) ? 'exited' : '';
+        entry.dataset.change = moved;
+        entry.textContent = `${prime} · ${moved === 'entered' ? 'rein' : moved === 'exited' ? 'raus' : point.inside ? 'IN' : 'OUT'}`;
+      }
+      $('wheelPolarSwap').textContent = change
+        ? `${previous.frame.centerDegrees}° → ${axis}° · ${change.retained.length} bleiben innen`
+        : 'Golden Angle · S3 · Öffnung 316°';
+      previous = cut;
+    };
+    for (const axis of cuts.keys()) $('wheelPolar' + axis).addEventListener('click', () => renderCut(axis));
+    renderCut(270);
+    return () => renderCut(270);
+  }
+
+  function mountWheelMix() {
+    const toggle = $('wheelMixPlay');
+    const status = $('wheelMixStatus');
+    const offsetControls = [...$('wheelMix').querySelectorAll('input[name="wheelMixOffset"]')];
+    const sixteenthSeconds = wheelBeatMs / 4000;
+    const panelLength = 70;
+    const sevenAccents = [0, 4, 8];
+    const fiveAccents = [0, 8, 12];
+    const sevenLength = eighthsPerSevenBar * 2;
+    const fiveLength = 5 * 4;
+    const cycle = sharedReturnPeriod(sevenLength, fiveLength);
+    const cycleSeconds = cycle * sixteenthSeconds;
+    const panels = [...$('wheelMixGrid').querySelectorAll('.wheel-mix-panel')].map((element, index) => ({
+      start: index * panelLength,
+      tracks: [...element.querySelectorAll('.wheel-mix-track')],
+      cursor: element.querySelector('.wheel-mix-cursor'),
+    }));
+    let offsetSeconds = 0;
+    let markers = [];
+
+    function renderGrid() {
+      const delayInTicks = offsetSeconds / sixteenthSeconds;
+      markers = [];
+      for (const [track, length, delay] of [[0, sevenLength, 0], [1, fiveLength, delayInTicks]]) {
+        for (let tick = delay; tick < cycle; tick += length) {
+          const panel = panels[Math.floor(tick / panelLength)];
+          const marker = document.createElement('span');
+          marker.className = 'wheel-mix-downbeat';
+          marker.style.left = `${100 * (tick - panel.start) / panelLength}%`;
+          marker.title = `Takt-Eins · ${tick.toLocaleString('de-DE')} Sechzehntel ab Start`;
+          markers.push({ tick, marker, panel, track });
+        }
+      }
+      for (const panel of panels) {
+        panel.tracks.forEach((rail, index) => {
+          const downbeats = markers.filter(marker => marker.panel === panel && marker.track === index);
+          rail.replaceChildren(...downbeats.map(({ marker }) => marker));
+          rail.setAttribute('aria-label', `${index === 0 ? '7/8' : '5/4'} · Takt-Einsen ab Start bei Sechzehntel ${downbeats.map(({ tick }) => tick.toLocaleString('de-DE')).join(', ')}`);
+        });
+      }
+    }
+
+    function scheduleCycle(start) {
+      wheelAudioGain.gain.setValueAtTime(0.45, start);
+      for (let tick = 0; tick < cycle; tick += sevenLength) {
+        for (const [index, accent] of sevenAccents.entries()) {
+          playWheelAudition(index, 0, { scheduled: start + (tick + accent) * sixteenthSeconds, visual: false });
+        }
+        for (let pulse = 0; pulse < sevenLength; pulse += 2) {
+          playWheelHat(start + (tick + pulse) * sixteenthSeconds, sevenAccents.includes(pulse) ? 0.07 : 0.025);
+        }
+      }
+      for (let tick = 0; tick < cycle; tick += fiveLength) {
+        const bar = start + offsetSeconds + tick * sixteenthSeconds;
+        for (const [index, accent] of fiveAccents.entries()) {
+          playWheelSnare(bar + accent * sixteenthSeconds, index === 0 ? 0.17 : 0.09);
+        }
+        for (let pulse = 0; pulse < fiveLength; pulse += 4) {
+          playWheelHat(bar + pulse * sixteenthSeconds, pulse === 0 ? 0.05 : 0.022);
+        }
+      }
+      const next = start + cycleSeconds;
+      scheduleWheelAction((next - wheelAudio.currentTime - 0.25) * 1000, () => scheduleCycle(next));
+    }
+
+    async function startMix() {
+      stopWheelBeat();
+      pause();
+      const playback = wheelBeatPlayback;
+      let animation = null;
+      toggle.textContent = 'Mix stoppen';
+      toggle.setAttribute('aria-pressed', 'true');
+      status.textContent = 'Mix startet …';
+      stopWheelMix = () => {
+        cancelAnimationFrame(animation);
+        for (const { cursor } of panels) cursor.hidden = true;
+        for (const { marker } of markers) marker.classList.remove('is-playing');
+        toggle.textContent = 'Mix starten';
+        toggle.setAttribute('aria-pressed', 'false');
+        status.textContent = 'Mix bereit.';
+      };
+      await enableWheelBass();
+      if (playback !== wheelBeatPlayback) return;
+      if (!wheelBeatVisible() || document.hidden || wheelAudio?.state !== 'running') {
+        stopWheelBeat();
+        status.textContent = 'Mix konnte nicht gestartet werden.';
+        return;
+      }
+      const start = wheelAudio.currentTime + 0.12;
+      scheduleCycle(start);
+      status.textContent = 'Mix läuft.';
+      function drawMix() {
+        if (!wheelBeatVisible()) {
+          stopWheelBeat();
+          return;
+        }
+        const elapsed = wheelAudio.currentTime - start;
+        if (elapsed >= 0) {
+          const tick = elapsed % cycleSeconds / sixteenthSeconds;
+          for (const panel of panels) {
+            panel.cursor.hidden = tick < panel.start || tick >= panel.start + panelLength;
+            if (!panel.cursor.hidden) panel.cursor.style.left = `${100 * (tick - panel.start) / panelLength}%`;
+          }
+          for (const { tick: downbeat, marker } of markers) {
+            marker.classList.toggle('is-playing', tick >= downbeat && tick - downbeat < 1);
+          }
+        }
+        animation = requestAnimationFrame(drawMix);
+      }
+      animation = requestAnimationFrame(drawMix);
+    }
+
+    toggle.addEventListener('click', () => {
+      if (stopWheelMix) stopWheelBeat();
+      else startMix();
+    });
+    for (const control of offsetControls) {
+      control.addEventListener('change', () => {
+        offsetSeconds = Number(control.value);
+        renderGrid();
+        if (stopWheelMix) startMix();
+      });
+    }
+    renderGrid();
+  }
+
+  function scheduleWheelBlindTake(firstAccentTime, barStep, offset, settings) {
+    const previousGap = sevenBeatGaps.at(-1);
+    let pulse = -previousGap;
+    for (const index of [2, 0, 1, 2]) {
+      const onset = firstAccentTime + (pulse + previousGap) * settings.eighthSeconds;
+      playWheelAudition(index, index === 0 ? settings.reverseMs : 0, { scheduled: onset, visual: false });
+      const gap = sevenBeatGaps[index];
+      for (let i = 0; i < gap; i += 1) {
+        const tick = (barStep + pulse + i) * ticksPerEighth;
+        const time = onset + i * settings.eighthSeconds;
+        if (settings.hat) playWheelHat(time, i === 0 ? 0.075 : 0.024);
+        const sign = backloopSign(tick);
+        if (settings.backloop && sign && backloopPassesFilter(tick, settings.diagonal)) {
+          playWheelBackloop(time, sign, tick, settings.qrt20Timbre);
+        }
+      }
+      if (settings.glue && gap > ticksPerQuarter / ticksPerEighth) {
+        playBassVoice(39, 0.085, onset + 2 * settings.eighthSeconds, 0.16);
+      }
+      pulse += gap;
+    }
+    const probeTime = firstAccentTime + (previousGap + offset) * settings.eighthSeconds;
+    scheduleWheelReturnVoices(wheelReturnAuditions, probeTime);
+  }
+
+  function mountWheelBlindTest() {
+    const dialog = $('wheelBlindTest');
+    const launch = $('wheelBlindOpen');
+    const listen = $('wheelBlindListen');
+    const picks = [$('wheelBlindPick1'), $('wheelBlindPick2')];
+    const progress = $('wheelBlindProgress');
+    const status = $('wheelBlindStatus');
+    const result = $('wheelBlindResult');
+    const saveForm = $('wheelBlindSaveForm');
+    const conditions = $('wheelBlindConditions');
+    const saveStatus = $('wheelBlindSaveStatus');
+    const trialsPerGroup = 12;
+    const benchmark = 10;
+    const groups = [
+      { label: 'Gemeinsamer Return (1260 / 1261)', step: allReturnEighths },
+      { label: 'Normale Takt-Eins (1267 / 1268)', step: allReturnEighths + eighthsPerSevenBar },
+    ];
+    let trials = [];
+    let settings;
+    let index = 0;
+    let canAnswer = false;
+    let receipt;
+
+    function renderTrial() {
+      const complete = index === trials.length;
+      progress.textContent = complete ? `${index} / ${trials.length} beantwortet` : `Durchgang ${index + 1} / ${trials.length}`;
+      listen.hidden = complete;
+      listen.disabled = false;
+      for (const pick of picks) pick.disabled = true;
+      canAnswer = false;
+      status.textContent = complete ? 'Test beendet.' : 'Hör beide Proben an und wähle den Einsatz, der stärker einrastet.';
+      if (!complete) return;
+      result.hidden = false;
+      const scores = groups.map(group => {
+        const downbeat = trials.filter(trial => trial.group === group && trial.preferredDownbeat).length;
+        const nextEighth = trialsPerGroup - downbeat;
+        const threshold = downbeat >= benchmark ? 'Benchmark auf der Eins erreicht'
+          : nextEighth >= benchmark ? 'Benchmark beim nächsten Achtel erreicht' : 'Benchmark nicht erreicht';
+        return { label: group.label, downbeat, nextEighth, threshold };
+      });
+      receipt = { id: crypto.randomUUID(), completedAt: new Date().toISOString(), settings, scores };
+      result.replaceChildren(...scores.map(({ label, downbeat, nextEighth, threshold }) => {
+        const row = document.createElement('li');
+        row.textContent = `${label} · Eins ${downbeat}/${trialsPerGroup} · nächstes Achtel ${nextEighth}/${trialsPerGroup} · ${threshold}`;
+        return row;
+      }));
+      saveForm.hidden = false;
+    }
+
+    launch.addEventListener('click', () => {
+      stopWheelBeat();
+      pause();
+      settings = {
+        eighthSeconds: sevenTickMs() * ticksPerEighth / 1000,
+        reverseMs: reverseLengthFor(0),
+        hat: wheelBeatHat.checked,
+        backloop: wheelBeatBackloop.checked,
+        glue: wheelBeatGlue.checked,
+        qrt20Timbre: wheelBackloopTimbre.checked,
+        diagonal: wheelBackloopDiagonal.value,
+        diagonalLabel: wheelBackloopDiagonal.selectedOptions[0].textContent.trim(),
+      };
+      trials = groups.flatMap(group => Array.from({ length: trialsPerGroup }, () => ({
+        group,
+        offsets: Math.random() < 0.5 ? [0, 1] : [1, 0],
+      })));
+      for (let i = trials.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [trials[i], trials[j]] = [trials[j], trials[i]];
+      }
+      index = 0;
+      receipt = null;
+      conditions.value = '';
+      saveStatus.textContent = '';
+      saveForm.hidden = true;
+      $('wheelBlindDeskLink').hidden = true;
+      result.hidden = true;
+      result.replaceChildren();
+      renderTrial();
+      dialog.showModal();
+    });
+
+    listen.addEventListener('click', async () => {
+      stopWheelBeat();
+      const playback = wheelBeatPlayback;
+      listen.disabled = true;
+      canAnswer = false;
+      for (const pick of picks) pick.disabled = true;
+      interruptWheelBlindTrial = () => {
+        listen.disabled = false;
+        status.textContent = 'Wiedergabe unterbrochen. Du kannst den Durchgang erneut abspielen.';
+      };
+      await enableWheelBass();
+      if (playback !== wheelBeatPlayback) return;
+      if (!dialog.open || document.hidden || !wheelBeatVisible() || wheelAudio?.state !== 'running') {
+        stopWheelBeat();
+        return;
+      }
+      const trial = trials[index];
+      const takeSeconds = (sevenBeatGaps.at(-1) + eighthsPerSevenBar) * settings.eighthSeconds + 0.4;
+      const start = wheelAudio.currentTime + 0.08;
+      wheelAudioGain.gain.setValueAtTime(0.45, start);
+      trial.offsets.forEach((offset, position) => {
+        const onset = start + position * takeSeconds;
+        scheduleWheelBlindTake(onset, trial.group.step, offset, settings);
+        scheduleWheelAction((onset - wheelAudio.currentTime) * 1000, () => {
+          status.textContent = `Probe ${position + 1} von 2 läuft.`;
+        });
+      });
+      scheduleWheelAction((start + 2 * takeSeconds - wheelAudio.currentTime) * 1000, () => {
+        interruptWheelBlindTrial = null;
+        status.textContent = 'Welcher Einsatz rastet stärker ein?';
+        canAnswer = true;
+        for (const pick of picks) pick.disabled = false;
+        picks[0].focus();
+      });
+    });
+
+    picks.forEach((pick, position) => pick.addEventListener('click', () => {
+      if (!canAnswer) return;
+      const trial = trials[index];
+      trial.preferredDownbeat = trial.offsets[position] === 0;
+      index += 1;
+      renderTrial();
+      (index === trials.length ? conditions : listen).focus();
+    }));
+
+    saveForm.addEventListener('submit', event => {
+      event.preventDefault();
+      if (!receipt || !conditions.value.trim()) {
+        saveStatus.textContent = 'Bitte kurz die Hörbedingungen eintragen.';
+        return;
+      }
+      try {
+        localStorage.setItem(`nexah.doppelrad.blindtest.v1.${receipt.id}`,
+          JSON.stringify({ ...receipt, conditions: conditions.value.trim() }));
+        saveStatus.textContent = 'Im Science Desk dieses Browsers gespeichert.';
+        $('wheelBlindDeskLink').hidden = false;
+      } catch {
+        saveStatus.textContent = 'Speichern fehlgeschlagen. Der Browser gibt den lokalen Speicher nicht frei.';
+      }
+    });
+    dialog.addEventListener('close', () => {
+      if (!dialog.open) stopWheelBeat();
+    });
+  }
+
+  if (wheelBeatPlay && wheelBeatBass) {
+    mountWheelComposite();
+    mountWheelEulerLens();
+    mountWheelBlindTest();
+    mountWheelMix();
+    for (const [key, voices] of [
+      ...wheelReturnAuditions.map(voice => [voice.key, [voice]]),
+      ['Together', wheelReturnAuditions],
+    ]) {
+      $('wheelListenReturn' + key).addEventListener('click', async () => {
+        if (wheelAuditionLoop?.button === wheelBeatABCLoop && wheelBeatABCMeter.value === '7/8') {
+          pendingWheelReturnAudition = voices;
+          $('wheelReturnAuditionStatus').textContent =
+            `Nächstes Achtel · ${voices.map(voice => voice.label).join(' + ')}`;
+          return;
+        }
+        const playback = wheelBeatPlayback;
+        if (wheelAudio?.state !== 'running') await enableWheelBass();
+        if (playback !== wheelBeatPlayback || !wheelBeatVisible() || document.hidden || wheelAudio?.state !== 'running') return;
+        scheduleWheelReturnVoices(voices, wheelAudio.currentTime);
+        showWheelReturnAudition(voices);
+      });
+    }
+    const resetPolarCut = mountWheelPolarComparison();
+    renderWheelBackloopGrid();
+    const presets = [
+      ['Qrt20', '7/8', '7/8-Groove mit Reverse-808, Hi-Hat und 69-Hz-Backloop.'],
+      ['SevenBase', '7/8', 'Gleicher 7/8-Groove mit Reverse-808 und Hi-Hat. Die 69-Hz-Spur ist stumm.'],
+      ['Resonance', '5', 'Beat starten spielt den 5/4-Groove mit 48 Hz. Darunter gibt es zwei kurze Resonanz-Hörproben.'],
+      ['Polar', '7/8', 'S3 · 316° ist geöffnet. Von 270° auf 268° schalten und 643/761 vergleichen.'],
+      ['Basic', '6', 'Beat starten spielt die Grundfolge 2–1–3.'],
+    ];
+    function applyWheelPreset([mode, meter, hint]) {
+      stopWheelBeat();
+      const qrt20 = mode === 'Qrt20';
+      const sevenGroove = qrt20 || mode === 'SevenBase';
+      const resonance = mode === 'Resonance';
+      const polar = mode === 'Polar';
+      wheelBeatABCMeter.value = meter;
+      wheelBeatBass.checked = !polar;
+      wheelBeatBackloop.checked = qrt20;
+      wheelBackloopTimbre.checked = qrt20;
+      wheelBackloopDiagonal.value = 'all';
+      wheelBackloopView.dataset.diagonal = 'all';
+      wheelBeatReverseA.checked = sevenGroove || resonance;
+      wheelBeatHat.checked = sevenGroove || resonance;
+      wheelBeatSnare.checked = resonance;
+      wheelBeatSnareTiming.value = resonance ? 'late' : 'original';
+      wheelBeatGlue.checked = false;
+      if (resonance) {
+        selectWheelResonance(48);
+      } else {
+        wheelResonanceEnabled.checked = false;
+        updateWheelResonance();
+      }
+      $('wheelPolarCompare').open = polar;
+      $('wheelResonance').open = resonance;
+      if (polar) resetPolarCut?.();
+      wheelQrt20JointReturnStatus.textContent = qrt20JointReturnReady;
+      wheelCommonReturnStatus.textContent = commonReturnReady;
+      wheelAllReturnStatus.textContent = allReturnReady;
+      resetWheelMod19Return();
+      selectWheelCompositeStep(null);
+      showWheelBackloopTick(0);
+      showWheelABCPattern();
+      $('wheelPresetHint').textContent = hint;
+    }
+    for (const preset of presets) {
+      $('wheelPreset' + preset[0]).addEventListener('click', () => applyWheelPreset(preset));
+    }
+    applyWheelPreset(presets[0]);
+    wheelBackloopDiagonal.addEventListener('change', () => {
+      wheelBackloopView.dataset.diagonal = wheelBackloopDiagonal.value;
+      if (wheelBackloopDiagonal.value !== 'all') wheelBeatBackloop.checked = true;
+    });
+    const centerStep = 2 * eighthsPerSevenBar + 3;
+    for (const [residue, step] of [[1, centerStep], [17, centerStep + backloopReturnEighths]]) {
+      $('wheelBackloopListenR' + residue).addEventListener('click', async () => {
+        stopWheelBeat();
+        const playback = wheelBeatPlayback;
+        const tick = step * ticksPerEighth;
+        showWheelBackloopTick(tick);
+        await enableWheelBass();
+        if (playback !== wheelBeatPlayback || !wheelBeatVisible() || wheelBackloopView.hidden ||
+          document.hidden || wheelAudio?.state !== 'running') return;
+        const now = wheelAudio.currentTime;
+        wheelAudioGain.gain.setValueAtTime(0.45, now);
+        playWheelBackloop(now, backloopSign(tick), tick, true);
+      });
+    }
+    const refreshNumberSync = () => {
+      if (wheelNumberSyncActive()) pause();
+      else publish();
+    };
+    wheelBeatSyncNumbers.addEventListener('change', refreshNumberSync);
+    wheelBeatABCMeter.addEventListener('change', () => {
+      showWheelABCPattern();
+      refreshNumberSync();
+    });
+    $('wheelMod19CompareJump').addEventListener('click', () => jumpToMod19Comparison(allReturnEighths));
+    $('wheelMod19ReturnJump').addEventListener('click', () => {
+      stopWheelBeat();
+      armedBackloopReturn = mod19JointReturnEighths;
+      const step = mod19JointReturnEighths - 1;
+      showWheelBackloopTick(step * ticksPerEighth);
+      const status = $('wheelMod19ReturnStatus');
+      status.dataset.return = 'false';
+      status.textContent = `Rest ${step % mod19Period} · „Beat starten“ spielt ab einem Achtel vor dem gemeinsamen Return`;
+    });
+    for (const [id, step, status] of [
+      ['wheelQrt20ReturnJump', qrt20JointReturnEighths, wheelQrt20JointReturnStatus],
+      ['wheelCommonReturnJump', commonReturnEighths, wheelCommonReturnStatus],
+      ['wheelAllReturnJump', allReturnEighths, wheelAllReturnStatus],
+    ]) {
+      $(id).addEventListener('click', () => {
+        stopWheelBeat();
+        armedBackloopReturn = step;
+        showWheelBackloopTick((step - 1) * ticksPerEighth);
+        status.textContent = `Schritt ${step - 1} · „Beat starten“ spielt ab einem Achtel vor dem Return`;
+      });
+    }
+    wheelResonanceEnabled.addEventListener('change', updateWheelResonance);
+    for (const input of [wheelResonanceFrequency, wheelResonanceDamping]) {
+      input.addEventListener('input', updateWheelResonance);
+    }
+    for (const { button, frequency } of wheelResonancePresets) {
+      button.addEventListener('click', () => selectWheelResonance(frequency));
+    }
+    wheelBeatReverseLength.addEventListener('input', () => {
+      wheelBeatReverseValue.textContent = `${wheelBeatReverseLength.value} ms`;
+    });
+    for (const [index, id] of ['wheelBeatListenA', 'wheelBeatListenB', 'wheelBeatListenC'].entries()) {
+      $(id).addEventListener('click', async () => {
+        stopWheelBeat();
+        const playback = wheelBeatPlayback;
+        await enableWheelBass();
+        if (playback === wheelBeatPlayback && wheelBeatVisible() && !document.hidden) {
+          playWheelAudition(index, reverseLengthFor(index));
+        }
+      });
+    }
+    async function toggleWheelLoop(loopMode, comparisonSteps = []) {
+      const isReturnComparison = comparisonSteps.length > 0;
+      const paired = comparisonSteps.length === 2;
+      const wasPlaying = !isReturnComparison && wheelAuditionLoop === loopMode;
+      const armedReturn = loopMode.gaps === abcGaps && !loopMode.peakOutput &&
+        wheelBeatABCMeter.value === '7/8' ? armedBackloopReturn : 0;
+      const previewReturn = isReturnComparison ? allReturnEighths : armedReturn;
+      stopWheelBeat();
+      if (wasPlaying) return;
+      if (isReturnComparison) {
+        wheelBeatABCMeter.value = '7/8';
+        showWheelBackloopTick((previewReturn - 1) * ticksPerEighth);
+        $('wheelReturnAuditionStatus').textContent = paired
+          ? 'A → B · 1260 auf Tick 0, 1261 auf Tick 96'
+          : `Hörvergleich · Einsatz bei Schritt ${comparisonSteps[0].toLocaleString('de-DE')}`;
+      }
+      const playback = wheelBeatPlayback;
+      wheelAuditionLoop = loopMode;
+      showWheelABCPattern();
+      loopMode.button.setAttribute('aria-pressed', 'true');
+      if (loopMode.button === wheelBeatABCLoop) {
+        lokiBeatStep = null;
+        paintLokiBeat(0);
+        wheelBeatABCLoop.textContent = 'Beat stoppen';
+        selectWheelCompositeStep(null);
+        if (wheelNumberSyncActive()) pause();
+      }
+      const comparison = Boolean(loopMode.peakOutput);
+      if (comparison) {
+        wheelResonanceTakePeak = 0;
+        loopMode.peakOutput.textContent = '—';
+        for (const { output } of loopMode.tailOutputs ?? []) output.textContent = '—';
+        wheelResonanceAnalyser?.disconnect();
+        wheelResonanceAnalyser = null;
+        selectWheelResonance(loopMode.frequency);
+        lockWheelResonanceControls(true);
+      }
+      await enableWheelBass();
+      if (playback !== wheelBeatPlayback) return;
+      if (!wheelBeatVisible() || document.hidden || wheelAudio?.state !== 'running') {
+        stopWheelBeat();
+        return;
+      }
+      if (loopMode.frequencies && (loopMode.frequency !== 48 || loopMode.frequencies.length > 1) && !wheelMatchedResonanceBuffers.has(loopMode)) {
+        wheelMatchedResonanceBuffers.set(loopMode, matchWheelResonanceRms(loopMode));
+      }
+      let meter = previewReturn ? '7/8' : '';
+      let tickMs = previewReturn ? sevenTickMs() : wheelTickMs;
+      let rpm = platterRpm();
+      let phrasePulse = 0;
+      let transportPulse = 0;
+      let sevenTicks = previewReturn * ticksPerEighth;
+      let bars = 0;
+      if (!previewReturn && wheelBeatABCMeter.value === '7/8') {
+        wheelCommonReturnStatus.textContent = commonReturnReady;
+        wheelQrt20JointReturnStatus.textContent = qrt20JointReturnReady;
+        wheelAllReturnStatus.textContent = allReturnReady;
+        resetWheelMod19Return();
+      }
+      const playAccent = (index, reverseMs, scheduled) => {
+        const previousTickMs = tickMs;
+        const previousRpm = rpm;
+        if (index === 0 && !(paired && sevenTicks === allReturnEighths * ticksPerEighth)) {
+          const nextMeter = comparison ? '5' : loopMode.gaps === abcGaps ? wheelBeatABCMeter.value : '4';
+          tickMs = nextMeter === '7/8' ? sevenTickMs() : wheelTickMs;
+          rpm = platterRpm();
+          if (meter !== nextMeter) {
+            meter = nextMeter;
+            if (meter !== '7/8') stopWheelPlatter();
+            phrasePulse = 0;
+            transportPulse = 0;
+            sevenTicks = 0;
+            if (meter !== '5') {
+              wheelResonanceNext = null;
+              clearWheelResonance();
+            }
+          }
+        }
+        const fiveBeat = meter === '5';
+        const sevenBeat = meter === '7/8';
+        const liveGroove = loopMode.button === wheelBeatABCLoop;
+        const resonanceDelayMs = comparison ? wheelTakeDelayMs(loopMode, bars, index) : 0;
+        playWheelAudition(index, reverseMs, { scheduled, resonant: fiveBeat, resonanceDelayMs, trackPosition: !liveGroove, afterAccent: downbeat => {
+          const gap = (sevenBeat ? sevenBeatGaps : fiveBeat ? fiveBeatGaps : loopMode.gaps)[index];
+          const gapTicks = gap * (sevenBeat ? ticksPerEighth : ticksPerQuarter);
+          if (liveGroove && !sevenBeat) {
+            for (let offset = 0; offset < gapTicks; offset += ticksPerEighth) {
+              scheduleWheelAction(offset * tickMs, advanceLokiBeat);
+            }
+            for (let offset = 0; offset < gap; offset += 1) {
+              const step = transportPulse + offset;
+              scheduleWheelAction(offset * wheelBeatMs, () => showWheelTransportStep(step));
+            }
+            transportPulse += gap;
+          }
+          if (sevenBeat) {
+            if (!platterClock || previousTickMs !== tickMs || previousRpm !== rpm) {
+              alignWheelPlatter(downbeat, tickMs, rpm);
+            }
+            scheduleSevenBeatFills(sevenTicks, gapTicks, tickMs, comparisonSteps);
+            sevenTicks += gapTicks;
+          } else if (fiveBeat) {
+            scheduleFiveBeatPercussion(phrasePulse, gap);
+            phrasePulse = (phrasePulse + gap) % 10;
+          } else if (gap > 1) {
+            scheduleWheelFill(wheelBeatHat, wheelBeatMs, playWheelHat);
+          }
+          if (!sevenBeat && gap > 1) {
+            scheduleWheelFill(wheelBeatGlue, 1.5 * wheelBeatMs, now => playBassVoice(39, 0.085, now, 0.16));
+          }
+          const nextDownbeat = downbeat + gapTicks * tickMs / 1000;
+          if (comparison && index === 2 && ++bars === loopMode.bars) {
+            const wait = Math.max(0, (nextDownbeat - wheelAudio.currentTime) * 1000);
+            scheduleWheelAction(wait, () => {
+              loopMode.peakOutput.textContent = `${resonanceNumber.format(wheelResonanceTakePeak)}×`;
+              if (!loopMode.tailOutputs) stopWheelBeat();
+            });
+            if (loopMode.tailOutputs) {
+              const lastImpulse = downbeat + resonanceDelayMs / 1000;
+              for (const { second, output } of loopMode.tailOutputs) {
+                scheduleWheelAction((lastImpulse + second - wheelAudio.currentTime) * 1000, () => {
+                  output.textContent = `${resonanceNumber.format(readWheelResonancePeak())}×`;
+                });
+              }
+              scheduleWheelAction((lastImpulse + 3.5 - wheelAudio.currentTime) * 1000, stopWheelBeat);
+            }
+            return;
+          }
+          const next = (index + 1) % loopMode.gaps.length;
+          const nextReverseMs = next === 0 ? (loopMode.reverseMs ?? reverseLengthFor(0)) : 0;
+          playAccent(next, nextReverseMs, nextDownbeat);
+        } });
+      };
+      const firstReverseMs = loopMode.reverseMs ?? reverseLengthFor(0);
+      const eighthMs = ticksPerEighth * tickMs;
+      const leadMs = previewReturn ? Math.max(eighthMs, firstReverseMs + 40) : firstReverseMs + 40;
+      const firstDownbeat = wheelAudio.currentTime + leadMs / 1000;
+      if (previewReturn) {
+        scheduleWheelAction(leadMs - eighthMs, () => scheduleSevenBeatFills((previewReturn - 1) * ticksPerEighth, ticksPerEighth, tickMs));
+      }
+      if (paired) {
+        for (const step of comparisonSteps) {
+          scheduleWheelReturnVoices(wheelReturnAuditions, firstDownbeat + (step - allReturnEighths) * eighthMs / 1000);
+        }
+      }
+      playAccent(0, firstReverseMs, firstDownbeat);
+    }
+    for (const loopMode of wheelAuditionLoops) {
+      loopMode.button.addEventListener('click', () => {
+        if (loopMode.button === wheelBeatABCLoop && lokiHold) continueLokiBeat();
+        else toggleWheelLoop(loopMode);
+      });
+    }
+    lokiContinue?.addEventListener('click', () => {
+      if (!lokiHold) return;
+      if (lokiBeatStep === lokiPipe.RETURN) continueLokiBeat();
+      else compareLokiSteps(lokiPipe.RETURN + 1);
+    });
+    lokiBack?.addEventListener('click', () => compareLokiSteps(lokiPipe.RETURN));
+    lokiResume?.addEventListener('click', continueLokiBeat);
+    const sevenBeatLoop = wheelAuditionLoops.find(mode => mode.button === wheelBeatABCLoop);
+    $('wheelReturnCompareA').addEventListener('click', () => toggleWheelLoop(sevenBeatLoop, [allReturnEighths]));
+    $('wheelReturnCompareB').addEventListener('click', () => toggleWheelLoop(sevenBeatLoop, [allReturnEighths + 1]));
+    $('wheelReturnComparePair').addEventListener('click', () => toggleWheelLoop(sevenBeatLoop, [allReturnEighths, allReturnEighths + 1]));
+    for (const [id, beat] of [
+      ['wheelBeatReset', 0],
+      ['wheelBeatHalfPreview', sharedBeatReturn / 2 - 1],
+      ['wheelBeatPreview', sharedBeatReturn - 2],
+    ]) {
+      $(id).addEventListener('click', () => {
+        stopWheelBeat();
+        wheelBeat = beat;
+        showWheelBeat();
+      });
+    }
+    wheelBeatBass.addEventListener('change', () => {
+      if (wheelBeatBass.checked) enableWheelBass();
+      else if (!wheelAuditionLoop) wheelAudioGain?.gain.setValueAtTime(0, wheelAudio.currentTime);
+    });
+    wheelBeatPlay.addEventListener('click', () => {
+      if (wheelBeatTimer !== null) {
+        stopWheelBeat();
+        return;
+      }
+      stopWheelBeat();
+      if (wheelBeatBass.checked) {
+        const playback = wheelBeatPlayback;
+        enableWheelBass().then(() => {
+          if (playback === wheelBeatPlayback && wheelBeatTimer !== null && wheelBeat === 0) hitWheelBass();
+        });
+      }
+      wheelBeatPlay.textContent = 'Radtakt stoppen';
+      wheelBeatTimer = setInterval(() => {
+        if (!wheelBeatVisible()) {
+          stopWheelBeat();
+          return;
+        }
+        wheelBeat = wheelBeat % sharedBeatReturn + 1;
+        showWheelBeat();
+        hitWheelBass();
+      }, wheelBeatMs);
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopWheelBeat();
+    });
+    window.addEventListener('pagehide', stopWheelBeat);
+  }
+  function publish(ready=false){parent.postMessage({type:'worlds-play-state',kind:'numbers',ready,running:timer!==null,beatSync:wheelNumberSyncActive(),loop,orbit,rule,side,navigationView:parallelActive?'parallel':cathedralActive?'cathedral':view,status:parallelActive?(timer!==null?'Playing':'Paused')+' · PARALLEL · Vergleich '+comparison.tick+' / '+PM.LIMIT:(timer!==null?'Playing':'Paused')+' · '+rule+(rule==='sumlift'?' · '+(session().config.direction==='counter'?'Gegenlauf':'Gleichlauf'):'')+' · n '+session().cursor+' / '+M.limit(rule)},'*')}
+  const inspection=()=>({side,touch,aperture,jointModulus,...(view==='joint'?{jointQrt20View}:{}),...(view==='corridor'?{corridorModulus,corridorWitness,corridorValue:Number(frame().state.a??frame().state.re)}:{}),...(view==='qrt20'?{qrt20QuarterTurn,qrt20CouplingWindow,qrt20Terrace,qrt20TerraceStep:session().cursor,qrt20Tesa,qrt20TesaMode,qrt20TesaTrace,qrt20IotaGateStep,qrt20FoldIndex,qrt20CoreMotion,qrt20BetaExponent,qrt20VpaProfile,qrt20VpaTick,qrt20PascalSeamStep,qrt20TesaValue:String(frame().state.a??frame().state.re??0)}:{}),...(view==='ftr231'?{ftrValue:String(frame().state.a??frame().state.re??0),ftrTick:session().cursor}:{}),...(returnWitness?{returnWitness}:{}),...(view==='trinity'?{trinity:T.settings(trinity)}:{}),...(breathEnabled&&rule==='elevator'&&view==='elevator'?{conDao:{model_id:'NEXAH:CON_DAO_BREATH:V1',tick:session().cursor,clock:'ONE_DISPLAY_TICK_PER_NUMBER_STEP'}}:{})});
+  function pause(){motion=null;if(timer!==null)clearInterval(timer);timer=null;orbit=false;publish();requestDraw()}
+  function factorLabel(row){if(row.value==='97 ↔ 78')return'97 prime ↔ 2×3×13';const factors=row.factor_class?.factors||[];return row.factor_class?.classification==='PRIME'?'prime':factors.join('×')||row.factor_class?.classification||'—'}
+  function renderQrt20SeamLedger(seam,experiment,golden,grammar,visible){const panel=$('qrt20SeamLedger');if(!panel)return;panel.hidden=!visible;if(!visible)return;const [pathA,pathB]=experiment.paths,base10=experiment.controls.base10,open=experiment.controls.non_closing,step4=golden.states[4],step8=golden.states[8];panel.innerHTML='<header><div><span>LOCK 01–05 · ENGINEERING EXPERIMENT</span><h2>QRT20 Seam Observatory</h2></div><strong>Station '+(seam.step+1)+' / 4 · '+seam.current.role+'</strong></header><p class="qrt20-seam-definition">'+seam.view_operator.definition+'</p><div class="qrt20-ledger-scroll"><table><thead><tr><th>Station</th><th>Dezimal</th><th>QRT20</th><th>Faktor</th><th>Σdigits</th><th>Operator</th><th>Return</th><th>Klasse</th></tr></thead><tbody>'+seam.ledger.map(row=>'<tr class="'+(row.index===seam.step?'is-current ':'')+(row.index===4?'is-comparator':'')+'"><td>'+row.role+'</td><td>'+row.value+'</td><td>'+row.qrt20.address+'</td><td>'+factorLabel(row)+'</td><td>'+row.digit_sum+'</td><td>'+row.operator+'</td><td>'+row.return_status+'</td><td>'+row.classification+'</td></tr>').join('')+'</tbody></table></div><section class="qrt20-path-experiment"><div><span>'+experiment.experiment_id+' · A/B PATH TEST</span><h3>Gleicher Return. Andere Orientierung.</h3><p>Pfad A '+pathA.values.join(' → ')+' und Pfad B '+pathB.values.join(' → ')+' benutzen dieselben Stationen. Beide schließen als Integer und QRT20-Adresse exakt.</p></div><div class="qrt20-path-cards"><article><b>A · '+pathA.display_orientation+'</b><code>'+pathA.path_signature+'</code><em>Fläche '+pathA.signed_display_area+'</em></article><article><b>B · '+pathB.display_orientation+'</b><code>'+pathB.path_signature+'</code><em>Fläche +'+pathB.signed_display_area+'</em></article><article><b>Kontrollen</b><code>Base 10 |A| '+base10[0].absolute_display_area+'</code><em>Open end '+open.values.at(-1)+' · Return '+(open.integer_return?'PASS':'REJECT')+'</em></article></div><p class="qrt20-path-result">RESULT · gleicher Flächenbetrag, umgekehrtes Vorzeichen; Basiswechsel ändert die Metrik; offener Kontrollpfad verwirft Return.</p></section><section class="qrt20-path-experiment"><div><span>11537 · r17 · SHARED STATE</span><h3>Cap / Bottom über zwei D4-Pässe.</h3><p>QRT20 → IOTA → NLK/Grid → Package lesen denselben Zustandsdatensatz. Sie bleiben getrennte Ansichten.</p></div><div class="qrt20-path-cards"><article><b>Quelle · '+golden.source_projection.address+'</b><code>11537 + 20k</code><em>r17 bleibt exakt</em></article><article><b>Pass 1 · '+step4.cap_bottom_side+'</b><code>'+step4.carrier+' · d4-'+step4.d4_phase+'</code><em>Phase return · Orientierung flip</em></article><article><b>Pass 2 · '+step8.cap_bottom_side+'</b><code>'+step8.carrier+' · d4-'+step8.d4_phase+'</code><em>Full view return · Integer offen</em></article></div><p class="qrt20-path-result">GOLDEN PATH · '+golden.golden_path.map(stage=>stage.stage).join(' → ')+'</p></section><section class="qrt20-path-experiment"><div><span>EXP-GOW2-CARRIER-1031-01 · CARRIER GRAMMAR</span><h3>1031 · ein Integer, fünf kontrollierte Lesarten.</h3><p>Decimal, Binary, Primindex, QRT20 und QRT60 decodieren denselben Träger. 17.3 bleibt ein markierter View-Cut.</p></div><div class="qrt20-path-cards"><article><b>Carrier · 1031</b><code>'+grammar.readings.binary+'</code><em>'+grammar.readings.prime.label+' · '+grammar.readings.prime.previous+' | 1031 | '+grammar.readings.prime.next+'</em></article><article><b>QRT20 · '+grammar.readings.qrt20.address+'</b><code>20×51+11 = '+grammar.readings.qrt20.decoded+'</code><em>exact decode</em></article><article><b>QRT60 · '+grammar.readings.qrt60.address+'</b><code>60×17+11 = '+grammar.readings.qrt60.decoded+'</code><em>index '+grammar.readings.prime_index_qrt20.address+' · 17.3 VIEW</em></article></div><p class="qrt20-path-result">CARRIER PATH · '+grammar.golden_path.join(' → ')+'</p></section><p class="qrt20-seam-boundary">20 → 34 → 41 → 20 · Δ +14 / +7 / −21 · closure 0. 11537 bleibt auf der r17-Schiene; Step 4 schließt die D4-Phase und kippt Cap zu Bottom, Step 8 schließt nur den View-State. Der Integer läuft weiter. Keine neue Identität, Zahlenrelation oder Publikationsfreigabe.</p>'}
+  function syncQrt20Controls(){const controls=$('numberQrt20Controls'),visible=!parallelActive&&!cathedralActive&&view==='qrt20';if(!controls)return;controls.hidden=!visible;if(!visible){renderQrt20SeamLedger(null,null,null,null,false);return}const value=frame().state.a??frame().state.re??0,projection=M.qrt20Projection(value),tesa=M.tesaIotaGate(value,qrt20TesaMode,qrt20IotaGateStep,qrt20FoldIndex),core=M.qrt20CoreMotionComparator(value,qrt20IotaGateStep),beta=M.lbBetaSplitComparator(qrt20BetaExponent),vpa=M.vPaPyramidCoupling(qrt20VpaProfile,qrt20VpaTick),pascalSeam=M.pascalQrt20Seam(qrt20PascalSeamStep),pathExperiment=M.seamPathExperiment(),golden=M.qrt20D4GoldenPath(11537),grammar=M.carrier1031Grammar();$('qrt20QuarterTurn').setAttribute('aria-pressed',String(qrt20QuarterTurn));$('qrt20CouplingWindow').setAttribute('aria-pressed',String(qrt20CouplingWindow));$('qrt20Terrace').setAttribute('aria-pressed',String(qrt20Terrace));$('qrt20Tesa').setAttribute('aria-pressed',String(qrt20Tesa));$('qrt20TesaMode').textContent='Mode · '+qrt20TesaMode.replace('x','×');$('qrt20TesaTrace').setAttribute('aria-pressed',String(qrt20TesaTrace));$('qrt20IotaGate').textContent='IOTA Gate · '+qrt20IotaGateStep+'/4 · '+tesa.gate.state;$('qrt20FoldBank').textContent='Winkelbank · '+tesa.fold_bank.label;$('qrt20CoreMotion').setAttribute('aria-pressed',String(qrt20CoreMotion));$('qrt20CoreMotion').textContent='Core Motion Test · '+(qrt20CoreMotion?'ON':'OFF');$('qrt20BetaStep').textContent='LB ↔ ßl · k '+(qrt20BetaExponent<0?'−'+Math.abs(qrt20BetaExponent):'+'+qrt20BetaExponent);$('qrt20VpaProfile').textContent='V/PA · '+vpa.label;$('qrt20VpaStep').textContent='V/PA STEP · '+qrt20VpaTick+'/'+vpa.period+' · '+vpa.v_gate.state;$('qrt20PascalSeam').textContent='Seam Demo · Next · '+pascalSeam.current.value+' · '+(qrt20PascalSeamStep+1)+'/4';$('qrt20Status').textContent=projection.address+' · A'+tesa.address_label+' · '+tesa.selected.zone+' · 4774 '+tesa.seam_4774.directed_halves.join('|')+' · GATE '+tesa.gate.state+' · '+tesa.fold_bank.label+(qrt20CoreMotion?' · CORE '+core.master_degrees+'°/'+core.counter_degrees+'°':'')+' · ß '+beta.current.value+'↔'+beta.mirror.value+' · V/PA '+vpa.phase+'/'+vpa.period+' '+vpa.shadow_triangle_3plus2.contact+' · SEAM '+pascalSeam.current.value+' '+pascalSeam.current.qrt20.address+' · RETURN '+pascalSeam.current.return_status+' · A/B '+(pathExperiment.result.opposite_orientation?'ORIENTATION FLIP':'HOLD')+' · r17 D4 '+(golden.result.step8_full_view_return?'BOUND':'OPEN');renderQrt20SeamLedger(pascalSeam,pathExperiment,golden,grammar,true)}
+  function renderJointQrt20Audit(){const panel=$('jointQrt20Audit'),visible=Boolean(panel)&&!parallelActive&&!cathedralActive&&view==='joint';if(!panel)return;panel.hidden=!visible;if(!visible)return;const current=frame(),active=rule==='sumlift',left=active?current.state.left:1836,right=active?current.state.right:1729,direction=active?(session().config.direction||'co'):'co',audit=M.jointQrt20CodecAudit(left,right,direction),address=audit.qrt20.addresses;for(const [id,pick]of [['jointQrt20Junction','junction'],['jointQrt20AB','ab'],['jointQrt20SD','sd'],['jointQrt20Codec','qrt20']])$(id).setAttribute('aria-pressed',String(jointQrt20View===pick));if(jointQrt20View==='junction'){$('jointQrt20Left').textContent='ANGLE 90°';$('jointQrt20Operator').textContent='+';$('jointQrt20Right').textContent='VALUE 50';$('jointQrt20Equation').textContent='ARRIVAL 140 · 10×14 · 10×(7+7)';$('jointQrt20Path').textContent='TWO TYPED LANES · SAME DECLARED ARRIVAL · QRT20: 5 SECTORS=90° / 10 SECTORS=180° · 206²−204²=41×20'}else if(jointQrt20View==='ab'){$('jointQrt20Left').textContent='A '+audit.source.A;$('jointQrt20Operator').textContent=direction==='counter'?'↕':'+';$('jointQrt20Right').textContent='B '+audit.source.B;$('jointQrt20Equation').textContent='Σ='+audit.source.sum+' · Δ='+audit.source.delta+' · '+(direction==='counter'?'Σ FIXED / Δ +22':'Δ FIXED / Σ +22')}else if(jointQrt20View==='sd'){$('jointQrt20Left').textContent='Σ '+audit.source.sum;$('jointQrt20Operator').textContent='↔';$('jointQrt20Right').textContent='Δ '+audit.source.delta;$('jointQrt20Equation').textContent='A=(Σ+Δ)/2='+audit.whole_difference.recovered_A+' · B=(Σ−Δ)/2='+audit.whole_difference.recovered_B+' · PARITY '+(audit.whole_difference.same_parity?'PASS':'HOLD')}else{$('jointQrt20Left').textContent='Σ '+address.sum.address;$('jointQrt20Operator').textContent='↔';$('jointQrt20Right').textContent='Δ '+address.delta.address;$('jointQrt20Equation').textContent='N=20q+r · +22=+20+2 · q REQUIRED · r-RETURN '+audit.qrt20.moving_residue_return_period+' TICKS'}if(jointQrt20View!=='junction')$('jointQrt20Path').textContent=(direction==='counter'?'Δ':'Σ')+' RESIDUE PATH · '+audit.qrt20.moving_residue_path.map(r=>'r'+r).join(' → ')+' · COMPONENT RETURN '+audit.qrt20.component_residue_return_period+' · INTEGER RETURN NONE';$('jointQrt20Technical').textContent=jointQrt20View==='junction'?'PASS · TYPED 90+50 JUNCTION':(audit.result.technical_codec_bridge.startsWith('PASS')?'PASS':'HOLD')+' · EXACT LOCAL CODEC BRIDGE';$('jointQrt20Historical').textContent='HOLD · HISTORICAL VENDISSIMAL OPERATOR OPEN'}
+  function readout(){if($('numberReturnControls')){$('numberReturnControls').hidden=parallelActive||cathedralActive||!['sevenword','sumlift'].includes(rule);$('numberReturnStatus').textContent=returnStatus;}if($('numberTrinity'))$('numberTrinity').hidden=parallelActive||cathedralActive||view!=='trinity';const corridorControls=$('numberCorridorControls');if(corridorControls){const corridorVisible=!parallelActive&&!cathedralActive&&view==='corridor';corridorControls.hidden=!corridorVisible;if(corridorVisible){$('corridorModulus').value=String(corridorModulus);$('corridorWitness').value=corridorWitness===null?'none':String(corridorWitness);const projection=M.doubleProjection(Number(frame().state.a),corridorModulus,corridorWitness);$('corridorStatus').textContent='×2 · r '+projection.residue+' → '+projection.doubled+' · RETURN '+projection.return_status+(projection.predecessors.length>1?' · PRE '+projection.predecessors.join(' / '):' · INV ×5');}}const breathButton=$('numberBreathToggle');if(breathButton){breathButton.hidden=parallelActive||cathedralActive||rule!=='elevator'||view!=='elevator';breathButton.setAttribute('aria-pressed',String(breathEnabled));breathButton.textContent=breathEnabled?'CON–DAO · Atem an':'CON–DAO · Atem zuschalten';}document.body.dataset.parallel=String(parallelActive);if(parallelActive){document.body.dataset.cathedral='false';parallelPanel?.render(comparison);$('numberExact').textContent=JSON.stringify({kind:'PARALLEL_COMPARISON_COPIES',tick:comparison.tick,grouping:'presentation only; not canonical F1-F7',rules:Object.fromEntries(PM.LANES.map(r=>[r,{cursor:comparison.sessions[r].cursor,state:comparison.sessions[r].frames[comparison.sessions[r].cursor].state}]))},null,2);$('numberScrub').max=String(PM.extent(comparison));$('numberScrub').value=String(comparison.tick);$('numberReceipt').textContent='';publish();requestDraw();return;}document.body.dataset.cathedral=String(cathedralActive);if(cathedralActive&&typeof window.dispatchEvent==='function')window.dispatchEvent(new CustomEvent('numbers:cathedral-state',{detail:JSON.parse(JSON.stringify(session()))}));document.body.dataset.numberView=view;const s=session(),f=frame(),foldPhase=rule==='mixer'?f.state.phase:360*s.cursor/M.limit(rule),fold=M.mixerFold(Math.max(0,Math.min(360,foldPhase))),foldStatus=$('numberFoldStatus');if(view==='joint'){$('jointModulus').value=String(jointModulus);$('jointDirection').value=rule==='sumlift'?(s.config.direction||'co'):'co';$('jointDirection').disabled=rule!=='sumlift';$('jointActivate').hidden=rule==='sumlift';}$('numberJointControls').hidden=view!=='joint';if(rule==='wheels'){$('wheelRatio').value=s.config.ratio;$('wheelDirection').value=s.config.direction;}$('numberRule').textContent=M.labels[rule].toUpperCase()+(rule==='sumlift'?' · '+(s.config.direction==='counter'?'GEGENLAUF':'GLEICHLAUF'):'');$('numberValue').textContent=rule==='mixer'?f.state.phase+'° · Faltung '+f.state.foldAngle+'°':rule==='pq'?(f.state.clip_ms/1000)+' s · P / Q':M.value(f,rule);$('numberStep').textContent='n '+f.generation+' · '+view.toUpperCase()+' · '+aperture.toUpperCase()+' · '+side.toUpperCase();if(foldStatus){foldStatus.hidden=!['mixer','rgb','trinity'].includes(view);foldStatus.textContent='AXIS '+fold.axis+' · FOLD '+fold.angle+'° · CROWN '+String(fold.crownTick).padStart(2,'0')+'/19'+(fold.foldReturn?' · VIEW RETURN':'');}$('numberExact').textContent=JSON.stringify({state:f.state,config:s.config,identity:f.identity,display:M.contract(rule,view,inspection(),session().config),side,touch,aperture,contact_binding:'OPEN: Vendissimal X / signal / sign / signet not reconstructed'},null,2);$('numberScrub').max=String(s.frames.length-1);$('numberScrub').value=String(s.cursor);$('numberReceipt').textContent='';dirty=true;requestDraw();publish()}
+  function advance(){if(parallelActive){if(comparison.tick>=PM.LIMIT){if(loop)comparison=PM.reset(comparison);else pause();}else comparison=PM.step(comparison);readout();return;}returnWitness=null;returnStatus='Vorlauf · Rückweg erneut prüfen';touch=null;$('numberTouchStatus').textContent='';const s=session();if(s.cursor>=M.limit(rule)){if(loop)sessions[rule]=M.at(s,0);else pause();}else {sessions[rule]=M.step(s);if(rule==='elevator'&&view==='elevator'&&timer!==null&&!reduced)motion={from:Number(s.frames[s.cursor].state.lift),to:Number(frame().state.lift),start:null,blend:0};}readout()}
+  function play(){if(timer!==null){pause();return}if(document.hidden)return;timer=setInterval(advance,parallelActive?delay:['mixer','wheels'].includes(rule)?Math.max(20,Math.round(delay/17.5)):rule==='returnbridge'?Math.max(60,Math.round(delay/3.5)):rule==='pq'?Math.round(delay*5/7):delay);publish()}
+  function command(action,value){
+    if(action==='wheel-meter' && value==='7/8'){
+      wheelBeatABCMeter.value=value;
+      showWheelABCPattern();
+      return;
+    }
+    if(action==='qrt20-quarter'){qrt20QuarterTurn=Boolean(value);readout();return;}
+    if(action==='qrt20-coupling'){qrt20CouplingWindow=Boolean(value);readout();return;}
+    if(action==='qrt20-terrace'){qrt20Terrace=Boolean(value);readout();return;}
+    if(action==='qrt20-tesa'){qrt20Tesa=Boolean(value);readout();return;}
+    if(action==='qrt20-tesa-mode'){if(!M.TESA_WINDOW_MODES.includes(value))return;qrt20TesaMode=value;readout();return;}
+    if(action==='qrt20-tesa-trace'){qrt20TesaTrace=Boolean(value);readout();return;}
+    if(action==='qrt20-iota-gate'){qrt20IotaGateStep=qrt20IotaGateStep===4?1:qrt20IotaGateStep+1;readout();return;}
+    if(action==='qrt20-fold-bank'){qrt20FoldIndex=(qrt20FoldIndex+1)%M.TESA_IOTA_ANGLE_BANK.length;readout();return;}
+    if(action==='qrt20-core-motion'){qrt20CoreMotion=Boolean(value);readout();return;}
+    if(action==='qrt20-beta-step'){qrt20BetaExponent=qrt20BetaExponent===6?-6:qrt20BetaExponent+1;readout();return;}
+    if(action==='qrt20-vpa-profile'){const profiles=Object.keys(M.V_PA_PYRAMID_PROFILES),index=profiles.indexOf(qrt20VpaProfile);qrt20VpaProfile=profiles[(index+1)%profiles.length];qrt20VpaTick=0;readout();return;}
+    if(action==='qrt20-vpa-step'){const period=M.vPaPyramidCoupling(qrt20VpaProfile,qrt20VpaTick).period;qrt20VpaTick=qrt20VpaTick>=period?0:qrt20VpaTick+1;readout();return;}
+    if(action==='qrt20-pascal-seam'){qrt20PascalSeamStep=(qrt20PascalSeamStep+1)%4;readout();return;}
+    if(action==='joint-qrt20-view'&&['junction','ab','sd','qrt20'].includes(value)){jointQrt20View=value;readout();return;}
+    if(action==='breath'&&rule==='elevator'&&view==='elevator'){breathEnabled=Boolean(value);readout();return;}
+    if(action==='trinity-settings'&&T){try{trinity=T.settings(value)}catch{return;}readout();return;}
+    if(action==='hello'){publish(true);return}
+    if (wheelNumberSyncActive() && ['play', 'step', 'reset'].includes(action)) return;
+    if(action==='play')play();
+    if(action==='pause')pause();
+    if(['capture-return','inverse-step','source-return'].includes(action)&&!parallelActive&&['sevenword','sumlift'].includes(rule)){pause();touch=null;returnWitness=null;const s=session(),key=JSON.stringify(s.config);if(action==='capture-return'){returnAnchors.set(key,{cursor:s.cursor,frame:JSON.parse(JSON.stringify(s.frames[s.cursor]))});returnStatus='SOURCE ERFASST · n '+s.cursor+' · '+s.frames[s.cursor].fingerprint;}else{const anchor=returnAnchors.get(key);const target=action==='inverse-step'?s.cursor-1:anchor?.cursor;if(action==='inverse-step'&&s.cursor===0)returnStatus='HOLD · Seed erreicht; kein Vorgänger im deklarierten Lauf';else if(action==='source-return'&&!anchor)returnStatus='HOLD · zuerst Source-Anker erfassen';else if(action==='source-return'&&JSON.stringify(anchor.frame)!==JSON.stringify(s.frames[target]))returnStatus='REJECT · Source-Anker stimmt nicht mehr';else{const result=M.returnTo(s,target);returnStatus=JSON.stringify(result,null,2);if(result.status==='EXACT'){returnWitness=result;sessions[rule]=M.at(s,target);}}}readout();return;}
+    if(action==='step'){pause();advance()}
+    if(action==='wheel-config'&&rule==='wheels'&&value&&['3:2','2:3'].includes(value.ratio)&&['counter','co'].includes(value.direction)){pause();touch=null;$('numberTouchStatus').textContent='';const c=session().config;wheelSessions.set(c.ratio+'|'+c.direction,session());const key=value.ratio+'|'+value.direction;sessions.wheels=wheelSessions.get(key)||M.start('wheels',value);readout()}
+    if(action==='joint-direction'&&rule==='sumlift'&&['co','counter'].includes(value)){pause();returnWitness=null;returnStatus='Kopplung gewechselt · Gegenlauf ist nicht inverser Vorlauf';touch=null;$('numberTouchStatus').textContent='';jointSessions.set(session().config.direction||'co',session());sessions.sumlift=jointSessions.get(value)||M.start('sumlift',{direction:value});readout()}
+    if(action==='joint-modulus'&&[11,12,13,36].includes(value)){jointModulus=value;readout()}
+    if(action==='corridor-modulus'&&[9,100].includes(value)){corridorModulus=value;corridorWitness=null;readout()}
+    if(action==='corridor-witness'&&[null,0,1].includes(value)){corridorWitness=value;readout()}
+    if(action==='aperture'&&['all','A','B'].includes(value)){aperture=value;readout()}
+    if(parallelActive&&['flip','touch','orbit'].includes(action))return;
+    if(action==='flip'){side=side==='front'?'back':'front';readout()}
+    if(action==='touch'){pause();touch=M.contact(frame());$('numberTouchStatus').textContent='X · CODEC '+touch.status+' · VENDISSIMAL / TOUCH BINDING OPEN';readout()}
+    if(action==='reset'&&parallelActive){pause();comparison=PM.reset(comparison);readout();return;}
+    if(action==='reset'){returnWitness=null;returnStatus='Cursor zurückgesetzt · kein inverser Operator';touch=null;$('numberTouchStatus').textContent='';pause();sessions[rule]=M.at(session(),0);readout()}
+    if(action==='loop'){loop=Boolean(value);publish()}
+    if(action==='speed'&&['slow','normal','fast'].includes(value)){const running=timer!==null;if(running)clearInterval(timer);timer=null;delay={slow:1200,normal:700,fast:350}[value];if(running)play();}
+    if(action==='rule'&&M.RULES.includes(value)){pause();returnWitness=null;returnStatus='Source-Anker je Profil separat erfassen';parallelActive=false;touch=null;$('numberTouchStatus').textContent='';rule=value;readout()}
+    if(action==='view'&&value==='parallel'&&PM){pause();comparison??=PM.start();parallelActive=true;cathedralActive=false;readout();return;}
+    if(action==='parallel-detail'&&[...M.RULES,'sumliftCounter'].includes(value)){pause();returnWitness=null;parallelActive=false;cathedralActive=false;rule=value==='sumliftCounter'?'sumlift':value;view=({euler:'rings',fibonacci:'spiral',sevenword:'rails',zero:'rails',repunit:'rails',dyadic:'rails',corridor:'corridor',returnbridge:'returnbridge',carrier:'grid',elevator:'elevator',sumlift:'joint',mixer:'mixer',pq:'pq',groups:'groups',wheels:'wheels'})[rule];if(value==='sumliftCounter'||value==='sumlift')command('joint-direction',value==='sumliftCounter'?'counter':'co');readout();return;}
+    if(action==='view'&&value==='cathedral'){if(parallelActive)pause();parallelActive=false;cathedralActive=true;orbit=false;readout();return;}
+    if(action==='view'&&M.VIEWS.includes(value)){motion=null;if(parallelActive)pause();parallelActive=false;cathedralActive=false;view=value;if(['rails','qrt20','ftr231','corridor','returnbridge','synoptic','elevator','joint','shadowclock','mixer','rgb','trinity','pq','groups','wheels'].includes(view))orbit=false;if(view==='groups'){camera.pitch=1.05}else if(view==='tower'){camera.pitch=.2}else camera.pitch=1.05;readout()}
+    if(action==='hood'){$('numberHood').hidden=!value;document.body.dataset.hood=String(Boolean(value));dirty=true;requestDraw()}
+    if(action==='orbit'){orbit=!['rails','qrt20','corridor','returnbridge','synoptic','elevator','joint','shadowclock','trinity'].includes(view)&&Boolean(value);publish();requestDraw()}
+  }
+  window.addEventListener('message',e=>{if(e.source===parent&&e.data?.type==='worlds-play-command')command(e.data.action,e.data.value)});
+  function line(points,color,width=1,alpha=1){if(!points.length)return;ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.strokeStyle=color;ctx.lineWidth=width;ctx.globalAlpha=alpha;ctx.stroke();ctx.globalAlpha=1}
+  function drawRails(w,h){
+    const f=frame(),channels=M.contact(f).channels,primary=channels.find(c=>c.key===(rule==='euler'?'re':'a')),accent=rule==='dyadic'?'#ed72aa':'#54d7ef';
+    const word=rule==='euler'?String(f.state.re)+' | '+String(f.state.im):f.state.a,bits=rule==='euler'?channels.filter(c=>['re','im'].includes(c.key)).map(c=>c.binary).join(' | '):primary.binary;
+    function row(text,y,label,color){const gap=Math.min(35,w*.82/Math.max(1,text.length)),start=w/2-(text.length-1)*gap/2;ctx.fillStyle='#9fb6c5';ctx.font='10px ui-monospace,monospace';ctx.fillText(label,18,y-28);line([{x:w*.07,y:y+15},{x:w*.93,y:y+15}],color,1,.45);
+      for(let i=0;i<text.length;i++){const index=side==='back'?text.length-1-i:i,x=start+index*gap;ctx.fillStyle=text[i]==='0'?'#315365':color;ctx.shadowColor=color;ctx.shadowBlur=text[i]==='0'?0:12;ctx.font=Math.max(7,Math.min(21,gap*.76))+'px ui-monospace,monospace';ctx.textAlign='center';ctx.fillText(text[i],x,y+5);}ctx.shadowBlur=0;ctx.textAlign='left';}
+    row(word,h*.34,'DECIMAL · '+(rule==='euler'?'RE | IM':'EXACT WORD'),accent);row(bits,h*.68,'BINARY · EXACT INTEGER ENCODING','#ffca55');
+    const cx=w/2,cy=h*.5;line([{x:w*.22,y:h*.38},{x:w*.78,y:h*.62}],accent,1.5,.6);line([{x:w*.78,y:h*.38},{x:w*.22,y:h*.62}],'#ed72aa',1.5,.6);
+    ctx.fillStyle='#081b29';ctx.beginPath();ctx.arc(cx,cy,29,0,Math.PI*2);ctx.fill();ctx.strokeStyle=touch?'#ffca55':accent;ctx.stroke();ctx.fillStyle=touch?'#ffca55':accent;ctx.font='22px ui-monospace,monospace';ctx.textAlign='center';ctx.fillText('X',cx,cy+7);ctx.font='9px ui-monospace,monospace';ctx.fillText('TOUCH · CODEC TEST',cx,cy+46);ctx.fillText('VENDISSIMAL BINDING: OPEN',cx,cy+61);ctx.textAlign='left';
+    ctx.fillStyle='#c1d7e2';ctx.font='11px ui-monospace,monospace';ctx.fillText('QRT20 · q '+primary.q+' / r '+primary.r,18,h*.84);
+    if(rule==='dyadic')ctx.fillText('A '+f.state.left+' · B '+f.state.a+' · Δ '+f.state.delta,18,h*.9);
+    if(rule==='repunit')ctx.fillText(f.state.repunit+'² = '+f.state.a,18,h*.9);
+    if(rule==='carrier')ctx.fillText('SOURCE ROUTE · '+f.operation,18,h*.9);
+    ctx.fillStyle='#8daeba';ctx.font='10px ui-monospace,monospace';ctx.fillText('n '+f.generation+' · '+side.toUpperCase()+' · SIDE FLIP ONLY, NOT NEXT GENERATION',18,h-16);
+  }
+  function drawElevator(w,h){
+    const f=frame(),family=M.elevatorFamily(f),active=family.find(c=>c.seed==='11537')||family[0],min=523,max=736,top=breathEnabled&&w<600?230:145,bottom=h-105;
+    const plotLeft=Math.max(74,w*.09),plotRight=w-Math.max(38,w*.045),lane=(plotRight-plotLeft)/20;
+    const displayR=r=>side==='back'?19-Number(r):Number(r),x=r=>plotLeft+lane*(Number(r)+.5),y=q=>bottom-(Number(q)-min)/(max-min)*(bottom-top);
+    const visualLift=motion?motion.from+(motion.to-motion.from)*motion.blend:Number(f.state.lift||0),offsetQ=(Number(f.state.lift||0)-visualLift)/20;
+    const axisX=plotLeft-31,activeX=x(displayR(active.r)),activeY=y(Number(active.q)-offsetQ),seedQ=Number((BigInt(active.seed)-BigInt(active.r))/20n),seedY=y(seedQ);
+    ctx.textAlign='center';ctx.font='10px ui-monospace,monospace';
+    for(let rawR=0;rawR<20;rawR++){const shown=displayR(rawR),px=x(shown),chosen=rawR===Number(active.r);ctx.fillStyle=chosen?'#123b4c':'#0a1b29';ctx.fillRect(px-lane*.46,top,lane*.92,bottom-top);if(chosen){ctx.strokeStyle='#ffca55';ctx.lineWidth=1.4;ctx.shadowColor='#ffca55';ctx.shadowBlur=12;ctx.strokeRect(px-lane*.46,top,lane*.92,bottom-top);ctx.shadowBlur=0}ctx.fillStyle=chosen?'#ffca55':'#91b0bf';ctx.fillText(String(rawR),px,top-14)}
+    ctx.strokeStyle='#91b0bf';ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(axisX,bottom+3);ctx.lineTo(axisX,top-8);ctx.stroke();ctx.beginPath();ctx.moveTo(axisX,top-8);ctx.lineTo(axisX-5,top+2);ctx.moveTo(axisX,top-8);ctx.lineTo(axisX+5,top+2);ctx.moveTo(axisX,bottom+3);ctx.lineTo(axisX-5,bottom-7);ctx.moveTo(axisX,bottom+3);ctx.lineTo(axisX+5,bottom-7);ctx.stroke();
+    for(const q of [min,Math.round((min+max)/2),max]){const py=y(q);ctx.strokeStyle='#577382';ctx.beginPath();ctx.moveTo(axisX-4,py);ctx.lineTo(axisX+4,py);ctx.stroke();ctx.fillStyle='#91b0bf';ctx.textAlign='right';ctx.fillText(String(q),axisX-7,py+3)}
+    ctx.save();ctx.translate(17,(top+bottom)/2);ctx.rotate(-Math.PI/2);ctx.textAlign='center';ctx.fillStyle='#d5e7ec';ctx.font='11px ui-monospace,monospace';ctx.fillText('q · HEIGHT / HÖHE',0,0);ctx.restore();ctx.textAlign='left';ctx.fillStyle='#65e7a4';ctx.font='9px ui-monospace,monospace';ctx.fillText('UP +20',axisX+7,top+7);ctx.fillStyle='#ed72aa';ctx.fillText('DOWN −20',axisX+7,bottom-6);
+    ctx.setLineDash([4,4]);line([{x:activeX,y:seedY},{x:activeX,y:activeY}],'#ffca55',2,.8);ctx.setLineDash([]);ctx.fillStyle='#ffca55';ctx.textAlign='center';ctx.font='9px ui-monospace,monospace';ctx.fillText('SHAFT r='+active.r+' · CONSTANT',activeX,top+17);
+    for(const c of family){const px=x(displayR(c.r)),py=y(Number(c.q)-offsetQ),chosen=c.seed===active.seed;if(!chosen){ctx.strokeStyle='#54d7ef';ctx.fillStyle='#091b2a';ctx.shadowColor='#54d7ef';ctx.shadowBlur=6;ctx.beginPath();ctx.arc(px,py,5,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.shadowBlur=0;ctx.fillStyle='#bbe7ed';ctx.font='9px ui-monospace,monospace';ctx.fillText(c.decimal,px+(Number(c.q)%2?-31:31),py-7);continue}const pw=Math.max(8,Math.min(15,lane*.72)),ph=pw*.72;ctx.shadowColor='#ffca55';ctx.shadowBlur=22;ctx.fillStyle='#ffca55';ctx.beginPath();ctx.moveTo(px,py-ph);ctx.lineTo(px+pw,py);ctx.lineTo(px,py+ph);ctx.lineTo(px-pw,py);ctx.closePath();ctx.fill();ctx.shadowBlur=0;ctx.fillStyle='#fff5b0';ctx.beginPath();ctx.moveTo(px,py-ph);ctx.lineTo(px+pw,py);ctx.lineTo(px,py);ctx.lineTo(px-pw,py);ctx.closePath();ctx.fill();ctx.strokeStyle='#ed72aa';ctx.lineWidth=1.4;ctx.stroke();ctx.fillStyle='#ffca55';ctx.font='10px ui-monospace,monospace';ctx.fillText('PRISM / CABIN · n '+c.decimal+' · q '+c.q,Math.min(w-125,Math.max(125,px)),py-18)}
+    const insetR=Math.max(27,Math.min(42,w*.055)),insetX=w-insetR-28,insetY=70;ctx.strokeStyle='#577382';ctx.lineWidth=1;ctx.beginPath();ctx.arc(insetX,insetY,insetR,0,Math.PI*2);ctx.stroke();for(let rawR=0;rawR<20;rawR++){const a=-Math.PI/2+2*Math.PI*displayR(rawR)/20,chosen=rawR===Number(active.r),px=insetX+insetR*Math.cos(a),py=insetY+insetR*Math.sin(a);ctx.fillStyle=chosen?'#ffca55':'#42687a';ctx.shadowColor=ctx.fillStyle;ctx.shadowBlur=chosen?12:0;ctx.beginPath();ctx.arc(px,py,chosen?4:2,0,Math.PI*2);ctx.fill()}ctx.shadowBlur=0;ctx.fillStyle='#d5e7ec';ctx.font='9px ui-monospace,monospace';ctx.fillText('TOP VIEW · 20 SHAFTS',insetX,insetY-3);ctx.fillStyle='#8299a5';ctx.font='8px ui-monospace,monospace';ctx.fillText('r FIXED · NOT A CLOCK',insetX,insetY+12);
+    if(breathEnabled&&window.A0ConDaoPhase&&window.NEXAH_BREATH_MODEL){const b=window.A0ConDaoPhase.reading(window.NEXAH_BREATH_MODEL,f.generation,motion?.blend??1),bx=w<600?60:300,by=w<600?175:72,rad=13+13*b.displayPhase;ctx.strokeStyle='#ed72aa';ctx.lineWidth=2;ctx.beginPath();ctx.arc(bx,by,rad,0,Math.PI*2);ctx.stroke();line([{x:bx-rad,y:by+29},{x:bx+rad,y:by+29}],'#ed72aa',3,.55);ctx.fillStyle='#f3b2d2';ctx.font='9px ui-monospace,monospace';ctx.textAlign='left';ctx.fillText(b.stateId+' ↔ '+b.janusPartner,bx+32,by-5);ctx.fillText('CON–DAO '+(b.slot+1)+'/14 · STILL ×2',bx+32,by+9);ctx.fillText('PINK: VIEW SHADOW · BETA / AM–VM–PM OPEN',18,h-87);}
+    ctx.textAlign='left';ctx.fillStyle='#9fb6c5';ctx.font='10px ui-monospace,monospace';ctx.fillText('QRT20 · '+(rule==='elevator'?'+20 / STEP · q +1 · SAME RESIDUE':'FAMILY REFERENCE · SELECT ELEVATOR RULE TO MOVE'),18,h-66);ctx.fillText('n = 20q + r · SHAFT = r · HEIGHT = q · '+(side==='back'?'MIRRORED TOP VIEW':'r 0 … 19'),18,h-47);ctx.fillText('PRISM = ACTIVE CARRIER · TOP VIEW = CROSS-SECTION · ψ = VIEW LABEL ONLY',18,h-28);ctx.fillText('MOTION = DISPLAY TWEEN · EXACT INTEGERS RETAINED · NO AM/VM/PM MAPPING',18,h-10);
+  }
+  function drawCoreMotionOverlay(core,gc,scale){
+    ctx.save();ctx.translate(gc.x,gc.y);ctx.rotate(core.counter_degrees*Math.PI/180);ctx.strokeStyle='#54d7ef';ctx.lineWidth=1;ctx.globalAlpha=.34;for(let i=-4;i<=4;i++){ctx.beginPath();ctx.moveTo(-4*scale,i*scale);ctx.lineTo(4*scale,i*scale);ctx.stroke();ctx.beginPath();ctx.moveTo(i*scale,-4*scale);ctx.lineTo(i*scale,4*scale);ctx.stroke()}ctx.globalAlpha=1;ctx.restore();
+    ctx.save();ctx.translate(gc.x,gc.y);ctx.rotate(core.master_degrees*Math.PI/180);ctx.strokeStyle='#ed72aa';ctx.lineWidth=2;ctx.shadowColor='#ed72aa';ctx.shadowBlur=8;ctx.beginPath();core.open_trace.forEach((p,index)=>{const x=p.x*scale*2.7,y=p.y*scale*2.7;if(index)ctx.lineTo(x,y);else ctx.moveTo(x,y)});ctx.stroke();ctx.shadowBlur=0;for(const p of [core.open_trace[0],core.open_trace[core.open_trace.length-1]]){ctx.fillStyle='#ffca55';ctx.beginPath();ctx.arc(p.x*scale*2.7,p.y*scale*2.7,3,0,Math.PI*2);ctx.fill()}ctx.restore();
+  }
+  function drawShadowTriangle(core,cx,cy,size){
+    const view=core.shadow_triangle_3plus2,xy=p=>({x:cx+p.x*size,y:cy+p.y*size});ctx.save();ctx.translate(cx,cy);ctx.rotate(core.master_degrees*Math.PI/180);ctx.strokeStyle='#8299a5';ctx.fillStyle='#172434aa';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(0,-size);ctx.lineTo(size*.86,size*.5);ctx.lineTo(-size*.86,size*.5);ctx.closePath();ctx.fill();ctx.stroke();for(const p of view.contacts){const q=xy(p);ctx.fillStyle=p.direction==='UP'?'#54d7ef':'#ffb24f';ctx.shadowColor=ctx.fillStyle;ctx.shadowBlur=8;ctx.beginPath();ctx.arc(q.x-cx,q.y-cy,p.direction==='UP'?4:4.5,0,Math.PI*2);ctx.fill()}ctx.shadowBlur=0;ctx.restore();ctx.fillStyle='#8daeba';ctx.font='8px ui-monospace,monospace';ctx.textAlign='center';ctx.fillText('SHADOW TRIANGLE 3+2 · REUSED VIEW',cx,cy+size*.82);ctx.fillText('3 UP / 2 DOWN · SOURCE-BOUND CANDIDATE',cx,cy+size*.82+12);
+  }
+  function drawLbBetaSplit(comparator,cx,cy,width){
+    const height=92,left=cx-width/2,right=cx+width/2,axisY=cy+15,step=width/12,currentIndex=comparator.current.exponent+6,mirrorIndex=comparator.mirror.exponent+6;
+    ctx.save();ctx.fillStyle='#071823dd';ctx.fillRect(left-14,cy-height/2,width+28,height);ctx.strokeStyle='#ffca55';ctx.globalAlpha=.45;ctx.strokeRect(left-14,cy-height/2,width+28,height);ctx.globalAlpha=1;
+    ctx.textAlign='center';ctx.fillStyle='#ffca55';ctx.font='700 9px ui-monospace,monospace';ctx.fillText('LB ↔ ßl · SPLIT / FLIP / RETURN',cx,cy-height/2+17);ctx.fillStyle='#8daeba';ctx.font='8px ui-monospace,monospace';ctx.fillText('L = 50 · 90°',cx,cy-height/2+31);
+    line([{x:left,y:axisY},{x:right,y:axisY}],'#7393a0',1,.7);for(let index=0;index<13;index++){const x=left+index*step,k=index-6;line([{x,y:axisY-4},{x,y:axisY+4}],k===0?'#65e7a4':'#527181',1,k===0?1:.75);if(index%3===0||k===0){ctx.fillStyle=k===0?'#65e7a4':'#8daeba';ctx.font='7px ui-monospace,monospace';ctx.fillText(k<0?'−'+Math.abs(k):k>0?'+'+k:'0',x,axisY+15)}}
+    const currentX=left+currentIndex*step,mirrorX=left+mirrorIndex*step;line([{x:currentX,y:axisY},{x:mirrorX,y:axisY}],'#ed72aa',2,.7);for(const [x,color,radius]of [[currentX,'#ffca55',5],[mirrorX,'#54d7ef',4]]){ctx.fillStyle=color;ctx.shadowColor=color;ctx.shadowBlur=10;ctx.beginPath();ctx.arc(x,axisY,radius,0,Math.PI*2);ctx.fill()}ctx.shadowBlur=0;
+    const signed=comparator.current.exponent<0?'−'+Math.abs(comparator.current.exponent):comparator.current.exponent>0?'+'+comparator.current.exponent:'0';ctx.fillStyle='#e9f5f7';ctx.font='8px ui-monospace,monospace';ctx.fillText('k '+signed+' · '+comparator.current.value+' ↔ '+comparator.mirror.value,cx,cy+height/2-15);ctx.fillStyle='#8daeba';ctx.font='7px ui-monospace,monospace';ctx.fillText('ß²(k)=k · FIX 1 · SOURCE ADDRESS RETAINED',cx,cy+height/2-4);ctx.restore();
+  }
+  function drawPascalQrt20Seam(seam,cx,cy,width){
+    const left=cx-width/2,step=width/3;ctx.save();ctx.fillStyle='#071823e8';ctx.fillRect(left-16,cy-43,width+32,91);ctx.strokeStyle='#54d7ef';ctx.globalAlpha=.55;ctx.strokeRect(left-15.5,cy-42.5,width+31,90);ctx.globalAlpha=1;ctx.textAlign='center';ctx.fillStyle='#54d7ef';ctx.font='700 9px ui-monospace,monospace';ctx.fillText('PASCAL ↔ QRT20 SEAM · +14 / +7 / −21',cx,cy-25);
+    seam.stations.forEach((station,index)=>{const x=left+index*step,active=index===seam.step;ctx.strokeStyle=index===3?'#65e7a4':'#ffca55';ctx.lineWidth=active?3:1.5;ctx.globalAlpha=active?1:.72;if(index<3){ctx.beginPath();ctx.moveTo(x+8,cy);ctx.lineTo(x+step-8,cy);ctx.stroke()}ctx.globalAlpha=1;ctx.fillStyle=active?'#fff4bf':index===3?'#65e7a4':'#ffca55';ctx.shadowColor=ctx.fillStyle;ctx.shadowBlur=active?12:0;ctx.beginPath();ctx.arc(x,cy,active?6:4,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;ctx.font=(active?'700 ':'')+'9px ui-monospace,monospace';ctx.fillText(String(station.value),x,cy-9);ctx.fillStyle='#8daeba';ctx.font='7px ui-monospace,monospace';ctx.fillText(station.qrt20.address,x,cy+14)});
+    ctx.fillStyle='#ed72aa';ctx.font='8px ui-monospace,monospace';ctx.fillText('97 q4/r17 ↔ 78 q3/r18 · Δ(q,r)=(-1,+1) · Σdigits 16↔15',cx,cy+31);ctx.fillStyle='#8daeba';ctx.font='7px ui-monospace,monospace';ctx.fillText('VIEW FUGUE · DIFFERENT INTEGER / FACTOR CLASS · NO IDENTITY',cx,cy+42);ctx.restore();
+  }
+  function drawQrt20(w,h){
+    const f=frame(),projection=M.qrt20Projection(f.state.a??f.state.re??0),coreMotion=M.qrt20CoreMotionComparator(f.state.a??f.state.re??0,qrt20IotaGateStep),betaSplit=M.lbBetaSplitComparator(qrt20BetaExponent),vpa=M.vPaPyramidCoupling(qrt20VpaProfile,qrt20VpaTick),pascalSeam=M.pascalQrt20Seam(qrt20PascalSeamStep),cx=w*.53,cy=Math.max(365,h*.57),r=Math.max(105,Math.min(w*.24,h*.28)),mirror=side==='back'?-1:1,point=remainder=>{const angle=-2*Math.PI*remainder/20-Math.PI/2;return{x:cx+mirror*r*Math.cos(angle),y:cy+r*Math.sin(angle)}};
+    ctx.textAlign='center';ctx.font='10px ui-monospace,monospace';ctx.fillStyle='#8daeba';ctx.fillText('ONE INTEGER · THREE EXACT READINGS',cx,125);
+    const panels=[['DECIMAL',projection.value,'#54d7ef'],['BINARY',projection.binary,'#ffca55'],['QRT20',projection.address,'#ed72aa']];
+    panels.forEach(([label,value,color],index)=>{const x=cx+(index-1)*Math.min(235,w*.27);ctx.fillStyle='#071823cc';ctx.fillRect(x-Math.min(100,w*.12),145,Math.min(200,w*.24),70);ctx.strokeStyle=color;ctx.globalAlpha=.55;ctx.strokeRect(x-Math.min(100,w*.12),145,Math.min(200,w*.24),70);ctx.globalAlpha=1;ctx.fillStyle='#8daeba';ctx.font='9px ui-monospace,monospace';ctx.fillText(label,x,166);ctx.fillStyle=color;ctx.shadowColor=color;ctx.shadowBlur=12;ctx.font=(index===1?'13':'18')+'px ui-monospace,monospace';ctx.fillText(value,x,194);ctx.shadowBlur=0});
+    line(Array.from({length:161},(_,i)=>({x:cx+mirror*r*Math.cos(i*Math.PI/80),y:cy+r*Math.sin(i*Math.PI/80)})),'#487083',1,.65);
+    for(let tick=0;tick<20;tick++){const angle=-2*Math.PI*tick/20-Math.PI/2,p1={x:cx+mirror*(r-7)*Math.cos(angle),y:cy+(r-7)*Math.sin(angle)},p2={x:cx+mirror*(r+7+(tick%5===0?5:0))*Math.cos(angle),y:cy+(r+7+(tick%5===0?5:0))*Math.sin(angle)};line([p1,p2],tick===18?'#ed72aa':'#7393a0',tick%5===0?1.5:1,tick===18?1:.45);if(tick%5===0||tick===18){ctx.fillStyle=tick===18?'#ed72aa':'#91adba';ctx.font='10px ui-monospace,monospace';ctx.fillText(String(tick),cx+mirror*(r+25)*Math.cos(angle),cy+(r+25)*Math.sin(angle)+4)}}
+    const current=point(projection.remainder);line([{x:cx,y:cy},current],'#ed72aa',2,.75);ctx.fillStyle='#ed72aa';ctx.shadowColor='#ed72aa';ctx.shadowBlur=20;ctx.beginPath();ctx.arc(current.x,current.y,8,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+    if(qrt20CoreMotion){for(const item of coreMotion.orbit){const q=point(item.remainder);ctx.fillStyle=item.active?'#ffca55':'#d8f3f7';ctx.strokeStyle=item.active?'#fff4bf':'#54d7ef';ctx.lineWidth=item.active?2:1;ctx.globalAlpha=item.active?1:.72;ctx.beginPath();ctx.arc(q.x,q.y,item.active?7:4,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.globalAlpha=1;ctx.fillStyle=item.active?'#ffca55':'#8daeba';ctx.font='8px ui-monospace,monospace';ctx.fillText(item.step+'·r'+item.remainder,q.x,q.y-11)}ctx.fillStyle='#ffca55';ctx.font='9px ui-monospace,monospace';ctx.fillText('QRT20 CORE MOTION · r18 → r3 → r8 → r13 → r18',cx,cy-r-42)}
+    if(qrt20QuarterTurn){const target=point(projection.quarter_turn.remainder),start=-2*Math.PI*projection.remainder/20-Math.PI/2,end=start-Math.PI/2;ctx.strokeStyle='#54d7ef';ctx.lineWidth=3;ctx.beginPath();ctx.arc(cx,cy,r*.44,start,end,true);ctx.stroke();line([{x:cx,y:cy},target],'#54d7ef',1.7,.75);ctx.fillStyle='#54d7ef';ctx.shadowColor='#54d7ef';ctx.shadowBlur=18;ctx.beginPath();ctx.arc(target.x,target.y,7,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;ctx.fillStyle='#54d7ef';ctx.font='10px ui-monospace,monospace';ctx.fillText('+5 · 90° → '+projection.quarter_turn.address,target.x,target.y-15)}
+    ctx.fillStyle='#08131d';ctx.beginPath();ctx.arc(cx,cy,42,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#ffca55';ctx.stroke();ctx.fillStyle='#ffca55';ctx.font='700 16px ui-monospace,monospace';ctx.fillText('r'+projection.remainder,cx,cy+2);ctx.fillStyle='#e9f5f7';ctx.font='10px ui-monospace,monospace';ctx.fillText('q'+projection.quotient,cx,cy+20);
+    const pyramid=session().frames.slice(0,Math.min(8,session().cursor+1)).map(fr=>String(fr.state.a??fr.state.re??0)),px=Math.min(175,w*.16),py=270,dx=9,dy=21,coord=(row,index)=>({x:px+(index-(pyramid[row].length-1)/2)*dx,y:py+row*dy});if(qrt20CoreMotion)drawShadowTriangle(coreMotion,px,py+72,68);ctx.textAlign='center';ctx.font='9px ui-monospace,monospace';ctx.fillStyle='#ed72aa';ctx.fillText('PASCAL STEP PYRAMID · DISPLAY GRAMMAR',px,240);if(qrt20CouplingWindow){for(let row=0;row<pyramid.length-1;row++){const word=pyramid[row],next=pyramid[row+1];line([coord(row,0),coord(row+1,0)],'#54d7ef',1,.32);line([coord(row,word.length-1),coord(row+1,next.length-1)],'#ffca55',1,.32);for(let index=1;index<word.length-1;index++){line([coord(row,index),coord(row+1,index)],'#ed72aa',1,.22);line([coord(row,index),coord(row+1,index+1)],'#ed72aa',1,.16)}}}pyramid.forEach((word,row)=>{for(let index=0;index<word.length;index++){ctx.fillStyle=index===0?'#54d7ef':index===word.length-1?'#ffca55':'#ed72aa';ctx.fillText(word[index],coord(row,index).x,coord(row,index).y)}});ctx.fillStyle='#8daeba';ctx.font='8px ui-monospace,monospace';ctx.fillText('+1 INNER 7 / STEP · DIGIT LATTICE VIEW',px,py+pyramid.length*dy+8);ctx.fillText('GEOMETRIC COUPLING · NOT QUANTUM ENTANGLEMENT',px,py+pyramid.length*dy+21);
+    if(qrt20Terrace){const terrace=M.eightfoldTerrace(Math.min(63,session().cursor),Math.min(63,M.limit(rule))),cell=Math.max(11,Math.min(16,w*.012)),tx=w-cell*8-46,ty=270;ctx.fillStyle='#ed72aa';ctx.font='9px ui-monospace,monospace';ctx.fillText('EIGHTFOLD TERRACE · PYRAMID OF PLATES',tx+cell*4,240);ctx.font='7px ui-monospace,monospace';terrace.cells.forEach(item=>{const x=tx+item.local*cell,y=ty+item.block*cell,colors={ACTIVE:'#ffca55',VISITED:'#ed72aa',DECLARED:'#54d7ef',PROJECTION:'#294655'};ctx.fillStyle=colors[item.state];ctx.globalAlpha=item.state==='ACTIVE'?1:item.state==='VISITED'?.68:item.state==='DECLARED'?.28:.12;ctx.fillRect(x+1,y+1,cell-2,cell-2);ctx.globalAlpha=1;ctx.strokeStyle=item.state==='ACTIVE'?'#fff4bf':'#527181';ctx.strokeRect(x+.5,y+.5,cell-1,cell-1);if(item.state==='ACTIVE'){ctx.fillStyle='#071823';ctx.fillText(String(item.local),x+cell/2,y+cell*.72)}});ctx.fillStyle='#8daeba';ctx.font='8px ui-monospace,monospace';ctx.fillText('k = 8b + s · '+terrace.address,tx+cell*4,ty+cell*8+16);ctx.fillText('CYAN ≤ n16 · OUTER CELLS = PROJECTION',tx+cell*4,ty+cell*8+29)}
+    if(qrt20Tesa){const tesa=M.tesaIotaGate(f.state.a??f.state.re??0,qrt20TesaMode,qrt20IotaGateStep,qrt20FoldIndex),cell=Math.max(11,Math.min(16,w*.012)),tx=w-cell*8-46,ty=Math.min(h-250,465),xy=p=>({x:tx+p.x*cell+cell/2,y:ty+p.y*cell+cell/2}),coreKeys=new Set(tesa.core.map(p=>p.x+','+p.y));ctx.fillStyle='#ffca55';ctx.font='9px ui-monospace,monospace';ctx.fillText('TESA WINDOW · IOTA GATE '+tesa.gate.step+'/4 · '+tesa.gate.degrees+'° CCW',tx+cell*4,ty-30);ctx.fillStyle='#8daeba';ctx.font='8px ui-monospace,monospace';ctx.fillText('A'+tesa.address_label+' · '+tesa.mode.replace('x','×')+' · '+tesa.selected.zone+' · '+tesa.fold_bank.label,tx+cell*4,ty-15);for(let y=0;y<8;y++)for(let x=0;x<8;x++){const isCore=coreKeys.has(x+','+y),isSelected=x===tesa.selected.x&&y===tesa.selected.y;ctx.fillStyle=isSelected?'#ffca55':isCore?'#213f4c':'#311c3a';ctx.globalAlpha=isSelected?1:.74;ctx.fillRect(tx+x*cell+1,ty+y*cell+1,cell-2,cell-2);ctx.globalAlpha=1;ctx.strokeStyle=isSelected?'#fff4bf':isCore?'#54d7ef':'#b05aa3';ctx.strokeRect(tx+x*cell+.5,ty+y*cell+.5,cell-1,cell-1)}const gateView=tesa.seam_4774.black_yellow_gate,gc=xy({x:3.5,y:3.5});ctx.save();ctx.translate(gc.x,gc.y);ctx.rotate(gateView.local_angle_degrees*Math.PI/180);ctx.strokeStyle='#02070b';ctx.lineWidth=Math.max(5,cell*.48);ctx.beginPath();ctx.moveTo(-cell*1.55,-cell*1.2);ctx.lineTo(0,0);ctx.lineTo(cell*1.55,-cell*1.2);ctx.moveTo(-cell*1.55,cell*1.2);ctx.lineTo(0,0);ctx.lineTo(cell*1.55,cell*1.2);ctx.stroke();ctx.strokeStyle='#ffca55';ctx.lineWidth=Math.max(1.5,cell*.13);for(const side of [-1,1]){ctx.beginPath();ctx.moveTo(side*cell*1.6,-cell*1.35);ctx.lineTo(side*cell*.35,-cell*1.35);ctx.lineTo(side*cell*.35,cell*1.35);ctx.lineTo(side*cell*1.6,cell*1.35);ctx.stroke()}ctx.restore();for(const token of tesa.seam_4774.cells){const q=xy(token);ctx.fillStyle=token.digit===4?'#ffca55':'#ed72aa';ctx.globalAlpha=.96;ctx.fillRect(q.x-cell*.34,q.y-cell*.34,cell*.68,cell*.68);ctx.globalAlpha=1;ctx.strokeStyle='#fff4bf';ctx.lineWidth=1.2;ctx.strokeRect(q.x-cell*.34,q.y-cell*.34,cell*.68,cell*.68);ctx.fillStyle='#071823';ctx.font='bold '+Math.max(7,cell*.55)+'px ui-monospace,monospace';ctx.fillText(String(token.digit),q.x,q.y+cell*.19)}if(qrt20TesaTrace){line(tesa.trace.outbound.map(xy),'#54d7ef',2,.9);line(tesa.trace.return_path.map(xy),'#ed72aa',1.5,.65);for(const [p,color]of [[tesa.trace.source,'#65e7a4'],[tesa.trace.target,'#ffca55']]){const q=xy(p);ctx.fillStyle=color;ctx.beginPath();ctx.arc(q.x,q.y,4,0,Math.PI*2);ctx.fill()}}ctx.fillStyle=tesa.receipt.status==='EXACT'?'#65e7a4':'#ff796d';ctx.font='8px ui-monospace,monospace';ctx.fillText('OUT '+tesa.trace.source.address+' → '+tesa.trace.target.address+' · GATE '+tesa.receipt.gate_return+' · ERROR '+tesa.receipt.numeric_error,tx+cell*4,ty+cell*8+16);ctx.fillStyle='#ffca55';ctx.fillText('FESN:4774 · HALVES '+tesa.seam_4774.directed_halves.join(' | ')+' · INNER 7|7',tx+cell*4,ty+cell*8+29);ctx.fillText('BLACK/YELLOW · 4⊃3 · '+gateView.local_angle_degrees+'° · '+gateView.state,tx+cell*4,ty+cell*8+42);ctx.fillStyle='#8daeba';ctx.fillText('LOCAL HALF-HOURGLASS VIEW · SOURCE RETAINED · NO NEW RELATION',tx+cell*4,ty+cell*8+55)}
+    if(qrt20Tesa&&qrt20CoreMotion){const cell=Math.max(11,Math.min(16,w*.012)),tx=w-cell*8-46,ty=Math.min(h-250,465),gc={x:tx+4*cell,y:ty+4*cell};drawCoreMotionOverlay(coreMotion,gc,cell)}
+    drawPascalQrt20Seam(pascalSeam,Math.min(178,w*.17),h-254,Math.min(270,w*.27));
+    drawLbBetaSplit(betaSplit,Math.min(178,w*.17),h-145,Math.min(270,w*.27));
+    {const px=Math.max(18,w*.32),py=Math.max(170,h-196),pw=Math.min(380,w*.34),ph=104;ctx.fillStyle='rgba(5,18,27,.92)';ctx.strokeStyle=vpa.all_return_exact?'#65e7a4':'#ffca55';ctx.lineWidth=1.2;ctx.fillRect(px,py,pw,ph);ctx.strokeRect(px+.5,py+.5,pw-1,ph-1);ctx.textAlign='left';ctx.fillStyle='#54d7ef';ctx.font='700 10px ui-monospace,monospace';ctx.fillText('V / PA PYRAMID COUPLING · LOCAL CLOCK',px+12,py+18);ctx.fillStyle='#e9f5f7';ctx.font='10px ui-monospace,monospace';ctx.fillText(vpa.label+' · T='+vpa.period,px+12,py+36);ctx.fillStyle='#ffca55';ctx.fillText('t '+vpa.tick+' · φ '+vpa.phase+' · '+vpa.v_gate.state+' · CONTACT '+vpa.shadow_triangle_3plus2.contact,px+12,py+54);const channelText=vpa.channels.map(channel=>channel.id+':'+channel.residue+'/'+channel.modulus).join(' · ');ctx.fillStyle='#8daeba';ctx.font='9px ui-monospace,monospace';ctx.fillText(channelText,px+12,py+72);ctx.fillStyle=vpa.all_return_exact?'#65e7a4':'#ed72aa';ctx.fillText(vpa.all_return_exact?'COMMON RETURN · EXACT':'SOURCE RETAINED · COMPARATOR OPEN',px+12,py+90);ctx.textAlign='left'}
+    ctx.textAlign='center';ctx.fillStyle='#e9f5f7';ctx.font='11px ui-monospace,monospace';ctx.fillText('N = 20q + r   ·   0 ≤ r < 20   ·   N ↔ bin(N) ↔ (q,r)',cx,h-78);ctx.fillStyle='#ed72aa';ctx.fillText('978 → 9778 → 97778   ·   r = 18 RETAINED',cx,h-55);ctx.fillStyle='#8daeba';ctx.font='9px ui-monospace,monospace';ctx.fillText(qrt20CoreMotion?'CORE TEST · MASTER +90°/STEP · GRID −90°/STEP · RESIDUE/ORIENTATION RETURN ONLY':'+5 / 90° = DECLARED QUARTER-TURN   ·   +11 JOINT LIFT = SEPARATE OPERATOR',cx,h-32);ctx.fillText('EXACT INTEGER ADDRESSING · VIEW COMPARATOR · NOT A PHYSICAL PHASE OR NEW NUMBER LAW',cx,h-14);ctx.textAlign='left';
+  }
+  function drawFtr231(w,h){
+    const f=frame(),p=M.ftr231Projection(f.state.a??f.state.re??0,f.generation),cx=w/2,cy=h*.5,leftX=w*.25,rightX=w*.75,r=Math.max(72,Math.min(w*.16,h*.25)),history=session().frames.slice(Math.max(0,session().cursor-7),session().cursor+1);
+    const orbit=(x,color,offset)=>{ctx.strokeStyle=color;ctx.globalAlpha=.35;for(let ring=1;ring<=3;ring++){ctx.beginPath();ctx.ellipse(x,cy,r*(.45+ring*.22),r*(.34+ring*.17),offset,0,Math.PI*2);ctx.stroke()}ctx.globalAlpha=1;};
+    orbit(leftX,'#54d7ef',-.22);orbit(rightX,'#ff796d',.22);
+    const fitValueFont=value=>Math.max(12,Math.min(28,(r*1.52)/(Math.max(1,String(value).length)*.6)));
+    ctx.textAlign='center';ctx.fillStyle='#54d7ef';ctx.font=`700 ${fitValueFont(p.left.value)}px ui-monospace,monospace`;ctx.fillText(p.left.value,leftX,cy+8);ctx.fillStyle='#ff796d';ctx.font=`700 ${fitValueFont(p.right.value)}px ui-monospace,monospace`;ctx.fillText(p.right.value,rightX,cy+8);
+    ctx.font='10px ui-monospace,monospace';ctx.fillStyle='#9fb6c5';ctx.fillText(p.left.register,leftX,cy-r-30);ctx.fillText(p.right.register,rightX,cy-r-30);
+    const gate=p.relation.register.startsWith('R°'),gateColor=gate?'#ffca55':'#65e7a4';line([{x:leftX+r*.62,y:cy},{x:cx-25,y:cy}],gateColor,2,.75);line([{x:cx+25,y:cy},{x:rightX-r*.62,y:cy}],gateColor,2,.75);
+    ctx.fillStyle='#071823';ctx.beginPath();ctx.arc(cx,cy,38,0,Math.PI*2);ctx.fill();ctx.strokeStyle=gateColor;ctx.lineWidth=2;ctx.stroke();ctx.fillStyle=gateColor;ctx.font='700 15px ui-monospace,monospace';ctx.fillText(gate?'R°':'Rₜ',cx,cy+5);ctx.font='9px ui-monospace,monospace';ctx.fillText(p.tick,cx,cy+56);ctx.fillText(p.relation.retained?'RETAINED · PASS':'HOLD',cx,cy+70);
+    const top=70,bottom=h-92;line([{x:cx,y:top},{x:cx,y:bottom}],'#ffca55',1,.42);history.forEach((fr,index)=>{const q=M.ftr231Projection(fr.state.a??fr.state.re??0,fr.generation),y=top+(bottom-top)*(index/Math.max(1,history.length-1));ctx.fillStyle=q.relation.register.startsWith('R°')?'#ffca55':'#8daeba';ctx.beginPath();ctx.arc(cx,y,4,0,Math.PI*2);ctx.fill();ctx.textAlign='left';ctx.font='9px ui-monospace,monospace';ctx.fillText(q.tick,cx+9,y+3)});
+    ctx.textAlign='center';ctx.fillStyle='#e9f5f7';ctx.font='11px ui-monospace,monospace';ctx.fillText('P₁(t)  →  Rₜ  ←  P₂(t)',cx,28);ctx.fillStyle='#ffca55';ctx.fillText('231 · TWO PERSPECTIVES · THREE LANES · ONE RETAINED RELATION',cx,48);
+    ctx.fillStyle='#c1d7e2';ctx.font='10px ui-monospace,monospace';ctx.fillText(p.relation.equation+' · NUMERIC RESIDUAL 0',cx,h-55);ctx.fillStyle='#8daeba';ctx.font='9px ui-monospace,monospace';ctx.fillText('ρₜ = REPRESENTATION DIFFERENCE ONLY · SHARED CURSOR ≠ PHYSICAL TIME',cx,h-34);ctx.fillText('R° MARKS DECLARED r18 GATE · VIEW COMPARATOR, NOT P=R/T OR CAUSAL COUPLING',cx,h-16);ctx.textAlign='left';
+  }
+  function drawJoint(w,h){
+    const active=rule==='sumlift',direction=active?(session().config.direction||'co'):'co',counter=direction==='counter',f=frame(),j=M.jointProjection(active?f.state.left:1836,active?f.state.right:1729,jointModulus,direction),cx=w/2,header=w<600?310:210,legendTop=w<600?250:160,cy=header+(h-header-150)/2,r=Math.max(25,Math.min(w*.30,(h-header-150)*.39)),mirror=side==='back'?-1:1,colors=['#ff796d','#76df9a','#ed72aa'],labels=['A','B','A+B'],values=[j.left,j.right,j.sum],scales=[.82,.94,1.06];
+    const xy=(v,scale=1)=>{const t=-2*Math.PI*v/j.modulus-Math.PI/2;return{x:cx+mirror*r*scale*Math.cos(t),y:cy+r*scale*Math.sin(t)}};
+    ctx.textAlign='center';ctx.font='11px ui-monospace,monospace';
+    for(let k=0;k<j.modulus;k++){const q=xy(k,1.15);line([{x:cx,y:cy},xy(k,1.06)],'#315365',1,.35);ctx.fillStyle='#8daeba';ctx.fillText(String(k),q.x,q.y+4)}
+    const history=active?session().frames.slice(Math.max(0,session().cursor-13),session().cursor+1):[null];
+    for(let lane=0;lane<3;lane++){
+      const circle=Array.from({length:97},(_,i)=>xy(j.modulus*i/96,scales[lane]));line(circle,colors[lane],1,.18);
+      const trail=history.map(p=>{if(!p)return xy(j.residues[lane],scales[lane]);const q=M.jointProjection(p.state.left,p.state.right,j.modulus,direction);return xy(q.residues[lane],scales[lane])});line(trail,colors[lane],1.4,.32);
+      const q=xy(j.residues[lane],scales[lane]);line([{x:cx,y:cy},q],colors[lane],1,.5);ctx.fillStyle=colors[lane];ctx.shadowColor=colors[lane];ctx.shadowBlur=20;ctx.beginPath();ctx.arc(q.x,q.y,7,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+      ctx.font='10px ui-monospace,monospace';ctx.fillText(labels[lane]+' '+values[lane]+' → '+j.residues[lane],cx,legendTop+lane*18);
+    }
+    ctx.fillStyle='#ffca55';ctx.font='16px ui-monospace,monospace';ctx.fillText('MOD '+j.modulus,cx,cy+5);ctx.font='10px ui-monospace,monospace';ctx.fillText(counter?'Σ = '+j.sum:active?'n '+f.generation:'REFERENCE',cx,cy+24);if(counter)ctx.fillText('n '+f.generation+' · COUNTER',cx,cy+41);
+    ctx.fillStyle='#e1edf0';ctx.font='11px ui-monospace,monospace';ctx.fillText(j.left+' + '+j.right+' = '+j.sum,cx,h-103);ctx.fillText(j.residues[0]+' + '+j.residues[1]+' ≡ '+j.residues[2]+' (mod '+j.modulus+') · Δ '+j.delta,cx,h-82);
+    ctx.fillStyle='#ffca55';ctx.font='10px ui-monospace,monospace';ctx.fillText(j.modulus===11?'+11 ≡ 0 · RESIDUE POINTS FIXED':j.modulus===36?(counter?'A +11 / B −11':'A/B +11')+' · PERIOD 36 (RUN 16 STEPS)':(counter?'A −'+(j.modulus-11)+' / B +'+(j.modulus-11):'A/B −'+(j.modulus-11))+' · REST RETURN '+j.periods[0]+' STEPS',cx,h-61);
+    ctx.fillStyle='#8daeba';ctx.font='9px ui-monospace,monospace';ctx.fillText(active?(counter?'COUNTER · A +11 / B −11 · SUM FIXED':'CO · A +11 / B +11 · GAP FIXED')+' · POSITIVE = CCW':'REFERENCE ONLY · ACTIVATE JOINT +11 TO RUN THESE NUMBERS',cx,h-41);ctx.fillText((counter?'A+B STEP 0 · Σ '+j.sum+' CONSTANT':'A+B STEP +22 · PERIOD '+j.periods[2])+' · RESIDUE RETURN ≠ INTEGER RETURN',cx,h-24);ctx.fillText(j.modulus===36?'SEED 0 + 1 ≡ 1 · B−A ≡ +1 AT START, NOT A +1 STEP':'CHANNEL RADII / TRAILS = DISPLAY · CORE PRIME-FLOW IS A SEPARATE MODEL',cx,h-9);ctx.textAlign='left';
+  }
+  function drawShadowClock(w,h){
+    const active=rule==='sumlift',f=frame(),left=active?f.state.left:1836,right=active?f.state.right:1729,shadow=M.modularShadowProjection(left,right),compact=w<720,cx=compact?w*.5:w*.52,cy=Math.max(compact?355:310,h*.54),maxR=Math.max(105,Math.min(w*(compact?.39:.31),h*.36)),minR=maxR*.34,step=(maxR-minR)/(shadow.clocks.length-1),mirror=side==='back'?-1:1;
+    const colors=['#f16eae','#78f0ae','#f5fbff'],labels=['A','B','Σ'],values=[shadow.left,shadow.right,shadow.sum],point=(clock,lane,rad)=>{const t=-2*Math.PI*clock.residues[lane]/clock.modulus-Math.PI/2;return{x:cx+mirror*rad*Math.cos(t),y:cy+rad*Math.sin(t)}};
+    ctx.textAlign='center';ctx.font='9px ui-monospace,monospace';
+    const threads=[[],[],[]];
+    shadow.clocks.forEach((clock,index)=>{const rad=minR+index*step;line(Array.from({length:145},(_,i)=>({x:cx+mirror*rad*Math.cos(i*Math.PI/72),y:cy+rad*Math.sin(i*Math.PI/72)})),index%2?'#315365':'#487083',1,index===2?.52:.34);for(let k=0;k<clock.modulus;k++){const t=-2*Math.PI*k/clock.modulus-Math.PI/2,p1={x:cx+mirror*(rad-3)*Math.cos(t),y:cy+(rad-3)*Math.sin(t)},p2={x:cx+mirror*(rad+3)*Math.cos(t),y:cy+(rad+3)*Math.sin(t)};line([p1,p2],'#7393a0',1,.28)}ctx.fillStyle='#ffca55';ctx.fillText('π'+clock.modulus,cx-maxR-34,cy-rad+4);ctx.fillStyle='#91adba';ctx.fillText(clock.residues.join(' · '),cx+maxR+37,cy-rad+4);for(let lane=0;lane<3;lane++)threads[lane].push(point(clock,lane,rad));});
+    for(let lane=0;lane<3;lane++){line(threads[lane],colors[lane],lane===2?1.1:1.5,lane===2?.34:.52);for(const p of threads[lane]){ctx.fillStyle=colors[lane];ctx.shadowColor=colors[lane];ctx.shadowBlur=lane===1?18:12;ctx.beginPath();ctx.arc(p.x,p.y,lane===2?4.2:5.5,0,Math.PI*2);ctx.fill()}ctx.shadowBlur=0;}
+    ctx.fillStyle='#050b12';ctx.beginPath();ctx.arc(cx,cy,34,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#f16eae';ctx.lineWidth=1.2;ctx.stroke();ctx.fillStyle='#f16eae';ctx.font='18px ui-monospace,monospace';ctx.fillText('·',cx,cy+5);ctx.font='9px ui-monospace,monospace';ctx.fillStyle='#dcecf1';ctx.fillText('πₘ',cx,cy+20);
+    const legendY=compact?190:145;ctx.font='10px ui-monospace,monospace';for(let lane=0;lane<3;lane++){ctx.fillStyle=colors[lane];ctx.fillText(labels[lane]+' '+values[lane],cx+(lane-1)*Math.min(180,w*.24),legendY)}
+    ctx.fillStyle='#e9f5f7';ctx.font=(compact?'10':'11')+'px ui-monospace,monospace';ctx.fillText('πₘ(n) = n mod m   ·   zₘ(n) = exp(2πi·πₘ(n)/m)',cx,h-85);ctx.fillStyle='#78f0ae';ctx.fillText('GREEN = RETURN IMAGE / RESIDUE IN ANOTHER CLOCK',cx,h-62);ctx.fillStyle='#8daeba';ctx.font='9px ui-monospace,monospace';ctx.fillText('m = 7 · 11 · 12 · 13 · 17   ·   RADIAL SEPARATION = DISPLAY ONLY',cx,h-40);ctx.fillText(active?'SAME SAVED JOINT FRAME · n '+f.generation+' · '+(session().config.direction==='counter'?'COUNTER':'CO'):'REFERENCE 1836 + 1729 = 3565 · ACTIVATE JOINT TO MOVE',cx,h-20);ctx.textAlign='left';
+  }
+  function foldOverlay(fold){
+    const cx=468,cy=74,r=38,rad=Math.PI/180,squash=Math.cos(fold.angle*rad),lift=Math.sin(fold.angle*rad),colors=['#54d7ef','#65e7a4','#f34c6e'];
+    let ticks='';for(let i=0;i<20;i++){const a=2*Math.PI*i/20,x1=cx+(r+2)*Math.cos(a),y1=cy+(r+2)*Math.sin(a)*.42,x2=cx+(r+(i===fold.crownTick?10:6))*Math.cos(a),y2=cy+(r+(i===fold.crownTick?10:6))*Math.sin(a)*.42;ticks+='<line x1="'+x1.toFixed(2)+'" y1="'+y1.toFixed(2)+'" x2="'+x2.toFixed(2)+'" y2="'+y2.toFixed(2)+'" stroke="'+(i===fold.crownTick?'#ffca55':'#507284')+'" stroke-width="'+(i===fold.crownTick?2:1)+'"/>';}
+    let axes='';for(let i=0;i<3;i++){const a=(-90+i*120)*rad,ex=cx+r*Math.cos(a),ey=cy+r*Math.sin(a)*squash*.58-lift*(i-1)*7,px=cx+r*.58*Math.cos(a+.46),py=cy+r*.58*Math.sin(a+.46)*squash*.58-lift*(i-1)*4;axes+='<path d="M '+cx+' '+cy+' L '+ex.toFixed(2)+' '+ey.toFixed(2)+' L '+px.toFixed(2)+' '+py.toFixed(2)+' Z" fill="'+colors[i]+'" fill-opacity=".16" stroke="'+colors[i]+'" stroke-width="1.2"/><circle cx="'+ex.toFixed(2)+'" cy="'+ey.toFixed(2)+'" r="2.4" fill="'+colors[i]+'"/>';}
+    const stops=[0,78,33,7,0],xs=[392,430,468,506,544],station=fold.stopIndex;
+    const rail=stops.map((v,i)=>'<g><circle cx="'+xs[i]+'" cy="132" r="'+(i===station?5:3)+'" fill="'+(i===station?'#ffca55':'#294b5c')+'" stroke="#ffca55"/><text x="'+xs[i]+'" y="149" text-anchor="middle" fill="'+(i===station?'#ffca55':'#91aeba')+'" font-size="9" font-family="ui-monospace,monospace">'+v+'°</text></g>').join('');
+    return '<g data-stack="fold-guide" data-fold-angle="'+fold.angle+'" data-fold-return="'+fold.foldReturn+'"><title>Deklarierte Drei-Achsen-Faltführung · keine Source-Deformation</title><ellipse cx="'+cx+'" cy="'+cy+'" rx="'+r+'" ry="16" fill="none" stroke="#d9bd7a" stroke-opacity=".7"/>'+ticks+axes+'<circle cx="'+cx+'" cy="'+cy+'" r="4" fill="#fff"/><text x="392" y="24" fill="#ffca55" font-size="10" font-family="ui-monospace,monospace">FOLD GUIDE · SAME CLOCK</text><text x="392" y="39" fill="#bcd0d9" font-size="9" font-family="ui-monospace,monospace">AXIS '+fold.axis+' · '+fold.angle+'° · CROWN '+String(fold.crownTick).padStart(2,'0')+'/19</text><line x1="392" y1="132" x2="544" y2="132" stroke="#315365"/>'+rail+'<text x="392" y="165" fill="#748e9b" font-size="8" font-family="ui-monospace,monospace">VIEW FOLD · NOT SOURCE / PHYSICS</text></g>';
+  }
+  function mixerDrawing(S,pose,past,rgb,fold){
+    if(!rgb)return S.drawing(pose,{echo:true},past)+foldOverlay(fold);
+    const colors={'P-A':'#ff0000','P-B':'#00ff00','P-C':'#0000ff'};
+    return S.drawing(pose,{echo:false,cuts:false,stackLayers:{tips:false}},[])
+      .replace(/<polygon[^>]*data-stack="(P-[ABC])"[^>]*\/>/g,(tag,id)=>tag.replace(/fill="[^"]*"/,'fill="'+colors[id]+'"').replace(/fill-opacity="[^"]*"/,'fill-opacity=".78"') .replace('/>',' style="mix-blend-mode:screen"/>'))
+      .replace('DREI PENTAGONE · EIN PHASENWERT','RGB · SAME PHASE · DISPLAY LIGHT')
+      .replace('<title>','<title>RGB screen display · ')+foldOverlay(fold);
+  }
+  function syncPQ(){
+    if(view!=='pq')return;const v=$('numberPQViewer'),s=session(),seconds=rule==='pq'?frame().state.clip_ms/1000:48*s.cursor/M.limit(rule);v.style.transform='scaleX('+(side==='back'?-1:1)+')';
+    if(pqFailed){$('numberPQStatus').textContent='P/Q-Modell konnte nicht geladen werden. Quellansicht unter der Motorhaube öffnen.';return}
+    if(!pqStarted){pqStarted=true;v.setAttribute('src','../../../assets/3d/nexah_pq_conjugate_orbit_v7.glb')}
+    if(pqReady){v.pause();v.currentTime=seconds;$('numberPQStatus').textContent='SOURCE CLIP · '+seconds.toFixed(1)+' / 48.0 s · '+(timer!==null?'PLAY cursor':'PAUSED')+' · DRAG CAMERA'}else $('numberPQStatus').textContent='P/Q-Modell lädt · gespeicherte Position '+seconds.toFixed(1)+' s';
+  }
+  $('numberPQViewer').addEventListener('load',()=>{pqFailed=false;pqReady=true;syncPQ()});
+  $('numberPQViewer').addEventListener('error',()=>{pqReady=false;pqFailed=true;if(view==='pq')pause();$('numberPQStatus').textContent='P/Q-Modell konnte nicht geladen werden. Quellansicht unter der Motorhaube öffnen.'});
+  function drawGroups(w,h){
+    const active=rule==='groups',s=session(),n=active?s.cursor:0,state=active?frame().state:M.groupState(0),scale=Math.max(8,Math.min(w*.105,(h-290)/8)),cx=w/2,cy=155+(h-270)/2;
+    const pos=p=>({x:cx+p.x*scale*(side==='back'?-1:1),y:cy-p.y*scale});
+    for(let i=-4;i<=4;i++){line([pos({x:i,y:-4}),pos({x:i,y:4})],i?'#234859':'#7399a7',1,i?.45:.8);line([pos({x:-4,y:i}),pos({x:4,y:i})],i?'#234859':'#7399a7',1,i?.45:.8)}
+    const seed=pos({x:3,y:1});ctx.strokeStyle='#fff5b0';ctx.lineWidth=1;ctx.beginPath();ctx.arc(seed.x,seed.y,16,0,Math.PI*2);ctx.stroke();ctx.fillStyle='#b9d0d9';ctx.font='10px ui-monospace,monospace';ctx.fillText('seed (3,1)',seed.x+20,seed.y-14);
+    for(const [key,color,label]of [['rs','#54d7ef','R → S'],['sr','#ed72aa','S → R']]){const trail=Array.from({length:n+1},(_,i)=>M.groupState(i)[key]).map(pos);line(trail,color,2.5,.8);for(let i=0;i<trail.length;i++){const q=trail[i];ctx.fillStyle=color;ctx.shadowColor=color;ctx.shadowBlur=i===n?18:0;ctx.beginPath();ctx.arc(q.x,q.y,i===n?7:3,0,Math.PI*2);ctx.fill()}ctx.shadowBlur=0;const q=pos(state[key]);ctx.fillStyle=color;ctx.font='12px ui-monospace,monospace';ctx.fillText(label+' ('+state[key].x+','+state[key].y+')',q.x+12,q.y+(key==='rs'?-12:23))}
+    const rp=pos(state.rPower),sp=pos(state.sPower);ctx.strokeStyle='#ffca55';ctx.lineWidth=2;ctx.beginPath();ctx.arc(rp.x,rp.y,11,0,Math.PI*2);ctx.stroke();ctx.strokeStyle='#a77dff';ctx.strokeRect(sp.x-12,sp.y-12,24,24);
+    ctx.fillStyle='#b9d0d9';ctx.font='11px ui-monospace,monospace';ctx.fillText('R: (x,y) → (−y,x) · S: (x,y) → (x,−y)',18,h-88);ctx.fillStyle='#54d7ef';ctx.fillText('R → S: '+(state.rsWord||'I'),18,h-66);ctx.fillStyle='#ed72aa';ctx.fillText('S → R: '+(state.srWord||'I'),18,h-47);ctx.fillStyle='#ffca55';ctx.fillText('R⁴ = I '+(n>=4?'RETURN CHECKED':'· at step 4')+'   ·   S² = I '+(n>=2?'RETURN CHECKED':'· at step 2'),18,h-27);ctx.fillStyle='#8daeba';ctx.font='9px ui-monospace,monospace';ctx.fillText(active?'EXACT D4 ACTION · ARROWS = CHRONOLOGICAL ORDER · S IS NOT BENCH J':'REFERENCE SEED · SELECT R / S GROUP RULE TO RUN',18,h-10);
+  }
+  function drawCorridor(w,h){
+    const active=rule==='corridor',current=active?frame().state:M.corridorState(0),mirror=side==='back'?-1:1,flipX=x=>w/2+mirror*(x-w/2),stations=M.CORRIDOR_OFFSETS.map((offset,i)=>M.corridorState(i));
+    const bankY=Math.max(330,h*.62),left=Math.max(70,w*.09),right=Math.min(w-70,w*.91),span=(right-left)/(stations.length-1);
+    ctx.fillStyle='#ffca55';ctx.font='11px ui-monospace,monospace';ctx.fillText('69 + OFFSET BANK · DECLARED TRANSITION CORRIDOR',18,150);
+    line([{x:flipX(left),y:bankY},{x:flipX(right),y:bankY}],'#315365',2,.8);
+    stations.forEach((s,i)=>{const x=flipX(left+i*span),selected=s.target===current.target,col=s.closure==='C100'?'#ffca55':s.classification==='PRIME'?'#54d7ef':'#ed72aa';line([{x,y:bankY-34},{x,y:bankY+34}],col,selected?4:2,selected?1:.55);ctx.fillStyle=col;ctx.shadowColor=col;ctx.shadowBlur=selected?20:0;ctx.beginPath();ctx.arc(x,bankY,selected?10:6,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;ctx.textAlign='center';ctx.font=(selected?'700 ':'')+'12px ui-monospace,monospace';ctx.fillText(s.target+(s.closure==='C100'?' / C':''),x,bankY-48);ctx.font='9px ui-monospace,monospace';ctx.fillStyle='#b9d0d9';ctx.fillText(i?'69 + '+s.offset:'SOURCE',x,bankY+54);ctx.fillText(s.classification+' · '+s.factorization,x,bankY+70)});ctx.textAlign='left';
+    const projection=M.doubleProjection(Number(current.a),corridorModulus,corridorWitness),cx=flipX(w*.72),cy=Math.max(210,h*.31),r=Math.max(65,Math.min(125,w*.16,h*.19)),count=corridorModulus===9?9:20;
+    ctx.strokeStyle='#52758a';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();
+    for(let i=0;i<count;i++){const residue=corridorModulus===9?i:i*5,a=-Math.PI/2+2*Math.PI*residue/corridorModulus,x=cx+mirror*r*Math.cos(a),y=cy+r*Math.sin(a);ctx.fillStyle=residue===projection.residue?'#ffca55':residue===projection.doubled?'#ed72aa':'#315365';ctx.beginPath();ctx.arc(x,y,residue===projection.residue||residue===projection.doubled?5:2.5,0,Math.PI*2);ctx.fill();if(corridorModulus===9||residue%20===0){ctx.fillStyle='#8daeba';ctx.font='8px ui-monospace,monospace';ctx.textAlign='center';ctx.fillText(String(residue),x,y-8)}}
+    const angle=v=>-Math.PI/2+2*Math.PI*v/corridorModulus,p=v=>({x:cx+mirror*r*Math.cos(angle(v)),y:cy+r*Math.sin(angle(v))}),from=p(projection.residue),to=p(projection.doubled);line([from,to],'#ed72aa',3,.9);ctx.fillStyle='#ffca55';ctx.beginPath();ctx.arc(from.x,from.y,7,0,Math.PI*2);ctx.fill();ctx.fillStyle='#ed72aa';ctx.beginPath();ctx.arc(to.x,to.y,7,0,Math.PI*2);ctx.fill();ctx.textAlign='left';ctx.fillStyle='#eefaff';ctx.font='12px ui-monospace,monospace';ctx.fillText('×2 · MOD '+corridorModulus,18,185);ctx.fillStyle='#ffca55';ctx.fillText('r '+projection.residue+' → '+projection.doubled,18,207);ctx.fillStyle=projection.return_status==='EXACT'||projection.return_status==='EXACT_WITH_WITNESS'?'#65e7a4':'#ffca55';ctx.fillText('RETURN '+projection.return_status,18,229);ctx.fillStyle='#9fb6c5';ctx.font='10px ui-monospace,monospace';ctx.fillText(corridorModulus===9?'inverse ×5 · gcd(2,9)=1':'predecessors '+projection.predecessors.join(' / ')+' · gcd(2,100)=2',18,250);ctx.fillText('TOUCH = CODEC TEST · FLIP = VIEW ONLY · CROSSING ≠ NODE',18,h-24);ctx.textAlign='left';
+  }
+  function drawReturnBridge(w,h){
+    const s=rule==='returnbridge'?frame().state:M.returnBridgeState(0),n=Number(s.offset),mirror=side==='back'?-1:1,compact=w<820,cx=compact?w*.67:w*.54,cy=Math.max(340,h*.55),r=Math.max(76,Math.min(150,w*(compact?.19:.145),h*.245));
+    const at=(rad,t)=>({x:cx+mirror*rad*Math.cos(t),y:cy+rad*Math.sin(t)}),ring=(count,rad,step,color,label)=>{const points=[];for(let i=0;i<count;i++){const t=-Math.PI/2+2*Math.PI*(i+step)/count,p=at(rad,t);points.push(p);ctx.strokeStyle=color;ctx.lineWidth=i?1.2:3;ctx.globalAlpha=i?.55:1;ctx.beginPath();ctx.moveTo(...Object.values(at(rad*.92,t)));ctx.lineTo(...Object.values(at(rad*1.08,t)));ctx.stroke();ctx.globalAlpha=1;ctx.fillStyle=i?'#7e9ba8':color;ctx.font=(i?'8':'700 11')+'px ui-monospace,monospace';ctx.textAlign='center';ctx.fillText(String(i),p.x,p.y-7)}ctx.strokeStyle=color;ctx.globalAlpha=.48;ctx.beginPath();ctx.arc(cx,cy,rad,0,Math.PI*2);ctx.stroke();ctx.globalAlpha=1;const q=points[0];ctx.fillStyle=color;ctx.shadowColor=color;ctx.shadowBlur=18;ctx.beginPath();ctx.arc(q.x,q.y,7,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;ctx.fillStyle=color;ctx.font='10px ui-monospace,monospace';ctx.fillText(label,q.x,q.y+19);return q};
+    ctx.fillStyle='#ffca55';ctx.font='11px ui-monospace,monospace';ctx.textAlign='left';ctx.fillText('W7 / W8 · RETURN BRIDGE · DECLARED 56-STEP COUPLING',18,150);
+    const local=[s.neighbors[0],{target:s.target,classification:s.classification,factorization:s.factorization},s.neighbors[1]],localY=155,localGap=compact?54:72;ctx.textAlign='center';ctx.fillStyle='#8daeba';ctx.font='8px ui-monospace,monospace';ctx.fillText('LOCAL NUMBER RAIL · −1 | CARRIER | +1',cx,localY-28);line([{x:cx-localGap,y:localY},{x:cx+localGap,y:localY}],'#52758a',2,.8);local.forEach((q,i)=>{const active=i===1,col=q.classification==='PRIME'?'#54d7ef':active?'#fff5b0':'#ed72aa',x=cx+(i-1)*localGap;ctx.fillStyle=col;ctx.shadowColor=col;ctx.shadowBlur=active?18:5;ctx.beginPath();ctx.arc(x,localY,active?9:6,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;ctx.fillStyle=col;ctx.font=(active?'700 13':'10')+'px ui-monospace,monospace';ctx.fillText(q.target,x,localY-13);ctx.fillStyle='#8daeba';ctx.font='7px ui-monospace,monospace';ctx.fillText(q.classification,x,localY+20)});
+    const q7=ring(7,r,n,'#ffca55','W7 +1'),q8=ring(8,r*.69,-n,'#ed72aa','W8 −1');line([q7,q8],s.jointReturn?'#65e7a4':'#54d7ef',s.jointReturn?4:1.5,s.jointReturn?1:.55);
+    ctx.fillStyle='#071823';ctx.beginPath();ctx.arc(cx,cy,35,0,Math.PI*2);ctx.fill();ctx.strokeStyle=s.jointReturn?'#65e7a4':'#52758a';ctx.lineWidth=2;ctx.stroke();ctx.fillStyle=s.jointReturn?'#65e7a4':'#eefaff';ctx.textAlign='center';ctx.font='700 18px ui-monospace,monospace';ctx.fillText(n+'/56',cx,cy+5);ctx.font='9px ui-monospace,monospace';ctx.fillText(s.jointReturn?'JOINT RETURN':'LCM(7,8)',cx,cy+22);
+    if(s.phaseJoint){ctx.fillStyle='#65e7a4';ctx.shadowColor='#65e7a4';ctx.shadowBlur=15;ctx.font='700 10px ui-monospace,monospace';ctx.fillText('PHASE JOINT · W7 = W8 = '+s.wheel7Tick,cx,cy-r-43);ctx.shadowBlur=0}
+    const landmarks=[0,3,15,28,30,43,50,51,52,56],x=compact?34:Math.max(48,w*.055),top=190,bottom=h-82,railY=k=>top+(bottom-top)*k/56;line([{x,y:top},{x,y:bottom}],'#315365',3,.9);for(const k of landmarks){const m=M.returnBridgeState(k),y=railY(k),selected=k===n,color=k===3?'#fff5b0':k===15?'#65e7a4':k===28?'#54d7ef':k===50?'#ffca55':k===56?'#65e7a4':'#ed72aa';ctx.fillStyle=color;ctx.shadowColor=color;ctx.shadowBlur=selected?18:0;ctx.beginPath();ctx.arc(x,y,selected?8:4,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;if(!compact||selected||[0,3,15,28,56].includes(k)){const labelY=y+([50,51,52].includes(k)?(k-51)*8:0);ctx.textAlign='left';ctx.fillStyle=selected?'#eefaff':'#9fb6c5';ctx.font=(selected?'700 ':'')+(compact?'7':'8')+'px ui-monospace,monospace';ctx.fillText(m.target+' · '+m.landmark,x+12,labelY+3)}}const currentY=railY(n);ctx.strokeStyle='#eefaff';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(x,currentY,11,0,Math.PI*2);ctx.stroke();
+    if(!compact){const px=w-252,py=210,pw=225;ctx.fillStyle='#071823cc';ctx.fillRect(px,py,pw,338);ctx.strokeStyle='#315365';ctx.strokeRect(px,py,pw,338);ctx.textAlign='left';ctx.fillStyle='#ffca55';ctx.font='700 9px ui-monospace,monospace';ctx.fillText('FACTOR ROSETTE · '+s.target,px+12,py+19);const pairs=s.factorPairs,cx2=px+pw/2,cy2=py+92,rr=48;ctx.strokeStyle='#315365';ctx.beginPath();ctx.arc(cx2,cy2,rr,0,Math.PI*2);ctx.stroke();pairs.forEach((pair,i)=>{const t=-Math.PI/2+i*2*Math.PI/pairs.length,q={x:cx2+rr*Math.cos(t),y:cy2+rr*Math.sin(t)};line([{x:cx2,y:cy2},q],i%2?'#ed72aa':'#54d7ef',1,.55);ctx.fillStyle=i%2?'#ed72aa':'#54d7ef';ctx.beginPath();ctx.arc(q.x,q.y,3.5,0,Math.PI*2);ctx.fill();ctx.textAlign='center';ctx.font='7px ui-monospace,monospace';ctx.fillText(pair,q.x,q.y-7)});ctx.fillStyle='#fff5b0';ctx.beginPath();ctx.arc(cx2,cy2,6,0,Math.PI*2);ctx.fill();ctx.fillStyle='#8daeba';ctx.textAlign='left';ctx.font='8px ui-monospace,monospace';ctx.fillText('VISITED '+s.visitedStates+' · W7 '+s.wheel7Tick+' · W8 '+s.wheel8Tick,px+12,py+158);ctx.fillStyle=s.phaseJoint?'#65e7a4':'#9fb6c5';ctx.fillText(s.phaseJoint?'PHASE MATCH · EXACT':'PHASES DISTINCT',px+12,py+175);ctx.fillStyle='#ffca55';ctx.font='700 9px ui-monospace,monospace';ctx.fillText('REPUNIT / EDELWEISS LIFT',px+12,py+205);M.REPUNIT_LIFT.forEach((q,i)=>{ctx.fillStyle=i===0&&s.target==='121'?'#fff5b0':i%2?'#ed72aa':'#54d7ef';ctx.font=(i===0&&s.target==='121'?'700 ':'')+'9px ui-monospace,monospace';ctx.fillText(q.root+'² = '+q.square,px+18,py+226+i*23)});ctx.fillStyle='#9fb6c5';ctx.font='8px ui-monospace,monospace';ctx.fillText('11×11  →  1000×1000',px+12,py+305);ctx.fillText('GHOST GRID · SCALE LIFT ONLY',px+12,py+322)}
+    ctx.textAlign='left';ctx.fillStyle='#54d7ef';ctx.font='10px ui-monospace,monospace';ctx.fillText(s.hub72?'71 | 72 | 73 · 72 = 6×12 = 8×9 · FOUR VISITED STATES':'28 = T7 = 7×8/2 · 69+28=97',18,h-58);ctx.fillStyle=s.joint84?'#65e7a4':'#ffca55';ctx.fillText(s.joint84?'84 = 2×42 = 6×14 = 7×12 · W7 = W8 = 1':'99+13=112=7×16 · +7 → 119=7×17',18,h-39);ctx.fillStyle=s.jointReturn?'#65e7a4':'#8daeba';ctx.font='9px ui-monospace,monospace';ctx.fillText((s.jointReturn?'ORIENTATION RETURN · INTEGER NOW 125':'W7 '+s.wheel7Tick+' · W8 '+s.wheel8Tick+' · '+s.classification+' '+s.factorization)+' · WHEEL RETURN ≠ INTEGER RETURN',18,h-19);
+  }
+  function drawSynoptic(w,h){
+    const s=rule==='returnbridge'?frame().state:M.returnBridgeState(0),n=Number(s.offset),history=session().frames.slice(Math.max(0,session().cursor-15),session().cursor+1),mirror=side==='back'?-1:1;
+    const event={3:'72 HUB',15:'84 PHASE JOINT',28:'97 / T7 BRIDGE',52:'121 / REPUNIT',56:'W7/W8 JOINT RETURN'}[n]||'RUN',pulse=event!=='RUN';
+    ctx.textAlign='left';ctx.fillStyle='#ffca55';ctx.font='700 12px ui-monospace,monospace';ctx.fillText('GAME OF WORLDS 2.0 · NCS NUMBERLOOP',18,146);ctx.fillStyle=pulse?'#65e7a4':'#8daeba';ctx.font=(pulse?'700 ':'')+'10px ui-monospace,monospace';ctx.fillText('ONE RECORD / SIX VIEWS · n '+n+'/56 · '+event,18,164);
+    const gap=10,left=18,top=180,bottom=28,cols=w<720?2:3,rows=Math.ceil(6/cols),pw=(w-left*2-gap*(cols-1))/cols,ph=(h-top-bottom-gap*(rows-1))/rows;
+    const boxes=Array.from({length:6},(_,i)=>({x:left+(i%cols)*(pw+gap),y:top+Math.floor(i/cols)*(ph+gap),w:pw,h:ph}));
+    function panel(i,title,sub){const b=boxes[i];ctx.fillStyle='#071823e8';ctx.fillRect(b.x,b.y,b.w,b.h);ctx.strokeStyle=pulse?'#3e746f':'#315365';ctx.lineWidth=pulse?1.5:1;ctx.strokeRect(b.x+.5,b.y+.5,b.w-1,b.h-1);ctx.fillStyle=i%2?'#ed72aa':'#54d7ef';ctx.font='700 9px ui-monospace,monospace';ctx.fillText('0'+(i+1)+' · '+title,b.x+10,b.y+16);ctx.fillStyle='#7895a4';ctx.font='7px ui-monospace,monospace';ctx.fillText(sub,b.x+10,b.y+29);return b}
+    function wheel(b,count,tick,color,label,trails){const cx=b.x+b.w/2,cy=b.y+b.h*.59,r=Math.max(25,Math.min(b.w*.28,b.h*.3));ctx.strokeStyle='#315365';ctx.lineWidth=1;ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();for(let i=0;i<count;i++){const a=-Math.PI/2+2*Math.PI*i/count,x=cx+mirror*r*Math.cos(a),y=cy+r*Math.sin(a);ctx.fillStyle=i===tick?color:'#315365';ctx.shadowColor=color;ctx.shadowBlur=i===tick?12:0;ctx.beginPath();ctx.arc(x,y,i===tick?5:2.5,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;ctx.fillStyle=i===tick?'#eefaff':'#7895a4';ctx.font='7px ui-monospace,monospace';ctx.textAlign='center';ctx.fillText(String(i),x,y-7)}if(trails)for(const [i,fr] of history.entries()){const q=fr.state,a=-Math.PI/2+2*Math.PI*(count===7?q.wheel7Tick:q.wheel8Tick)/count;ctx.globalAlpha=.08+.35*(i+1)/history.length;ctx.fillStyle=color;ctx.beginPath();ctx.arc(cx+mirror*(r-10)*Math.cos(a),cy+(r-10)*Math.sin(a),2,0,Math.PI*2);ctx.fill()}ctx.globalAlpha=1;ctx.fillStyle=color;ctx.font='700 9px ui-monospace,monospace';ctx.fillText(label+' · '+tick,cx,cy+4);ctx.textAlign='left'}
+    let b=panel(0,'W7 WHEEL','+1 SECTOR · TRAIL FROM SAME RECORD');wheel(b,7,s.wheel7Tick,'#ffca55','W7',true);
+    b=panel(1,'W8 COUNTER-WHEEL','−1 SECTOR · NO SECOND CLOCK');wheel(b,8,s.wheel8Tick,'#ed72aa','W8',true);
+    b=panel(2,'RETURN DISC','CARRIER 69…125 · ORIENTATION PERIOD 56');{const cx=b.x+b.w/2,cy=b.y+b.h*.59,r=Math.max(24,Math.min(b.w*.3,b.h*.3));for(const rr of [.38,.68,1]){ctx.strokeStyle=rr===1?'#52758a':'#214355';ctx.beginPath();ctx.arc(cx,cy,r*rr,0,Math.PI*2);ctx.stroke()}const a=-Math.PI/2+2*Math.PI*n/56,q={x:cx+mirror*r*Math.cos(a),y:cy+r*Math.sin(a)};line([{x:cx,y:cy},q],pulse?'#65e7a4':'#54d7ef',2,.9);ctx.fillStyle=pulse?'#65e7a4':'#fff5b0';ctx.beginPath();ctx.arc(q.x,q.y,5,0,Math.PI*2);ctx.fill();ctx.fillStyle='#eefaff';ctx.textAlign='center';ctx.font='700 15px ui-monospace,monospace';ctx.fillText(s.target,cx,cy+5);ctx.font='7px ui-monospace,monospace';ctx.fillStyle='#8daeba';ctx.fillText(s.landmark,cx,cy+18);ctx.textAlign='left'}
+    b=panel(3,'DUAL WHEEL','7 ⊗ 8 · PHASE MATCH / RETURN');{const cx=b.x+b.w/2,cy=b.y+b.h*.59,r=Math.max(24,Math.min(b.w*.29,b.h*.29));const spoke=(count,tick,color,rad)=>{for(let i=0;i<count;i++){const a=-Math.PI/2+2*Math.PI*i/count;line([{x:cx,y:cy},{x:cx+mirror*rad*Math.cos(a),y:cy+rad*Math.sin(a)}],color,i===tick?2:1,i===tick?.9:.12)}};spoke(7,s.wheel7Tick,'#ffca55',r);spoke(8,s.wheel8Tick,'#ed72aa',r*.72);ctx.fillStyle=s.phaseMatch?'#65e7a4':'#eefaff';ctx.textAlign='center';ctx.font='700 11px ui-monospace,monospace';ctx.fillText(s.jointReturn?'RETURN':s.phaseMatch?'PHASE LOCK':'W7 '+s.wheel7Tick+' / W8 '+s.wheel8Tick,cx,cy+4);ctx.textAlign='left'}
+    b=panel(4,'REPUNIT / EDELWEISS','11² → 111² → 1111² · SCALE LENS');{const cx=b.x+b.w/2,cy=b.y+b.h*.6,max=Math.max(25,Math.min(b.w*.28,b.h*.27));M.REPUNIT_LIFT.forEach((q,i)=>{const r=max*(.42+i*.29),active=i===0&&s.target==='121';ctx.strokeStyle=active?'#fff5b0':i%2?'#ed72aa':'#54d7ef';ctx.lineWidth=active?3:1;ctx.globalAlpha=active?1:.6;ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();ctx.globalAlpha=1;ctx.fillStyle=ctx.strokeStyle;ctx.textAlign='center';ctx.font=(active?'700 ':'')+'7px ui-monospace,monospace';ctx.fillText(q.root+'²='+q.square,cx,cy-r+10)});ctx.fillStyle='#ffca55';ctx.beginPath();ctx.arc(cx,cy,4,0,Math.PI*2);ctx.fill();ctx.textAlign='left'}
+    b=panel(5,'FACTOR / GHOST FIELD','EXACT PAIRS · 11×11 → 1000×1000');{const cx=b.x+b.w/2,cy=b.y+b.h*.59,r=Math.max(24,Math.min(b.w*.27,b.h*.26));ctx.strokeStyle='#193746';ctx.globalAlpha=.55;for(let i=-4;i<=4;i++){line([{x:cx-r,y:cy+i*r/4},{x:cx+r,y:cy+i*r/4}],'#315365',1,.3);line([{x:cx+i*r/4,y:cy-r},{x:cx+i*r/4,y:cy+r}],'#315365',1,.3)}ctx.globalAlpha=1;s.factorPairs.forEach((pair,i)=>{const a=-Math.PI/2+2*Math.PI*i/s.factorPairs.length,q={x:cx+mirror*r*Math.cos(a),y:cy+r*Math.sin(a)};line([{x:cx,y:cy},q],i%2?'#ed72aa':'#54d7ef',1,.6);ctx.fillStyle=i%2?'#ed72aa':'#54d7ef';ctx.beginPath();ctx.arc(q.x,q.y,3,0,Math.PI*2);ctx.fill();ctx.textAlign='center';ctx.font='7px ui-monospace,monospace';ctx.fillText(String(pair),q.x,q.y-6)});ctx.fillStyle='#fff5b0';ctx.beginPath();ctx.arc(cx,cy,5,0,Math.PI*2);ctx.fill();ctx.textAlign='left'}
+    if(pulse){ctx.strokeStyle='#65e7a4';ctx.setLineDash([4,5]);ctx.lineWidth=1;ctx.beginPath();boxes.forEach((q,i)=>{const x=q.x+q.w/2,y=q.y+q.h/2;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.stroke();ctx.setLineDash([])}ctx.textAlign='left';ctx.fillStyle='#7895a4';ctx.font='8px ui-monospace,monospace';ctx.fillText('SYNCHRONIZED PROJECTIONS · DISPLAY COUPLING, NOT A PRIME GENERATOR OR PHYSICAL LAW',18,h-10);
+  }
+  function drawBeatRing(ring, at, radius) {
+    const track = radius * 0.87;
+    const cue = wheelBeat ? beatCue(ring) : '';
+    const accent = cue === 'Return' ? '#68efbd' : cue === 'Echo' ? '#bd9bff' : '#7895a4';
+    line(Array.from({ length: 73 }, (_, index) => at(track, index * Math.PI / 36)), accent, cue ? 2 : 1, cue ? 1 : 0.66);
+    for (let i = 0; i < ring.period; i += 1) {
+      const angle = i * 2 * Math.PI / ring.period;
+      const isStart = i * wheelBeatStride === ring.start;
+      line([at(track - (isStart ? 9 : 3), angle), at(track + 2, angle)], isStart ? '#f2f7fc' : '#7895a4', isStart ? 3 : 1);
+    }
+    for (const [direction, length, color] of [[1, 1, '#ffcc83'], [-1, 0.84, '#bd9bff']]) {
+      const angle = wheelBeatDegrees(ring, direction) * Math.PI / 180;
+      const endpoint = at(track * length, angle);
+      line([at(track * 0.28, angle), endpoint], color, 3);
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.arc(endpoint.x, endpoint.y, 4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    const title = at(radius * 1.43, Math.PI / 2);
+    ctx.textAlign = 'center';
+    ctx.font = '700 15px ui-monospace,monospace';
+    ctx.fillStyle = '#eefaff';
+    ctx.fillText(ring.modulus + (cue ? ' · ' + cue : ''), title.x, title.y);
+  }
+
+  function drawWheels(w,h){
+    const compare = wheelBeatVisible() && wheelBeatPlay;
+    const s = rule === 'wheels' ? frame().state : M.wheelState(0);
+    const cx = w * (compare ? 0.27 : 0.5);
+    const controlsBottom = $('numberWheelControls').getBoundingClientRect().bottom - canvas.getBoundingClientRect().top;
+    const plotTop = Number.isFinite(controlsBottom) ? controlsBottom + 18 : 245;
+    const cy = compare ? Math.max(plotTop + 38, (plotTop + h - 94) / 2) : 175 + (h - 290) / 2;
+    const r = compare
+      ? Math.max(22, Math.min(w * 0.18, (cy - plotTop) / 1.43, (h - 90 - cy) / 1.3))
+      : Math.max(30, Math.min(w * 0.33, (h - 310) * 0.42));
+    const mirror = side === 'back' ? -1 : 1;
+    const at=(rad,t)=>({x:cx+mirror*rad*Math.cos(t),y:cy-rad*Math.sin(t)}),circle=(rad,col,alpha)=>line(Array.from({length:145},(_,i)=>at(rad,i*Math.PI/72)),col,1,alpha);
+    circle(r*1.18,'#315365',.8);for(let i=0;i<7;i++){const t=Math.PI/2+i*2*Math.PI/7,p=at(r*1.18,t);line([at(r*1.13,t),at(r*1.23,t)],'#9bb3c0',2,.8);ctx.fillStyle='#8daeba';ctx.font='9px ui-monospace,monospace';ctx.textAlign='center';ctx.fillText('7:'+i,p.x,p.y-7)}
+    line([{x:cx,y:cy-r*1.28},{x:cx,y:cy+r*1.28}],'#ffca55',1,.65);
+    const markers=[];for(const [key,teeth,rad,color,label]of [['tick1836',17,r,'#54d7ef','1836'],['tick1729',29,r*.69,'#ed72aa','1729']]){const theta=2*Math.PI*s[key]/180;circle(rad,color,.6);for(let i=0;i<teeth;i++){const t=theta+2*Math.PI*i/teeth;line([at(rad*.94,t),at(rad*1.04,t)],color,i?1:3,i?.5:1);if(i%2===0){const p=at(rad*1.09,t);ctx.fillStyle=color;ctx.font='8px ui-monospace,monospace';ctx.textAlign='center';ctx.fillText(String(i),p.x,p.y+3)}}const q=at(rad,theta);markers.push(q);line([{x:cx,y:cy},q],color,1.5,.65);ctx.fillStyle=color;ctx.shadowColor=color;ctx.shadowBlur=22;ctx.beginPath();ctx.arc(q.x,q.y,7,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;ctx.fillStyle=color;ctx.font='11px ui-monospace,monospace';ctx.fillText(label,q.x,q.y-16)}
+    if (compare) {
+      drawBeatRing(beatRings[0], at, r);
+      drawBeatRing(beatRings[1], (rad, angle) => ({
+        x: w * 0.75 + mirror * rad * Math.cos(angle),
+        y: cy - rad * Math.sin(angle),
+      }), r);
+    }
+    line(markers,'#ffca55',1,s.alignment?.85:.25);ctx.fillStyle='#071823';ctx.beginPath();ctx.arc(cx,cy,25,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#ffca55';ctx.stroke();ctx.fillStyle='#ffca55';ctx.textAlign='center';ctx.font='16px ui-monospace,monospace';ctx.fillText('XIX',cx,cy+5);ctx.textAlign='left';ctx.font='10px ui-monospace,monospace';ctx.fillStyle='#54d7ef';ctx.fillText('1836 · 17 teeth · '+s.turnNumerator1836+'/180 turns',18,h-88);ctx.fillStyle='#ed72aa';ctx.fillText('1729 · 29 teeth · '+s.turnNumerator1729+'/180 turns',18,h-70);ctx.fillStyle='#ffca55';ctx.fillText('φ '+s.phaseDegrees+'° · '+(s.orientationReturn?'JOINT ORIENTATION RETURN':s.alignment?'RELATIVE ALIGNMENT':'COUPLED PHASE'),18,h-51);ctx.fillStyle='#8daeba';ctx.font='9px ui-monospace,monospace';ctx.fillText('29 · 31 · 33 · 45 · 78 — MARKER LABELS, NOT ANGLES',18,h-31);ctx.fillText(rule==='wheels'?'DECLARED PRESET · POSITIVE = CCW · XIX AND OUTER7 FIXED':'REFERENCE · SELECT XIX WHEELS RULE TO RUN',18,h-13);
+  }
+  function draw(){if(parallelActive)return;if(view==='trinity'){canvas.hidden=true;$('numberMixer').hidden=true;$('numberMixerControls').hidden=true;$('numberPQ').hidden=true;$('numberWheelControls').hidden=$('wheelBeatDetails').hidden=true;const phase=rule==='mixer'?frame().state.phase:360*session().cursor/M.limit(rule),r=T.snapshot(phase,trinity);$('trinityDrawing').innerHTML=T.drawing(r,side);$('trinityStatus').textContent='PHASE '+phase+'° · '+(r.VM?'VM: ÜBERLAGERUNG AKTIV':'VM: AUS')+' · gleicher gespeicherter Quellzustand';for(const [id,key]of [['trinityLeft','left'],['trinityRight','right'],['trinitySwap','swap']])$(id).checked=trinity[key];$('trinityPalette').value=trinity.palette;$('trinityK').value=String(trinity.K);$('trinityMarker').value=trinity.marker;return;}$('numberWheelControls').hidden=$('wheelBeatDetails').hidden=!wheelBeatVisible();$('numberPQ').hidden=view!=='pq';if(view==='pq'){canvas.hidden=true;$('numberMixer').hidden=true;$('numberMixerControls').hidden=true;syncPQ();return}$('numberMixerControls').hidden=!['mixer','rgb','trinity'].includes(view);for(const [id,pick]of [['mixerAll','all'],['mixerA','A'],['mixerB','B']])$(id).setAttribute('aria-pressed',String(aperture===pick));$('numberMixer').hidden=!['mixer','rgb','trinity'].includes(view);canvas.hidden=['mixer','rgb'].includes(view);const rect=canvas.getBoundingClientRect(),w=Math.max(1,rect.width),h=Math.max(1,rect.height),dpr=Math.min(window.devicePixelRatio||1,2);if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr)}ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);const s=session(),f=frame(),history=s.frames.slice(Math.max(0,s.cursor-23),s.cursor+1),first=history[0].generation,project=xyz=>P.project(xyz.map((x,i)=>x*.42*(side==='back'&&i===0?-1:1)),camera,w,h),projectRing=(r,y=0)=>Array.from({length:97},(_,i)=>project([r*Math.cos(i*Math.PI/48),y,r*Math.sin(i*Math.PI/48)]));
+    // A deterministic star field is only presentation; it never feeds the recurrence.
+    ctx.fillStyle='#80d5ef';for(let i=0;i<95;i++){ctx.globalAlpha=.08+(i%5)*.035;ctx.fillRect(((i*197+17)%997)/997*w,((i*367+71)%991)/991*h,1,1)}ctx.globalAlpha=1;
+    if(['mixer','rgb'].includes(view)){const S=window.A0LayeredPentagonScene;if(!S){$('numberError').textContent='Mischerquelle fehlt.';return}const phase=rule==='mixer'?f.state.phase:360*s.cursor/M.limit(rule),fold=M.mixerFold(phase),pose=S.snapshot(phase,'counter'),past=rule==='mixer'?history.slice(-8,-1).map(fr=>S.snapshot(fr.state.phase,'counter')):[];$('numberMixer').innerHTML='<svg style="isolation:isolate;background:#000;transform:scaleX('+ (side==='back'?-1:1) +')" viewBox="'+({all:'0 0 780 470',A:'500 20 280 220',B:'500 230 280 220'}[aperture])+'" xmlns="http://www.w3.org/2000/svg">'+mixerDrawing(S,pose,past,view==='rgb',fold)+'</svg>';return}
+    if(view==='returnbridge'){drawReturnBridge(w,h);return}
+    if(view==='synoptic'){drawSynoptic(w,h);return}
+    if(view==='wheels'){drawWheels(w,h);return}
+    if(view==='corridor'){drawCorridor(w,h);return}
+    if(view==='groups'){drawGroups(w,h);return}
+    if(view==='elevator'){drawElevator(w,h);return}
+    if(view==='joint'){drawJoint(w,h);return}
+    if(view==='shadowclock'){drawShadowClock(w,h);return}
+    if(view==='ftr231'){drawFtr231(w,h);return}
+    if(view==='qrt20'){drawQrt20(w,h);return}
+    if(view==='rails'){drawRails(w,h);return}
+    if(view==='tower'){for(let i=0;i<12;i++)line(projectRing(2,i*.48-2.5),'#315365',1,.45);}
+    else if(view==='grid'){const cols=f.size,rows=f.height;for(let x=0;x<cols;x++)line([project([(x/(cols-1)-.5)*4,0,-2]),project([(x/(cols-1)-.5)*4,0,2])],'#2b6577',1,.32);for(let y=0;y<rows;y++)line([project([-2,0,(y/(rows-1)-.5)*4]),project([2,0,(y/(rows-1)-.5)*4])],'#2b6577',1,.32);}
+    else{for(const [i,r]of [.6,1.15,1.7,2.25,2.85].entries())line(projectRing(r),i%2?'#9e4ea4':'#257a8b',1,.3);line([project([-3,0,0]),project([3,0,0])],'#ffca55',1,.3);line([project([0,0,-3]),project([0,0,3])],'#54d7ef',1,.3);}
+    const points=history.map(fr=>({frame:fr,point:project(M.point(fr,rule,view,first))}));
+    line(points.map(x=>x.point),rule==='euler'?'#54d7ef':rule==='dyadic'?'#ed72aa':'#ffca55',1.8,.7);
+    if(rule!=='euler'&&view==='rings'){const ring=history.map(fr=>{const a=2*Math.PI*Number(BigInt(fr.state.a)%7n)/7;return project([1.15*Math.cos(a),0,1.15*Math.sin(a)])});line(ring,'#ed72aa',1,.4);line([points.at(-1).point,ring.at(-1)],'#ed72aa',1.5,.8);const q=ring.at(-1);ctx.fillStyle='#ed72aa';ctx.shadowColor='#ed72aa';ctx.shadowBlur=20;ctx.beginPath();ctx.arc(q.x,q.y,5,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;}
+    points.sort((a,b)=>a.point.z-b.point.z);for(const {frame:fr,point:q}of points){const active=fr.generation===s.cursor,age=s.cursor-fr.generation,col=active?'#fff5b0':rule==='euler'?'#54d7ef':fr.generation%2?'#ed72aa':'#ffca55';ctx.globalAlpha=active?1:.25+.6*(1-age/24);ctx.shadowBlur=active?28:12;ctx.shadowColor=col;ctx.fillStyle=col;ctx.beginPath();ctx.arc(q.x,q.y,active?8:3.6,0,Math.PI*2);ctx.fill();if(active){ctx.shadowBlur=0;ctx.strokeStyle=col;ctx.lineWidth=1;ctx.beginPath();ctx.arc(q.x,q.y,17,0,Math.PI*2);ctx.stroke();}}
+    ctx.globalAlpha=1;ctx.shadowBlur=0;const origin=project([0,0,0]);ctx.strokeStyle='#bceaf0';ctx.lineWidth=1;ctx.beginPath();ctx.arc(origin.x,origin.y,3,0,Math.PI*2);ctx.stroke();ctx.fillStyle='#8daeba';ctx.font='10px ui-monospace,monospace';ctx.fillText('n '+first+' — '+s.cursor+'  /  '+(view==='tower'?'SEQUENCE HEIGHT':'VIEW ONLY'),20,h-20);
+  }
+  function animate(now){raf=null;if(document.hidden)return;if(motion){motion.start??=now;const u=Math.max(0,Math.min(1,(now-motion.start)/Math.min(600,delay*.85)));motion.blend=u*u*(3-2*u);dirty=true;if(u>=1)motion=null;}if(orbit&&!reduced){camera.yaw+=Math.min(50,Math.max(0,now-last))*.00016;dirty=true}last=now;if(dirty){dirty=false;draw()}if((orbit&&!reduced)||motion)requestDraw()}
+  function requestDraw(){if(!wheelBeatVisible()&&(wheelAuditionLoop||wheelBeatTimer!==null||wheelBeatFills.size||wheelBassSources.size||wheelBeatMeters.size))stopWheelBeat();syncQrt20Controls();renderJointQrt20Audit();dirty=true;if(raf===null&&!document.hidden)raf=requestAnimationFrame(animate)}
+  canvas.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY,startX:e.clientX,startY:e.clientY,moved:false};canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointermove',e=>{if(!drag)return;camera.yaw+=(e.clientX-drag.x)*.008;camera.pitch=Math.max(-1.25,Math.min(1.25,camera.pitch+(e.clientY-drag.y)*.008));drag={...drag,x:e.clientX,y:e.clientY,moved:drag.moved||Math.hypot(e.clientX-drag.startX,e.clientY-drag.startY)>7};requestDraw()});canvas.addEventListener('pointerup',e=>{if(drag&&!drag.moved&&view==='rails'){const r=canvas.getBoundingClientRect();if(Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2))<34)command('touch')}drag=null});canvas.addEventListener('pointercancel',()=>{drag=null});
+  canvas.addEventListener('keydown',e=>{if(e.key==='Enter'&&view==='rails'){e.preventDefault();command('touch');return}if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','+','-','='].includes(e.key))return;e.preventDefault();if(e.key==='ArrowLeft')camera.yaw-=.12;if(e.key==='ArrowRight')camera.yaw+=.12;if(e.key==='ArrowUp')camera.pitch=Math.min(1.25,camera.pitch+.1);if(e.key==='ArrowDown')camera.pitch=Math.max(-1.25,camera.pitch-.1);if(['+','='].includes(e.key))camera.zoom=Math.min(2.5,camera.zoom*1.1);if(e.key==='-')camera.zoom=Math.max(.5,camera.zoom/1.1);requestDraw()});
+  $('numberScrub').oninput=()=>{if(parallelActive){pause();comparison=PM.at(comparison,Number($('numberScrub').value));readout();return;}pause();returnWitness=null;returnStatus='Gespeicherter Cursor bewegt · kein inverser Operator';touch=null;$('numberTouchStatus').textContent='';sessions[rule]=M.at(session(),Number($('numberScrub').value));readout()};
+  for(const [id,pick]of [['mixerAll','all'],['mixerA','A'],['mixerB','B']])$(id).onclick=()=>command('aperture',pick);
+  for(const id of ['wheelRatio','wheelDirection'])$(id).onchange=()=>command('wheel-config',{ratio:$('wheelRatio').value,direction:$('wheelDirection').value});
+  if(T)for(const id of ['trinityLeft','trinityRight','trinitySwap','trinityPalette','trinityK','trinityMarker'])$(id).onchange=()=>command('trinity-settings',{left:$('trinityLeft').checked,right:$('trinityRight').checked,swap:$('trinitySwap').checked,palette:$('trinityPalette').value,K:Number($('trinityK').value),marker:$('trinityMarker').value});
+  for(const [id,action]of [['numberCaptureReturn','capture-return'],['numberInverseStep','inverse-step'],['numberSourceReturn','source-return']])if($(id))$(id).onclick=()=>command(action);
+  $('jointModulus').onchange=()=>command('joint-modulus',Number($('jointModulus').value));
+  $('jointDirection').onchange=()=>command('joint-direction',$('jointDirection').value);
+  $('jointActivate').onclick=()=>command('rule','sumlift');
+  for(const [id,pick]of [['jointQrt20Junction','junction'],['jointQrt20AB','ab'],['jointQrt20SD','sd'],['jointQrt20Codec','qrt20']])if($(id))$(id).onclick=()=>command('joint-qrt20-view',pick);
+  if($('corridorModulus'))$('corridorModulus').onchange=()=>command('corridor-modulus',Number($('corridorModulus').value));
+  if($('corridorWitness'))$('corridorWitness').onchange=()=>command('corridor-witness',$('corridorWitness').value==='none'?null:Number($('corridorWitness').value));
+  if($('numberBreathToggle'))$('numberBreathToggle').onclick=()=>command('breath',!breathEnabled);
+  if($('qrt20QuarterTurn'))$('qrt20QuarterTurn').onclick=()=>command('qrt20-quarter',!qrt20QuarterTurn);
+  if($('qrt20CouplingWindow'))$('qrt20CouplingWindow').onclick=()=>command('qrt20-coupling',!qrt20CouplingWindow);
+  if($('qrt20Terrace'))$('qrt20Terrace').onclick=()=>command('qrt20-terrace',!qrt20Terrace);
+  if($('qrt20Tesa'))$('qrt20Tesa').onclick=()=>command('qrt20-tesa',!qrt20Tesa);
+  if($('qrt20TesaMode'))$('qrt20TesaMode').onclick=()=>{const index=M.TESA_WINDOW_MODES.indexOf(qrt20TesaMode);command('qrt20-tesa-mode',M.TESA_WINDOW_MODES[(index+1)%M.TESA_WINDOW_MODES.length])};
+  if($('qrt20TesaTrace'))$('qrt20TesaTrace').onclick=()=>command('qrt20-tesa-trace',!qrt20TesaTrace);
+  if($('qrt20IotaGate'))$('qrt20IotaGate').onclick=()=>command('qrt20-iota-gate');
+  if($('qrt20FoldBank'))$('qrt20FoldBank').onclick=()=>command('qrt20-fold-bank');
+  if($('qrt20CoreMotion'))$('qrt20CoreMotion').onclick=()=>command('qrt20-core-motion',!qrt20CoreMotion);
+  if($('qrt20BetaStep'))$('qrt20BetaStep').onclick=()=>command('qrt20-beta-step');
+  if($('qrt20VpaProfile'))$('qrt20VpaProfile').onclick=()=>command('qrt20-vpa-profile');
+  if($('qrt20VpaStep'))$('qrt20VpaStep').onclick=()=>command('qrt20-vpa-step');
+  if($('qrt20PascalSeamReset'))$('qrt20PascalSeamReset').onclick=()=>{qrt20PascalSeamStep=0;readout()};
+  if($('qrt20PascalSeam'))$('qrt20PascalSeam').onclick=()=>command('qrt20-pascal-seam');
+  $('numberVerify').onclick=()=>{pause();if(parallelActive){$('numberReceipt').textContent=JSON.stringify(PM.verify(comparison));return;}$('numberReceipt').textContent=JSON.stringify(M.replay(M.record(session(),view,inspection())))};
+  $('numberExport').onclick=()=>{pause();if(parallelActive){const check=PM.verify(comparison);if(check.status!=='PASS'){$('numberReceipt').textContent='HOLD · '+check.status;return;}const url=URL.createObjectURL(new Blob([JSON.stringify(PM.record(comparison),null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='number-parallel-t'+comparison.tick+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),0);$('numberReceipt').textContent='Parallel Replay PASS · JSON exportiert.';return;}const r=M.record(session(),view,inspection()),check=M.replay(r);if(check.status!=='PASS'){$('numberReceipt').textContent='HOLD · '+check.status;return}const url=URL.createObjectURL(new Blob([JSON.stringify(r,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='game-of-numbers-'+rule+'-n'+session().cursor+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),0);$('numberReceipt').textContent='Replay PASS · JSON exportiert.'};
+  window.addEventListener('resize',requestDraw);document.addEventListener('visibilitychange',()=>{if(document.hidden){pause();if(raf!==null)cancelAnimationFrame(raf);raf=null}else requestDraw()});
+  initClockAddress();
+  initZetaContactWheel();
+  paintLokiBeat(0);
+  readout();publish(true);window.GameOfNumbersView={snapshot:()=>JSON.parse(JSON.stringify(session())),parallelSnapshot:()=>comparison?JSON.parse(JSON.stringify(comparison)):null,command,contract:()=>parallelActive?{kind:'PARALLEL_NATIVE_RECURRENCES',tick:comparison.tick,grouping:'presentation only; not canonical F1-F7',clock:'one native step per comparison tick; independent horizons'}:M.contract(rule,view,inspection(),session().config)};
+})();
