@@ -62,6 +62,18 @@
     .desk-brief ul{margin:.4rem 0;padding-inline-start:1.2rem}
     .desk-brief li+li{margin-top:.45rem}
     .desk-brief details summary{cursor:pointer;font-weight:700}
+    .myzel-xo-sketches{display:flex;flex-wrap:wrap;gap:.75rem;margin:1rem 0}
+    .myzel-xo-sketches figure{flex:1 1 7rem;min-width:0;margin:0}
+    .myzel-xo-sketches figure:first-child{flex:1.55 1 11.25rem}
+    .myzel-xo-sketches figcaption{margin-bottom:.45rem;font:750 .82rem/1.4 var(--mono)}
+    .myzel-ab-grid{width:100%;border-collapse:collapse;text-align:center;font:.75rem/1.4 var(--mono)}
+    .myzel-ab-grid th,.myzel-ab-grid td{padding:.4rem .15rem}
+    .myzel-ab-grid tbody th,.myzel-ab-grid tbody td{border:1px solid #b4c9b9;background:#eef6ed;color:#193b2b}
+    .myzel-ab-grid tbody td{font-weight:800}
+    .myzel-ab-grid tbody .myzel-ab-seam{width:3.5ch;border-color:#cba34a;background:#fff0be;color:#5c4000}
+    .myzel-o-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;width:min(100%,6rem)}
+    .myzel-o-grid span{aspect-ratio:1;background:#27725b}
+    .myzel-o-grid .myzel-o-core{border:1px solid #b4c9b9;background:#eef6ed}
     .desk-overview-dossiers{max-width:1380px;margin:0 auto 2rem;padding:0 6vw}
     .desk-overview-dossiers>summary{padding:1rem;border:1px solid var(--line);background:var(--white);cursor:pointer;font-weight:700}
   </style>
@@ -359,6 +371,31 @@
               <li><strong>Spinnennetz.</strong> Speichen, Fangspirale und Rahmen bilden Lastpfade. Ein Stoß wird über Fäden bis zu den Aufhängungen weitergegeben. <a href="https://www.nature.com/articles/srep31265">Abbildung zu Geometrie und Lastpfaden</a></li>
               <li><strong>Root Room.</strong> Beim goldenen Dreieck mit 36°–72°–72° entsteht durch Unterteilung wieder ein ähnliches Dreieck. Maßstab und Größe ändern sich, die Winkel und Seitenverhältnisse bleiben gleich. <a href="A0_BLUE_PINK_DODECA_CELL_RETURN.html#rootRoom">Root Room in A0 öffnen</a></li>
             </ol>
+            <p><strong>Spaltblättling · Öffnung.</strong> Bei Feuchte öffnen sich die eingerollten Ränder der Spaltlamellen. Die sporenbildende Fläche liegt wieder frei. <a href="https://research-portal.uu.nl/ws/files/238943975/1-s2.0-S2352492824017653-main.pdf">Spaltlamellen bei Feuchtewechsel</a></p>
+            <p><strong>Spaltblättling · 23.328 mögliche Paarungstypen.</strong> Geschätzt 288 Varianten von Faktor A und 81 von Faktor B ergeben <code>288 × 81 = 23.328</code> Kombinationen. Als dezimale Fugen-Lesart steht daneben <code>23 |X| 328</code>. Das Zeichen <code>|X|</code> markiert die Grenze zwischen Tausenderblock und Rest (<code>23 × 1.000 + 328</code>). Für eine reguläre Paarung müssen sich zwei Myzelien in beiden Faktoren unterscheiden. <code>(A₁, B₁)</code> ist mit <code>(A₂, B₂)</code> kompatibel. Bei <code>(A₁, B₂)</code> stimmt A überein und die Bedingung ist nicht erfüllt. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12028200/">Studie zur A/B-Paarungsregel</a></p>
+            <div class="myzel-xo-sketches">
+              <figure>
+                <figcaption id="myzel-ab-grid-title">X · Dezimalfuge</figcaption>
+                <table class="myzel-ab-grid" aria-labelledby="myzel-ab-grid-title" aria-describedby="myzel-ab-grid-note">
+                  <thead><tr><th scope="col">A-Zeile</th><th scope="col">B = 76</th><th scope="col">Fuge</th><th scope="col">B = 77</th></tr></thead>
+                  <tbody><tr><th scope="row">284</th><td>22.999</td><td class="myzel-ab-seam">|X|</td><td>23.000</td></tr></tbody>
+                </table>
+                <p id="myzel-ab-grid-note">Bei <code>n = 81 × (a − 1) + b</code> wechselt der Tausenderblock von 22 auf 23. A bleibt bei 284.</p>
+              </figure>
+              <figure>
+                <figcaption>O · 16 Randfelder</figcaption>
+                <div class="myzel-o-grid" role="img" aria-label="5×5-Raster mit 16 dunklen Randfeldern um einen hellen 3×3-Kern">
+                  <span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span class="myzel-o-core"></span><span class="myzel-o-core"></span><span class="myzel-o-core"></span><span></span>
+                  <span></span><span class="myzel-o-core"></span><span class="myzel-o-core"></span><span class="myzel-o-core"></span><span></span>
+                  <span></span><span class="myzel-o-core"></span><span class="myzel-o-core"></span><span class="myzel-o-core"></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <p><code>5² − 3² = 16</code><br>Tessarec-Bezug: <a href="A0_FOLD_GEOMETRY_NAVIGATOR.html"><code>23³ + 24³ + 25³ = 204²</code></a></p>
+              </figure>
+            </div>
+            <p><strong>Linear A und Linear B · Analogie zur Fuge.</strong> Als Linear B für das mykenische Griechisch aus Linear A entwickelt wurde, wurden manche Zeichenformen übernommen und andere angepasst. Die Analogie fragt, was beim Übergang lesbar bleibt. Im PrimeCube zeigt der Loki-Schnitt eine ähnliche Lesefrage: 397 und 419 teilen denselben X–Z-Punkt. Ihre y-Ebenen unterscheiden sie. <a href="https://doi.org/10.1515/kadmos-2019-0004">Schriftvergleich</a> · <a href="A0_PRIMECUBE_GAP_FOLD_LAB.html#primecube-loki-slice-compare">PrimeCube · 397 und 419</a></p>
+            <p><strong>Mykorrhiza · Austausch und Transport.</strong> An der Fuge gibt die Pflanze Kohlenstoffverbindungen an den Pilz ab und erhält Phosphat. Das Hyphennetz transportiert Phosphat aus dem Boden bis zur Wurzel. <a href="https://pubmed.ncbi.nlm.nih.gov/21836016/">Experiment zum Nährstofftausch</a></p>
             <p><strong>Modellfrage fürs Myzel:</strong> Wenn eine Ressource ungleich verteilt ist, wie verändert sich die Wachstumsfront, und welche Zweige tragen mehr Transport?</p>
             <p><a href="#weg-welle-spur">Weiter zu Physik · Weg, Welle, Spur</a></p>
           </details>
