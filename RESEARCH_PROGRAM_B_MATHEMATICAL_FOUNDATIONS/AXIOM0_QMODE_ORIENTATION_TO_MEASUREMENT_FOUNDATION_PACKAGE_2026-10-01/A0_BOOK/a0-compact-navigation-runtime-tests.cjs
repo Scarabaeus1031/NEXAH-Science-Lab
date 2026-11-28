@@ -221,7 +221,7 @@ const localServer=mount('A0_SCIENCE.html','','',{protocol:'http:',hostname:'127.
 const localServerWorkspace=localServer.header.children[2];
 const localServerScience=localServer.header.children[1].children.find(n=>n.className.endsWith('--science')).children[0];
 ok(localServerScience.innerHTML.includes('A0 · Science'),'localhost retains the internal A0 Science lane beside the separate nexah.de channel');
-ok(localServerWorkspace.children.find(n=>n.className.includes('a0-mission-control-link')).href.includes('NEXAH-Mission-Control/INTERNAL_NAVIGATOR/index.html#action-board'),'localhost restores TH to the ecosystem Mission Control action board');
+ok(localServerWorkspace.children.find(n=>n.className.includes('a0-mission-control-link')).href==='owner-routes/mission-control/INTERNAL_NAVIGATOR/index.html#action-board','localhost routes TH to the Mission Control action board through A0');
 ok(localServerWorkspace.children.find(n=>n.className.includes('a0-science-view-link')).href.includes('A0_RESEARCH_DESK.html?desk=overview'),'localhost keeps the Science Desk on the Science icon');
 ok(localServerWorkspace.children.find(n=>n.className.includes('a0-builder-view-link')).href.includes('B0_BUILDER_DECK/build-desk.html#top'),'localhost keeps the B0 Builder Desk on the Builder icon');
 const directBuilder=mount('index.html','','?projection=builder-showcase',{protocol:'file:',hostname:''});
