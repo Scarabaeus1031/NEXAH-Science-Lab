@@ -223,7 +223,7 @@ const localServerScience=localServer.header.children[1].children.find(n=>n.class
 ok(localServerScience.innerHTML.includes('A0 · Science'),'localhost retains the internal A0 Science lane beside the separate nexah.de channel');
 ok(localServerWorkspace.children.find(n=>n.className.includes('a0-mission-control-link')).href==='owner-routes/mission-control/INTERNAL_NAVIGATOR/index.html#action-board','localhost routes TH to the Mission Control action board through A0');
 ok(localServerWorkspace.children.find(n=>n.className.includes('a0-science-view-link')).href.includes('A0_RESEARCH_DESK.html?desk=overview'),'localhost keeps the Science Desk on the Science icon');
-ok(localServerWorkspace.children.find(n=>n.className.includes('a0-builder-view-link')).href.includes('B0_BUILDER_DECK/build-desk.html#top'),'localhost keeps the B0 Builder Desk on the Builder icon');
+ok(localServerWorkspace.children.find(n=>n.className.includes('a0-builder-view-link')).href==='owner-routes/builder-desk/build-desk.html#top','localhost routes the Builder Desk through the A0 owner route');
 const directBuilder=mount('index.html','','?projection=builder-showcase',{protocol:'file:',hostname:''});
 const directBuilderProjection=directBuilder.nodes.find(n=>n.attributes['aria-label']==='WHAT CAN WE BUILD NOW? · BUILDER SHOWCASE');
 ok(directBuilderProjection?.hidden===false,'direct Builder route opens inside the persistent A0 shell');
