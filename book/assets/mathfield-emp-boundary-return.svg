@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="240" viewBox="0 0 960 240" role="img" aria-labelledby="title desc">
+  <title id="title">Tangenten an der Boundary und Rücklauf über den Orange Shadow</title>
+  <desc id="desc">EMP‑03: Mit sinkendem Abstand zum Kreismittelpunkt geht die Zahl reeller Tangenten von zwei auf eine und dann auf null zurück. EMP‑02 und Crystal: A Line und B Line teilen sich den Schattenpunkt. Die mitgeführte Quelladresse führt A zurück zu BAND_0.429 und B zurück zu BAND_0.456.</desc>
+  <defs>
+    <marker id="a-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L8 4L0 8Z" fill="#75d9ed"/>
+    </marker>
+    <marker id="b-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L8 4L0 8Z" fill="#f3a9d2"/>
+    </marker>
+    <marker id="step-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M1 1L6 4L1 7" fill="none" stroke="#879eac"/>
+    </marker>
+  </defs>
+  <rect width="960" height="240" fill="#101e2a"/>
+  <path d="M468 24V216" stroke="#3a5162"/>
+  <g font-family="system-ui, sans-serif" fill="#eef5f8">
+    <g font-size="17" font-weight="650">
+      <text x="24" y="34">EMP‑03 · Reelle Tangenten</text>
+      <text x="492" y="34">EMP‑02 / Crystal · Adressrücklauf</text>
+    </g>
+    <g fill="none" stroke="#7697ab" stroke-width="1.5">
+      <circle cx="86" cy="118" r="30"/>
+      <circle cx="226" cy="118" r="30"/>
+      <circle cx="366" cy="118" r="30"/>
+    </g>
+    <path d="M86 118H146M226 118H256M366 118H380" fill="none" stroke="#879eac" stroke-dasharray="3 3"/>
+    <path d="M101 92.019238L146 118L101 143.980762M256 80V156" fill="none" stroke="#ffbf6e" stroke-width="2"/>
+    <g fill="#ffbf6e">
+      <circle cx="146" cy="118" r="4"/>
+      <circle cx="256" cy="118" r="4"/>
+      <circle cx="380" cy="118" r="4"/>
+    </g>
+    <g text-anchor="middle">
+      <g font-size="23" font-weight="700" fill="#ffbf6e">
+        <text x="86" y="187">2</text>
+        <text x="226" y="187">1</text>
+        <text x="366" y="187">0</text>
+      </g>
+      <g font-size="14" fill="#bccfdb">
+        <text x="86" y="211">d &gt; R</text>
+        <text x="226" y="211">d = R</text>
+        <text x="366" y="211">d &lt; R</text>
+      </g>
+    </g>
+    <g stroke="#879eac" marker-end="url(#step-arrow)">
+      <path d="M135 178H184"/>
+      <path d="M275 178H324"/>
+    </g>
+    <g font-size="13" fill="#bccfdb">
+      <text x="492" y="65">Quelladresse</text>
+      <text x="936" y="65" text-anchor="end">Rücklauf zur Quelladresse</text>
+    </g>
+    <g fill="none" stroke-width="2.5">
+      <path d="M595 96C651 96 674 120 705 132" stroke="#75d9ed" marker-end="url(#a-arrow)"/>
+      <path d="M714.5 136C750 123 778 96 834 96" stroke="#75d9ed" marker-end="url(#a-arrow)"/>
+      <path d="M595 176C651 176 674 152 705 140" stroke="#f3a9d2" marker-end="url(#b-arrow)"/>
+      <path d="M714.5 136C750 149 778 176 834 176" stroke="#f3a9d2" marker-end="url(#b-arrow)"/>
+    </g>
+    <circle cx="714.5" cy="136" r="8" fill="#ffbf6e"/>
+    <text x="714.5" y="204" text-anchor="middle" font-size="13" fill="#ffbf6e">Orange Shadow</text>
+    <path d="M714.5 150V187" stroke="#ffbf6e" opacity=".55" stroke-dasharray="3 3"/>
+    <g font-size="14" font-weight="650">
+      <g fill="#75d9ed">
+        <text x="492" y="93">A Line</text>
+        <text x="936" y="93" text-anchor="end">A Line</text>
+      </g>
+      <g fill="#f3a9d2">
+        <text x="492" y="173">B Line</text>
+        <text x="936" y="173" text-anchor="end">B Line</text>
+      </g>
+    </g>
+    <g font-family="monospace" font-size="13" fill="#eef5f8">
+      <text x="492" y="112">BAND_0.429</text>
+      <text x="936" y="112" text-anchor="end">BAND_0.429</text>
+      <text x="492" y="192">BAND_0.456</text>
+      <text x="936" y="192" text-anchor="end">BAND_0.456</text>
+    </g>
+  </g>
+</svg>

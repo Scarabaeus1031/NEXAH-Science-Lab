@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>NEXAH A0 — Fundamentals</title>
-  <meta name="description" content="Einleitung und Index des NEXAH A0 Book: Fundamentals of relation, representation and readout.">
-  <script type="module" src="assets/vendor/model-viewer.min.js"></script>
+  <link rel="canonical" href="index.html">
+  <meta name="nexah:a0-authority" content="CANONICAL_SOURCE">
+  <meta name="nexah:a0-freeze" content="A0_CANONICAL_SITE_FREEZE_2026-11-15">
+  <title>NEXAH A0 — A View into the NEXAH Cosmos</title>
+  <meta name="description" content="Die Human-facing A0-Schwelle des NEXAH Ecosystems mit klaren Eingängen zu Human View, Science, Builder, Werkbank und Quellen.">
   <style>
     :root{
       --paper:#f4f0e7;--white:#fffdf8;--ink:#111922;--muted:#5e6871;--line:#cec5b5;
@@ -29,6 +31,70 @@
     h1{font:700 clamp(4rem,10vw,9rem)/.8 var(--serif);letter-spacing:-.065em;margin:.3em 0 .25em}
     h1 span{display:block;font:650 clamp(1.55rem,3.7vw,3.5rem)/1.05 var(--sans);letter-spacing:-.04em;margin-top:.42em}
     .lead{font:400 clamp(1.08rem,2vw,1.55rem)/1.48 var(--serif);max-width:760px}
+    .world-plate{position:relative;display:grid;min-height:calc(100svh - 58px);overflow:hidden;align-items:center;background:
+      radial-gradient(circle at 50% 45%,rgba(67,202,231,.14),transparent 26%),
+      radial-gradient(circle at 88% 14%,rgba(229,72,181,.10),transparent 23%),
+      linear-gradient(145deg,#06111a,#0b1d2a 58%,#121325);color:#dce8ee;border-top:1px solid #213b4b;border-bottom:4px solid var(--gold)}
+    .world-plate:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;background-image:linear-gradient(rgba(91,139,159,.35) 1px,transparent 1px),linear-gradient(90deg,rgba(91,139,159,.35) 1px,transparent 1px);background-size:58px 58px}
+    .world-plate-inner{position:relative;max-width:1320px;margin:auto;padding:64px 6vw 68px}
+    .world-plate-head{display:grid;grid-template-columns:minmax(0,.9fr) minmax(330px,1.1fr);gap:50px;align-items:end;margin-bottom:28px}
+    .world-plate .eyebrow{color:#ff72ca}.world-plate h2{max-width:700px;color:#fff;font-size:clamp(3rem,6vw,6.2rem)}
+    .world-plate-intro{margin:0;color:#b5c7d0;font:400 clamp(1rem,1.55vw,1.28rem)/1.58 var(--serif)}
+    .world-plate-intro strong{color:#fff}
+    .world-trailer{position:relative;margin:0 0 22px;overflow:hidden;border:1px solid #35586b;background:#02090f;box-shadow:18px 18px 0 rgba(67,202,231,.06);isolation:isolate}
+    .world-trailer:before{content:"";position:absolute;z-index:3;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(4,13,20,.7),transparent 20%,transparent 80%,rgba(4,13,20,.72)),linear-gradient(transparent 50%,rgba(0,0,0,.13) 50%);background-size:auto,100% 4px;mix-blend-mode:multiply}
+    .world-trailer:after{content:"";position:absolute;z-index:4;inset:-60% -15%;pointer-events:none;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.12) 49%,rgba(117,231,255,.08) 51%,transparent 58%);animation:trailer-sweep 9s ease-in-out infinite}
+    .world-trailer-bar{position:absolute;z-index:6;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 15px;color:#9ab2bd;background:linear-gradient(#071621e8,transparent);font:700 .57rem var(--mono);letter-spacing:.12em;text-transform:uppercase}
+    .world-trailer-live{display:flex;align-items:center;gap:8px;color:#73f3b6}.world-trailer-live:before{content:"";width:7px;height:7px;border-radius:50%;background:#73f3b6;box-shadow:0 0 16px #73f3b6;animation:trailer-blink 1.8s ease-in-out infinite}
+    .world-trailer-toggle{border:1px solid #486776;background:#071621;color:#c5d6dd;padding:6px 9px;cursor:pointer;font:700 .55rem var(--mono);letter-spacing:.08em;text-transform:uppercase}.world-trailer-toggle:hover{border-color:#ff72ca;color:#ff91d9}
+    .world-trailer svg{display:block;width:100%;height:auto;min-height:360px;max-height:540px}
+    .trailer-grid{animation:trailer-grid 12s linear infinite}.trailer-stars circle{animation:trailer-twinkle 4s ease-in-out infinite}.trailer-stars circle:nth-child(2n){animation-delay:-1.6s}.trailer-stars circle:nth-child(3n){animation-delay:-2.7s}
+    .trailer-orbit-a{transform-origin:600px 266px;animation:trailer-spin 22s linear infinite}.trailer-orbit-b{transform-origin:600px 266px;animation:trailer-spin-reverse 15s linear infinite}.trailer-aperture{transform-origin:600px 266px;animation:trailer-breathe 6s ease-in-out infinite}.trailer-core{transform-origin:600px 266px;animation:trailer-core 3s ease-in-out infinite}
+    .trailer-cube{transform-origin:600px 266px;animation:trailer-float 7s ease-in-out infinite}.trailer-body-left{animation:trailer-enter-left 12s ease-in-out infinite}.trailer-body-right{animation:trailer-enter-right 12s ease-in-out infinite}
+    .trailer-path{stroke-dasharray:8 16;animation:trailer-dash 3s linear infinite}.trailer-pulse-a{transform-origin:600px 266px;animation:trailer-pulse-a 8s ease-in-out infinite}.trailer-pulse-b{transform-origin:600px 266px;animation:trailer-pulse-b 8s ease-in-out -4s infinite}
+    .trailer-word{opacity:0;animation:trailer-word 16s ease-in-out infinite}.trailer-word:nth-child(2){animation-delay:4s}.trailer-word:nth-child(3){animation-delay:8s}.trailer-word:nth-child(4){animation-delay:12s}
+    .world-trailer-copy{position:absolute;z-index:5;left:clamp(16px,3vw,42px);bottom:clamp(18px,3vw,38px);max-width:520px}.world-trailer-copy small{display:block;color:#ff72ca;font:750 .57rem var(--mono);letter-spacing:.14em;text-transform:uppercase}.world-trailer-copy strong{display:block;margin-top:6px;color:#fff;font:700 clamp(1.45rem,3vw,3rem)/.96 var(--serif);letter-spacing:-.035em;text-shadow:0 3px 30px #02090f}.world-trailer-copy p{max-width:430px;margin:.55rem 0 0;color:#b5c8d1;font-size:.76rem;line-height:1.5}
+    .world-trailer-acts{position:absolute;z-index:5;right:clamp(14px,2vw,28px);bottom:clamp(16px,2vw,26px);display:flex;gap:5px}.world-trailer-acts span{width:34px;height:3px;background:#365261;animation:trailer-act 16s ease-in-out infinite}.world-trailer-acts span:nth-child(2){animation-delay:4s}.world-trailer-acts span:nth-child(3){animation-delay:8s}.world-trailer-acts span:nth-child(4){animation-delay:12s}
+    .world-trailer[data-paused="true"] *{animation-play-state:paused!important}.world-trailer[data-paused="true"] .world-trailer-live:before{background:#ff72ca;box-shadow:0 0 14px #ff72ca}
+    @keyframes trailer-sweep{0%,25%{transform:translateX(-45%)}70%,100%{transform:translateX(45%)}}
+    @keyframes trailer-blink{50%{opacity:.3;transform:scale(.7)}}
+    @keyframes trailer-grid{to{transform:translateY(24px)}}
+    @keyframes trailer-twinkle{50%{opacity:.18}}
+    @keyframes trailer-spin{to{transform:rotate(360deg)}}@keyframes trailer-spin-reverse{to{transform:rotate(-360deg)}}
+    @keyframes trailer-breathe{0%,100%{transform:rotate(0) scale(.82)}50%{transform:rotate(45deg) scale(1.08)}}
+    @keyframes trailer-core{50%{transform:scale(1.22);filter:drop-shadow(0 0 18px #e8b747)}}
+    @keyframes trailer-float{0%,100%{transform:translateY(-10px) rotate(-2deg)}50%{transform:translateY(12px) rotate(3deg)}}
+    @keyframes trailer-enter-left{0%,100%{transform:translateX(-34px);opacity:.2}35%,72%{transform:translateX(0);opacity:1}}@keyframes trailer-enter-right{0%,100%{transform:translateX(34px);opacity:.2}35%,72%{transform:translateX(0);opacity:1}}
+    @keyframes trailer-dash{to{stroke-dashoffset:-48}}
+    @keyframes trailer-pulse-a{0%,100%{transform:rotate(0deg)}50%{transform:rotate(180deg)}}@keyframes trailer-pulse-b{0%,100%{transform:rotate(45deg)}50%{transform:rotate(225deg)}}
+    @keyframes trailer-word{0%,4%,24%,100%{opacity:0;transform:translateY(12px)}7%,21%{opacity:1;transform:translateY(0)}}
+    @keyframes trailer-act{0%,4%,24%,100%{background:#365261;box-shadow:none}7%,21%{background:#ff72ca;box-shadow:0 0 12px #ff72ca}}
+    .world-map{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px;padding:10px;border:1px solid #304d5e;background:rgba(4,13,20,.62);box-shadow:18px 18px 0 rgba(232,183,71,.08)}
+    .world-room{position:relative;display:flex;min-height:184px;flex-direction:column;border:1px solid #315064;background:rgba(10,29,42,.9);padding:20px;text-decoration:none;transition:transform .16s ease,border-color .16s ease,background .16s ease}
+    a.world-room:hover{z-index:2;transform:translateY(-3px);border-color:var(--cyan);background:#0e2736}
+    .world-room small{color:#7fdcf0;font:750 .58rem var(--mono);letter-spacing:.1em;text-transform:uppercase}
+    .world-room h3{margin:.65rem 0 .55rem;color:#fff;font:700 1.45rem/1.03 var(--serif)}
+    .world-room p{margin:0;color:#9eb2bc;font-size:.79rem;line-height:1.48}
+    .world-room b{margin-top:auto;padding-top:15px;color:var(--cyan);font:750 .58rem var(--mono);letter-spacing:.07em;text-transform:uppercase}
+    .world-room--human{grid-column:span 2;border-top:4px solid var(--gold)}.world-room--human small,.world-room--human b{color:var(--gold)}
+    .world-room--play{grid-column:span 2;border-top:4px solid var(--pink)}.world-room--play small,.world-room--play b{color:#ff79ce}
+    .world-room--books{grid-column:span 2;border-top:4px solid #b38bff}.world-room--books small,.world-room--books b{color:#cbb3ff}
+    .world-room--tools{grid-column:span 2;border-top:4px solid var(--cyan)}
+    .world-room--science{grid-column:span 2;border-top:4px solid var(--mint)}.world-room--science small,.world-room--science b{color:var(--mint)}
+    .world-room--core{grid-column:span 6;min-height:220px;justify-content:center;text-align:center;border:1px solid #b98c2e;background:radial-gradient(circle at 50% 44%,rgba(232,183,71,.17),transparent 48%),#0a1b27}
+    .world-room--core:before,.world-room--core:after{content:"";position:absolute;left:50%;top:50%;border:1px solid rgba(232,183,71,.35);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none}.world-room--core:before{width:138px;height:138px}.world-room--core:after{width:92px;height:92px;border-color:rgba(67,202,231,.32)}
+    .world-room--core>*{position:relative;z-index:1}.world-room--core small,.world-room--core b{color:var(--gold)}.world-room--core h3{font-size:2.3rem}.world-room--core p{max-width:520px;margin:0 auto;color:#c5d2d8}
+    .world-room--builder{grid-column:span 2;border-top:4px solid #63a8ff}.world-room--builder small,.world-room--builder b{color:#8dc1ff}
+    .world-room--connect{grid-column:span 2;border-top:4px solid var(--pink)}.world-room--connect small,.world-room--connect b{color:#ff79ce}
+    .world-room--overview{grid-column:span 2;border-top:4px solid #b38bff}.world-room--overview small,.world-room--overview b{color:#cbb3ff}
+    .world-room--matroschka{grid-column:span 12;min-height:190px;display:grid;grid-template-columns:minmax(180px,.45fr) minmax(0,1.55fr) auto;gap:22px;align-items:center;border-color:#d2a438;border-top:4px solid var(--gold);background:radial-gradient(circle at 14% 50%,rgba(232,183,71,.18),transparent 24%),radial-gradient(circle at 88% 50%,rgba(229,72,181,.14),transparent 25%),#0a1a26}.world-room--matroschka small,.world-room--matroschka b{color:var(--gold)}.world-room--matroschka h3{margin:0;font-size:clamp(1.8rem,3vw,3.2rem)}.world-room--matroschka p{max-width:720px}.world-room--matroschka b{margin:0;padding:0;white-space:nowrap}
+    .world-room--backstage{grid-column:span 12;min-height:0;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;border-style:dashed;background:#081722;padding:15px 18px}
+    .world-room--backstage h3{margin:0;font-size:1.05rem}.world-room--backstage p{font-size:.76rem}.world-room--backstage b{margin:0;padding:0;color:#8199a5;white-space:nowrap}
+    .world-plate-return{display:flex;justify-content:space-between;gap:26px;align-items:center;margin-top:18px;padding-left:16px;border-left:4px solid var(--pink)}
+    .world-plate-return p{max-width:780px;margin:0;color:#aabec8;font-size:.82rem}.world-plate-return strong{color:#fff}
+    .world-plate-return .btns{margin:0;flex:0 0 auto}.world-plate-return .btn{color:#ff79ce}
+    .world-plate-return .world-curtain{border-color:var(--gold);background:var(--gold);color:#08131d;padding:14px 18px;box-shadow:7px 7px 0 rgba(229,72,181,.22)}
+    .world-plate-return .world-curtain:hover{background:#ffd365}
     .human-view{margin-top:22px;border:1px solid var(--line);background:rgba(255,253,248,.72)}
     .human-view summary{cursor:pointer;list-style:none;padding:12px 15px;color:#785b13;font:750 .66rem var(--mono);letter-spacing:.09em;text-transform:uppercase}
     .human-view summary::-webkit-details-marker{display:none}
@@ -41,7 +107,17 @@
     .entry-switch-head{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:18px}
     .entry-switch h2{font-size:clamp(2rem,4vw,3.6rem)}
     .entry-switch-intro{max-width:610px;margin:0;color:#53606a;font:400 1rem/1.55 var(--serif)}
-    .entry-switch-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .entry-switch-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .find-strip{background:#fffdf8;border-bottom:1px solid var(--line)}
+    .find-strip-inner{width:min(1240px,88vw);margin:auto;padding:24px 0 30px}
+    .find-strip-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:12px}
+    .find-strip h2{margin:0;font-size:clamp(1.8rem,3.4vw,3rem)}
+    .find-strip-head p{max-width:610px;margin:0;color:#5b6770;font:.86rem/1.5 var(--sans)}
+    .find-strip-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+    .find-door{display:grid;gap:5px;min-height:118px;padding:15px;border:1px solid var(--line);background:#f7f2e8;color:var(--ink);text-decoration:none}
+    .find-door:hover{border-color:#258da6;background:#f0fafb}.find-door small{color:#87640e;font:750 .56rem var(--mono);letter-spacing:.08em;text-transform:uppercase}.find-door strong{font:700 1.02rem/1.15 var(--serif)}.find-door span{color:#5b6770;font-size:.72rem;line-height:1.4}
+    .find-registers{display:inline-block;margin-top:12px;color:#167f94;font:750 .63rem var(--mono);text-transform:uppercase}
+    .reading-gate{background:#0b1d2a;color:#fff;border-bottom:1px solid #315064}.reading-gate-inner{width:min(1240px,88vw);margin:auto;padding:24px 0}.reading-gate-link{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:20px;align-items:center;color:inherit;text-decoration:none}.reading-gate-mark{color:var(--gold);font:800 clamp(2.5rem,6vw,5.4rem)/.8 var(--serif)}.reading-gate small{color:var(--gold);font:750 .57rem var(--mono);letter-spacing:.1em;text-transform:uppercase}.reading-gate h2{margin:.15rem 0;font-size:clamp(1.75rem,3.5vw,3.15rem)}.reading-gate p{max-width:760px;margin:0;color:#b5cad3;font:.82rem/1.5 var(--sans)}.reading-gate-action{color:var(--cyan);font:800 .64rem var(--mono);text-transform:uppercase;white-space:nowrap}@media(max-width:650px){.reading-gate-link{grid-template-columns:1fr}.reading-gate-action{white-space:normal}}
     .entry-route{display:block;min-height:220px;border:1px solid var(--line);padding:24px;text-decoration:none;background:#f7f2e8;transition:transform .16s ease,border-color .16s ease,background .16s ease}
     .entry-route:hover{transform:translateY(-2px);border-color:#258da6;background:#f0fafb}
     .entry-route.research{background:#0b1d2a;border-color:#315064;color:#fff}
@@ -58,6 +134,10 @@
     .entry-route.play .entry-route-no{color:#ff7bd0}
     .entry-route.play p{color:#cdb6c8}
     .entry-route.play span:last-child{color:#ff7bd0}
+    .entry-route.look{background:radial-gradient(circle at 80% 20%,rgba(255,206,91,.18),transparent 34%),#17110a;border-color:#b56832;color:#fff}
+    .entry-route.look:hover{border-color:#ffd05d;background:radial-gradient(circle at 80% 20%,rgba(255,206,91,.28),transparent 36%),#21170b}
+    .entry-route.look .entry-route-no,.entry-route.look span:last-child{color:#ffc15c}
+    .entry-route.look p{color:#d2c4ad}
     .book-index .human-view{border-color:var(--nightline);background:rgba(255,255,255,.035)}
     .book-index .human-view summary{color:var(--gold)}
     .book-index .human-view[open] summary{border-color:var(--nightline)}
@@ -68,32 +148,30 @@
     .scope .human-view[open] summary{border-color:#365467}
     .scope .human-view p{color:#e2edf2;background:#0b1c29}
     .method .human-view{max-width:860px}
+    .nexah-threshold{position:relative;overflow:hidden;background:linear-gradient(142deg,#fffdf8 0%,#f4f0e7 68%,#e8dfcf 100%);border-bottom:1px solid var(--line)}
+    .nexah-threshold:after{content:"";position:absolute;right:-4vw;bottom:-11vw;width:24vw;height:24vw;border:1px solid rgba(134,99,12,.16);border-radius:50%;box-shadow:0 0 0 4vw rgba(134,99,12,.035),0 0 0 8vw rgba(67,202,231,.025);pointer-events:none}
+    .nexah-threshold-inner{position:relative;z-index:1;width:min(1240px,88vw);margin:auto;padding:18px 0 22px}
+    .nexah-breadcrumb{display:flex;align-items:center;gap:9px;margin-bottom:12px;font:750 .58rem/1.2 var(--mono);letter-spacing:.11em;text-transform:uppercase}.nexah-breadcrumb a{text-decoration:none}.nexah-breadcrumb a:hover,.nexah-breadcrumb a:focus-visible{color:#86630c}.nexah-breadcrumb span{color:#9a8f7d}.nexah-breadcrumb strong{color:#86630c}
+    .nexah-threshold-grid{display:block}.nexah-threshold .eyebrow{font-size:.55rem}.nexah-threshold h1{display:flex;align-items:baseline;flex-wrap:wrap;gap:.28em;max-width:none;margin:.22em 0 .18em;font-size:clamp(1.8rem,3.4vw,2.65rem);letter-spacing:-.035em}.nexah-threshold h1 span{display:inline;max-width:none;font:650 .48em/1.2 var(--sans);letter-spacing:-.025em}.nexah-threshold-copy{max-width:920px;margin:0;color:#58636b;font:450 .82rem/1.45 var(--sans)}
+    .portal-home{display:grid;align-items:start;padding:clamp(36px,5vw,68px) 6vw clamp(48px,6vw,78px);background:radial-gradient(circle at 78% 18%,rgba(67,202,231,.15),transparent 28%),radial-gradient(circle at 18% 82%,rgba(229,72,181,.1),transparent 30%),#07131e;color:#e6f0f4;border-bottom:4px solid var(--gold)}
+    .portal-home-inner{width:min(1240px,100%);margin:auto}.portal-home h2{display:flex;align-items:baseline;gap:.2em;max-width:none;margin:.12em 0 .12em;color:#fff;font-size:clamp(3rem,5.4vw,5.7rem);white-space:nowrap}.portal-home h2 .portal-title-accent{color:var(--cyan);font:650 .48em/1.05 var(--sans);font-style:normal;letter-spacing:-.04em}.portal-home-intro{max-width:760px;margin:0;color:#aac0ca;font:400 clamp(1rem,1.5vw,1.2rem)/1.5 var(--serif)}
+    .portal-houses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:42px}.portal-houses--public{grid-template-columns:repeat(3,minmax(0,1fr))}.portal-house{overflow:hidden;border:1px solid #315064;border-top:4px solid var(--house);background:#0b1d2a;transition:transform .16s ease,border-color .16s ease}.portal-house:hover,.portal-house:focus-within{transform:translateY(-3px);border-color:var(--house)}.portal-house-window{position:relative;height:clamp(230px,24vw,330px);overflow:hidden;border-bottom:1px solid #315064;background:#050b11}.portal-house-window:before{content:"";position:absolute;z-index:2;inset:0 0 auto;height:24px;border-bottom:1px solid #315064;background:radial-gradient(circle at 13px 12px,var(--house) 0 3px,transparent 4px),radial-gradient(circle at 25px 12px,#8797a2 0 3px,transparent 4px),radial-gradient(circle at 37px 12px,#52636d 0 3px,transparent 4px),#0a121a}.portal-house-window iframe{width:200%;height:200%;border:0;pointer-events:none;transform:scale(.5);transform-origin:top left}.portal-house-window img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;padding-top:24px}.portal-house-entry{display:flex;min-height:170px;flex-direction:column;padding:21px;color:#e6f0f4;text-decoration:none}.portal-house-entry:focus-visible{outline:2px solid var(--house);outline-offset:-4px}.portal-house small{color:var(--house);font:800 .6rem/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase}.portal-house strong{margin:13px 0 8px;color:#fff;font:700 clamp(1.45rem,2.5vw,2rem)/1.05 var(--serif)}.portal-house p{margin:0;color:#9fb3bd;font-size:.86rem}.portal-house b{margin-top:auto;padding-top:18px;color:var(--house);font:800 .6rem/1.2 var(--mono);letter-spacing:.07em;text-transform:uppercase}.portal-house--human{--house:#f06db6}.portal-house--science{--house:#67dfad}.portal-house--builder{--house:#55d8ee}.portal-house--scarab{--house:#ffd06a}
+    .portal-hatch-heading{display:flex;justify-content:space-between;gap:28px;align-items:end;margin:48px 0 16px;padding-top:30px;border-top:1px solid #294252}.portal-hatch-heading h3{margin:0;color:#fff;font:700 clamp(1.8rem,3vw,2.8rem)/1 var(--serif)}.portal-hatch-heading p{max-width:560px;margin:0;color:#92a8b3;font-size:.8rem}.portal-hatches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.portal-hatch{display:flex;min-height:150px;flex-direction:column;padding:18px;border:1px solid #315064;background:rgba(10,29,42,.82);color:#e6f0f4;text-decoration:none;transition:transform .16s ease,border-color .16s ease}.portal-hatch:hover,.portal-hatch:focus-visible{transform:translateY(-2px);border-color:var(--gold)}.portal-hatch small{color:var(--gold);font:750 .57rem/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase}.portal-hatch strong{margin:12px 0 7px;color:#fff;font:700 1.25rem/1.05 var(--serif)}.portal-hatch span{color:#92a8b3;font-size:.75rem}.portal-hatch b{margin-top:auto;padding-top:14px;color:var(--cyan);font:750 .56rem/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase}.portal-boundary{margin:20px 0 0;padding-left:14px;border-left:3px solid var(--gold);color:#8fa4ae;font-size:.72rem}.portal-boundary strong{color:#fff}
+    .portal-currentness{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(120px,.55fr));gap:1px;margin-top:30px;border:1px solid #315064;background:#315064}.portal-currentness>div{min-height:116px;padding:18px;background:#081722}.portal-currentness small{display:block;color:var(--gold);font:800 .58rem/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase}.portal-currentness strong{display:block;margin-top:9px;color:#fff;font:700 1.25rem/1.12 var(--serif)}.portal-currentness p{margin:8px 0 0;color:#9fb4be;font-size:.76rem;line-height:1.48}.portal-currentness .portal-currentness-lead{background:linear-gradient(135deg,rgba(232,183,71,.11),transparent 55%),#081722}.portal-currentness .portal-currentness-next{background:linear-gradient(135deg,rgba(92,224,166,.1),transparent 58%),#081722}.portal-currentness .portal-currentness-next small,.portal-currentness .portal-currentness-next strong{color:var(--mint)}
+    .portal-depth{display:block;margin-top:22px;border:1px solid #315064;background:#07131e}.portal-depth>summary{display:flex;justify-content:center;cursor:pointer;list-style:none;padding:14px 20px;background:#0b1d2a;color:#dce8ee;font:800 .66rem/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase}.portal-depth>summary::-webkit-details-marker{display:none}.portal-depth>summary:after{content:" +";color:var(--gold)}.portal-depth[open]>summary{border-bottom:1px solid #315064}.portal-depth[open]>summary:after{content:" −"}.portal-depth-inner{padding:0 20px 22px}
     .a0-guide{background:#fffdf8;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
     .a0-guide-inner{max-width:1250px;margin:auto;padding:58px 6vw 64px}
     .a0-guide-head{display:grid;grid-template-columns:minmax(0,.72fr) minmax(320px,1.28fr);gap:42px;align-items:end;margin-bottom:26px}
     .a0-guide h2{font-size:clamp(2.2rem,4.6vw,4.4rem)}
     .a0-guide-intro{margin:0;color:#48545e;font:400 1.1rem/1.6 var(--serif)}
-    .a0-guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:10px}
-    .a0-guide-card{position:relative;display:flex;min-height:220px;flex-direction:column;border:1px solid var(--line);background:#f7f2e8;padding:20px;text-decoration:none;transition:transform .16s ease,border-color .16s ease,background .16s ease}
-    .a0-guide-card:hover{transform:translateY(-3px);border-color:#258da6;background:#f0fafb}
-    .a0-guide-card[aria-current="page"]{border-top:5px solid var(--gold)}
-    .a0-guide-card .work-no{color:#8a6512;font:750 .62rem var(--mono);letter-spacing:.1em;text-transform:uppercase}
-    .a0-guide-card h3{font:700 1.34rem/1.08 var(--serif);margin:.75rem 0 .6rem}
-    .a0-guide-card p{margin:0;color:#5d6871;font-size:.82rem;line-height:1.5}
-    .a0-guide-card .work-action{margin-top:auto;padding-top:18px;color:#13778d;font:750 .6rem var(--mono);letter-spacing:.07em;text-transform:uppercase}
-    .a0-guide-card--group{cursor:default}
-    .a0-guide-card--group:hover{transform:none;background:#f7f2e8}
-    .a0-guide-card--group .work-links{display:grid;gap:7px;margin-top:auto;padding-top:18px}
-    .a0-guide-card--group .work-link{display:block;border:1px solid #70a9b6;padding:8px 10px;color:#13778d;text-decoration:none;font:750 .58rem var(--mono);letter-spacing:.05em;text-transform:uppercase}
-    .a0-guide-card--group .work-link:hover{border-color:#13778d;background:#e8f6f8}
-    .a0-guide-card--group .work-link--instrument{border-color:#c5962c;color:#8a6512;background:#fff9e8}
-    .a0-guide-note{display:flex;justify-content:space-between;gap:28px;margin-top:16px;padding:14px 17px;border-left:4px solid var(--cyan);background:#edf7f8;color:#40515a;font-size:.82rem}
-    .a0-guide-note strong{color:#143f4b}
+    .a0-paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.a0-path{position:relative;display:flex;min-height:430px;flex-direction:column;border:1px solid var(--line);border-top:5px solid var(--path);background:#f7f2e8;padding:24px}.a0-path:not(:last-child):after{content:"→";position:absolute;z-index:2;right:-18px;top:74px;width:24px;height:24px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:#fffdf8;color:#8a6512;font-weight:900}.a0-path--human{--path:var(--gold)}.a0-path--science{--path:var(--mint)}.a0-path--builder{--path:var(--cyan)}.a0-path-code{color:#8a6512;font:800 .62rem/1.2 var(--mono);letter-spacing:.11em;text-transform:uppercase}.a0-path h3{margin:.75rem 0 .6rem;font:700 clamp(1.8rem,2.5vw,2.45rem)/1 var(--serif)}.a0-path>p{min-height:76px;margin:0;color:#5d6871;font-size:.86rem}.a0-path-primary{display:grid;gap:4px;margin-top:22px;padding:17px;border:1px solid var(--line);background:#fffdf8;text-decoration:none}.a0-path-primary small{color:#8a6512;font:800 .56rem/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase}.a0-path-primary strong{font:700 1.25rem/1.15 var(--serif)}.a0-path-primary span{color:#13778d;font:750 .58rem/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase}.a0-path details{margin-top:auto;padding-top:18px}.a0-path summary{cursor:pointer;list-style:none;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:#52606a;font:800 .6rem/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase}.a0-path summary::-webkit-details-marker{display:none}.a0-path summary:after{content:" +";float:right;color:#13778d}.a0-path details[open] summary:after{content:" −"}.a0-path-links{display:grid}.a0-path-links a{display:grid;grid-template-columns:28px 1fr;gap:8px;padding:10px 0;border-bottom:1px solid var(--line);text-decoration:none}.a0-path-links b{color:#8a6512;font:800 .58rem/1.4 var(--mono)}.a0-path-links span{font:700 .86rem/1.25 var(--serif)}.a0-path a:hover,.a0-path a:focus-visible{color:#13778d}
     .research-now{background:#0a1823;color:#dce8ee;border-bottom:4px solid var(--gold)}
     .research-now-inner{max-width:1320px;margin:auto;padding:34px 5vw 38px}
     .research-now-head{display:grid;grid-template-columns:minmax(280px,.75fr) minmax(0,1.25fr);gap:24px;align-items:end;margin-bottom:18px}
     .research-now h2{max-width:520px;color:#fff;font-size:clamp(2rem,3.1vw,3.15rem);line-height:.94}
     .research-now .label{color:var(--gold)}
+    .research-now-archive{justify-self:end;color:#b9ccd6;font-size:.9rem}
+    .research-now-archive summary{cursor:pointer}
     .research-now-status{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;align-content:flex-end}
     .research-now-status span{border:1px solid #355466;background:#0d2231;padding:6px 8px;color:#b9ccd6;font:720 .56rem var(--mono);letter-spacing:.04em;text-transform:uppercase}
     .research-now-status .closed{border-color:#367d61;color:#8ee0b7}.research-now-status .bound{border-color:#267f98;color:#82d9ee}.research-now-status .prepare{border-color:#9a6e21;color:#f0c96c}
@@ -151,6 +229,8 @@
     .delta{margin-top:25px;border:1px solid var(--ink);background:var(--white);display:grid;grid-template-columns:180px 1fr}
     .delta-title{background:var(--night);color:var(--gold);padding:24px;font:700 .72rem/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase}
     .delta-copy{padding:24px}.delta-copy strong{font-family:var(--serif);font-size:1.25rem}
+    @media(max-width:900px){.nexah-threshold-grid{grid-template-columns:1fr}.threshold-map{grid-template-columns:repeat(3,1fr)}.threshold-map div+div{border-top:0;border-left:1px solid var(--line)}.portal-house-window{height:240px}.portal-hatches{grid-template-columns:repeat(2,minmax(0,1fr))}.portal-currentness{grid-template-columns:repeat(3,1fr)}.portal-currentness-lead{grid-column:1/-1}}
+    @media(max-width:650px){.nexah-threshold-inner{width:min(90vw,1240px);padding:15px 0 18px}.nexah-threshold h1{align-items:flex-start;flex-direction:column;gap:0;font-size:2rem}.nexah-threshold h1 span{font-size:.52em}.nexah-threshold-copy{font-size:.76rem}.threshold-map{grid-template-columns:1fr}.threshold-map div+div{border-top:1px solid var(--line);border-left:0}.portal-houses,.portal-hatches,.portal-currentness{grid-template-columns:1fr}.portal-currentness-lead{grid-column:auto}.portal-home{align-items:start}.portal-home h2{align-items:flex-start;flex-direction:column;gap:0;white-space:normal}.portal-house-window{height:230px}.portal-house-entry{min-height:155px}.portal-hatch-heading{display:block}.portal-hatch-heading p{margin-top:10px}.portal-depth-inner{padding:0 12px 15px}}
     .book-index{background:var(--night);color:#dbe7ed}
     .book-index .spread{max-width:1350px}.book-index h2{color:white}.book-index .no{color:var(--cyan)}.book-index .sub{color:#96aab6}
     .index-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
@@ -173,56 +253,196 @@
     .btn.gold{color:#8c660d}
     footer{background:#050d14;color:#8ea3af;padding:46px 6vw;border-top:4px solid var(--gold)}
     footer div{max-width:1250px;margin:auto;display:flex;justify-content:space-between;gap:25px}footer strong{color:white;letter-spacing:.12em}
-    @media(max-width:1100px){.a0-guide-grid{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:900px){.scope-inner,.dual,.culture-grid,.a0-guide-head,.research-now-head,.entry-switch-grid{grid-template-columns:1fr}.entry-switch-head{display:block}.entry-switch-intro{margin-top:12px}.research-now-status{justify-content:flex-start}.research-now-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sequence{grid-template-columns:1fr 1fr}.index-grid,.reading{grid-template-columns:1fr}.top nav{display:none}.viewer-meta{grid-template-columns:1fr}.asset-actions{justify-content:flex-start}}
-    @media(max-width:680px){.a0-guide-grid{grid-template-columns:1fr}.a0-guide-card{min-height:0}.a0-guide-note{flex-direction:column;gap:6px}}
-    @media(max-width:580px){.head{grid-template-columns:1fr}.no{font-size:2.3rem}.sequence,.research-now-grid{grid-template-columns:1fr}.delta{grid-template-columns:1fr}.record-journey{grid-template-columns:1fr 1fr}.entry-route{grid-template-columns:1fr;min-height:0}.entry{grid-template-columns:35px 62px 1fr;gap:11px;padding:17px}.chapter-mark{width:62px;height:58px}.chapter-mark svg{width:52px}.spread,.culture-grid,.a0-guide-inner,.entry-switch-inner{padding:55px 5vw}.research-now-inner{padding:32px 5vw 36px}model-viewer{min-height:330px}h1{font-size:4rem}}
+    @media(max-width:1100px){.world-room--human,.world-room--play,.world-room--books,.world-room--tools,.world-room--science,.world-room--builder,.world-room--connect,.world-room--overview{grid-column:span 4}}
+    @media(max-width:900px){.scope-inner,.dual,.culture-grid,.a0-guide-head,.research-now-head,.entry-switch-grid,.world-plate-head,.a0-101-coupler-head{grid-template-columns:1fr}.a0-101-coupler-stage{grid-template-columns:1fr}.a0-101-elevator{border-right:0;border-bottom:1px solid #555b60}.a0-101-coupler-actions{align-items:flex-start;flex-direction:column}.a0-paths{grid-template-columns:1fr}.a0-path{min-height:0}.a0-path:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-19px;transform:translateX(-50%)}.a0-path>p{min-height:0}.entry-switch-head{display:block}.entry-switch-intro{margin-top:12px}.research-now-status{justify-content:flex-start}.research-now-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sequence{grid-template-columns:1fr 1fr}.index-grid,.reading{grid-template-columns:1fr}.top nav{display:none}.viewer-meta{grid-template-columns:1fr}.asset-actions{justify-content:flex-start}.world-room--human,.world-room--play,.world-room--books,.world-room--tools,.world-room--science,.world-room--builder,.world-room--connect,.world-room--overview{grid-column:span 6}.world-room--matroschka{grid-template-columns:1fr}.world-room--matroschka b{white-space:normal}.world-plate-return{align-items:flex-start;flex-direction:column}.world-plate-return .btns{margin-top:4px}}
+    @media(max-width:580px){.head{grid-template-columns:1fr}.no{font-size:2.3rem}.sequence,.research-now-grid{grid-template-columns:1fr}.delta{grid-template-columns:1fr}.record-journey{grid-template-columns:1fr 1fr}.entry-route{grid-template-columns:1fr;min-height:0}.entry{grid-template-columns:35px 62px 1fr;gap:11px;padding:17px}.chapter-mark{width:62px;height:58px}.chapter-mark svg{width:52px}.spread,.culture-grid,.a0-guide-inner,.entry-switch-inner,.world-plate-inner{padding:55px 5vw}.research-now-inner{padding:32px 5vw 36px}model-viewer{min-height:330px}h1{font-size:4rem}.world-room--human,.world-room--play,.world-room--books,.world-room--tools,.world-room--science,.world-room--builder,.world-room--connect,.world-room--overview{grid-column:span 12;min-height:0}.world-room--backstage{grid-template-columns:1fr}.world-room--backstage b{white-space:normal}.world-trailer svg{min-height:430px;width:auto;max-width:none;transform:translateX(-29%)}.world-trailer-copy{right:16px}.world-trailer-copy p{max-width:290px}.world-trailer-acts{display:none}}
+    @media(max-width:900px){.find-strip-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.find-strip-head{display:block}.find-strip-head p{margin-top:8px}}
+    @media(max-width:580px){.find-strip-grid{grid-template-columns:1fr}.find-door{min-height:0}}
+    @media(prefers-reduced-motion:reduce){.world-trailer *{animation:none!important}.world-trailer:after{display:none}.world-trailer-toggle{display:none}}
   </style>
-  <link rel="stylesheet" href="a0-context-navigation.css?rev=reader-lanes-20261015">
+  <link rel="stylesheet" href="a0-context-navigation.css?rev=a0-page-first-r4-20261102">
+  <script>
+    addEventListener("DOMContentLoaded", () => {
+      const main = document.querySelector("main#top");
+      const hero = document.querySelector("#a0-home");
+      const readingGate = document.querySelector("#field-notes-entrance");
+      if (main && hero && readingGate) main.insertBefore(hero, readingGate);
+    }, { once: true });
+    (() => {
+      if (location.hash !== "#top") return;
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      let ownerMoved = false;
+      ["wheel", "touchstart", "pointerdown", "keydown"].forEach((type) => addEventListener(type, () => { ownerMoved = true; }, { once: true, passive: true }));
+      const restoreHomeTop = () => { if (!ownerMoved) window.scrollTo(0, 0); };
+      addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("model-viewer").forEach((preview) => preview.addEventListener("load", () => requestAnimationFrame(restoreHomeTop), { once: true }));
+        requestAnimationFrame(restoreHomeTop);
+      }, { once: true });
+      addEventListener("load", () => requestAnimationFrame(() => requestAnimationFrame(restoreHomeTop)), { once: true });
+      addEventListener("pageshow", () => requestAnimationFrame(restoreHomeTop));
+      addEventListener("hashchange", () => { if (location.hash === "#top") requestAnimationFrame(restoreHomeTop); });
+    })();
+  </script>
 </head>
 <body>
   <header class="top">
     <a class="brand" href="#top">NEXAH <span>· A0 BOOK</span></a>
     <nav>
       <a href="#wegweiser">Wegweiser</a>
-      <a href="A0_LIVING_BLUEPRINT.html#utg-map">UTG / A0 Karte</a>
+      <a href="#finden">Finden</a>
+      <a href="#research-now">Currentness</a>
+      <a href="../a0-human/start/A0_LIVING_BLUEPRINT.html#utg-map">UTG / A0 Karte</a>
       <a href="#research-now">Forschung aktuell</a>
-      <a href="#record-player">Record / Play</a>
       <a href="#arkade-tool">ARKADE</a>
       <a href="#introduction">Introduction</a>
       <a href="#index">Kapitel</a>
       <a href="A0_MATHEMATICAL_JOINTS.html">Mathfield</a>
-      <a href="A0_RESEARCH_DESK.html#tests">Science Mission Control</a>
-      <a href="A0_SCC_003_PASCAL_PENTAGON_PAPER.html">SCC-003 Paper</a>
-      <a href="A0_RETURN_WITHOUT_IDENTITY_PAPER.html">Return Paper</a>
-      <a href="A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html">Method White Paper</a>
-      <a href="LAB_ORIENTATION_MACHINE.html">Orientation Machine</a>
-      <a href="A0_AXIAL_CARRIER_ADAPTER_SUITE.html">Axial Carrier</a>
+      <a href="../a0-human/start/A0_TOURS.html#fieldbook-mathfield-index">Fieldbook ↔ Mathfield Index</a>
+      <a href="../a0-human/start/A0_SCIENCE.html?desk=research#top">A0 Science</a>
+      <a href="../a0-human/start/A0_SCC_003_PASCAL_PENTAGON_PAPER.html">SCC-003 Paper</a>
+      <a href="../a0-human/start/A0_RETURN_WITHOUT_IDENTITY_PAPER.html">Return Paper</a>
+      <a href="../a0-human/start/A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html">Method White Paper</a>
+      <a href="../a0-human/start/LAB_ORIENTATION_MACHINE.html">Orientation Machine</a>
+      <a href="../a0-human/start/A0_AXIAL_CARRIER_ADAPTER_SUITE.html">Axial Carrier</a>
       <a href="https://nexah.de/" target="_blank" rel="noreferrer">NEXAH.DE</a>
-      <a href="../navigator/index.html#home">Science Navigator</a>
+      <a href="https://github.com/Scarabaeus1031/NEXAH-Science-Lab" target="_blank" rel="noopener noreferrer">Science Lab ↗</a>
     </nav>
   </header>
 
   <main id="top">
-    <section class="hero">
+    <template id="a0-threshold-archive" data-disposition="superseded-by-canonical-a0-hero">
+    <section class="nexah-threshold" aria-labelledby="threshold-title">
+      <div class="nexah-threshold-inner">
+        <nav class="nexah-breadcrumb" aria-label="Position in A0"><strong aria-current="page">A0</strong><span aria-hidden="true">/</span><a href="../a0-human/start/A0_SCIENCE.html">Science</a><span aria-hidden="true">/</span><a href="../a0-human/start/A0_WERKBANK.html">Workbench</a></nav>
+        <div class="nexah-threshold-grid">
+          <div>
+            <div class="eyebrow">Orientation at the threshold</div>
+            <h1 id="threshold-title">A0<span>· Eingang in den NEXAH Cosmos</span></h1>
+            <p class="nexah-threshold-copy">Position, Perspektive und Wege — Buch, Science und Werkbank bleiben getrennt und führen in ihren Kontext zurück.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    </template>
+    <section class="reading-gate" id="field-notes-entrance" aria-labelledby="field-notes-entrance-title">
+      <div class="reading-gate-inner"><a class="reading-gate-link" href="../a0-human/start/A0_NEXAH_APERTURE_JOURNEY.html"><span class="reading-gate-mark">H·I·II·III<br>+1</span><span><small>A0 reading entrance · orient from within, then open the notes</small><h2 id="field-notes-entrance-title">Human View → Observation → Difference → Time After Time → The Living Blueprint</h2><p><strong>The Missing Condition</strong> lokalisiert zuerst den Menschen innerhalb des Feldes. Drei Grundnoten geben danach den Leseschlüssel; der bestehende Living Blueprint ist die <strong>+1</strong>-Fortsetzung und verzweigende Karte.</p></span><span class="reading-gate-action">Inside beginnen →</span></a></div>
+    </section>
+    <section class="find-strip" id="finden" aria-labelledby="finden-title">
+      <div class="find-strip-inner">
+        <div class="find-strip-head"><h2 id="finden-title">Was suchst du?</h2><p>Suche nach einer Quelle, einer Datei, einem Befund oder einem Werkzeug.</p></div>
+        <nav class="find-strip-grid" aria-label="A0 nach Aufgabe durchsuchen">
+          <a class="find-door" href="../a0-human/start/A0_SCIENTIFIC_POSITION_REPORT.html"><small>Identität / Relation</small><strong>Source & Evidence</strong><span>Bestehende Quellenobjekte und Bindungen.</span></a>
+          <a class="find-door" href="../a0-human/start/A0_WERKBANK.html"><small>Datei / Asset</small><strong>A0 Asset Index</strong><span>Vollständiger lokaler Datei-Locator.</span></a>
+          <a class="find-door" href="../a0-human/start/A0_SCIENCE.html"><small>Wissenschaftlicher Status</small><strong>A0 Science</strong><span>Evidenz, Grenzen und Returns.</span></a>
+          <a class="find-door" href="../a0-human/start/A0_BUILDER_TOY_STORE.html#tools"><small>Bedienbares Werkzeug</small><strong>Toy Store</strong><span>Kuratierte, ausführbare Instrumente.</span></a>
+          <a class="find-door" href="../a0-human/start/A0_ORIENTATION_CONTROLLER_BENCH.html#foyerDoors"><small>Arbeitsmodul</small><strong>Orientation Bench</strong><span>Lokale Module und Bench-Kontext.</span></a>
+        </nav>
+        <a class="find-registers" aria-disabled="true">Unsicher? Zuständiges Register finden →</a>
+      </div>
+    </section>
+    <section class="portal-home" id="portal" aria-labelledby="portal-title">
+      <div class="portal-home-inner">
+        <div class="eyebrow">ÖFFENTLICHE FENSTER · LIVE</div>
+        <h2 id="portal-title">Nach draußen. <em class="portal-title-accent">Ohne A0 zu verdoppeln.</em></h2>
+        <p class="portal-home-intro">A0 bleibt Werkstatt und Referenzraum. Diese drei Fenster zeigen nur die bereits veröffentlichten Häuser; ein Klick führt in das jeweilige Original.</p>
+        <nav class="portal-houses portal-houses--public" aria-label="Öffentliche NEXAH Websites">
+          <article class="portal-house portal-house--human"><div class="portal-house-window" aria-hidden="true"><iframe title="Vorschau NEXAHEDRON Human View" src="https://nexahedron.com/" loading="lazy" tabindex="-1"></iframe></div><a class="portal-house-entry" href="https://nexahedron.com/"><small>01 · EXPERIENCE · LIVE</small><strong>NEXAHEDRON · Human</strong><p>Die öffentliche Erfahrungsfläche: erleben, drehen, spielen und mit einem anderen Blick zurückkehren.</p><b>NEXAHEDRON öffnen ↗</b></a></article>
+          <article class="portal-house portal-house--science"><div class="portal-house-window" aria-hidden="true"><iframe title="Vorschau nexah.de · öffentliche Science- und Orientierungsfläche" src="https://nexah.de/" loading="lazy" tabindex="-1"></iframe></div><a class="portal-house-entry" href="https://nexah.de/"><small>02 · UNDERSTAND · LIVE</small><strong>NEXAH.DE</strong><p>Die öffentliche Orientierungsfläche mit Science, About, Library und Legal. Der vollständige Arbeitsraum bleibt intern im A0 Science.</p><b>NEXAH.DE öffnen ↗</b></a></article>
+          <article class="portal-house portal-house--scarab"><div class="portal-house-window" aria-hidden="true"><img src="assets/scarabaeus1033-workshop-preview.png" alt="" loading="lazy"></div><a class="portal-house-entry" href="https://www.scarabaeus1033.net/"><small>03 · OPEN WORKSHOP · LIVE</small><strong>Scarabæus 1033</strong><p>Die öffentliche Werkstatt und kuratierte Auslage. Der vollständige source-bound Instrument Atlas bleibt eine interne A0-Vertiefung.</p><b>SCARABÆUS1033.NET öffnen ↗</b></a></article>
+        </nav>
+      </div>
+    </section>
+    <template id="a0-built-world-concept" data-disposition="nexahedron-human-view-candidate">
+    <section class="world-plate" id="built-world" aria-labelledby="built-world-title">
+      <div class="world-plate-inner">
+        <header class="world-plate-head">
+          <div><div class="eyebrow">NEXAH · ORIENTATION PORTAL</div><h2 id="built-world-title">A Built World.</h2></div>
+          <p class="world-plate-intro"><strong>NEXAH ist eine offene, menschenzentrierte Orientierungspraxis: science-led, human-centered, instrument-enabled.</strong> A0 ist ihr gemeinsames methodisches Referenzobjekt. Hinter diesen Türen liegen Bücher, Bilder, Spiele, Instrumente, Forschung und Software — verbunden, aber nicht gleichgesetzt.</p>
+        </header>
+
+        <figure class="world-trailer" id="world-trailer" aria-labelledby="world-trailer-title">
+          <div class="world-trailer-bar"><span class="world-trailer-live">World signal · running</span><span>One source · many views · explicit return</span><button class="world-trailer-toggle" type="button" aria-pressed="false">Pause</button></div>
+          <svg viewBox="0 0 1200 520" role="img" aria-labelledby="world-trailer-svg-title world-trailer-svg-desc">
+            <title id="world-trailer-svg-title">Bewegter Trailer durch die NEXAH-A0-Welt</title>
+            <desc id="world-trailer-svg-desc">Eine abstrakte Sequenz aus Gittern, Apertur, gekoppelten Körpern, Umlaufbahnen und einem sichtbaren Return.</desc>
+            <defs>
+              <radialGradient id="trailer-space" cx="50%" cy="48%" r="65%"><stop offset="0" stop-color="#15394a"/><stop offset=".42" stop-color="#071923"/><stop offset="1" stop-color="#02080e"/></radialGradient>
+              <radialGradient id="trailer-core-light"><stop offset="0" stop-color="#fff7c7"/><stop offset=".22" stop-color="#e8b747"/><stop offset=".55" stop-color="#e548b5" stop-opacity=".55"/><stop offset="1" stop-color="#e548b5" stop-opacity="0"/></radialGradient>
+              <linearGradient id="trailer-spectrum"><stop stop-color="#e8b747"/><stop offset=".33" stop-color="#43cae7"/><stop offset=".67" stop-color="#72f3b5"/><stop offset="1" stop-color="#e548b5"/></linearGradient>
+              <pattern id="trailer-grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#31576a" stroke-width="1" opacity=".38"/></pattern>
+              <filter id="trailer-glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect width="1200" height="520" fill="url(#trailer-space)"/>
+            <g class="trailer-stars" fill="#bdefff"><circle cx="96" cy="96" r="1.7"/><circle cx="244" cy="74" r="1.1"/><circle cx="1040" cy="120" r="1.5"/><circle cx="1120" cy="228" r="1"/><circle cx="925" cy="76" r="1"/><circle cx="356" cy="128" r="1.3"/><circle cx="187" cy="302" r="1"/><circle cx="1005" cy="366" r="1.4"/><circle cx="405" cy="426" r="1.2"/><circle cx="792" cy="89" r="1.2"/></g>
+            <g class="trailer-grid" opacity=".62"><path d="M0 394H1200V520H0Z" fill="url(#trailer-grid)" transform="skewX(-16)"/><path d="M0 402C230 342 970 342 1200 402" fill="none" stroke="#3b7c93" opacity=".4"/><path d="M0 450C280 380 920 380 1200 450" fill="none" stroke="#3b7c93" opacity=".28"/></g>
+            <g fill="none" stroke-linecap="round">
+              <path class="trailer-path" d="M70 267C220 90 400 435 566 275" stroke="#e8b747" stroke-width="2" opacity=".72"/>
+              <path class="trailer-path" d="M1130 267C980 440 800 92 634 275" stroke="#e548b5" stroke-width="2" opacity=".72"/>
+              <path class="trailer-path" d="M90 340C320 500 416 56 585 243" stroke="#43cae7" stroke-width="1.5" opacity=".52"/>
+              <path class="trailer-path" d="M1110 340C880 500 784 56 615 243" stroke="#72f3b5" stroke-width="1.5" opacity=".52"/>
+            </g>
+            <g class="trailer-body-left" transform="translate(230 250)" fill="none" stroke="#43cae7"><path d="M-90 42L-55-62 40-88 96-8 58 81-42 91Z" stroke-width="2"/><path d="M-55-62L4 5 40-88M4 5L96-8M4 5L58 81M4 5L-42 91M-90 42L4 5" opacity=".55"/><circle cx="4" cy="5" r="7" fill="#43cae7" filter="url(#trailer-glow)"/></g>
+            <g class="trailer-body-right" transform="translate(970 250)" fill="none" stroke="#e548b5"><path d="M-86-48L0-94 86-48 86 50 0 94-86 50Z" stroke-width="2"/><path d="M0-94V94M-86-48L86 50M86-48L-86 50" opacity=".55"/><circle r="7" fill="#e548b5" filter="url(#trailer-glow)"/></g>
+            <g fill="none" transform="translate(0 0)">
+              <ellipse class="trailer-orbit-a" cx="600" cy="266" rx="280" ry="112" stroke="url(#trailer-spectrum)" stroke-width="1.5" stroke-dasharray="3 11" opacity=".7"/>
+              <ellipse class="trailer-orbit-b" cx="600" cy="266" rx="214" ry="178" stroke="#7cdff2" stroke-width="1" stroke-dasharray="2 9" opacity=".48"/>
+              <g class="trailer-pulse-a"><circle cx="880" cy="266" r="6" fill="#e8b747" stroke="none" filter="url(#trailer-glow)"/></g>
+              <g class="trailer-pulse-b"><circle cx="600" cy="88" r="5" fill="#e548b5" stroke="none" filter="url(#trailer-glow)"/></g>
+            </g>
+            <g class="trailer-aperture" fill="#07121b" stroke="url(#trailer-spectrum)" stroke-width="2">
+              <path d="M600 130L655 222 600 257 545 222Z"/><path d="M736 266L644 321 609 266 644 211Z"/><path d="M600 402L545 310 600 275 655 310Z"/><path d="M464 266L556 211 591 266 556 321Z"/>
+            </g>
+            <g class="trailer-cube" fill="none" stroke="#dff8ff" stroke-width="1.4" opacity=".88"><path d="M542 212L615 190 672 236 657 318 584 340 527 294Z"/><path d="M575 239L628 223 655 251 644 301 592 316 554 286Z"/><path d="M542 212L575 239M615 190L628 223M672 236L655 251M657 318L644 301M584 340L592 316M527 294L554 286"/></g>
+            <circle class="trailer-core" cx="600" cy="266" r="56" fill="url(#trailer-core-light)" opacity=".86"/>
+            <circle cx="600" cy="266" r="6" fill="#fff8d6" filter="url(#trailer-glow)"/>
+            <g font-family="ui-monospace,monospace" font-size="15" font-weight="700" letter-spacing="4" text-anchor="middle">
+              <text class="trailer-word" x="600" y="82" fill="#e8b747">HUMAN · ENTER</text>
+              <text class="trailer-word" x="600" y="82" fill="#72f3b5">SCIENCE · TEST</text>
+              <text class="trailer-word" x="600" y="82" fill="#43cae7">BUILDER · MAKE</text>
+              <text class="trailer-word" x="600" y="82" fill="#ff72ca">RETURN · LOOK AGAIN</text>
+            </g>
+          </svg>
+          <figcaption class="world-trailer-copy"><small>00 · World trailer</small><strong id="world-trailer-title">The world is not one view.</strong><p>Ein Gegenstand. Mehrere Schnitte. Sichtbare Übergänge. Und immer ein Weg zurück.</p></figcaption>
+          <div class="world-trailer-acts" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        </figure>
+
+        <nav class="world-map" aria-label="Türen in die gebaute NEXAH-A0-Welt">
+          <a class="world-room world-room--human" href="../a0-human/start/A0_NEXAH_APERTURE_JOURNEY.html#human-view"><small>Human</small><h3>Erleben &amp; urteilen.</h3><p>Human Journey, ARKADE, Club und spielbare Welten öffnen den menschlichen Zugang.</p><b>Human View öffnen →</b></a>
+          <a class="world-room world-room--science" href="../a0-human/start/A0_SCIENCE.html#status"><small>Science</small><h3>Prüfen &amp; begrenzen.</h3><p>Resultate, Evidenz, negative Befunde, offene Fragen und Claim-Grenzen.</p><b>A0 Science öffnen →</b></a>
+          <a class="world-room world-room--builder" href="../a0-human/start/A0_BUILDER_TOY_STORE.html#instrument-atlas"><small>Builder</small><h3>Bauen &amp; anwenden.</h3><p>Toy Store, Build Atlas und die öffentliche Builder-Sicht führen vom Bestand zur Anwendung.</p><b>Builder öffnen →</b></a>
+          <a class="world-room world-room--tools" href="../a0-human/start/A0_WERKBANK.html"><small>Werkbank</small><h3>Instrumente bedienen.</h3><p>Machines, Viewer, Bodies, gekoppelte Fenster und technische Arbeitsflächen.</p><b>Werkbank öffnen →</b></a>
+          <a class="world-room world-room--connect" href="../a0-human/start/NEXAH_C_CONNECT.html"><small>C · Connect</small><h3>Eine Fuge wählen.</h3><p>Review, Gespräch oder Zusammenarbeit beginnen an einem begrenzten Gegenstand.</p><b>Connect öffnen →</b></a>
+          <a class="world-room world-room--overview" href="../a0-human/start/A0_TOURS.html#explanation-path"><small>Übersicht</small><h3>Die Welt lesen.</h3><p>Buch, Karten, Touren und vorhandene Räume als geführten Zusammenhang öffnen.</p><b>Übersicht öffnen →</b></a>
+          <a class="world-room world-room--matroschka" id="matroschka-101-entry" aria-disabled="true"><small>A0 / 101 · ONE → NEST → RETURN</small><div><h3>THE MATROSCHKA.</h3><p>Ein Ursprung wird als Adresse, Cluster, Projektion, Messzustand und Return gelesen. Die Matroschka liegt innerhalb der 101/World-Cube-Kette: verschachtelte Ansichten bleiben getrennt und führen mit ihrem Witness wieder zur Quelle zurück.</p></div><b>A0/101 · Matroschka öffnen →</b></a>
+          <article class="world-room world-room--backstage"><div><small>Backstage · local only</small><h3>Mission Control hält den Gesamtstand.</h3></div><p>Prioritäten, Currentness, Rückbindungen und Owner-Entscheidungen bleiben in der lokalen Steuerfläche — sichtbar im System, aber nicht Teil der öffentlichen Tour.</p><b>Nicht öffentlich verlinkt</b></article>
+        </nav>
+
+        <div class="world-plate-return"><p><strong>Der Navigator ist der Vorraum.</strong> Die bestehende A0-Seite liegt direkt dahinter: ein Referenzobjekt, mehrere Ansichten und ein expliziter Return. Die Türen ordnen den Bestand; sie erzeugen keine zweite Identität.</p><div class="btns"><a class="btn world-curtain" href="#a0-home">Vorhang auf · NEXAH A0 ↓</a><a class="btn" href="../a0-human/start/A0_SCIENCE.html">A0/101 · Relationsregister →</a></div></div>
+      </div>
+    </section>
+    </template>
+
+    <section class="hero" id="a0-home">
       <div>
         <div class="eyebrow">Fundamentals of relation · representation · readout</div>
         <h1>A0<span>Ein Bild zeigt etwas. Und lässt etwas weg.</span></h1>
         <p class="lead">Ein Foto zeigt nicht den ganzen Raum. Eine Karte ist nicht die Landschaft. Eine Messkurve ist nicht das beobachtete System. Dieses Buch zeigt, wie solche Ansichten entstehen, was sie bewahren – und wann eine Schlussfolgerung zu weit geht.</p>
-        <div class="btns"><a class="btn gold" href="#choose-entry">Einstieg wählen</a><a class="btn" href="#record-player">Die Reise beginnen</a><a class="btn" href="#research-now">Zum Forschungsstand</a><a class="btn" href="LAB_ORIENTATION_MACHINE.html">Orientation Machine</a><a class="btn" href="A0_AXIAL_CARRIER_ADAPTER_SUITE.html">Axial Carrier Suite</a></div>
+        <div class="btns"><a class="btn gold" href="#field-notes-entrance">Lesepfad öffnen</a><a class="btn" aria-disabled="true">101 / A0 Open Book</a><a class="btn" href="#introduction">Die Reise beginnen</a><a class="btn" href="#research-now">Zum Forschungsstand</a><a class="btn" href="../a0-human/start/LAB_ORIENTATION_MACHINE.html">Orientation Machine</a><a class="btn" href="../a0-human/start/A0_AXIAL_CARRIER_ADAPTER_SUITE.html">Axial Carrier Suite</a></div>
       </div>
     </section>
 
+    <template id="a0-duplicate-entry-archive" data-disposition="superseded-by-reading-gate-guide-and-research-now">
     <section class="entry-switch" id="choose-entry" aria-labelledby="choose-entry-title">
       <div class="entry-switch-inner">
         <div class="entry-switch-head">
-          <div><div class="label">Drei Einstiege · ein A0</div><h2 id="choose-entry-title">Welche Reise brauchst du gerade?</h2></div>
-          <p class="entry-switch-intro">Lesen führt durch die Geschichte, Science zu Ergebnissen und Grenzen, Spielen in ein Werkzeug zum eigenen Ausprobieren. Alle drei Wege gehören zu demselben A0; keiner erzeugt eine zweite Identität.</p>
+          <div><div class="label">Vier Einstiege · ein A0</div><h2 id="choose-entry-title">Welche Reise brauchst du gerade?</h2></div>
+          <p class="entry-switch-intro">Lesen führt durch die Geschichte, Science zu Ergebnissen und Grenzen, Spielen in ein Werkzeug — und LOOK AGAIN in fünf kurze Wahrnehmungsvergleiche. Alle Wege gehören zu demselben A0; keiner erzeugt eine zweite Identität.</p>
         </div>
         <div class="entry-switch-grid">
-          <a class="entry-route" href="#record-player"><span class="entry-route-no">01 · Zum ersten Mal</span><div><h3>Von einem Record zur verantwortbaren Aussage.</h3><p>Beginne bei Stimme, Cut und Replay. Folge anschließend den acht Kapiteln von Unterschied und Koordinate bis Evidence, Residual und Human Return.</p><span>Die A0-Reise beginnen →</span></div></a>
-          <a class="entry-route research" href="A0_RESEARCH_DESK.html#tests"><span class="entry-route-no">02 · Forschung vorfiltern</span><div><h3>Was trägt, was ist offen und was muss später validiert werden?</h3><p>Science Mission Control verbindet drei Linsen, Flagships, Hypothesen, Tests, offene Lücken, Backlog und source-bound Evidence vor einer möglichen Lab-Admission.</p><span>Science Mission Control öffnen →</span></div></a>
-          <a class="entry-route play" id="arkade-tool" href="A0_BUILDER_TOY_STORE.html#story-bridge"><span class="entry-route-no">03 · Spielend prüfen</span><div><h3>Was verändert sich, wenn ich selbst eingreife?</h3><p>Die NEXAH ARKADE ist ein A0-Werkzeug: Drei spielbare Welten machen Unterschied, Übergang, Ansicht und Return berührbar. Das Spiel illustriert die Fragen; es ersetzt weder Beleg noch Erklärung.</p><span>Game of Worlds in der ARKADE öffnen →</span></div></a>
+          <a class="entry-route" href="#introduction"><span class="entry-route-no">01 · Zum ersten Mal</span><div><h3>Von einem Record zur verantwortbaren Aussage.</h3><p>Beginne bei Stimme, Cut und Replay. Folge anschließend den acht Kapiteln von Unterschied und Koordinate bis Evidence, Residual und Human Return.</p><span>Die A0-Reise beginnen →</span></div></a>
+          <a class="entry-route research" href="../a0-human/start/A0_SCIENCE.html#status"><span class="entry-route-no">02 · Forschungsstand lesen</span><div><h3>Was trägt, was ist offen und was muss später validiert werden?</h3><p>A0 Science zeigt Resultate, Evidenzreife, Grenzen und den nächsten wissenschaftlichen Schritt. Operative Aufgaben und Builder-Steuerung bleiben in der öffentlichen A0-Einordnung.</p><span>A0 Science öffnen →</span></div></a>
+          <a class="entry-route play" id="arkade-tool" href="../a0-human/start/A0_BUILDER_TOY_STORE.html#story-bridge"><span class="entry-route-no">03 · Spielend prüfen</span><div><h3>Was verändert sich, wenn ich selbst eingreife?</h3><p>Die NEXAH ARKADE ist ein A0-Werkzeug: Drei spielbare Welten machen Unterschied, Übergang, Ansicht und Return berührbar. Das Spiel illustriert die Fragen; es ersetzt weder Beleg noch Erklärung.</p><span>Game of Worlds in der ARKADE öffnen →</span></div></a>
+          <a class="entry-route look" id="look-again-entry" href="../a0-human/start/A0_LOOK_AGAIN_PLAY.html"><span class="entry-route-no">04 · Look again</span><div><h3>Same source. Another visible relation.</h3><p>Fünf statische Vorher-/Nachher-Runden machen Phase, Maßstab, Sampling, Apertur und Ringdichte sichtbar. Kein Score, keine Norm, kein Sehtest.</p><span>LOOK AGAIN spielen →</span></div></a>
         </div>
       </div>
     </section>
@@ -230,79 +450,58 @@
     <section class="entry-switch" id="scientific-position-entry" aria-labelledby="scientific-position-entry-title">
       <div class="entry-switch-inner">
         <div class="entry-switch-head">
-          <div><div class="label">Scientific Position · Quellenstand 19. Oktober 2026</div><h2 id="scientific-position-entry-title">Was macht NEXAH konkret?</h2></div>
-          <p class="entry-switch-intro">Quellen benennen, Transformationen und Ansichten bedienbar machen, erhaltene Eigenschaften prüfen und mögliche Rückwege dokumentieren. Der Positionsbericht erklärt die gemeinsame Frage hinter Buch, Bildern und Instrumenten — und unterscheidet erreichte Resultate, Engineering und offene Forschung.</p>
+          <div><div class="label">Scientific Position · Basis 01.11. · Addenda bis 15.11.2026</div><h2 id="scientific-position-entry-title">Was macht NEXAH konkret?</h2></div>
+          <p class="entry-switch-intro">Quellen benennen, Transformationen und Ansichten bedienbar machen, erhaltene Eigenschaften prüfen und mögliche Rückwege dokumentieren. Der aktuelle Stand umfasst neben Buch und Papers eine zusammenhängende Instrumentenarchitektur für begrenzte, synchronisierte und rückführbare Ansichten.</p>
         </div>
-        <p class="entry-switch-intro"><strong>Was trägt bereits? Was ist nur eine Darstellung? Was bleibt offen?</strong> Die Bewertung vom 13.10. bleibt erhalten; der Nachtrag vom 19.10. ordnet den angenommenen Pascal-Audit, neuere Instrumente und die separat freigegebene öffentliche Engineering-Testversion ein. Keine neue Physik oder extern bestätigte Neuheit behauptet.</p>
-        <div class="btns"><a class="btn gold" href="A0_SCIENTIFIC_POSITION_REPORT.html">Was NEXAH macht · Positionsbericht lesen →</a><a class="btn" href="A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261019">Aktuellen Stand und Grenzen ansehen →</a><a class="btn" href="A0_TOURS.html#explanation-path">Lieber Schritt für Schritt? Erklärweg ohne Vorwissen →</a></div>
+        <p class="entry-switch-intro"><strong>Was trägt bereits? Was ist nur eine Darstellung? Was bleibt offen?</strong> Die Bewertung vom 13.10. bleibt erhalten. Der Stand vom 01.11. ergänzt den Owner-angenommenen lokalen Maschinen-Freeze: <code>23/23</code> Integrations-Suites und eine geführte Route mit <code>62</code> Stationen in <code>10</code> Kapiteln. Das ist ein belastbarer Integrationsreturn, aber kein Human Outcome, keine neue Machine-Family und keine Claim-Promotion. Der nächste priorisierte Exit ist die Vorbereitung von SCC-003-R1 für ein unabhängiges Review; Kontakt und Versand benötigen einen neuen Owner-Entscheid.</p>
+        <div class="btns"><a class="btn gold" href="../a0-human/start/A0_SCIENCE.html#status">Forschungsstand lesen →</a><a class="btn" href="../a0-human/start/A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261024">Position und Grenzen vertiefen →</a><a class="btn" href="../a0-human/start/A0_TOURS.html#explanation-path">Lieber Schritt für Schritt? Erklärweg ohne Vorwissen →</a></div>
       </div>
     </section>
+    </template>
 
     <section class="a0-guide" id="wegweiser" aria-labelledby="wegweiser-title">
       <div class="a0-guide-inner">
         <div class="a0-guide-head">
-          <div><div class="label">A0 Wegweiser · eine Dachkarte · vier Werke · drei Papers · ein Desk</div><h2 id="wegweiser-title">Wo beginne ich?</h2></div>
-          <p class="a0-guide-intro"><strong>UTG ist das Orientierungsdach; A0 ist die mathematische Werkstatt.</strong> Die Living-Blueprint-Karte ordnet ihre Rollen. Werke tragen Lesewelten und Instrumente. Papers verdichten ausgewählte Forschungsspuren; der Desk hält ihren Status auseinander.</p>
+          <div><div class="label">A0 Wegweiser · ein Pfad · drei Stationen</div><h2 id="wegweiser-title">Wo beginne ich?</h2></div>
+          <p class="a0-guide-intro"><strong>Human → Science → Builder.</strong><br>Erst orientieren, dann prüfen, dann ausführen.</p>
         </div>
-        <nav class="a0-guide-grid" aria-label="A0 Werke und ihre Aufgaben">
-          <a class="a0-guide-card" aria-current="page" href="#introduction"><span class="work-no">Werk 01 · Lesen</span><h3>A0 Book</h3><p>Acht Kapitel vom ersten Unterschied bis zu Evidence, Return und verantwortbarer Entscheidung.</p><span class="work-action">Im Buch beginnen →</span></a>
-          <a class="a0-guide-card" href="A0_LIVING_BLUEPRINT.html#utg-map"><span class="work-no">Dachkarte · Ordnen</span><h3>UTG → A0 → Joint</h3><p>Die eindeutige Hierarchie von Framework, A0-Werkstatt, Mathematical Joints, Pascal-Fall, Result Paper, Instrumenten und Registern.</p><span class="work-action">Orientierungskarte öffnen →</span></a>
-          <a class="a0-guide-card" href="A0_LIVING_BLUEPRINT.html#integration-crosswalk"><span class="work-no">Crosswalk · Durchführen</span><h3>Grid → Operator → Anwendung</h3><p>Zwei implementierte Geschichten führen Quelle, Adresse, Operator und vier Ansichten bis zum Test: Blue Body kehrt exakt zurück; LIFE zeigt den kontrollierten Informationsverlust.</p><span class="work-action">Durchgang als HTML öffnen →</span></a>
-          <a class="a0-guide-card" href="A0_TESSAREC_BLUE_BODY_LAB.html#pentagon-body-player"><span class="work-no">Demonstrator · Ausführen</span><h3>Pentagon Body Player · 3D</h3><p>48 typisierte Adressen, drei bespielte Pentagonlagen, drehbarer Körper, gekoppeltes 8×6-LIFE-Feld und Return-Trace in vier synchronisierten Ansichten.</p><span class="work-action">3D Body Player starten →</span></a>
-          <a class="a0-guide-card" href="A0_BLUE_PINK_DODECA_CELL_RETURN.html#cells"><span class="work-no">Körperatlas · Bespielen</span><h3>Blue / Pink Dodeca Cell Return</h3><p>Day und Night bleiben gleichzeitig sichtbar: vier Satellitenkörper, ein zentraler Return-Körper und 60 direkt adressierbare Pentagon-Flächenslots mit Spiegelung, Schatten und Return-Lauf.</p><span class="work-action">Pink / Blue Body öffnen →</span></a>
-          <a class="a0-guide-card" href="A0_MATHEMATICAL_JOINTS.html"><span class="work-no">Werk 02 · Untersuchen</span><h3>Mathfield</h3><p>Die mathematische Werkstatt: Grids, Operatoren, Fugen, exakte Beispiele und typisierte Instrumente.</p><span class="work-action">Werk öffnen →</span></a>
-          <article class="a0-guide-card a0-guide-card--group"><span class="work-no">Werk 03 · Vertiefen</span><h3>Pascal Joint</h3><p>Der fokussierte Fall: Pascal-Träger, Pentagon-Quotient, Kopplungen und Übersetzer. Der Generation Corner ist das zugehörige Instrument für Generation und Return.</p><span class="work-links"><a class="work-link" href="A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html">Pascal Joint öffnen →</a><a class="work-link work-link--instrument" href="A0_PASCAL_GENERATION_CORNER.html">Generation Corner öffnen →</a></span></article>
-          <a class="a0-guide-card" href="A0_GAME_4_LIFE_PLUS_1.html#blue-body-transfer"><span class="work-no">Werk 04 · Prüfen</span><h3>GAME 4 LIFE +1 · Transfer</h3><p>Der 48er Blue-Body-Record wird exakt in ein 8×6-LIFE-Feld übertragen. Danach zeigt unverändertes B3/S23, warum der Source Key für den Return nötig bleibt.</p><span class="work-action">Transfer-Control öffnen →</span></a>
-          <a class="a0-guide-card" href="A0_SCC_003_PASCAL_PENTAGON_PAPER.html"><span class="work-no">Paper A · Ergebnis</span><h3>SCC-003</h3><p>Die enge mathematische Notiz zum zyklischen Fünf-Flächen-Quotienten — ohne den gesamten A0-Kontext.</p><span class="work-action">Paper lesen →</span></a>
-          <a class="a0-guide-card" href="A0_RETURN_WITHOUT_IDENTITY_PAPER.html"><span class="work-no">Paper C · Synthese</span><h3>Return without identity</h3><p>Fünf geschlossene Studien zu typisiertem Return, Residual und Identitätsgrenze.</p><span class="work-action">Paper C lesen →</span></a>
-          <a class="a0-guide-card" href="A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html"><span class="work-no">Paper E · Methode</span><h3>The NEXAH Family Method</h3><p>Die NEXAH-Familienmethode, ihr vorhandener Kern, ihre Hypothesen und Grenzen als kurze Essence.</p><span class="work-action">White Paper lesen →</span></a>
-          <a class="a0-guide-card" href="A0_SCIENTIFIC_POSITION_REPORT.html"><span class="work-no">Science · Einordnen</span><h3>Scientific Position</h3><p>Was NEXAH konkret macht, welche Ergebnisse tragen und welche Fragen offen bleiben. Arbeitsaufträge bleiben im internen Science Desk.</p><span class="work-action">Ergebnisse und Grenzen lesen →</span></a>
-          <a class="a0-guide-card" href="LAB_ORIENTATION_MACHINE.html"><span class="work-no">Reader instrument · Orientieren</span><h3>Laboratory Orientation Machine</h3><p>Direkter Zugang zur dokumentarischen Orientierungsmaschine aus Kapitel 08; Instrument, nicht Evidenzautorität.</p><span class="work-action">Orientation Machine öffnen →</span></a>
-          <a class="a0-guide-card" href="A0_AXIAL_CARRIER_ADAPTER_SUITE.html"><span class="work-no">Cross-flagship view adapter</span><h3>Axial Carrier Suite</h3><p>Sechs Flagships auf einer gemeinsamen Zylinderansicht — mit getrennten Zeit-, Sequenz-, Layer- und Pipeline-Achsen.</p><span class="work-action">Adapter-Suite öffnen →</span></a>
-        </nav>
-        <div class="a0-guide-note"><span><strong>Werke bleiben oben sichtbar.</strong> Der Breadcrumb zeigt das aktuelle Werk; die Leiste darunter enthält nur dessen Kapitel und verwandte Seiten.</span><span><strong>Instrumente bleiben source-bound.</strong> Boundary Graph, Generation Corner, GAME 4 LIFE +1 und die Paper-C-Quellen rahmen bestehende Quellen; sie eröffnen keine neue Study oder Evidenzautorität.</span></div>
+        <div class="a0-paths" aria-label="A0 Weg von Human über Science zu Builder">
+          <section class="a0-path a0-path--human">
+            <span class="a0-path-code">01 · Human</span><h3>Lesen &amp; orientieren.</h3><p>Was sehe ich, aus welcher Position und mit welcher Verantwortung?</p>
+            <a class="a0-path-primary" href="../a0-human/start/A0_NEXAH_APERTURE_JOURNEY.html"><small>Human View</small><strong>Erleben &amp; unterscheiden</strong><span>Human Overview öffnen →</span></a>
+            <details><summary>3 weitere Einstiege</summary><nav class="a0-path-links"><a href="#introduction"><b>H1</b><span>A0 Book</span></a><a href="../a0-human/start/A0_LIVING_BLUEPRINT.html#utg-map"><b>H2</b><span>UTG → A0 → Joint</span></a><a href="../a0-human/start/LAB_ORIENTATION_MACHINE.html"><b>H3</b><span>Laboratory Orientation Machine</span></a></nav></details>
+          </section>
+          <section class="a0-path a0-path--science">
+            <span class="a0-path-code">02 · Science</span><h3>Einordnen &amp; prüfen.</h3><p>Was trägt formal, wo liegt Evidenz und welche Grenze bleibt offen?</p>
+            <a class="a0-path-primary" href="../a0-human/start/A0_SCIENCE.html"><small>Science View</small><strong>Gesamtbild &amp; Grenzen</strong><span>A0 Science öffnen →</span></a>
+            <details><summary>6 weitere Vertiefungen</summary><nav class="a0-path-links"><a href="../a0-human/start/A0_SCC_003_PASCAL_PENTAGON_PAPER.html"><b>S1</b><span>SCC-003 · Review-Exit</span></a><a href="A0_MATHEMATICAL_JOINTS.html"><b>S2</b><span>Mathfield</span></a><a href="../a0-human/start/A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html"><b>S3</b><span>Pascal Joint</span></a><a href="../a0-human/start/A0_RETURN_WITHOUT_IDENTITY_PAPER.html"><b>S4</b><span>Return without identity</span></a><a href="../a0-human/start/A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html"><b>S5</b><span>The NEXAH Family Method</span></a><a href="../a0-human/start/A0_SCIENTIFIC_POSITION_REPORT.html"><b>S6</b><span>Scientific Position</span></a></nav></details>
+          </section>
+          <section class="a0-path a0-path--builder">
+            <span class="a0-path-code">03 · Builder</span><h3>Ausführen &amp; vergleichen.</h3><p>Wie wird ein begrenzter Record bedienbar, sichtbar und rückführbar?</p>
+            <a class="a0-path-primary" href="../a0-human/start/A0_WERKBANK.html?view=machina"><small>Builder View</small><strong>THE MACHINA · Workbench</strong><span>Builder Overview öffnen →</span></a>
+            <details><summary>5 weitere Instrumente</summary><nav class="a0-path-links"><a href="../a0-human/start/A0_MACHINA_COCKPIT.html"><b>B1</b><span>Grand Return Tour</span></a><a href="../a0-human/start/A0_LIVING_BLUEPRINT.html#integration-crosswalk"><b>B2</b><span>Source → Application Crosswalk</span></a><a href="../a0-human/start/A0_TESSAREC_BLUE_BODY_LAB.html#pentagon-body-player"><b>B3</b><span>Pentagon Body Player · 3D</span></a><a href="../a0-human/start/A0_BLUE_PINK_DODECA_CELL_RETURN.html#cells"><b>B4</b><span>Blue / Pink Dodeca Cell Return</span></a><a href="../a0-human/start/A0_AXIAL_CARRIER_ADAPTER_SUITE.html"><b>B5</b><span>Axial Carrier Suite</span></a></nav></details>
+          </section>
+        </div>
       </div>
     </section>
 
     <section class="research-now" id="research-now" aria-labelledby="research-now-title">
       <div class="research-now-inner">
         <div class="research-now-head">
-          <div><div class="label">Forschungswege · historischer Status-Snapshot 12. Oktober 2026</div><h2 id="research-now-title">Den Stand sehen. Dann weiterlesen.</h2><p>Die Zahlenleiste dokumentiert den damaligen Stand. <a href="A0_SCIENTIFIC_POSITION_REPORT.html#currentness-20261019">Aktuelle Einordnung vom 19.10. im Positionsbericht →</a></p></div>
-          <div class="research-now-status" aria-label="Historischer A0 Status vom 12. Oktober 2026"><span class="closed">MC damals · 393 sources</span><span class="closed">Navigator damals · 259 / 32</span><span class="bound">LIFE08 damals · 44 / 44</span><span class="prepare">Active research damals · 0</span><span class="prepare">Publikationsstatus damals · intern</span></div>
+          <div><div class="label">A0 · Forschungsstand</div><h2 id="research-now-title">Was geprüft ist und was offenbleibt</h2><p>Die Science-Lesefassung führt in den Forschungsstand. Das Resümee vom 26. November verbindet die jüngsten Instrumente mit ihren Prüfungen, Quellen und Papers.</p></div>
+          <details class="research-now-archive"><summary>Historischer Stand vom 12. Oktober 2026</summary><div class="research-now-status" aria-label="Historischer A0 Status vom 12. Oktober 2026"><span class="closed">MC damals · 393 sources</span><span class="closed">Source Graph damals · 259 / 32</span><span class="bound">LIFE08 damals · 44 / 44</span><span class="prepare">Active research damals · 0</span><span class="prepare">Publikationsstatus damals · intern</span></div></details>
         </div>
         <div class="research-now-grid">
-          <a class="research-now-card" href="A0_RESEARCH_DESK.html#tests"><b>A0 Science Mission Control</b><h3>Was trägt — und was vor dem Lab noch fehlt.</h3><p>Science, Builder und Human bilden die Leselogik; die Prüfkarte ergänzt Hypothese, Teststatus, offene Lücke, Kontrolle und nächstes Gate.</p><span class="work-action">Tests &amp; Lücken öffnen →</span></a>
-          <a class="research-now-card" href="A0_RESEARCH_DESK.html#protocols"><b>Protocols & Log</b><h3>Welcher Vertrag gilt für welches Werk?</h3><p>Ein Master-Protokoll und Work-Protokolle ersetzen parallele globale Logs in einzelnen HTML-Instrumenten.</p><span class="work-action">Protokollbereich öffnen →</span></a>
-          <a class="research-now-card" href="A0_RESEARCH_DESK.html#findings"><b>Findings & Papers</b><h3>Welcher Befund gehört wohin?</h3><p>Das Workspace trennt das enge SCC-003-Paper, den D30-Companion, geparkte Synthesen und backlog-only Ideen.</p><span class="work-action">Paper Workspace öffnen →</span></a>
-          <a class="research-now-card" href="A0_RETURN_WITHOUT_IDENTITY_PAPER.html"><b>Paper C · Return</b><h3>Was kehrt zurück — und auf welcher Ebene?</h3><p>Fünf geschlossene Studien, zwei neue Strukturdiagramme und ein governed HTML-Quellenatlas.</p><span class="work-action">Return Paper öffnen →</span></a>
-          <a class="research-now-card" href="A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html"><b>Paper E · Method</b><h3>Was ist die gemeinsame Forschungsbewegung?</h3><p>Kurze Essence vorne, vollständiger Arbeitsentwurf einklappbar hinten.</p><span class="work-action">Method White Paper öffnen →</span></a>
-          <a class="research-now-card" href="../navigator/index.html#a0-orientation-evidence"><b>Evidence Lineage</b><h3>Woher Resultate und Grenzen stammen.</h3><p>Der Science Navigator führt zu Quellen, Tests, negativen Befunden und typisierten Relationen zurück.</p><span class="work-action">Evidence Lens öffnen ↗</span></a>
+          <a class="research-now-card" href="../a0-human/start/A0_SCIENCE.html#status"><b>A0 Science · intern</b><h3>Was trägt — und was noch fehlt.</h3><p>Die interne Science-Lesefassung trennt Formalresultate, methodischen Beitrag, Engineering-Instrumente, externe Review-Lücke und das nächste wissenschaftliche Gate.</p><span class="work-action">Science-Lesefassung öffnen →</span></a>
+          <a class="research-now-card" href="../a0-human/start/A0_SCIENCE.html?desk=returns"><b>Resümee · 26.11.2026</b><h3>Vom Primecube bis zum Jupiter-Jahresfenster</h3><p>Geprüfte Rückwege, bedienbare Ansichten und die offenen Gegenproben mit den zugehörigen Quellen.</p><span class="work-action">Resümee öffnen →</span></a>
+          <a class="research-now-card" href="https://github.com/Scarabaeus1031/NEXAH-Science-Lab" target="_blank" rel="noopener noreferrer"><b>Science Lab Repository</b><h3>Wo liegt der öffentliche wissenschaftliche Record?</h3><p>Protokolle, Evidenz, Reports, negative Resultate und Grenzen bleiben im öffentlichen Repository inspectable; private Planung ist davon getrennt.</p><span class="work-action">Science Lab öffnen ↗</span></a>
+          <a class="research-now-card" href="../a0-human/start/A0_SCIENTIFIC_POSITION_REPORT.html"><b>Findings &amp; Papers</b><h3>Welcher Befund gehört wohin?</h3><p>Das Workspace trennt SCC-003, D30-Companion, Engineering Findings und die Paper-E-Arbeitsthese: dynamische Fugen als Transition Maps, endlicher Plug und <code>TOI ≠ TOE</code>.</p><span class="work-action">Paper Workspace öffnen →</span></a>
+          <a class="research-now-card" href="../a0-human/start/A0_RETURN_WITHOUT_IDENTITY_PAPER.html"><b>Paper C · Return</b><h3>Was kehrt zurück — und auf welcher Ebene?</h3><p>Fünf geschlossene Studien, zwei neue Strukturdiagramme und ein governed HTML-Quellenatlas.</p><span class="work-action">Return Paper öffnen →</span></a>
+          <a class="research-now-card" href="../a0-human/start/A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html"><b>Paper E · Method</b><h3>Was ist die gemeinsame Forschungsbewegung?</h3><p>Kurze Essence vorne, vollständiger Arbeitsentwurf einklappbar hinten.</p><span class="work-action">Method White Paper öffnen →</span></a>
+          <a class="research-now-card" aria-disabled="true"><b>Current Instrument · NLK / L-Shell</b><h3>Wie bleiben mehrere bewegte Ansichten desselben endlichen Records vergleichbar?</h3><p>Grid, Body, Package, Wave und Seam teilen einen typisierten Zustandsbus. Frame, Cut, Phase, Witness, Residuum und Return bleiben getrennt prüfbar.</p><span class="work-action">Relationales Observatorium öffnen →</span></a>
+          <a class="research-now-card" href="../a0-human/start/A0_SCIENCE.html#who-we-are"><b>NEXAH · Core · Lab · A0</b><h3>Wer sind wir — und welche Fläche trägt welche Rolle?</h3><p>Die interne Science-Sicht trennt intellektuelles Zuhause, Framework-Quelle, wissenschaftlichen Record und das konkrete A0-Programm. Öffentliche Websites erhalten nur separat ausgewählte Projektionen.</p><span class="work-action">Rollen und Quellenräume lesen →</span></a>
         </div>
-        <div class="research-now-boundary"><strong>Aktuelle Betriebsgrenze:</strong> Structure Freeze. Kein A0-Experiment ist aktiv. Science Mission Control ist eine read-only Vorfilter- und Forschungsorientierung; sie verändert weder Labstatus noch Admission, Evidenz, Review noch Publikationsfreigabe. Der vollständige Backlog bleibt als Ledger erhalten.</div>
-      </div>
-    </section>
-
-    <section class="culture-record" id="record-player">
-      <div class="culture-grid">
-        <div>
-          <div class="label">00 · one moment, one record, one return</div>
-          <h2>Eine Stimme wird zum Record.</h2>
-          <p class="sub">Wir leben nicht in Records. Aber wir orientieren und entscheiden uns mit ihnen. Jemand singt; ein Instrument wählt und speichert eine Spur; später wird daraus wieder Klang. Die Aufnahme bewahrt etwas vom Moment — sie ist nicht der Moment selbst.</p>
-          <div class="record-journey" aria-label="Weg von der Stimme zum menschlichen Return">
-            <span>Stimme<small>Situation</small></span><span>Cut<small>Mikrofon und Auswahl</small></span><span>Record<small>gespeicherte Spur</small></span><span>Replay<small>Return zum Menschen</small></span>
-          </div>
-          <p class="claim-line">Kulturelles Orientierungsinstrument · illustratives 3D-Modell · keine wissenschaftliche Evidenz</p>
-          <div class="btns"><a class="btn gold" href="#introduction">Was dieses Buch damit untersucht</a></div>
-        </div>
-        <div class="viewer-shell">
-          <model-viewer id="recordPlayer" src="assets/3d/nexah_roedelheim_record_play.glb" poster="assets/images/record_play_poster.jpeg" alt="Interaktives 3D-Modell des Rödelheim Record Play Instruments mit Graph-, Wave- und Fold-Spuren" camera-controls auto-rotate rotation-per-second="10deg" interaction-prompt="auto" touch-action="none" loading="lazy" reveal="manual" shadow-intensity="1" exposure="1.05">
-            <button class="viewer-poster" slot="poster" style="--poster:url('assets/images/record_play_poster.jpeg')" type="button" onclick="this.parentElement.dismissPoster()"><span>3D starten · ziehen zum Drehen · scrollen zum Zoomen</span></button>
-          </model-viewer>
-          <div class="viewer-meta">
-            <p><strong>Record / Play</strong><br>Ziehen = drehen · Scrollen/Pinch = zoomen · GLB · 1.0 MB</p>
-            <div class="asset-actions"><a class="btn" href="assets/3d/nexah_roedelheim_record_play.glb" download>GLB herunterladen</a><a class="btn" href="assets/3d/MANIFEST.json">Asset record</a></div>
-          </div>
-        </div>
+        <div class="research-now-boundary"><strong>Aktuelle Betriebsgrenze:</strong> Der lokale Maschinenstand ist Owner-angenommen und eingefroren. Es folgt kein automatischer Weiterbau. A0 Science ist eine interne Lesefassung; der A0 Science hält Evidenz und Review-Gates. Nur separat ausgewählte Inhalte können nach Owner-Gate über die bestehenden Websites projiziert werden. Keine dieser Ansichten aktiviert Forschung, verändert Labstatus oder autorisiert Kontakt, Versand, Publikation oder Claim-Promotion.</div>
       </div>
     </section>
 
@@ -324,7 +523,7 @@
           <p>Sobald ein Bild, eine Messung, ein Score oder eine KI-Antwort eine Entscheidung beeinflusst, sollten wir wissen, wie dieses Ergebnis entstanden ist, was darin fehlt und welche Aussage es tatsächlich trägt.</p>
         </article>
       </div>
-      <div class="btns"><a class="btn gold" href="#index">Weiter zu den Kapiteln</a><a class="btn" href="../navigator/index.html#home">Quellenlandschaft öffnen</a></div>
+      <div class="btns"><a class="btn gold" href="#index">Weiter zu den Kapiteln</a><a class="btn" href="../a0-human/start/A0_SCIENCE.html#science-status-plate">Quellenlandschaft öffnen</a></div>
     </section>
 
     <section class="book-index" id="index">
@@ -349,15 +548,15 @@
           <a class="entry" href="07_EVIDENCE_COMPARISON_DECISION.html"><span class="id">07</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><rect x="5" y="12" width="17" height="25" fill="none" stroke="currentColor"/><rect x="42" y="12" width="17" height="25" fill="none" stroke="currentColor"/><path d="M22 25h20" stroke="currentColor" stroke-dasharray="3 3"/><path d="M32 8v34" stroke="currentColor" opacity=".55"/><circle cx="32" cy="25" r="4" fill="currentColor"/></svg></span><span><h3>Wann trägt ein Vergleich eine Entscheidung?</h3><p>Evidence · Vergleichsregel · Gegenprobe · offener Ausgang</p><span class="chapter-action">Kapitel öffnen →</span></span></a>
           <a class="entry" href="08_RETURN_ONE_CARRIER_SEVEN_QUESTIONS.html"><span class="id">08</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M50 29A19 19 0 1 1 44 12" fill="none" stroke="currentColor" stroke-width="2"/><path d="M39 7l8 4-6 6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="31" cy="25" r="5" fill="none" stroke="currentColor"/><circle cx="52" cy="34" r="3" fill="currentColor"/></svg></span><span><h3>Was muss zum Ausgangspunkt zurückkehren?</h3><p>Carrier · sieben Fragen · ILAU · Residual · Human Return</p><span class="chapter-action">Kapitel öffnen →</span></span></a>
           <div class="group-title">Weiterführende A0-Flächen · Dachkarte, Feld, Joint und Paper</div>
-          <a class="entry" href="A0_LIVING_BLUEPRINT.html#utg-map"><span class="id">UTG</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M6 39h52M13 31h38M20 23h24M27 15h10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="8" r="4" fill="currentColor"/></svg></span><span><h3>UTG / A0 Orientation Map</h3><p>Framework · Werkstatt · Joint · Fallakte · Paper · Instrument</p><span class="chapter-action">Hierarchie öffnen →</span></span></a>
+          <a class="entry" href="../a0-human/start/A0_LIVING_BLUEPRINT.html#utg-map"><span class="id">UTG</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M6 39h52M13 31h38M20 23h24M27 15h10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="8" r="4" fill="currentColor"/></svg></span><span><h3>UTG / A0 Orientation Map</h3><p>Framework · Werkstatt · Joint · Fallakte · Paper · Instrument</p><span class="chapter-action">Hierarchie öffnen →</span></span></a>
           <a class="entry" href="A0_MATHEMATICAL_JOINTS.html"><span class="id">MF</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M7 10h50M7 25h50M7 40h50M16 5v40M32 5v40M48 5v40" fill="none" stroke="currentColor" opacity=".62"/><circle cx="32" cy="25" r="6" fill="currentColor"/></svg></span><span><h3>A0 Mathfield</h3><p>Felder · Grids · Operatoren · Fugen · Forschungsprotokoll</p><span class="chapter-action">Mathfield öffnen →</span></span></a>
-          <a class="entry" href="A0_BOUNDARY_GRAPH_DEMONSTRATOR.html"><span class="id">BG</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><rect x="7" y="7" width="50" height="36" fill="none" stroke="currentColor" stroke-width="2"/><path d="M41 7v36M7 31h50" stroke="currentColor" stroke-width="2"/><circle cx="41" cy="31" r="4" fill="currentColor"/></svg></span><span><h3>Boundary Graph</h3><p>Vier Flächen · zwei Pillars · Hinge · Adjazenzgraph</p><span class="chapter-action">Demonstrator öffnen →</span></span></a>
-          <a class="entry" href="A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html"><span class="id">PJ</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M12 8l17 5 1 18-17 7L4 23zM52 8l8 15-9 15-17-7 1-18z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M26 16l12 18M38 16L26 34" stroke="currentColor"/></svg></span><span><h3>Pascal Joint</h3><p>Pascal-Träger · Pentagon-Quotient · Kopplung · Übersetzer</p><span class="chapter-action">Joint öffnen →</span></span></a>
-          <a class="entry" href="A0_PASCAL_GENERATION_CORNER.html"><span class="id">GC</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M10 25a16 16 0 1 1 7 13" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 42l3-8 7 5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="25" r="5" fill="currentColor"/><path d="M32 6v38M13 25h38" stroke="currentColor" opacity=".45"/></svg></span><span><h3>Generation Corner</h3><p>Fünf Phasen · Relationsfamilien · Generation · typisierter Return</p><span class="chapter-action">Instrument im Pascal Joint öffnen →</span></span></a>
-          <a class="entry" href="A0_SCC_003_PASCAL_PENTAGON_PAPER.html"><span class="id">P</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M15 5h28l8 8v32H15z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M43 5v10h8M22 22h22M22 29h22M22 36h15" stroke="currentColor"/></svg></span><span><h3>SCC-003 Paper</h3><p>A cyclic five-face quotient of depth-six Pascal carriers</p><span class="chapter-action">Paper lesen →</span></span></a>
-          <a class="entry" href="A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html"><span class="id">WE</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M15 5h28l8 8v32H15z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M43 5v10h8M22 22h22M22 29h16M22 36h20" stroke="currentColor"/><circle cx="45" cy="34" r="4" fill="currentColor"/></svg></span><span><h3>Method White Paper</h3><p>Families · Records · Fugen · Grey Lens · Human Return</p><span class="chapter-action">Paper E lesen →</span></span></a>
-          <a class="entry" href="A0_RESEARCH_DESK.html#findings"><span class="id">FP</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M10 9h18v32H10zM36 9h18v32H36z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 17h8M15 24h8M15 31h8M41 17h8M41 24h8M41 31h8M28 24h8" stroke="currentColor"/></svg></span><span><h3>Findings &amp; Papers</h3><p>SCC-003 · D30 Companion · geparkte Synthesen · Claim-Grenzen</p><span class="chapter-action">Workspace öffnen →</span></span></a>
-          <a class="entry" href="A0_RESEARCH_DESK.html#tests"><span class="id">MC</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M12 9h40v32H12z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 18h5M30 18h15M20 25h5M30 25h15M20 32h5M30 32h15" stroke="currentColor" stroke-width="2"/></svg></span><span><h3>Science Mission Control</h3><p>3 Linsen · Tests · Hypothesen · Lücken · Validation Gates</p><span class="chapter-action">Prüfkarte öffnen →</span></span></a>
+          <a class="entry" href="../a0-human/start/A0_BOUNDARY_GRAPH_DEMONSTRATOR.html"><span class="id">BG</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><rect x="7" y="7" width="50" height="36" fill="none" stroke="currentColor" stroke-width="2"/><path d="M41 7v36M7 31h50" stroke="currentColor" stroke-width="2"/><circle cx="41" cy="31" r="4" fill="currentColor"/></svg></span><span><h3>Boundary Graph</h3><p>Vier Flächen · zwei Pillars · Hinge · Adjazenzgraph</p><span class="chapter-action">Demonstrator öffnen →</span></span></a>
+          <a class="entry" href="../a0-human/start/A0_PASCAL_PENTAGON_OPERATOR_JOINTS.html"><span class="id">PJ</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M12 8l17 5 1 18-17 7L4 23zM52 8l8 15-9 15-17-7 1-18z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M26 16l12 18M38 16L26 34" stroke="currentColor"/></svg></span><span><h3>Pascal Joint</h3><p>Pascal-Träger · Pentagon-Quotient · Kopplung · Übersetzer</p><span class="chapter-action">Joint öffnen →</span></span></a>
+          <a class="entry" href="../a0-human/start/A0_PASCAL_GENERATION_CORNER.html"><span class="id">GC</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M10 25a16 16 0 1 1 7 13" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 42l3-8 7 5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="25" r="5" fill="currentColor"/><path d="M32 6v38M13 25h38" stroke="currentColor" opacity=".45"/></svg></span><span><h3>Generation Corner</h3><p>Fünf Phasen · Relationsfamilien · Generation · typisierter Return</p><span class="chapter-action">Instrument im Pascal Joint öffnen →</span></span></a>
+          <a class="entry" href="../a0-human/start/A0_SCC_003_PASCAL_PENTAGON_PAPER.html"><span class="id">P</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M15 5h28l8 8v32H15z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M43 5v10h8M22 22h22M22 29h22M22 36h15" stroke="currentColor"/></svg></span><span><h3>SCC-003 Paper</h3><p>A cyclic five-face quotient of depth-six Pascal carriers</p><span class="chapter-action">Paper lesen →</span></span></a>
+          <a class="entry" href="../a0-human/start/A0_NEXAH_FAMILY_METHOD_WHITE_PAPER.html"><span class="id">WE</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M15 5h28l8 8v32H15z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M43 5v10h8M22 22h22M22 29h16M22 36h20" stroke="currentColor"/><circle cx="45" cy="34" r="4" fill="currentColor"/></svg></span><span><h3>Method White Paper</h3><p>Families · Records · Fugen · Grey Lens · Human Return</p><span class="chapter-action">Paper E lesen →</span></span></a>
+          <a class="entry" href="../a0-human/start/A0_SCIENTIFIC_POSITION_REPORT.html"><span class="id">FP</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M10 9h18v32H10zM36 9h18v32H36z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 17h8M15 24h8M15 31h8M41 17h8M41 24h8M41 31h8M28 24h8" stroke="currentColor"/></svg></span><span><h3>Findings &amp; Papers</h3><p>SCC-003 · D30 Companion · geparkte Synthesen · Claim-Grenzen</p><span class="chapter-action">Workspace öffnen →</span></span></a>
+          <a class="entry" href="../a0-human/start/A0_SCIENCE.html#status"><span class="id">SC</span><span class="chapter-mark"><svg viewBox="0 0 64 50" aria-hidden="true"><path d="M12 9h40v32H12z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 18h5M30 18h15M20 25h5M30 25h15M20 32h5M30 32h15" stroke="currentColor" stroke-width="2"/></svg></span><span><h3>A0 Science</h3><p>Forschungsstand · Resultate · Grenzen · nächstes Gate</p><span class="chapter-action">Science öffnen →</span></span></a>
         </div>
       </div>
     </section>
@@ -434,15 +633,32 @@
         <a class="btn gold" href="06_PROJECTION_FOURIER_SHADOWS.html">Open Chapter 06</a>
         <a class="btn gold" href="07_EVIDENCE_COMPARISON_DECISION.html">Open Chapter 07</a>
         <a class="btn gold" href="08_RETURN_ONE_CARRIER_SEVEN_QUESTIONS.html">Open Chapter 08</a>
-        <a class="btn" href="../sources/RESEARCH_PROGRAM_B_MATHEMATICAL_FOUNDATIONS/AXIOM0_QMODE_ORIENTATION_TO_MEASUREMENT_FOUNDATION_PACKAGE_2026-10-01/17_COMPLEX_NUMBERS_PHASE_AND_READOUT_NEXAH_FUNDAMENTALS_CROSSWALK_2026-10-08.md">Open foundation record</a>
-        <a class="btn" href="../navigator/index.html#home">Open Science Navigator</a>
+        <a class="btn" href="../a0-human/start/A0_SCIENTIFIC_POSITION_REPORT.html">Open foundation record</a>
+        <a class="btn" href="https://github.com/Scarabaeus1031/NEXAH-Science-Lab" target="_blank" rel="noopener noreferrer">Open Science Lab ↗</a>
       </div>
     </section>
-  </main>
+  <p><a href="https://scarabaeus1031.github.io/NEXAH-Control-Portal/">NEXAH Owner Read Portal · Mission Control, Science Desk und Builder Deck</a></p>
+</main>
 
   <footer>
-    <div><span><strong>NEXAH · A0 BOOK</strong><br>Internal guided-reading surface · documentation layer</span><span class="label">Introduction + Index · 2026-10-09</span></div>
+    <div><span><strong>NEXAH · LABORATORY · A0</strong><br>Human-facing orientation surface · documentation and instrument layer</span><span class="label"><a href="https://nexah.de/">Return to NEXAH ↗</a> · A0 remains source-bound</span></div>
   </footer>
-  <script src="a0-context-navigation.js?rev=reader-lanes-20261015"></script>
+  <script>
+    (() => {
+      const trailer = document.querySelector("#world-trailer");
+      const toggle = trailer?.querySelector(".world-trailer-toggle");
+      const signal = trailer?.querySelector(".world-trailer-live");
+      if (!trailer || !toggle || !signal) return;
+      toggle.addEventListener("click", () => {
+        const paused = trailer.dataset.paused !== "true";
+        trailer.dataset.paused = String(paused);
+        toggle.textContent = paused ? "Play" : "Pause";
+        toggle.setAttribute("aria-pressed", String(paused));
+        signal.textContent = paused ? "World signal · paused" : "World signal · running";
+      });
+    })();
+  </script>
+  <script ></script>
+  <script src="nexahedron-public-navigation.js?rev=public-current-20261022"></script>
 </body>
 </html>
