@@ -150,7 +150,28 @@ const localMachinaEntry=localOwner.header.children[1].children.find(n=>n.classNa
 const localBuilderShowcase=localBuilderMenu.children[1].children[0].children[0];
 ok(localBuilderShowcase.children.length===4&&localBuilderShowcase.children[0].href==='A0_BUILDER_TOY_STORE.html#top'&&localBuilderShowcase.children[0].innerHTML.includes('A0 Builder Home'),'local Builder home uses the real long source-bound Builder surface');
 const localProjections=localOwner.nodes.filter(n=>n.className==='a0-site-projection');
-ok(localProjections.length===7&&localProjections.every(n=>n.hidden),'existing house, Science flagship and owner projections are prepared but initially closed');
+const builderReturnLabel='A0 / B0 · GEMEINSAMER RÜCKLAUF';
+const expectedProjectionLabels=[
+ 'NEXAHEDRON · HUMAN VIEW',
+ 'A0 SCIENCE · FORSCHUNGSSTAND',
+ 'A0 SCIENCE FLAGSHIP · STOFFREGISTER Z100',
+ builderReturnLabel,
+ 'WHAT CAN WE BUILD NOW? · BUILDER SHOWCASE',
+ 'THE MACHINA · WERKBANK',
+ 'TH · MISSION CONTROL · STEUERUNG',
+ 'NEXAH SCIENCE · STAGING / OWNER-ABNAHME'
+];
+ok(localProjections.length===expectedProjectionLabels.length&&expectedProjectionLabels.every(label=>
+ localProjections.some(n=>n.attributes['aria-label']===label)
+),'all eight named owner projections are prepared');
+ok(localProjections.every(n=>n.hidden&&!n.children[1].getAttribute('src')),'prepared owner projections are initially closed and unloaded');
+const directBuilderReturn=mount('index.html','','?projection=builder-return',{protocol:'http:',hostname:'127.0.0.1'});
+const openBuilderReturnViews=directBuilderReturn.nodes.filter(n=>n.className==='a0-site-projection'&&!n.hidden);
+ok(openBuilderReturnViews.length===1&&openBuilderReturnViews[0].attributes['aria-label']===builderReturnLabel,'the direct builder-return route opens only the A0/B0 return');
+const builderReturnSource=new URL(openBuilderReturnViews[0].children[1].getAttribute('src'),directBuilderReturn.location.href);
+const builderReturnAnchor='a0-b0-instrument-return-20261126';
+ok(builderReturnSource.pathname.endsWith('/A0_BUILDER_LOG.html')&&builderReturnSource.searchParams.get('a0_projection')==='1'&&builderReturnSource.hash==='#'+builderReturnAnchor,'A0/B0 return opens the Builder Log at its exact anchor inside A0');
+ok(fs.readFileSync(path.join(__dirname,'A0_BUILDER_LOG.html'),'utf8').includes('id="'+builderReturnAnchor+'"'),'A0/B0 return anchor exists in the Builder Log');
 const humanProjection=localProjections.find(n=>n.attributes['aria-label']==='NEXAHEDRON · HUMAN VIEW');
 ok(humanProjection?.children[0].children.at(-1).textContent==='A0 zurück','NEXAHEDRON stays inside the common A0 frame');
 ok(humanProjection?.children[1].title.includes('aktuelle Staging-Ansicht'),'local A0 identifies NEXAHEDRON as the current staging view');
