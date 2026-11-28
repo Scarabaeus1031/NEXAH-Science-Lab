@@ -142,7 +142,7 @@ ok(!String(localOwner.location.href||'').includes('A0_RESEARCH_DESK.html'),'open
 ok(!localWorkspaceOverview.children.some(n=>n.className.includes('a0-nexah-link')),'no redundant NEXAH Science staging button remains in the owner workspace group');
 ok(localWorkspaceOverview.children.length===3&&localScienceView&&localBuilderView&&localWorkspaceOverview.children.some(n=>n.className.includes('a0-mission-control-link')),'Science Desk, Builder Desk and TH Mission Control form the right-side Desk group');
 ok(localScienceView.href==='A0_RESEARCH_DESK.html?desk=overview&rev=research-reader-r1-20261110#nexah-research-reader-currentness-20261110'&&localScienceView.innerHTML.includes('Science Desk'),'Science icon opens the current Science Desk directly');
-ok(localBuilderView.href.includes('10%20NEXAH%20CORE/NEXAH/BUILDER/B0_BUILDER_DECK/build-desk.html#top')&&localBuilderView.innerHTML.includes('Builder Desk'),'Builder icon opens the B0 Builder Desk directly');
+ok(localBuilderView.href==='owner-routes/builder-desk/build-desk.html#top'&&localBuilderView.innerHTML.includes('Builder Desk'),'Builder Desk link uses the A0 owner route');
 ok(!(localScienceView.events.click||[]).length&&!(localBuilderView.events.click||[]).length,'Science and Builder Desk icons remain direct links instead of projection triggers');
 ok(!localOwner.nodes.filter(n=>n.className?.includes('a0-reader-section')).some(n=>(n.innerHTML||'').includes('Science Desk')||(n.innerHTML||'').includes('Builder Desk')),'Desk links do not occupy Reader menus');
 const localBuilderMenu=localOwner.header.children[1].children.find(n=>n.className.endsWith('--builder')),localBuilderSummary=localBuilderMenu.children[0];
