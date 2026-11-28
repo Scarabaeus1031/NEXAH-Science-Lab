@@ -242,7 +242,8 @@ brandMachinaEntry.children[0].events.click[0]({preventDefault(){},currentTarget:
 ok(brandMachinaProjection.hidden===false,'start-page regression setup opens a house projection');
 brandReturn.header.children[0].click();
 ok(brandMachinaProjection.hidden===true&&brandReturn.win.scrolled===true,'NEXAH A0 closes the active house projection and visibly returns to the start-page top');
-const builderDesk=fs.readFileSync(path.resolve(__dirname,'A0_BUILDER_LOG.html'),'utf8');
-ok(builderDesk.includes('a0-context-navigation.js?rev=a0-page-first-r3-20261101'),'current Builder Desk participates in the shared A0 shell');
-ok(builderDesk.includes('31. Oktober 2026')&&builderDesk.includes('474 kontrollierte Quellen'),'Builder Desk exposes the currentness snapshot rather than the stale abbreviated surface');
+const builderLog=fs.readFileSync(path.resolve(__dirname,'A0_BUILDER_LOG.html'),'utf8');
+ok(builderLog.includes('a0-context-navigation.js?rev=a0-page-first-r3-20261101'),'A0 Builder Log participates in the shared A0 shell');
+const builderReturnSection=builderLog.split('id="'+builderReturnAnchor+'"')[1]?.split('</section>')[0];
+ok(builderReturnSection?.includes('href="owner-routes/builder-desk/build-desk.html#'+builderReturnAnchor+'"'),'A0 Builder Log exposes the shared A0/B0 return with a cross-link to the B0 section');
 console.log(JSON.stringify({status:'PASS',checks,scope:'actual shared navigation script in DOM double; menu structure, index-only folding and contextual banner; not browser pixels'},null,2));
