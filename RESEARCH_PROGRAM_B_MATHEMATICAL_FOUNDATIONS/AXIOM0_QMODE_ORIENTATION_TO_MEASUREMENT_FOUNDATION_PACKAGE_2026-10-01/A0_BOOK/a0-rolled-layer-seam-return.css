@@ -24,3 +24,30 @@
   background: radial-gradient(ellipse at center, #132b35, #071019 68%);
 }
 .rlsr-mycelium [data-mycelium-caption] { margin: 12px 0; color: #dcebf1; }
+.rlsr-mycelium-drift {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin: 16px 0;
+}
+.rlsr-mycelium-rays {
+  position: relative;
+  width: 148px;
+  height: 122px;
+  background: #071019;
+  border: 1px solid #274557;
+  border-radius: 8px;
+}
+.rlsr-mycelium-rays::before, .rlsr-mycelium-rays span {
+  position: absolute;
+  bottom: 15px;
+  left: 78%;
+  height: 2px;
+  transform-origin: left center;
+}
+.rlsr-mycelium-rays::before { content: ""; width: 20px; background: #748995; }
+.rlsr-mycelium-rays span { width: 125px; }
+.rlsr-mycelium-rays span:first-child { background: #f5dc56; transform: rotate(-135deg); }
+.rlsr-mycelium-rays span:last-child { background: #ff86c5; transform: rotate(-137deg); }
+.rlsr-mycelium-drift figcaption { flex: 1 1 15rem; color: #dcebf1; }

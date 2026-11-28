@@ -55,7 +55,7 @@
   <link rel="stylesheet" href="a0-tl-final-pin.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-channel-census.css?rev=20261023-r1">
   <link rel="stylesheet" href="a0-aperture-stack-calibration.css?rev=20261022-source-link">
-  <link rel="stylesheet" href="a0-rolled-layer-seam-return.css?rev=20261127-mycelium">
+  <link rel="stylesheet" href="a0-rolled-layer-seam-return.css?rev=20261127-mycelium-return">
   <link rel="stylesheet" href="a0-bench-showcase-tour.css?rev=20261019-longplay-r1">
   <link rel="stylesheet" href="a0-native-face-ninefold.css?rev=20261019-reader-r1">
   <link rel="stylesheet" href="a0-ail-replay.css?rev=20261018-gap04-replay-r1">
@@ -1845,12 +1845,17 @@
             <h4 id="fromDustToDawnTitle">From Dust to Dawn</h4>
             <div class="rlsr-controls" role="group" aria-label="Myzel-Wachstumsstufe">
               <button type="button" data-mycelium-stage="0" aria-pressed="true">Spore</button>
-              <button type="button" data-mycelium-stage="1" aria-pressed="false">Radiale Wachstumsfront</button>
-              <button type="button" data-mycelium-stage="2" aria-pressed="false">Verzweigung und Wiederverbindung</button>
+              <button type="button" data-mycelium-stage="1" aria-pressed="false">Hyphe · Wachstumsfront</button>
+              <button type="button" data-mycelium-stage="2" aria-pressed="false">Anastomose · Wiederverbindung</button>
             </div>
             <canvas width="760" height="280" role="img" aria-label="Eine Spore im Zentrum."></canvas>
             <p data-mycelium-caption aria-live="polite">Eine Spore ist der Startpunkt des Geflechts.</p>
             <p class="rlsr-boundary">Äußerer Ring: schematische Wachstumsfront. Goldene Stücke: wieder verbundene Zweige. Das Schema zeigt eine mögliche Geometrie eines Myzels.</p>
+            <figure class="rlsr-mycelium-drift">
+              <div class="rlsr-mycelium-rays" aria-hidden="true"><span></span><span></span></div>
+              <figcaption><strong>Yellow 135° · Pink 137°</strong><br><code>Δθ = 137° − 135° = +2°</code><br>Beide Strahlen starten am selben Punkt. Pink liegt 2° gegen den Uhrzeigersinn von Yellow. Die Winkel gehören zur geometrischen Skizze.</figcaption>
+            </figure>
+            <p><strong>Zum Splinter Sail Grid.</strong> <code>204² = 41 |X| 616</code>. Der Dezimalrest <code>616</code> führt zur Cube-Adresse <code>(10, 0, 5)</code>. Für den exakten Rückweg bleibt der Tausenderblock <code>41</code> erhalten. <a href="A0_PRIMECUBE_GAP_FOLD_LAB.html#loki-616-return">41 |X| 616 im Splinter Sail Grid →</a></p>
           </section>
         </section>
         <section class="ocb-qa" id="ocbBrowserQa" aria-labelledby="ocbQaTitle">
@@ -2724,7 +2729,7 @@
   </script>
   <script src="a0-aperture-stack-calibration.js?rev=20261022-binder-live"></script>
   <script src="a0-rolled-layer-seam-return.js?rev=20261115-r1"></script>
-  <script src="a0-from-dust-to-dawn.js" defer></script>
+  <script src="a0-from-dust-to-dawn.js?rev=20261127-mycelium-return" defer></script>
   <script>
     try{window.A0RolledLayerSeamReturnController=window.A0RolledLayerSeamReturn.mount(document,window)}
     catch(error){const status=document.getElementById('rlsrStatus');if(status)status.textContent=`ROLLED LAYER HOLD · ${error&&error.message?error.message:String(error)}`;console.error(error)}

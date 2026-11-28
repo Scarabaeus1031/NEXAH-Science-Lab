@@ -6,8 +6,8 @@
   const caption = host.querySelector('[data-mycelium-caption]');
   const stages = [
     'Eine Spore ist der Startpunkt des Geflechts.',
-    'Wachsende Pilzfäden breiten sich vom Zentrum nach außen aus. Der gestrichelte Ring zeigt ihre ungefähre Front.',
-    'Die Fäden verzweigen sich. Wo zwei Zweige wieder zusammenwachsen, entsteht eine Schleife mit einem zusätzlichen Weg.'
+    'Aus der Spore wächst ein Keimschlauch. Hyphen sind die Pilzfäden, die sich von dort verzweigen. Der gestrichelte Ring zeigt die ungefähre Wachstumsfront.',
+    'Bei einer Anastomose verschmelzen zwei Hyphen. Im Modell schließt die goldene Verbindung eine Schleife und schafft einen zusätzlichen Weg.'
   ];
   const center = [canvas.width / 2, canvas.height / 2];
   const frontRadius = 116;
